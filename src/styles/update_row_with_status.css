@@ -1,0 +1,19 @@
+.onOff-desktop {
+    display: flex;
+}
+
+.onOff-mobile {
+    display: none;
+    margin-bottom: 0px;
+}
+
+@media (width<768px) {
+    .onOff-desktop {
+        display: none;
+    }
+
+    .onOff-mobile {
+        display: flex;
+        margin-bottom: 8px;
+    }
+}

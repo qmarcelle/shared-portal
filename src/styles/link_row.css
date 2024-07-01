@@ -1,0 +1,21 @@
+.link-row {
+    border-bottom: 1px solid var(--tertiary-color-4);
+}
+
+.link-row-container {
+    display: flex;
+}
+
+.link-row-container:hover .link-row-head {
+    color: var(--secondary-color-2);
+}
+
+.link-row-head {
+    color: #005EB9;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.link-row-head:hover {
+    color: var(--secondary-color-2);
+}

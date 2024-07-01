@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #333;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="Icon-App_Status_Alert-Error" data-name="Icon-App/Status/Alert-Error">
+    <g id="_24x24-Spacers" data-name="24x24-Spacers">
+      <rect id="Rectangle" class="cls-1" width="24" height="24"/>
+    </g>
+    <g id="_-Icon-Сolor" data-name="🎨-Icon-Сolor">
+      <path id="path-1" class="cls-2" d="M12,2c5.5,0,10,4.5,10,10s-4.5,10-10,10S2,17.5,2,12,6.5,2,12,2ZM12,4c-4.4,0-8,3.6-8,8s3.6,8,8,8,8-3.6,8-8-3.6-8-8-8ZM12,15c.6,0,1,.4,1,1s-.4,1-1,1-1-.4-1-1,.4-1,1-1ZM12,7c.6,0,1,.4,1,1v5c0,.6-.4,1-1,1s-1-.4-1-1v-5c0-.6.4-1,1-1Z"/>
+    </g>
+  </g>
+</svg>

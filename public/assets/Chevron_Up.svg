@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>EC40361E-2888-469D-A4ED-6BFA5A9235C7</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="10" height="10"></rect>
+    </defs>
+    <g id="UI-Web/Chevron/Up" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Mask"></g>
+        <g id="Icon-App/Function/Chevron/Up" mask="url(#mask-2)">
+            <g transform="translate(-3, -3)">
+                <g id="24x24-Spacers" stroke-width="1" fill="none">
+                    <rect id="Rectangle" x="0" y="0" width="16" height="16"></rect>
+                </g>
+                <path d="M5.52859548,3.52859548 C5.76891812,3.28827284 6.14707216,3.26978648 6.40859963,3.47313641 L6.47140452,3.52859548 L10.4714045,7.52859548 C10.7117272,7.76891812 10.7302135,8.14707216 10.5268636,8.40859963 L10.4714045,8.47140452 L6.47140452,12.4714045 C6.21105499,12.731754 5.78894501,12.731754 5.52859548,12.4714045 C5.28827284,12.2310819 5.26978648,11.8529278 5.47313641,11.5914004 L5.52859548,11.5285955 L9.05666667,8 L5.52859548,4.47140452 C5.28827284,4.23108188 5.26978648,3.85292784 5.47313641,3.59140037 L5.52859548,3.52859548 Z" id="Path" fill="#005EB9" transform="translate(8, 8) scale(1, -1) rotate(-270) translate(-8, -8)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

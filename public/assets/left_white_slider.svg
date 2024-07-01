@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 8.4 14.1">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Icon-App_Function_Chevron_Left-White" data-name="Icon-App/Function/Chevron/Left-White">
+    <path id="Path" class="cls-1" d="M7.9.3c-.4-.4-.9-.4-1.3,0h0C6.5.3.5,6.3.5,6.3c-.4.4-.4.9,0,1.3h0c0,0,6,6.1,6,6.1.4.4,1,.4,1.4,0,.4-.4.4-.9,0-1.3h0c0,0-5.3-5.4-5.3-5.4L7.9,1.8c.4-.4.4-.9,0-1.3h0Z"/>
+  </g>
+</svg>

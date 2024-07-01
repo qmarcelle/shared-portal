@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon-App/Function/Chevron/Right-In-active</title>
+    <g id="Icon-App/Function/Chevron/Right-In-active" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="24x24-Spacers">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+        </g>
+        <g id="App/✱-Foundation/Icons/Function/Chevron/Right" transform="translate(8, 5)" fill="#737373">
+            <path d="M0.292893219,0.292893219 C0.65337718,-0.0675907428 1.22060824,-0.0953202783 1.61289944,0.209704612 L1.70710678,0.292893219 L7.70710678,6.29289322 C8.06759074,6.65337718 8.09532028,7.22060824 7.79029539,7.61289944 L7.70710678,7.70710678 L1.70710678,13.7071068 C1.31658249,14.0976311 0.683417511,14.0976311 0.292893219,13.7071068 C-0.0675907428,13.3466228 -0.0953202783,12.7793918 0.209704612,12.3871006 L0.292893219,12.2928932 L5.585,7 L0.292893219,1.70710678 C-0.0675907428,1.34662282 -0.0953202783,0.779391764 0.209704612,0.387100557 L0.292893219,0.292893219 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

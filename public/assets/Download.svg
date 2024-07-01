@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon-App/Function/Download</title>
+    <defs>
+        <path d="M1,17 C0.45,17 0,16.55 0,16 L0,14 C0,13.45 0.45,13 1,13 C1.55,13 2,13.45 2,14 L2,15 L14,15 L14,14 C14,13.45 14.45,13 15,13 C15.55,13 16,13.45 16,14 L16,16 C16,16.5107143 15.6119898,16.9352041 15.116199,16.9932398 L15,17 L1,17 Z M8,0 C8.553,0 9,0.448 9,1 L9,9 L11.4,7.2 C11.842,6.867 12.469,6.958 12.8,7.4 C13.132,7.842 13.042,8.469 12.6,8.8 L8.6,11.8 C8.423,11.933 8.211,12 8,12 C7.799,12 7.598,11.939 7.425,11.818 L3.425,9.004 C2.973,8.686 2.864,8.062 3.182,7.611 C3.5,7.159 4.123,7.05 4.575,7.368 L7.00297831,9.07777918 C7.00100489,9.05211103 7,9.02617241 7,9 L7,1 C7,0.448 7.447,0 8,0 Z" id="path-1"></path>
+    </defs>
+    <g id="Icon-App/Function/Download" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="24x24-Spacers">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+        </g>
+        <g id="App/✱-Foundation/Icons/Function/Download" transform="translate(4, 3)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="🎨-Icon-Сolor" fill="#005EB9" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

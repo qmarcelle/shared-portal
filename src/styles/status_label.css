@@ -1,0 +1,46 @@
+.neutral {
+    background-color: var(--color-label-neutral);
+    color: var(--tertiary-color-1);
+}
+
+.neutral>.circle {
+    background-color: var(--tertiary-color-4);
+}
+
+.error {
+    background-color: var(--color-label-error);
+    color: var(--color-status-error);
+}
+
+.error>.circle {
+    background-color: var(--color-status-error);
+}
+
+.success {
+    background-color: var(--color-label-success);
+    color: var(--color-status-success);
+}
+
+.success>.circle {
+    background-color: var(--color-status-success);
+}
+
+.empty {
+    display: none;
+}
+
+.empty>.circle {
+    display: none;
+}
+
+.partialapproval {
+    background-color: var(--color-label-success);
+    color: var(--color-status-success);
+}
+
+.partialapproval>.circle {
+    box-sizing: border-box;
+    /* height: 13px;
+    width: 13px; */
+    border: 1px solid #508316;
+}

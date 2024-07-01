@@ -1,0 +1,27 @@
+.card-main {
+    background-color: #FFFFFF;
+    border: 1px solid var(--tertiary-color-4);
+    border-radius: 8px;
+}
+
+.card-highlight {
+    background-color: var(--secondary-color-1-accent);
+    border-radius: 8px;
+}
+
+.card-neutral {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.card-elevated {
+    background-color: #FFFFFF;
+    border: 1px solid var(--tertiary-color-4);
+    border-radius: 8px;
+    box-shadow: 0px 1px 8px 0px rgba(0, 73, 126, 0.16);
+}
+
+.card-info {
+    background-color: var(--secondary-color-2);
+    border-radius: 8px;
+}

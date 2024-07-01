@@ -1,0 +1,66 @@
+.modal-header {
+    background-color: white;
+    height: 72px;
+}
+
+.modal-header-logo {
+    display: none !important
+}
+
+.modal-footer {
+    background-color: white;
+    height: 72px;
+    display: flex !important;
+}
+
+.modal-footer-logo {
+    display: block !important;
+}
+
+.modal-icon {
+    height: 32px;
+    width: 32px;
+}
+
+.modal-container {
+    min-width: 608px;
+    height: 100vh;
+    padding: 0px 16px;
+}
+
+.modal-content {
+    max-width: 480px;
+}
+
+.modal-overlay {
+    background: rgba(73, 73, 73, 0.747);
+}
+
+.react-responsive-modal-modal {
+    padding: 0px;
+    margin: 0px;
+}
+
+@media (width <=768px) {
+
+    .modal-header-logo {
+        display: block !important
+    }
+
+    .modal-footer {
+        display: none !important;
+    }
+
+    .modal-container {
+        height: 100vh;
+        min-width: 100vw;
+        padding: 0px 16px;
+    }
+
+    .react-responsive-modal-modal {
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        max-width: 608px;
+    }
+}

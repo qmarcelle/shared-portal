@@ -1,0 +1,7 @@
+.selected-dropdown-item {
+    background-color: var(--tertiary-color-4);
+}
+
+.dropdown-item :hover {
+    background-color: var(--tertiary-color-5);
+}

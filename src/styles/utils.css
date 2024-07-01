@@ -1,0 +1,24 @@
+.app-underline {
+    text-decoration-color: var(--primary-color);
+}
+
+.focus-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.focus-icon:hover {
+    background-color: #E7F6FF;
+}
+
+.focus-icon:focus {
+    border: 1px solid #005eb9;
+    box-shadow: 0px 0px 0px 1px #005eb9;
+    border-radius: 3px
+}
+
+.divider-bottom {
+    border-bottom: 1px solid var(--tertiary-color-4);
+}

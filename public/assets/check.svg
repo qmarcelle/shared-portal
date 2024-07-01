@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Check-Blue</title>
+    <defs>
+        <path d="M9.32922609,20 C8.98422615,20 8.65422622,19.8574984 8.41797626,19.6062457 L2.33922742,13.1324248 C1.86547751,12.6299193 1.89172751,11.8386606 2.39422741,11.3661555 C2.89797732,10.8936503 3.68922717,10.9186506 4.16047708,11.4211561 L9.31672609,16.9099662 L19.8267241,5.40734023 C20.294224,4.89608464 21.0842238,4.86233427 21.5942237,5.32733936 C22.1029736,5.79234445 22.1379736,6.58360311 21.6729737,7.09235868 L10.2517259,19.5924955 C10.017976,19.8499984 9.68547602,19.9975 9.33797609,20 L9.32922609,20 Z" id="path-1"></path>
+    </defs>
+    <g id="Check-Blue" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Check">
+            <g id="24x24-Spacers">
+                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            </g>
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="🎨-Icon-Сolor" fill="#005EB9" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

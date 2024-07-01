@@ -1,0 +1,21 @@
+.sidebar-overlay {
+    background: rgba(73, 73, 73, 0.747);
+}
+
+.sideBar-Container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    transition: .5s ease;
+    width: 25%;
+    /* overflow: hidden; */
+}
+
+.sideBar-content {
+    position: absolute;
+    top: 0;
+    bottom: 80px;
+    overflow: auto;
+    width: 100%
+}

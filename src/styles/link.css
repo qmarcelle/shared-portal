@@ -1,0 +1,4 @@
+.link-container:focus {
+    outline: 2px solid var(--secondary-color-2);
+    outline-offset: 2px;
+}

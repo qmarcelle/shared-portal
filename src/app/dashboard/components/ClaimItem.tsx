@@ -1,0 +1,235 @@
+import { Card } from "../../../components/foundation/Card";
+import MedicalIcon from "../../../../public/assets/medical.svg";
+import PharmacyIcon from "../../../../public/assets/pharmacy.svg";
+import DentalIcon from "../../../../public/assets/dental.svg";
+import VisionIcon from "../../../../public/assets/vision.svg";
+import Image from "next/image";
+import { StatusLabel } from "../../../components/foundation/StatusLabel";
+import { Spacer, SpacerX } from "../../../components/foundation/Spacer";
+import { IComponent } from "../../../components/IComponent";
+import { useMediaQuery } from "react-responsive";
+import { Column } from "../../../components/foundation/Column";
+import { Row } from "../../../components/foundation/Row";
+import { TextBox } from "../../../components/foundation/TextBox";
+import { useEffect, useState } from "react";
+
+interface ClaimItemProps extends IComponent {
+  claimInfo: any;
+}
+
+export const ClaimItem = ({
+  claimInfo,
+  onClick,
+  className,
+}: ClaimItemProps) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  function getSuccessStatus() {
+    console.log(claimInfo.claimStatus);
+    switch (claimInfo.claimStatus) {
+      case "Processed":
+        return "success";
+      case "Denied":
+        return "error";
+      case "Pending":
+        return "neutral";
+      case "Partial Approval":
+        return "partialapproval";
+      case "Approved":
+        return "success";
+      default:
+        return "empty";
+    }
+  }
+
+  function getClaimIcon() {
+    if (claimInfo.claimType == "Medical") {
+      return MedicalIcon;
+    } else if (claimInfo.claimType == "Dental") {
+      return DentalIcon;
+    } else if (claimInfo.claimType == "Vision") {
+      return VisionIcon;
+    } else {
+      return PharmacyIcon;
+    }
+  }
+
+  function getDesktopView() {
+    return (
+      <Row
+        className={
+          claimInfo.totalBilled
+            ? "flex flex-row align-top mt-8 mb-8 ml-4 mr-4"
+            : "flex flex-row align-top m-4 mt-8"
+        }
+      >
+        <Image
+          src={getClaimIcon()}
+          className="icon"
+          alt={claimInfo.claimType}
+        />
+        <Spacer axis="horizontal" size={8} />
+        <Column className="flex flex-col flex-grow">
+          <p className="font-bold" style={{ color: "var(--primary-color)" }}>
+            {claimInfo.issuer}
+          </p>
+          {!claimInfo.claimsFlag && !claimInfo.priorAuthFlag && (
+            <span className="body-1">
+              Visited on {claimInfo.serviceDate}, For {claimInfo.memberName}
+            </span>
+          )}
+          {claimInfo.claimsFlag && (
+            <Row className="mt-2">
+              <Row className="flex flex-col mr-2">
+                <span className="body-1">
+                  Visited on {claimInfo.serviceDate}
+                </span>
+                <span className="body-1 mt-2">For {claimInfo.memberName}</span>
+              </Row>
+              <Row className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: "0.7" }}>
+                  Total Billed
+                </span>
+                <span className="body-1 mt-2">
+                  {claimInfo.totalBilled != null
+                    ? `$${claimInfo.totalBilled}`
+                    : "--"}
+                </span>
+              </Row>
+              <Row className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: "0.7" }}>
+                  Plan Paid
+                </span>
+                <span className="body-1 mt-2">
+                  {claimInfo.planPaid != null ? `$${claimInfo.planPaid}` : "--"}
+                </span>
+              </Row>
+              <Row className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: "0.7" }}>
+                  My Share
+                </span>
+                <span className="body-1 mt-2 font-bold">
+                  {claimInfo.myShare != null ? `$${claimInfo.myShare}` : "--"}
+                </span>
+              </Row>
+            </Row>
+          )}
+          {claimInfo.priorAuthFlag && (
+            <Row className="mt-2">
+              <Column className="flex flex-col mr-2">
+                <span className="body-1">
+                  Visited on {claimInfo.serviceDate}
+                </span>
+                <span className="body-1 mt-2">For {claimInfo.memberName}</span>
+              </Column>
+              <Column className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: "0.7" }}>
+                  Referred by
+                </span>
+                <span className="body-1 mt-2">{claimInfo.ReferredBy}</span>
+              </Column>
+              <Column className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: "0.7" }}>
+                  Referred to
+                </span>
+                <span className="body-1 mt-2">{claimInfo.ReferredTo}</span>
+              </Column>
+            </Row>
+          )}
+        </Column>
+        <Row className="flex flex-col items-end">
+          <StatusLabel
+            label={claimInfo.claimStatus}
+            status={getSuccessStatus()}
+          />
+          {!claimInfo.claimsFlag ||
+            (!claimInfo.priorAuthFlag && (
+              <p className="body-1 font-bold">
+                {claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ""}
+              </p>
+            ))}
+        </Row>
+      </Row>
+    );
+  }
+
+  function getMobileView() {
+    return (
+      <Column className="m-4">
+        <Row>
+          <Image
+            src={getClaimIcon()}
+            className="icon"
+            alt={claimInfo.claimType}
+          />
+          <SpacerX size={8} />
+          <TextBox text={claimInfo.issuer} />
+        </Row>
+        <Spacer size={8} />
+        <Row className="justify-between">
+          <StatusLabel
+            label={claimInfo.claimStatus}
+            status={getSuccessStatus()}
+          />
+          {!claimInfo.claimsFlag ||
+            (!claimInfo.priorAuthFlag && (
+              <TextBox
+                className="font-bold"
+                text={
+                  claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ""
+                }
+              />
+            ))}
+        </Row>
+        <Spacer size={8} />
+        {!claimInfo.claimsFlag ||
+          (claimInfo.priorAuthFlag && (
+            <TextBox
+              text={`Visited on ${claimInfo.serviceDate}, For ${claimInfo.memberName}`}
+            />
+          ))}
+        {claimInfo.claimsFlag && (
+          <Row className="flex-grow mt-2">
+            <Column className="flex flex-col flex-grow mr-5">
+              <span className="body-1">Visited on</span>
+              <span className="body-1">{claimInfo.serviceDate}</span>
+              <span className="body-1 mt-2">For {claimInfo.memberName}</span>
+            </Column>
+            <Column className="flex flex-col flex-grow">
+              <span className="body-1" style={{ opacity: "0.7" }}>
+                My Share
+              </span>
+              <span className="body-1 mt-2 font-bold">
+                {claimInfo.myShare != null ? `$${claimInfo.myShare}` : "--"}
+              </span>
+            </Column>
+          </Row>
+        )}
+        {claimInfo.priorAuthFlag && (
+          <Row className="flex-grow mt-2">
+            <Column className="flex flex-col flex-grow mr-5">
+              <span className="body-1">Visited on</span>
+              <span className="body-1">{claimInfo.serviceDate}</span>
+              <span className="body-1 mt-2">For {claimInfo.memberName}</span>
+            </Column>
+          </Row>
+        )}
+      </Column>
+    );
+  }
+
+  return isClient ? (
+    <Card
+      className={`cursor-pointer ${className}`}
+      type="elevated"
+      onClick={onClick}
+    >
+      {isMobile ? getMobileView() : getDesktopView()}
+    </Card>
+  ) : null;
+};
