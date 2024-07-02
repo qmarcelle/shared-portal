@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth';
+import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
 import {
   apiAuthPrefix,
@@ -31,7 +32,17 @@ export default auth((req) => {
 
   if (!isPublicRoute) {
     if (isLoggedIn && process.env.WPS_REDIRECT_ENABLED == 'true') {
-      // TODO TAI Redirect goes here
+      console.log(
+        `Redirecting logged-in user ${req.auth.user.userName} to WebSphere`,
+      );
+      const headers = new Headers(req.headers);
+      headers.set('X-MemberPortal-Auth-Token', JSON.stringify(req.auth.user)); //TODO this will send the UNENCRYPTED user session! We need to figure out how to send the encrypted JWT here. This is for testing purposes only!!!
+      const options = {
+        request: {
+          headers: headers,
+        },
+      };
+      NextResponse.rewrite(process.env.WPS_REDIRECT_URL, options);
     } else if (!isLoggedIn) {
       console.log('Redirecting logged-out client to /auth/login');
       return Response.redirect(new URL('/auth/login', nextUrl));
