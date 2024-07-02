@@ -1,13 +1,23 @@
-import { ReactNode } from "react"
-import { IComponent } from "../IComponent"
-import React from "react"
+import { ReactNode } from 'react';
+import { IComponent } from '../IComponent';
 
 interface ColumnProps extends IComponent {
-    children: ReactNode
+  children: ReactNode;
 }
 
-export const Column = ({ className = '', children, onClick, tabIndex }: ColumnProps) => {
-    return <div tabIndex={tabIndex} className={`flex flex-col ${className}`.trimEnd()} onClick={onClick}>
-        {children}
+export const Column = ({
+  className = '',
+  children,
+  onClick,
+  tabIndex,
+}: ColumnProps) => {
+  return (
+    <div
+      tabIndex={tabIndex}
+      className={`flex flex-col ${className}`.trimEnd()}
+      onClick={onClick}
+    >
+      {children}
     </div>
-}
+  );
+};

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>UI/Icon/Modal-Alert</title>
+    <defs>
+        <path d="M48,8 C70.092,8 88,25.908 88,48 C88,70.092 70.092,88 48,88 C25.908,88 8,70.092 8,48 C8,25.908 25.908,8 48,8 Z M48,16 C30.356,16 16,30.356 16,48 C16,65.644 30.356,80 48,80 C65.644,80 80,65.644 80,48 C80,30.356 65.644,16 48,16 Z M48,60 C50.208,60 52,61.792 52,64 C52,66.208 50.208,68 48,68 C45.792,68 44,66.208 44,64 C44,61.792 45.792,60 48,60 Z M48,28 C50.208,28 52,29.792 52,32 L52,52 C52,54.208 50.208,56 48,56 C45.792,56 44,54.208 44,52 L44,32 C44,29.792 45.792,28 48,28 Z" id="path-1"></path>
+    </defs>
+    <g id="UI/Icon/Modal-Alert" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon">
+            <g id="24x24-Spacers">
+                <rect id="Rectangle" x="0" y="0" width="96" height="96"></rect>
+            </g>
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="🎨-Icon-Сolor" fill="#005EB9" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

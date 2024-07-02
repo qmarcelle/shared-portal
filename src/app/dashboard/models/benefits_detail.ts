@@ -1,4 +1,4 @@
 export interface BenefitDetails {
-    benefitName: string
-    benefitURL: string
+  benefitName: string;
+  benefitURL: string;
 }

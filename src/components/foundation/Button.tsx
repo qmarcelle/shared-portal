@@ -1,23 +1,48 @@
-import { ReactNode } from "react"
-import { IComponent } from "../IComponent"
-type ButtonType = 'primary' | 'secondary' | 'ghost' | 'rounded' | 'pill' | 'elevated'
+import { ReactNode } from 'react';
+import { IComponent } from '../IComponent';
+type ButtonType =
+  | 'primary'
+  | 'secondary'
+  | 'ghost'
+  | 'rounded'
+  | 'pill'
+  | 'elevated';
 
 interface ButtonProps extends IComponent {
-    type?: ButtonType
-    label?: string
-    icon?: ReactNode
-    callback?: () => void | Promise<void> | null
+  type?: ButtonType;
+  label?: string;
+  icon?: ReactNode;
+  callback?: () => void | Promise<void> | null;
 }
 
-export const Button = ({ type = 'primary', label, icon, className, callback }: ButtonProps) => {
-
-    function computeContent() {
-        if (label) {
-            return <>{label}{icon && <p className="ml-2">{icon}</p>}</>
-        } else {
-            return icon
-        }
+export const Button = ({
+  type = 'primary',
+  label,
+  icon,
+  className,
+  callback,
+}: ButtonProps) => {
+  function computeContent() {
+    if (label) {
+      return (
+        <>
+          {label}
+          {icon && <p className="ml-2">{icon}</p>}
+        </>
+      );
+    } else {
+      return icon;
     }
+  }
 
-    return <button onClick={callback} aria-label={label} className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`} type="button">{computeContent()}</button>
-}
+  return (
+    <button
+      onClick={callback}
+      aria-label={label}
+      className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`}
+      type="button"
+    >
+      {computeContent()}
+    </button>
+  );
+};

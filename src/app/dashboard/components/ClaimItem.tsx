@@ -1,19 +1,21 @@
-import { Card } from "../../../components/foundation/Card";
-import MedicalIcon from "../../../../public/assets/medical.svg";
-import PharmacyIcon from "../../../../public/assets/pharmacy.svg";
-import DentalIcon from "../../../../public/assets/dental.svg";
-import VisionIcon from "../../../../public/assets/vision.svg";
-import Image from "next/image";
-import { StatusLabel } from "../../../components/foundation/StatusLabel";
-import { Spacer, SpacerX } from "../../../components/foundation/Spacer";
-import { IComponent } from "../../../components/IComponent";
-import { useMediaQuery } from "react-responsive";
-import { Column } from "../../../components/foundation/Column";
-import { Row } from "../../../components/foundation/Row";
-import { TextBox } from "../../../components/foundation/TextBox";
-import { useEffect, useState } from "react";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import DentalIcon from '../../../../public/assets/dental.svg';
+import MedicalIcon from '../../../../public/assets/medical.svg';
+import PharmacyIcon from '../../../../public/assets/pharmacy.svg';
+import VisionIcon from '../../../../public/assets/vision.svg';
+import { IComponent } from '../../../components/IComponent';
+import { Card } from '../../../components/foundation/Card';
+import { Column } from '../../../components/foundation/Column';
+import { Row } from '../../../components/foundation/Row';
+import { Spacer, SpacerX } from '../../../components/foundation/Spacer';
+import { StatusLabel } from '../../../components/foundation/StatusLabel';
+import { TextBox } from '../../../components/foundation/TextBox';
 
 interface ClaimItemProps extends IComponent {
+  // TODO: Find the correct model and type it here
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   claimInfo: any;
 }
 
@@ -32,27 +34,27 @@ export const ClaimItem = ({
   function getSuccessStatus() {
     console.log(claimInfo.claimStatus);
     switch (claimInfo.claimStatus) {
-      case "Processed":
-        return "success";
-      case "Denied":
-        return "error";
-      case "Pending":
-        return "neutral";
-      case "Partial Approval":
-        return "partialapproval";
-      case "Approved":
-        return "success";
+      case 'Processed':
+        return 'success';
+      case 'Denied':
+        return 'error';
+      case 'Pending':
+        return 'neutral';
+      case 'Partial Approval':
+        return 'partialapproval';
+      case 'Approved':
+        return 'success';
       default:
-        return "empty";
+        return 'empty';
     }
   }
 
   function getClaimIcon() {
-    if (claimInfo.claimType == "Medical") {
+    if (claimInfo.claimType == 'Medical') {
       return MedicalIcon;
-    } else if (claimInfo.claimType == "Dental") {
+    } else if (claimInfo.claimType == 'Dental') {
       return DentalIcon;
-    } else if (claimInfo.claimType == "Vision") {
+    } else if (claimInfo.claimType == 'Vision') {
       return VisionIcon;
     } else {
       return PharmacyIcon;
@@ -64,8 +66,8 @@ export const ClaimItem = ({
       <Row
         className={
           claimInfo.totalBilled
-            ? "flex flex-row align-top mt-8 mb-8 ml-4 mr-4"
-            : "flex flex-row align-top m-4 mt-8"
+            ? 'flex flex-row align-top mt-8 mb-8 ml-4 mr-4'
+            : 'flex flex-row align-top m-4 mt-8'
         }
       >
         <Image
@@ -75,7 +77,7 @@ export const ClaimItem = ({
         />
         <Spacer axis="horizontal" size={8} />
         <Column className="flex flex-col flex-grow">
-          <p className="font-bold" style={{ color: "var(--primary-color)" }}>
+          <p className="font-bold" style={{ color: 'var(--primary-color)' }}>
             {claimInfo.issuer}
           </p>
           {!claimInfo.claimsFlag && !claimInfo.priorAuthFlag && (
@@ -92,29 +94,29 @@ export const ClaimItem = ({
                 <span className="body-1 mt-2">For {claimInfo.memberName}</span>
               </Row>
               <Row className="flex flex-col mr-4 ml-4">
-                <span className="body-1" style={{ opacity: "0.7" }}>
+                <span className="body-1" style={{ opacity: '0.7' }}>
                   Total Billed
                 </span>
                 <span className="body-1 mt-2">
                   {claimInfo.totalBilled != null
                     ? `$${claimInfo.totalBilled}`
-                    : "--"}
+                    : '--'}
                 </span>
               </Row>
               <Row className="flex flex-col mr-4 ml-4">
-                <span className="body-1" style={{ opacity: "0.7" }}>
+                <span className="body-1" style={{ opacity: '0.7' }}>
                   Plan Paid
                 </span>
                 <span className="body-1 mt-2">
-                  {claimInfo.planPaid != null ? `$${claimInfo.planPaid}` : "--"}
+                  {claimInfo.planPaid != null ? `$${claimInfo.planPaid}` : '--'}
                 </span>
               </Row>
               <Row className="flex flex-col mr-4 ml-4">
-                <span className="body-1" style={{ opacity: "0.7" }}>
+                <span className="body-1" style={{ opacity: '0.7' }}>
                   My Share
                 </span>
                 <span className="body-1 mt-2 font-bold">
-                  {claimInfo.myShare != null ? `$${claimInfo.myShare}` : "--"}
+                  {claimInfo.myShare != null ? `$${claimInfo.myShare}` : '--'}
                 </span>
               </Row>
             </Row>
@@ -128,13 +130,13 @@ export const ClaimItem = ({
                 <span className="body-1 mt-2">For {claimInfo.memberName}</span>
               </Column>
               <Column className="flex flex-col mr-4 ml-4">
-                <span className="body-1" style={{ opacity: "0.7" }}>
+                <span className="body-1" style={{ opacity: '0.7' }}>
                   Referred by
                 </span>
                 <span className="body-1 mt-2">{claimInfo.ReferredBy}</span>
               </Column>
               <Column className="flex flex-col mr-4 ml-4">
-                <span className="body-1" style={{ opacity: "0.7" }}>
+                <span className="body-1" style={{ opacity: '0.7' }}>
                   Referred to
                 </span>
                 <span className="body-1 mt-2">{claimInfo.ReferredTo}</span>
@@ -150,7 +152,7 @@ export const ClaimItem = ({
           {!claimInfo.claimsFlag ||
             (!claimInfo.priorAuthFlag && (
               <p className="body-1 font-bold">
-                {claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ""}
+                {claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ''}
               </p>
             ))}
         </Row>
@@ -181,7 +183,7 @@ export const ClaimItem = ({
               <TextBox
                 className="font-bold"
                 text={
-                  claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ""
+                  claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ''
                 }
               />
             ))}
@@ -201,11 +203,11 @@ export const ClaimItem = ({
               <span className="body-1 mt-2">For {claimInfo.memberName}</span>
             </Column>
             <Column className="flex flex-col flex-grow">
-              <span className="body-1" style={{ opacity: "0.7" }}>
+              <span className="body-1" style={{ opacity: '0.7' }}>
                 My Share
               </span>
               <span className="body-1 mt-2 font-bold">
-                {claimInfo.myShare != null ? `$${claimInfo.myShare}` : "--"}
+                {claimInfo.myShare != null ? `$${claimInfo.myShare}` : '--'}
               </span>
             </Column>
           </Row>

@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react';
 
 /**
  * Hook that alerts clicks outside of the passed ref
@@ -14,10 +15,10 @@ export function useOutsideClickListener(ref: any, callBack: () => void) {
       }
     }
     // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   });
 }

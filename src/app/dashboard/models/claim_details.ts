@@ -1,6 +1,6 @@
 export interface ClaimDetails {
   id: string;
-  claimType: "Medical" | "Pharmacy" | "Dental" | "Vision";
+  claimType: 'Medical' | 'Pharmacy' | 'Dental' | 'Vision';
   issuer: string;
   memberName: string;
   serviceDate: string;
@@ -10,6 +10,8 @@ export interface ClaimDetails {
   planPaid?: string | null;
   myShare?: string | null;
   claimsFlag?: boolean;
+  // TODO: Find the correct Model and type it here
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   claimInfo: any;
   ReferredBy?: string;
   ReferredTo?: string;

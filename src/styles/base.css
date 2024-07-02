@@ -17,311 +17,311 @@
 @import './pagination.css';
 @import './side_bar_modal.css';
 @import './plan_details.css';
+@import './tooltip.css';
 
 :root {
-    --primary-color: #005EB9;
-    --primary-color-inactive: #7FAEDC;
+  --primary-color: #005eb9;
+  --primary-color-inactive: #7faedc;
 
-    --secondary-color-1: #5DC1FD;
-    --secondary-color-1-accent: #E7F6FF;
-    --secondary-color-2: #00497E;
-    --secondary-color-3: #067DAC;
-    --secondary-color-3-accent: #008CC9;
+  --secondary-color-1: #5dc1fd;
+  --secondary-color-1-accent: #e7f6ff;
+  --secondary-color-2: #00497e;
+  --secondary-color-3: #067dac;
+  --secondary-color-3-accent: #008cc9;
 
-    --tertiary-color-1: #333333;
-    --tertiary-color-3: #737373;
-    --tertiary-color-4: #CCCCCC;
-    --tertiary-color-5: #F2F2F2;
-    --tertiary-color-6: #FAFAFA;
+  --tertiary-color-1: #333333;
+  --tertiary-color-3: #737373;
+  --tertiary-color-4: #cccccc;
+  --tertiary-color-5: #f2f2f2;
+  --tertiary-color-6: #fafafa;
 
-    --color-status-error: #EB001B;
-    --color-status-success: #508316;
-    --color-label-success: #E2F0D3;
-    --color-label-error: #EFDDDF;
-    --color-label-neutral: #F2F2F2;
-
+  --color-status-error: #eb001b;
+  --color-status-success: #508316;
+  --color-label-success: #e2f0d3;
+  --color-label-error: #efdddf;
+  --color-label-neutral: #f2f2f2;
 }
 
 * {
-    font-family: 'Univers-45'
+  font-family: 'Univers-45';
 }
 
 .app-base-font-color {
-    color: var(--tertiary-color-1);
+  color: var(--tertiary-color-1);
 }
 
 .primary-color {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .primary-bg-color {
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 .primary-bg-color2 {
-    background-color: var(--primary-color-);
+  background-color: var(--primary-color-);
 }
 
 .secondary-color2 {
-    color: var(--secondary-color-2)
+  color: var(--secondary-color-2);
 }
 
 .secondary-bg-color1 {
-    background-color: var(--secondary-color-1);
+  background-color: var(--secondary-color-1);
 }
 
 .secondary-bg-color1-accent {
-    background-color: var(--secondary-color-1-accent);
+  background-color: var(--secondary-color-1-accent);
 }
 
 .secondary-bg-color2 {
-    background-color: var(--secondary-color-2);
+  background-color: var(--secondary-color-2);
 }
 
 .secondary-bg-color3 {
-    background-color: var(--secondary-color-3);
+  background-color: var(--secondary-color-3);
 }
 
 .secondary-bg-color3-accent {
-    background-color: var(--secondary-color-3-accent);
+  background-color: var(--secondary-color-3-accent);
 }
 
 /* Class for the width of the body content of the App */
 .app-content {
-    max-width: 992px;
-    width: 100%;
+  max-width: 992px;
+  width: 100%;
 }
 
 .page {
-    background-color: var(--tertiary-color-6);
+  background-color: var(--tertiary-color-6);
 }
 
 .brand-gradient {
-    background: radial-gradient(ellipse farthest-corner at right top, #5DC1FD 0%, #0000 60%),
-        linear-gradient(245deg, #067DAC 0%, #00497E 70%);
+  background: radial-gradient(
+      ellipse farthest-corner at right top,
+      #5dc1fd 0%,
+      #0000 60%
+    ),
+    linear-gradient(245deg, #067dac 0%, #00497e 70%);
 }
 
 .page-section-63_33 {
-    flex-basis: 63.33%;
-    flex-shrink: 1;
+  flex-basis: 63.33%;
+  flex-shrink: 1;
 }
 
 .page-section-36_67 {
-    flex-basis: 36.67%;
-    flex-shrink: 1;
+  flex-basis: 36.67%;
+  flex-shrink: 1;
 }
 
 .section {
-    margin: 16px;
-    padding: 32px;
+  margin: 16px;
+  padding: 32px;
 }
 
 .small-section {
-    margin: 16px;
-    padding: 32px;
+  margin: 16px;
+  padding: 32px;
 }
 
 .large-section {
-    margin: 16px;
-    padding: 32px;
+  margin: 16px;
+  padding: 32px;
 }
 
 .title-1 {
-    font-weight: lighter;
-    font-size: 2.5rem;
-    line-height: 3rem;
+  font-weight: lighter;
+  font-size: 2.5rem;
+  line-height: 3rem;
 }
 
 .title-2 {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .title-3 {
-    font-weight: 500;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .find-care-costs-title {
-    height: 40px;
-    color: #333333;
-    font-size: 32px;
-    letter-spacing: 0;
-    line-height: 40px;
+  height: 40px;
+  color: #333333;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 40px;
 }
 
 .body {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .body-2 {
-    font-weight: 300;
-    font-size: 0.75rem;
-    line-height: 1rem;
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .link {
-    color: #005EB9;
-    font-weight: bold;
-    text-decoration: underline;
-    cursor: pointer;
+  color: #005eb9;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .link:hover {
-    text-decoration: none;
-    color: var(--secondary-color-2);
+  text-decoration: none;
+  color: var(--secondary-color-2);
 }
 
 .button-text {
-    color: #005EB9;
-    font-weight: bold;
-    font-size: 1rem;
-    line-height: 1.5rem;
+  color: #005eb9;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 /* Dividers */
 .divider {
-    height: 1px;
-    background-color: var(--tertiary-color-4);
+  height: 1px;
+  background-color: var(--tertiary-color-4);
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .icon-sm {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .icon-document {
-    width: 35px;
-    height: auto;
+  width: 35px;
+  height: auto;
 }
 
 @media (768px < width) {
+  .app-content {
+    max-width: 992px;
+  }
 
+  .section {
+    flex-shrink: 1;
+    margin: 16px;
+    padding: 32px;
+  }
 
+  .small-section {
+    flex-basis: 37.5%;
+    flex-shrink: 1;
+    margin: 16px;
+    padding: 32px;
+  }
 
-    .app-content {
-        max-width: 992px;
-    }
-
-    .section {
-        flex-shrink: 1;
-        margin: 16px;
-        padding: 32px;
-    }
-
-    .small-section {
-        flex-basis: 37.5%;
-        flex-shrink: 1;
-        margin: 16px;
-        padding: 32px;
-    }
-
-    .large-section {
-        flex-basis: 62.5%;
-        flex-shrink: 1;
-        margin: 16px;
-        padding: 32px;
-    }
+  .large-section {
+    flex-basis: 62.5%;
+    flex-shrink: 1;
+    margin: 16px;
+    padding: 32px;
+  }
 }
 
 @media (width <=768px) {
-    .app-content {
-        max-width: 768px;
-    }
+  .app-content {
+    max-width: 768px;
+  }
 
-    .page-section-63_33 {
-        flex-basis: initial;
-    }
+  .page-section-63_33 {
+    flex-basis: initial;
+  }
 
-    .page-section-36_67 {
-        flex-basis: initial;
-    }
+  .page-section-36_67 {
+    flex-basis: initial;
+  }
 
-    .section {
-        flex-basis: initial;
-        padding: 12px;
-    }
+  .section {
+    flex-basis: initial;
+    padding: 12px;
+  }
 
-    .small-section {
-        flex-basis: initial;
-        padding: 12px;
-    }
+  .small-section {
+    flex-basis: initial;
+    padding: 12px;
+  }
 
-    .large-section {
-        flex-basis: initial;
-        padding: 12px;
-    }
+  .large-section {
+    flex-basis: initial;
+    padding: 12px;
+  }
 
-    .app-body {
-        flex-wrap: wrap;
-    }
+  .app-body {
+    flex-wrap: wrap;
+  }
 }
 
 .on-dot {
-    height: 12px;
-    width: 12px;
-    background-color: #508316;
-    border-radius: 50%;
-    display: block;
-    margin-right: 3px;
+  height: 12px;
+  width: 12px;
+  background-color: #508316;
+  border-radius: 50%;
+  display: block;
+  margin-right: 3px;
 }
 
 .off-dot {
-    height: 12px;
-    width: 12px;
-    background-color: #CCCCCC;
-    border-radius: 50%;
-    display: block;
-    margin-right: 3px;
+  height: 12px;
+  width: 12px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  display: block;
+  margin-right: 3px;
 }
 
 .on-off {
-    width: 55px;
-    height: 24px;
+  width: 55px;
+  height: 24px;
 }
 
-.doughnutText{
-    margin-left:45px;
-    margin-top:75px;
+.doughnutText {
+  margin-left: 45px;
+  margin-top: 75px;
 }
 
-.spendingSummaryChart{
-    width: 260px;
-    height: 260px;
-    max-width: 260px;
-    max-height: 260px;
-    
+.spendingSummaryChart {
+  width: 260px;
+  height: 260px;
+  max-width: 260px;
+  max-height: 260px;
 }
 
 @media (width<=768px) {
-    .doughnutText{
-        margin: 75px auto;
-        width: 85%;
-        padding-left: 0;
-    }
-   .spendingSummaryChart{
+  .doughnutText {
+    margin: 75px auto;
+    width: 85%;
+    padding-left: 0;
+  }
+  .spendingSummaryChart {
     margin: auto;
-   }
-   .chartTextDivider{
-        width: 132px;
-        margin: auto;
-   }
-   .chartText{
-        padding-left: 0px;
-   }  
+  }
+  .chartTextDivider {
+    width: 132px;
+    margin: auto;
+  }
+  .chartText {
+    padding-left: 0px;
+  }
 }
 .card-end {
-    align-self: flex-end;
+  align-self: flex-end;
 }
 .caremark button {
-    padding-top: 0;
+  padding-top: 0;
 }

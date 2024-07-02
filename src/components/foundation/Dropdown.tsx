@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import downIcon from "../../../public/assets/down.svg";
-import { Spacer } from "./Spacer";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import downIcon from '../../../public/assets/down.svg';
+import { Spacer } from './Spacer';
 
 export type SelectItem = {
   label: string;
@@ -47,7 +47,7 @@ export const Dropdown = ({
       </div>
       <section
         className="card-elevated py-2 z-20"
-        style={{ display: showDrop ? "block" : "none", position: "absolute" }}
+        style={{ display: showDrop ? 'block' : 'none', position: 'absolute' }}
       >
         {items.map((item) => (
           <div
@@ -55,8 +55,8 @@ export const Dropdown = ({
             onClick={() => onSelect(item)}
             className={`${
               item.value == selectedVal
-                ? "selected-dropdown-item"
-                : "dropdown-item"
+                ? 'selected-dropdown-item'
+                : 'dropdown-item'
             } cursor-pointer`}
           >
             <p className="whitespace-nowrap mx-2">{item.label}</p>

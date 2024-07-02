@@ -1,13 +1,23 @@
-import { ReactNode } from "react"
-import { IComponent } from "../IComponent"
-import React from "react"
+import { ReactNode } from 'react';
+import { IComponent } from '../IComponent';
 
 interface RowProps extends IComponent {
-    children: ReactNode
+  children: ReactNode;
 }
 
-export const Row = ({ className = '', children, onClick, tabIndex }: RowProps) => {
-    return <div tabIndex={tabIndex} onClick={onClick} className={`flex flex-row ${className}`.trimEnd()}>
-        {children}
+export const Row = ({
+  className = '',
+  children,
+  onClick,
+  tabIndex,
+}: RowProps) => {
+  return (
+    <div
+      tabIndex={tabIndex}
+      onClick={onClick}
+      className={`flex flex-row ${className}`.trimEnd()}
+    >
+      {children}
     </div>
-}
+  );
+};
