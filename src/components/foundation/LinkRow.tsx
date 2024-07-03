@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import rightIcon from '../../../public/right.svg';
+import rightIcon from '../../../public/assets/right.svg';
 
 export interface LinkRowProps {
   label: string;

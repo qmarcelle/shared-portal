@@ -6,6 +6,7 @@ export interface AccordionTileProps extends IComponent {
   closeIcon?: ReactNode;
   openIcon?: ReactNode;
   label: ReactNode;
+  subLabel?: ReactNode;
   child: ReactNode;
   initialOpen: boolean;
   type?: 'normal' | 'card';
@@ -17,6 +18,7 @@ export const Accordion = ({
   closeIcon,
   openIcon,
   label,
+  subLabel,
   child,
   initialOpen,
   type = 'normal',
@@ -36,6 +38,7 @@ export const Accordion = ({
         <p className="mr-2 flex-grow">{label}</p>
         {open ? closeIcon : openIcon}
       </div>
+      {!open && <div className="mr-2 flex-grow">{subLabel}</div>}
       {open && <div className="m-1">{child}</div>}
       {type == 'normal' && <div className="divider"></div>}
     </div>

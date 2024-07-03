@@ -23,7 +23,7 @@ export const OnOffLabel = ({ className = '', enabled }: OnOffLabelProps) => {
 
   return (
     <div
-      className={`on-off justify-center items-center body-2 flex flex-row ${className}`.trimEnd()}
+      className={`on-off justify-center items-center body-2 ${className}`.trimEnd()}
       style={{
         minWidth: 40,
         height: 24,

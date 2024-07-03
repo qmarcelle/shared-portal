@@ -1,6 +1,5 @@
-import { logger } from '@/utils/logger';
 import axios, { AxiosError } from 'axios';
-//import logger from "../logger_service";
+import { logger } from '../logger';
 
 export async function getAuthToken() {
   let token: undefined | string;
@@ -15,13 +14,13 @@ export async function getAuthToken() {
       token = await invokePingToken(retry);
     }
   } catch (error) {
-    //logger.error(error);
+    logger.error('getToken' + error);
     if (error instanceof AxiosError) {
-      /* logger.error(
+      logger.error(
         `PING Auth Token API - Status ${
           error.response?.status
-        }, Response ${JSON.stringify(error.response?.data)}`
-      ); */
+        }, Response ${JSON.stringify(error.response?.data)}`,
+      );
     }
   }
   return token;
@@ -45,10 +44,12 @@ export async function invokePingToken(retry: number) {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        proxy: false,
+        proxy:
+          process.env.NEXT_PUBLIC_PROXY?.toLocaleLowerCase() === 'false'
+            ? false
+            : undefined,
       },
     );
-    //globalThis = response?.data as OAuth;
     if (globalThis && response?.data) {
       //Calculate the Expiry time (Current Time + Token expires_in from api) in seconds
       globalThis.accessToken = response.data;
@@ -57,13 +58,12 @@ export async function invokePingToken(retry: number) {
     }
   } catch (error) {
     if (error instanceof AxiosError) {
-      /* logger.error(
+      logger.error(
         `PING Auth Token API, Retry ${retry} - Status ${
           error.response?.status
-        }, Response ${JSON.stringify(error.response?.data)}`
-      ); */
+        }, Response ${JSON.stringify(error.response?.data)}`,
+      );
       //Retry the PING Token API if it get failed. In future retry count will vary based on error code
-      logger.error('Error from Token Gen', error);
       if (retry <= 2) {
         retry = retry + 1;
         await invokePingToken(retry);

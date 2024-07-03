@@ -1,0 +1,35 @@
+import Image from 'next/image';
+import { ReactElement } from 'react';
+import { Button } from '../foundation/Button';
+import { Column } from '../foundation/Column';
+import { Header } from '../foundation/Header';
+import { successIcon } from '../foundation/Icons';
+import { Spacer } from '../foundation/Spacer';
+
+interface SuccessSlideProps {
+  label: string;
+  body: ReactElement;
+  // TODO: Find the correct model and type it here
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  doneCallBack: () => any;
+}
+
+export const SuccessSlide = ({
+  label,
+  body,
+  doneCallBack,
+}: SuccessSlideProps) => {
+  return (
+    <Column className="items-center">
+      <Image className="size-[80px]" src={successIcon} alt="success" />
+      <Spacer size={24} />
+      <Header className="title-2" text={label} />
+      <Spacer size={16} />
+      <Column className="w-[358px]">
+        {body}
+        <Spacer size={32} />
+        <Button label="Done" callback={doneCallBack} />
+      </Column>
+    </Column>
+  );
+};
