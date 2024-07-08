@@ -1,0 +1,488 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="gap-4 md:flex sm:inline"
+      >
+        <div
+          class="card-elevated cursor-pointer mb-4 md:w-1/3"
+        >
+          <div
+            class="flex flex-row flex flex-col align-top m-4 mt-8"
+          >
+            <p
+              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            >
+              Mental Health
+            </p>
+            <img
+              alt="TelaDoc"
+              class="w-1/2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="body-1 title-3 !font-bold m-4 mb-0"
+              >
+                Teladoc Mental Health
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1 m-4 mb-0"
+              >
+                Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <div>
+                <p
+                  class="body-1 body-1 m-4"
+                />
+                <ul
+                  class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                >
+                  <div>
+                    <li>
+                      Anxieties
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Stress
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      feeling overwhelmed
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Relationship conflicts
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Depression
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Trauma and PTSD
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+              </div>
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container undefined"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    Learn More About Teladoc Mental Health
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-elevated cursor-pointer mb-4 md:w-1/3"
+        >
+          <div
+            class="flex flex-row flex flex-col align-top m-4 mt-8"
+          >
+            <p
+              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            />
+            <img
+              alt="AbleToIcon"
+              class="w-1/2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="body-1 title-3 !font-bold m-4 mb-0"
+              >
+                AbleTo
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1 m-4 mb-0"
+              >
+                AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <div>
+                <p
+                  class="body-1 body-1 m-4"
+                >
+                  Generally good for:
+                </p>
+                <ul
+                  class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                >
+                  <div>
+                    <li>
+                      Anxiety
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Grief
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+              </div>
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container undefined"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    Learn More About AbleTo
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="gap-4 md:flex sm:inline"
+    >
+      <div
+        class="card-elevated cursor-pointer mb-4 md:w-1/3"
+      >
+        <div
+          class="flex flex-row flex flex-col align-top m-4 mt-8"
+        >
+          <p
+            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+          >
+            Mental Health
+          </p>
+          <img
+            alt="TelaDoc"
+            class="w-1/2"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="flex flex-col flex flex-col flex-grow"
+          >
+            <p
+              class="body-1 title-3 !font-bold m-4 mb-0"
+            >
+              Teladoc Mental Health
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1 m-4 mb-0"
+            >
+              Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div>
+              <p
+                class="body-1 body-1 m-4"
+              />
+              <ul
+                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+              >
+                <div>
+                  <li>
+                    Anxieties
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Stress
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    feeling overwhelmed
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Relationship conflicts
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Depression
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Trauma and PTSD
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+              </ul>
+            </div>
+            <a
+              style="display: block;"
+            >
+              <button
+                class="flex flex-row link-container undefined"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="0"
+              >
+                <p
+                  class="link"
+                >
+                  Learn More About Teladoc Mental Health
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card-elevated cursor-pointer mb-4 md:w-1/3"
+      >
+        <div
+          class="flex flex-row flex flex-col align-top m-4 mt-8"
+        >
+          <p
+            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+          />
+          <img
+            alt="AbleToIcon"
+            class="w-1/2"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="flex flex-col flex flex-col flex-grow"
+          >
+            <p
+              class="body-1 title-3 !font-bold m-4 mb-0"
+            >
+              AbleTo
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1 m-4 mb-0"
+            >
+              AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div>
+              <p
+                class="body-1 body-1 m-4"
+              >
+                Generally good for:
+              </p>
+              <ul
+                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+              >
+                <div>
+                  <li>
+                    Anxiety
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Grief
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+              </ul>
+            </div>
+            <a
+              style="display: block;"
+            >
+              <button
+                class="flex flex-row link-container undefined"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="0"
+              >
+                <p
+                  class="link"
+                >
+                  Learn More About AbleTo
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
