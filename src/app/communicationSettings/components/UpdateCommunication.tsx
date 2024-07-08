@@ -32,7 +32,7 @@ export const UpdateCommunication = ({
       <Title
         className="font-bold primary-color"
         text={methodName}
-        onClick={onClick}
+        callback={onClick}
         suffix={icon}
       />
 

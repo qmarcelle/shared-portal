@@ -1,0 +1,433 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col"
+    >
+      <section
+        class="card-main max-sm:m-4 md:my-8"
+      >
+        <div
+          class="flex flex-row items-center input  "
+        >
+          <input
+            class="body-1 search-textfield"
+            placeholder="Search Claims..."
+            type="text"
+            value=""
+          />
+          <div
+            class="flex flex-col items-end"
+          >
+            <button
+              class="flex flex-col  "
+              type="submit"
+            >
+              <img
+                alt="Search"
+                class="icon searchhover "
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+      <div
+        class="xs:block md:inline-flex max-sm:m-4 md:my-2"
+      >
+        <div
+          class="flex flex-row body-1 flex-grow align-top mb-0"
+        >
+          Filter Results:
+           
+          <a
+            class="link ml-2 flex"
+          >
+            20 Claims
+             
+            <img
+              alt=""
+              class="w-[20px] h-[20px] ml-2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </a>
+        </div>
+        <div
+          class="flex flex-row body-1 items-end"
+        >
+          Sort by:
+           
+          <a
+            class="link ml-2 flex"
+          >
+            Date (Most Recent)
+            <img
+              alt=""
+              class="w-[20px] h-[20px] ml-2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </a>
+        </div>
+        <span
+          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+        />
+      </div>
+      <div
+        class="flex flex-col max-sm:m-4"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-row flex flex-row align-top mt-8 mb-8 ml-4 mr-4"
+          >
+            <img
+              alt="Medical"
+              class="icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="font-bold"
+              >
+                John Hopkins
+              </p>
+              <div
+                class="flex flex-row mt-2"
+              >
+                <div
+                  class="flex flex-row flex flex-col mr-2"
+                >
+                  <span
+                    class="body-1"
+                  >
+                    Visited on 
+                    08/23/23
+                  </span>
+                  <span
+                    class="body-1 mt-2"
+                  >
+                    For 
+                    Chris Hall
+                  </span>
+                </div>
+                <div
+                  class="flex flex-row flex flex-col mr-4 ml-4"
+                >
+                  <span
+                    class="body-1"
+                    style="opacity: 0.7;"
+                  >
+                    Total Billed
+                  </span>
+                  <span
+                    class="body-1 mt-2"
+                  >
+                    $535.00
+                  </span>
+                </div>
+                <div
+                  class="flex flex-row flex flex-col mr-4 ml-4"
+                >
+                  <span
+                    class="body-1"
+                    style="opacity: 0.7;"
+                  >
+                    Plan Paid
+                  </span>
+                  <span
+                    class="body-1 mt-2"
+                  >
+                    --
+                  </span>
+                </div>
+                <div
+                  class="flex flex-row flex flex-col mr-4 ml-4"
+                >
+                  <span
+                    class="body-1"
+                    style="opacity: 0.7;"
+                  >
+                    My Share
+                  </span>
+                  <span
+                    class="body-1 mt-2 font-bold"
+                  >
+                    --
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-row flex flex-col items-end"
+            >
+              <div
+                class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                >
+                  Pending
+                </p>
+              </div>
+              <p
+                class="body-1 font-bold"
+              />
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ClaimsSnapshotCardSection should render UI correctly for mobile device 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col"
+    >
+      <section
+        class="card-main max-sm:m-4 md:my-8"
+      >
+        <div
+          class="flex flex-row items-center input  "
+        >
+          <input
+            class="body-1 search-textfield"
+            placeholder="Search Claims..."
+            type="text"
+            value=""
+          />
+          <div
+            class="flex flex-col items-end"
+          >
+            <button
+              class="flex flex-col  "
+              type="submit"
+            >
+              <img
+                alt="Search"
+                class="icon searchhover "
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+      <div
+        class="xs:block md:inline-flex max-sm:m-4 md:my-2"
+      >
+        <div
+          class="flex flex-row body-1 flex-grow align-top mb-0"
+        >
+          Filter Results:
+           
+          <a
+            class="link ml-2 flex"
+          >
+            20 Claims
+             
+            <img
+              alt=""
+              class="w-[20px] h-[20px] ml-2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </a>
+        </div>
+        <div
+          class="flex flex-row body-1 items-end"
+        >
+          Sort by:
+           
+          <a
+            class="link ml-2 flex"
+          >
+            Date (Most Recent)
+            <img
+              alt=""
+              class="w-[20px] h-[20px] ml-2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </a>
+        </div>
+        <span
+          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+        />
+      </div>
+      <div
+        class="flex flex-col max-sm:m-4"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Medical"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1"
+              >
+                John Hopkins
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row justify-between"
+            >
+              <div
+                class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                >
+                  Pending
+                </p>
+              </div>
+              <p
+                class="body-1 font-bold"
+              />
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row flex-grow mt-2"
+            >
+              <div
+                class="flex flex-col flex flex-col flex-grow mr-5"
+              >
+                <span
+                  class="body-1"
+                >
+                  Visited on
+                </span>
+                <span
+                  class="body-1"
+                >
+                  08/23/23
+                </span>
+                <span
+                  class="body-1 mt-2"
+                >
+                  For 
+                  Chris Hall
+                </span>
+              </div>
+              <div
+                class="flex flex-col flex flex-col flex-grow"
+              >
+                <span
+                  class="body-1"
+                  style="opacity: 0.7;"
+                >
+                  My Share
+                </span>
+                <span
+                  class="body-1 mt-2 font-bold"
+                >
+                  --
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserSwitchFilter should render UI correctly when no switch is available 1`] = `
+<div>
+  <div
+    class="flex flex-col switch-filter disabled"
+    tabindex="1"
+  >
+    <div>
+      <div
+        class="flex flex-row p-4 items-center"
+      >
+        <div
+          class="flex flex-col grow"
+        >
+          <p
+            class="body-2"
+          >
+            Primary Profile
+          </p>
+          <h3
+            class="title-3 font-bold"
+          >
+            Chris Hall
+          </h3>
+          <p
+            class="body-1"
+          >
+            DOB: 11/03/2000
+          </p>
+        </div>
+        <img
+          alt="switch"
+          class="size-5 head-icon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </div>
+    </div>
+    <ul
+      class="max-h-[420px] overflow-y-scroll"
+    />
+  </div>
+</div>
+`;
+
+exports[`UserSwitchFilter should render the UI correctly for more that one options 1`] = `
+<div>
+  <div
+    class="flex flex-col switch-filter default"
+    tabindex="1"
+  >
+    <div>
+      <div
+        class="flex flex-row p-4 items-center"
+      >
+        <div
+          class="flex flex-col grow"
+        >
+          <p
+            class="body-2"
+          >
+            Primary Profile
+          </p>
+          <h3
+            class="title-3 font-bold"
+          >
+            Chris Hall
+          </h3>
+          <p
+            class="body-1"
+          >
+            DOB: 11/03/2000
+          </p>
+        </div>
+        <img
+          alt="switch"
+          class="size-5 head-icon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </div>
+    </div>
+    <ul
+      class="max-h-[420px] overflow-y-scroll"
+    />
+  </div>
+</div>
+`;
+
+exports[`UserSwitchFilter should render the UI correctly for more that one options 2`] = `
+<div>
+  <div
+    class="flex flex-col switch-filter default"
+    tabindex="1"
+  >
+    <div>
+      <div
+        class="flex flex-row h-[72px] p-4 items-center divider-bottom"
+      >
+        <h3
+          class="title-3 grow"
+        >
+          Switch to...
+        </h3>
+        <img
+          alt="switch"
+          class="size-5"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </div>
+    </div>
+    <ul
+      class="max-h-[420px] overflow-y-scroll"
+    >
+      <li>
+        <div
+          class="flex flex-row p-4 divider-bottom selected item"
+          tabindex="1"
+        >
+          <div
+            class="size-5 mr-2"
+          >
+            <img
+              alt="selcted"
+              class="size-5"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="flex flex-col grow"
+          >
+            <p
+              class="body-2"
+            >
+              Primary Profile
+            </p>
+            <h3
+              class="title-3 font-bold"
+            >
+              Chris Hall
+            </h3>
+            <p
+              class="body-1"
+            >
+              DOB: 11/03/2000
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          class="flex flex-row p-4 divider-bottom  item"
+          tabindex="1"
+        >
+          <div
+            class="size-5 mr-2"
+          />
+          <div
+            class="flex flex-col grow"
+          >
+            <h3
+              class="title-3 font-bold"
+            >
+              Alba Hall
+            </h3>
+            <p
+              class="body-1"
+            >
+              DOB: 11/08/1996
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          class="flex flex-row p-4 divider-bottom  item"
+          tabindex="1"
+        >
+          <div
+            class="size-5 mr-2"
+          />
+          <div
+            class="flex flex-col grow"
+          >
+            <h3
+              class="title-3 font-bold"
+            >
+              Elly Hall
+            </h3>
+            <p
+              class="body-1"
+            >
+              DOB: 12/08/1998
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          class="flex flex-row p-4 divider-bottom  item"
+          tabindex="1"
+        >
+          <div
+            class="size-5 mr-2"
+          />
+          <div
+            class="flex flex-col grow"
+          >
+            <h3
+              class="title-3 font-bold"
+            >
+              Jake Hall
+            </h3>
+            <p
+              class="body-1"
+            >
+              DOB: 7/08/1991
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          class="flex flex-row p-4 divider-bottom  item"
+          tabindex="1"
+        >
+          <div
+            class="size-5 mr-2"
+          />
+          <div
+            class="flex flex-col grow"
+          >
+            <h3
+              class="title-3 font-bold"
+            >
+              Trama Hall
+            </h3>
+            <p
+              class="body-1"
+            >
+              DOB: 7/08/2004
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

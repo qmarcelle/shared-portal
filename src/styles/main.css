@@ -1,6 +1,6 @@
 @import './app.css';
 @import './utils.css';
-@import './base.css';
+@import './tooltip.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

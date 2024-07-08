@@ -21,7 +21,7 @@ export const LoginComponent = () => {
   const showTooltip = username.length < 1 && password.length < 1;
 
   return (
-    <div id="mainSection">
+    <div id="mainSection" className="dark:text-black">
       <h1 className="self-start">Member Login</h1>
       <Spacer size={32} />
       <div>
@@ -40,6 +40,7 @@ export const LoginComponent = () => {
             actions.resetApiErrors();
           }}
           errors={apiErrors}
+          isSuffixNeeded={true}
         />
 
         <Spacer size={32} />

@@ -1,0 +1,660 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section"
+      >
+        <div>
+          <h2
+            class="title-2"
+          >
+            Benefits & Coverage
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="flex flex-row items-center input  "
+          >
+            <input
+              class="body-1 search-textfield"
+              placeholder="Search Benefits"
+              type="text"
+              value=""
+            />
+            <div
+              class="flex flex-col items-end"
+            >
+              <button
+                class="flex flex-col  "
+                type="submit"
+              >
+                <img
+                  alt="Search"
+                  class="icon searchhover "
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </button>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="flex"
+          >
+            <label
+              class="body-1"
+            >
+              Browse your benefits by category:
+            </label>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row"
+            href="#"
+          >
+            <div
+              class="flex flex-col flex-grow"
+            >
+              <button
+                class="font-bold"
+              >
+                Medical Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col items-end"
+            >
+              <img
+                alt="Next"
+                class="icon items-end"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            aria-label="divider"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row"
+            href="#"
+          >
+            <div
+              class="flex flex-col flex-grow"
+            >
+              <button
+                class="font-bold"
+              >
+                Pharmacy Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col items-end"
+            >
+              <img
+                alt="Next"
+                class="icon items-end"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            aria-label="divider"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row"
+            href="#"
+          >
+            <div
+              class="flex flex-col flex-grow"
+            >
+              <button
+                class="font-bold"
+              >
+                Dental Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col items-end"
+            >
+              <img
+                alt="Next"
+                class="icon items-end"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            aria-label="divider"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row"
+            href="#"
+          >
+            <div
+              class="flex flex-col flex-grow"
+            >
+              <button
+                class="font-bold"
+              >
+                Vision Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col items-end"
+            >
+              <img
+                alt="Next"
+                class="icon items-end"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            aria-label="divider"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row"
+            href="#"
+          >
+            <div
+              class="flex flex-col flex-grow"
+            >
+              <button
+                class="font-bold"
+              >
+                Other Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col items-end"
+            >
+              <img
+                alt="Next"
+                class="icon items-end"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            aria-label="divider"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <a
+            class="block undefined"
+          >
+            <button
+              class="flex flex-row link-container"
+              style="max-width: max-content; height: auto;"
+              tabindex="0"
+            >
+              <p
+                class="link"
+              >
+                View All Benefits & Coverage
+              </p>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section"
+    >
+      <div>
+        <h2
+          class="title-2"
+        >
+          Benefits & Coverage
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row items-center input  "
+        >
+          <input
+            class="body-1 search-textfield"
+            placeholder="Search Benefits"
+            type="text"
+            value=""
+          />
+          <div
+            class="flex flex-col items-end"
+          >
+            <button
+              class="flex flex-col  "
+              type="submit"
+            >
+              <img
+                alt="Search"
+                class="icon searchhover "
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </button>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex"
+        >
+          <label
+            class="body-1"
+          >
+            Browse your benefits by category:
+          </label>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          class="flex flex-row"
+          href="#"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <button
+              class="font-bold"
+            >
+              Medical Benefits
+            </button>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            <img
+              alt="Next"
+              class="icon items-end"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          class="flex flex-row"
+          href="#"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <button
+              class="font-bold"
+            >
+              Pharmacy Benefits
+            </button>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            <img
+              alt="Next"
+              class="icon items-end"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          class="flex flex-row"
+          href="#"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <button
+              class="font-bold"
+            >
+              Dental Benefits
+            </button>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            <img
+              alt="Next"
+              class="icon items-end"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          class="flex flex-row"
+          href="#"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <button
+              class="font-bold"
+            >
+              Vision Benefits
+            </button>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            <img
+              alt="Next"
+              class="icon items-end"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          class="flex flex-row"
+          href="#"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <button
+              class="font-bold"
+            >
+              Other Benefits
+            </button>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            <img
+              alt="Next"
+              class="icon items-end"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <a
+          class="block undefined"
+        >
+          <button
+            class="flex flex-row link-container"
+            style="max-width: max-content; height: auto;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              View All Benefits & Coverage
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
