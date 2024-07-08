@@ -159,7 +159,8 @@ export const AddMFATextJourney = ({
           <TextBox
             className="text-center"
             text={
-              'Oops! We&apos;re sorry. Something went wrong. Please try again.'
+              // eslint-disable-next-line quotes
+              "Oops! We're sorry. Something went wrong. Please try again."
             }
           />
         </Column>

@@ -27,7 +27,8 @@ export const createMfaDevicesStore: StateCreator<
         emailOrPhone: null,
         enabled: false,
         label: 'Authenticator App',
-        subLabel: 'Use your authenticator app&apos;s security code',
+        // eslint-disable-next-line quotes
+        subLabel: "Use your authenticator app's security code",
       },
     ],
     [
@@ -66,7 +67,8 @@ export const createMfaDevicesStore: StateCreator<
         emailOrPhone: null,
         enabled: false,
         label: 'Authenticator App',
-        subLabel: 'Use your authenticator app&apos;s security code',
+        // eslint-disable-next-line quotes
+        subLabel: "Use your authenticator app's security code",
       },
     ],
     [

@@ -8,6 +8,8 @@ import { mock } from 'jest-mock-extended';
 
 export const mockedAxios = mock<AxiosInstance>();
 const axios = jest.requireActual('axios');
+
+export const AxiosError = axios.AxiosError;
 mockedAxios.interceptors = {
   request: {
     ...mock<AxiosInterceptorManager<InternalAxiosRequestConfig<unknown>>>(),
@@ -15,11 +17,10 @@ mockedAxios.interceptors = {
   },
   response: mock<AxiosInterceptorManager<AxiosResponse<unknown, unknown>>>(),
 };
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const axiosDefault = {
   create: jest.fn(() => mockedAxios),
-  AxiosError: axios.AxiosError,
+  get: jest.fn(),
+  post: jest.fn(),
+  AxiosError: axios.AxiosErrors,
 };
-
-export const AxiosError = axios.AxiosError;
+export default axiosDefault;

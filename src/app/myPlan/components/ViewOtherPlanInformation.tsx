@@ -13,7 +13,8 @@ export const ViewOtherPlanInformation = () => {
   const ViewOtherPlanInformationDetails = [
     {
       label: 'Benefits & Coverage',
-      description: 'View what&apos;s covered under your plan.',
+      // eslint-disable-next-line quotes
+      description: "View what's covered under your plan.",
       iconName: benefitsCoverage,
       link: '/benefits',
     },

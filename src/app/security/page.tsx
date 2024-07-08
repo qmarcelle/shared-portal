@@ -3,21 +3,25 @@
 import { LoginInfoComponent } from '../security/components/LoginInfoComponent';
 import { MFAInfoComponent } from '../security/components/MFAInfoComponent';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSecuritySettingsStore } from './stores/security_settings_store';
 
 const SecurityPage = () => {
   const { mfaDevices, loadMfaDevices } = useSecuritySettingsStore();
 
+  const initialized = useRef(false);
   useEffect(() => {
     (async () => {
-      try {
-        await loadMfaDevices();
-      } catch (err) {
-        console.log('Error occured when loading MFA Devices');
+      if (!initialized.current) {
+        initialized.current = true;
+        try {
+          await loadMfaDevices();
+        } catch (err) {
+          console.log('Error occured when loading MFA Devices');
+        }
       }
     })();
-  }, []);
+  });
   return (
     <div className="flex flex-col justify-center items-center page">
       <div className="flex flex-col app-content">

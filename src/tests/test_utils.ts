@@ -10,7 +10,7 @@ export const createAxiosErrorForTest = ({
   status = 400,
 }: {
   errorObject: unknown;
-  status: number;
+  status?: number;
 }) => {
   const axiosError = {
     response: {

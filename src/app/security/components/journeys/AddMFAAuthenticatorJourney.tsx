@@ -13,7 +13,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MfaDeviceType } from '../../models/mfa_device_type';
 import { VerifyMfaResponse } from '../../models/verify_mfa_devices';
 import { useSecuritySettingsStore } from '../../stores/security_settings_store';
@@ -31,16 +31,20 @@ export const AddMFAAuthenticatorJourney = ({
   const [confirmCode, setConfirmCode] = useState('');
   const { dismissModal } = useAppModalStore();
 
+  const initialized = useRef(false);
   useEffect(() => {
     (async () => {
-      try {
-        await updateMfaDevice(MfaDeviceType.authenticator);
-      } catch (err) {
-        // Change to Error page
-        changePage!(2, false);
+      if (!initialized.current) {
+        initialized.current = true;
+        try {
+          await updateMfaDevice(MfaDeviceType.authenticator);
+        } catch (err) {
+          // Change to Error page
+          changePage!(2, false);
+        }
       }
     })();
-  }, []);
+  });
 
   const submitCode = async () => {
     try {

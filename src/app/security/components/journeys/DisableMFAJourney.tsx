@@ -63,9 +63,8 @@ export const DisableMFAJourney = ({
           <TextBox
             className="text-center"
             text={
-              'You&apos;ve Successfully turned off the ' +
-              `${deviceType}` +
-              ' method of multi-factor authentication.'
+              // eslint-disable-next-line quotes
+              `You've Successfully turned off the ${deviceType} method of multi-factor authentication.`
             }
           />
         </Column>

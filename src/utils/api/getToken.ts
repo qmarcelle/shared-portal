@@ -1,4 +1,5 @@
-import axios, { AxiosError } from 'axios';
+import { OAuth } from '@/models/enterprise/oauth';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { logger } from '../logger';
 
 export async function getAuthToken() {
@@ -37,7 +38,7 @@ export async function invokePingToken(retry: number) {
     params.append('username', process.env.PING_CLIENT_USERNAME ?? '');
     params.append('password', process.env.PING_CLIENT_PASSWORD ?? '');
     //Invoke PING Auth Token API
-    const response = await axios.post(
+    const response: AxiosResponse<OAuth> = await axios.post(
       process.env.PING_TOKEN_URL ?? '',
       params,
       {
@@ -53,7 +54,8 @@ export async function invokePingToken(retry: number) {
     if (globalThis && response?.data) {
       //Calculate the Expiry time (Current Time + Token expires_in from api) in seconds
       globalThis.accessToken = response.data;
-      globalThis.accessToken.expires_at = new Date().getTime() / 1000 + 120;
+      globalThis.accessToken.expires_at =
+        new Date().getTime() / 1000 + response.data.expires_in;
       token = globalThis.accessToken.access_token;
     }
   } catch (error) {
@@ -70,6 +72,8 @@ export async function invokePingToken(retry: number) {
       } else {
         throw error;
       }
+    } else {
+      throw error;
     }
   }
   return token;
