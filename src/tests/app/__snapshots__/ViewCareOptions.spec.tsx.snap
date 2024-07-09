@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewCareOptions should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col large-section"
+    >
+      <div
+        class="flex flex-col flex flex-col"
+      >
+        <div
+          class="flex flex-row"
+        >
+          <p
+            class="title-1"
+          >
+            View Care Options
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-row flex flex-row align-top m-4 mt-8"
+          >
+            <img
+              alt="PrimaryCare"
+              class="icon w-[40px] h-[40px]"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="font-bold"
+              >
+                Primary Care Options
+              </p>
+              <span
+                class="body-1 mt-2"
+              >
+                  
+                Learn more about Primary Care Providers and view your options.
+              </span>
+            </div>
+            <div
+              class="flex flex-row flex flex-col items-end"
+            >
+              <div
+                class="empty flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-row flex flex-row align-top m-4 mt-8"
+          >
+            <img
+              alt="MentalCare"
+              class="icon w-[40px] h-[40px]"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="font-bold"
+              >
+                Mental Care Options
+              </p>
+              <span
+                class="body-1 mt-2"
+              >
+                  
+                Learn more about Mental Health Providers and view your options.
+              </span>
+            </div>
+            <div
+              class="flex flex-row flex flex-col items-end"
+            >
+              <div
+                class="empty flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ViewCareOptions should render UI correctly for mobile device 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col large-section"
+    >
+      <div
+        class="flex flex-col flex flex-col"
+      >
+        <div
+          class="flex flex-row"
+        >
+          <p
+            class="title-1"
+          >
+            View Care Options
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="PrimaryCare"
+                class="icon w-[40px] h-[40px]"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1 body-1 font-bold"
+              >
+                Primary Care Options
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row justify-between"
+            >
+              <div
+                class="empty flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                />
+              </div>
+            </div>
+            <span
+              class="body-1 mt-2 "
+            >
+                
+              Learn more about Primary Care Providers and view your options.
+            </span>
+          </div>
+        </div>
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="MentalCare"
+                class="icon w-[40px] h-[40px]"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1 body-1 font-bold"
+              >
+                Mental Care Options
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row justify-between"
+            >
+              <div
+                class="empty flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                />
+              </div>
+            </div>
+            <span
+              class="body-1 mt-2 "
+            >
+                
+              Learn more about Mental Health Providers and view your options.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
