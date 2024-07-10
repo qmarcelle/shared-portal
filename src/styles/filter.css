@@ -1,0 +1,27 @@
+#Filter .switch-filter.default,
+#Filter .switch-filter .item:focus {
+  border: none;
+  border-radius: unset;
+}
+
+#Filter .divider-bottom {
+  padding: 0.25rem;
+  border-bottom: none;
+}
+
+#Filter .overflow-y-scroll {
+  overflow-y: unset;
+}
+
+#Filter.input,
+#Filter.input:hover {
+  border: 1px solid #737373;
+}
+
+#Filter .switch-filter.default:focus {
+  box-shadow: none;
+}
+
+#Filter .items-center.divider-bottom {
+  display: none;
+}

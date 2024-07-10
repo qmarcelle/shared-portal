@@ -4,6 +4,7 @@ import { PriorAuthorizationCardSection } from '@/app/priorAuthorization/componen
 import { priorAuthorizationData } from '@/app/priorAuthorization/models/priorAuthorizationData';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
+import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
 import { extrenalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
@@ -39,11 +40,106 @@ const PriorAuthorization = () => {
           />
         </section>
 
-        <section className="flex flex-row items-start app-body">
+        <section className="flex flex-row items-start app-body" id="Filter">
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <Row>
-              <div></div>
-            </Row>
+            <Filter
+              className="large-section px-0 m-0"
+              filterHeading="Filter Prior Authorizations"
+              dropDown={[
+                {
+                  dropNownName: 'Connected Plans',
+                  dropDownval: [
+                    {
+                      label: 'All Plans',
+                      value: '1',
+                      id: '1',
+                    },
+                    {
+                      label: 'Plans',
+                      value: '2',
+                      id: '2',
+                    },
+                  ],
+                  selectedValue: { label: 'All Plans', value: '1', id: '1' },
+                },
+                {
+                  dropNownName: 'Member',
+                  dropDownval: [
+                    {
+                      label: 'All Members',
+                      value: '1',
+                      id: '1',
+                    },
+                    {
+                      label: 'Chris Hall',
+                      value: '2',
+                      id: '2',
+                    },
+                    {
+                      label: 'Madission Hall',
+                      value: '3',
+                      id: '3',
+                    },
+                    {
+                      label: 'Forest Hall',
+                      value: '4',
+                      id: '4',
+                    },
+                    {
+                      label: 'Telly Hall',
+                      value: '5',
+                      id: '5',
+                    },
+                    {
+                      label: 'Janie Hall',
+                      value: '6',
+                      id: '6',
+                    },
+                  ],
+                  selectedValue: { label: 'All Members', value: '1', id: '1' },
+                },
+                {
+                  dropNownName: 'Date Range',
+                  dropDownval: [
+                    {
+                      label: 'Last 30 days',
+                      value: '1',
+                      id: '1',
+                    },
+                    {
+                      label: 'Last 60 days',
+                      value: '2',
+                      id: '2',
+                    },
+                    {
+                      label: 'Last 90 days',
+                      value: '3',
+                      id: '3',
+                    },
+                    {
+                      label: 'Last 120 days',
+                      value: '4',
+                      id: '4',
+                    },
+                    {
+                      label: 'Last calender Years',
+                      value: '5',
+                      id: '5',
+                    },
+                    {
+                      label: 'Last two Years',
+                      value: '6',
+                      id: '6',
+                    },
+                  ],
+                  selectedValue: {
+                    label: 'Last two Years',
+                    value: '6',
+                    id: '6',
+                  },
+                },
+              ]}
+            />
           </Column>
 
           <Column className="flex-grow page-section-63_33 items-stretch">
