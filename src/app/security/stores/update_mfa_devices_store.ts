@@ -1,3 +1,4 @@
+import { useLoginStore } from '@/app/login/stores/loginStore';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
 import { ESResponse } from '@/models/enterprise/esResponse';
@@ -59,7 +60,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
   updateMfaDevice: async (deviceType: MfaDeviceType, value?: string) => {
     try {
       let request: UpdateMfaRequest = {
-        userId: 'akash11!',
+        userId: useLoginStore.getState().username,
         deviceType: deviceType,
       };
       if (value) {
@@ -95,7 +96,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
   ) => {
     try {
       let request: VerifyMfaRequest = {
-        userId: 'akash11!',
+        userId: useLoginStore.getState().username,
         deviceType: deviceType,
         OTP: otp,
       };
@@ -144,7 +145,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
     try {
       let request: UpdateMfaRequest = {
         deviceType: deviceType,
-        userId: 'akash11!',
+        userId: useLoginStore.getState().username,
       };
       if (emailOrPhone) {
         request = {

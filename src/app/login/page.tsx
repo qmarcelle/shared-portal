@@ -1,13 +1,13 @@
 'use client';
 
 import { Column } from '@/components/foundation/Column';
-import { LoginComponent } from './components/LoginComponent';
-import { MfaComponent } from './components/MfaComponent';
-import Image from 'next/image';
-import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
-import { useLoginStore } from './stores/loginStore';
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { LoginComponent } from './components/LoginComponent';
+import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
+import { MfaComponent } from './components/MfaComponent';
+import { useLoginStore } from './stores/loginStore';
 
 export default function LogIn() {
   const [unhandledErrors, loggedUser, mfaNeeded, backToHome] = useLoginStore(
@@ -25,7 +25,7 @@ export default function LogIn() {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace('/dashboard');
+      router.replace('/security');
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;
