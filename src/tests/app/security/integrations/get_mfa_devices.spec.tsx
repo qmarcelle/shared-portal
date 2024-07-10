@@ -1,3 +1,4 @@
+import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
 import SecurityPage from '@/app/security/page';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
@@ -10,6 +11,11 @@ const setupUI = () => {
 };
 
 describe('Get MFA Devices', () => {
+  beforeEach(() => {
+    jest
+      .spyOn(useLoginStore, 'getState')
+      .mockReturnValue({ username: 'xxxx' } as LoginStore);
+  });
   it('should call getDevices api and render active status successfully', async () => {
     // Api sends Text, Voice, Email as Active
     mockedAxios.post.mockResolvedValueOnce({
@@ -96,7 +102,7 @@ describe('Get MFA Devices', () => {
     // Should call the api with correct values
     expect(mockedAxios.post).toHaveBeenCalledWith(
       '/mfAuthentication/getDevices',
-      { userId: 'akash11!' },
+      { userId: 'xxxx' },
     );
   });
 

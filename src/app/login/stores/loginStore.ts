@@ -15,7 +15,7 @@ import {
 } from '../utils/mfaDeviceMapper';
 import { useMfaStore } from './mfaStore';
 
-type LoginStore = {
+export type LoginStore = {
   username: string;
   password: string;
   loggedUser: boolean;

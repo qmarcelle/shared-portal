@@ -1,3 +1,4 @@
+import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
 import { AddMFAAuthenticatorJourney } from '@/app/security/components/journeys/AddMFAAuthenticatorJourney';
 import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
@@ -21,6 +22,11 @@ const setupUI = () => {
 const showAppModal = useAppModalStore.getState().showAppModal;
 
 describe('Verify MFA Authenticator errors', () => {
+  beforeEach(() => {
+    jest
+      .spyOn(useLoginStore, 'getState')
+      .mockReturnValue({ username: 'xxxx' } as LoginStore);
+  });
   it('should call verifyDevices api and render appropriate message on axios error', async () => {
     mockedAxios.post.mockResolvedValueOnce({
       data: {
@@ -96,7 +102,7 @@ describe('Verify MFA Authenticator errors', () => {
       {
         deviceType: MfaDeviceType.authenticator,
         OTP: '123456',
-        userId: 'akash11!',
+        userId: 'xxxx',
       },
     );
   });
