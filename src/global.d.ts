@@ -1,4 +1,4 @@
-import { OAuth } from './models/enterprise/oauth';
+import { OAuth } from './models/enterprise/oAuth';
 
 declare global {
   // eslint-disable-next-line no-var

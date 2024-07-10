@@ -1,4 +1,4 @@
-import { OAuth } from '@/models/enterprise/oauth';
+import { OAuth } from '@/models/enterprise/oAuth';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { logger } from '../logger';
 
