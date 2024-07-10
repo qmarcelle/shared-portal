@@ -1,9 +1,11 @@
 'use client';
-
+import { Column } from '@/components/foundation/Column';
+import { Header } from '@/components/foundation/Header';
+import { Spacer } from '@/components/foundation/Spacer';
+import { useEffect, useRef } from 'react';
 import { LoginInfoComponent } from '../security/components/LoginInfoComponent';
 import { MFAInfoComponent } from '../security/components/MFAInfoComponent';
-
-import { useEffect, useRef } from 'react';
+import { IdentityProtectionService } from './components/IdentityProtectionService';
 import { useSecuritySettingsStore } from './stores/security_settings_store';
 
 const SecurityPage = () => {
@@ -24,15 +26,20 @@ const SecurityPage = () => {
   });
   return (
     <div className="flex flex-col justify-center items-center page">
-      <div className="flex flex-col app-content">
-        <section className="flex justify-start self-start">
-          <h1 className="title-1">Security Settings</h1>
-        </section>
+      <Column className="app-content app-base-font-color">
+        <Spacer size={32} />
+        <Header className="pl-3" type="title-1" text="Security Settings" />
+        <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
-          <LoginInfoComponent username={'akash11!'} />
-          <MFAInfoComponent mfaDevices={mfaDevices} />
+          <Column className="flex-grow page-section-36_67 items-stretch">
+            <LoginInfoComponent username={'akash11!'} />
+            <IdentityProtectionService />
+          </Column>
+          <Column className="flex-grow page-section-63_33 items-stretch">
+            <MFAInfoComponent mfaDevices={mfaDevices} />
+          </Column>
         </section>
-      </div>
+      </Column>
     </div>
   );
 };

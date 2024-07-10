@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PharmacyDrugInformation should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main p-8"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="title-1 title-2"
+        >
+          Drug Information
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col"
+        >
+          <div>
+            <div
+              class="card-elevated undefined"
+            >
+              <div
+                class="flex flex-col p-4"
+              >
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      <span
+                        class="!font-bold title-3"
+                      >
+                        Trulipsum 25MG
+                      </span>
+                    </p>
+                    <img
+                      alt="Down Chevron"
+                      class="w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="mr-2 flex-grow"
+                  />
+                </div>
+                <div
+                  class="flex flex-row justify-between pr-[16.5px] pl-2 pt-2"
+                >
+                  <p
+                    class="body-1 font-bold"
+                  >
+                    Supply
+                  </p>
+                  <p
+                    class="body-1 font-bold"
+                  >
+                    30 Days
+                  </p>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Disable MFA Journey should render the screens correctly 1`] = `
+exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
 <body
   style="overflow: hidden;"
 >
@@ -85,52 +85,68 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                   <h2
                     class="title-2"
                   >
-                    Turn Off Method
+                    Stop Sharing
                   </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
-                  <div
-                    class="flex flex-col items-center  w-[358px]"
+                  <p
+                    class="body-1 body-1 text-center"
                   >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 body-1 text-center"
-                      >
-                        Are you sure you want to turn off the email method of mutli-factor authentication?
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                    <button
-                      aria-label="Turn Off Method"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color"
-                      type="button"
-                    >
-                      Turn Off Method
-                    </button>
+                    We'll stop sharing your health plan information with:
+                  </p>
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
-                    <a
-                      style="display: block;"
+                    <div
+                      class="flex flex-col items-center"
                     >
-                      <button
-                        class="flex flex-row link-container undefined"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                      <p
+                        class="body-1 font-bold"
                       >
-                        <p
-                          class="link"
-                        >
-                          Cancel
-                        </p>
-                      </button>
-                    </a>
+                        Apple Health
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <p
+                        class="body-1 text-center"
+                      >
+                        This will mean this app or website can't see your health information. Any information you already shared may still be available to them.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <button
+                      aria-label="Confirm"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
+                      type="button"
+                    >
+                      Confirm
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
                   </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Cancel
+                      </p>
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -161,7 +177,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
 </body>
 `;
 
-exports[`Disable MFA Journey should render the screens correctly 2`] = `
+exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
 <body
   style="overflow: hidden;"
 >
@@ -196,8 +212,27 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
               class="flex flex-row justify-between modal-header items-center relative"
             >
               <div
+                class="flex flex-row items-center focus-icon"
                 tabindex="1"
-              />
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
               <img
                 alt="bcbst logo"
                 class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
@@ -258,7 +293,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                   <h1
                     class="title-1 title-2"
                   >
-                    Authentication Method Turned Off
+                    Sharing Stopped
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -272,7 +307,15 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                       <p
                         class="body-1 text-center"
                       >
-                        You've Successfully turned off the email method of multi-factor authentication.
+                        You are no longer sharing with:
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 font-bold"
+                      >
+                        Apple Health
                       </p>
                     </div>
                     <span

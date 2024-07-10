@@ -46,7 +46,7 @@ export const LoginComponent = () => {
         <Spacer size={32} />
         <ToolTip
           showTooltip={showTooltip}
-          className="flex flex-row justify-center items-center"
+          className="flex flex-row justify-center items-center tooltip"
           label="Enter a username and password."
         >
           <Button
@@ -64,7 +64,11 @@ export const LoginComponent = () => {
       <Spacer size={32} />
       <Divider />
       <Spacer size={32} />
-      <Button type="secondary" label="Register a New Account" />
+      <Button
+        type="secondary"
+        label="Register a New Account"
+        callback={() => {}}
+      />
     </div>
   );
 };

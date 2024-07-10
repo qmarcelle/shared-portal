@@ -11,10 +11,10 @@ export const ToolTip = ({
   label,
   showTooltip,
   children,
-  className,
+  className = 'tooltip',
 }: ToolTipProps) => {
   return (
-    <div className={`tooltip ${className}`}>
+    <div className={className}>
       {showTooltip && <span className="tooltiptext">{label}</span>}
       {children}
     </div>

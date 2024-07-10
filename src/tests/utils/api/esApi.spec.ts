@@ -1,5 +1,5 @@
 import axiosDefault, { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/tests_utils';
+import { createAxiosErrorForTest } from '@/tests/test_utils';
 import { esApi } from '@/utils/api/esApi';
 
 describe('Es API', () => {
