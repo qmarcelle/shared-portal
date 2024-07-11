@@ -1,5 +1,6 @@
 'use server';
 
+import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
@@ -19,9 +20,15 @@ type SubmitMfaOtpArgs = {
   interactionToken: string;
 };
 
+export enum SelectMFAStatus {
+  OK,
+  VALIDATION_FAILURE,
+  ERROR,
+}
+
 export async function callSelectDevice(
   args: SelectMfaArgs,
-): Promise<ESResponse<SelectMfaDeviceResponse>> {
+): Promise<ActionResponse<SelectMFAStatus, SelectMfaDeviceResponse>> {
   try {
     logger.info('Selected Mfa Device');
     console.log(args);
@@ -41,6 +48,13 @@ export async function callSelectDevice(
       throw 'An error occured';
     }
   }
+}
+
+export enum SubmitMFAStatus {
+  OTP_OK,
+  OTP_INVALID,
+  VALIDATION_FAILURE,
+  ERROR,
 }
 
 export async function callSubmitMfaOtp(
