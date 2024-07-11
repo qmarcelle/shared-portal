@@ -6,6 +6,7 @@ import {
   authRoutes,
   DEFAULT_LOGIN_REDIRECT,
   publicRoutes,
+  SECURITY_SETTINGS_PATH,
 } from './utils/routes';
 
 const { auth } = NextAuth(authConfig);
@@ -18,6 +19,14 @@ export default auth((req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+
+  const isDXSecuritySettings =
+    nextUrl.pathname == SECURITY_SETTINGS_PATH &&
+    nextUrl.searchParams.get('auth');
+
+  if (isDXSecuritySettings) {
+    return; //Don't redirect away for this path. The presence of the auth query param will allow the page to sign in in the absence of a normal next-auth session
+  }
 
   if (isApiAuthRoute) {
     return;
