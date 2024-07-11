@@ -1,5 +1,6 @@
 'use server';
 
+import { signIn } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
@@ -38,12 +39,20 @@ export async function callSelectDevice(
     );
     logger.info('Successful Select Device Api response');
     console.log(resp.data);
-    return resp.data;
+    return {
+      status: SelectMFAStatus.OK,
+      data: resp.data?.data,
+    };
   } catch (err) {
     logger.error('Error from SelectDevice Api');
     if (err instanceof AxiosError) {
       console.error(err.response?.data);
-      return { errorCode: err.response?.data.data.errorCode };
+      return {
+        status: SelectMFAStatus.ERROR,
+        error: {
+          errorCode: err.response?.data.data.errorCode,
+        },
+      };
     } else {
       throw 'An error occured';
     }
@@ -59,7 +68,7 @@ export enum SubmitMFAStatus {
 
 export async function callSubmitMfaOtp(
   params: SubmitMfaOtpArgs,
-): Promise<ESResponse<LoginResponse>> {
+): Promise<ActionResponse<SubmitMFAStatus, LoginResponse>> {
   try {
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication/provideOtp',
@@ -68,13 +77,24 @@ export async function callSubmitMfaOtp(
 
     logger.info('Successful Submit Api response');
     console.log(resp.data);
-    return resp.data;
+    await signIn('credentials', {
+      username: 'akash11!', //TODO Get the username here and set this properly.
+    });
+    return {
+      status: SubmitMFAStatus.OTP_OK,
+      data: resp.data.data,
+    };
   } catch (err) {
     logger.error('Error from Submit Otp Api');
     if (err instanceof AxiosError) {
       console.error('Error in submitMfaOtp');
       console.error(err.response?.data);
-      return { errorCode: err.response?.data.data.errorCode };
+      return {
+        status: SubmitMFAStatus.ERROR,
+        error: {
+          errorCode: err.response?.data.data.errorCode,
+        },
+      };
     } else {
       throw 'An error occurred';
     }

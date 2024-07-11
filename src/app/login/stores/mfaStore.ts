@@ -1,12 +1,17 @@
+import { logger } from '@/utils/logger';
+import { shallow } from 'zustand/shallow';
+import { createWithEqualityFn } from 'zustand/traditional';
+import {
+  callSelectDevice,
+  callSubmitMfaOtp,
+  SelectMFAStatus,
+  SubmitMFAStatus,
+} from '../actions/mfa';
+import { AppProg } from '../models/app/app_prog';
+import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
 import { useLoginStore } from './loginStore';
-import { AppProg } from '../models/app/app_prog';
-import { createWithEqualityFn } from 'zustand/traditional';
-import { shallow } from 'zustand/shallow';
-import { callSelectDevice, callSubmitMfaOtp } from '../actions/mfa';
-import { logger } from '@/utils/logger';
-import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 
 type MfaStore = {
   selectedMfa: MfaOption | null;
@@ -71,9 +76,9 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             useLoginStore.getState().interactionData!.interactionToken,
         });
 
-        if (resp.errorCode) {
+        if (resp.status == SelectMFAStatus.ERROR) {
           useLoginStore.setState({
-            apiErrors: [errorCodeMessageMap.get(resp.errorCode)!],
+            apiErrors: [errorCodeMessageMap.get(resp.error?.errorCode)!],
           });
           set({ initMfaProg: AppProg.failed });
           return;
@@ -120,9 +125,9 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             useLoginStore.getState().interactionData!.interactionToken,
         });
 
-        if (resp.errorCode) {
+        if (resp.status == SubmitMFAStatus.ERROR) {
           useLoginStore.setState({
-            apiErrors: [errorCodeMessageMap.get(resp.errorCode)!],
+            apiErrors: [errorCodeMessageMap.get(resp.error.errorCode)!],
           });
           set({ completeMfaProg: AppProg.failed });
           return;
