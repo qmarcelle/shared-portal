@@ -18,6 +18,7 @@
 @import './side_bar_modal.css';
 @import './plan_details.css';
 @import './tooltip.css';
+@import './filter.css';
 
 :root {
   --primary-color: #005eb9;

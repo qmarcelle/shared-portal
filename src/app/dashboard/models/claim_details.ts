@@ -1,6 +1,12 @@
 export interface ClaimDetails {
   id: string;
-  claimType: 'Medical' | 'Pharmacy' | 'Dental' | 'Vision';
+  claimType:
+    | 'Medical'
+    | 'Pharmacy'
+    | 'Dental'
+    | 'Vision'
+    | 'PrimaryCare'
+    | 'MentalCare';
   issuer: string;
   memberName: string;
   serviceDate: string;
@@ -16,4 +22,5 @@ export interface ClaimDetails {
   ReferredBy?: string;
   ReferredTo?: string;
   priorAuthFlag?: boolean;
+  viewCareFlag?: boolean;
 }

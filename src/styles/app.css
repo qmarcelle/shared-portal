@@ -146,3 +146,13 @@
     width: 90%;
   }
 }
+.priorAuthDetail .success,
+.priorAuthDetail .error,
+.priorAuthDetail .partialapproval,
+.priorAuthDetail .neutral {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.priorAuthDetail .statusDetail {
+  margin-left: 70px;
+}

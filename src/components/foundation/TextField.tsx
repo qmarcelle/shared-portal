@@ -15,9 +15,10 @@ export interface TextFieldProps {
   value?: string;
   hint?: string;
   valueCallback?: (value: string) => void;
-  onFocusCallback?: () => void;
   suffixIconCallback?: () => void;
   maxWidth?: number;
+  isSuffixNeeded?: boolean;
+  onFocusCallback?: () => void;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -113,6 +114,7 @@ export const TextField = ({
   onFocusCallback,
   suffixIconCallback,
   maxWidth,
+  isSuffixNeeded = false,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -158,7 +160,9 @@ export const TextField = ({
           type={computeType()}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
-          <SuffixIcon errors={errors} type={type} obscured={obscuredState} />
+          {isSuffixNeeded && (
+            <SuffixIcon errors={errors} type={type} obscured={obscuredState} />
+          )}
         </div>
       </div>
       <LowerPart errors={errors} fillGuidance={fillGuidance} />

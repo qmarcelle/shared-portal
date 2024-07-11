@@ -1,0 +1,176 @@
+import { ChangeAuthDeviceSlide } from '@/components/composite/ChangeAuthDeviceSlide';
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
+import { InitModalSlide } from '@/components/composite/InitModalSlide';
+import { InputModalSlide } from '@/components/composite/InputModalSlide';
+import { SuccessSlide } from '@/components/composite/SuccessSlide';
+import { AppLink } from '@/components/foundation/AppLink';
+import {
+  ModalChildProps,
+  useAppModalStore,
+} from '@/components/foundation/AppModal';
+import { Column } from '@/components/foundation/Column';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { TextField } from '@/components/foundation/TextField';
+import { AppProg } from '@/models/app_prog';
+import { ComponentDetails } from '@/models/component_details';
+import { useState } from 'react';
+import { MfaDeviceType } from '../../models/mfa_device_type';
+import { VerifyMfaResponse } from '../../models/verify_mfa_devices';
+import { useSecuritySettingsStore } from '../../stores/security_settings_store';
+
+const headerText = 'Email Setup';
+
+interface AddMfaEmailJourneyProps {
+  email: string;
+}
+
+export const AddMFAEmailJourney = ({
+  changePage,
+  pageIndex,
+  email,
+}: ModalChildProps & AddMfaEmailJourneyProps) => {
+  const { updateMfaDevice, verifyMfaDevice, resetState, verifyMfaResult } =
+    useSecuritySettingsStore();
+  const { dismissModal } = useAppModalStore();
+  /* const initChange = () => {
+    changePage!(1, true);
+  }; */
+  function changePageIndex(index: number, showback = true) {
+    changePage?.(index, showback);
+    resetState();
+  }
+  const [mainAuthDevice, setMainAuthDevice] = useState(email);
+  const [newAuthDevice, setNewAuthDevice] = useState('');
+  const [confirmCode, setConfirmCode] = useState('');
+
+  const initNewDevice = async () => {
+    // Do API call for new device
+    try {
+      await updateMfaDevice(MfaDeviceType.email, newAuthDevice);
+      setMainAuthDevice(newAuthDevice);
+      changePageIndex?.(1, true);
+    } catch (errorMessage: unknown) {
+      changePageIndex?.(4, true);
+    }
+  };
+
+  const submitCode = async () => {
+    // Do API call for submit code
+    try {
+      const response: ComponentDetails<VerifyMfaResponse> | undefined =
+        await verifyMfaDevice(
+          MfaDeviceType.email,
+          confirmCode,
+          newAuthDevice && newAuthDevice != '' ? newAuthDevice : mainAuthDevice,
+        );
+      if (response?.state == AppProg.success) {
+        changePageIndex?.(2, false);
+      }
+    } catch (errorMessage: unknown) {
+      changePageIndex?.(4, true);
+    }
+  };
+
+  const pages = [
+    <InitModalSlide
+      key={0}
+      label="Email Setup"
+      subLabel={
+        <Column>
+          <TextBox
+            className="body-1 center"
+            text={'Continue with your current email or change it.'}
+          />
+          <TextBox className="body-1 text-center" text="Your email is:" />
+        </Column>
+      }
+      // actionArea="chall123@gmail.com"
+      actionArea={mainAuthDevice}
+      changeAuthButton={
+        <AppLink
+          label="Change Your Email Address"
+          callback={() => changePageIndex?.(3, true)}
+        />
+      }
+      cancelCallback={() => dismissModal()}
+      nextCallback={() => changePageIndex?.(1, true)}
+    />,
+
+    <InputModalSlide
+      key={1}
+      label={headerText}
+      subLabel="Enter the security code sent to your email to complete email setup.We've sent a code to:"
+      actionArea={
+        <Column>
+          <TextBox
+            className="body-1 text-center font-bold"
+            text={mainAuthDevice}
+          />
+          <Spacer size={32} />
+          <TextField
+            type="text"
+            valueCallback={(val) => setConfirmCode(val)}
+            label="Enter Security Code"
+            errors={verifyMfaResult?.errors}
+          ></TextField>
+          <Spacer size={16} />
+          <AppLink
+            className="self-start"
+            callback={initNewDevice}
+            label="Resend Code"
+          />
+          <Spacer size={32} />
+        </Column>
+      }
+      cancelCallback={() => dismissModal()}
+      nextCallback={confirmCode.length > 5 ? () => submitCode() : undefined}
+    />,
+
+    <SuccessSlide
+      key={2}
+      label="Email Setup is Complete"
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="The next time you login, you'll receive an email with a security code to:"
+          />
+          <Spacer size={16} />
+          <TextBox text={mainAuthDevice} />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ChangeAuthDeviceSlide
+      key={3}
+      label="Change Email Address"
+      subLabel="enter the new email address you'd like to use for communications and security settings."
+      actionArea={
+        <TextField
+          valueCallback={(val) => setNewAuthDevice(val)}
+          label="Email Address"
+        />
+      }
+      cancelCallback={() => dismissModal()}
+      nextCallback={
+        newAuthDevice.length > 5 ? () => initNewDevice() : undefined
+      }
+    />,
+    <ErrorDisplaySlide
+      key={4}
+      label="Try Again Later"
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="Oops! We're sorry. Something went wrong. Please try again."
+          />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+  ];
+
+  return pages[pageIndex!];
+};

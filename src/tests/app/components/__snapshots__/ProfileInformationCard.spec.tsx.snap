@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileInformationCard should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <h2
+            class="title-2"
+          >
+            Profile Information
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section>
+            <span
+              class="body-1 undefined"
+            >
+              <span>
+                Below is your profile information. The phone number and email address below will be used for account security and some communications. You can
+                 
+              </span>
+              <span
+                class="link"
+              >
+                <a>
+                  view your plan details here.
+                </a>
+              </span>
+            </span>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </section>
+         
+        <div
+          class="card-main undefined"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+            <p
+              class="body-1 font-bold body-1"
+            >
+              Chris Hall
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              DOB: 01/01/1978
+            </p>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <div
+              class="flex flex-col"
+            />
+            <span
+              style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col"
+            >
+              <p
+                class="body-1 font-bold"
+              >
+                Phone Number
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 mb-4"
+              >
+                (123) 456-7890
+              </p>
+              <div
+                class="flex flex-row"
+              >
+                <p
+                  class="font-bold primary-color"
+                >
+                  Update
+                </p>
+                <div
+                  class="ml-2"
+                >
+                  <img
+                    alt="link"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-label="divider"
+            class="mt-8"
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <div
+              class="flex flex-col"
+            />
+            <span
+              style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col"
+            >
+              <p
+                class="body-1 font-bold"
+              >
+                Email Address
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 mb-4"
+              >
+                chall123@gmail.com
+              </p>
+              <div
+                class="flex flex-row"
+              >
+                <p
+                  class="font-bold primary-color"
+                >
+                  Update
+                </p>
+                <div
+                  class="ml-2"
+                >
+                  <img
+                    alt="link"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-label="divider"
+            class="mt-8"
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-col p-1 false cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+              >
+                Other Profile Settings
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+          <p
+            class="body-1 ml-3"
+          >
+            Add or update details about yourself, including ethnicity, race and language preferences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -21,7 +21,7 @@ export const LoginComponent = () => {
   const showTooltip = username.length < 1 && password.length < 1;
 
   return (
-    <div id="mainSection">
+    <div id="mainSection" className="dark:text-black">
       <h1 className="self-start">Member Login</h1>
       <Spacer size={32} />
       <div>
@@ -40,12 +40,13 @@ export const LoginComponent = () => {
             actions.resetApiErrors();
           }}
           errors={apiErrors}
+          isSuffixNeeded={true}
         />
 
         <Spacer size={32} />
         <ToolTip
           showTooltip={showTooltip}
-          className="flex flex-row justify-center items-center"
+          className="flex flex-row justify-center items-center tooltip"
           label="Enter a username and password."
         >
           <Button
@@ -63,7 +64,11 @@ export const LoginComponent = () => {
       <Spacer size={32} />
       <Divider />
       <Spacer size={32} />
-      <Button type="secondary" label="Register a New Account" />
+      <Button
+        type="secondary"
+        label="Register a New Account"
+        callback={() => {}}
+      />
     </div>
   );
 };

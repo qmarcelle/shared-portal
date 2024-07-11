@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h1
+            class="title-1 title-2"
+          >
+            Choosing a Mental Health Provider
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            You can speak with a therapist or a psychiatrist (a medical doctor that can prescribe medicine). Or try a self-guided program with personalized recommendations.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+          >
+            <div
+              class="flex flex-row m-1 accordion-head"
+            >
+              <p
+                class="mr-2 flex-grow"
+              >
+                About Psychiatrists
+              </p>
+              <img
+                alt="Down Chevron"
+                class="pl-2 w-6"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+          <div
+            aria-label="divider"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <div
+            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+          >
+            <div
+              class="flex flex-row m-1 accordion-head"
+            >
+              <p
+                class="mr-2 flex-grow"
+              >
+                About Therapists
+              </p>
+              <img
+                alt="Up Chevron"
+                class="pl-2 w-6"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-1"
+            >
+              <p
+                class="body-1"
+              >
+                If you are looking for talk therapy and counseling, talk to a therapist. There are different types, such as psychologists and licensed social workers, marriage and family therapists and counselors. The difference is in their level of training and the problems they specialize in handling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="title-1 title-2"
+        >
+          Choosing a Mental Health Provider
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1"
+        >
+          You can speak with a therapist or a psychiatrist (a medical doctor that can prescribe medicine). Or try a self-guided program with personalized recommendations.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+        >
+          <div
+            class="flex flex-row m-1 accordion-head"
+          >
+            <p
+              class="mr-2 flex-grow"
+            >
+              About Psychiatrists
+            </p>
+            <img
+              alt="Down Chevron"
+              class="pl-2 w-6"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <div
+          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+        >
+          <div
+            class="flex flex-row m-1 accordion-head"
+          >
+            <p
+              class="mr-2 flex-grow"
+            >
+              About Therapists
+            </p>
+            <img
+              alt="Up Chevron"
+              class="pl-2 w-6"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-1"
+          >
+            <p
+              class="body-1"
+            >
+              If you are looking for talk therapy and counseling, talk to a therapist. There are different types, such as psychologists and licensed social workers, marriage and family therapists and counselors. The difference is in their level of training and the problems they specialize in handling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

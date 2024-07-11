@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PriorAuth FilterSection should render the UI correctly for more that one options 1`] = `
+<div>
+  <div
+    class="card-main large-section px-0 m-0"
+  >
+    <div
+      class="flex flex-col"
+    >
+      <h1
+        class="title-1 title-2"
+      >
+        Filter Prior Authorizations
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="body-1"
+        >
+          Connected Plans
+           
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <div
+          class="body-1 input"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="border-none"
+              >
+                <div
+                  class="flex flex-row p-1 items-center"
+                >
+                  <div
+                    class="flex flex-col border-none flex-grow"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      All Plans
+                    </p>
+                  </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="body-1"
+        >
+          Member
+           
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <div
+          class="body-1 input"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="border-none"
+              >
+                <div
+                  class="flex flex-row p-1 items-center"
+                >
+                  <div
+                    class="flex flex-col border-none flex-grow"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      All Members
+                    </p>
+                  </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="body-1"
+        >
+          Date Range
+           
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <div
+          class="body-1 input"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="border-none"
+              >
+                <div
+                  class="flex flex-row p-1 items-center"
+                >
+                  <div
+                    class="flex flex-col border-none flex-grow"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      Last two Years
+                    </p>
+                  </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PriorAuth FilterSection should render the UI correctly for more that one options 2`] = `
+<div>
+  <div
+    class="card-main large-section px-0 m-0"
+  >
+    <div
+      class="flex flex-col"
+    >
+      <h1
+        class="title-1 title-2"
+      >
+        Filter Prior Authorizations
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="body-1"
+        >
+          Connected Plans
+           
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <div
+          class="body-1 input"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="border-none"
+              >
+                <div
+                  class="flex flex-row p-1 items-center"
+                >
+                  <div
+                    class="flex flex-col border-none flex-grow"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      All Plans
+                    </p>
+                  </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="body-1"
+        >
+          Member
+           
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <div
+          class="body-1 input"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="border-none"
+              >
+                <div
+                  class="flex flex-row p-1 items-center"
+                >
+                  <div
+                    class="flex flex-col border-none flex-grow"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      All Members
+                    </p>
+                  </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="body-1"
+        >
+          Date Range
+           
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <div
+          class="body-1 input"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="border-none"
+              >
+                <div
+                  class="flex flex-row p-1 items-center"
+                >
+                  <div
+                    class="flex flex-col border-none flex-grow"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      Last two Years
+                    </p>
+                  </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,4 +1,9 @@
+'use client';
+
 import '@/app/globals.css';
+import { AppModal } from '@/components/foundation/AppModal';
+import '@/styles/base.css';
+import '@/styles/checkbox.css';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -13,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ClientLayout>{children}</ClientLayout>
+        <AppModal />
       </body>
     </html>
   );

@@ -1,49 +1,49 @@
+label {
+  display: inline-block;
+  grid-template-columns: 1em auto;
+  gap: 1em;
+  position: relative;
+  padding-left: 0px;
+  margin-top: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  align-items: baseline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-label{
-    display: grid;
-    grid-template-columns: 1em auto;
-    gap: 1em;
-    position: relative;
-    padding-left: 0px;
-    margin-top: 2px;
-    cursor: pointer;
-    font-size: 16px;
-    color: black;
-    align-items:baseline;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default radio button */
-  label input {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #FFFFFF;
-    margin: 0;
-    display: grid;
-    place-content: center;
-    height: 20px;
-    width: 20px;
-    border: 2px solid #005EB9;
-    border-radius: 50%;
-  }
-  
-  input[type="radio"]::before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em #005EB9;
-  }
-  
-  input[type="radio"]:checked::before {
-    transform: scale(1);
-  }
-  
-  input[type="radio"]:focus, input[type="checkbox"]:focus{
-      outline-offset: 5px;
-  }
+/* Hide the browser's default radio button */
+label input {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ffffff;
+  margin: 0;
+  display: grid;
+  place-content: center;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #005eb9;
+  border-radius: 50%;
+}
+
+input[type='radio']::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #005eb9;
+}
+
+input[type='radio']:checked::before {
+  transform: scale(1);
+}
+
+input[type='radio']:focus,
+input[type='checkbox']:focus {
+  outline-offset: 5px;
+}

@@ -34,3 +34,40 @@
 .tooltip:focus-within .tooltiptext {
   display: block;
 }
+
+.toptooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.toptooltip .tooltiptext {
+  display: none;
+  width: 284px;
+  height: auto;
+  background-color: #00497e !important;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 23px 0;
+  position: absolute;
+  z-index: 999999999;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -141px;
+}
+
+.toptooltip .tooltiptext::after {
+  content: ' ';
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.toptooltip:hover .tooltiptext,
+.toptooltip:focus-within .tooltiptext {
+  display: block;
+}
