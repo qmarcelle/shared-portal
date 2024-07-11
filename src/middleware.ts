@@ -42,7 +42,7 @@ export default auth((req) => {
           headers: headers,
         },
       };
-      NextResponse.rewrite(process.env.WPS_REDIRECT_URL, options);
+      return NextResponse.rewrite(process.env.WPS_REDIRECT_URL, options);
     } else if (!isLoggedIn) {
       console.log('Redirecting logged-out client to /auth/login');
       return Response.redirect(new URL('/auth/login', nextUrl));

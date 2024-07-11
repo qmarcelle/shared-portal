@@ -2,7 +2,7 @@ import { NextErrorResp } from '@/models/app/nextErrorResp';
 import { logger } from '@/utils/logger';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
-import { callLogin } from '../actions/login';
+import { callLogin, LoginStatus } from '../actions/login';
 import { LoginResponse } from '../models/api/login';
 import { AppProg } from '../models/app/app_prog';
 import { errorCodeMessageMap } from '../models/app/error_code_message_map';
@@ -57,7 +57,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
           password: get().password, //get().password,
         });
 
-        if (resp.errorCode) {
+        if (resp.status == LoginStatus.ERROR) {
           throw resp;
         }
 
