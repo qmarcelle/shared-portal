@@ -6,12 +6,11 @@ import {
   authRoutes,
   DEFAULT_LOGIN_REDIRECT,
   publicRoutes,
-  SECURITY_SETTINGS_PATH,
 } from './utils/routes';
 
 const { auth } = NextAuth(authConfig);
 
-export default auth((req) => {
+export default auth(async (req) => {
   const isLoggedIn = !!req.auth;
   console.log(`ROUTE ${req.nextUrl.pathname} loggedIn=${isLoggedIn}`);
   const { nextUrl } = req;
@@ -20,17 +19,19 @@ export default auth((req) => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
-  const isDXSecuritySettings =
-    nextUrl.pathname == SECURITY_SETTINGS_PATH &&
-    nextUrl.searchParams.get('auth');
-
-  if (isDXSecuritySettings) {
-    return; //Don't redirect away for this path. The presence of the auth query param will allow the page to sign in in the absence of a normal next-auth session
-  }
-
   if (isApiAuthRoute) {
     return;
   }
+
+  //Redirect to security for the DX iframe flow
+  if (nextUrl.pathname == '/security/dxAuth' && isLoggedIn) {
+    return Response.redirect(new URL('/security', nextUrl));
+  }
+
+  /**
+   * Routes for the login flow.
+   * Already logged-in users should be redirected to the dashboard.
+   */
   if (isAuthRoute) {
     if (isLoggedIn) {
       console.log(`Redirecting logged-in client to ${DEFAULT_LOGIN_REDIRECT}`);
@@ -39,6 +40,9 @@ export default auth((req) => {
     return;
   }
 
+  /**
+   * Routes accessible by logged-in users.
+   */
   if (!isPublicRoute) {
     if (isLoggedIn && process.env.WPS_REDIRECT_ENABLED == 'true') {
       console.log(
@@ -53,8 +57,8 @@ export default auth((req) => {
       };
       return NextResponse.rewrite(process.env.WPS_REDIRECT_URL, options);
     } else if (!isLoggedIn) {
-      console.log('Redirecting logged-out client to /auth/login');
-      return Response.redirect(new URL('/auth/login', nextUrl));
+      console.log('Redirecting logged-out client to /login');
+      return Response.redirect(new URL('/login', nextUrl));
     }
   }
 
