@@ -1,3 +1,4 @@
+import { formatCurrency } from '@/utils/currency_formatter';
 import { ArcElement, Chart as ChartJS } from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 import { Column } from '../../../components/foundation/Column';
@@ -36,7 +37,7 @@ export const SpendingChart = ({
     ],
   };
   return (
-    <Column>
+    <Column className="chartSection">
       <div className="text-center absolute doughnutText pl-3 w-36">
         <div className="flex flex-col justify-between pl-3 chartText">
           <p>Your plan paid</p>
@@ -50,7 +51,7 @@ export const SpendingChart = ({
         <Spacer size={8} />
         <div className="flex flex-col justify-between pl-3 chartText">
           <p>Total Billed</p>
-          <p className="font-bold">${totalAmount}</p>
+          <p className="font-bold">{formatCurrency(totalAmount) ?? '--'}</p>
         </div>
       </div>
       <Spacer size={8} />

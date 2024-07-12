@@ -1,11 +1,18 @@
 'use client';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import {
+  dentalIcon,
+  downloadIcon,
+  medicalIcon,
+  pharmacyIcon,
+  visionIcon,
+} from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
-import DownloadIcon from '../../../public/assets/Document-File.svg';
 import { Filter } from '../../components/foundation/Filter';
+import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
 
 const SpendingSummary = () => {
   return (
@@ -27,7 +34,7 @@ const SpendingSummary = () => {
                   <a className="inline-flex">
                     Download a PDF Statement
                     <span>
-                      <Image src={DownloadIcon} alt="external" />
+                      <Image src={downloadIcon} alt="external" />
                     </span>
                   </a>
                 </Column>
@@ -135,7 +142,83 @@ const SpendingSummary = () => {
           </Column>
 
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <div></div>
+            <SpendingAccountSummary
+              className="large-section statementSummary"
+              title="Statement Summary up to November 8, 2023"
+              subTitle="View Medical, Pharmacy, Dental and Vision for All Members"
+              amountPaid={1199.19}
+              totalBilledAmount={9804.31}
+              amountSaved={8605.12}
+              amountSavedPercentage={89}
+              color1={'#005EB9'}
+              color2={'#5DC1FD'}
+              service={[
+                {
+                  serviceIcon: (
+                    <Image
+                      className="w-6"
+                      src={medicalIcon}
+                      alt="Medical Icon"
+                    />
+                  ),
+                  serviceLabel: 'Medical',
+                  serviceSubLabel: 'Your share',
+                  serviceSubLabelValue: 30.24,
+                  labelText1: 'Amount Billed',
+                  labelValue1: 145.0,
+                  labelText2: 'Plan Discount',
+                  labelValue2: 114.76,
+                  labelText3: 'Plan Paid',
+                  labelValue3: 0.0,
+                },
+                {
+                  serviceIcon: (
+                    <Image
+                      className="w-6"
+                      src={pharmacyIcon}
+                      alt="Pharmacy Icon"
+                    />
+                  ),
+                  serviceLabel: 'Pharmacy',
+                  serviceSubLabel: 'Your share',
+                  serviceSubLabelValue: 30.24,
+                  labelText1: 'Amount Billed',
+                  labelValue1: 145.0,
+                  labelText2: 'Plan Discount',
+                  labelValue2: 114.76,
+                  labelText3: 'Plan Paid',
+                  labelValue3: 0.0,
+                },
+                {
+                  serviceIcon: (
+                    <Image className="w-6" src={dentalIcon} alt="Dental Icon" />
+                  ),
+                  serviceLabel: 'Dental',
+                  serviceSubLabel: 'Your share',
+                  serviceSubLabelValue: 30.24,
+                  labelText1: 'Amount Billed',
+                  labelValue1: 145.0,
+                  labelText2: 'Plan Discount',
+                  labelValue2: 114.76,
+                  labelText3: 'Plan Paid',
+                  labelValue3: 0.0,
+                },
+                {
+                  serviceIcon: (
+                    <Image className="w-6" src={visionIcon} alt="Vision Icon" />
+                  ),
+                  serviceLabel: 'Vision',
+                  serviceSubLabel: 'Your share',
+                  serviceSubLabelValue: 30.24,
+                  labelText1: 'Amount Billed',
+                  labelValue1: 145.0,
+                  labelText2: 'Plan Discount',
+                  labelValue2: 114.76,
+                  labelText3: 'Plan Paid',
+                  labelValue3: 0.0,
+                },
+              ]}
+            />
           </Column>
         </section>
       </Column>
