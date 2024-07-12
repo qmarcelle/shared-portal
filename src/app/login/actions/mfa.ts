@@ -8,6 +8,7 @@ import { logger } from '@/utils/logger';
 import { AxiosError } from 'axios';
 import { LoginResponse } from '../models/api/login';
 import { SelectMfaDeviceResponse } from '../models/api/select_mfa_device_response';
+import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
 
 type SelectMfaArgs = {
   deviceId: string;
@@ -20,12 +21,6 @@ type SubmitMfaOtpArgs = {
   interactionId: string;
   interactionToken: string;
 };
-
-export enum SelectMFAStatus {
-  OK,
-  VALIDATION_FAILURE,
-  ERROR,
-}
 
 export async function callSelectDevice(
   args: SelectMfaArgs,
@@ -57,13 +52,6 @@ export async function callSelectDevice(
       throw 'An error occured';
     }
   }
-}
-
-export enum SubmitMFAStatus {
-  OTP_OK,
-  OTP_INVALID,
-  VALIDATION_FAILURE,
-  ERROR,
 }
 
 export async function callSubmitMfaOtp(

@@ -7,16 +7,9 @@ import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
 import { AxiosError } from 'axios';
 import { LoginRequest, LoginResponse } from '../models/api/login';
+import { LoginStatus } from '../models/status';
 
 const INVALID_CREDENTIALS_ES_ERROR_CODE = 'UI-401';
-
-export enum LoginStatus {
-  LOGIN_OK,
-  MFA_REQUIRED,
-  INVALID_CREDENTIALS,
-  VALIDATION_FAILURE,
-  ERROR,
-}
 
 export async function callLogin(
   request: LoginRequest,
