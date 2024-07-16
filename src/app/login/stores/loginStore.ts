@@ -50,6 +50,8 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       })),
     login: async () => {
       try {
+        // Set the errors to empty
+        set(() => ({ apiErrors: [] }));
         // Set loading indicator
         set(() => ({ loginProg: AppProg.loading }));
         const resp = await callLogin({
