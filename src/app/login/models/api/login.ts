@@ -3,6 +3,12 @@ export interface LoginRequest {
   password: string;
 }
 
+export enum LoginMessage {
+  COMPLETED,
+  OTP_REQUIRED,
+  NO_DEVICES_EMAIL_VERIFICATION_REQUIRED,
+}
+
 export interface LoginResponse {
   message: string;
   accessToken?: string;

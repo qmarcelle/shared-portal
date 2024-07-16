@@ -1,16 +1,12 @@
 import { logger } from '@/utils/logger';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
-import {
-  callSelectDevice,
-  callSubmitMfaOtp,
-  SelectMFAStatus,
-  SubmitMFAStatus,
-} from '../actions/mfa';
+import { callSelectDevice, callSubmitMfaOtp } from '../actions/mfa';
 import { AppProg } from '../models/app/app_prog';
 import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
+import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
 import { useLoginStore } from './loginStore';
 
 type MfaStore = {

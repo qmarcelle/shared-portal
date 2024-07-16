@@ -2,13 +2,14 @@ import { NextErrorResp } from '@/models/app/nextErrorResp';
 import { logger } from '@/utils/logger';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
-import { callLogin, LoginStatus } from '../actions/login';
+import { callLogin } from '../actions/login';
 import { LoginResponse } from '../models/api/login';
 import { AppProg } from '../models/app/app_prog';
 import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 import { LoginInteractionData } from '../models/app/login_interaction_data';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
+import { LoginStatus } from '../models/status';
 import {
   mapMfaDeviceMetadata,
   mapMfaDeviceType,

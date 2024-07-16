@@ -25,6 +25,8 @@ export async function callLogin(
       request,
     );
 
+    console.debug(resp);
+
     if (resp.data.data?.mfaDeviceList.length == 0) {
       await signIn('credentials', {
         userId: request.username,
