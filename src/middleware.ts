@@ -5,6 +5,7 @@ import {
   apiAuthPrefix,
   authRoutes,
   DEFAULT_LOGIN_REDIRECT,
+  inboundSSORoutes,
   publicRoutes,
 } from './utils/routes';
 
@@ -18,14 +19,17 @@ export default auth(async (req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+  const isInboundSSO = inboundSSORoutes.has(nextUrl.pathname);
 
   if (isApiAuthRoute) {
     return;
   }
 
   //Redirect to security for the DX iframe flow
-  if (nextUrl.pathname == '/security/dxAuth' && isLoggedIn) {
-    return Response.redirect(new URL('/security', nextUrl));
+  if (isInboundSSO && isLoggedIn) {
+    return Response.redirect(
+      new URL(inboundSSORoutes.get(nextUrl.pathname), nextUrl),
+    );
   }
 
   /**
