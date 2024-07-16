@@ -1,12 +1,12 @@
+import { logger } from '@/utils/logger';
+import { shallow } from 'zustand/shallow';
+import { createWithEqualityFn } from 'zustand/traditional';
+import { callSelectDevice, callSubmitMfaOtp } from '../actions/mfa';
+import { AppProg } from '../models/app/app_prog';
+import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
 import { useLoginStore } from './loginStore';
-import { AppProg } from '../models/app/app_prog';
-import { createWithEqualityFn } from 'zustand/traditional';
-import { shallow } from 'zustand/shallow';
-import { callSelectDevice, callSubmitMfaOtp } from '../actions/mfa';
-import { logger } from '@/utils/logger';
-import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 
 type MfaStore = {
   selectedMfa: MfaOption | null;
@@ -59,6 +59,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
       }),
     startMfaAuth: async () => {
       try {
+        useLoginStore.setState({ apiErrors: [] });
         // Set Init Mfa to loading
         set({ initMfaProg: AppProg.loading });
 
@@ -106,6 +107,8 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
     },
     submitMfaAuth: async () => {
       try {
+        // Clear existing errors
+        useLoginStore.setState({ apiErrors: [] });
         // Set SubmitMfa prog to loading
         set({
           completeMfaProg: AppProg.loading,
