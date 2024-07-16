@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import AbleToIcon from '../../../../public/assets//ableTo.svg';
+import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
+import AbleToIcon from '../../../../public/assets/ableTo.svg';
 import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
 import { IComponent } from '../../../components/IComponent';
 import { AppLink } from '../../../components/foundation/AppLink';
@@ -38,6 +39,8 @@ export const HealthCareItem = ({
       return TelaDocIcon;
     } else if (healthCareInfo.icon == 'AbleToIcon') {
       return AbleToIcon;
+    } else if (healthCareInfo.icon == 'Sanitas') {
+      return SanitasIcon;
     }
   }
 
@@ -66,7 +69,7 @@ export const HealthCareItem = ({
           ></TextBox>
           <Spacer size={8} />
           <ListOrder title={itemDataTitle} itemData={itemData}></ListOrder>
-          <AppLink label={healthCareInfo.link} />
+          <AppLink className="text-left" label={healthCareInfo.link} />
         </Column>
       </Row>
     );
@@ -98,7 +101,7 @@ export const HealthCareItem = ({
             ></TextBox>
             <SpacerX size={8} />
             <ListOrder title={itemDataTitle} itemData={itemData}></ListOrder>
-            <AppLink label={healthCareInfo.link} />
+            <AppLink className="text-left" label={healthCareInfo.link} />
           </Column>
         </Row>
       </Column>

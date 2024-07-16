@@ -1,4 +1,7 @@
+import { ReactElement } from 'react';
+
 export interface ServiceDetails {
+  serviceIcon?: ReactElement | null;
   serviceLabel: string;
   serviceSubLabel: string;
   serviceSubLabelValue: number;
