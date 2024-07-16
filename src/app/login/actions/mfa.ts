@@ -57,6 +57,7 @@ export async function callSelectDevice(
 export async function callSubmitMfaOtp(
   params: SubmitMfaOtpArgs,
 ): Promise<ActionResponse<SubmitMFAStatus, LoginResponse>> {
+  let authUser: string | null = null;
   try {
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication/provideOtp',
@@ -65,9 +66,7 @@ export async function callSubmitMfaOtp(
 
     logger.info('Successful Submit Api response');
     console.log(resp.data);
-    await signIn('credentials', {
-      username: 'akash11!', //TODO Get the username here and set this properly.
-    });
+    authUser = 'akash11!'; //TODO Retrieve auth username from a service or server-side storage i.e. Mongo
     return {
       status: SubmitMFAStatus.OTP_OK,
       data: resp.data.data,
@@ -85,6 +84,12 @@ export async function callSubmitMfaOtp(
       };
     } else {
       throw 'An error occurred';
+    }
+  } finally {
+    if (authUser) {
+      await signIn('credentials', {
+        username: authUser,
+      });
     }
   }
 }

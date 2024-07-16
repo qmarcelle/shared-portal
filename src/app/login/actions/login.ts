@@ -14,6 +14,7 @@ const INVALID_CREDENTIALS_ES_ERROR_CODE = 'UI-401';
 export async function callLogin(
   request: LoginRequest,
 ): Promise<ActionResponse<LoginStatus, LoginResponse>> {
+  let authUser: string | null = null;
   try {
     if (!request.username || !request.password) {
       return {
@@ -27,19 +28,30 @@ export async function callLogin(
 
     console.debug(resp);
 
-    if (resp.data.data?.mfaDeviceList.length == 0) {
-      await signIn('credentials', {
-        userId: request.username,
-      });
-      return {
-        status: LoginStatus.LOGIN_OK,
-        data: resp.data.data,
-      };
-    } else {
-      return {
-        status: LoginStatus.MFA_REQUIRED,
-        data: resp.data.data,
-      };
+    switch (resp.data.data?.message) {
+      case 'COMPLETED':
+        authUser = request.username;
+        return {
+          status: LoginStatus.LOGIN_OK,
+          data: resp.data.data,
+        };
+      case 'EMAIL_VERIFICATION_REQUIRED':
+      case 'NO_DEVICES_EMAIL_VERIFICATION_REQUIRED':
+        authUser = request.username; //TODO REMOVE THIS when email verification UI is implemented!!
+        return {
+          status: LoginStatus.VERIFY_EMAIL,
+          data: resp.data.data,
+        };
+      case 'OTP_REQUIRED':
+        return {
+          status: LoginStatus.MFA_REQUIRED,
+          data: resp.data.data,
+        };
+      default:
+        return {
+          status: LoginStatus.ERROR,
+          data: resp.data.data,
+        };
     }
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -60,6 +72,13 @@ export async function callLogin(
       };
     } else {
       throw error;
+    }
+  } finally {
+    if (authUser) {
+      //signIn calls redirect() so it must be done in the finally block.
+      await signIn('credentials', {
+        userId: authUser,
+      });
     }
   }
 }
