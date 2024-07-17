@@ -20,7 +20,7 @@ export const LoginComponent = () => {
   }));
   const showTooltip = username.length < 1 && password.length < 1;
   function registerNewAcccount(): void | Promise<void> {
-    window.location.href = process.env.NEXT_PUBLIC_REGISTER_NEW_ACCOUNT ?? '';
+    window.open(process.env.NEXT_PUBLIC_REGISTER_NEW_ACCOUNT, '_self');
   }
 
   return (
