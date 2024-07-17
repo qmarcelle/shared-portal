@@ -252,7 +252,7 @@ describe('Resend Mfa Code', () => {
     await waitFor(() => {
       expect(
         screen.getByRole('radio', {
-          name: 'Text a code to *********0222',
+          name: 'Text a code to (***)***-0222',
         }),
       ).toBeInTheDocument();
       expect(
@@ -266,7 +266,7 @@ describe('Resend Mfa Code', () => {
     });
 
     const textToNumberRadio = screen.getByRole('radio', {
-      name: 'Text a code to *********0222',
+      name: 'Text a code to (***)***-0222',
     });
     const sendMfaButton = screen.getByRole('button', {
       name: /send code/i,
