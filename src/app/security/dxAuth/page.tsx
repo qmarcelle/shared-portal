@@ -4,14 +4,14 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { dxAuth } from './actions/dxAuth';
 
-async function initializeDXPortalAuth() {
-  const dxToken = useSearchParams().get('u'); //eslint-disable-line react-hooks/rules-of-hooks
-  await dxAuth(dxToken);
+async function initializeDXPortalAuth(token: string | null) {
+  await dxAuth(token);
 }
 
 const SecurityDXAuthPage = () => {
+  const token = useSearchParams().get('u');
   useEffect(() => {
-    initializeDXPortalAuth();
+    initializeDXPortalAuth(token);
   });
 
   return <div>Just a moment, loading your account settings... </div>;

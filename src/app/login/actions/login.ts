@@ -29,6 +29,7 @@ export async function callLogin(
     console.debug(resp);
 
     switch (resp.data.data?.message) {
+      case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
         return {

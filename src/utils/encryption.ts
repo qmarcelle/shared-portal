@@ -27,5 +27,5 @@ export const decrypt = (encrypted: string): string => {
   }
 
   const decipher = createDecipheriv(ALGORITHM, key, iv);
-  return decipher.update(encrypted, 'base64', 'utf8') + decipher.final('utf8');
+  return decipher.update(data, 'base64', 'utf8') + decipher.final('utf8');
 };
