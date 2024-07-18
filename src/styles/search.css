@@ -5,6 +5,14 @@
   line-height: 24px;
 }
 
+.search-textfield-input {
+  height: 40px;
+}
+
+.searchBar {
+  width: 544px;
+}
+
 .searchhover:hover {
   background-color: #e7f6ff;
 }
@@ -29,4 +37,10 @@
 
 .searchResult {
   padding: 25px;
+}
+
+@media (width < 768px) {
+  .searchBar {
+    width: 96%;
+  }
 }

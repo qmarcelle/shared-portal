@@ -19,6 +19,7 @@
 @import './plan_details.css';
 @import './tooltip.css';
 @import './filter.css';
+@import './search_typeahead.css';
 
 :root {
   --primary-color: #005eb9;

@@ -9,6 +9,7 @@ import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { RecentClaimSection } from '@/app/dashboard/components/RecentClaimSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { WelcomeBanner } from '@/app/dashboard/components/WelcomeBanner';
+import { SearchNavigation } from '@/components/composite/SearchNavigation';
 import { AlertBar } from '@/components/foundation/AlertBar';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -26,6 +27,7 @@ const Dashboard = () => {
           'Another type of message that effects',
         ]}
       />
+      <SearchNavigation className="px-4"></SearchNavigation>
       <WelcomeBanner
         className="px-4"
         titleText="Welcome, "
