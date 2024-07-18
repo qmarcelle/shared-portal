@@ -62,5 +62,6 @@ export const config = {
 /**
  * This matcher is supplied with the NextAuth documentation, but has been known to have issues.
  * The matcher in-use was supplied by Code with Antonio's NextAuth tutorial and appears to work just as well.
- */
+ 
 const nextAuthMatcher = '/((?!api|_next/static|_next/image|favicon.ico).*)';
+*/

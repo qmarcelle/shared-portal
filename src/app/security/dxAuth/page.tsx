@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { dxAuth } from './actions/dxAuth';
 
 async function initializeDXPortalAuth() {
-  const dxToken = useSearchParams().get('u');
+  const dxToken = useSearchParams().get('u'); //eslint-disable-line react-hooks/rules-of-hooks
   await dxAuth(dxToken);
 }
 

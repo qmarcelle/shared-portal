@@ -15,7 +15,7 @@ export const dxAuth = async (token: string | null): Promise<void> => {
       throw 'Bad request!';
     }
 
-    let sessionJson = decrypt(token);
+    const sessionJson = decrypt(token);
 
     console.log(`[DEBUG] session=${sessionJson}`);
 
@@ -29,7 +29,7 @@ export const dxAuth = async (token: string | null): Promise<void> => {
 
     authUser = session.user;
   } catch (err) {
-    console.log(`Error authenticating DX session`);
+    console.log('Error authenticating DX session');
     console.log(err);
   } finally {
     //signIn invokes a redirect. Calling redirect() within a try/catch results in an infinite loop due to the way it works internally, so this must be done in the finally block

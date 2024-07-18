@@ -5,7 +5,7 @@ import { getPersonBusinessEntity } from './utils/api/client/get_pbe';
 
 class AuthError extends CredentialsSignin {
   code =
-    "We're sorry, we weren't able to authenticate your account due to an unknown error. Please try again later.";
+    "We're sorry, we weren't able to authenticate your account due to an unknown error. Please try again later."; //eslint-disable-line quotes
 }
 
 /**
@@ -23,7 +23,7 @@ export default {
         const username = credentials.userId?.toString();
         if (!username) {
           console.error(
-            `Tried to create session with an empty username. Something is very wrong!`,
+            'Tried to create session with an empty username. Something is very wrong!',
           );
           throw new AuthError();
         }
@@ -31,7 +31,7 @@ export default {
           const user = await getPersonBusinessEntity(username);
           return user;
         } catch (error) {
-          console.error(`Failed to create user session!`);
+          console.error('Failed to create user session!');
           console.error(error);
           throw new AuthError();
         }
