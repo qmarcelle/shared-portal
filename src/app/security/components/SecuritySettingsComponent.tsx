@@ -8,7 +8,11 @@ import { IdentityProtectionService } from './IdentityProtectionService';
 import { LoginInfoComponent } from './LoginInfoComponent';
 import { MFAInfoComponent } from './MFAInfoComponent';
 
-export const SecuritySettings = ({ session }) => {
+interface SecuritySettingsProps {
+  username: string;
+}
+
+export const SecuritySettings = ({ username }: SecuritySettingsProps) => {
   const { mfaDevices, loadMfaDevices } = useSecuritySettingsStore();
 
   const initialized = useRef(false);
@@ -32,7 +36,7 @@ export const SecuritySettings = ({ session }) => {
         <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
-            <LoginInfoComponent username={session.user.userName} />
+            <LoginInfoComponent username={username} />
             <IdentityProtectionService />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">

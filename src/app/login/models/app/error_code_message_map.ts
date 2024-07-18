@@ -12,3 +12,5 @@ export const errorCodeMessageMap = new Map<string | number, string>([
     "We didn't recognize the username or password you entered. Please try again. [UI-401]",
   ],
 ]);
+
+export const UNDEFINED_ERROR_CODE = 500;

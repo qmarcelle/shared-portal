@@ -2,12 +2,12 @@
 
 import { signIn } from '@/auth';
 import { DXAuthToken } from '@/models/auth/dx_auth_token';
-import { createDecipheriv } from 'crypto';
+import { decrypt } from '@/utils/encryption';
 import { redirect } from 'next/navigation';
 
 const DX_AUTH_EXPIRY_SEC = 600; //TODO This value is set high for dev testing. It should be set to 10 seconds or less in prod.
 
-export const dxAuth = async (token): Promise<void> => {
+export const dxAuth = async (token: string | null): Promise<void> => {
   console.log(`DX AUTH ${token}`);
   let authUser = '';
   try {
@@ -15,15 +15,7 @@ export const dxAuth = async (token): Promise<void> => {
       throw 'Bad request!';
     }
 
-    const utf8Token = Buffer.from(token, 'base64').toString();
-    const [userData, iv] = utf8Token.split(';');
-
-    if (!userData || !iv) {
-      throw 'Invalid token!';
-    }
-
-    console.log(`[DEBUG] enc=${userData} iv=${iv}`);
-    let sessionJson = decrypt(userData, process.env.DX_AUTH_SECRET, iv);
+    let sessionJson = decrypt(token);
 
     console.log(`[DEBUG] session=${sessionJson}`);
 
@@ -49,9 +41,4 @@ export const dxAuth = async (token): Promise<void> => {
       redirect('/login');
     }
   }
-};
-
-const decrypt = (encrypted, key, iv) => {
-  const decipher = createDecipheriv('aes-256-cbc', key, iv);
-  return decipher.update(encrypted, 'base64', 'utf8') + decipher.final('utf8');
 };

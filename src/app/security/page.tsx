@@ -4,7 +4,7 @@ import { SecuritySettings } from './components/SecuritySettingsComponent';
 const SecurityPage = async () => {
   const session = await auth();
 
-  return <SecuritySettings session={session} />;
+  return session?.user && <SecuritySettings username={session.user.userName} />; //TODO this needs to check for visibility by PZN once implemented.
 };
 
 export default SecurityPage;
