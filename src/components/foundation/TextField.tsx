@@ -9,7 +9,7 @@ import { Row } from './Row';
 
 export interface TextFieldProps {
   label: string;
-  type?: 'text' | 'password';
+  type?: 'text' | 'password' | 'email';
   errors?: string[] | null;
   fillGuidance?: string[] | null;
   value?: string;
@@ -46,7 +46,7 @@ const SuffixIcon = ({
   type,
   obscured,
 }: {
-  type: 'text' | 'password';
+  type: 'text' | 'password' | 'email';
   errors?: string[] | null;
   obscured?: boolean | null;
 }) => {

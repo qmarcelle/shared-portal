@@ -34,6 +34,8 @@ export type UpdateMfaDevicesStore = {
   handleVerifyErrors: (error: any) => void;
   deleteMfaDevice: (deviceType: MfaDeviceType, emailOrPhone: string) => void;
   resetState: () => void;
+  updateInvalidError: (errors: string[]) => void;
+  invalidErrors?: string[];
 };
 
 export const createUpdateMfaDevicesStore: StateCreator<
@@ -44,13 +46,17 @@ export const createUpdateMfaDevicesStore: StateCreator<
 > = (set, get) => ({
   updatedMfaResult: undefined,
   verifyMfaResult: undefined,
+  invalidErrors: [],
+  updateInvalidError: (errors: string[]) => {
+    set({ invalidErrors: errors });
+  },
   updatePhoneEmail: (deviceType: MfaDeviceType, value: string) => {
     const request = {} as UpdateMfaRequest;
     if (
       deviceType === MfaDeviceType.text ||
       deviceType === MfaDeviceType.voice
     ) {
-      request.phone = value;
+      request.phone = `1${value.replace(/\D/g, '')}`;
     }
     if (deviceType === MfaDeviceType.email) {
       request.email = value;
@@ -83,6 +89,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
             state: AppProg.success,
           },
         });
+        get().loadMfaDevices();
       }
     } catch (err) {
       logger.error('Update Device Failed' + err);

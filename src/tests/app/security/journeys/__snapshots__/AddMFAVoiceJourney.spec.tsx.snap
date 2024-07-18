@@ -304,7 +304,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                       <p
                         class="body-1 font-bold"
                       >
-                        11111111111
+                        (111) 111-1111
                       </p>
                       <span
                         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -527,7 +527,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                       <p
                         class="body-1"
                       >
-                        11111111111
+                        (111) 111-1111
                       </p>
                     </div>
                     <span

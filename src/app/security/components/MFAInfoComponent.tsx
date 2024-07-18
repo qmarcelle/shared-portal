@@ -41,7 +41,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
   };
 
   const getEnabledText = (val: MfaDevice) =>
-    `Send a security code to ${val.emailOrPhone}`;
+    `Send a security code to ${val.emailOrPhone}.`;
 
   const authenticator = mfaDevices.get(MfaDeviceType.authenticator)!;
 

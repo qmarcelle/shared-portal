@@ -14,7 +14,8 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
-import { useState } from 'react';
+import { isValidEmailAddress, validateLength } from '@/utils/inputValidator';
+import { useEffect, useState } from 'react';
 import { MfaDeviceType } from '../../models/mfa_device_type';
 import { VerifyMfaResponse } from '../../models/verify_mfa_devices';
 import { useSecuritySettingsStore } from '../../stores/security_settings_store';
@@ -30,8 +31,14 @@ export const AddMFAEmailJourney = ({
   pageIndex,
   email,
 }: ModalChildProps & AddMfaEmailJourneyProps) => {
-  const { updateMfaDevice, verifyMfaDevice, resetState, verifyMfaResult } =
-    useSecuritySettingsStore();
+  const {
+    updateMfaDevice,
+    verifyMfaDevice,
+    resetState,
+    verifyMfaResult,
+    invalidErrors,
+    updateInvalidError,
+  } = useSecuritySettingsStore();
   const { dismissModal } = useAppModalStore();
   /* const initChange = () => {
     changePage!(1, true);
@@ -43,6 +50,10 @@ export const AddMFAEmailJourney = ({
   const [mainAuthDevice, setMainAuthDevice] = useState(email);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
+  // const [emailError, setemailError] = useState<string[]>([]);
+  useEffect(() => {
+    updateInvalidError([]);
+  }, [updateInvalidError]);
 
   const initNewDevice = async () => {
     // Do API call for new device
@@ -69,6 +80,21 @@ export const AddMFAEmailJourney = ({
       }
     } catch (errorMessage: unknown) {
       changePageIndex?.(4, true);
+    }
+  };
+
+  const validateEmailAddress = (value: string) => {
+    setNewAuthDevice(value);
+    const isValidEmail = isValidEmailAddress(value);
+    const isValidLength = validateLength(value);
+    if (!isValidEmail && !isValidLength) {
+      updateInvalidError(['Invalid Email Address']);
+    } else if (isValidEmail && !isValidLength) {
+      updateInvalidError(['Invalid Email Address']);
+    } else if (!isValidEmail && isValidLength) {
+      updateInvalidError(['Invalid Email Address']);
+    } else {
+      updateInvalidError([]);
     }
   };
 
@@ -148,13 +174,18 @@ export const AddMFAEmailJourney = ({
       subLabel="enter the new email address you'd like to use for communications and security settings."
       actionArea={
         <TextField
-          valueCallback={(val) => setNewAuthDevice(val)}
+          valueCallback={(val) => validateEmailAddress(val)}
           label="Email Address"
+          type="email"
+          value={newAuthDevice}
+          errors={invalidErrors}
         />
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        newAuthDevice.length > 5 ? () => initNewDevice() : undefined
+        isValidEmailAddress(newAuthDevice) && newAuthDevice.length !== 0
+          ? () => initNewDevice()
+          : undefined
       }
     />,
     <ErrorDisplaySlide

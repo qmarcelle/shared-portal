@@ -17,8 +17,9 @@ const renderUI = () => {
 
 describe('Add Mfa Voice Journey', () => {
   let component: RenderResult;
-  beforeAll(() => {
-    const showAppModal = useAppModalStore.getState().showAppModal;
+  beforeEach(() => {
+    const { showAppModal, dismissModal } = useAppModalStore.getState();
+    dismissModal();
     component = renderUI();
     showAppModal({ content: <AddMFAVoiceJourney initNumber="1234567834" /> });
   });
@@ -83,5 +84,39 @@ describe('Add Mfa Voice Journey', () => {
       ).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should show error when we input invalid phone number', async () => {
+    // Init Screen is rendered correctly
+    await waitFor(async () => {
+      expect(screen.getByText('Voice Call Setup')).toBeVisible();
+    });
+
+    // Change Phone Number screen -- on hold
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          message: 'Phone already registered.',
+          deviceType: 'SMS',
+          deviceStatus: 'ACTIVATION_REQUIRED',
+          createdAt: '2024-02-09T12:40:33.554Z',
+          updatedAt: '2024-02-09T12:40:33.554Z',
+          phone: '11111111111',
+          email: 'chall123@gmail.com',
+          secret: 'ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+          keyUri:
+            'otpauth://totp/thomas@abc.com?secret=ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+        },
+      },
+    });
+    await waitFor(async () => {
+      const phoneEntryInput = screen.getByLabelText(/Phone Number/i);
+      await userEvent.type(phoneEntryInput, '5677');
+      fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText('Invalid Phone Number')).toBeVisible();
+    });
   });
 });

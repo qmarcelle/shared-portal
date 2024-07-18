@@ -96,4 +96,49 @@ describe('Add Mfa Email Journey', () => {
     });
     expect(component.baseElement).toMatchSnapshot();
   });
+
+  it('should show error when we input invalid Email Address', async () => {
+    // Init Screen is rendered correctly
+    await waitFor(() => {
+      expect(
+        screen.getByRole('heading', { name: 'Email Setup' }),
+      ).toBeVisible();
+    });
+    expect(screen.getByText('chall123@gmail.com')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
+
+    // Change email screen
+    fireEvent.click(screen.getByText(/Change Your Email Address/i));
+    await waitFor(() => {
+      expect(
+        screen.getByRole('heading', { name: 'Change Email Address' }),
+      ).toBeVisible();
+    });
+    expect(component.baseElement).toMatchSnapshot();
+
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          message: 'Phone already registered.',
+          deviceType: 'SMS',
+          deviceStatus: 'ACTIVATION_REQUIRED',
+          createdAt: '2024-02-09T12:40:33.554Z',
+          updatedAt: '2024-02-09T12:40:33.554Z',
+          phone: '11111111111',
+          email: 'chall123@gmail.com',
+          secret: 'ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+          keyUri:
+            'otpauth://totp/thomas@abc.com?secret=ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+        },
+      },
+    });
+    const emailEntryInput = screen.getByLabelText(/Email Address/i);
+    await userEvent.type(emailEntryInput, 'chall123gmail.com');
+    fireEvent.click(screen.getByRole('button', { name: /next/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText('Invalid Email Address')).toBeVisible();
+    });
+    expect(component.baseElement).toMatchSnapshot();
+  });
 });

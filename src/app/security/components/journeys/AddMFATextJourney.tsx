@@ -14,7 +14,8 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
-import { useState } from 'react';
+import { formatPhoneNumber, isValidMobileNumber } from '@/utils/inputValidator';
+import { useEffect, useState } from 'react';
 import { MfaDeviceType } from '../../models/mfa_device_type';
 import { VerifyMfaResponse } from '../../models/verify_mfa_devices';
 import { useSecuritySettingsStore } from '../../stores/security_settings_store';
@@ -32,12 +33,22 @@ export const AddMFATextJourney = ({
   pageIndex,
   initNumber,
 }: ModalChildProps & AddMfaTextJourneyProps) => {
-  const { updateMfaDevice, verifyMfaDevice, verifyMfaResult, resetState } =
-    useSecuritySettingsStore();
+  const {
+    updateMfaDevice,
+    verifyMfaDevice,
+    verifyMfaResult,
+    resetState,
+    invalidErrors,
+    updateInvalidError,
+  } = useSecuritySettingsStore();
   const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
   const { dismissModal } = useAppModalStore();
+
+  useEffect(() => {
+    updateInvalidError([]);
+  }, [updateInvalidError]);
 
   function changePageIndex(index: number, showback = true) {
     changePage?.(index, showback);
@@ -71,7 +82,15 @@ export const AddMFATextJourney = ({
       changePageIndex?.(4, true);
     }
   };
-
+  const validatePhoneNumber = (phoneNumber: string) => {
+    const value = formatPhoneNumber(phoneNumber);
+    setNewAuthDevice(value);
+    if (!isValidMobileNumber(value)) {
+      updateInvalidError(['Invalid Phone Number']);
+    } else {
+      updateInvalidError([]);
+    }
+  };
   const pages = [
     <InitModalSlide
       key={0}
@@ -127,13 +146,15 @@ export const AddMFATextJourney = ({
       bottomNote="By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions."
       actionArea={
         <TextField
-          valueCallback={(val) => setNewAuthDevice(val)}
+          valueCallback={(val) => validatePhoneNumber(val)}
           label="Phone Number"
+          value={newAuthDevice}
+          errors={invalidErrors}
         />
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        newAuthDevice.length > 9 ? () => initNewDevice() : undefined
+        isValidMobileNumber(newAuthDevice) ? () => initNewDevice() : undefined
       }
     />,
     <SuccessSlide
