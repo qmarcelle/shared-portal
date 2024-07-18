@@ -4,13 +4,17 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { dxAuth } from './actions/dxAuth';
 
-const SecurityDXAuthPage = () => {
+async function initializeDXPortalAuth() {
   const dxToken = useSearchParams().get('u');
+  await dxAuth(dxToken);
+}
+
+const SecurityDXAuthPage = () => {
   useEffect(() => {
-    dxAuth(dxToken);
+    initializeDXPortalAuth();
   });
 
-  return <div>Just a moment, loading your account settings... {dxToken}</div>;
+  return <div>Just a moment, loading your account settings... </div>;
 };
 
 export default SecurityDXAuthPage;
