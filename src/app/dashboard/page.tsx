@@ -9,6 +9,7 @@ import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { RecentClaimSection } from '@/app/dashboard/components/RecentClaimSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { WelcomeBanner } from '@/app/dashboard/components/WelcomeBanner';
+import { SearchNavigation } from '@/components/composite/SearchNavigation';
 import { AlertBar } from '@/components/foundation/AlertBar';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -26,6 +27,7 @@ const Dashboard = () => {
           'Another type of message that effects',
         ]}
       />
+      <SearchNavigation className="px-4"></SearchNavigation>
       <WelcomeBanner
         className="px-4"
         titleText="Welcome, "
@@ -113,7 +115,9 @@ const Dashboard = () => {
             />
             <SpendingAccountSummary
               className="large-section"
-              dateOfAccessingPortal={'October 12, 2023'}
+              title="Spending Summary"
+              linkLabel="View Spending Summary"
+              subTitle={'October 12, 2023'}
               amountPaid={1199.19}
               totalBilledAmount={9804.31}
               amountSaved={8605.12}

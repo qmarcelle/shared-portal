@@ -1,3 +1,4 @@
+import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
 import { AddMFAAuthenticatorJourney } from '@/app/security/components/journeys/AddMFAAuthenticatorJourney';
 import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
@@ -13,6 +14,11 @@ const showAppModal = useAppModalStore.getState().showAppModal;
 const dismissModal = useAppModalStore.getState().dismissModal;
 
 describe('Update Mfa Authentication Errors', () => {
+  beforeEach(() => {
+    jest
+      .spyOn(useLoginStore, 'getState')
+      .mockReturnValue({ username: 'xxxx' } as LoginStore);
+  });
   it('should render Error slide on error from update device on generic error', async () => {
     mockedAxios.post.mockRejectedValueOnce({});
     setupUI();
@@ -23,7 +29,7 @@ describe('Update Mfa Authentication Errors', () => {
         '/mfAuthentication/updateDevices',
         {
           deviceType: MfaDeviceType.authenticator,
-          userId: 'akash11!',
+          userId: 'xxxx',
         },
       );
       expect(screen.getByText('Try Again Later')).toBeVisible();
@@ -68,7 +74,7 @@ describe('Update Mfa Authentication Errors', () => {
         '/mfAuthentication/updateDevices',
         {
           deviceType: MfaDeviceType.authenticator,
-          userId: 'akash11!',
+          userId: 'xxxx',
         },
       );
       expect(screen.getByText('Try Again Later')).toBeVisible();

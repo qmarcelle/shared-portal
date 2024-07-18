@@ -1,19 +1,21 @@
-import { SpendingAccountSummary } from '../../../app/dashboard/components/SpendingAccountSummary';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { SpendingAccountSummary } from '../../../app/dashboard/components/SpendingAccountSummary';
 
 const renderUI = () => {
   return render(
     <SpendingAccountSummary
       className="large-section"
-      dateOfAccessingPortal={'October 12, 2023'}
+      title="Spending Summary"
+      linkLabel="View Spending Summary"
+      subTitle={'October 12, 2023'}
       amountPaid={1199.19}
       totalBilledAmount={9804.31}
       amountSaved={8605.12}
       amountSavedPercentage={89}
       color1={'#005EB9'}
       color2={'#5DC1FD'}
-    ></SpendingAccountSummary>,
+    />,
   );
 };
 

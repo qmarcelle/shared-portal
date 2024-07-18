@@ -60,6 +60,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
       }),
     startMfaAuth: async () => {
       try {
+        useLoginStore.setState({ apiErrors: [] });
         // Set Init Mfa to loading
         set({ initMfaProg: AppProg.loading });
 
@@ -107,6 +108,8 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
     },
     submitMfaAuth: async () => {
       try {
+        // Clear existing errors
+        useLoginStore.setState({ apiErrors: [] });
         // Set SubmitMfa prog to loading
         set({
           completeMfaProg: AppProg.loading,

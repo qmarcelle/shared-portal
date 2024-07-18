@@ -10,6 +10,7 @@ import claimsBenefitsCoverageSvg from '../../../public/assets/Claims.svg';
 import communicationSettingsSvg from '../../../public/assets/Communication-Settings.svg';
 import connectAccountssvg from '../../../public/assets/Connect-Accounts.svg';
 import documentFileSvg from '../../../public/assets/Document-File.svg';
+import downloadIconSvg from '../../../public/assets/Download.svg';
 import externaloffsitewhiteSvg from '../../../public/assets/External-White.svg';
 import hamburgerMenuSvg from '../../../public/assets/Hamburger-Menu.svg';
 import idCardSvg from '../../../public/assets/ID-Card.svg';
@@ -28,16 +29,20 @@ import spendingSummarySvg from '../../../public/assets/Spending-Summary.svg';
 import blueCrossSilhouletteSvg from '../../../public/assets/blueCrossSilhouette.svg';
 import checkBlueIconSvg from '../../../public/assets/check.svg';
 import closeIconSvg from '../../../public/assets/close.svg';
+import dentalSvg from '../../../public/assets/dental.svg';
 import downSvg from '../../../public/assets/down.svg';
 import {
   default as externalSvg,
   default as extrenalSvg,
 } from '../../../public/assets/external.svg';
 import leftIconSvg from '../../../public/assets/left.svg';
+import medicalSvg from '../../../public/assets/medical.svg';
+import pharmacySvg from '../../../public/assets/pharmacy.svg';
 import rightSvg from '../../../public/assets/right.svg';
 import successIconSvg from '../../../public/assets/success.svg';
 import switchFilterIconSvg from '../../../public/assets/switch-filter.svg';
 import upSvg from '../../../public/assets/up.svg';
+import visionSvg from '../../../public/assets/vision.svg';
 
 export const bcbstBlueLogo = bcbstLogoSvg;
 export const leftIcon = leftIconSvg;
@@ -77,3 +82,8 @@ export const externalOffsiteWhiteIcon = externaloffsitewhiteSvg;
 export const alertBlueIcon = alertBlueSvg;
 export const showPasswordIcon = showPasswordSvg;
 export const showPasswordSelectedIcon = showPasswordSelectedSvg;
+export const downloadIcon = downloadIconSvg;
+export const medicalIcon = medicalSvg;
+export const dentalIcon = dentalSvg;
+export const pharmacyIcon = pharmacySvg;
+export const visionIcon = visionSvg;

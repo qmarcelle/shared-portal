@@ -256,7 +256,7 @@ describe('Log In of User', () => {
     await waitFor(() => {
       expect(
         screen.getByRole('radio', {
-          name: 'Text a code to *********0222',
+          name: 'Text a code to (***)***-0222',
         }),
       ).toBeInTheDocument();
       expect(
@@ -270,7 +270,7 @@ describe('Log In of User', () => {
     });
 
     const textToNumberRadio = screen.getByRole('radio', {
-      name: 'Text a code to *********0222',
+      name: 'Text a code to (***)***-0222',
     });
     const sendMfaButton = screen.getByRole('button', {
       name: /send code/i,
@@ -308,7 +308,7 @@ describe('Log In of User', () => {
     await waitFor(() => {
       expect(
         screen.getByRole('radio', {
-          name: 'Text a code to *********0222',
+          name: 'Text a code to (***)***-0222',
         }),
       ).toBeInTheDocument();
       expect(

@@ -153,7 +153,7 @@ describe('Log In of User', () => {
     await waitFor(() => {
       expect(
         screen.getByRole('radio', {
-          name: 'Text a code to *********0222',
+          name: 'Text a code to (***)***-0222',
         }),
       ).toBeInTheDocument();
       expect(

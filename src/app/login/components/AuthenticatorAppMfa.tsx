@@ -4,8 +4,8 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextField } from '@/components/foundation/TextField';
 import { AppProg } from '../models/app/app_prog';
 import { MfaModeState } from '../models/app/mfa_mode_state';
-import { useMfaStore } from '../stores/mfaStore';
 import { useLoginStore } from '../stores/loginStore';
+import { useMfaStore } from '../stores/mfaStore';
 
 export const AuthenticatorAppMfa = () => {
   const code = useMfaStore((state) => state.code);
@@ -47,6 +47,7 @@ export const AuthenticatorAppMfa = () => {
       <AppLink
         label="Choose a Different Method"
         callback={() => actions.updateMfaStage(MfaModeState.selection)}
+        className="m-auto"
       />
       <Spacer size={65} />
       <h3>Need Help?</h3>

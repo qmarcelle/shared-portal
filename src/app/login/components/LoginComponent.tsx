@@ -19,6 +19,9 @@ export const LoginComponent = () => {
     resetApiErrors: state.resetApiErrors,
   }));
   const showTooltip = username.length < 1 && password.length < 1;
+  function registerNewAcccount(): void | Promise<void> {
+    window.open(process.env.NEXT_PUBLIC_REGISTER_NEW_ACCOUNT, '_self');
+  }
 
   return (
     <div id="mainSection" className="dark:text-black">
@@ -60,14 +63,18 @@ export const LoginComponent = () => {
         </ToolTip>
       </div>
       <Spacer size={16} />
-      <AppLink label="Forgot Username/Password?" className="m-auto" />
+      <AppLink
+        label="Forgot Username/Password?"
+        className="m-auto"
+        url={process.env.NEXT_PUBLIC_PASSWORD_RESET}
+      />
       <Spacer size={32} />
       <Divider />
       <Spacer size={32} />
       <Button
         type="secondary"
         label="Register a New Account"
-        callback={() => {}}
+        callback={() => registerNewAcccount()}
       />
     </div>
   );

@@ -1,3 +1,4 @@
+import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
 import { DisableMFAJourney } from '@/app/security/components/journeys/DisableMFAJourney';
 import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
@@ -14,6 +15,11 @@ const setupUI = () => {
 const showAppModal = useAppModalStore.getState().showAppModal;
 const dismissModal = useAppModalStore.getState().dismissModal;
 describe('Disable Mfa Errors', () => {
+  beforeEach(() => {
+    jest
+      .spyOn(useLoginStore, 'getState')
+      .mockReturnValue({ username: 'xxxx' } as LoginStore);
+  });
   it('should render Error slide on delete device generic error', async () => {
     mockedAxios.post.mockRejectedValueOnce({});
     setupUI();
@@ -39,7 +45,7 @@ describe('Disable Mfa Errors', () => {
         {
           deviceType: 'email',
           email: 'xyz@abc.com',
-          userId: 'akash11!',
+          userId: 'xxxx',
         },
       );
       expect(screen.getByText('Try Again Later')).toBeVisible();
@@ -100,7 +106,7 @@ describe('Disable Mfa Errors', () => {
         {
           deviceType: 'email',
           email: 'xyz@abc.com',
-          userId: 'akash11!',
+          userId: 'xxxx',
         },
       );
       expect(screen.getByText('Try Again Later')).toBeVisible();

@@ -7,7 +7,7 @@ import { AxiosError } from 'axios';
 import { GetMfaDevices } from '../models/get_mfa_devices';
 
 export async function getMfaDevices(
-  userId: string,
+  userId: string, //TODO Do not take the username from client. This is a security risk. Use auth() to retrieve username from the JWT in server actions. Leaving this in for testing until the LoggedInUser backend is integrated
 ): Promise<ESResponse<GetMfaDevices>> {
   try {
     const request = {

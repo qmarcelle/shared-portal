@@ -16,7 +16,7 @@ import {
 } from '../utils/mfaDeviceMapper';
 import { useMfaStore } from './mfaStore';
 
-type LoginStore = {
+export type LoginStore = {
   username: string;
   password: string;
   loggedUser: boolean;
@@ -51,6 +51,8 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       })),
     login: async () => {
       try {
+        // Set the errors to empty
+        set(() => ({ apiErrors: [] }));
         // Set loading indicator
         set(() => ({ loginProg: AppProg.loading }));
         const resp = await callLogin({

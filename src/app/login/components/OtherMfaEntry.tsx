@@ -5,8 +5,8 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextField } from '@/components/foundation/TextField';
 import { AppProg } from '../models/app/app_prog';
 import { MfaModeState } from '../models/app/mfa_mode_state';
-import { useMfaStore } from '../stores/mfaStore';
 import { useLoginStore } from '../stores/loginStore';
+import { useMfaStore } from '../stores/mfaStore';
 
 export type OtherMfaEntryProps = {
   authMethod: string;
