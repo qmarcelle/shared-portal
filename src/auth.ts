@@ -15,6 +15,7 @@ export const {
   signOut,
 } = NextAuth({
   callbacks: {
+    //eslint-disable-next-line @typescript-eslint/no-unused-vars -- Token will be used for backend implementation but this is a stub for now
     async session({ token, session }) {
       return session;
     },

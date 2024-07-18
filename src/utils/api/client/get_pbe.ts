@@ -1,7 +1,7 @@
 import { type PortalUser } from '@/models/auth/user';
 
 export async function getPersonBusinessEntity(
-  userId: string,
+  userId: string, //eslint-disable-line @typescript-eslint/no-unused-vars -- Stub function
 ): Promise<PortalUser> {
   return {
     userName: 'bcbstuser222',

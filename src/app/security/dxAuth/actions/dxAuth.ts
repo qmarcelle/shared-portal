@@ -38,7 +38,7 @@ export const dxAuth = async (token: string | null): Promise<void> => {
         userId: authUser,
       });
     } else {
-      redirect('/login');
+      redirect('/error');
     }
   }
 };
