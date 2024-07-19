@@ -15,6 +15,7 @@ export interface TextFieldProps {
   value?: string;
   hint?: string;
   valueCallback?: (value: string) => void;
+  onKeydownCallback?: (key: string) => void;
   suffixIconCallback?: () => void;
   maxWidth?: number;
   isSuffixNeeded?: boolean;
@@ -113,6 +114,7 @@ export const TextField = ({
   valueCallback,
   onFocusCallback,
   suffixIconCallback,
+  onKeydownCallback,
   maxWidth,
   isSuffixNeeded = false,
 }: TextFieldProps) => {
@@ -155,6 +157,7 @@ export const TextField = ({
           }}
           onBlur={() => setFocus(false)}
           onChange={(event) => valueCallback?.(event.target.value)}
+          onKeyDown={(event) => onKeydownCallback?.(event.key)}
           value={value}
           placeholder={hint}
           type={computeType()}

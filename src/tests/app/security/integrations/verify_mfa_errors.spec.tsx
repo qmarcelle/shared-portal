@@ -45,6 +45,13 @@ describe('Verify MFA Authenticator errors', () => {
       },
     });
 
+    setupUI();
+    showAppModal({ content: <AddMFAAuthenticatorJourney /> });
+
+    await waitFor(() => {
+      screen.getByLabelText(/Enter Security Code/i);
+    });
+
     const verifyError = createAxiosErrorForTest({
       errorObject: {
         data: {},
@@ -74,14 +81,6 @@ describe('Verify MFA Authenticator errors', () => {
       },
     });
     mockedAxios.post.mockRejectedValueOnce(verifyError);
-
-    setupUI();
-    showAppModal({ content: <AddMFAAuthenticatorJourney /> });
-
-    await waitFor(() => {
-      screen.getByLabelText(/Enter Security Code/i);
-    });
-
     const codeEntryInput = screen.getByLabelText(/Enter Security Code/i);
     await act(async () => {
       await userEvent.type(codeEntryInput, '123456');

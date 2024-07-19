@@ -76,7 +76,7 @@ describe('Get MFA Devices', () => {
     within(mfaOptions[2]).getByText('Text Message');
     expect(within(mfaOptions[2]).getAllByText('ON')[0]).toBeVisible();
     expect(
-      within(mfaOptions[2]).getByText('Send a security code to (546) 758-9687'),
+      within(mfaOptions[2]).getByText('Send a security code to (467) 589-6875'),
     ).toBeVisible();
     expect(within(mfaOptions[2]).getByText('Remove Method')).toBeVisible();
 
@@ -84,7 +84,7 @@ describe('Get MFA Devices', () => {
     within(mfaOptions[3]).getByText('Voice Call');
     expect(within(mfaOptions[3]).getAllByText('ON')[0]).toBeVisible();
     expect(
-      within(mfaOptions[3]).getByText('Send a security code to (546) 758-9687'),
+      within(mfaOptions[3]).getByText('Send a security code to (467) 589-6875'),
     ).toBeVisible();
     expect(within(mfaOptions[3]).getByText('Remove Method')).toBeVisible();
 

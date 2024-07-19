@@ -45,6 +45,11 @@ export const AddMFATextJourney = ({
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
   const { dismissModal } = useAppModalStore();
+  let isBackSpacePressed: boolean = false;
+
+  useEffect(() => {
+    updateInvalidError([]);
+  }, [updateInvalidError]);
 
   useEffect(() => {
     updateInvalidError([]);
@@ -83,13 +88,19 @@ export const AddMFATextJourney = ({
     }
   };
   const validatePhoneNumber = (phoneNumber: string) => {
-    const value = formatPhoneNumber(phoneNumber);
+    let value = phoneNumber;
+    if (!isBackSpacePressed) {
+      value = formatPhoneNumber(phoneNumber);
+    }
     setNewAuthDevice(value);
-    if (!isValidMobileNumber(value)) {
+    if (!isValidMobileNumber(value) && !(value.length == 0)) {
       updateInvalidError(['Invalid Phone Number']);
     } else {
       updateInvalidError([]);
     }
+  };
+  const keyDownCallBack = (keyCode: string) => {
+    isBackSpacePressed = keyCode == 'Backspace';
   };
   const pages = [
     <InitModalSlide
@@ -147,6 +158,7 @@ export const AddMFATextJourney = ({
       actionArea={
         <TextField
           valueCallback={(val) => validatePhoneNumber(val)}
+          onKeydownCallback={(val) => keyDownCallBack(val)}
           label="Phone Number"
           value={newAuthDevice}
           errors={invalidErrors}
