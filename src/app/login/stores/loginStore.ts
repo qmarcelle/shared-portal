@@ -3,7 +3,7 @@ import { logger } from '@/utils/logger';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callLogin } from '../actions/login';
-import { LoginResponse } from '../models/api/login';
+import { PortalLoginResponse } from '../models/api/login';
 import { AppProg } from '../models/app/app_prog';
 import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 import { LoginInteractionData } from '../models/app/login_interaction_data';
@@ -25,13 +25,14 @@ export type LoginStore = {
   updateUsername: (val: string) => void;
   updatePassword: (val: string) => void;
   login: () => Promise<void>;
-  processLogin: (response: LoginResponse) => Promise<void>;
+  processLogin: (response: PortalLoginResponse) => Promise<void>;
   resetApiErrors: () => void;
   resetToHome: () => void;
   loginProg: AppProg;
   apiErrors: string[];
   apiErrorcode: string[];
   interactionData: LoginInteractionData | null;
+  userToken: string;
 };
 
 export const useLoginStore = createWithEqualityFn<LoginStore>(
@@ -41,6 +42,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     loggedUser: false,
     unhandledErrors: false,
     mfaNeeded: false,
+    userToken: '',
     updateUsername: (val: string) =>
       set(() => ({
         username: val.trim(),
@@ -86,13 +88,14 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         }
       }
     },
-    processLogin: async (data: LoginResponse) => {
+    processLogin: async (data: PortalLoginResponse) => {
       // Set the interaction data for upcoming requests
       set({
         interactionData: {
           interactionId: data.interactionId,
           interactionToken: data.interactionToken,
         },
+        userToken: data.userToken,
       });
 
       // Set the User data and exit if no mfa devices are configured

@@ -2,8 +2,10 @@
 
 import { signIn } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
+import { DXAuthToken } from '@/models/auth/dx_auth_token';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
+import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { AxiosError } from 'axios';
 import { LoginResponse } from '../models/api/login';
@@ -20,6 +22,7 @@ type SubmitMfaOtpArgs = {
   otp: string;
   interactionId: string;
   interactionToken: string;
+  userToken: string;
 };
 
 export async function callSelectDevice(
@@ -66,7 +69,11 @@ export async function callSubmitMfaOtp(
 
     logger.info('Successful Submit Api response');
     console.log(resp.data);
-    authUser = 'akash11!'; //TODO Retrieve auth username from a service or server-side storage i.e. Mongo
+    const username = verifyUserId(params.userToken);
+    if (!username) {
+      throw 'Failed to verify username';
+    }
+    authUser = username;
     return {
       status: SubmitMFAStatus.OTP_OK,
       data: resp.data.data,
@@ -91,5 +98,17 @@ export async function callSubmitMfaOtp(
         userId: authUser,
       });
     }
+  }
+}
+
+function verifyUserId(token: string): string | null {
+  try {
+    const json = decrypt(token);
+    const userData: DXAuthToken = JSON.parse(json);
+    return userData.user;
+  } catch (err) {
+    console.error('Failed to verify username in MFA flow!');
+    console.error(err);
+    return null;
   }
 }

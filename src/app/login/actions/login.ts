@@ -4,16 +4,22 @@ import { signIn } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
+import { UNIXTimeSeconds } from '@/utils/date_formatter';
+import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { AxiosError } from 'axios';
-import { LoginRequest, LoginResponse } from '../models/api/login';
+import {
+  LoginRequest,
+  LoginResponse,
+  PortalLoginResponse,
+} from '../models/api/login';
 import { LoginStatus } from '../models/status';
 
 const INVALID_CREDENTIALS_ES_ERROR_CODE = 'UI-401';
 
 export async function callLogin(
   request: LoginRequest,
-): Promise<ActionResponse<LoginStatus, LoginResponse>> {
+): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
   try {
     if (!request.username || !request.password) {
@@ -27,33 +33,36 @@ export async function callLogin(
     );
 
     console.debug(resp);
+    let status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
       case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
-        return {
-          status: LoginStatus.LOGIN_OK,
-          data: resp.data.data,
-        };
+        status = LoginStatus.LOGIN_OK;
+        break;
       case 'EMAIL_VERIFICATION_REQUIRED':
       case 'NO_DEVICES_EMAIL_VERIFICATION_REQUIRED':
         authUser = request.username; //TODO REMOVE THIS when email verification UI is implemented!!
-        return {
-          status: LoginStatus.VERIFY_EMAIL,
-          data: resp.data.data,
-        };
+        status = LoginStatus.VERIFY_EMAIL;
+        break;
       case 'OTP_REQUIRED':
-        return {
-          status: LoginStatus.MFA_REQUIRED,
-          data: resp.data.data,
-        };
-      default:
-        return {
-          status: LoginStatus.ERROR,
-          data: resp.data.data,
-        };
+        status = LoginStatus.MFA_REQUIRED;
+        break;
     }
+    if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
+    return {
+      status,
+      data: {
+        ...resp.data.data,
+        userToken: encrypt(
+          JSON.stringify({
+            user: request.username,
+            time: UNIXTimeSeconds(),
+          }),
+        ),
+      },
+    };
   } catch (error) {
     if (error instanceof AxiosError) {
       //logger.error("Response from API " + error.response?.data);

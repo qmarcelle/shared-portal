@@ -2,6 +2,7 @@
 
 import { signIn } from '@/auth';
 import { DXAuthToken } from '@/models/auth/dx_auth_token';
+import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { decrypt } from '@/utils/encryption';
 import { redirect } from 'next/navigation';
 
@@ -21,8 +22,7 @@ export const dxAuth = async (token: string | null): Promise<void> => {
 
     const session: DXAuthToken = JSON.parse(sessionJson);
 
-    const currentTimeSec = Math.floor(new Date().getTime() / 1000);
-    if (session.time + DX_AUTH_EXPIRY_SEC <= currentTimeSec) {
+    if (session.time + DX_AUTH_EXPIRY_SEC <= UNIXTimeSeconds()) {
       throw 'Token is expired!';
     }
     console.log(`Authenticating HCL Portal Session: ${session.user}`);

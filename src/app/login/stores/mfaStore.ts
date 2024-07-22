@@ -129,6 +129,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             useLoginStore.getState().interactionData!.interactionId,
           interactionToken:
             useLoginStore.getState().interactionData!.interactionToken,
+          userToken: useLoginStore.getState().userToken,
         });
 
         if (resp.status == SubmitMFAStatus.ERROR) {

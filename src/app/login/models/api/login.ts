@@ -28,3 +28,7 @@ export interface MfaDeviceListItem {
   phone?: string;
   email?: string;
 }
+
+export interface PortalLoginResponse extends LoginResponse {
+  userToken: string;
+}
