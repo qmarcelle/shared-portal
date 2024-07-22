@@ -25,14 +25,14 @@ export const AccordionListCard = ({
         {header && (
           <div>
             <Header className="title-2" text={header}></Header>{' '}
-            <Spacer size={32} />
+            <Spacer size={22} />
           </div>
         )}
         {information.map((info, index) => (
           <>
             <Accordion
               key={index}
-              className="px-2 py-4"
+              className="px-2 py-4 "
               label={info.title}
               icon={info.icon}
               child={info.body}
