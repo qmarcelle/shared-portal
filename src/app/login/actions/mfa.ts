@@ -61,6 +61,7 @@ export async function callSubmitMfaOtp(
   params: SubmitMfaOtpArgs,
 ): Promise<ActionResponse<SubmitMFAStatus, LoginResponse>> {
   let authUser: string | null = null;
+  console.debug(params);
   try {
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication/provideOtp',
@@ -105,6 +106,7 @@ function verifyUserId(token: string): string | null {
   try {
     const json = decrypt(token);
     const userData: DXAuthToken = JSON.parse(json);
+    console.debug(`Verified MFA user token: ${userData.user}`);
     return userData.user;
   } catch (err) {
     console.error('Failed to verify username in MFA flow!');
