@@ -1,17 +1,20 @@
 'use server';
 
+import { auth } from '@/auth';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
 import { AxiosError } from 'axios';
 import { GetMfaDevices } from '../models/get_mfa_devices';
 
-export async function getMfaDevices(
-  userId: string, //TODO Do not take the username from client. This is a security risk. Use auth() to retrieve username from the JWT in server actions. Leaving this in for testing until the LoggedInUser backend is integrated
-): Promise<ESResponse<GetMfaDevices>> {
+export async function getMfaDevices(): Promise<ESResponse<GetMfaDevices>> {
   try {
+    const session = await auth();
+    if (!session || !session.user) {
+      throw 'Not logged in';
+    }
     const request = {
-      userId,
+      userId: session.user.userName,
     };
     const axioResponse = await esApi.post(
       '/mfAuthentication/getDevices',

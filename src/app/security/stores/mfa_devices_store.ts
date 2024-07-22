@@ -1,4 +1,3 @@
-import { useLoginStore } from '@/app/login/stores/loginStore';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { logger } from '@/utils/logger';
 import { StateCreator } from 'zustand';
@@ -102,9 +101,7 @@ export const createMfaDevicesStore: StateCreator<
   ]),
   loadMfaDevices: async () => {
     try {
-      const resp: ESResponse<GetMfaDevices> = await getMfaDevices(
-        useLoginStore.getState().username,
-      );
+      const resp: ESResponse<GetMfaDevices> = await getMfaDevices();
       set((state) => ({
         mfaDevices: new Map(
           JSON.parse(JSON.stringify([...state.defaultMfaDevices])),
