@@ -88,7 +88,7 @@ export async function callSubmitMfaOtp(
   } finally {
     if (authUser) {
       await signIn('credentials', {
-        username: authUser,
+        userId: authUser,
       });
     }
   }
