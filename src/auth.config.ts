@@ -1,6 +1,6 @@
 import { CredentialsSignin, type NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import { PortalUser } from './models/auth/user';
+import { User } from './models/auth/user';
 import { getPersonBusinessEntity } from './utils/api/client/get_pbe';
 
 class AuthError extends CredentialsSignin {
@@ -19,7 +19,7 @@ export default {
       credentials: {
         userId: { label: 'User ID' },
       },
-      async authorize(credentials): Promise<PortalUser> {
+      async authorize(credentials): Promise<User> {
         const username = credentials.userId?.toString();
         if (!username) {
           console.error(
@@ -29,10 +29,12 @@ export default {
         }
         try {
           const user = await getPersonBusinessEntity(username);
-          return user;
-        } catch (error) {
-          console.error('Failed to create user session!');
-          console.error(error);
+          return {
+            id: username, //becomes the property 'sub' in JWT
+            name: user.name,
+          };
+        } catch (err) {
+          console.log('Authorization failed');
           throw new AuthError();
         }
       },

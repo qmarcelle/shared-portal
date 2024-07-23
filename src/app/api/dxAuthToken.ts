@@ -15,7 +15,7 @@ export default async function handler(
       throw UNAUTHORIZED_ERR;
     }
     const token: DXAuthToken = {
-      user: session?.user.userName,
+      user: session?.user.id,
       time: Math.floor(new Date().getTime() / 1000),
     };
     const encryptedToken = encrypt(JSON.stringify(token));

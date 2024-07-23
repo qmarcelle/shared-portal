@@ -4,7 +4,9 @@ export async function getPersonBusinessEntity(
   userId: string, //eslint-disable-line @typescript-eslint/no-unused-vars -- Stub function
 ): Promise<PortalUser> {
   return {
-    userName: 'bcbstuser222',
+    id: userId,
+    email: 'Emily_Elam@bcbst.com',
+    emailVerified: new Date(2000, 0, 1),
     umpi: 'asdfghjkl',
     fhirId: 'qwertyuiop',
     name: 'John Doe',

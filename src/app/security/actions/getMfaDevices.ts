@@ -14,7 +14,7 @@ export async function getMfaDevices(): Promise<ESResponse<GetMfaDevices>> {
       throw 'Not logged in';
     }
     const request = {
-      userId: session.user.userName,
+      userId: session.user.id,
     };
     const axioResponse = await esApi.post(
       '/mfAuthentication/getDevices',
