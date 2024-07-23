@@ -76,7 +76,7 @@ export async function callSubmitMfaOtp(
       throw 'Failed to verify username';
     }
     authUser = username;
-    setWebsphereRedirectCookie({
+    await setWebsphereRedirectCookie({
       interactionId: resp.data.data?.interactionId,
       interactionToken: resp.data.data?.interactionToken,
     });

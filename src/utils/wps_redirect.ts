@@ -4,9 +4,9 @@ import { UNIXTimeSeconds } from './date_formatter';
 
 const MAX_AGE = 3600;
 
-export function setWebsphereRedirectCookie(
+export async function setWebsphereRedirectCookie(
   interactionData: Partial<LoginInteractionData>,
-): void {
+): Promise<void> {
   if (process.env.WPS_REDIRECT_ENABLED == 'true') {
     if (!interactionData.interactionId || !interactionData.interactionToken) {
       throw 'Websphere redirect failed: Invalid interaction data!';
