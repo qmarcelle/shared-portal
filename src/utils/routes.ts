@@ -26,4 +26,4 @@ export const SECURITY_SETTINGS_PATH = '/security';
 export const DEFAULT_LOGIN_REDIRECT =
   process.env.WPS_REDIRECT_ENABLED == 'true'
     ? process.env.WPS_REDIRECT_URL || ''
-    : '/dashboard';
+    : '/security';
