@@ -40,7 +40,7 @@ export async function callLogin(
       case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
-        setWebsphereRedirectCookie({
+        await setWebsphereRedirectCookie({
           interactionId: resp.data.data?.interactionId,
           interactionToken: resp.data.data?.interactionToken,
         });
@@ -49,7 +49,7 @@ export async function callLogin(
       case 'EMAIL_VERIFICATION_REQUIRED':
       case 'NO_DEVICES_EMAIL_VERIFICATION_REQUIRED':
         authUser = request.username; //TODO REMOVE THIS when email verification UI is implemented!!
-        setWebsphereRedirectCookie({
+        await setWebsphereRedirectCookie({
           interactionId: resp.data.data?.interactionId,
           interactionToken: resp.data.data?.interactionToken,
         });
