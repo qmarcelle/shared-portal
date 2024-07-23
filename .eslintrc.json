@@ -5,6 +5,9 @@
     "plugin:prettier/recommended"
   ],
   "plugins": ["@typescript-eslint"],
+  "ignores": [
+    "*.json"
+  ],
   "rules": {
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
