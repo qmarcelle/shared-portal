@@ -9,12 +9,13 @@ import { Row } from './Row';
 
 export interface TextFieldProps {
   label: string;
-  type?: 'text' | 'password';
+  type?: 'text' | 'password' | 'email';
   errors?: string[] | null;
   fillGuidance?: string[] | null;
   value?: string;
   hint?: string;
   valueCallback?: (value: string) => void;
+  onKeydownCallback?: (key: string) => void;
   suffixIconCallback?: () => void;
   maxWidth?: number;
   isSuffixNeeded?: boolean;
@@ -46,7 +47,7 @@ const SuffixIcon = ({
   type,
   obscured,
 }: {
-  type: 'text' | 'password';
+  type: 'text' | 'password' | 'email';
   errors?: string[] | null;
   obscured?: boolean | null;
 }) => {
@@ -113,6 +114,7 @@ export const TextField = ({
   valueCallback,
   onFocusCallback,
   suffixIconCallback,
+  onKeydownCallback,
   maxWidth,
   isSuffixNeeded = false,
 }: TextFieldProps) => {
@@ -155,6 +157,7 @@ export const TextField = ({
           }}
           onBlur={() => setFocus(false)}
           onChange={(event) => valueCallback?.(event.target.value)}
+          onKeyDown={(event) => onKeydownCallback?.(event.key)}
           value={value}
           placeholder={hint}
           type={computeType()}

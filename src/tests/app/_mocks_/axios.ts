@@ -8,7 +8,6 @@ export const AxiosError = axios.AxiosError;
 const axiosDefault = {
   create: jest.fn(() => mockedAxios),
   get: jest.fn(),
-  post: jest.fn(),
   AxiosError: axios.AxiosErrors,
 };
 export default axiosDefault;

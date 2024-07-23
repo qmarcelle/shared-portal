@@ -1,8 +1,8 @@
 import { SearchNavigation } from '@/components/composite/SearchNavigation';
+import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { act } from 'react';
-import { mockedAxios } from '../_mocks_/axios';
 
 const renderUI = () => {
   return render(<SearchNavigation />);

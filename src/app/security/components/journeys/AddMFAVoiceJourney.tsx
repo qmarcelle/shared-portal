@@ -13,7 +13,8 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
-import { useState } from 'react';
+import { formatPhoneNumber, isValidMobileNumber } from '@/utils/inputValidator';
+import { useEffect, useState } from 'react';
 import { MfaDeviceType } from '../../models/mfa_device_type';
 import { VerifyMfaResponse } from '../../models/verify_mfa_devices';
 import { useSecuritySettingsStore } from '../../stores/security_settings_store';
@@ -30,13 +31,28 @@ export const AddMFAVoiceJourney = ({
   pageIndex,
   initNumber,
 }: ModalChildProps & AddMfaVoiceJourneyProps) => {
-  const { updateMfaDevice, verifyMfaDevice, resetState, verifyMfaResult } =
-    useSecuritySettingsStore();
+  const {
+    updateMfaDevice,
+    verifyMfaDevice,
+    resetState,
+    verifyMfaResult,
+    invalidErrors,
+    updateInvalidError,
+  } = useSecuritySettingsStore();
   const [confirmCode, setConfirmCode] = useState('');
 
   const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const { dismissModal } = useAppModalStore();
+  let isBackSpacePressed: boolean = false;
+
+  useEffect(() => {
+    updateInvalidError([]);
+  }, [updateInvalidError]);
+
+  useEffect(() => {
+    updateInvalidError([]);
+  }, [updateInvalidError]);
 
   function changePageIndex(index: number, showback = true) {
     changePage?.(index, showback);
@@ -67,6 +83,23 @@ export const AddMFAVoiceJourney = ({
     }
   };
 
+  const validatePhoneNumber = (phoneNumber: string) => {
+    let value = phoneNumber;
+    if (!isBackSpacePressed) {
+      value = formatPhoneNumber(phoneNumber);
+    }
+    setNewAuthDevice(value);
+    if (!isValidMobileNumber(value) && !(value.length == 0)) {
+      updateInvalidError(['Invalid Phone Number']);
+    } else {
+      updateInvalidError([]);
+    }
+  };
+
+  const keyDownCallBack = (keyCode: string) => {
+    isBackSpacePressed = keyCode == 'Backspace';
+  };
+
   const pages = [
     <ChangeAuthDeviceSlide // First Slide to enter phone number
       key={0}
@@ -75,13 +108,16 @@ export const AddMFAVoiceJourney = ({
       bottomNote={bottomNote}
       actionArea={
         <TextField
-          valueCallback={(val) => setNewAuthDevice(val)}
+          valueCallback={(val) => validatePhoneNumber(val)}
+          onKeydownCallback={(val) => keyDownCallBack(val)}
           label="Phone Number"
+          value={newAuthDevice}
+          errors={invalidErrors}
         />
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        newAuthDevice.length > 9 ? () => initNewDevice() : undefined
+        isValidMobileNumber(newAuthDevice) ? () => initNewDevice() : undefined
       }
     />,
 
