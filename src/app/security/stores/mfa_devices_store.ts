@@ -1,4 +1,5 @@
 import { ESResponse } from '@/models/enterprise/esResponse';
+import { formatPhoneNumber } from '@/utils/inputValidator';
 import { logger } from '@/utils/logger';
 import { StateCreator } from 'zustand';
 import { getMfaDevices } from '../actions/getMfaDevices';
@@ -28,7 +29,7 @@ export const createMfaDevicesStore: StateCreator<
         enabled: false,
         label: 'Authenticator App',
         // eslint-disable-next-line quotes
-        subLabel: "Use your authenticator app's security code",
+        subLabel: "Use your authenticator app's security code.",
       },
     ],
     [
@@ -116,8 +117,8 @@ export const createMfaDevicesStore: StateCreator<
             mfa.enabled = item.deviceStatus == 'ACTIVE' ? true : false;
             if (mfa.deviceType == MfaDeviceType.email) {
               mfa.emailOrPhone = item.email;
-            } else {
-              mfa.emailOrPhone = item.phone;
+            } else if (!(mfa.deviceType == MfaDeviceType.authenticator)) {
+              mfa.emailOrPhone = formatPhoneNumber(item.phone.substring(1, 11));
             }
           }
         });

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="97px" height="96px" viewBox="0 0 97 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>UI/Icon/Modal-Success</title>
+    <defs>
+        <path d="M50.8184,25.578 L35.6824,45.454 L29.1504,37.11 C27.7904,35.366 25.2704,35.062 23.5344,36.426 C21.7944,37.786 21.4864,40.302 22.8504,42.038 L32.5744,54.466 C33.3344,55.434 34.4944,55.998 35.7264,55.998 L35.7544,55.998 C36.9904,55.994 38.1584,55.41 38.9064,54.422 L57.1824,30.422 C58.5224,28.662 58.1824,26.158 56.4224,24.818 C54.6584,23.478 52.1544,23.822 50.8184,25.578 M40,72 C22.356,72 8,57.644 8,40 C8,22.356 22.356,8 40,8 C57.644,8 72,22.356 72,40 C72,57.644 57.644,72 40,72 M40,0 C17.908,0 0,17.912 0,40 C0,62.088 17.908,80 40,80 C62.092,80 80,62.088 80,40 C80,17.912 62.092,0 40,0" id="path-1"></path>
+    </defs>
+    <g id="UI/Icon/Modal-Success" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon" transform="translate(8.6997, 8)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="🎨-Icon-Сolor" fill="#508316" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
