@@ -79,6 +79,7 @@ export async function callSubmitMfaOtp(
     await setWebsphereRedirectCookie({
       interactionId: resp.data.data?.interactionId,
       interactionToken: resp.data.data?.interactionToken,
+      sessionToken: resp.data.data?.sessionToken,
     });
     return {
       status: SubmitMFAStatus.OTP_OK,
