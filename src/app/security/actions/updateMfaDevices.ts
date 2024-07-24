@@ -3,6 +3,7 @@
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
+import { getServerSideUserId } from '@/utils/server_session';
 import { AxiosError } from 'axios';
 import {
   UpdateMfaRequest,
@@ -12,6 +13,8 @@ import {
 export async function updateMfaDevices(
   request: UpdateMfaRequest,
 ): Promise<ESResponse<UpdateMfaResponse>> {
+  request.userId = await getServerSideUserId();
+  console.debug(`Entering updateMfaDevices - ${JSON.stringify(request)}`);
   try {
     const axiosResponse = await esApi.post(
       '/mfAuthentication/updateDevices',
