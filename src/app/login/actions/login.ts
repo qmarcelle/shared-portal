@@ -32,7 +32,7 @@ export async function callLogin(
       request,
     );
 
-    console.debug(resp);
+    //console.debug(resp);
     let status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
@@ -88,6 +88,7 @@ export async function callLogin(
       //signIn calls redirect() so it must be done in the finally block.
       await signIn('credentials', {
         userId: authUser,
+        redirect: false,
       });
     }
   }

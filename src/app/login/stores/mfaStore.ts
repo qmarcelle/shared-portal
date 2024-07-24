@@ -132,6 +132,12 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           userToken: useLoginStore.getState().userToken,
         });
 
+        if (resp.status == SubmitMFAStatus.OTP_OK) {
+          useLoginStore.setState({
+            loggedUser: true,
+          });
+        }
+
         if (resp.status == SubmitMFAStatus.ERROR) {
           useLoginStore.setState({
             apiErrors: [
