@@ -62,6 +62,12 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
           password: get().password, //get().password,
         });
 
+        if (resp.status == LoginStatus.LOGIN_OK) {
+          set({
+            loggedUser: true,
+          });
+        }
+
         if (resp.status == LoginStatus.ERROR) {
           throw resp;
         }
