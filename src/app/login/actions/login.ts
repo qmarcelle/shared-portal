@@ -47,7 +47,10 @@ export async function callLogin(
         status = LoginStatus.VERIFY_EMAIL;
         break;
       case 'OTP_REQUIRED':
-        status = LoginStatus.MFA_REQUIRED;
+        status = LoginStatus.MFA_REQUIRED_ONE_DEVICE;
+        break;
+      case 'DEVICE_SELECTION_REQUIRED':
+        status = LoginStatus.MFA_REQUIRED_MULTIPLE_DEVICES;
         break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
