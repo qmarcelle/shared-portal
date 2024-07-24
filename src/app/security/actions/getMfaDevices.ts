@@ -1,20 +1,16 @@
 'use server';
 
-import { auth } from '@/auth';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
+import { getServerSideUserId } from '@/utils/server_session';
 import { AxiosError } from 'axios';
 import { GetMfaDevices } from '../models/get_mfa_devices';
 
 export async function getMfaDevices(): Promise<ESResponse<GetMfaDevices>> {
   try {
-    const session = await auth();
-    if (!session || !session.user) {
-      throw 'Not logged in';
-    }
     const request = {
-      userId: session.user.id,
+      userId: await getServerSideUserId(),
     };
     const axiosResponse = await esApi.post(
       '/mfAuthentication/getDevices',
