@@ -52,6 +52,7 @@ export async function callLogin(
         await setWebsphereRedirectCookie({
           interactionId: resp.data.data?.interactionId,
           interactionToken: resp.data.data?.interactionToken,
+          sessionToken: resp.data.data?.sessionToken,
         });
         status = LoginStatus.VERIFY_EMAIL;
         break;
