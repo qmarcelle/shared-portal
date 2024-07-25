@@ -37,7 +37,6 @@ export const AuthenticatorAppMfa = () => {
         errors={apiErrors}
       />
       <Spacer size={24} />
-      <AppLink label="Resend Code" callback={() => actions.resendMfa()} />
       <Spacer size={32} />
       <Button
         callback={validateSecurityCode()}

@@ -58,8 +58,15 @@ export const AddMFAEmailJourney = ({
   const initNewDevice = async () => {
     // Do API call for new device
     try {
-      await updateMfaDevice(MfaDeviceType.email, newAuthDevice);
-      setMainAuthDevice(newAuthDevice);
+      let email = '';
+      if (newAuthDevice == '') {
+        email = mainAuthDevice;
+        setNewAuthDevice(mainAuthDevice);
+      } else {
+        email = newAuthDevice;
+        setMainAuthDevice(newAuthDevice);
+      }
+      await updateMfaDevice(MfaDeviceType.email, email);
       changePageIndex?.(1, true);
     } catch (errorMessage: unknown) {
       changePageIndex?.(4, true);
@@ -81,6 +88,11 @@ export const AddMFAEmailJourney = ({
     } catch (errorMessage: unknown) {
       changePageIndex?.(4, true);
     }
+  };
+
+  const sendCode = async () => {
+    initNewDevice();
+    changePageIndex?.(1, true);
   };
 
   const validateEmailAddress = (value: string) => {
@@ -120,7 +132,7 @@ export const AddMFAEmailJourney = ({
         />
       }
       cancelCallback={() => dismissModal()}
-      nextCallback={() => changePageIndex?.(1, true)}
+      nextCallback={() => sendCode()}
     />,
 
     <InputModalSlide

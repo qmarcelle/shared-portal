@@ -182,8 +182,10 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           selectedMfa: prevSelectedMfa,
         });
 
-        // Start Mfa auth
-        get().startMfaAuth();
+        // Start Mfa auth only if we have multiple mfa selection
+        if (get().availMfaModes.length > 1) {
+          get().startMfaAuth();
+        }
 
         // Set prog to successful
         set({ initMfaProg: AppProg.success });

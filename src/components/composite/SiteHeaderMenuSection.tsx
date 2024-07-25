@@ -1,5 +1,6 @@
 import { SectionHeaderMenuItem } from '../../models/section_header_menu_item';
 import { IComponent } from '../IComponent';
+import ProfileHeaderCard from './ProfileHeaderCard';
 
 export interface SiteHeaderMenuProps extends IComponent {
   user: string;
@@ -20,13 +21,7 @@ export const SiteHeaderMenuSection = ({
           <span className="hidden lg:inline px-2 pt-2">{item.title}</span>
         </a>
       ))}
-      <div className="flex h-full secondary-bg-color2 text-white px-4 py-1">
-        {icon}
-        <div className="hidden lg:block p-2">
-          <span className="text-xs">Primary Profile</span>
-          <p>{user}</p>
-        </div>
-      </div>
+      <ProfileHeaderCard user={user} icon={icon} />
     </div>
   );
 };

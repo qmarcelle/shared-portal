@@ -7,6 +7,8 @@ const customJestConfig = {
     '^@/components/(.*)$': '/src/components/$1',
     '^@/pages/(.*)$': '/src/pages/$1',
     '^@/utils/(.*)$': '/src/utils/$1',
+    'next-auth/providers/credentials':
+      '<rootDir>/src/tests/__mocks__/next-auth-providers-credentials.ts',
   },
   testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/tests/**/*spec.{ts,tsx}'],

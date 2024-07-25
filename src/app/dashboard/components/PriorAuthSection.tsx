@@ -21,8 +21,9 @@ export const PriorAuthSection = ({
         <Spacer size={32} />
         {(() => {
           if (priorauth.length !== 0) {
-            return priorauth.slice(0, 3).map((item) => (
-              <>
+            return priorauth
+              .slice(0, 3)
+              .map((item) => (
                 <PriorAuthCard
                   key={item.priorAuthName + item.priorAuthStatus}
                   priorAuthStatus={item.priorAuthStatus}
@@ -31,8 +32,7 @@ export const PriorAuthSection = ({
                   dateOfVisit={item.dateOfVisit}
                   priorAuthType={item.priorAuthType}
                 />
-              </>
-            ));
+              ));
           } else {
             return <BlankPriorAuthSection />;
           }
