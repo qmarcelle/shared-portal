@@ -4,7 +4,9 @@ import { signOut } from '@/auth';
 
 export async function callSignOut(): Promise<void> {
   try {
-    await signOut();
+    await signOut({
+      redirect: false,
+    });
   } catch (error) {
     throw error;
   }
