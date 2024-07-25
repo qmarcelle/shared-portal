@@ -1,3 +1,5 @@
+import { Divider } from '@/components/foundation/Divider';
+import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '../../../components/IComponent';
 import { AppLink } from '../../../components/foundation/AppLink';
 import { Card } from '../../../components/foundation/Card';
@@ -16,6 +18,8 @@ interface MedicalBalanceSectionProps extends IComponent {
   outOfPocketLimit: number;
   onSelectedMemberChange: () => void;
   onSelectedNetworkChange: () => void;
+  displayDisclaimerText: boolean;
+  disclaimerText?: string;
 }
 
 export const MedicalBalanceSection = ({
@@ -30,6 +34,8 @@ export const MedicalBalanceSection = ({
   outOfPocketSpent,
   onSelectedMemberChange,
   onSelectedNetworkChange,
+  displayDisclaimerText,
+  disclaimerText,
 }: MedicalBalanceSectionProps) => {
   return (
     <Card className={className}>
@@ -68,7 +74,14 @@ export const MedicalBalanceSection = ({
           limitAmount={outOfPocketLimit}
         />
         <Spacer size={32} />
-        <AppLink label="View All Balances" />
+        {!displayDisclaimerText && <AppLink label="View All Balances" />}
+        {displayDisclaimerText && disclaimerText && (
+          <>
+            <Divider />
+            <Spacer size={32} />
+            <TextBox type="body-2" text={disclaimerText} />
+          </>
+        )}
       </div>
     </Card>
   );
