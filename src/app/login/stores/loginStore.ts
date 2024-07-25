@@ -1,8 +1,9 @@
-import { NextErrorResp } from '@/models/app/nextErrorResp';
+import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callLogin } from '../actions/login';
+import { callSignOut } from '../actions/signOut';
 import { PortalLoginResponse } from '../models/api/login';
 import { AppProg } from '../models/app/app_prog';
 import { errorCodeMessageMap } from '../models/app/error_code_message_map';
@@ -28,6 +29,7 @@ export type LoginStore = {
   processLogin: (response: PortalLoginResponse) => Promise<void>;
   resetApiErrors: () => void;
   resetToHome: () => void;
+  signOut: () => void;
   loginProg: AppProg;
   apiErrors: string[];
   apiErrorcode: string[];
@@ -68,7 +70,10 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
           });
         }
 
-        if (resp.status == LoginStatus.ERROR) {
+        if (
+          resp.status == LoginStatus.ERROR ||
+          resp.status == LoginStatus.INVALID_CREDENTIALS
+        ) {
           throw resp;
         }
 
@@ -83,7 +88,8 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         // Set indicator for login button
         set(() => ({ loginProg: AppProg.failed }));
         const errorMessage = errorCodeMessageMap.get(
-          (err as NextErrorResp).errorCode!,
+          (err as ActionResponse<LoginStatus, PortalLoginResponse>)?.error
+            ?.errorCode ?? '',
         );
         if (errorMessage != null) {
           set((state) => ({
@@ -133,7 +139,13 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       set({ mfaNeeded: true });
     },
     resetToHome: () => {
-      set({ mfaNeeded: false, unhandledErrors: false, apiErrors: [] });
+      set({
+        mfaNeeded: false,
+        unhandledErrors: false,
+        apiErrors: [],
+        username: '',
+        password: '',
+      });
       useMfaStore.setState({ stage: MfaModeState.selection });
     },
     resetApiErrors: () =>
@@ -144,6 +156,20 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     apiErrors: [],
     apiErrorcode: [],
     interactionData: null,
+    signOut: async () => {
+      try {
+        await callSignOut();
+        set({
+          loggedUser: false,
+        });
+        get().resetToHome();
+        return;
+      } catch (error) {
+        // Log the error
+        logger.error('Error from SignOut Action', error);
+        console.error(error);
+      }
+    },
   }),
   shallow,
 );
