@@ -42,6 +42,7 @@ export const LoginComponent = () => {
           onFocusCallback={() => {
             actions.resetApiErrors();
           }}
+          highlightError={false}
           errors={apiErrors}
           isSuffixNeeded={true}
         />

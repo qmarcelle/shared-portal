@@ -63,7 +63,15 @@ export const AddMFATextJourney = ({
   const initNewDevice = async () => {
     // Do API call for new device
     try {
-      await updateMfaDevice(MfaDeviceType.text, newAuthDevice);
+      let phone = '';
+      if (newAuthDevice == '') {
+        phone = mainAuthDevice;
+        setNewAuthDevice(mainAuthDevice);
+      } else {
+        phone = newAuthDevice;
+        setMainAuthDevice(newAuthDevice);
+      }
+      await updateMfaDevice(MfaDeviceType.text, phone);
       setMainAuthDevice(newAuthDevice);
       changePageIndex?.(1, true);
     } catch (errorMessage: unknown) {
@@ -86,6 +94,10 @@ export const AddMFATextJourney = ({
     } catch (errorMessage: unknown) {
       changePageIndex?.(4, true);
     }
+  };
+  const sendCode = async () => {
+    initNewDevice();
+    changePageIndex?.(1, true);
   };
   const validatePhoneNumber = (phoneNumber: string) => {
     let value = phoneNumber;
@@ -123,7 +135,7 @@ export const AddMFATextJourney = ({
         />
       }
       bottomNote={<TextBox text={bottomNote} />}
-      nextCallback={() => changePageIndex?.(1, true)}
+      nextCallback={() => sendCode()}
       cancelCallback={() => dismissModal()}
     />, // MfaInit
     <InputModalSlide

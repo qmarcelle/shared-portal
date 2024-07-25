@@ -3,6 +3,8 @@ import authConfig from './auth.config';
 import { type PortalUser } from './models/auth/user';
 import { getPersonBusinessEntity } from './utils/api/client/get_pbe';
 
+export const SERVER_ACTION_NO_SESSION_ERROR = 'Invalid session';
+
 declare module 'next-auth' {
   interface Session {
     user: PortalUser;

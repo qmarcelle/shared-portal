@@ -66,7 +66,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
   updateMfaDevice: async (deviceType: MfaDeviceType, value?: string) => {
     try {
       let request: UpdateMfaRequest = {
-        userId: useLoginStore.getState().username,
+        userId: '',
         deviceType: deviceType,
       };
       if (value) {
