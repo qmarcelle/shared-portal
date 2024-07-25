@@ -1,4 +1,6 @@
 import { useLoginStore } from '@/app/login/stores/loginStore';
+import { DEFAULT_LOGOUT_REDIRECT } from '@/utils/routes';
+import { useRouter } from 'next/navigation';
 import { IComponent } from '../IComponent';
 import { ProfileHeaderCardItem } from '../composite/ProfileHeaderCardItem';
 import { Button } from '../foundation/Button';
@@ -15,9 +17,11 @@ export interface ProfileHeaderCardProps extends IComponent {
 export const ProfileHeaderCard = ({ user, icon }: ProfileHeaderCardProps) => {
   const { showSideBar, dismissModal } = useSideBarModalStore();
   const { signOut } = useLoginStore();
+  const router = useRouter();
   const onSignOut = async () => {
     await signOut();
     dismissModal();
+    router.replace(DEFAULT_LOGOUT_REDIRECT);
   };
   return (
     <div
