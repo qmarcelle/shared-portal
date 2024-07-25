@@ -30,7 +30,11 @@ export const AppLink = ({
         className={`flex flex-row link-container ${className}`}
       >
         <p className="link">{label}</p>
-        {icon && <p className="ml-1">{icon}</p>}
+        {icon && (
+          <p className="ml-1" style={{ display: `${displayStyle}` }}>
+            {icon}
+          </p>
+        )}
       </button>
     </a>
   );
