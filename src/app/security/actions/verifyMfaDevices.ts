@@ -3,6 +3,7 @@
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
+import { getServerSideUserId } from '@/utils/server_session';
 import { AxiosError } from 'axios';
 import {
   VerifyMfaRequest,
@@ -13,6 +14,7 @@ export async function verifyMfaDevices(
   request: VerifyMfaRequest,
 ): Promise<ESResponse<VerifyMfaResponse>> {
   try {
+    request.userId = await getServerSideUserId();
     const axiosResponse = await esApi.post(
       '/mfAuthentication/verifyDevices',
       request,

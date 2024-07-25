@@ -43,8 +43,8 @@ export const BenefitsAndCoverageSection = ({
           <label className="body-1">Browse your benefits by category:</label>
           <Spacer size={32} />
         </div>
-        {filteredUsers.slice(0, filteredUsers.length).map((item) => (
-          <>
+        {filteredUsers.slice(0, filteredUsers.length).map((item, index) => (
+          <div key={index}>
             <Spacer size={16} />
             <a
               href={item.benefitURL}
@@ -66,7 +66,7 @@ export const BenefitsAndCoverageSection = ({
             </a>
             <Spacer size={16} />
             <Divider />
-          </>
+          </div>
         ))}
         <Spacer size={32} />
         <AppLink label="View All Benefits & Coverage" />

@@ -27,3 +27,5 @@ export const DEFAULT_LOGIN_REDIRECT =
   process.env.WPS_REDIRECT_ENABLED == 'true'
     ? process.env.WPS_REDIRECT_URL || ''
     : '/security';
+
+export const DEFAULT_LOGOUT_REDIRECT = '/login';
