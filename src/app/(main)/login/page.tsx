@@ -2,7 +2,7 @@
 
 import { Column } from '@/components/foundation/Column';
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
-import { DEFAULT_LOGIN_REDIRECT } from '@/utils/routes';
+import { getLoginRedirect } from '@/utils/routes';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
@@ -26,7 +26,7 @@ export default function LogIn() {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace(DEFAULT_LOGIN_REDIRECT);
+      router.replace(getLoginRedirect());
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;
