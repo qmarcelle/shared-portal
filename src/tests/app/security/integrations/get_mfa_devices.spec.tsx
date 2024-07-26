@@ -1,5 +1,5 @@
-import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
-import SecurityPage from '@/app/security/page';
+import { LoginStore, useLoginStore } from '@/app/(main)/login/stores/loginStore';
+import SecurityPage from '@/app/(main)/security/page';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor, within } from '@testing-library/react';

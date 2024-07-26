@@ -1,7 +1,7 @@
 import {
-  OtherMfaEntry,
-  OtherMfaEntryProps,
-} from '@/app/login/components/OtherMfaEntry';
+    OtherMfaEntry,
+    OtherMfaEntryProps,
+} from '@/app/(main)/login/components/OtherMfaEntry';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

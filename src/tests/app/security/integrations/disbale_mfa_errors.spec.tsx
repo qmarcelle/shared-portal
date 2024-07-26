@@ -1,6 +1,6 @@
-import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
-import { DisableMFAJourney } from '@/app/security/components/journeys/DisableMFAJourney';
-import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
+import { LoginStore, useLoginStore } from '@/app/(main)/login/stores/loginStore';
+import { DisableMFAJourney } from '@/app/(main)/security/components/journeys/DisableMFAJourney';
+import { MfaDeviceType } from '@/app/(main)/security/models/mfa_device_type';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';

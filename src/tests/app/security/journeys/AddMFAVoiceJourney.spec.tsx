@@ -1,12 +1,12 @@
-import { AddMFAVoiceJourney } from '@/app/security/components/journeys/AddMFAVoiceJourney';
+import { AddMFAVoiceJourney } from '@/app/(main)/security/components/journeys/AddMFAVoiceJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {
-  RenderResult,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
+    RenderResult,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { mockedAxios } from '../../../__mocks__/axios';

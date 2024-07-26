@@ -1,4 +1,4 @@
-import { PrimaryCareProvider } from '@/app/primaryCareOptions/components/PrimaryCareProvider';
+import { PrimaryCareProvider } from '@/app/(main)/primaryCareOptions/components/PrimaryCareProvider';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

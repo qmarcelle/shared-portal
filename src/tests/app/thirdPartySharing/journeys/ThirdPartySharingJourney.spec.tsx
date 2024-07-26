@@ -1,12 +1,12 @@
-import { ThirdPartySharingJourney } from '@/app/thirdPartySharing/components/journeys/ThirdPartySharingJourney';
+import { ThirdPartySharingJourney } from '@/app/(main)/thirdPartySharing/components/journeys/ThirdPartySharingJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {
-  RenderResult,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
+    RenderResult,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
 } from '@testing-library/react';
 
 const renderUI = () => {

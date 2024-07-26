@@ -1,4 +1,4 @@
-import { AccessOnMyPlanComponent } from '@/app/accessOthersInformation/components/AccessOnMyPlanComponent';
+import { AccessOnMyPlanComponent } from '@/app/(main)/accessOthersInformation/components/AccessOnMyPlanComponent';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

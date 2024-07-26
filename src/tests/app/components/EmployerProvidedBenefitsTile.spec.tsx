@@ -1,6 +1,6 @@
-import { EmployeeProvidedBenefitsTile } from '../../../app/dashboard/components/EmployeeProvidedBenefitsTile';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { EmployeeProvidedBenefitsTile } from '../../../app/(main)/dashboard/components/EmployeeProvidedBenefitsTile';
 
 const renderUI = () => {
   return render(

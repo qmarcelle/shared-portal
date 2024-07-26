@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { ChooseMentalHealthProvider } from '../../../../app/mentalHealthOptions/components/ChooseMentalHealthProviderSection';
+import { ChooseMentalHealthProvider } from '../../../../app/(main)/mentalHealthOptions/components/ChooseMentalHealthProviderSection';
 
 const renderUI = () => {
   return render(<ChooseMentalHealthProvider className="large-section" />);

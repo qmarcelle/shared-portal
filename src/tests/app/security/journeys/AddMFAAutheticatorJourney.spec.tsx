@@ -1,12 +1,12 @@
-import { AddMFAAuthenticatorJourney } from '@/app/security/components/journeys/AddMFAAuthenticatorJourney';
+import { AddMFAAuthenticatorJourney } from '@/app/(main)/security/components/journeys/AddMFAAuthenticatorJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {
-  RenderResult,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
+    RenderResult,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { mockedAxios } from '../../../__mocks__/axios';

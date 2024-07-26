@@ -1,4 +1,4 @@
-import { PriorAuthDetailsStatus } from '../../app/authDetail/models/priorAuthDetailStatus';
+import { PriorAuthDetailsStatus } from '../../app/(main)/authDetail/models/priorAuthDetailStatus';
 import { AuthItem } from '../composite/AuthItem';
 import { Column } from '../foundation/Column';
 import { Spacer } from '../foundation/Spacer';

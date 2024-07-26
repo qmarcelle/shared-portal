@@ -1,5 +1,5 @@
-import { PlanDetailsSection } from '../../../app/myPlan/components/PlanDetailsSection';
 import { render, screen } from '@testing-library/react';
+import { PlanDetailsSection } from '../../../app/(main)/myPlan/components/PlanDetailsSection';
 
 const renderUI = () => {
   render(<PlanDetailsSection />);
