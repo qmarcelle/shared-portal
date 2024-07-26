@@ -1,3 +1,4 @@
+import { getConfig } from '@/actions/config';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Divider } from '@/components/foundation/Divider';
@@ -7,7 +8,7 @@ import { ToolTip } from '@/components/foundation/Tooltip';
 import { AppProg } from '../models/app/app_prog';
 import { useLoginStore } from '../stores/loginStore';
 
-export const LoginComponent = () => {
+export const LoginComponent = async () => {
   const username = useLoginStore((state) => state.username);
   const password = useLoginStore((state) => state.password);
   const loginProg = useLoginStore((state) => state.loginProg);
@@ -19,8 +20,8 @@ export const LoginComponent = () => {
     resetApiErrors: state.resetApiErrors,
   }));
   const showTooltip = username.length < 1 && password.length < 1;
-  function registerNewAcccount(): void | Promise<void> {
-    window.open(process.env.NEXT_PUBLIC_REGISTER_NEW_ACCOUNT, '_self');
+  async function registerNewAcccount(): Promise<void> {
+    window.open(await getConfig('NEXT_PUBLIC_REGISTER_NEW_ACCOUNT'), '_self');
   }
 
   return (
@@ -67,7 +68,7 @@ export const LoginComponent = () => {
       <AppLink
         label="Forgot Username/Password?"
         className="m-auto"
-        url={process.env.NEXT_PUBLIC_PASSWORD_RESET}
+        url={await getConfig('NEXT_PUBLIC_PASSWORD_RESET')}
       />
       <Spacer size={32} />
       <Divider />
