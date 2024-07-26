@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { BenefitsAndCoverageSection } from '../../../app/dashboard/components/BenefitsAndCoverageSection';
+import { BenefitsAndCoverageSection } from '../../../app/(main)/dashboard/components/BenefitsAndCoverageSection';
 
 const renderUI = () => {
   return render(

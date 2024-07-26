@@ -1,5 +1,5 @@
-import { NotificationSection } from '../../../app/inbox/components/NotificationSection';
 import { render, screen } from '@testing-library/react';
+import { NotificationSection } from '../../../app/(main)/inbox/components/NotificationSection';
 
 const renderUI = () => {
   return render(

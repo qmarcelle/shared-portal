@@ -1,4 +1,4 @@
-import { ThirdPartySharingInfo } from '@/app/thirdPartySharing/components/ThirdPartySharingInfo';
+import { ThirdPartySharingInfo } from '@/app/(main)/thirdPartySharing/components/ThirdPartySharingInfo';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

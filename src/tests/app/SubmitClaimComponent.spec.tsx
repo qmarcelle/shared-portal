@@ -1,11 +1,11 @@
-import { SubmitClaimComponent } from '@/app/claim/components/SubmitClaimComponent';
+import { SubmitClaimComponent } from '@/app/(main)/claim/components/SubmitClaimComponent';
 import '@testing-library/jest-dom';
 import {
-  RenderResult,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
+    RenderResult,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
 } from '@testing-library/react';
 import axios from 'axios';
 

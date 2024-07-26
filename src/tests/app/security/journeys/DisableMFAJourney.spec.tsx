@@ -1,13 +1,13 @@
-import { DisableMFAJourney } from '@/app/security/components/journeys/DisableMFAJourney';
-import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
+import { DisableMFAJourney } from '@/app/(main)/security/components/journeys/DisableMFAJourney';
+import { MfaDeviceType } from '@/app/(main)/security/models/mfa_device_type';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {
-  RenderResult,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
+    RenderResult,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
 } from '@testing-library/react';
 import { mockedAxios } from '../../../__mocks__/axios';
 

@@ -1,4 +1,4 @@
-import PersonalRepresentativeAccess from '@/app/personalRepresentativeAccess/page';
+import PersonalRepresentativeAccess from '@/app/(main)/personalRepresentativeAccess/page';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 

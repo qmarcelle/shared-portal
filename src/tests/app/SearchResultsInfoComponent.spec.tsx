@@ -1,6 +1,6 @@
-import { SearchResultsInfoComponent } from '@/app/searchResults/components/SearchResultsInfoComponent';
-import { render, screen } from '@testing-library/react';
+import { SearchResultsInfoComponent } from '@/app/(main)/searchResults/components/SearchResultsInfoComponent';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
 const setupUI = () => {
   return render(<SearchResultsInfoComponent />);

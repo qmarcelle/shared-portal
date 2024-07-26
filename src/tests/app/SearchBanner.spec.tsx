@@ -1,6 +1,6 @@
-import { SearchBanner } from '@/app/searchResults/components/SearchBanner';
-import { render, screen } from '@testing-library/react';
+import { SearchBanner } from '@/app/(main)/searchResults/components/SearchBanner';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
 const setupUI = () => {
   return render(<SearchBanner />);

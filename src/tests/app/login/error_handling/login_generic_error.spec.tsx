@@ -1,4 +1,4 @@
-import LogInPage from '@/app/login/page';
+import LogInPage from '@/app/(main)/login/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';

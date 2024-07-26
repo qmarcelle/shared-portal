@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { ViewOtherPlanInformation } from '../../../app/myPlan/components/ViewOtherPlanInformation';
+import { render, screen } from '@testing-library/react';
+import { ViewOtherPlanInformation } from '../../../app/(main)/myPlan/components/ViewOtherPlanInformation';
 
 const renderUI = () => {
   return render(<ViewOtherPlanInformation />);

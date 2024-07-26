@@ -1,4 +1,4 @@
-import { LoginComponent } from '@/app/login/components/LoginComponent';
+import { LoginComponent } from '@/app/(main)/login/components/LoginComponent';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

@@ -1,4 +1,4 @@
-import { ManageMyPlan } from '@/app/myPlan/components/ManageMyPlan';
+import { ManageMyPlan } from '@/app/(main)/myPlan/components/ManageMyPlan';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

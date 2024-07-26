@@ -1,6 +1,6 @@
-import { LoginResponse } from '@/app/login/models/api/login';
-import { SubmitMfaOtpResponse } from '@/app/login/models/api/submit_mfa_otp_response';
-import LogInPage from '@/app/login/page';
+import { LoginResponse } from '@/app/(main)/login/models/api/login';
+import { SubmitMfaOtpResponse } from '@/app/(main)/login/models/api/submit_mfa_otp_response';
+import LogInPage from '@/app/(main)/login/page';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';

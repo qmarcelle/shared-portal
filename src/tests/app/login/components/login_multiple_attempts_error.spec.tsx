@@ -1,4 +1,4 @@
-import { MultipleAttemptsErrorComponent } from '@/app/login/components/MultipleAttemptsErrorComponent';
+import { MultipleAttemptsErrorComponent } from '@/app/(main)/login/components/MultipleAttemptsErrorComponent';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

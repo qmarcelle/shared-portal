@@ -1,4 +1,4 @@
-import { ServicesRenderedSection } from '@/app/claimServiceRendered/components/ServicesRenderedSection';
+import { ServicesRenderedSection } from '@/app/(main)/claimServiceRendered/components/ServicesRenderedSection';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

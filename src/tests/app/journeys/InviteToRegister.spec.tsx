@@ -1,12 +1,12 @@
-import { InviteToRegister } from '@/app/accessOthersInformation/journeys/InviteToRegister';
+import { InviteToRegister } from '@/app/(main)/accessOthersInformation/journeys/InviteToRegister';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {
-  RenderResult,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
+    RenderResult,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

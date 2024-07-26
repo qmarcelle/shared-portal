@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { AboutPrimaryCareProvider } from '../../../app/primaryCareOptions/components/AboutPrimaryCareProvider';
+import { AboutPrimaryCareProvider } from '../../../app/(main)/primaryCareOptions/components/AboutPrimaryCareProvider';
 
 const renderUI = () => {
   return render(<AboutPrimaryCareProvider className="large-section" />);

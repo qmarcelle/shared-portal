@@ -1,8 +1,8 @@
-import { PillBox } from '../../../app/dashboard/components/PillBox';
-import FindCare from '../../public/Find-Care.svg';
-import Image from 'next/image';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import Image from 'next/image';
+import { PillBox } from '../../../app/(main)/dashboard/components/PillBox';
+import FindCare from '../../public/Find-Care.svg';
 
 const renderUI = () => {
   return render(

@@ -1,4 +1,4 @@
-import { ViewCareOptions } from '@/app/findcare/components/ViewCareOptions';
+import { ViewCareOptions } from '@/app/(main)/findcare/components/ViewCareOptions';
 import { render, screen } from '@testing-library/react';
 import { Context as ResponsiveContext } from 'react-responsive';
 
