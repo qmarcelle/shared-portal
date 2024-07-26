@@ -53,6 +53,10 @@ export default auth(async (req) => {
     return;
   }
 
+  if (isAuthRoute && !isLoggedIn) {
+    return;
+  }
+
   /**
    * Routes accessible by logged-in users.
    */
