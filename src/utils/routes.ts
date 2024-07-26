@@ -23,9 +23,15 @@ export const inboundSSORoutes = new Map<string, string>([
 
 export const SECURITY_SETTINGS_PATH = '/security';
 
-export const DEFAULT_LOGIN_REDIRECT =
-  process.env.WPS_REDIRECT_ENABLED == 'true'
-    ? process.env.WPS_REDIRECT_URL || ''
-    : '/security';
+export function getLoginRedirect(): string {
+  let url = '';
+  if (process.env.NEXT_PUBLIC_WPS_REDIRECT_ENABLED == 'true') {
+    url = process.env.NEXT_PUBLIC_WPS_REDIRECT_URL || '/security';
+  } else {
+    url = '/security';
+  }
+  console.log(`LOGIN REDIRECT ${url}`);
+  return url;
+}
 
 export const DEFAULT_LOGOUT_REDIRECT = '/login';
