@@ -24,11 +24,22 @@ export default auth(async (req) => {
     return;
   }
 
-  //Redirect to security for the DX iframe flow
-  if (isInboundSSO && isLoggedIn) {
-    return Response.redirect(
-      new URL(inboundSSORoutes.get(nextUrl.pathname) || '/dashboard', nextUrl),
-    );
+  /**
+   * Handle inbound SSO routes.
+   * If the user is not logged in, return to prevent handling of the route by any other part of the function.
+   * If logged in already, redirect to the destination page specified in routes.ts
+   */
+  if (isInboundSSO) {
+    if (isLoggedIn) {
+      return Response.redirect(
+        new URL(
+          inboundSSORoutes.get(nextUrl.pathname) || '/dashboard',
+          nextUrl,
+        ),
+      );
+    } else {
+      return;
+    }
   }
 
   /**

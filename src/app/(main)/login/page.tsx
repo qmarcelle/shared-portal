@@ -2,7 +2,6 @@
 
 import { Column } from '@/components/foundation/Column';
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
-import { getLoginRedirect } from '@/utils/routes';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
@@ -26,7 +25,7 @@ export default function LogIn() {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace(getLoginRedirect());
+      router.replace('https://members-gdev.bcbst.com/wps/myportal/member');
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;
