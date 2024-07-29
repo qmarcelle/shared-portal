@@ -8,7 +8,7 @@ import { ToolTip } from '@/components/foundation/Tooltip';
 import { AppProg } from '../models/app/app_prog';
 import { useLoginStore } from '../stores/loginStore';
 
-export const LoginComponent = async () => {
+export const LoginComponent = () => {
   const username = useLoginStore((state) => state.username);
   const password = useLoginStore((state) => state.password);
   const loginProg = useLoginStore((state) => state.loginProg);
