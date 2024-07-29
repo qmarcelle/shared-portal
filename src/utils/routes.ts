@@ -18,7 +18,7 @@ export const apiAuthPrefix = '/api';
  * Mapping of inbound SSO authentication paths to the portal page they redirect to upon successful sign-in
  */
 export const inboundSSORoutes = new Map<string, string>([
-  ['/security/dxAuth', '/security'],
+  ['/embed/dxAuth', '/embed/security'],
 ]);
 
 export const SECURITY_SETTINGS_PATH = '/security';
