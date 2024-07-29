@@ -4,8 +4,9 @@ import downIcon from '../../../public/assets/down.svg';
 import resetIcon from '../../../public/assets/reset.svg';
 import {
   FilterDetails,
-  FilterDropDowndetails,
+  FilterItem,
 } from '../../models/filter_dropdown_details';
+import { IComponent } from '../IComponent';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
@@ -13,11 +14,18 @@ import { RichDropDown } from '../foundation/RichDropDown';
 import { Row } from '../foundation/Row';
 import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
-import { IComponent } from '../IComponent';
+import { Button } from './Button';
+import { TextField } from './TextField';
 
 interface FilterProps extends IComponent {
   filterHeading: string;
-  dropDown: FilterDropDowndetails[];
+  filterItems: FilterItem[];
+  buttons?: {
+    type: 'primary';
+    className: string;
+    label: string;
+    callback: (isClicked: boolean) => void | Promise<void> | null;
+  };
 }
 
 const FilterTile = ({ user }: { user: FilterDetails }) => {
@@ -43,22 +51,41 @@ const FilterHead = ({ user }: { user: FilterDetails }) => {
   );
 };
 
-export const Filter = ({ className, filterHeading, dropDown }: FilterProps) => {
+export const Filter = ({
+  className,
+  filterHeading,
+  filterItems,
+  buttons,
+}: FilterProps) => {
   const [reset, resetFilter] = useState(false);
-  const [dropDownList, setDropDownList] = useState(dropDown);
+  const [filterItem, setFilterItem] = useState(filterItems);
 
   const handleReset = () => {
     resetFilter(false);
-    setDropDownList(dropDown);
+    setFilterItem(filterItems);
+    buttons?.callback(false);
   };
 
   const handleDropDownUpdate = (value: FilterDetails, index: number) => {
-    const dropdDownCopiedVal = JSON.parse(JSON.stringify(dropDownList));
+    const dropdDownCopiedVal = JSON.parse(JSON.stringify(filterItem));
     if (dropdDownCopiedVal[index]) {
       dropdDownCopiedVal[index].selectedValue = value;
     }
-    setDropDownList(dropdDownCopiedVal);
+    setFilterItem(dropdDownCopiedVal);
     resetFilter(true);
+  };
+
+  const handleInputUpdate = (value: string, index: number) => {
+    const filterList = JSON.parse(JSON.stringify(filterItem));
+    if (filterList[index]) {
+      filterList[index].value = value;
+    }
+    setFilterItem(filterList);
+    resetFilter(true);
+  };
+
+  const handleCallback = () => {
+    buttons?.callback(true);
   };
 
   return (
@@ -66,24 +93,38 @@ export const Filter = ({ className, filterHeading, dropDown }: FilterProps) => {
       <Column>
         <Header className="title-2" text={filterHeading} />
         <Spacer size={32} />
-        {dropDownList.slice(0, dropDownList.length).map((item, index) => (
+        {filterItem.slice(0, filterItem.length).map((item, index) => (
           <>
             <Column key={index}>
-              <div className="body-1">{item.dropNownName} </div>
+              {item.type == 'dropdown' ? (
+                <div className="body-1">{item.label} </div>
+              ) : null}
               <Spacer size={5} />
-              <div className="body-1 input">
-                <RichDropDown<FilterDetails>
-                  headBuilder={(val) => <FilterHead user={val} />}
-                  itemData={item.dropDownval}
-                  itemsBuilder={(data, index) => (
-                    <FilterTile user={data} key={index} />
-                  )}
-                  selected={item.selectedValue}
-                  onSelectItem={(val) => {
-                    handleDropDownUpdate(val, index);
+              {item.type == 'dropdown' ? (
+                <div className="body-1 input">
+                  <RichDropDown<FilterDetails>
+                    headBuilder={(val) => <FilterHead user={val} />}
+                    itemData={item.value as FilterDetails[]}
+                    itemsBuilder={(data, index) => (
+                      <FilterTile user={data} key={index} />
+                    )}
+                    selected={item.selectedValue ?? ({} as FilterDetails)}
+                    onSelectItem={(val) => {
+                      handleDropDownUpdate(val, index);
+                    }}
+                  />
+                </div>
+              ) : null}
+              {item.type == 'input' ? (
+                <TextField
+                  type="text"
+                  label={item.label}
+                  value={item.value as string}
+                  valueCallback={(value) => {
+                    handleInputUpdate(value, index);
                   }}
-                />
-              </div>
+                ></TextField>
+              ) : null}
             </Column>
             <Spacer size={16} />
           </>
@@ -99,6 +140,15 @@ export const Filter = ({ className, filterHeading, dropDown }: FilterProps) => {
             Reset Filter
           </a>
         )}
+        <Spacer size={16} />
+        {buttons ? (
+          <Button
+            className={buttons.className}
+            label={buttons.label}
+            type={buttons.type}
+            callback={() => handleCallback()}
+          ></Button>
+        ) : null}
       </Column>
     </Card>
   );

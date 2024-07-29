@@ -1,7 +1,7 @@
 'use client';
 
-import { PriorAuthorizationCardSection } from '@/app/priorAuthorization/components/PriorAuthorizationCardSection';
-import { priorAuthorizationData } from '@/app/priorAuthorization/models/priorAuthorizationData';
+import { TransactionCard } from '@/app/transactions/components/TransactionCard';
+import { transactionData } from '@/app/transactions/mock/transactionData';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Filter } from '@/components/foundation/Filter';
@@ -11,98 +11,75 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
 
-const PriorAuthorization = () => {
+const Transactions = () => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
         <Header
-          text="Prior Authorization"
+          text="Transactions"
           className="m-4 mb-0 !font-light !text-[32px]/[40px]"
         />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
-              <Row className="m-4 mb-0" key={0}>
-                If you need more than two years of prior authorizations, call
-                [1-800-000-000]. If your authorization is not fully approved, we
-                will send you a letter explaining why and details on how to ask
-                for an appeal.
-              </Row>,
-              <Row className="body-1 flex-grow align-top mt-4 ml-4" key={1}>
-                Looking for a prescription drug pre-approval? Go to your{' '}
+              <Row
+                className="body-1 flex-grow md:!flex !block align-top mt-4 ml-4"
+                key={1}
+              >
+                To manage your health spending account details
                 <AppLink
-                  label="caremark.com account"
-                  className="link flex caremark"
+                  label="Visit Health Equity"
+                  className="link caremark !flex pt-0"
                   icon={<Image src={extrenalIcon} alt="external" />}
                 />
               </Row>,
             ]}
           />
         </section>
+        <section className="ml-4">
+          <RichText
+            spans={[
+              <span key={1}>If you need help,</span>,
+              <span className="link" key={2}>
+                <a>start a chat,</a>
+              </span>,
+              <span key={3}>
+                {' '}
+                call us at [1-800-000-000] or email consumercoach@bcbst.com{' '}
+              </span>,
+            ]}
+          />
+        </section>
 
-        <section className="flex flex-row items-start app-body" id="Filter">
+        <section
+          className="flex flex-row items-start app-body mt-8"
+          id="Filter"
+        >
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <Filter
               className="large-section px-0 m-0"
-              filterHeading="Filter Prior Authorizations"
+              filterHeading="Filter Transactions"
               filterItems={[
                 {
                   type: 'dropdown',
-                  label: 'Connected Plans',
+                  label: 'Account Type',
                   value: [
                     {
-                      label: 'All Plans',
+                      label: 'HSA',
                       value: '1',
                       id: '1',
                     },
                     {
-                      label: 'Plans',
+                      label: 'RSA',
                       value: '2',
                       id: '2',
                     },
                   ],
-                  selectedValue: { label: 'All Plans', value: '1', id: '1' },
+                  selectedValue: { label: 'HSA', value: '1', id: '1' },
                 },
                 {
                   type: 'dropdown',
-                  label: 'Member',
-                  value: [
-                    {
-                      label: 'All Members',
-                      value: '1',
-                      id: '1',
-                    },
-                    {
-                      label: 'Chris Hall',
-                      value: '2',
-                      id: '2',
-                    },
-                    {
-                      label: 'Madission Hall',
-                      value: '3',
-                      id: '3',
-                    },
-                    {
-                      label: 'Forest Hall',
-                      value: '4',
-                      id: '4',
-                    },
-                    {
-                      label: 'Telly Hall',
-                      value: '5',
-                      id: '5',
-                    },
-                    {
-                      label: 'Janie Hall',
-                      value: '6',
-                      id: '6',
-                    },
-                  ],
-                  selectedValue: { label: 'All Members', value: '1', id: '1' },
-                },
-                {
-                  type: 'dropdown',
-                  label: 'Date Range',
+                  label: 'Account Type',
                   value: [
                     {
                       label: 'Last 30 days',
@@ -124,21 +101,11 @@ const PriorAuthorization = () => {
                       value: '4',
                       id: '4',
                     },
-                    {
-                      label: 'Last calender Years',
-                      value: '5',
-                      id: '5',
-                    },
-                    {
-                      label: 'Last two Years',
-                      value: '6',
-                      id: '6',
-                    },
                   ],
                   selectedValue: {
                     label: 'Last two Years',
-                    value: '6',
-                    id: '6',
+                    value: '4',
+                    id: '4',
                   },
                 },
               ]}
@@ -146,8 +113,8 @@ const PriorAuthorization = () => {
           </Column>
 
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <PriorAuthorizationCardSection
-              sortby={[
+            <TransactionCard
+              sortBy={[
                 {
                   label: 'Date (Most Recent)',
                   value: '43',
@@ -159,8 +126,9 @@ const PriorAuthorization = () => {
               ]}
               onSelectedDateChange={() => {}}
               selectedDate="43"
-              claims={priorAuthorizationData}
+              transactionsInfo={transactionData}
             />
+
             <section className="flex justify-center self-center">
               <Row className="m-2 mt-0">
                 Viewing 5 of 5 Prior Authorizations
@@ -173,4 +141,4 @@ const PriorAuthorization = () => {
   );
 };
 
-export default PriorAuthorization;
+export default Transactions;
