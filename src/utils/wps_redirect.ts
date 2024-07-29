@@ -39,7 +39,7 @@ export async function setWebsphereRedirectCookie(
       sameSite: 'none',
       httpOnly: true,
       secure: true,
-      path: `/${interactionData.sessionToken}`,
+      path: `/${process.env.PING_ENVIRONMENT_ID}`,
       maxAge: FED_MAX_AGE,
       expires: new Date((UNIXTimeSeconds() + FED_MAX_AGE) * 1000),
     });
