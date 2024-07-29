@@ -1,7 +1,8 @@
-export interface FilterDropDowndetails {
-  dropNownName: string;
-  dropDownval: FilterDetails[];
-  selectedValue: FilterDetails;
+export interface FilterItem {
+  type: 'input' | 'dropdown';
+  label: string;
+  value?: FilterDetails[] | string;
+  selectedValue?: FilterDetails;
 }
 
 export interface FilterDetails {
