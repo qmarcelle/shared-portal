@@ -134,7 +134,11 @@ export const AddMFAVoiceJourney = ({
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           />
-          <AppLink className="self-start" label="Resend Code" />
+          <AppLink
+            className="self-start"
+            label="Resend Code"
+            callback={initNewDevice}
+          />
           <Spacer size={32} />
         </Column>
       }
