@@ -3,7 +3,6 @@ import authConfig from './auth.config';
 import {
   apiAuthPrefix,
   authRoutes,
-  getLoginRedirect,
   inboundSSORoutes,
   publicRoutes,
 } from './utils/routes';
@@ -46,26 +45,25 @@ export default auth(async (req) => {
    * Routes for the login flow.
    * Already logged-in users should be redirected to the dashboard.
    */
-  if (isLoggedIn) {
-    if (
-      process.env.NEXT_PUBLIC_WPS_REDIRECT_ENABLED == 'true' &&
-      !nextUrl.pathname.includes('/embed')
-    ) {
-      console.log('Redirecting app user to WebSphere');
-      return Response.redirect(
-        new URL(process.env.NEXT_PUBLIC_WPS_REDIRECT_URL || '/', nextUrl),
-      );
-    }
-    if (isAuthRoute) {
-      const redir = getLoginRedirect();
+  if (isAuthRoute) {
+    if (isLoggedIn) {
+      const redir = process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard';
       console.log(`Redirecting logged-in client to ${redir}`);
       return Response.redirect(new URL(redir, nextUrl));
+    } else {
+      return;
     }
-    return;
   }
 
-  if (isAuthRoute && !isLoggedIn) {
-    return;
+  if (
+    process.env.WPS_REDIRECT_ENABLED == 'true' &&
+    isLoggedIn &&
+    !nextUrl.pathname.includes('/embed')
+  ) {
+    console.log('Redirecting logged-in user to WebSphere');
+    return Response.redirect(
+      new URL(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/', nextUrl),
+    );
   }
 
   /**
