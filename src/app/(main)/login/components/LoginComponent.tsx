@@ -23,9 +23,6 @@ export const LoginComponent = () => {
   async function registerNewAcccount(): Promise<void> {
     window.open(await getConfig('REGISTER_NEW_ACCOUNT'), '_self');
   }
-  async function forgotPassword(): Promise<void> {
-    window.open(await getConfig('PASSWORD_RESET'), '_self');
-  }
 
   return (
     <div id="mainSection" className="dark:text-black">
@@ -71,7 +68,7 @@ export const LoginComponent = () => {
       <AppLink
         label="Forgot Username/Password?"
         className="m-auto"
-        callback={() => forgotPassword()}
+        url={process.env.NEXT_PUBLIC_PASSWORD_RESET}
       />
       <Spacer size={32} />
       <Divider />
