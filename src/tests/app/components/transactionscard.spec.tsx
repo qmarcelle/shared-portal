@@ -9,10 +9,11 @@ const renderUI = () => {
       <Filter
         className="large-section px-0 m-0"
         filterHeading="Filter Transactions"
-        dropDown={[
+        filterItems={[
           {
-            dropNownName: 'Account Type',
-            dropDownval: [
+            type: 'dropdown',
+            label: 'Account Type',
+            value: [
               {
                 label: 'HSA',
                 value: '1',
@@ -27,8 +28,9 @@ const renderUI = () => {
             selectedValue: { label: 'HSA', value: '1', id: '1' },
           },
           {
-            dropNownName: 'Date Range',
-            dropDownval: [
+            type: 'dropdown',
+            label: 'Account Type',
+            value: [
               {
                 label: 'Last 30 days',
                 value: '1',
@@ -60,7 +62,7 @@ const renderUI = () => {
       />
       ,
       <TransactionCard
-        sortby={[
+        sortBy={[
           {
             label: 'Date (Most Recent)',
             value: '43',
@@ -72,7 +74,7 @@ const renderUI = () => {
         ]}
         onSelectedDateChange={() => {}}
         selectedDate="43"
-        transactions={[
+        transactionsInfo={[
           {
             id: 'Claim1',
             memberName: 'Marcus Howard',

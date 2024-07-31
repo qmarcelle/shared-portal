@@ -82,7 +82,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
           <div
             class="body-1"
           >
-            Date Range
+            Account Type
              
           </div>
           <span
@@ -132,6 +132,9 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
             </div>
           </div>
         </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
