@@ -18,14 +18,16 @@ export default function LogIn() {
       state.resetToHome,
     ],
   );
-
+  console.log(JSON.stringify(process.env));
   const router = useRouter();
   function renderComp() {
     if (unhandledErrors == true) {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace('https://members-gdev.bcbst.com/wps/myportal/member');
+      router.replace(
+        process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard',
+      );
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;
