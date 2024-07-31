@@ -1,4 +1,7 @@
 import { BenefitsProviderInfo } from '@/app/dashboard/models/BenefitsProviderInfo';
+import { bcbstBlueLogo } from '@/components/foundation/Icons';
+import { Row } from '@/components/foundation/Row';
+import Image from 'next/image';
 import { IComponent } from '../../../components/IComponent';
 import { AppLink } from '../../../components/foundation/AppLink';
 import { Card } from '../../../components/foundation/Card';
@@ -22,9 +25,27 @@ export const EmployeeProvidedBenefitsTile = ({
   return (
     <Card className={className}>
       <Column>
-        <Header type="title-2" text={`Provided By ${employer}`} />
-        <Spacer size={16} />
-        <TextBox text="Your employer offers even more programs and benefits you can explore here" />
+        <Image
+          className="block mb-6 mt-3 sm:hidden"
+          src={bcbstBlueLogo}
+          alt="Provider logo"
+          width={170}
+          height={55}
+        />
+        <Row className="justify-between">
+          <Column>
+            <Header type="title-2" text={`Provided By ${employer}`} />
+            <Spacer size={16} />
+            <TextBox text="Your employer offers even more programs and benefits you can explore here" />
+          </Column>
+          <Image
+            className="hidden sm:block"
+            src={bcbstBlueLogo}
+            alt="Provider logo"
+            width={170}
+            height={55}
+          />
+        </Row>
         <Spacer size={32} />
         <SlidingCarousel>
           {benefits.map((item) => (
