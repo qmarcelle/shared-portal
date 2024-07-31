@@ -21,10 +21,10 @@ export const LoginComponent = () => {
   }));
   const showTooltip = username.length < 1 && password.length < 1;
   async function registerNewAcccount(): Promise<void> {
-    window.open(await getConfig('NEXT_PUBLIC_REGISTER_NEW_ACCOUNT'), '_self');
+    window.open(await getConfig('REGISTER_NEW_ACCOUNT'), '_self');
   }
   async function forgotPassword(): Promise<void> {
-    window.open(await getConfig('NEXT_PUBLIC_PASSWORD_RESET'), '_self');
+    window.open(await getConfig('PASSWORD_RESET'), '_self');
   }
 
   return (
