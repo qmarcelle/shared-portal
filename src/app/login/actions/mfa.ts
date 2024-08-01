@@ -16,6 +16,8 @@ type SelectMfaArgs = {
   deviceId: string;
   interactionId: string;
   interactionToken: string;
+  policyId?: string;
+  appId?: string;
 };
 
 type SubmitMfaOtpArgs = {
@@ -23,6 +25,8 @@ type SubmitMfaOtpArgs = {
   interactionId: string;
   interactionToken: string;
   userToken: string;
+  policyId?: string;
+  appId?: string;
 };
 
 export async function callSelectDevice(
@@ -31,6 +35,8 @@ export async function callSelectDevice(
   try {
     logger.info('Selected Mfa Device');
     console.log(args);
+    args.policyId = process.env.ES_API_POLICY_ID;
+    args.appId = process.env.ES_API_APP_ID;
     const resp = await esApi.post<ESResponse<SelectMfaDeviceResponse>>(
       '/mfAuthentication/loginAuthentication/selectDevice',
       args,
@@ -63,6 +69,8 @@ export async function callSubmitMfaOtp(
   let authUser: string | null = null;
   console.debug(params);
   try {
+    params.policyId = process.env.ES_API_POLICY_ID;
+    params.appId = process.env.ES_API_APP_ID;
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication/provideOtp',
       params,
