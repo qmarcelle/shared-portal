@@ -17,6 +17,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import EstimateCost from '../../../public/assets/Estimate-Cost.svg';
 import FindCare from '../../../public/assets/Find-Care.svg';
+import { AmplifyHealthCard } from './components/AmplifyHealthCard';
 
 const Dashboard = () => {
   return (
@@ -254,6 +255,9 @@ const Dashboard = () => {
               ]}
             ></PillBox>
           </Column>
+        </section>
+        <section>
+          <AmplifyHealthCard />
         </section>
         <section>
           <EmployeeProvidedBenefitsTile

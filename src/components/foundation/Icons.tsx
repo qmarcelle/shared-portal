@@ -1,6 +1,9 @@
 import alertBlueSvg from '@/../public/assets/Alert-blue.svg';
 import showPasswordSelectedSvg from '@/../public/assets/Show-Password-Selected.svg';
 import showPasswordSvg from '@/../public/assets/Show-Password.svg';
+import amplifyHealthAppPromo from '@/public/assets/AmplifyHealth-App.png';
+import appleStoreSvg from '@/public/assets/Apple-Store-2022.svg';
+import playStoreSvg from '@/public/assets/Google-Play-2022.svg';
 import accessGrantedSvg from '../../../public/assets/Access-Granted.svg';
 import alertErrorSvg from '../../../public/assets/Alert-ErrorRed.svg';
 import bcbstLogoSvg from '../../../public/assets/BCBST-Blue.svg';
@@ -32,10 +35,7 @@ import checkBlueIconSvg from '../../../public/assets/check.svg';
 import closeIconSvg from '../../../public/assets/close.svg';
 import dentalSvg from '../../../public/assets/dental.svg';
 import downSvg from '../../../public/assets/down.svg';
-import {
-  default as externalSvg,
-  default as extrenalSvg,
-} from '../../../public/assets/external.svg';
+import { default as externalSvg } from '../../../public/assets/external.svg';
 import leftIconSvg from '../../../public/assets/left.svg';
 import medicalSvg from '../../../public/assets/medical.svg';
 import pharmacySvg from '../../../public/assets/pharmacy.svg';
@@ -77,7 +77,7 @@ export const externalIcon = externalSvg;
 export const hamburgerMenuIcon = hamburgerMenuSvg;
 export const upIcon = upSvg;
 export const rightIcon = rightSvg;
-export const extrenalIcon = extrenalSvg;
+export const extrenalIcon = externalSvg;
 export const alertErrorIcon = alertErrorSvg;
 export const externalOffsiteWhiteIcon = externaloffsitewhiteSvg;
 export const alertBlueIcon = alertBlueSvg;
@@ -89,3 +89,6 @@ export const dentalIcon = dentalSvg;
 export const pharmacyIcon = pharmacySvg;
 export const visionIcon = visionSvg;
 export const basicAccessIcon = basicAccess;
+export const amplifyHealthAppPromoImg = amplifyHealthAppPromo;
+export const appleStoreLogo = appleStoreSvg;
+export const playStoreLogo = playStoreSvg;
