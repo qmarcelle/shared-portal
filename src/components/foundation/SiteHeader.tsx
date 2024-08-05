@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
-import pages from '../pages';
+import menuNavigation from '../menuNavigation';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 import {
   bcbstBlueLogo,
@@ -102,10 +102,10 @@ export default function SiteHeader() {
         data-accordion="collapse"
       >
         <div className="flex font-bold">
-          <SiteHeaderNavSection parentPages={pages} />
+          <SiteHeaderNavSection parentPages={menuNavigation} />
         </div>
         <div className="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0">
-          {pages.map((page, index) => (
+          {menuNavigation.map((page, index) => (
             <SiteHeaderSubNavSection
               key={index}
               id={page.id}
