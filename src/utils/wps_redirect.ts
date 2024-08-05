@@ -5,7 +5,7 @@ import { UNIXTimeSeconds } from './date_formatter';
 export async function setWebsphereRedirectCookie(
   interactionData: Partial<PingOneSession>,
 ): Promise<void> {
-  if (process.env.NEXT_PUBLIC_WPS_REDIRECT_ENABLED == 'true') {
+  if (process.env.WPS_REDIRECT_ENABLED == 'true') {
     const FED_MAX_AGE = parseInt(
       process.env.PING_FED_EXPIRY_SECONDS || '2592000',
     );
