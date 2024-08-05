@@ -38,7 +38,7 @@ export const SubNavItemSection = ({
               <div className="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg">
                 <h3 className="pb-3 text-sm">Quick Tip</h3>
                 <p className="pb-1">{qt?.firstParagraph}</p>
-                <p className="pb-1">{qt?.secondParagraph}</p>
+                {qt?.secondParagraph}
                 <Image
                   className="ml-auto"
                   src={parentPageArrowIcon}
@@ -66,7 +66,7 @@ export const SubNavItemSection = ({
               <h1 className="text-xl py-2 text-gray-500">{colType}</h1>
               {tempChildPages.map((item, index) =>
                 item.external ? (
-                  <Link key={index} className="flex" href={url + item.url}>
+                  <Link key={index} className="flex" href={item.url}>
                     <p className="pb-2 pt-2 pr-1">{item.title}</p>
                     <Image
                       className="pb-2"
