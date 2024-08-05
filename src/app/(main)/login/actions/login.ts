@@ -28,6 +28,8 @@ export async function callLogin(
         status: LoginStatus.VALIDATION_FAILURE,
       };
     }
+    request.policyId = process.env.ES_API_POLICY_ID;
+    request.appId = process.env.ES_API_APP_ID;
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication',
       request,
