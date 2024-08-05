@@ -297,6 +297,11 @@
   margin-top: 75px;
 }
 
+.doughnutTextWellness {
+  margin-left: 21px;
+  margin-top: 108px;
+}
+
 .spendingSummaryChart {
   width: 260px;
   height: 260px;
@@ -304,9 +309,26 @@
   max-height: 260px;
 }
 
+.card-small {
+  flex-basis: 37.5%;
+  flex-shrink: 1;
+  margin: 7px;
+  padding: 12px;
+  max-width: 31%;
+}
+
+.card-section {
+  flex-wrap: wrap;
+}
+
 @media (width<=768px) {
   .doughnutText {
     margin: 75px auto;
+    width: 85%;
+    padding-left: 0;
+  }
+  .doughnutTextWellness {
+    margin: 100px auto;
     width: 85%;
     padding-left: 0;
   }
@@ -319,6 +341,13 @@
   }
   .chartText {
     padding-left: 0px;
+  }
+  .card-small {
+    flex-basis: 96%;
+    flex-shrink: 1;
+    margin: 7px;
+    padding: 15px;
+    max-width: 96%;
   }
 }
 
