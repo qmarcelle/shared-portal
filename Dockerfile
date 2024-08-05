@@ -1,6 +1,10 @@
 # Use Node 20 as the base image
 FROM nexus.bcbst.com:8096/node:20
 
+# Env args for redirection
+ARG NEXT_PUBLIC_REGISTER_NEW_ACCOUNT=https://test.bcbst.com/register-member/
+ARG NEXT_PUBLIC_PASSWORD_RESET=https://test.bcbst.com/forgot-password/
+
 # Set the working directory to /app
 WORKDIR  /app
 
