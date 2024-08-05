@@ -20,6 +20,7 @@
 @import './tooltip.css';
 @import './filter.css';
 @import './search_typeahead.css';
+@import './my_health.css';
 
 :root {
   --primary-color: #005eb9;
