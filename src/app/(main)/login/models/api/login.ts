@@ -1,6 +1,8 @@
 export interface LoginRequest {
   username: string;
   password: string;
+  policyId?: string;
+  appId?: string;
 }
 
 export enum LoginMessage {
