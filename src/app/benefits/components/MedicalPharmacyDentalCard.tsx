@@ -5,7 +5,6 @@ import { Divider } from '@/components/foundation/Divider';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
-import { ReactNode } from 'react';
 
 export interface MedicalPharmacyDentalCardProps extends IComponent {
   manageBenefitItems: ManageBenefitsItems[];
@@ -18,7 +17,7 @@ interface ManageBenefitsItems {
   body: string;
   externalLink: boolean;
   url: string;
-  icon?: ReactNode;
+  icon?: JSX.Element;
 }
 
 export const MedicalPharmacyDentalCard = ({
@@ -30,8 +29,8 @@ export const MedicalPharmacyDentalCard = ({
   return (
     <Card className={className}>
       <Column>
-        <Title className="title-2 mt-2" text={heading} prefix={cardIcon} />
-
+        <Title className="title-2 mt-2 ml-2" text={heading} prefix={cardIcon} />
+        <Spacer size={16} />
         <Column>
           {managePlanItems.map((items, index) => (
             <section key={index} className="manage-benefit">
@@ -44,6 +43,10 @@ export const MedicalPharmacyDentalCard = ({
                   <div className="body-1 flex flex-row">{items.body}</div>
                 }
                 divider={false}
+                icon={items.icon}
+                onClick={() => {
+                  window.location.href = items.url;
+                }}
               />
               {index !== managePlanItems.length - 1 && <Divider />}
             </section>
