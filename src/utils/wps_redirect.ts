@@ -1,4 +1,5 @@
 import { PingOneSession } from '@/app/(main)/login/models/app/pingone_session';
+import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
 import { UNIXTimeSeconds } from './date_formatter';
 
@@ -21,20 +22,14 @@ export async function setWebsphereRedirectCookie(
       throw 'Websphere redirect failed: Invalid session (Ping API response is probably missing something)';
     }
     const pingOneExpiryDate = new Date((UNIXTimeSeconds() + MAX_AGE) * 1000);
-    const options = {
+    const pingOneOptions: Partial<ResponseCookie> = {
       httpOnly: true,
       secure: true,
+      maxAge: MAX_AGE,
       path: '/',
       expires: pingOneExpiryDate,
     };
-    cookies().set('interactionId', interactionData.interactionId, options);
-    cookies().set(
-      'interactionToken',
-      interactionData.interactionToken,
-      options,
-    );
-
-    cookies().set('ST', interactionData.sessionToken, {
+    const pingFedOptions: Partial<ResponseCookie> = {
       domain: '.bcbst.com',
       sameSite: 'none',
       httpOnly: true,
@@ -42,6 +37,19 @@ export async function setWebsphereRedirectCookie(
       path: '/',
       maxAge: FED_MAX_AGE,
       expires: new Date((UNIXTimeSeconds() + FED_MAX_AGE) * 1000),
-    });
+    };
+    cookies().set(
+      'interactionId',
+      interactionData.interactionId,
+      pingOneOptions,
+    );
+    cookies().set(
+      'interactionToken',
+      interactionData.interactionToken,
+      pingOneOptions,
+    );
+
+    cookies().set('ST', interactionData.sessionToken, pingFedOptions);
+    cookies().set('ST-NO-SS', interactionData.sessionToken, pingFedOptions);
   }
 }
