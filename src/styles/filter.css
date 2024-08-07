@@ -20,3 +20,6 @@
 #Filter .items-center.divider-bottom {
   display: none;
 }
+#Filter .switch-filter.default ul {
+  overflow: hidden;
+}
