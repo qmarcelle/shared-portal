@@ -5,48 +5,51 @@ import accessGrantedSvg from '../../../public/assets/Access-Granted.svg';
 import alertErrorSvg from '../../../public/assets/Alert-ErrorRed.svg';
 import bcbstLogoSvg from '../../../public/assets/BCBST-Blue.svg';
 import benefitsCoverageSvg from '../../../public/assets/Benefits-Coverage.svg';
+import biometricScreeningSvg from '../../../public/assets/biometric_screening.svg';
 import bcbstStackedSvg from '../../../public/assets/BlueCross-Stacked.svg';
+import blueCrossSilhouletteSvg from '../../../public/assets/blueCrossSilhouette.svg';
+import checkBlueIconSvg from '../../../public/assets/check.svg';
 import claimsBenefitsCoverageSvg from '../../../public/assets/Claims.svg';
+import closeIconSvg from '../../../public/assets/close.svg';
 import communicationSettingsSvg from '../../../public/assets/Communication-Settings.svg';
 import connectAccountssvg from '../../../public/assets/Connect-Accounts.svg';
+import dentalSvg from '../../../public/assets/dental.svg';
+import dentalHealthLibrarySvg from '../../../public/assets/dental_health_library.svg';
 import documentFileSvg from '../../../public/assets/Document-File.svg';
+import downSvg from '../../../public/assets/down.svg';
 import downloadIconSvg from '../../../public/assets/Download.svg';
 import externaloffsitewhiteSvg from '../../../public/assets/External-White.svg';
+import {
+  default as externalSvg,
+  default as extrenalSvg,
+} from '../../../public/assets/external.svg';
 import hamburgerMenuSvg from '../../../public/assets/Hamburger-Menu.svg';
+import healthAssessmentIconSvg from '../../../public/assets/health_assessment.svg';
 import idCardSvg from '../../../public/assets/ID-Card.svg';
 import inboxSvg from '../../../public/assets/Inbox.svg';
+import interactiveProgramsIconSvg from '../../../public/assets/interactive_programs.svg';
+import leftIconSvg from '../../../public/assets/left.svg';
+import medicalSvg from '../../../public/assets/medical.svg';
 import modalAlertSvg from '../../../public/assets/Modal-Alert.svg';
 import basicAccess from '../../../public/assets/Modal-Success.svg';
 import parentPageArrowSvg from '../../../public/assets/Parent-Page-Arrow.svg';
+import pharmacySvg from '../../../public/assets/pharmacy.svg';
 import planDocumentsSvg from '../../../public/assets/Plan-Documents.svg';
 import priorAuthorizationsSvg from '../../../public/assets/Prior-Authorizations.svg';
 import profileWhiteSvg from '../../../public/assets/Profile-White.svg';
+import rightSvg from '../../../public/assets/right.svg';
 import searchSvg from '../../../public/assets/Search.svg';
 import securitySvg from '../../../public/assets/Security.svg';
 import sharePermissionsSvg from '../../../public/assets/Share-Permissions.svg';
 import signoutSvg from '../../../public/assets/Signout.svg';
 import spendingAccountsSvg from '../../../public/assets/Spending-Accounts.svg';
 import spendingSummarySvg from '../../../public/assets/Spending-Summary.svg';
-import blueCrossSilhouletteSvg from '../../../public/assets/blueCrossSilhouette.svg';
-import checkBlueIconSvg from '../../../public/assets/check.svg';
-import closeIconSvg from '../../../public/assets/close.svg';
-import dentalSvg from '../../../public/assets/dental.svg';
-import downSvg from '../../../public/assets/down.svg';
-import {
-  default as externalSvg,
-  default as extrenalSvg,
-} from '../../../public/assets/external.svg';
-import leftIconSvg from '../../../public/assets/left.svg';
-import medicalSvg from '../../../public/assets/medical.svg';
-import pharmacySvg from '../../../public/assets/pharmacy.svg';
-import rightSvg from '../../../public/assets/right.svg';
 import successIconSvg from '../../../public/assets/success.svg';
 import switchFilterIconSvg from '../../../public/assets/switch-filter.svg';
 import upSvg from '../../../public/assets/up.svg';
 import visionSvg from '../../../public/assets/vision.svg';
-import healthAssessmentIconSvg from '../../../public/assets/health_assessment.svg';
-import interactiveProgramsIconSvg from '../../../public/assets/interactive_programs.svg';
 import wellnessPointsIconSvg from '../../../public/assets/wellness_points.svg';
+import wellTunedBlogSvg from '../../../public/assets/welltuned_blog.svg';
 
 export const bcbstBlueLogo = bcbstLogoSvg;
 export const leftIcon = leftIconSvg;
@@ -95,3 +98,6 @@ export const basicAccessIcon = basicAccess;
 export const healthAssessmentIcon = healthAssessmentIconSvg;
 export const interactiveProgramsIcon = interactiveProgramsIconSvg;
 export const wellnessPointsIcon = wellnessPointsIconSvg;
+export const dentalHealthLibraryIcon = dentalHealthLibrarySvg;
+export const wellTunedBlogIcon = wellTunedBlogSvg;
+export const biometricScreeningIcon = biometricScreeningSvg;

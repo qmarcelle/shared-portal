@@ -1,12 +1,16 @@
 'use client';
 import { Column } from '@/components/foundation/Column';
-import { MemberWellnessCenterOptions } from './Components/MemberWellnessCenterOptions';
 import {
+  biometricScreeningIcon,
+  dentalHealthLibraryIcon,
   healthAssessmentIcon,
   interactiveProgramsIcon,
   wellnessPointsIcon,
+  wellTunedBlogIcon,
 } from '@/components/foundation/Icons';
 import { HealthLibraryOptions } from './Components/HealthLibraryOptions';
+import { MemberWellnessCenterOptions } from './Components/MemberWellnessCenterOptions';
+import { MyHealthOffsiteLinkCard } from './Components/MyHealthOffsiteLinkCard';
 
 const MyHealth = () => {
   const MemberWellnessCenterDetails = [
@@ -89,16 +93,39 @@ const MyHealth = () => {
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
         <section>
+          <MyHealthOffsiteLinkCard
+            icon={biometricScreeningIcon}
+            title="Schedule a Biometric Screening"
+            description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
+            url=""
+          />
+        </section>
+        <section>
           <MemberWellnessCenterOptions
             className="large-section"
             options={MemberWellnessCenterDetails}
           />
         </section>
-
+        <section>
+          <MyHealthOffsiteLinkCard
+            icon={wellTunedBlogIcon}
+            title="WellTuned Blog"
+            description="Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health."
+            url="https://bcbstwelltuned.com/"
+          />
+        </section>
         <section>
           <HealthLibraryOptions
             className="large-section"
             options={HealthLibraryDetails}
+          />
+        </section>
+        <section>
+          <MyHealthOffsiteLinkCard
+            icon={dentalHealthLibraryIcon}
+            title="Dental Health Library"
+            description="Check dental symptoms and get your dental questions answered."
+            url=""
           />
         </section>
       </Column>
