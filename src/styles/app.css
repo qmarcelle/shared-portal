@@ -156,3 +156,10 @@
 .priorAuthDetail .statusDetail {
   margin-left: 70px;
 }
+.prior-auth-card {
+  width: 39%;
+}
+.prior-auth-card .absolute {
+  right: -9px;
+  top: -4px;
+}
