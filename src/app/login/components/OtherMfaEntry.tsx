@@ -3,6 +3,7 @@ import { Button } from '@/components/foundation/Button';
 import { Divider } from '@/components/foundation/Divider';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextField } from '@/components/foundation/TextField';
+import { ToolTip } from '@/components/foundation/Tooltip';
 import { AppProg } from '../models/app/app_prog';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { useLoginStore } from '../stores/loginStore';
@@ -22,6 +23,7 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
     updateMfaStage: state.updateMfaStage,
   }));
   const apiErrors = useLoginStore((state) => state.apiErrors);
+  const showTooltip = code.length < 1;
 
   function validateSecurityCode() {
     if (code.length > 0) {
@@ -45,10 +47,17 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
       <Spacer size={24} />
       <AppLink label="Resend Code" callback={() => actions.resendMfa()} />
       <Spacer size={32} />
-      <Button
-        callback={validateSecurityCode()}
-        label={completeMfaProg == AppProg.loading ? 'Confirming' : 'Confirm'}
-      />
+      <ToolTip
+        showTooltip={showTooltip}
+        className="flex flex-row justify-center items-center tooltip"
+        label="Enter a Security Code."
+      >
+        <Button
+          callback={validateSecurityCode()}
+          label={completeMfaProg == AppProg.loading ? 'Confirming' : 'Confirm'}
+        />
+      </ToolTip>
+
       <Spacer size={16} />
       <AppLink
         label="Choose a Different Method"
