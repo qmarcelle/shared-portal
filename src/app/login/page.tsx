@@ -8,17 +8,23 @@ import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
+import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
 import { useLoginStore } from './stores/loginStore';
 
 export default function LogIn() {
-  const [unhandledErrors, loggedUser, mfaNeeded, backToHome] = useLoginStore(
-    (state) => [
-      state.unhandledErrors,
-      state.loggedUser,
-      state.mfaNeeded,
-      state.resetToHome,
-    ],
-  );
+  const [
+    unhandledErrors,
+    loggedUser,
+    mfaNeeded,
+    backToHome,
+    multipleLoginAttempts,
+  ] = useLoginStore((state) => [
+    state.unhandledErrors,
+    state.loggedUser,
+    state.mfaNeeded,
+    state.resetToHome,
+    state.multipleLoginAttempts,
+  ]);
 
   const router = useRouter();
   function renderComp() {
@@ -27,6 +33,9 @@ export default function LogIn() {
     }
     if (loggedUser == true) {
       router.replace(DEFAULT_LOGIN_REDIRECT);
+    }
+    if (multipleLoginAttempts == true) {
+      return <MultipleAttemptsErrorComponent />;
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;

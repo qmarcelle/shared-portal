@@ -22,6 +22,7 @@ export type LoginStore = {
   password: string;
   loggedUser: boolean;
   unhandledErrors: boolean;
+  multipleLoginAttempts: boolean;
   mfaNeeded: boolean;
   updateUsername: (val: string) => void;
   updatePassword: (val: string) => void;
@@ -43,6 +44,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     password: '',
     loggedUser: false,
     unhandledErrors: false,
+    multipleLoginAttempts: false,
     mfaNeeded: false,
     userToken: '',
     updateUsername: (val: string) =>
@@ -75,6 +77,13 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
           resp.status == LoginStatus.INVALID_CREDENTIALS
         ) {
           throw resp;
+        }
+        if (resp.status == LoginStatus.ACCOUNT_INACTIVE) {
+          set({
+            multipleLoginAttempts: true,
+            loginProg: AppProg.failed,
+          });
+          return;
         }
 
         // Set to success if request succeeded
@@ -145,6 +154,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         apiErrors: [],
         username: '',
         password: '',
+        multipleLoginAttempts: false,
       });
       useMfaStore.setState({ stage: MfaModeState.selection });
     },
