@@ -1,7 +1,13 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import alightIcon from '../../../../public/assets/Alight.svg';
+import careTNIcon from '../../../../public/assets/CareTN.svg';
+import healthyMaternityIcon from '../../../../public/assets/HealthyMaternity.svg';
+import hingeHealthIcon from '../../../../public/assets/Hinge-Health.svg';
+import questSelectIcon from '../../../../public/assets/QuestSelect.svg';
 import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
+import silverFitIcon from '../../../../public/assets/Silver-and-Fit.svg';
 import AbleToIcon from '../../../../public/assets/ableTo.svg';
 import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
 import { IComponent } from '../../../components/IComponent';
@@ -41,6 +47,20 @@ export const HealthCareItem = ({
       return AbleToIcon;
     } else if (healthCareInfo.icon == 'Sanitas') {
       return SanitasIcon;
+    } else if (healthCareInfo.icon == 'Alight') {
+      return alightIcon;
+    } else if (healthCareInfo.icon == 'CareTN') {
+      return careTNIcon;
+    } else if (healthCareInfo.icon == 'SilverFit') {
+      return silverFitIcon;
+    } else if (healthCareInfo.icon == 'QuestSelect') {
+      return questSelectIcon;
+    } else if (healthCareInfo.icon == 'Sanitas') {
+      return SanitasIcon;
+    } else if (healthCareInfo.icon == 'HingeHealth') {
+      return hingeHealthIcon;
+    } else if (healthCareInfo.icon == 'HealthyMaternity') {
+      return healthyMaternityIcon;
     }
   }
 
@@ -51,11 +71,13 @@ export const HealthCareItem = ({
           className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
           text={healthCareInfo.healthcareType}
         ></TextBox>
-        <Image
-          src={getHealthIcon()}
-          className="w-1/2"
-          alt={healthCareInfo.icon}
-        />
+        {healthCareInfo.icon && (
+          <Image
+            src={getHealthIcon()}
+            className="w-1/2"
+            alt={healthCareInfo.icon}
+          />
+        )}
         <Spacer axis="horizontal" size={8} />
         <Column className="flex flex-col flex-grow">
           <TextBox
@@ -83,11 +105,13 @@ export const HealthCareItem = ({
             className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
             text="Medical Health"
           ></TextBox>
-          <Image
-            src={getHealthIcon()}
-            className="w-1/2"
-            alt={healthCareInfo.icon}
-          />
+          {healthCareInfo.icon && (
+            <Image
+              src={getHealthIcon()}
+              className="w-1/2"
+              alt={healthCareInfo.icon}
+            />
+          )}
           <SpacerX size={8} />
           <Column className="flex flex-col flex-grow">
             <TextBox
