@@ -21,6 +21,7 @@ export async function callLogin(
   request: LoginRequest,
 ): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
+  let status: LoginStatus;
   try {
     if (!request.username || !request.password) {
       return {
@@ -35,7 +36,7 @@ export async function callLogin(
     );
 
     //console.debug(resp);
-    let status = LoginStatus.ERROR;
+    status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
       case 'MFA_Disabled':
@@ -54,6 +55,9 @@ export async function callLogin(
       case 'DEVICE_SELECTION_REQUIRED':
         status = LoginStatus.MFA_REQUIRED_MULTIPLE_DEVICES;
         break;
+      case 'ACCOUNT_INACTIVE':
+        status = LoginStatus.ACCOUNT_INACTIVE;
+        throw 'Multiple login attempts';
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {
@@ -69,6 +73,9 @@ export async function callLogin(
       },
     };
   } catch (error) {
+    if (error == 'Multiple login attempts') {
+      return { status: LoginStatus.ACCOUNT_INACTIVE };
+    }
     if (error instanceof AxiosError) {
       //logger.error("Response from API " + error.response?.data);
       logger.error('Error in Login');
