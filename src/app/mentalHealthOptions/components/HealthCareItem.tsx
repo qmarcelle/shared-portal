@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import alightIcon from '../../../../public/assets/Alight.svg';
-import careTNIcon from '../../../../public/assets/CareTN.svg';
-import healthyMaternityIcon from '../../../../public/assets/HealthyMaternity.svg';
-import hingeHealthIcon from '../../../../public/assets/Hinge-Health.svg';
-import questSelectIcon from '../../../../public/assets/QuestSelect.svg';
-import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
-import silverFitIcon from '../../../../public/assets/Silver-and-Fit.svg';
-import AbleToIcon from '../../../../public/assets/ableTo.svg';
-import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
+import ableToIcon from '../../../../public/assets/ableto.svg';
+import alightIcon from '../../../../public/assets/alight.svg';
+import careTNIcon from '../../../../public/assets/caretn.svg';
+import healthyMaternityIcon from '../../../../public/assets/healthymaternity.svg';
+import hingeHealthIcon from '../../../../public/assets/hinge-health.svg';
+import questSelectIcon from '../../../../public/assets/questselect.svg';
+import sanitasIcon from '../../../../public/assets/sanitas-bot.svg';
+import silverFitIcon from '../../../../public/assets/silver-and-fit.svg';
+import teladocIcon from '../../../../public/assets/teladoc-health.svg';
 import { IComponent } from '../../../components/IComponent';
 import { AppLink } from '../../../components/foundation/AppLink';
 import { Card } from '../../../components/foundation/Card';
@@ -42,11 +42,11 @@ export const HealthCareItem = ({
 
   function getHealthIcon() {
     if (healthCareInfo.icon == 'TelaDoc') {
-      return TelaDocIcon;
+      return teladocIcon;
     } else if (healthCareInfo.icon == 'AbleToIcon') {
-      return AbleToIcon;
+      return ableToIcon;
     } else if (healthCareInfo.icon == 'Sanitas') {
-      return SanitasIcon;
+      return sanitasIcon;
     } else if (healthCareInfo.icon == 'Alight') {
       return alightIcon;
     } else if (healthCareInfo.icon == 'CareTN') {
@@ -55,8 +55,6 @@ export const HealthCareItem = ({
       return silverFitIcon;
     } else if (healthCareInfo.icon == 'QuestSelect') {
       return questSelectIcon;
-    } else if (healthCareInfo.icon == 'Sanitas') {
-      return SanitasIcon;
     } else if (healthCareInfo.icon == 'HingeHealth') {
       return hingeHealthIcon;
     } else if (healthCareInfo.icon == 'HealthyMaternity') {
