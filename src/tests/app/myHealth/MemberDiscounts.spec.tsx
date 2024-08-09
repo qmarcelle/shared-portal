@@ -2,12 +2,12 @@ import { MemberDiscounts } from '@/app/myHealth/components/MemberDiscounts';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import apparelIcon from '../../../public/assets/Apparel-Footwear.svg';
-import fitnessIcon from '../../../public/assets/Fitness.svg';
-import nutritionIcon from '../../../public/assets/Nutrition.svg';
-import personalCareIcon from '../../../public/assets/Personal-Care.svg';
-import travelIcon from '../../../public/assets/Travel.svg';
-import visionWhiteIcon from '../../../public/assets/Vision_white.svg';
+import apparelIcon from '../../../public/assets/apparel-footwear.svg';
+import fitnessIcon from '../../../public/assets/fitness.svg';
+import nutritionIcon from '../../../public/assets/nutrition.svg';
+import personalCareIcon from '../../../public/assets/personal-care.svg';
+import travelIcon from '../../../public/assets/travel.svg';
+import visionWhiteIcon from '../../../public/assets/vision_white.svg';
 
 const renderUI = () => {
   return render(
