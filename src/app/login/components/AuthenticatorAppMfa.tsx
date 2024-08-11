@@ -17,7 +17,7 @@ export const AuthenticatorAppMfa = () => {
     resendMfa: state.resendMfa,
     updateMfaStage: state.updateMfaStage,
   }));
-  const apiErrors = useLoginStore((state) => state.apiErrors);
+  const { resetApiErrors, apiErrors } = useLoginStore();
   const showTooltip = code.length < 1;
 
   function validateSecurityCode() {
@@ -27,6 +27,12 @@ export const AuthenticatorAppMfa = () => {
       return undefined;
     }
   }
+  const updateSecurityCode = (value: string) => {
+    actions.updateCode(value);
+    if (apiErrors.length) {
+      resetApiErrors();
+    }
+  };
   return (
     <div id="mainSection">
       <h1>Let&apos;s Confirm Your Identity</h1>
@@ -35,7 +41,7 @@ export const AuthenticatorAppMfa = () => {
       </p>
       <TextField
         label="Enter Security Code"
-        valueCallback={(val) => actions.updateCode(val)}
+        valueCallback={(val) => updateSecurityCode(val)}
         errors={apiErrors}
       />
       <Spacer size={24} />

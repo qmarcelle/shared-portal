@@ -40,6 +40,7 @@ export const AddMFATextJourney = ({
     resetState,
     invalidErrors,
     updateInvalidError,
+    resetVerifyMfaError,
   } = useSecuritySettingsStore();
   const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
   const [newAuthDevice, setNewAuthDevice] = useState('');
@@ -72,7 +73,6 @@ export const AddMFATextJourney = ({
         setMainAuthDevice(newAuthDevice);
       }
       await updateMfaDevice(MfaDeviceType.text, phone);
-      setMainAuthDevice(newAuthDevice);
       changePageIndex?.(1, true);
     } catch (errorMessage: unknown) {
       changePageIndex?.(4, true);
@@ -111,6 +111,12 @@ export const AddMFATextJourney = ({
       updateInvalidError([]);
     }
   };
+  const updateSecurityCode = (value: string) => {
+    setConfirmCode(value);
+    if (verifyMfaResult?.errors.length) {
+      resetVerifyMfaError();
+    }
+  };
   const keyDownCallBack = (keyCode: string) => {
     isBackSpacePressed = keyCode == 'Backspace';
   };
@@ -147,7 +153,7 @@ export const AddMFATextJourney = ({
           <TextBox className="font-bold" text={mainAuthDevice} />
           <Spacer size={32} />
           <TextField
-            valueCallback={(val) => setConfirmCode(val)}
+            valueCallback={(val) => updateSecurityCode(val)}
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           />

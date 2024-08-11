@@ -38,6 +38,7 @@ export const AddMFAEmailJourney = ({
     verifyMfaResult,
     invalidErrors,
     updateInvalidError,
+    resetVerifyMfaError,
   } = useSecuritySettingsStore();
   const { dismissModal } = useAppModalStore();
   /* const initChange = () => {
@@ -110,6 +111,13 @@ export const AddMFAEmailJourney = ({
     }
   };
 
+  const updateSecurityCode = (value: string) => {
+    setConfirmCode(value);
+    if (verifyMfaResult?.errors.length) {
+      resetVerifyMfaError();
+    }
+  };
+
   const pages = [
     <InitModalSlide
       key={0}
@@ -148,7 +156,7 @@ export const AddMFAEmailJourney = ({
           <Spacer size={32} />
           <TextField
             type="text"
-            valueCallback={(val) => setConfirmCode(val)}
+            valueCallback={(val) => updateSecurityCode(val)}
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           ></TextField>
@@ -183,7 +191,7 @@ export const AddMFAEmailJourney = ({
     <ChangeAuthDeviceSlide
       key={3}
       label="Change Email Address"
-      subLabel="enter the new email address you'd like to use for communications and security settings."
+      subLabel="Enter the new email address you'd like to use for communications and security settings."
       actionArea={
         <TextField
           valueCallback={(val) => validateEmailAddress(val)}

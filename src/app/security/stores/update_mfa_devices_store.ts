@@ -36,6 +36,7 @@ export type UpdateMfaDevicesStore = {
   resetState: () => void;
   updateInvalidError: (errors: string[]) => void;
   invalidErrors?: string[];
+  resetVerifyMfaError: () => void;
 };
 
 export const createUpdateMfaDevicesStore: StateCreator<
@@ -136,6 +137,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
       const errorMessage = errorCodeMessageMap.get(
         (err as ESResponse<VerifyMfaResponse>).errorCode!,
       );
+      if (!errorMessage) throw err;
       set({
         verifyMfaResult: {
           state: AppProg.failed,
@@ -178,5 +180,14 @@ export const createUpdateMfaDevicesStore: StateCreator<
         updatedMfaResult: undefined,
       }));
     }
+  },
+  resetVerifyMfaError: () => {
+    set(() => ({
+      verifyMfaResult: {
+        ...(get().verifyMfaResult ??
+          ({} as ComponentDetails<VerifyMfaResponse>)),
+        errors: [],
+      },
+    }));
   },
 });

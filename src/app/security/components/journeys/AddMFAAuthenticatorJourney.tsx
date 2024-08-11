@@ -27,6 +27,7 @@ export const AddMFAAuthenticatorJourney = ({
     verifyMfaDevice,
     verifyMfaResult,
     updatedMfaResult,
+    resetVerifyMfaError,
   } = useSecuritySettingsStore();
   const [confirmCode, setConfirmCode] = useState('');
   const { dismissModal } = useAppModalStore();
@@ -60,6 +61,13 @@ export const AddMFAAuthenticatorJourney = ({
     }
   };
 
+  const updateSecurityCode = (value: string) => {
+    setConfirmCode(value);
+    if (verifyMfaResult?.errors.length) {
+      resetVerifyMfaError();
+    }
+  };
+
   const pages = [
     <InputModalSlide
       key={0}
@@ -81,7 +89,7 @@ export const AddMFAAuthenticatorJourney = ({
           <Divider />
           <Spacer size={24} />
           <TextField
-            valueCallback={(val) => setConfirmCode(val)}
+            valueCallback={(val) => updateSecurityCode(val)}
             label={'Enter Security Code'}
             errors={verifyMfaResult?.errors}
           ></TextField>

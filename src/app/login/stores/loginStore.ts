@@ -157,6 +157,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         multipleLoginAttempts: false,
       });
       useMfaStore.setState({ stage: MfaModeState.selection });
+      useMfaStore.getState().updateCode('');
     },
     resetApiErrors: () =>
       set(() => ({

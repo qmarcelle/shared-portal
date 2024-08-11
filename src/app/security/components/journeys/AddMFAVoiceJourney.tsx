@@ -38,6 +38,7 @@ export const AddMFAVoiceJourney = ({
     verifyMfaResult,
     invalidErrors,
     updateInvalidError,
+    resetVerifyMfaError,
   } = useSecuritySettingsStore();
   const [confirmCode, setConfirmCode] = useState('');
 
@@ -96,6 +97,13 @@ export const AddMFAVoiceJourney = ({
     }
   };
 
+  const updateSecurityCode = (value: string) => {
+    setConfirmCode(value);
+    if (verifyMfaResult?.errors.length) {
+      resetVerifyMfaError();
+    }
+  };
+
   const keyDownCallBack = (keyCode: string) => {
     isBackSpacePressed = keyCode == 'Backspace';
   };
@@ -130,7 +138,7 @@ export const AddMFAVoiceJourney = ({
           <TextBox className="font-bold" text={mainAuthDevice} />
           <Spacer size={32} />
           <TextField
-            valueCallback={(val) => setConfirmCode(val)}
+            valueCallback={(val) => updateSecurityCode(val)}
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           />

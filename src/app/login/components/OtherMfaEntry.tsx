@@ -21,8 +21,9 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
     updateCode: state.updateCode,
     resendMfa: state.resendMfa,
     updateMfaStage: state.updateMfaStage,
+    availMfaOptions: state.availMfaModes,
   }));
-  const apiErrors = useLoginStore((state) => state.apiErrors);
+  const { resetApiErrors, apiErrors } = useLoginStore();
   const showTooltip = code.length < 1;
 
   function validateSecurityCode() {
@@ -33,6 +34,13 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
     }
   }
 
+  const updateSecurityCode = (value: string) => {
+    actions.updateCode(value);
+    if (apiErrors.length) {
+      resetApiErrors();
+    }
+  };
+
   return (
     <div id="mainSection">
       <h1>Let&apos;s Confirm Your Identity</h1>
@@ -41,7 +49,7 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
       <Spacer size={32} />
       <TextField
         label="Enter Security Code"
-        valueCallback={(val) => actions.updateCode(val)}
+        valueCallback={(val) => updateSecurityCode(val)}
         errors={apiErrors}
       />
       <Spacer size={24} />
@@ -59,11 +67,13 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
       </ToolTip>
 
       <Spacer size={16} />
-      <AppLink
-        label="Choose a Different Method"
-        callback={() => actions.updateMfaStage(MfaModeState.selection)}
-        className="m-auto"
-      />
+      {actions.availMfaOptions.length > 1 ? (
+        <AppLink
+          label="Choose a Different Method"
+          callback={() => actions.updateMfaStage(MfaModeState.selection)}
+          className="m-auto"
+        />
+      ) : null}
       <Spacer size={32} />
       <Divider />
       <Spacer size={16} />
