@@ -78,7 +78,7 @@ export const DisableMFAJourney = ({
         <Column className="items-center">
           <TextBox
             className="text-center"
-            text="We were unable to remove this device at this time. Please try again later."
+            text="Oops! We're sorry. Something went wrong. Please try again."
           />
         </Column>
       }

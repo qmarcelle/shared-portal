@@ -1,5 +1,6 @@
 import { AddMFATextJourney } from '@/app/security/components/journeys/AddMFATextJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
+import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import {
   RenderResult,
@@ -14,6 +15,10 @@ import { mockedAxios } from '../../../__mocks__/axios';
 const renderUI = () => {
   return render(<AppModal />);
 };
+
+jest.mock('../../../../utils/server_session', () => ({
+  getServerSideUserId: jest.fn(() => Promise.resolve('test1234')),
+}));
 
 describe('Add Mfa Text Journey', () => {
   let component: RenderResult;
@@ -73,6 +78,25 @@ describe('Add Mfa Text Journey', () => {
     });
     expect(component.baseElement).toMatchSnapshot();
 
+    mockedAxios.post.mockRejectedValue(
+      createAxiosErrorForTest({
+        errorObject: {
+          data: { errorCode: 'INVALID_OTP' },
+        },
+        status: 400,
+      }),
+    );
+    const securityCode = screen.getByLabelText(/Enter Security Code/i);
+    await userEvent.type(securityCode, '123456');
+    fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          'There is a problem with the security code. Try re-entering or resending the code.',
+        ),
+      ).toBeVisible();
+    });
     mockedAxios.post.mockResolvedValueOnce({
       data: {
         data: {
@@ -86,6 +110,13 @@ describe('Add Mfa Text Journey', () => {
     });
     const codeEntryInput = screen.getByLabelText(/Enter Security Code/i);
     await userEvent.type(codeEntryInput, '123456');
+    await waitFor(() => {
+      expect(
+        screen.queryByText(
+          'There is a problem with the security code. Try re-entering or resending the code.',
+        ),
+      ).not.toBeInTheDocument();
+    });
     fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
     // Success screen rendered correctly
     await waitFor(() => {

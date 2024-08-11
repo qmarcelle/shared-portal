@@ -35,7 +35,7 @@ export async function callLogin(
       request,
     );
 
-    //console.debug(resp);
+    console.debug(resp);
     status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {

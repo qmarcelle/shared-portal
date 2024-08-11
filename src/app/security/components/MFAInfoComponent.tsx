@@ -2,8 +2,11 @@ import { UpdateRowWithStatus } from '@/components/composite/UpdateRowWithStatus'
 import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Card } from '@/components/foundation/Card';
 import { Header } from '@/components/foundation/Header';
+import { alertErrorIcon } from '@/components/foundation/Icons';
+import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import Image from 'next/image';
 import { DisableMFAWarning } from '../components/DisableMFAWarning';
 import { AddMFAAuthenticatorJourney } from '../components/journeys/AddMFAAuthenticatorJourney';
 import { AddMFAEmailJourney } from '../components/journeys/AddMFAEmailJourney';
@@ -12,6 +15,7 @@ import { AddMFAVoiceJourney } from '../components/journeys/AddMFAVoiceJourney';
 import { DisableMFAJourney } from '../components/journeys/DisableMFAJourney';
 import { MfaDevice } from '../models/mfa_device';
 import { MfaDeviceType } from '../models/mfa_device_type';
+import { useSecuritySettingsStore } from '../stores/security_settings_store';
 
 interface MFAInfoComponentProps {
   mfaDevices: Map<MfaDeviceType, MfaDevice>;
@@ -19,6 +23,7 @@ interface MFAInfoComponentProps {
 
 export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
   const { showAppModal } = useAppModalStore();
+  const { getDeviceError } = useSecuritySettingsStore();
   const getOnClickContent = (mfa: MfaDevice) => {
     if (mfa.enabled == true) {
       return (
@@ -67,6 +72,16 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
                 security code. Set up multiple methods for more options when you log in."
         />
         <Spacer size={32} />
+        {getDeviceError && (
+          <Row className="mt-1 p-3">
+            <div className="inline-flex error-container">
+              <Image src={alertErrorIcon} className="icon" alt="ErrorIcon" />
+              <p className="ml-2">
+                Oops! We&apos;re sorry. Something went wrong. Please try again.
+              </p>
+            </div>
+          </Row>
+        )}
         {checkIfAllDisabled() && (
           <div className="mb-8">
             <DisableMFAWarning />
