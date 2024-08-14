@@ -1,12 +1,12 @@
+import { IComponent } from '@/components/IComponent';
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 import editIcon from '../../../../public/assets/edit.svg';
-import { IComponent } from '../../../components/IComponent';
-import { Column } from '../../../components/foundation/Column';
-import { Divider } from '../../../components/foundation/Divider';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
-import { Title } from '../../../components/foundation/Title';
 
 export interface UpdateCommunicationProps extends IComponent {
   label: ReactElement;

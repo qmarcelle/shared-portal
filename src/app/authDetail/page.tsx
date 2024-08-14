@@ -1,6 +1,6 @@
 import { ClaimStatus } from '@/app/authDetail/models/claim-status';
 import { ClaimType } from '@/app/authDetail/models/claim-type';
-import { PriorAuthDetailsSection } from '../../../components/composite/PriorAuthDetailSection';
+import { PriorAuthDetailsSection } from '@/components/composite/PriorAuthDetailSection';
 
 const authDetail = () => {
   return (
