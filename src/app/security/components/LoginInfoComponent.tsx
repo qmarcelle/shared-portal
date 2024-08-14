@@ -5,7 +5,7 @@ import { ListRow } from '@/components/foundation/ListRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import Image from 'next/image';
-import infoIcon from '../../../../../public/assets/info.svg';
+import infoIcon from '../../../../public/assets/info.svg';
 
 interface LoginInfoComponentProps {
   username: string;

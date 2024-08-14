@@ -7,8 +7,8 @@ import { ListOrder } from '@/components/foundation/ListOrder';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import Down from '../../../../../public/assets/down.svg';
-import Up from '../../../../../public/assets/up.svg';
+import Down from '../../../../public/assets/down.svg';
+import Up from '../../../../public/assets/up.svg';
 
 export const AboutPrimaryCareProvider = ({ className }: IComponent) => {
   return (

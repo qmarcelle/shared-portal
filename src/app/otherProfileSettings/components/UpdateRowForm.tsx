@@ -11,7 +11,7 @@ import { TextField } from '@/components/foundation/TextField';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import { ReactElement, useState } from 'react';
-import editIcon from '../../../../../public/assets/edit.svg';
+import editIcon from '../../../../public/assets/edit.svg';
 type OptionType = 'radio' | 'checkbox' | 'textbox' | 'currentselection';
 
 export interface UpdateRowFormProps extends IComponent {

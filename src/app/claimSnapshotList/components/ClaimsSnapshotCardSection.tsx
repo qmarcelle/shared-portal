@@ -9,8 +9,8 @@ import { ClaimDetails } from '@/models/claim_details';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import downIcon from '../../../../../public/assets/down.svg';
-import DownloadIcon from '../../../../../public/assets/Download.svg';
+import downIcon from '../../../../public/assets/down.svg';
+import DownloadIcon from '../../../../public/assets/Download.svg';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];

@@ -1,7 +1,7 @@
 import { RequestAccessOnMyPlan } from '@/app/accessOthersInformation/journeys/RequestAccessOnMyPlan';
 import { InviteToRegister } from '@/app/personalRepresentativeAccess/journeys/InviteToRegister';
 import Image from 'next/image';
-import editIcon from '../../../../../public/assets/edit.svg';
+import editIcon from '../../../../public/assets/edit.svg';
 import { IComponent } from '../../../components/IComponent';
 import { AppLink } from '../../../components/foundation/AppLink';
 import { useAppModalStore } from '../../../components/foundation/AppModal';

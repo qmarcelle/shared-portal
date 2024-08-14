@@ -15,7 +15,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
-import editIcon from '../../../../../public/assets/edit.svg';
+import editIcon from '../../../../public/assets/edit.svg';
 
 interface AccessOnMyPlanItemProps extends IComponent {
   memberName: string;

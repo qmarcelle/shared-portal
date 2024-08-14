@@ -2,7 +2,7 @@ import { Card } from '@/components/foundation/Card';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-import AlertIcon from '../../../../../public/assets/Alert-Gray1.svg';
+import AlertIcon from '../../../../public/assets/Alert-Gray1.svg';
 
 export const DisableMFAWarning = () => {
   return (

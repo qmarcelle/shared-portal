@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { ReactElement } from 'react';
-import editIcon from '../../../../../public/assets/edit.svg';
+import editIcon from '../../../../public/assets/edit.svg';
 import { IComponent } from '../../../components/IComponent';
 import { Column } from '../../../components/foundation/Column';
 import { Divider } from '../../../components/foundation/Divider';
