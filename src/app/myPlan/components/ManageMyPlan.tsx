@@ -7,7 +7,7 @@ import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import External from '../../../../../public/assets/external.svg';
+import External from '../../../../public/assets/external.svg';
 
 export interface ManageMyPlanProps extends IComponent {
   managePlanItems: managePlanItems[];

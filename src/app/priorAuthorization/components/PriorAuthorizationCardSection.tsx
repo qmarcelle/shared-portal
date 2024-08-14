@@ -7,7 +7,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ClaimDetails } from '@/models/claim_details';
 import Image from 'next/image';
-import downIcon from '../../../../../public/assets/down.svg';
+import downIcon from '../../../../public/assets/down.svg';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];

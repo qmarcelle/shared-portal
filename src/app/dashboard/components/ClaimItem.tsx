@@ -8,12 +8,12 @@ import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import DentalIcon from '../../../../../public/assets/dental.svg';
-import MedicalIcon from '../../../../../public/assets/medical.svg';
-import MentalCareIcon from '../../../../../public/assets/mental_health.svg';
-import PharmacyIcon from '../../../../../public/assets/pharmacy.svg';
-import PrimaryCareIcon from '../../../../../public/assets/primary_care.svg';
-import VisionIcon from '../../../../../public/assets/vision.svg';
+import DentalIcon from '../../../../public/assets/dental.svg';
+import MedicalIcon from '../../../../public/assets/medical.svg';
+import MentalCareIcon from '../../../../public/assets/mental_health.svg';
+import PharmacyIcon from '../../../../public/assets/pharmacy.svg';
+import PrimaryCareIcon from '../../../../public/assets/primary_care.svg';
+import VisionIcon from '../../../../public/assets/vision.svg';
 
 interface ClaimItemProps extends IComponent {
   // TODO: Find the correct model and type it here

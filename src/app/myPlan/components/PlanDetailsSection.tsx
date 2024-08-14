@@ -9,9 +9,9 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import IDCardFrontCard from '../../../../../public/assets/IDCardFrontCard.svg';
-import Down from '../../../../../public/assets/down.svg';
-import Up from '../../../../../public/assets/up.svg';
+import IDCardFrontCard from '../../../../public/assets/IDCardFrontCard.svg';
+import Down from '../../../../public/assets/down.svg';
+import Up from '../../../../public/assets/up.svg';
 import { PlanContactInformationSection } from './PlanContactInformationSection';
 
 export const PlanDetailsSection = ({ className }: IComponent) => {

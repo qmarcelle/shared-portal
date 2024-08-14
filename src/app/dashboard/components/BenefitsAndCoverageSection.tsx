@@ -7,7 +7,7 @@ import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import { useState } from 'react';
-import RightIcon from '../../../../../public/assets/right.svg';
+import RightIcon from '../../../../public/assets/right.svg';
 
 interface BenefitsAndCoverageSectionProps extends IComponent {
   benefits: BenefitDetails[];

@@ -9,9 +9,9 @@ import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import SanitasIcon from '../../../../../public/assets/Sanitas-BoT.svg';
-import AbleToIcon from '../../../../../public/assets/ableTo.svg';
-import TelaDocIcon from '../../../../../public/assets/teladoc-health.svg';
+import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
+import AbleToIcon from '../../../../public/assets/ableTo.svg';
+import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {

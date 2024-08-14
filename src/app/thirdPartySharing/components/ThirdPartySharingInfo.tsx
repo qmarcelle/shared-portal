@@ -8,7 +8,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import deleteIcon from '../../../../../public/assets/delete.svg';
+import deleteIcon from '../../../../public/assets/delete.svg';
 import { ThirdPartySharingJourney } from './journeys/ThirdPartySharingJourney';
 
 export const ThirdPartySharingInfo = () => {
