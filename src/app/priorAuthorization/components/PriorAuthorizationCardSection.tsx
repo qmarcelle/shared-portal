@@ -1,13 +1,13 @@
+import { IComponent } from '@/components/IComponent';
+import { ClaimItem } from '@/components/composite/ClaimItem';
+import { Column } from '@/components/foundation/Column';
+import { SelectItem } from '@/components/foundation/Dropdown';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { ClaimDetails } from '@/models/claim_details';
 import Image from 'next/image';
 import downIcon from '../../../../../public/assets/down.svg';
-import { IComponent } from '../../../../components/IComponent';
-import { ClaimItem } from '../../../../components/composite/ClaimItem';
-import { Column } from '../../../../components/foundation/Column';
-import { SelectItem } from '../../../../components/foundation/Dropdown';
-import { Row } from '../../../../components/foundation/Row';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];

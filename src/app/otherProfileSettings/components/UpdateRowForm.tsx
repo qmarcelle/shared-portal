@@ -1,17 +1,17 @@
+import { IComponent } from '@/components/IComponent';
+import { Button } from '@/components/foundation/Button';
+import { Checkbox } from '@/components/foundation/Checkbox';
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
+import { Radio } from '@/components/foundation/Radio';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { TextField } from '@/components/foundation/TextField';
+import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import { ReactElement, useState } from 'react';
 import editIcon from '../../../../../public/assets/edit.svg';
-import { IComponent } from '../../../../components/IComponent';
-import { Button } from '../../../../components/foundation/Button';
-import { Checkbox } from '../../../../components/foundation/Checkbox';
-import { Column } from '../../../../components/foundation/Column';
-import { Divider } from '../../../../components/foundation/Divider';
-import { Radio } from '../../../../components/foundation/Radio';
-import { Row } from '../../../../components/foundation/Row';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
-import { TextField } from '../../../../components/foundation/TextField';
-import { Title } from '../../../../components/foundation/Title';
 type OptionType = 'radio' | 'checkbox' | 'textbox' | 'currentselection';
 
 export interface UpdateRowFormProps extends IComponent {

@@ -1,5 +1,5 @@
-import { IComponent } from '../../../../components/IComponent';
-import { Spacer } from '../../../../components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
+import { Spacer } from '@/components/foundation/Spacer';
 
 interface WelcomeBannerProps extends IComponent {
   name: string;

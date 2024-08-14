@@ -1,14 +1,14 @@
+import { IComponent } from '@/components/IComponent';
+import { Accordion } from '@/components/foundation/Accordion';
+import { Card } from '@/components/foundation/Card';
+import { Divider } from '@/components/foundation/Divider';
+import { Header } from '@/components/foundation/Header';
 import { ListOrder } from '@/components/foundation/ListOrder';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import Down from '../../../../../public/assets/down.svg';
 import Up from '../../../../../public/assets/up.svg';
-import { IComponent } from '../../../../components/IComponent';
-import { Accordion } from '../../../../components/foundation/Accordion';
-import { Card } from '../../../../components/foundation/Card';
-import { Divider } from '../../../../components/foundation/Divider';
-import { Header } from '../../../../components/foundation/Header';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
 
 export const AboutPrimaryCareProvider = ({ className }: IComponent) => {
   return (

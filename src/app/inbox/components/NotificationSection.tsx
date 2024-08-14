@@ -1,5 +1,5 @@
-import { IComponent } from '../../../../components/IComponent';
-import { Column } from '../../../../components/foundation/Column';
+import { IComponent } from '@/components/IComponent';
+import { Column } from '@/components/foundation/Column';
 import { NotificationCard, NotificationCardProps } from './NotificationCard';
 
 interface NotificationSectionProps extends IComponent {

@@ -1,17 +1,17 @@
+import { IComponent } from '@/components/IComponent';
+import { OnMyPlanComponent } from '@/components/composite/OnMyPlanComponent';
+import { Accordion } from '@/components/foundation/Accordion';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import IDCardFrontCard from '../../../../../public/assets/IDCardFrontCard.svg';
 import Down from '../../../../../public/assets/down.svg';
 import Up from '../../../../../public/assets/up.svg';
-import { IComponent } from '../../../../components/IComponent';
-import { OnMyPlanComponent } from '../../../../components/composite/OnMyPlanComponent';
-import { Accordion } from '../../../../components/foundation/Accordion';
-import { AppLink } from '../../../../components/foundation/AppLink';
-import { Card } from '../../../../components/foundation/Card';
-import { Column } from '../../../../components/foundation/Column';
-import { Divider } from '../../../../components/foundation/Divider';
-import { Row } from '../../../../components/foundation/Row';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
 import { PlanContactInformationSection } from './PlanContactInformationSection';
 
 export const PlanDetailsSection = ({ className }: IComponent) => {

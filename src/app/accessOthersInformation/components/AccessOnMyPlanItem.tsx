@@ -1,21 +1,21 @@
 import { InviteToRegister } from '@/app/accessOthersInformation/journeys/InviteToRegister';
 import { RequestAccessOnMyPlan } from '@/app/accessOthersInformation/journeys/RequestAccessOnMyPlan';
-import Image from 'next/image';
-import editIcon from '../../../../../public/assets/edit.svg';
-import { IComponent } from '../../../../components/IComponent';
-import { AppLink } from '../../../../components/foundation/AppLink';
-import { useAppModalStore } from '../../../../components/foundation/AppModal';
-import { Card } from '../../../../components/foundation/Card';
-import { Column } from '../../../../components/foundation/Column';
-import { Divider } from '../../../../components/foundation/Divider';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { useAppModalStore } from '@/components/foundation/AppModal';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
 import {
   accessGranted,
   inboxIcon,
-} from '../../../../components/foundation/Icons';
-import { Row } from '../../../../components/foundation/Row';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
-import { Title } from '../../../../components/foundation/Title';
+} from '@/components/foundation/Icons';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { Title } from '@/components/foundation/Title';
+import Image from 'next/image';
+import editIcon from '../../../../../public/assets/edit.svg';
 
 interface AccessOnMyPlanItemProps extends IComponent {
   memberName: string;

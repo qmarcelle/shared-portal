@@ -1,8 +1,8 @@
 import { PriorAuthDetails } from '@/app/dashboard/models/priorAuth_details';
-import { IComponent } from '../../../../components/IComponent';
-import { AppLink } from '../../../../components/foundation/AppLink';
-import { Card } from '../../../../components/foundation/Card';
-import { Spacer } from '../../../../components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Spacer } from '@/components/foundation/Spacer';
 import { BlankPriorAuthSection } from './BlankPriorAuthSection';
 import { PriorAuthCard } from './PrioAuthCard';
 
