@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { Context as ResponsiveContext } from 'react-responsive';
-import { ClaimsSnapshotCardSection } from '../../../app/(main)/claimSnapshotList/components/ClaimsSnapshotCardSection';
+import { ClaimsSnapshotCardSection } from '../../../app/claimSnapshotList/components/ClaimsSnapshotCardSection';
 
 const renderUI = (width: number = 1000) => {
   return render(

@@ -1,5 +1,5 @@
-import { ClaimStatus } from '@/app/(main)/authDetail/models/claim-status';
-import { ClaimType } from '@/app/(main)/authDetail/models/claim-type';
+import { ClaimStatus } from '@/app/authDetail/models/claim-status';
+import { ClaimType } from '@/app/authDetail/models/claim-type';
 import { PriorAuthDetailsSection } from '@/components/composite/PriorAuthDetailSection';
 import { render, screen } from '@testing-library/react';
 

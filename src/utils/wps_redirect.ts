@@ -1,4 +1,4 @@
-import { PingOneSession } from '@/app/(main)/login/models/app/pingone_session';
+import { PingOneSession } from '@/app/login/models/app/pingone_session';
 import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
 import { UNIXTimeSeconds } from './date_formatter';

@@ -1,12 +1,12 @@
-import { RequestAccessOnMyPlan } from '@/app/(main)/accessOthersInformation/journeys/RequestAccessOnMyPlan';
+import { RequestAccessOnMyPlan } from '@/app/accessOthersInformation/journeys/RequestAccessOnMyPlan';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {
-    RenderResult,
-    fireEvent,
-    render,
-    screen,
-    waitFor,
+  RenderResult,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
 } from '@testing-library/react';
 
 const renderUI = () => {

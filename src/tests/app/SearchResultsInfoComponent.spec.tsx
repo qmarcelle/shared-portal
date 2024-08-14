@@ -1,4 +1,4 @@
-import { SearchResultsInfoComponent } from '@/app/(main)/searchResults/components/SearchResultsInfoComponent';
+import { SearchResultsInfoComponent } from '@/app/searchResults/components/SearchResultsInfoComponent';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

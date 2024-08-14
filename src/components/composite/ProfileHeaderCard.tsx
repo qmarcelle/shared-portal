@@ -1,4 +1,4 @@
-import { useLoginStore } from '@/app/(main)/login/stores/loginStore';
+import { useLoginStore } from '@/app/login/stores/loginStore';
 import { DEFAULT_LOGOUT_REDIRECT } from '@/utils/routes';
 import { useRouter } from 'next/navigation';
 import { IComponent } from '../IComponent';

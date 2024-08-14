@@ -1,4 +1,4 @@
-import { VirtualCareOptions } from '@/app/(main)/findcare/components/VirtualCareOptions';
+import { VirtualCareOptions } from '@/app/findcare/components/VirtualCareOptions';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

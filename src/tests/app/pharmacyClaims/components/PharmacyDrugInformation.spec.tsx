@@ -1,4 +1,4 @@
-import { PharmacyDrugInformation } from '@/app/(main)/pharmacyClaims/components/PharmacyDrugInformation';
+import { PharmacyDrugInformation } from '@/app/pharmacyClaims/components/PharmacyDrugInformation';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

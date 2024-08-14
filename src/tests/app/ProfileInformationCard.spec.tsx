@@ -1,4 +1,4 @@
-import { ProfileInformationCard } from '@/app/(main)/profileSettings/components/ProfileInformationCard';
+import { ProfileInformationCard } from '@/app/profileSettings/components/ProfileInformationCard';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
