@@ -1,11 +1,11 @@
+import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import {
-    communicationSettingsIcon,
-    connectAccountsIcon,
-    securityIcon,
-    sharePermissionsIcon,
+  communicationSettingsIcon,
+  connectAccountsIcon,
+  securityIcon,
+  sharePermissionsIcon,
 } from '@/components/foundation/Icons';
-import { InfoCard } from '../../../../components/composite/InfoCard';
 
 export const ProfileSettingsSection = () => {
   const profileSettingDetails = [

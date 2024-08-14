@@ -1,10 +1,10 @@
+import { IComponent } from '@/components/IComponent';
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { formatCurrency } from '@/utils/currency_formatter';
-import { IComponent } from '../../../../components/IComponent';
-import { Column } from '../../../../components/foundation/Column';
-import { Divider } from '../../../../components/foundation/Divider';
-import { Row } from '../../../../components/foundation/Row';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
 
 interface ServicesRenderedInformationProps extends IComponent {
   serviceCode?: string;

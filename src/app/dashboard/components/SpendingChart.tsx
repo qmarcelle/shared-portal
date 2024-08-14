@@ -1,9 +1,9 @@
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
+import { Spacer } from '@/components/foundation/Spacer';
 import { formatCurrency } from '@/utils/currency_formatter';
 import { ArcElement, Chart as ChartJS } from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
-import { Column } from '../../../../components/foundation/Column';
-import { Divider } from '../../../../components/foundation/Divider';
-import { Spacer } from '../../../../components/foundation/Spacer';
 
 ChartJS.register;
 {

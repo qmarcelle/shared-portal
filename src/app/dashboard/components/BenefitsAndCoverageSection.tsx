@@ -1,13 +1,13 @@
 import { BenefitDetails } from '@/app/dashboard/models/benefits_detail';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Divider } from '@/components/foundation/Divider';
+import SearchField from '@/components/foundation/SearchField';
+import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import { useState } from 'react';
 import RightIcon from '../../../../../public/assets/right.svg';
-import { IComponent } from '../../../../components/IComponent';
-import { AppLink } from '../../../../components/foundation/AppLink';
-import { Card } from '../../../../components/foundation/Card';
-import { Divider } from '../../../../components/foundation/Divider';
-import SearchField from '../../../../components/foundation/SearchField';
-import { Spacer } from '../../../../components/foundation/Spacer';
 
 interface BenefitsAndCoverageSectionProps extends IComponent {
   benefits: BenefitDetails[];

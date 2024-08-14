@@ -1,12 +1,12 @@
+import { IComponent } from '@/components/IComponent';
+import { Button } from '@/components/foundation/Button';
+import { Card } from '@/components/foundation/Card';
+import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import { IComponent } from '../../../../components/IComponent';
-import { Button } from '../../../../components/foundation/Button';
-import { Card } from '../../../../components/foundation/Card';
-import { externalOffsiteWhiteIcon } from '../../../../components/foundation/Icons';
-import { Row } from '../../../../components/foundation/Row';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
 
 interface PayPremiumProps extends IComponent {
   dueDate: string;

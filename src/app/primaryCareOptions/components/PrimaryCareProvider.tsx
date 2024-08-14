@@ -1,9 +1,9 @@
-import { IComponent } from '../../../../components/IComponent';
-import { AppLink } from '../../../../components/foundation/AppLink';
-import { Card } from '../../../../components/foundation/Card';
-import { Header } from '../../../../components/foundation/Header';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Header } from '@/components/foundation/Header';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 
 interface PrimaryCareProviderProps extends IComponent {
   memberName: string;

@@ -1,8 +1,8 @@
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { useState } from 'react';
-import { Card } from '../../../../components/foundation/Card';
-import { Column } from '../../../../components/foundation/Column';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
 import { UpdateRowForm } from './UpdateRowForm';
 
 export const RaceAndEthnicitySurvey = () => {
