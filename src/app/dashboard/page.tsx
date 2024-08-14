@@ -15,8 +15,8 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-import EstimateCost from '../../../../public/assets/Estimate-Cost.svg';
-import FindCare from '../../../../public/assets/Find-Care.svg';
+import EstimateCost from '../../../public/assets/Estimate-Cost.svg';
+import FindCare from '../../../public/assets/Find-Care.svg';
 
 const Dashboard = () => {
   return (

@@ -1,5 +1,6 @@
 'use client';
 import { Column } from '@/components/foundation/Column';
+import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
 import {
   dentalIcon,
@@ -11,7 +12,6 @@ import {
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
-import { Filter } from '../../components/foundation/Filter';
 import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
 
 const SpendingSummary = () => {

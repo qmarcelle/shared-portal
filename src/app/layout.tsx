@@ -4,13 +4,13 @@
 import '@/app/globals.css';
 import { AppModal } from '@/components/foundation/AppModal';
 import { SideBarModal } from '@/components/foundation/SideBarModal';
+import SiteHeader from '@/components/foundation/SiteHeader';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
 import { usePathname } from 'next/navigation';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import SiteHeader from '../components/foundation/SiteHeader';
 import ClientLayout from './ClientLayout';
 
 export default function RootLayout({
