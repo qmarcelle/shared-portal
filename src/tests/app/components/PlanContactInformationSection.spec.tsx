@@ -1,7 +1,7 @@
 import { AccordionListCard } from '@/components/composite/AccordionListCard';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { PlanContactInformationSection } from '../../../app/(main)/myPlan/components/PlanContactInformationSection';
+import { PlanContactInformationSection } from '../../../app/myPlan/components/PlanContactInformationSection';
 
 const renderUI = () => {
   return render(

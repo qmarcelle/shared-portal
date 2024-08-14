@@ -1,13 +1,13 @@
 import {
-    dentalIcon,
-    medicalIcon,
-    pharmacyIcon,
-    visionIcon,
+  dentalIcon,
+  medicalIcon,
+  pharmacyIcon,
+  visionIcon,
 } from '@/components/foundation/Icons';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import { SpendingAccountSummary } from '../../../app/(main)/dashboard/components/SpendingAccountSummary';
+import { SpendingAccountSummary } from '../../../app/dashboard/components/SpendingAccountSummary';
 
 const renderUI = () => {
   return render(

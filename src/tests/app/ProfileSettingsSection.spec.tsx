@@ -1,4 +1,4 @@
-import { ProfileSettingsSection } from '@/app/(main)/profileSettings/components/ProfileSettingsSection';
+import { ProfileSettingsSection } from '@/app/profileSettings/components/ProfileSettingsSection';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

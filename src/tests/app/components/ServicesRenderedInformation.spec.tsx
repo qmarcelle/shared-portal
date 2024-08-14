@@ -1,4 +1,4 @@
-import { ServicesRenderedInformation } from '@/app/(main)/claimServiceRendered/components/ServicesRenderedInformation';
+import { ServicesRenderedInformation } from '@/app/claimServiceRendered/components/ServicesRenderedInformation';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

@@ -1,4 +1,4 @@
-import { SearchResultList } from '@/app/(main)/searchResults/components/SearchResultList';
+import { SearchResultList } from '@/app/searchResults/components/SearchResultList';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
