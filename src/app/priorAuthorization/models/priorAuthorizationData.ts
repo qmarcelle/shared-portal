@@ -1,4 +1,4 @@
-import { ClaimDetails } from '../../../../models/claim_details';
+import { ClaimDetails } from '@/models/claim_details';
 
 export const priorAuthorizationData: ClaimDetails[] = [
   {
