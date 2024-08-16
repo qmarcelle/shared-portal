@@ -27,15 +27,13 @@ import sharePermissionsSvg from '../../../public/assets/Share-Permissions.svg';
 import signoutSvg from '../../../public/assets/Signout.svg';
 import spendingAccountsSvg from '../../../public/assets/Spending-Accounts.svg';
 import spendingSummarySvg from '../../../public/assets/Spending-Summary.svg';
+import alightSvg from '../../../public/assets/alight.svg';
 import blueCrossSilhouletteSvg from '../../../public/assets/blueCrossSilhouette.svg';
 import checkBlueIconSvg from '../../../public/assets/check.svg';
 import closeIconSvg from '../../../public/assets/close.svg';
 import dentalSvg from '../../../public/assets/dental.svg';
 import downSvg from '../../../public/assets/down.svg';
-import {
-  default as externalSvg,
-  default as extrenalSvg,
-} from '../../../public/assets/external.svg';
+import externalSvg from '../../../public/assets/external.svg';
 import leftIconSvg from '../../../public/assets/left.svg';
 import medicalSvg from '../../../public/assets/medical.svg';
 import pharmacySvg from '../../../public/assets/pharmacy.svg';
@@ -77,7 +75,6 @@ export const externalIcon = externalSvg;
 export const hamburgerMenuIcon = hamburgerMenuSvg;
 export const upIcon = upSvg;
 export const rightIcon = rightSvg;
-export const extrenalIcon = extrenalSvg;
 export const alertErrorIcon = alertErrorSvg;
 export const externalOffsiteWhiteIcon = externaloffsitewhiteSvg;
 export const alertBlueIcon = alertBlueSvg;
@@ -89,3 +86,4 @@ export const dentalIcon = dentalSvg;
 export const pharmacyIcon = pharmacySvg;
 export const visionIcon = visionSvg;
 export const basicAccessIcon = basicAccess;
+export const alightIcon = alightSvg;
