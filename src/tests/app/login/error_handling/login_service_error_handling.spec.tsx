@@ -36,7 +36,7 @@ describe('Login Service Errors', () => {
     });
     fireEvent.click(backtoHomeLink);
   });
-  test('Login Service Error 501 error', async () => {
+  test('Login Service ErrorCode 501 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -73,7 +73,7 @@ describe('Login Service Errors', () => {
     });
   });
 
-  test('Login Service Error 502 error', async () => {
+  test('Login Service ErrorCode 502 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -109,7 +109,7 @@ describe('Login Service Errors', () => {
       ).toBeVisible();
     });
   });
-  test('Login Service Error 503 error', async () => {
+  test('Login Service ErrorCode 503 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -145,7 +145,7 @@ describe('Login Service Errors', () => {
       ).toBeVisible();
     });
   });
-  test('Login Service Error 504 error', async () => {
+  test('Login Service ErrorCode 504 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -181,7 +181,7 @@ describe('Login Service Errors', () => {
       ).toBeVisible();
     });
   });
-  test('Login Service Error 505 error', async () => {
+  test('Login Service ErrorCode 505 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -217,7 +217,7 @@ describe('Login Service Errors', () => {
       ).toBeVisible();
     });
   });
-  test('Login Service Error 506 error', async () => {
+  test('Login Service ErrorCode 506 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -253,7 +253,7 @@ describe('Login Service Errors', () => {
       ).toBeVisible();
     });
   });
-  test('Login Service Error 400 error', async () => {
+  test('Login Service ErrorCode 400 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -285,7 +285,103 @@ describe('Login Service Errors', () => {
       ).toBeVisible();
     });
   });
-  test('Login Service Error 408 error', async () => {
+  test('Login Service ErrorCode 401 error', async () => {
+    const { inputUsername, inputPassword, loginButton } = setupUI();
+
+    await userEvent.type(inputUsername, 'username');
+    await userEvent.type(inputPassword, 'password');
+
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        errorObject: {},
+        status: 401,
+      }),
+    );
+
+    fireEvent.click(loginButton);
+
+    // Should call the api with correct values
+    await waitFor(() => {
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        '/mfAuthentication/loginAuthentication',
+        {
+          username: 'username',
+          password: 'password',
+        },
+      );
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "Oops! We're sorry. Something went wrong. Please try again.",
+        ),
+      ).toBeVisible();
+    });
+  });
+  test('Login Service ErrorCode 403 error', async () => {
+    const { inputUsername, inputPassword, loginButton } = setupUI();
+
+    await userEvent.type(inputUsername, 'username');
+    await userEvent.type(inputPassword, 'password');
+
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        errorObject: {},
+        status: 403,
+      }),
+    );
+
+    fireEvent.click(loginButton);
+
+    // Should call the api with correct values
+    await waitFor(() => {
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        '/mfAuthentication/loginAuthentication',
+        {
+          username: 'username',
+          password: 'password',
+        },
+      );
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "Oops! We're sorry. Something went wrong. Please try again.",
+        ),
+      ).toBeVisible();
+    });
+  });
+  test('Login Service ErrorCode 404 error', async () => {
+    const { inputUsername, inputPassword, loginButton } = setupUI();
+
+    await userEvent.type(inputUsername, 'username');
+    await userEvent.type(inputPassword, 'password');
+
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        errorObject: {},
+        status: 404,
+      }),
+    );
+
+    fireEvent.click(loginButton);
+
+    // Should call the api with correct values
+    await waitFor(() => {
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        '/mfAuthentication/loginAuthentication',
+        {
+          username: 'username',
+          password: 'password',
+        },
+      );
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "Oops! We're sorry. Something went wrong. Please try again.",
+        ),
+      ).toBeVisible();
+    });
+  });
+  test('Login Service ErrorCode 408 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
@@ -317,7 +413,7 @@ describe('Login Service Errors', () => {
       ).toBeVisible();
     });
   });
-  test('Login Service Error 500 error', async () => {
+  test('Login Service ErrorCode 500 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
     await userEvent.type(inputUsername, 'username');
