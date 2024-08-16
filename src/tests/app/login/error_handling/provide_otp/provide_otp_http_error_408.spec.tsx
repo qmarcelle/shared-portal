@@ -1,13 +1,13 @@
+/* eslint-disable quotes */
 process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777882';
-process.env.ES_API_POLICY_ID = 'aa080f071f4e8f1ce4ab0072d2aeaa12';
-process.env.ES_API_APP_ID =
-  '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef';
+process.env.ES_API_POLICY_ID = 'policyId';
+process.env.ES_API_APP_ID = 'appId';
 
 import { LoginResponse } from '@/app/login/models/api/login';
-import { SelectMfaDeviceResponse } from '@/app/login/models/api/select_mfa_device_response';
 import LogInPage from '@/app/login/page';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -23,8 +23,13 @@ jest.mock('next/navigation', () => ({
   },
 }));
 
+jest.setTimeout(30000);
+
+// Mock window.open
+global.open = jest.fn();
+
 const setupUI = () => {
-  render(<LogInPage />);
+  const { unmount } = render(<LogInPage />);
   const inputUsername = screen.getByRole('textbox', {
     name: /username/i,
   });
@@ -33,48 +38,25 @@ const setupUI = () => {
     name: /Log In/i,
   });
 
-  return { inputUsername, inputPassword, loginButton };
+  return { inputUsername, inputPassword, loginButton, unmount };
 };
 
-describe('Log In of User', () => {
-  test('should render all required elements correctly', () => {
-    const { inputUsername, inputPassword, loginButton } = setupUI();
-
-    expect(inputUsername).toBeInTheDocument();
-    expect(inputPassword).toBeInTheDocument();
-    expect(loginButton).toBeInTheDocument();
-  });
-
-  test('Log In and Select Mfa', async () => {
+describe('Login Provide Otp', () => {
+  test('Show error for Bad Request 408', async () => {
     //const mockAxios = mock<Axios>()
+    console.log('Test 1 started');
     mockedAxios.post
       .mockResolvedValueOnce({
+        // call to /login
         data: {
           data: {
             message: 'DEVICE_SELECTION_REQUIRED',
-            interactionId: '00585a05-69b7-4b95-ad72-87d7354de7a2',
-            interactionToken:
-              '9ec9b4378c914db7d8ef2f15d8ec26d66eb2ad9d481288b2d540573dfde33eed94c8d01d24630a125680e5d035a61e541f24421ec76ab8bd70fe7f85c9ff61ae9bb95b775d894180c9ea09d5a695fcaccf9f7a5738e6df462d2809318cf393d7abc5d982e9f0fb279c63faf58ad806ba7ce8a371d9f576f31ff3ed81a35a7c54',
+            interactionId: 'interactionId1',
+            interactionToken: 'interactionToken1',
             mfaDeviceList: [
               {
                 deviceType: 'SMS',
                 deviceId: '9803c2fd-1106-44a7-828a-c0fa9ef34427',
-                deviceStatus: 'ACTIVE',
-                createdAt: '2024-04-29T12:52:29.385Z',
-                updatedAt: '2024-04-29T12:53:27.821Z',
-                phone: '+1.4232220222',
-              },
-              {
-                deviceType: 'TOTP',
-                deviceId: '9803c2fd-3454-44a7-828a-c0fa9ef34427',
-                deviceStatus: 'ACTIVE',
-                createdAt: '2024-04-29T12:52:29.385Z',
-                updatedAt: '2024-04-29T12:53:27.821Z',
-                phone: '+1.4232220222',
-              },
-              {
-                deviceType: 'VOICE',
-                deviceId: '9803c2fd-4234-44a7-828a-c0fa9ef34427',
                 deviceStatus: 'ACTIVE',
                 createdAt: '2024-04-29T12:52:29.385Z',
                 updatedAt: '2024-04-29T12:53:27.821Z',
@@ -129,17 +111,12 @@ describe('Log In of User', () => {
           },
         } satisfies ESResponse<LoginResponse>,
       })
-      .mockResolvedValueOnce({
-        data: {
-          data: {
-            deviceId: 'sdasdad',
-            flowStatus: 'Done',
-            interactionId: '00585a05-69b7-4b95-ad72-87d7354de7a2',
-            interactionToken:
-              '9ec9b4378c914db7d8ef2f15d8ec26d66eb2ad9d481288b2d540573dfde33eed94c8d01d24630a125680e5d035a61e541f24421ec76ab8bd70fe7f85c9ff61ae9bb95b775d894180c9ea09d5a695fcaccf9f7a5738e6df462d2809318cf393d7abc5d982e9f0fb279c63faf58ad806ba7ce8a371d9f576f31ff3ed81a35a7c54',
-          },
-        } satisfies ESResponse<Partial<SelectMfaDeviceResponse>>,
-      });
+      // call to /submitMfa
+      .mockRejectedValueOnce(
+        createAxiosErrorForTest({
+          status: 408,
+        }),
+      );
 
     const ui = setupUI();
 
@@ -161,41 +138,14 @@ describe('Log In of User', () => {
       {
         username: 'username',
         password: 'password',
-        policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
-        appId:
-          '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef',
+        appId: 'appId',
+        policyId: 'policyId',
       },
     );
-    // The loading progress should be out now and not vivible
+    // The loading progress should be out now and not visible
     expect(screen.queryByLabelText(/Logging In.../i)).not.toBeInTheDocument();
 
-    await waitFor(() => {
-      expect(
-        screen.getByRole('radio', {
-          name: 'Text a code to (***)***-0222',
-        }),
-      ).toBeInTheDocument();
-      expect(
-        screen.queryByRole('radio', {
-          name: 'Email a code to s*******************@bcbst.com',
-        }),
-      ).not.toBeInTheDocument();
-      expect(
-        screen.getByRole('radio', { name: 'Use an Authenticator App' }),
-      ).toBeInTheDocument();
-    });
-
-    const textToNumberRadio = screen.getByRole('radio', {
-      name: 'Text a code to (***)***-0222',
-    });
-    const sendMfaButton = screen.getByRole('button', {
-      name: /send code/i,
-    });
-    await userEvent.click(textToNumberRadio);
-    await userEvent.click(sendMfaButton);
-    expect(screen.queryByLabelText(/Sending Code.../i)).not.toBeInTheDocument();
-
-    // Mfa Security must be called
+    // The mfa code entry screen should be visible
     await waitFor(() => {
       expect(
         screen.getByRole('textbox', { name: 'Enter Security Code' }),
@@ -207,13 +157,51 @@ describe('Log In of User', () => {
         screen.getByRole('button', { name: 'Confirm' }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('button', {
-          name: 'Choose a Different Method',
-        }),
-      ).toBeInTheDocument();
-      expect(
         screen.getByRole('button', { name: 'contact us' }),
       ).toBeInTheDocument();
     });
+
+    // Enter the mfa code
+    const mfaCodeEntry = screen.getByRole('textbox', {
+      name: 'Enter Security Code',
+    });
+    await userEvent.type(mfaCodeEntry, 'some-code');
+
+    // The code entry field should have correct value
+    expect(mfaCodeEntry).toHaveValue('some-code');
+
+    // Click confirm button
+    const confirmBtn = screen.getByRole('button', { name: 'Confirm' });
+    userEvent.click(confirmBtn);
+
+    // Assert the loading indicator came in
+    await waitFor(() => {
+      expect(screen.getByLabelText(/Confirming/i)).toBeInTheDocument();
+    });
+
+    // Assert the /submitMfa api was called correctly
+    expect(mockedAxios.post).toHaveBeenCalledWith(
+      '/mfAuthentication/loginAuthentication/provideOtp',
+      {
+        interactionId: 'interactionId1',
+        interactionToken: 'interactionToken1',
+        otp: 'some-code',
+        appId: 'appId',
+        policyId: 'policyId',
+        userToken: expect.anything(),
+      },
+    );
+
+    // Assert the loading indicator went off
+    expect(screen.queryByLabelText(/Confirming/i)).not.toBeInTheDocument();
+
+    // Assert the user is shows Generic error page
+    expect(
+      screen.getByText(
+        "Oops! We're sorry. Something went wrong. Please try again.",
+      ),
+    ).toBeVisible();
+    console.log('Test 1 completed');
+    ui.unmount();
   });
 });
