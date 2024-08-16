@@ -1,0 +1,19 @@
+.my-health-programs-header{
+    max-width: 70%;
+ }
+ 
+ .my-health-programs-header-button {
+    max-width: 38%;
+ }
+ 
+ .my-health-programs-cost-option {
+    margin: 8px;
+    margin-top: 16px;
+    padding: 30px;
+ }
+ 
+ .my-health-programs-good-option {
+    margin: 8px;
+    margin-top: 16px;
+    padding: 15px;
+ }
