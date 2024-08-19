@@ -89,6 +89,25 @@ describe('Add Mfa Email Journey', () => {
       }),
     );
 
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          message: 'Phone already registered.',
+          deviceType: 'SMS',
+          deviceStatus: 'ACTIVATION_REQUIRED',
+          createdAt: '2024-02-09T12:40:33.554Z',
+          updatedAt: '2024-02-09T12:40:33.554Z',
+          phone: '11111111111',
+          email: 'chall123@gmail.com',
+          secret: 'ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+          keyUri:
+            'otpauth://totp/thomas@abc.com?secret=ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+        },
+      },
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Resend Code/i }));
+    expect(screen.getByText('Code resent!')).toBeVisible();
+
     const securityCode = screen.getByLabelText(/Enter Security Code/i);
     await userEvent.type(securityCode, '123456');
     fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
@@ -100,6 +119,7 @@ describe('Add Mfa Email Journey', () => {
         ),
       ).toBeVisible();
     });
+
     mockedAxios.post.mockResolvedValueOnce({
       data: {
         data: {
@@ -111,7 +131,9 @@ describe('Add Mfa Email Journey', () => {
         },
       },
     });
+
     const codeEntryInput = screen.getByLabelText(/Enter Security Code/i);
+
     await userEvent.type(codeEntryInput, '123456');
     await waitFor(() => {
       expect(
@@ -120,6 +142,7 @@ describe('Add Mfa Email Journey', () => {
         ),
       ).not.toBeInTheDocument();
     });
+
     fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
     // Success screen rendered correctly
     await waitFor(() => {

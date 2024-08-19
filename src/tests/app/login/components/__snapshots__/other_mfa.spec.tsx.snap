@@ -50,7 +50,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       style="display: block;"
     >
       <button
-        class="flex flex-row link-container undefined"
+        class="flex flex-row link-container self-start"
         style="max-width: max-content; height: auto; display: block;"
         tabindex="0"
       >

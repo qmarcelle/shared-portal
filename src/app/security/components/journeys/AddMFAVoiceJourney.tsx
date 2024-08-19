@@ -44,6 +44,7 @@ export const AddMFAVoiceJourney = ({
 
   const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
   const [newAuthDevice, setNewAuthDevice] = useState('');
+  const [resentCode, setResentCode] = useState(false);
   const { dismissModal } = useAppModalStore();
   let isBackSpacePressed: boolean = false;
 
@@ -60,9 +61,14 @@ export const AddMFAVoiceJourney = ({
     resetState();
   }
 
-  const initNewDevice = async () => {
+  const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
+      if (value) {
+        setResentCode(true);
+      } else {
+        setResentCode(false);
+      }
       await updateMfaDevice(MfaDeviceType.voice, newAuthDevice);
       setMainAuthDevice(newAuthDevice);
       changePageIndex?.(1, true);
@@ -125,7 +131,9 @@ export const AddMFAVoiceJourney = ({
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        isValidMobileNumber(newAuthDevice) ? () => initNewDevice() : undefined
+        isValidMobileNumber(newAuthDevice)
+          ? () => initNewDevice(false)
+          : undefined
       }
     />,
 
@@ -142,11 +150,16 @@ export const AddMFAVoiceJourney = ({
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           />
-          <AppLink
-            className="self-start"
-            label="Resend Code"
-            callback={initNewDevice}
-          />
+          {resentCode && (
+            <TextBox className="body-1 text-lime-700" text="Code resent!" />
+          )}
+          {!resentCode && (
+            <AppLink
+              className="self-start"
+              callback={() => initNewDevice(true)}
+              label="Resend Code"
+            />
+          )}
           <Spacer size={32} />
         </Column>
       }

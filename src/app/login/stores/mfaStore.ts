@@ -12,6 +12,7 @@ import { useLoginStore } from './loginStore';
 type MfaStore = {
   selectedMfa: MfaOption | null;
   code: string;
+  resend: boolean;
   stage: MfaModeState;
   availMfaModes: MfaOption[];
   initMfaProg: AppProg;
@@ -29,6 +30,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
   (set, get) => ({
     selectedMfa: null,
     code: '',
+    resend: false,
     stage: MfaModeState.selection,
     availMfaModes: [],
     initMfaProg: AppProg.init,
@@ -40,6 +42,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
     updateCode: (val: string) =>
       set(() => ({
         code: val.trim(),
+        resend: false,
       })),
     updateAvailableMfa: (mfaModes: MfaOption[]) =>
       set(() => ({
@@ -184,6 +187,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
         // Update the Mfa with prev selected mode, finding the correct device
         set({
           selectedMfa: prevSelectedMfa,
+          resend: true,
         });
 
         // Start Mfa auth only if we have multiple mfa selection

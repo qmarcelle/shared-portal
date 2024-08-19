@@ -2,8 +2,9 @@ import {
   OtherMfaEntry,
   OtherMfaEntryProps,
 } from '@/app/login/components/OtherMfaEntry';
+import { TextBox } from '@/components/foundation/TextBox';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 jest.setTimeout(30000);
 
@@ -30,7 +31,8 @@ describe('Authenticator Mfa Component', () => {
     const ui = setupUI({
       authMethod: '********@somemail.com',
     });
-
+    fireEvent.click(screen.getByRole('button', { name: /Resend Code/i }));
+    render(<TextBox text="Code resent!" />);
     expect(ui.inputSecurityCode).toBeVisible();
     expect(ui.confirmButton).toBeVisible();
     expect(ui.contactUs).toBeVisible();
