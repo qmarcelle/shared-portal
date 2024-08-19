@@ -339,9 +339,7 @@ describe('Resend Mfa Code', () => {
     expect(
       screen.getByRole('textbox', { name: 'Enter Security Code' }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: 'Resend Code' }),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Code resent!')).toBeVisible();
     expect(screen.getByRole('button', { name: 'Confirm' })).toBeInTheDocument();
     expect(
       screen.getByRole('button', {

@@ -97,6 +97,9 @@ export const AddMFATextJourney = ({
       if (response?.state == AppProg.success) {
         changePageIndex?.(3, false);
       }
+      if (response?.state == AppProg.failed && resentCode) {
+        throw 'error';
+      }
     } catch (errorMessage: unknown) {
       changePageIndex?.(4, true);
     }
@@ -155,8 +158,8 @@ export const AddMFATextJourney = ({
       label={headerText}
       subLabel="Enter the security code sent to you phone number to complete text message setup. We've sent a code to:"
       actionArea={
-        <Column className="items-center">
-          <TextBox className="font-bold" text={mainAuthDevice} />
+        <Column>
+          <TextBox className="font-bold text-center" text={mainAuthDevice} />
           <Spacer size={32} />
           <TextField
             valueCallback={(val) => updateSecurityCode(val)}

@@ -19,6 +19,7 @@ type MfaStore = {
   completeMfaProg: AppProg;
   updateMfaMode: (mode: MfaOption) => void;
   updateCode: (code: string) => void;
+  updateResendCode: (resent: boolean) => void;
   updateAvailableMfa: (mfaModes: MfaOption[]) => void;
   updateMfaStage: (mfaModeStage: MfaModeState) => void;
   startMfaAuth: () => void;
@@ -44,6 +45,10 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
         code: val.trim(),
         resend: false,
       })),
+    updateResendCode: (val: boolean) =>
+      set(() => ({
+        resend: val,
+      })),
     updateAvailableMfa: (mfaModes: MfaOption[]) =>
       set(() => ({
         availMfaModes: mfaModes,
@@ -57,6 +62,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           const login = useLoginStore.getState().login;
           login();
           get().updateCode('');
+          get().updateResendCode(false);
         }
         return {
           stage: stage,
@@ -146,7 +152,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           const errorMessage = errorCodeMessageMap.get(
             resp.error?.errorCode ?? '',
           );
-          if (errorMessage != null) {
+          if (errorMessage != null && !get().resend) {
             useLoginStore.setState({
               apiErrors: [errorMessage],
             });
