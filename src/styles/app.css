@@ -156,3 +156,13 @@
 .priorAuthDetail .statusDetail {
   margin-left: 70px;
 }
+
+.sliderdots-active .slick-dots li.slick-active button:before {
+  color: #005eb9;
+  font-size: 12px;
+}
+
+.sliderdots .slick-dots li button:before {
+  border-color: #005eb9;
+  font-size: 12px;
+}
