@@ -1,5 +1,5 @@
 import {
-  benefitsCoverage,
+  benefits,
   claimsBenefitsCoverage,
   planDocuments,
   priorAuthorizations,
@@ -15,7 +15,7 @@ export const ViewOtherPlanInformation = () => {
       label: 'Benefits & Coverage',
       // eslint-disable-next-line quotes
       description: "View what's covered under your plan.",
-      iconName: benefitsCoverage,
+      iconName: benefits,
       link: '/benefits',
     },
     {

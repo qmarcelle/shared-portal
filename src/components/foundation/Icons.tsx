@@ -4,7 +4,6 @@ import showPasswordSvg from '@/../public/assets/Show-Password.svg';
 import accessGrantedSvg from '../../../public/assets/Access-Granted.svg';
 import alertErrorSvg from '../../../public/assets/Alert-ErrorRed.svg';
 import bcbstLogoSvg from '../../../public/assets/BCBST-Blue.svg';
-import benefitsCoverageSvg from '../../../public/assets/Benefits-Coverage.svg';
 import bcbstStackedSvg from '../../../public/assets/BlueCross-Stacked.svg';
 import claimsBenefitsCoverageSvg from '../../../public/assets/Claims.svg';
 import communicationSettingsSvg from '../../../public/assets/Communication-Settings.svg';
@@ -27,11 +26,13 @@ import sharePermissionsSvg from '../../../public/assets/Share-Permissions.svg';
 import signoutSvg from '../../../public/assets/Signout.svg';
 import spendingAccountsSvg from '../../../public/assets/Spending-Accounts.svg';
 import spendingSummarySvg from '../../../public/assets/Spending-Summary.svg';
+import benefitsSvg from '../../../public/assets/benefits.svg';
 import blueCrossSilhouletteSvg from '../../../public/assets/blueCrossSilhouette.svg';
 import checkBlueIconSvg from '../../../public/assets/check.svg';
 import closeIconSvg from '../../../public/assets/close.svg';
 import dentalSvg from '../../../public/assets/dental.svg';
 import downSvg from '../../../public/assets/down.svg';
+import enrollmentSvg from '../../../public/assets/enrollment.svg';
 import {
   default as externalSvg,
   default as extrenalSvg,
@@ -61,7 +62,7 @@ export const signoutSvgIcon = signoutSvg;
 export const switchFilterIcon = switchFilterIconSvg;
 export const checkBlueIcon = checkBlueIconSvg;
 export const modalAlertIcon = modalAlertSvg;
-export const benefitsCoverage = benefitsCoverageSvg;
+export const enrollment = enrollmentSvg;
 export const claimsBenefitsCoverage = claimsBenefitsCoverageSvg;
 export const planDocuments = planDocumentsSvg;
 export const priorAuthorizations = priorAuthorizationsSvg;
@@ -89,3 +90,4 @@ export const dentalIcon = dentalSvg;
 export const pharmacyIcon = pharmacySvg;
 export const visionIcon = visionSvg;
 export const basicAccessIcon = basicAccess;
+export const benefits = benefitsSvg;
