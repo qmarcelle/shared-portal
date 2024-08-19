@@ -85,6 +85,9 @@ export const AddMFAVoiceJourney = ({
       if (response?.state == AppProg.success) {
         changePageIndex?.(2, false);
       }
+      if (response?.state == AppProg.failed && resentCode) {
+        throw 'error';
+      }
     } catch (errorMessage: unknown) {
       changePageIndex?.(3, true);
     }
@@ -142,8 +145,8 @@ export const AddMFAVoiceJourney = ({
       label="Voice Call Setup"
       subLabel="Enter the 6-digit security code you heard to complete voice setup."
       actionArea={
-        <Column className="items-center">
-          <TextBox className="font-bold" text={mainAuthDevice} />
+        <Column>
+          <TextBox className="font-bold text-center" text={mainAuthDevice} />
           <Spacer size={32} />
           <TextField
             valueCallback={(val) => updateSecurityCode(val)}

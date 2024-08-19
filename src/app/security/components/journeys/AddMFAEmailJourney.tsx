@@ -92,6 +92,10 @@ export const AddMFAEmailJourney = ({
       if (response?.state == AppProg.success) {
         changePageIndex?.(2, false);
       }
+
+      if (response?.state == AppProg.failed && resentCode) {
+        throw 'error';
+      }
     } catch (errorMessage: unknown) {
       changePageIndex?.(4, true);
     }
