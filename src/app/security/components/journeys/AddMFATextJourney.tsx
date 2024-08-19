@@ -45,6 +45,7 @@ export const AddMFATextJourney = ({
   const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
+  const [resentCode, setResentCode] = useState(false);
   const { dismissModal } = useAppModalStore();
   let isBackSpacePressed: boolean = false;
 
@@ -61,7 +62,7 @@ export const AddMFATextJourney = ({
     resetState();
   }
 
-  const initNewDevice = async () => {
+  const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
       let phone = '';
@@ -71,6 +72,11 @@ export const AddMFATextJourney = ({
       } else {
         phone = newAuthDevice;
         setMainAuthDevice(newAuthDevice);
+      }
+      if (value) {
+        setResentCode(true);
+      } else {
+        setResentCode(false);
       }
       await updateMfaDevice(MfaDeviceType.text, phone);
       changePageIndex?.(1, true);
@@ -96,7 +102,7 @@ export const AddMFATextJourney = ({
     }
   };
   const sendCode = async () => {
-    initNewDevice();
+    initNewDevice(false);
     changePageIndex?.(1, true);
   };
   const validatePhoneNumber = (phoneNumber: string) => {
@@ -157,11 +163,16 @@ export const AddMFATextJourney = ({
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           />
-          <AppLink
-            className="self-start"
-            callback={initNewDevice}
-            label="Resend Code"
-          />
+          {resentCode && (
+            <TextBox className="body-1 text-lime-700" text="Code resent!" />
+          )}
+          {!resentCode && (
+            <AppLink
+              className="self-start"
+              callback={() => initNewDevice(true)}
+              label="Resend Code"
+            />
+          )}
           <Spacer size={32} />
         </Column>
       }
@@ -184,7 +195,9 @@ export const AddMFATextJourney = ({
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        isValidMobileNumber(newAuthDevice) ? () => initNewDevice() : undefined
+        isValidMobileNumber(newAuthDevice)
+          ? () => initNewDevice(false)
+          : undefined
       }
     />,
     <SuccessSlide

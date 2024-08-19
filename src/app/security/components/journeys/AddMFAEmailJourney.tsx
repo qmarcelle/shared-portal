@@ -51,12 +51,13 @@ export const AddMFAEmailJourney = ({
   const [mainAuthDevice, setMainAuthDevice] = useState(email);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
+  const [resentCode, setResentCode] = useState(false);
   // const [emailError, setemailError] = useState<string[]>([]);
   useEffect(() => {
     updateInvalidError([]);
   }, [updateInvalidError]);
 
-  const initNewDevice = async () => {
+  const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
       let email = '';
@@ -66,6 +67,11 @@ export const AddMFAEmailJourney = ({
       } else {
         email = newAuthDevice;
         setMainAuthDevice(newAuthDevice);
+      }
+      if (value) {
+        setResentCode(true);
+      } else {
+        setResentCode(false);
       }
       await updateMfaDevice(MfaDeviceType.email, email);
       changePageIndex?.(1, true);
@@ -92,7 +98,7 @@ export const AddMFAEmailJourney = ({
   };
 
   const sendCode = async () => {
-    initNewDevice();
+    initNewDevice(false);
     changePageIndex?.(1, true);
   };
 
@@ -161,11 +167,16 @@ export const AddMFAEmailJourney = ({
             errors={verifyMfaResult?.errors}
           ></TextField>
           <Spacer size={16} />
-          <AppLink
-            className="self-start"
-            callback={initNewDevice}
-            label="Resend Code"
-          />
+          {resentCode && (
+            <TextBox className="body-1 text-lime-700" text="Code resent!" />
+          )}
+          {!resentCode && (
+            <AppLink
+              className="self-start"
+              callback={() => initNewDevice(true)}
+              label="Resend Code"
+            />
+          )}
           <Spacer size={32} />
         </Column>
       }
@@ -204,7 +215,7 @@ export const AddMFAEmailJourney = ({
       cancelCallback={() => dismissModal()}
       nextCallback={
         isValidEmailAddress(newAuthDevice) && newAuthDevice.length !== 0
-          ? () => initNewDevice()
+          ? () => initNewDevice(false)
           : undefined
       }
     />,

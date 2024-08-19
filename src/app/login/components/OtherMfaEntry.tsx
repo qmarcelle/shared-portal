@@ -2,6 +2,7 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Divider } from '@/components/foundation/Divider';
 import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import { AppProg } from '../models/app/app_prog';
@@ -15,6 +16,7 @@ export type OtherMfaEntryProps = {
 
 export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
   const code = useMfaStore((state) => state.code);
+  const resend = useMfaStore((state) => state.resend);
   const completeMfaProg = useMfaStore((state) => state.completeMfaProg);
   const actions = useMfaStore((state) => ({
     submitMfa: state.submitMfaAuth,
@@ -41,6 +43,10 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
     }
   };
 
+  const updateCodeResentText = () => {
+    actions.resendMfa();
+  };
+
   return (
     <div id="mainSection">
       <h1>Let&apos;s Confirm Your Identity</h1>
@@ -53,7 +59,14 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
         errors={apiErrors}
       />
       <Spacer size={24} />
-      <AppLink label="Resend Code" callback={() => actions.resendMfa()} />
+      {resend && <TextBox className="text-lime-700" text="Code resent!" />}
+      {!resend && (
+        <AppLink
+          className="self-start"
+          callback={() => updateCodeResentText()}
+          label="Resend Code"
+        />
+      )}
       <Spacer size={32} />
       <ToolTip
         showTooltip={showTooltip}
