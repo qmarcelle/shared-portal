@@ -43,7 +43,10 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
     updateCode: (val: string) =>
       set(() => ({
         code: val.trim(),
-        resend: false,
+      })),
+    updateResendCode: (val: boolean) =>
+      set(() => ({
+        resend: val,
       })),
     updateResendCode: (val: boolean) =>
       set(() => ({
