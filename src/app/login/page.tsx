@@ -6,6 +6,7 @@ import { DEFAULT_LOGIN_REDIRECT } from '@/utils/routes';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
+import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
@@ -18,12 +19,14 @@ export default function LogIn() {
     mfaNeeded,
     backToHome,
     multipleLoginAttempts,
+    verifyEmail,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
     state.mfaNeeded,
     state.resetToHome,
     state.multipleLoginAttempts,
+    state.verifyEmail,
   ]);
 
   const router = useRouter();
@@ -36,6 +39,9 @@ export default function LogIn() {
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
+    }
+    if (verifyEmail == true) {
+      return <LoginEmailVerification />;
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;

@@ -23,19 +23,23 @@ export type LoginStore = {
   loggedUser: boolean;
   unhandledErrors: boolean;
   multipleLoginAttempts: boolean;
+  verifyEmail: boolean;
   mfaNeeded: boolean;
   updateUsername: (val: string) => void;
   updatePassword: (val: string) => void;
+  updateMultipleLoginAttempts: (val: boolean) => void;
   login: () => Promise<void>;
   processLogin: (response: PortalLoginResponse) => Promise<void>;
   resetApiErrors: () => void;
   resetToHome: () => void;
   signOut: () => void;
+  updateLoggedUser: (val: boolean) => void;
   loginProg: AppProg;
   apiErrors: string[];
   apiErrorcode: string[];
   interactionData: LoginInteractionData | null;
   userToken: string;
+  emailId: string;
 };
 
 export const useLoginStore = createWithEqualityFn<LoginStore>(
@@ -47,6 +51,11 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     multipleLoginAttempts: false,
     mfaNeeded: false,
     userToken: '',
+    verifyEmail: false,
+    emailId: '',
+    updateLoggedUser: (val: boolean) => set(() => ({ loggedUser: val })),
+    updateMultipleLoginAttempts: (val: boolean) =>
+      set(() => ({ multipleLoginAttempts: val })),
     updateUsername: (val: string) =>
       set(() => ({
         username: val.trim(),
@@ -88,6 +97,17 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
 
         // Set to success if request succeeded
         set(() => ({ loginProg: AppProg.success }));
+        if (resp.status == LoginStatus.VERIFY_EMAIL) {
+          set({
+            verifyEmail: true,
+            interactionData: {
+              interactionId: resp.data?.interactionId ?? '',
+              interactionToken: resp.data?.interactionToken ?? '',
+            },
+            emailId: resp.data?.email ?? 'alex_cred@bcbst.com',
+          });
+          return;
+        }
         // Process login response for further operations
         await get().processLogin(resp.data!);
       } catch (err) {
