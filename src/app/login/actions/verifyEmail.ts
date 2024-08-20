@@ -1,3 +1,5 @@
+'use server';
+
 import { signIn } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
@@ -10,7 +12,7 @@ import { PortalLoginResponse } from '../models/api/login';
 import { VerifyEmailOtpRequest } from '../models/api/verify_email_otp_request';
 import { LoginStatus } from '../models/status';
 
-export async function callSubmitEmailVerifyOtp(
+export async function callVerifyEmailOtp(
   request: VerifyEmailOtpRequest,
 ): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
@@ -24,7 +26,7 @@ export async function callSubmitEmailVerifyOtp(
       request,
     );
 
-    console.log(resp.data);
+    console.debug(resp.data);
     status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {

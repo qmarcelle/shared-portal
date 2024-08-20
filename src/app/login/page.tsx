@@ -40,11 +40,12 @@ export default function LogIn() {
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
     }
-    if (verifyEmail == true) {
-      return <LoginEmailVerification />;
-    }
     if (mfaNeeded == false) {
-      return <LoginComponent />;
+      if (verifyEmail == true) {
+        return <LoginEmailVerification />;
+      } else {
+        return <LoginComponent />;
+      }
     } else {
       return <MfaComponent />;
     }

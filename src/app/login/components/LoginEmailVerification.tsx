@@ -8,18 +8,18 @@ import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import { AppProg } from '@/models/app_prog';
 import { maskEmail } from '@/utils/mask_utils';
-import { useEmailVerifyStore } from '../stores/emailVerifyStore';
 import { useLoginStore } from '../stores/loginStore';
+import { useVerifyEmailStore } from '../stores/verifyEmailStore';
 
 export const LoginEmailVerification = () => {
   const { emailId } = useLoginStore();
-  const actions = useEmailVerifyStore((state) => ({
+  const actions = useVerifyEmailStore((state) => ({
     resetApiErrors: state.resetApiErrors,
     updateCode: state.updateCode,
     apiErrors: state.apiErrors,
     code: state.code,
-    completeEmailVerifyProg: state.completeEmailVerifyProg,
-    submitEmailVerifyAuth: state.submitEmailVerifyAuth,
+    completeVerifyEmailProg: state.completeVerifyEmailProg,
+    submitVerifyEmailAuth: state.submitVerifyEmailAuth,
   }));
   const updateSecurityCode = (value: string) => {
     actions.updateCode(value);
@@ -29,7 +29,7 @@ export const LoginEmailVerification = () => {
   };
   function validateSecurityCode() {
     if (actions.code.length > 0) {
-      return () => actions.submitEmailVerifyAuth();
+      return () => actions.submitVerifyEmailAuth();
     } else {
       return undefined;
     }
@@ -60,7 +60,7 @@ export const LoginEmailVerification = () => {
         <Button
           callback={validateSecurityCode()}
           label={
-            actions.completeEmailVerifyProg == AppProg.loading
+            actions.completeVerifyEmailProg == AppProg.loading
               ? 'Confirming...'
               : 'Confirm Code'
           }
