@@ -19,6 +19,7 @@ export interface LoginResponse {
   interactionId: string;
   interactionToken: string;
   mfaDeviceList: MfaDeviceListItem[];
+  email?: string;
 }
 
 export interface MfaDeviceListItem {
