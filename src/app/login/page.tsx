@@ -12,19 +12,13 @@ import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErr
 import { useLoginStore } from './stores/loginStore';
 
 export default function LogIn() {
-  const [
-    unhandledErrors,
-    loggedUser,
-    mfaNeeded,
-    backToHome,
-    multipleLoginAttempts,
-  ] = useLoginStore((state) => [
-    state.unhandledErrors,
-    state.loggedUser,
-    state.mfaNeeded,
-    state.resetToHome,
-    state.multipleLoginAttempts,
-  ]);
+  const [unhandledErrors, loggedUser, mfaNeeded, multipleLoginAttempts] =
+    useLoginStore((state) => [
+      state.unhandledErrors,
+      state.loggedUser,
+      state.mfaNeeded,
+      state.multipleLoginAttempts,
+    ]);
 
   const router = useRouter();
   function renderComp() {
@@ -68,7 +62,9 @@ export default function LogIn() {
         <div id="blueback">
           <div id="marginSection">
             <button
-              onClick={backToHome}
+              onClick={() => {
+                router.replace(process.env.NEXT_PUBLIC_PORTAL_URL ?? '');
+              }}
               id="backButton"
               className="buttonlink pt-9"
             >
