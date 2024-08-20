@@ -3,22 +3,22 @@ import { AppProg } from '@/models/app_prog';
 import { logger } from '@/utils/logger';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
-import { callSubmitEmailVerifyOtp } from '../actions/emailVerify';
+import { callVerifyEmailOtp } from '../actions/verifyEmail';
 import { PortalLoginResponse } from '../models/api/login';
 import { errorCodeMessageMap } from '../models/app/error_code_message_map';
 import { LoginStatus } from '../models/status';
 import { useLoginStore } from './loginStore';
 
-type EmailVerifyStore = {
+type VerifyEmailStore = {
   code: string;
   updateCode: (code: string) => void;
-  submitEmailVerifyAuth: () => void;
+  submitVerifyEmailAuth: () => void;
   resetApiErrors: () => void;
-  completeEmailVerifyProg: AppProg;
+  completeVerifyEmailProg: AppProg;
   apiErrors: string[];
 };
 
-export const useEmailVerifyStore = createWithEqualityFn<EmailVerifyStore>(
+export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
   (set, get) => ({
     code: '',
     apiErrors: [],
@@ -26,20 +26,20 @@ export const useEmailVerifyStore = createWithEqualityFn<EmailVerifyStore>(
       set(() => ({
         apiErrors: [],
       })),
-    completeEmailVerifyProg: AppProg.init,
+    completeVerifyEmailProg: AppProg.init,
     updateCode: (val: string) =>
       set(() => ({
         code: val.trim(),
       })),
-    submitEmailVerifyAuth: async () => {
+    submitVerifyEmailAuth: async () => {
       try {
         // Clear existing errors
         set({ apiErrors: [] });
         // Set SubmitMfa prog to loading
         set({
-          completeEmailVerifyProg: AppProg.loading,
+          completeVerifyEmailProg: AppProg.loading,
         });
-        const resp = await callSubmitEmailVerifyOtp({
+        const resp = await callVerifyEmailOtp({
           emailOtp: get().code,
           interactionId:
             useLoginStore.getState().interactionData!.interactionId,
@@ -64,7 +64,7 @@ export const useEmailVerifyStore = createWithEqualityFn<EmailVerifyStore>(
         logger.error('Error from Verify Email Api', err);
         console.error(err);
         // Set indicator for login button
-        set(() => ({ completeEmailVerifyProg: AppProg.failed }));
+        set(() => ({ completeVerifyEmailProg: AppProg.failed }));
         const errorMessage = errorCodeMessageMap.get(
           (err as ActionResponse<LoginStatus, PortalLoginResponse>)?.error
             ?.errorCode ?? '',

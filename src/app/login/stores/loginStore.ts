@@ -16,6 +16,7 @@ import {
   mapMfaDeviceType,
 } from '../utils/mfaDeviceMapper';
 import { useMfaStore } from './mfaStore';
+import { useVerifyEmailStore } from './verifyEmailStore';
 
 export type LoginStore = {
   username: string;
@@ -175,10 +176,12 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         username: '',
         password: '',
         multipleLoginAttempts: false,
+        verifyEmail: false,
       });
       useMfaStore.setState({ stage: MfaModeState.selection });
       useMfaStore.getState().updateCode('');
       useMfaStore.getState().updateResendCode(false);
+      useVerifyEmailStore.getState().updateCode('');
     },
     resetApiErrors: () =>
       set(() => ({
