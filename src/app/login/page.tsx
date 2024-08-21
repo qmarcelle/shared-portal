@@ -17,14 +17,12 @@ export default function LogIn() {
     unhandledErrors,
     loggedUser,
     mfaNeeded,
-    backToHome,
     multipleLoginAttempts,
     verifyEmail,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
     state.mfaNeeded,
-    state.resetToHome,
     state.multipleLoginAttempts,
     state.verifyEmail,
   ]);
@@ -75,7 +73,9 @@ export default function LogIn() {
         <div id="blueback">
           <div id="marginSection">
             <button
-              onClick={backToHome}
+              onClick={() => {
+                router.replace(process.env.NEXT_PUBLIC_PORTAL_URL ?? '');
+              }}
               id="backButton"
               className="buttonlink pt-9"
             >
