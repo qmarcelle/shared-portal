@@ -57,6 +57,10 @@
   color: var(--primary-color);
 }
 
+.tertiary-color {
+  color: var(--tertiary-color-3);
+}
+
 .primary-bg-color {
   background-color: var(--primary-color);
 }

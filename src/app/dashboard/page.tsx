@@ -6,9 +6,9 @@ import { MedicalBalanceSection } from '@/app/dashboard/components/MedicalBalance
 import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
-import { RecentClaimSection } from '@/app/dashboard/components/RecentClaimSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { WelcomeBanner } from '@/app/dashboard/components/WelcomeBanner';
+import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { SearchNavigation } from '@/components/composite/SearchNavigation';
 import { AlertBar } from '@/components/foundation/AlertBar';
 import { Column } from '@/components/foundation/Column';
@@ -51,6 +51,8 @@ const Dashboard = () => {
           <Column className="flex-grow page-section-63_33 items-stretch">
             <RecentClaimSection
               className="large-section"
+              title="Recent Claims"
+              linkText="View All Claims"
               claims={[
                 {
                   id: 'Claim98',
@@ -60,6 +62,7 @@ const Dashboard = () => {
                   issuer: 'John Doe',
                   memberName: 'Chris James',
                   serviceDate: '02/06/2024',
+                  isMiniCard: true,
                   claimInfo: {},
                 },
                 {
@@ -71,6 +74,7 @@ const Dashboard = () => {
                   memberName: 'Aly Jame',
                   serviceDate: '01/06/2024',
                   claimInfo: {},
+                  isMiniCard: true,
                 },
                 {
                   id: 'Claim54',
@@ -81,6 +85,7 @@ const Dashboard = () => {
                   memberName: 'Aly Jame',
                   serviceDate: '01/16/2024',
                   claimInfo: {},
+                  isMiniCard: true,
                 },
               ]}
             />
