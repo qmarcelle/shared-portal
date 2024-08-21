@@ -42,7 +42,7 @@ export const LoginEmailVerification = () => {
       <TextBox text="We’ll need to confirm your email address before you can log in." />
       <Spacer size={16} />
       <TextBox text="We’ve sent a code to:" />
-      <TextBox text={maskEmail(emailId!)} className="font-bold" />
+      <TextBox text={emailId ? maskEmail(emailId) : ''} className="font-bold" />
       <Spacer size={16} />
       <TextBox text="Enter the security code to verify your email address." />
       <Spacer size={32} />

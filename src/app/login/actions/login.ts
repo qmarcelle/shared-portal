@@ -46,7 +46,7 @@ export async function callLogin(
         break;
       case 'EMAIL_VERIFICATION_REQUIRED':
       case 'NO_DEVICES_EMAIL_VERIFICATION_REQUIRED':
-        //authUser = request.username; //TODO REMOVE THIS when email verification UI is implemented!!
+        authUser = request.username; //TODO REMOVE THIS when email verification UI is implemented!!
         status = LoginStatus.VERIFY_EMAIL;
         break;
       case 'OTP_REQUIRED':

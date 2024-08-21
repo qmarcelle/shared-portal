@@ -29,9 +29,7 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
       </p>
       <p
         class="body-1 font-bold"
-      >
-        ch****@gmail.com
-      </p>
+      />
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
@@ -70,13 +68,22 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
-      <button
-        aria-label="Confirm Code"
-        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-        type="button"
+      <div
+        class="flex flex-row justify-center items-center tooltip"
       >
-        Confirm Code
-      </button>
+        <span
+          class="tooltiptext"
+        >
+          Enter a Security Code.
+        </span>
+        <button
+          aria-label="Confirm Code"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          type="button"
+        >
+          Confirm Code
+        </button>
+      </div>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
@@ -99,7 +106,7 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
       <p
         class="body-1 pr-5"
       >
-         Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
+         Be sure to check your spam or junk folders. You can also give us a call   using the number listed on the back of your Member ID card or
       </p>
       <section
         class="flex flex-row"

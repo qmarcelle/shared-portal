@@ -98,17 +98,18 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
 
         // Set to success if request succeeded
         set(() => ({ loginProg: AppProg.success }));
-        if (resp.status == LoginStatus.VERIFY_EMAIL) {
+        //To Do Uncomment once ES API is available for integration
+        /* if (resp.status == LoginStatus.VERIFY_EMAIL) {
           set({
             verifyEmail: true,
             interactionData: {
               interactionId: resp.data?.interactionId ?? '',
               interactionToken: resp.data?.interactionToken ?? '',
             },
-            emailId: resp.data?.email ?? 'alex_cred@bcbst.com',
+            emailId: resp.data?.email ?? '',
           });
           return;
-        }
+        } */
         // Process login response for further operations
         await get().processLogin(resp.data!);
       } catch (err) {
@@ -182,6 +183,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       useMfaStore.getState().updateCode('');
       useMfaStore.getState().updateResendCode(false);
       useVerifyEmailStore.getState().updateCode('');
+      useVerifyEmailStore.getState().resetApiErrors();
     },
     resetApiErrors: () =>
       set(() => ({
