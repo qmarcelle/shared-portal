@@ -56,10 +56,16 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
             break;
           case LoginStatus.ACCOUNT_INACTIVE:
             useLoginStore.getState().updateMultipleLoginAttempts(true);
+            set({
+              completeVerifyEmailProg: AppProg.failed,
+            });
             return;
         }
         // Process login response for further operations
         await useLoginStore.getState().processLogin(resp.data!);
+        set({
+          completeVerifyEmailProg: AppProg.success,
+        });
       } catch (err) {
         logger.error('Error from Verify Email Api', err);
         console.error(err);
