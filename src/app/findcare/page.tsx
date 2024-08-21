@@ -2,6 +2,9 @@ import { ViewCareOptions } from '@/app/findcare/components/ViewCareOptions';
 import { VirtualCareOptions } from '@/app/findcare/components/VirtualCareOptions';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
+import Image from 'next/image';
+import MentalCareIcon from '../../../public/assets/mental_health.svg';
+import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 
 const FindCare = () => {
   return (
@@ -11,34 +14,30 @@ const FindCare = () => {
           <Column className="flex-grow page-section-63_33 items-stretch">
             <ViewCareOptions
               className="large-section"
-              claims={[
+              options={[
                 {
-                  id: '1',
-                  claimStatus: '',
-                  claimType: 'PrimaryCare',
-                  claimTotal: 'null',
-                  issuer: 'Primary Care Options',
-                  memberName:
+                  title: 'Primary Care Options',
+                  description:
                     'Learn more about Primary Care Providers and view your options.',
-                  serviceDate: '',
-                  claimInfo: {},
-                  priorAuthFlag: false,
-                  claimsFlag: false,
-                  viewCareFlag: true,
+                  image: (
+                    <Image
+                      className="max-md:w-[80px] max-md:h-[80px]"
+                      src={PrimaryCareIcon}
+                      alt="Primary Care"
+                    />
+                  ),
                 },
                 {
-                  id: '2',
-                  claimStatus: '',
-                  claimType: 'MentalCare',
-                  claimTotal: null,
-                  issuer: 'Mental Care Options',
-                  memberName:
+                  title: 'Mental Care Options',
+                  description:
                     'Learn more about Mental Health Providers and view your options.',
-                  serviceDate: '',
-                  claimInfo: {},
-                  priorAuthFlag: false,
-                  claimsFlag: false,
-                  viewCareFlag: true,
+                  image: (
+                    <Image
+                      className="max-md:w-[80px] max-md:h-[80px]"
+                      src={MentalCareIcon}
+                      alt="Mental Care"
+                    />
+                  ),
                 },
               ]}
             />

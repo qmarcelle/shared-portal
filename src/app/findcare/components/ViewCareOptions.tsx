@@ -1,27 +1,40 @@
 'use client';
 
-import { ClaimItem } from '@/app/dashboard/components/ClaimItem';
-import { ClaimDetails } from '@/app/dashboard/models/claim_details';
 import { IComponent } from '@/components/IComponent';
+import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
+import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 
 interface ViewCareOptionsProps extends IComponent {
-  claims: ClaimDetails[];
+  options: { title: string; description: string; image: JSX.Element }[];
 }
 
 export const ViewCareOptions = ({
-  claims,
   className,
+  options,
 }: ViewCareOptionsProps) => {
   return (
     <Column className={className}>
       <Column className="flex flex-col">
         <Title className="title-1" text="View Care Options" />
         <Spacer size={32} />
-        {claims.slice(0, 3).map((item) => (
-          <ClaimItem key={item.id} className="mb-4" claimInfo={item} />
+        {options.map((item, index) => (
+          <Card key={index} className="mb-4" type="elevated">
+            <Row className="align-top m-4 mt-8">
+              <Column>{item.image}</Column>
+              <Spacer size={16} axis="horizontal" />
+              <Column>
+                <TextBox
+                  className="font-bold primary-color"
+                  text={item.title}
+                />
+                <TextBox className="mt-2" text={item.description} />
+              </Column>
+            </Row>
+          </Card>
         ))}
       </Column>
     </Column>
