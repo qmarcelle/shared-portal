@@ -42,7 +42,6 @@ import successIconSvg from '../../../public/assets/success.svg';
 import switchFilterIconSvg from '../../../public/assets/switch-filter.svg';
 import upSvg from '../../../public/assets/up.svg';
 import visionSvg from '../../../public/assets/vision.svg';
-import alightSvg from '../../../public/assets/alight.svg';
 
 export const bcbstBlueLogo = bcbstLogoSvg;
 export const leftIcon = leftIconSvg;
