@@ -1,13 +1,15 @@
 process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777882';
+process.env.NEXT_PUBLIC_PORTAL_URL = 'https://test.bcbst.com/';
 process.env.ES_API_POLICY_ID = 'aa080f071f4e8f1ce4ab0072d2aeaa12';
 process.env.ES_API_APP_ID =
   '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef';
 import { LoginResponse } from '@/app/login/models/api/login';
 import LogInPage from '@/app/login/page';
+import { useLoginStore } from '@/app/login/stores/loginStore';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 // Mock useRouter:
@@ -25,6 +27,7 @@ jest.setTimeout(30000);
 
 // Mock window.open
 global.open = jest.fn();
+const resetToHome = useLoginStore.getState().resetToHome;
 
 const setupUI = () => {
   render(<LogInPage />);
@@ -41,10 +44,7 @@ const setupUI = () => {
 
 describe('Log In of User whose Email Id is not registered yet', () => {
   afterEach(() => {
-    const backtoHomeLink = screen.getByRole('button', {
-      name: /Back to Homepage/i,
-    });
-    fireEvent.click(backtoHomeLink);
+    resetToHome();
   });
   it('Email Registration is success with only one MFA', async () => {
     mockedAxios.post
