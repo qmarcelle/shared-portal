@@ -163,7 +163,7 @@ describe('Log In of User whose Email Id is not registered yet - Brand Error Mess
       expect(screen.getByLabelText(/Confirming.../i)).toBeInTheDocument();
     });
 
-    // Assert the /submitMfa api was called correctly
+    // Assert the /verifyEmail api was called correctly
     expect(mockedAxios.post).toHaveBeenCalledWith(
       '/mfAuthentication/loginAuthentication/verifyEmailOtp',
       {
@@ -354,7 +354,7 @@ describe('Log In of User whose Email Id is not registered yet - Brand Error Mess
       expect(screen.getByLabelText(/Confirming.../i)).toBeInTheDocument();
     });
 
-    // Assert the /submitMfa api was called correctly
+    // Assert the /verifyEmail api was called correctly
     expect(mockedAxios.post).toHaveBeenCalledWith(
       '/mfAuthentication/loginAuthentication/verifyEmailOtp',
       {
@@ -539,7 +539,7 @@ describe('Log In of User whose Email Id is not registered yet - Brand Error Mess
       expect(screen.getByLabelText(/Confirming.../i)).toBeInTheDocument();
     });
 
-    // Assert the /submitMfa api was called correctly
+    // Assert the /verifyEmail api was called correctly
     expect(mockedAxios.post).toHaveBeenCalledWith(
       '/mfAuthentication/loginAuthentication/verifyEmailOtp',
       {
