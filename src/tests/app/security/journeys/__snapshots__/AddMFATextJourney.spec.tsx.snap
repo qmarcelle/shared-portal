@@ -521,10 +521,10 @@ exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <div
-                      class="flex flex-col items-center"
+                      class="flex flex-col"
                     >
                       <p
-                        class="body-1 font-bold"
+                        class="body-1 font-bold text-center"
                       >
                         (123) 456-7891
                       </p>
