@@ -7,6 +7,7 @@ import { SideBarModal } from '@/components/foundation/SideBarModal';
 import SiteHeader from '@/components/foundation/SiteHeader';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
+import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -18,7 +19,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const showHeader = usePathname() == '/login' ? false : true;
+  const showHeader = noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <html lang="en">
       <body>
