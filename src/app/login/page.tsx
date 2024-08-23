@@ -16,7 +16,6 @@ export default function LogIn() {
       state.unhandledErrors,
       state.loggedUser,
       state.mfaNeeded,
-      state.resetToHome,
       state.multipleLoginAttempts,
     ],
   );
