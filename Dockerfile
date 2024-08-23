@@ -1,6 +1,11 @@
 # Use Node 20 as the base image
 FROM nexus.bcbst.com:8096/node:20
 
+# Env args for redirection
+ARG NEXT_PUBLIC_SILVER_FIT=https://www.silverandfit.com/
+ARG NEXT_PUBLIC_ALIGHT=https://mymedicalally.alight.com/s/login/
+ARG NEXT_PUBLIC_HINGE_HEALTH=https://hinge.health/bcbstnfi
+
 # Set the working directory to /app
 WORKDIR  /app
 

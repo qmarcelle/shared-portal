@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
 import AbleToIcon from '../../../../public/assets/ableTo.svg';
-import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
+import TelaDocIcon from '../../../../public/assets/teladoc_health.svg';
 import { IComponent } from '../../../components/IComponent';
 import { AppLink } from '../../../components/foundation/AppLink';
 import { Card } from '../../../components/foundation/Card';
