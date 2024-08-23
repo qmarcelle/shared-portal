@@ -13,6 +13,10 @@ const setupUI = () => {
 const showAppModal = useAppModalStore.getState().showAppModal;
 const dismissModal = useAppModalStore.getState().dismissModal;
 
+jest.mock('../../../../utils/server_session', () => ({
+  getServerSideUserId: jest.fn(() => Promise.resolve('xxxx')),
+}));
+
 describe('Update Mfa Authentication Errors', () => {
   beforeEach(() => {
     jest
@@ -78,6 +82,78 @@ describe('Update Mfa Authentication Errors', () => {
         },
       );
       expect(screen.getByText('Try Again Later')).toBeVisible();
+    });
+  });
+
+  test('Update Mfa Devices 400 error', async () => {
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        status: 400,
+        errorObject: {
+          data: {},
+          details: {
+            returnCode: 'MF-402',
+          },
+        },
+      }),
+    );
+    dismissModal();
+    setupUI();
+    showAppModal({ content: <AddMFAAuthenticatorJourney /> });
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          "Oops! We're sorry. Something went wrong. Please try again.",
+        ),
+      ).toBeVisible();
+    });
+  });
+
+  test('Update Mfa Devices 408 error', async () => {
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        status: 408,
+        errorObject: {
+          data: {},
+          details: {
+            returnCode: 'MF-402',
+          },
+        },
+      }),
+    );
+    dismissModal();
+    setupUI();
+    showAppModal({ content: <AddMFAAuthenticatorJourney /> });
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          "Oops! We're sorry. Something went wrong. Please try again.",
+        ),
+      ).toBeVisible();
+    });
+  });
+
+  test('Update Mfa Devices 500 error', async () => {
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        status: 500,
+        errorObject: {
+          data: {},
+          details: {
+            returnCode: 'MF-402',
+          },
+        },
+      }),
+    );
+    dismissModal();
+    setupUI();
+    showAppModal({ content: <AddMFAAuthenticatorJourney /> });
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          "Oops! We're sorry. Something went wrong. Please try again.",
+        ),
+      ).toBeVisible();
     });
   });
 });

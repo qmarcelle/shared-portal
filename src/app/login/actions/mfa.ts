@@ -35,9 +35,9 @@ export async function callSelectDevice(
 ): Promise<ActionResponse<SelectMFAStatus, SelectMfaDeviceResponse>> {
   try {
     logger.info('Selected Mfa Device');
-    console.log(args);
     args.policyId = process.env.ES_API_POLICY_ID;
     args.appId = process.env.ES_API_APP_ID;
+    console.log(args);
     const resp = await esApi.post<ESResponse<SelectMfaDeviceResponse>>(
       '/mfAuthentication/loginAuthentication/selectDevice',
       args,
@@ -55,7 +55,7 @@ export async function callSelectDevice(
       return {
         status: SelectMFAStatus.ERROR,
         error: {
-          errorCode: err.response?.data.data.errorCode,
+          errorCode: err.response?.data?.data?.errorCode,
         },
       };
     } else {
@@ -68,10 +68,10 @@ export async function callSubmitMfaOtp(
   params: SubmitMfaOtpArgs,
 ): Promise<ActionResponse<SubmitMFAStatus, LoginResponse>> {
   let authUser: string | null = null;
-  console.debug(params);
   try {
     params.policyId = process.env.ES_API_POLICY_ID;
     params.appId = process.env.ES_API_APP_ID;
+    console.log(params);
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication/provideOtp',
       params,

@@ -48,6 +48,11 @@
   font-family: 'Univers-45';
 }
 
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 .app-base-font-color {
   color: var(--tertiary-color-1);
 }

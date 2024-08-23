@@ -12,6 +12,7 @@ export type MfaDevicesStore = {
   loadMfaDevices: () => void;
   mfaDevices: Map<MfaDeviceType, MfaDevice>;
   defaultMfaDevices: Map<MfaDeviceType, MfaDevice>;
+  getDeviceError: boolean;
 };
 
 export const createMfaDevicesStore: StateCreator<
@@ -20,6 +21,7 @@ export const createMfaDevicesStore: StateCreator<
   [],
   MfaDevicesStore
 > = (set, get) => ({
+  getDeviceError: false,
   mfaDevices: new Map([
     [
       MfaDeviceType.authenticator,
@@ -102,12 +104,16 @@ export const createMfaDevicesStore: StateCreator<
   ]),
   loadMfaDevices: async () => {
     try {
+      set({
+        getDeviceError: false,
+      });
       const resp: ESResponse<GetMfaDevices> = await getMfaDevices();
       set((state) => ({
         mfaDevices: new Map(
           JSON.parse(JSON.stringify([...state.defaultMfaDevices])),
         ),
       }));
+      if (!resp.data || !resp.data?.devices?.length) throw resp;
       if (resp.data && resp.data.devices?.length) {
         resp.data.devices.forEach((item) => {
           const mfa = get().mfaDevices.get(
@@ -127,6 +133,9 @@ export const createMfaDevicesStore: StateCreator<
         }));
       }
     } catch (err) {
+      set({
+        getDeviceError: true,
+      });
       logger.error('Loading Mfa Devices failed');
       logger.error('GetDevices' + err);
     }

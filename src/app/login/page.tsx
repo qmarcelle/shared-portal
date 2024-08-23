@@ -7,18 +7,20 @@ import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
+import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
 import { useLoginStore } from './stores/loginStore';
 
 export default function LogIn() {
-  const [unhandledErrors, loggedUser, mfaNeeded, backToHome] = useLoginStore(
-    (state) => [
+  const [unhandledErrors, loggedUser, mfaNeeded, multipleLoginAttempts] =
+    useLoginStore((state) => [
       state.unhandledErrors,
       state.loggedUser,
       state.mfaNeeded,
       state.resetToHome,
+      state.multipleLoginAttempts,
     ],
   );
-  console.log(JSON.stringify(process.env));
+
   const router = useRouter();
   function renderComp() {
     if (unhandledErrors == true) {
@@ -28,6 +30,9 @@ export default function LogIn() {
       router.replace(
         process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard',
       );
+    }
+    if (multipleLoginAttempts == true) {
+      return <MultipleAttemptsErrorComponent />;
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;
@@ -60,7 +65,9 @@ export default function LogIn() {
         <div id="blueback">
           <div id="marginSection">
             <button
-              onClick={backToHome}
+              onClick={() => {
+                router.replace(process.env.NEXT_PUBLIC_PORTAL_URL ?? '');
+              }}
               id="backButton"
               className="buttonlink pt-9"
             >

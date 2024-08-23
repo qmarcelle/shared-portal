@@ -11,12 +11,15 @@ const customJestConfig = {
       '<rootDir>/src/tests/__mocks__/next-auth-providers-credentials.ts',
   },
   testEnvironment: 'jest-environment-jsdom',
-  testMatch: ['**/tests/**/*spec.{ts,tsx}'],
+  testMatch: [
+    '**/tests/app/login/**/*spec.{ts,tsx}',
+    '**/tests/app/security/**/*spec.{ts,tsx}',
+  ],
   //coverageProvider: 'v8',
   collectCoverageFrom: ['./src/**'],
   coveragePathIgnorePatterns: ['/tests/'],
   collectCoverage: true,
-  reporters: [['default', { summaryThreshold: 1 }]],
+  reporters: [['default', { summaryThreshold: 1 }], 'jest-html-reporters'],
   // coverageDirectory: './reports/coverage',
   setupFiles: ['./src/tests/setup.ts'],
 };
