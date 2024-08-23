@@ -521,12 +521,12 @@ exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <div
-                      class="flex flex-col items-center"
+                      class="flex flex-col"
                     >
                       <p
-                        class="body-1 font-bold"
+                        class="body-1 font-bold text-center"
                       >
-                        1234567891
+                        (123) 456-7891
                       </p>
                       <span
                         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -749,7 +749,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 4`] = `
                       <p
                         class="body-1"
                       >
-                        1234567891
+                        (123) 456-7891
                       </p>
                     </div>
                     <span

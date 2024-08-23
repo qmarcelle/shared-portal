@@ -303,7 +303,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                   <p
                     class="body-1 text-center"
                   >
-                    enter the new email address you'd like to use for communications and security settings.
+                    Enter the new email address you'd like to use for communications and security settings.
                   </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -340,7 +340,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                     />
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
                       type="button"
                     >
                       Next
@@ -1085,7 +1085,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   <p
                     class="body-1 text-center"
                   >
-                    enter the new email address you'd like to use for communications and security settings.
+                    Enter the new email address you'd like to use for communications and security settings.
                   </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -1122,7 +1122,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
                       type="button"
                     >
                       Next
@@ -1277,7 +1277,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   <p
                     class="body-1 text-center"
                   >
-                    enter the new email address you'd like to use for communications and security settings.
+                    Enter the new email address you'd like to use for communications and security settings.
                   </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"

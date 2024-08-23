@@ -40,31 +40,25 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
     <span
       style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
     />
-    <a
-      style="display: block;"
-    >
-      <button
-        class="flex flex-row link-container undefined"
-        style="max-width: max-content; height: auto; display: block;"
-        tabindex="0"
-      >
-        <p
-          class="link"
-        >
-          Resend Code
-        </p>
-      </button>
-    </a>
     <span
       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
     />
-    <button
-      aria-label="Confirm"
-      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-      type="button"
+    <div
+      class="flex flex-row justify-center items-center tooltip"
     >
-      Confirm
-    </button>
+      <span
+        class="tooltiptext"
+      >
+        Enter a Security Code.
+      </span>
+      <button
+        aria-label="Confirm"
+        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+        type="button"
+      >
+        Confirm
+      </button>
+    </div>
     <span
       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
     />

@@ -16,7 +16,11 @@ export const MultipleAttemptsErrorComponent = () => {
             text="You have attempted to log in too many times. Please wait 15 minutes to try again."
           />
           <Spacer size={32} />
-          <AppLink className="self-start" label="Forgot Username/Password?" />
+          <AppLink
+            className="self-start"
+            label="Forgot Username/Password?"
+            url={process.env.NEXT_PUBLIC_PASSWORD_RESET}
+          />
           <Spacer size={32} />
           <Divider />
           <Spacer size={32} />

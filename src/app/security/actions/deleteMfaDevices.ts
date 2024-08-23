@@ -30,7 +30,8 @@ export async function deleteMfaDevices(
       return {
         errorCode:
           error.response?.data?.data?.errorCode ??
-          error.response?.data?.details?.returnCode,
+          error.response?.data?.details?.returnCode ??
+          error.response?.status,
       };
     } else {
       console.log(
