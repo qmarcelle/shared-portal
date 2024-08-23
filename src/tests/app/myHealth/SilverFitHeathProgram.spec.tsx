@@ -7,32 +7,26 @@ const renderUI = () => {
   return render(
     <HealthProgramsResources
       healthProgramDetails={healthProgramsandResourcesDetails.get(
-        HealthProgramType.alight,
+        HealthProgramType.SilverFit,
       )}
     />,
   );
 };
 
-describe('AlightSecondOption', () => {
+describe('Silver&Fit Fitness Program', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
     screen.getByRole('heading', {
-      name: 'Alight Second Opinion Advice & Support',
+      name: 'Silver&Fit Fitness Program',
     });
     screen.getByText(
-      'Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost.',
+      'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
     );
-    screen.getByText(
-      'The first time using this service, you’ll need to create an account.',
-    );
-    screen.getByRole('heading', {
-      name: 'Why Use This Option',
+    screen.getByRole('button', {
+      name: 'Use Silver&Fit',
     });
-    screen.getByText('In-network & covered by your plan at no cost to you');
-    screen.getByText(
-      'Earn a $400 gift card if your doctor has suggested certain surgeries',
-    );
-    screen.getByText('Call, chat or email available');
+    screen.getByText('In-network & covered by your plan at no extra cost');
+    screen.getByText('Discounted fitness memberships');
     screen.getByRole('heading', {
       name: 'Your Cost for This Option',
     });
@@ -40,10 +34,11 @@ describe('AlightSecondOption', () => {
     screen.getByRole('heading', {
       name: 'This Option is Generally Good for:',
     });
-    screen.getByText('Speaking with an expert about your diagnosis');
-    screen.getByText('Rare or life-threatening condition support');
-    screen.getByText('Considering risky or complicated treatment');
-    screen.getByText('Compare costs of treatment or tests');
+    screen.getByText('Weight loss');
+    screen.getByText('Getting fit');
+    screen.getByText('At-home fitness');
+    screen.getByText('Gym memberships');
+    screen.getByText('Fitness tracking');
     expect(component).toMatchSnapshot();
   });
 });

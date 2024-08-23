@@ -8,7 +8,7 @@ const MyHealthPrograms = () => {
     <main className="flex flex-col justify-center items-center page">
       <HealthProgramsResources
         healthProgramDetails={healthProgramsandResourcesDetails.get(
-          HealthProgramType.alight,
+          HealthProgramType.Alight,
         )}
       />
     </main>
