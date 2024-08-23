@@ -17,21 +17,12 @@ jest.mock('next/navigation', () => ({
 }));
 
 const setupUI = () => {
-  render(<LogIn />);
-  const inputUsername = screen.getByRole('textbox', {
-    name: /username/i,
-  });
-  const inputPassword = screen.getByLabelText(/password/i);
-  const loginButton = screen.getByRole('button', {
-    name: /Log In/i,
-  });
-
-  return { inputUsername, inputPassword, loginButton };
+  return render(<LogIn />);
 };
 
 describe('Multiple Login Attempts Error', () => {
   it('should render Multiple Login Attempts Error Messages', async () => {
-    const component = setupUI();
+    const { container } = setupUI();
     // Login Info Card
     const inputUserName = screen.getByRole('textbox', { name: /Username/i });
     const password = screen.getByLabelText(/password/i);
@@ -76,6 +67,6 @@ describe('Multiple Login Attempts Error', () => {
         'You have attempted to log in too many times. Please wait 15 minutes to try again.',
       ),
     ).toBeVisible();
-    expect(component).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
