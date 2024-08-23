@@ -66,7 +66,12 @@ export const SubNavItemSection = ({
               <h1 className="text-xl py-2 text-gray-500">{colType}</h1>
               {tempChildPages.map((item, index) =>
                 item.external ? (
-                  <Link key={index} className="flex" href={item.url}>
+                  <Link
+                    key={index}
+                    className="flex"
+                    href={item.url}
+                    target="_blank"
+                  >
                     <p className="pb-2 pt-2 pr-1">{item.title}</p>
                     <Image
                       className="pb-2"
