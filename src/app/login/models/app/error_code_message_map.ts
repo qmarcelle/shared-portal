@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-export const errorCodeMessageMap = new Map<string | number, string>([
+export const inlineErrorCodeMessageMap = new Map<string | number, string>([
   [401, "Oops! We're sorry. Something went wrong. Please try again 401."],
   [408, "Oops! We're sorry. Something went wrong. Please try again."],
   [500, "Oops! We're sorry. Something went wrong. Please try again."],
@@ -18,3 +18,5 @@ export const errorCodeMessageMap = new Map<string | number, string>([
 ]);
 
 export const UNDEFINED_ERROR_CODE = 500;
+
+export const slideErrorCodes = ['UI-405'];
