@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Multiple Login Attempts Error should render Multiple Login Attempts Error Messages 1`] = `
+{
+  "inputPassword": <input
+    aria-label="Password"
+    type="password"
+    value=""
+  />,
+  "inputUsername": <input
+    aria-label="Username"
+    type="text"
+    value=""
+  />,
+  "loginButton": <button
+    aria-label="Logging In..."
+    class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+    type="button"
+  >
+    Logging In...
+  </button>,
+}
+`;

@@ -31,7 +31,7 @@ const setupUI = () => {
 
 describe('Multiple Login Attempts Error', () => {
   it('should render Multiple Login Attempts Error Messages', async () => {
-    setupUI();
+    const component = setupUI();
     // Login Info Card
     const inputUserName = screen.getByRole('textbox', { name: /Username/i });
     const password = screen.getByLabelText(/password/i);
@@ -61,11 +61,21 @@ describe('Multiple Login Attempts Error', () => {
       },
     );
 
+    expect(screen.getByText('Too Many Login Attempts')).toBeVisible();
+    expect(
+      screen.getByText(
+        'You have attempted to log in too many times. Please wait 15 minutes to try again.',
+      ),
+    ).toBeVisible();
+
+    expect(screen.getByText('Forgot Username/Password?')).toBeVisible();
+    expect(screen.getByText('Need help?')).toBeVisible();
     expect(
       screen.getByText(
         // eslint-disable-next-line quotes
         'You have attempted to log in too many times. Please wait 15 minutes to try again.',
       ),
     ).toBeVisible();
+    expect(component).toMatchSnapshot();
   });
 });
