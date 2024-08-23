@@ -357,7 +357,7 @@
   margin: auto;
 }
 
-#stepSection .stepRoundBlue {
+.stepSection .stepRoundBlue {
   border-radius: 9999px;
   background-color: #005eb9;
   display: inline-block;
@@ -367,7 +367,7 @@
   color: #ffffff;
 }
 
-#stepSection .stepRoundGrey {
+.stepSection .stepRoundGrey {
   border-radius: 9999px;
   border: 1px solid rgb(204, 204, 204);
   background-color: #ffffff;
@@ -378,7 +378,7 @@
   color: rgb(204, 204, 204);
 }
 
-#stepSection .stepLineGrey {
+.stepSection .stepLineGrey {
   width: 32% !important;
   height: 2px !important;
   background-color: rgb(204, 204, 204) !important;
@@ -386,7 +386,7 @@
   display: inline-block;
 }
 
-#stepSection .stepLineBlue {
+.stepSection .stepLineBlue {
   width: 32% !important;
   height: 2px !important;
   background-color: #005eb9 !important;

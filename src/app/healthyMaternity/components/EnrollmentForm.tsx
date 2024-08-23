@@ -20,16 +20,16 @@ interface EnrollmentFormProps extends IComponent {
 
 export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [myBool, setmyBool] = useState(false);
+  const [isStep1ButtonClicked, setStep1ButtonState] = useState(false);
 
   function navigateContent() {
-    setmyBool(!myBool);
+    setStep1ButtonState(!isStep1ButtonClicked);
   }
 
-  const [myBool1, setmyBool1] = useState(false);
+  const [isStep2ButtonClicked, setStep2ButtonState] = useState(false);
 
   function navigateSuccessPage() {
-    setmyBool1(!myBool1);
+    setStep2ButtonState(!isStep2ButtonClicked);
   }
 
   const [isChecked, setIsChecked] = useState(false);
@@ -41,7 +41,7 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
   function memberInfo() {
     return (
       <Card className="large-section">
-        <section className="w-4/5 m-auto" id="stepSection">
+        <section className="w-4/5 m-auto stepSection">
           <TextBox text="1" className="stepRoundBlue" />
           <Divider size={5} className="stepLineGrey" />
           <TextBox text="2" className="stepRoundGrey" />
@@ -56,7 +56,7 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
           <Spacer size={8} />
           <TextField label="Due Date of Baby (MM/DD/YYYY)" />
           <Spacer size={8} />
-          <TextField label="Email Address" />
+          <TextField label="Email Address" type="email" />
           <Spacer size={8} />
           <TextField label="Phone Number" />
           <Checkbox label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to." />
@@ -70,7 +70,7 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
   function contactMethod() {
     return (
       <Card className="large-section">
-        <section className="w-4/5 m-auto" id="stepSection">
+        <section className="w-4/5 m-auto stepSection">
           <TextBox text="1" className="stepRoundBlue" />
           <Divider size={5} className="stepLineBlue" />
           <TextBox text="2" className="stepRoundBlue" />
@@ -114,7 +114,7 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
   function successContent() {
     return (
       <Card className="large-section">
-        <section className="w-4/5 m-auto text-center" id="stepSection">
+        <section className="w-4/5 m-auto text-center stepSection">
           <TextBox text="1" className="stepRoundBlue" />
           <Divider size={5} className="stepLineBlue" />
           <TextBox text="2" className="stepRoundBlue" />
@@ -165,9 +165,9 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
         <Spacer size={8} />
         <TextBox text="Please confirm your details below." />
         <Spacer size={16} />
-        {!myBool && memberInfo()}
-        {myBool && !myBool1 && contactMethod()}
-        {myBool1 && successContent()}
+        {!isStep1ButtonClicked && memberInfo()}
+        {isStep1ButtonClicked && !isStep2ButtonClicked && contactMethod()}
+        {isStep2ButtonClicked && successContent()}
       </section>
     </Card>
   );
