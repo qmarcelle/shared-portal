@@ -1,8 +1,7 @@
 process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777818';
-import { LoginResponse } from '@/app/login/models/api/login';
 import LogIn from '@/app/login/page';
-import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -40,62 +39,14 @@ describe('Multiple Login Attempts Error', () => {
     await userEvent.type(inputUserName, 'username');
     await userEvent.type(password, 'password');
 
-    mockedAxios.post.mockResolvedValue({
-      data: {
-        data: {
-          message: 'ACCOUNT_INACTIVE',
-          interactionId: '00585a05-69b7-4b95-ad72-87d7354de7a2',
-          interactionToken:
-            '9ec9b4378c914db7d8ef2f15d8ec26d66eb2ad9d481288b2d540573dfde33eed94c8d01d24630a125680e5d035a61e541f24421ec76ab8bd70fe7f85c9ff61ae9bb95b775d894180c9ea09d5a695fcaccf9f7a5738e6df462d2809318cf393d7abc5d982e9f0fb279c63faf58ad806ba7ce8a371d9f576f31ff3ed81a35a7c54',
-          mfaDeviceList: [],
+    mockedAxios.post.mockRejectedValue(
+      createAxiosErrorForTest({
+        errorObject: {
+          data: { errorCode: 'UI-405' },
         },
-        details: {
-          componentName: 'mfauthentication',
-          componentStatus: 'Success',
-          returnCode: '0',
-          subSystemName: 'Multiple Services',
-          message: '',
-          problemTypes: '0',
-          innerDetails: {
-            statusDetails: [
-              {
-                componentName: 'getSDKToken',
-                componentStatus: 'Success',
-                returnCode: '0',
-                subSystemName: '',
-                message: '',
-                problemTypes: '0',
-                innerDetails: {
-                  statusDetails: [],
-                },
-              },
-              {
-                componentName: 'InvokeFlow',
-                componentStatus: 'Success',
-                returnCode: '0',
-                subSystemName: '',
-                message: '',
-                problemTypes: '0',
-                innerDetails: {
-                  statusDetails: [],
-                },
-              },
-              {
-                componentName: 'submUsrInfo',
-                componentStatus: 'Success',
-                returnCode: '0',
-                subSystemName: '',
-                message: '',
-                problemTypes: '0',
-                innerDetails: {
-                  statusDetails: [],
-                },
-              },
-            ],
-          },
-        },
-      } satisfies ESResponse<LoginResponse>,
-    });
+        status: 400,
+      }),
+    );
 
     fireEvent.click(btnLogIn);
     await waitFor(() => {
