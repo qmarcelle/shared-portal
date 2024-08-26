@@ -1,6 +1,6 @@
-import { IComponent } from '../../../components/IComponent';
-import { HealthCareItem } from '../components/HealthCareItem';
+import { IComponent } from '@/components/IComponent';
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
+import { HealthCareItem } from './HealthCareItem';
 
 interface VirtualMentalHealthCareSectionProps extends IComponent {
   mentalHealthCareOptions: VirtualHealthCareDetails[];

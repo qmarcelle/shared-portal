@@ -7,6 +7,7 @@ import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
 import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
+import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
 import { LoginResponse } from '../models/api/login';
 import { SelectMfaDeviceResponse } from '../models/api/select_mfa_device_response';
@@ -83,6 +84,9 @@ export async function callSubmitMfaOtp(
       throw 'Failed to verify username';
     }
     authUser = username;
+    await setWebsphereRedirectCookie({
+      ...resp.data.data,
+    });
     return {
       status: SubmitMFAStatus.OTP_OK,
       data: resp.data.data,

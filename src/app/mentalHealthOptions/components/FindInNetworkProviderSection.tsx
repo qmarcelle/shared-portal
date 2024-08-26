@@ -1,11 +1,11 @@
+import { IComponent } from '@/components/IComponent';
+import { Card } from '@/components/foundation/Card';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import FindCare from '../../../../public/assets/Find-Care.svg';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 
 interface FindInNetworkProviderSectionProps extends IComponent {
   icon?: ReactNode;

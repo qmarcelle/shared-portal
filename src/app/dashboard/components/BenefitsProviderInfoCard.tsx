@@ -1,11 +1,11 @@
 import { BenefitsProviderInfo } from '@/app/dashboard/models/BenefitsProviderInfo';
+import { IComponent } from '@/components/IComponent';
+import { Card } from '@/components/foundation/Card';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import externalIcon from '../../../../public/assets/external.svg';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
-import { Title } from '../../../components/foundation/Title';
 
 interface BenefitsProviderInfoCardProps
   extends IComponent,
