@@ -345,3 +345,6 @@
 .caremark button {
   padding-top: 0;
 }
+.manage-underline .link {
+  text-decoration: none;
+}
