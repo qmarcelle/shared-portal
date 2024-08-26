@@ -1,3 +1,4 @@
+import { getConfig } from '@/actions/config';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Divider } from '@/components/foundation/Divider';
@@ -19,8 +20,8 @@ export const LoginComponent = () => {
     resetApiErrors: state.resetApiErrors,
   }));
   const showTooltip = username.length < 1 && password.length < 1;
-  function registerNewAcccount(): void | Promise<void> {
-    window.open(process.env.NEXT_PUBLIC_REGISTER_NEW_ACCOUNT, '_self');
+  async function registerNewAcccount(): Promise<void> {
+    window.open(await getConfig('REGISTER_NEW_ACCOUNT'), '_self');
   }
 
   return (

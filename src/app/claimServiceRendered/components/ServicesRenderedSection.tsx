@@ -1,13 +1,13 @@
 import { ServiceDetails } from '@/app/claimServiceRendered/models/service_details';
+import { IComponent } from '@/components/IComponent';
+import { Accordion } from '@/components/foundation/Accordion';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { downIcon, upIcon } from '@/components/foundation/Icons';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import { IComponent } from '../../../components/IComponent';
-import { Accordion } from '../../../components/foundation/Accordion';
-import { Card } from '../../../components/foundation/Card';
-import { Column } from '../../../components/foundation/Column';
-import { downIcon, upIcon } from '../../../components/foundation/Icons';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 import { ServicesRenderedInformation } from './ServicesRenderedInformation';
 
 interface ServicesRenderedSectionProps extends IComponent {
