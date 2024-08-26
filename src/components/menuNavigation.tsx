@@ -1,6 +1,6 @@
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
-const pages: SiteHeaderSubNavProps[] = [
+const menuNavigation: SiteHeaderSubNavProps[] = [
   {
     id: 1,
     title: 'Find Care & Costs',
@@ -11,7 +11,12 @@ const pages: SiteHeaderSubNavProps[] = [
     qt: {
       // eslint-disable-next-line quotes
       firstParagraph: "Looking for what's covered under your plan?",
-      secondParagraph: 'Check out your Benefits & Coverages.',
+      secondParagraph: (
+        <p className="pb-1">
+          Check out your
+          <span className="font-bold">Benefits & Coverages.</span>
+        </p>
+      ),
       link: '/benefits',
     },
     template: {
@@ -229,7 +234,11 @@ const pages: SiteHeaderSubNavProps[] = [
     qt: {
       firstParagraph:
         'Looking for a virtual care provider for mental health or physical therapy?',
-      secondParagraph: 'View Virtual Care Options.',
+      secondParagraph: (
+        <p className="pb-1">
+          View <span className="font-bold">Virtual Care Options.</span>
+        </p>
+      ),
       link: '/virtualcare',
     },
     template: {
@@ -286,20 +295,29 @@ const pages: SiteHeaderSubNavProps[] = [
       },
       {
         id: 80,
-        title: 'Health Library',
-        description: 'This is Health Library',
+        title: 'Dental Health Library',
+        description: 'This is Dental Health Library',
         category: 'Advice & Support',
         showOnMenu: true,
-        url: '/healthlibrary',
+        url: 'https://bcbstwelltuned.com/',
         external: true,
       },
       {
         id: 79,
+        title: 'Health Library',
+        description: 'This is Health Library',
+        category: 'Advice & Support',
+        showOnMenu: true,
+        url: 'https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78',
+        external: true,
+      },
+      {
+        id: 78,
         title: 'WellTuned Blog',
         description: 'This is WellTuned Blog',
         category: 'Advice & Support',
         showOnMenu: true,
-        url: '/welltunedblog',
+        url: 'https://bcbstwelltuned.com/',
         external: true,
       },
     ],
@@ -312,14 +330,18 @@ const pages: SiteHeaderSubNavProps[] = [
     showOnMenu: true,
     url: '/pharmacy',
     qt: {
-      firstParagraph: 'Your pharmacy benefits are managed by CVS Caremark.',
-      secondParagraph:
-        'A caremark.com account will let you get prescriptions by mail, price a medication and more.',
+      firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
+      secondParagraph: (
+        <p className="pb-1">
+          <span className="font-bold">A caremark.com</span> account will let you
+          get prescriptions by mail, price a medication and more.
+        </p>
+      ),
       link: '/pharmacy',
     },
     shortLinks: [
-      { title: 'Pharmacy Claims', link: '/claims' },
-      { title: 'Pharmacy Spending', link: '/pharmacyspending' },
+      { title: 'Pharmacy Claims', link: '/claimSnapshotList' },
+      { title: 'Pharmacy Spending', link: '/spendingSummary' },
     ],
     template: {
       firstCol: 'QT',
@@ -334,7 +356,7 @@ const pages: SiteHeaderSubNavProps[] = [
         description: 'This is My Prescriptions',
         category: 'Manage My Prescriptions',
         showOnMenu: true,
-        url: '/myprescription',
+        url: 'https://www.caremark.com/refillRx?newLogin=yes',
         external: true,
       },
       {
@@ -343,7 +365,7 @@ const pages: SiteHeaderSubNavProps[] = [
         description: 'This is Price a Medication',
         category: 'Manage My Prescriptions',
         showOnMenu: true,
-        url: '/pricemedication',
+        url: 'https://www.caremark.com/drugSearchInit.do?newLogin=yes',
         external: true,
       },
       {
@@ -352,7 +374,16 @@ const pages: SiteHeaderSubNavProps[] = [
         description: 'This is Mail Order',
         category: 'Manage My Prescriptions',
         showOnMenu: true,
-        url: '/mailorder',
+        url: 'https://www.caremark.com/refillRx?newLogin=yes',
+        external: true,
+      },
+      {
+        id: 100,
+        title: 'Find a Pharmacy',
+        description: 'This is Find a Pharmacy',
+        category: 'Manage My Prescriptions',
+        showOnMenu: true,
+        url: 'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
         external: true,
       },
       {
@@ -382,14 +413,62 @@ const pages: SiteHeaderSubNavProps[] = [
     category: '',
     showOnMenu: true,
     url: '/support',
+    qt: {
+      // eslint-disable-next-line quotes
+      firstParagraph: "We're here to help.",
+      secondParagraph: (
+        <p className="pb-1">
+          <span className="font-bold">Start a chat</span> or call us at
+          [1-800-000-0000].
+        </p>
+      ),
+      link: '/support',
+    },
     template: {
-      firstCol: '',
-      secondCol: '',
+      firstCol: 'QT',
+      secondCol: 'Support',
       thirdCol: '',
       fourthCol: '',
     },
-    childPages: [],
+    childPages: [
+      {
+        id: 82,
+        title: 'Frequently Asked Questions',
+        description: 'Frequently Asked Questions',
+        category: 'Support',
+        showOnMenu: true,
+        url: '/frequentlyAskedQuestions',
+        external: false,
+      },
+      {
+        id: 83,
+        title: 'Health Insurance Glossary',
+        description: 'Health Insurance Glossary',
+        category: 'Support',
+        showOnMenu: true,
+        url: 'https://www.healthcare.gov/glossary/',
+        external: true,
+      },
+      {
+        id: 84,
+        title: 'Find a Form',
+        description: 'Find a Form',
+        category: 'Support',
+        showOnMenu: true,
+        url: 'https://www.bcbst.com/use-insurance/documents-forms/',
+        external: false,
+      },
+      {
+        id: 85,
+        title: 'Share Website Feedback',
+        description: 'Share Website Feedback',
+        category: 'Support',
+        showOnMenu: true,
+        url: '/shareWebsiteFeedback',
+        external: false,
+      },
+    ],
   },
 ];
 
-export default pages;
+export default menuNavigation;
