@@ -19,7 +19,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const showHeader = noHeaderAndFooterRoutes.includes(usePathname());
+  const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <html lang="en">
       <body>
