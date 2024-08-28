@@ -7,7 +7,7 @@ export const publicRoutes = ['/'];
  * Routes that are used for authentication.
  * The routes will redirect logged-in users to /settings.
  */
-export const authRoutes = ['/login', '/security/dxAuth'];
+export const authRoutes = ['/login', '/embed/dxAuth'];
 
 /**
  * Context root for API authentication routes.
@@ -18,14 +18,14 @@ export const apiAuthPrefix = '/api';
  * Mapping of inbound SSO authentication paths to the portal page they redirect to upon successful sign-in
  */
 export const inboundSSORoutes = new Map<string, string>([
-  ['/security/dxAuth', '/security'],
+  ['/embed/dxAuth', '/embed/security'],
 ]);
 
-export const SECURITY_SETTINGS_PATH = '/security';
+/**
+ * Routes that the root layout will not display the header and footer on.
+ */
+export const noHeaderAndFooterRoutes = ['/login', '/embed/security'];
 
-export const DEFAULT_LOGIN_REDIRECT =
-  process.env.WPS_REDIRECT_ENABLED == 'true'
-    ? process.env.WPS_REDIRECT_URL || ''
-    : '/security';
+export const SECURITY_SETTINGS_PATH = '/security';
 
 export const DEFAULT_LOGOUT_REDIRECT = '/login';

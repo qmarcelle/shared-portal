@@ -106,7 +106,7 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
       <p
         class="body-1 pr-5"
       >
-         Be sure to check your spam or junk folders. You can also give us a call   using the number listed on the back of your Member ID card or
+        Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
       </p>
       <section
         class="flex flex-row"

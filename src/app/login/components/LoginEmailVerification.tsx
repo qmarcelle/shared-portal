@@ -73,8 +73,7 @@ export const LoginEmailVerification = () => {
       <Spacer size={16} />
       <TextBox
         className="pr-5"
-        text=" Be sure to check your spam or junk folders. You can also give us a call
-        using the number listed on the back of your Member ID card or"
+        text="Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or"
       />
       <section className="flex flex-row">
         <AppLink

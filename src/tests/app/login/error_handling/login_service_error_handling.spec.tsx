@@ -1,4 +1,5 @@
 import LogInPage from '@/app/login/page';
+import { useLoginStore } from '@/app/login/stores/loginStore';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
@@ -15,6 +16,7 @@ jest.mock('next/navigation', () => ({
     };
   },
 }));
+const resetToHome = useLoginStore.getState().resetToHome;
 
 const setupUI = () => {
   render(<LogInPage />);
@@ -31,10 +33,7 @@ const setupUI = () => {
 
 describe('Login Service Errors', () => {
   afterEach(() => {
-    const backtoHomeLink = screen.getByRole('button', {
-      name: /Back to Homepage/i,
-    });
-    fireEvent.click(backtoHomeLink);
+    resetToHome();
   });
   test('Login Service ErrorCode 501 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();

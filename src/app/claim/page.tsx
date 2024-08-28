@@ -1,8 +1,8 @@
 'use client';
 
-import { Spacer } from '@/components/foundation/Spacer';
-import { Column } from '@/components/foundation/Column';
 import { SubmitClaimComponent } from '@/app/claim/components/SubmitClaimComponent';
+import { Column } from '@/components/foundation/Column';
+import { Spacer } from '@/components/foundation/Spacer';
 
 const Claim = () => {
   return (

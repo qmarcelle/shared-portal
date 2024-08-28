@@ -16,6 +16,7 @@ export interface LoginResponse {
   accessToken?: string;
   refreshToken?: string;
   idToken?: string;
+  sessionToken?: string;
   interactionId: string;
   interactionToken: string;
   mfaDeviceList: MfaDeviceListItem[];

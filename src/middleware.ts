@@ -3,7 +3,6 @@ import authConfig from './auth.config';
 import {
   apiAuthPrefix,
   authRoutes,
-  DEFAULT_LOGIN_REDIRECT,
   inboundSSORoutes,
   publicRoutes,
 } from './utils/routes';
@@ -24,11 +23,22 @@ export default auth(async (req) => {
     return;
   }
 
-  //Redirect to security for the DX iframe flow
-  if (isInboundSSO && isLoggedIn) {
-    return Response.redirect(
-      new URL(inboundSSORoutes.get(nextUrl.pathname) || '/dashboard', nextUrl),
-    );
+  /**
+   * Handle inbound SSO routes.
+   * If the user is not logged in, return to prevent handling of the route by any other part of the function.
+   * If logged in already, redirect to the destination page specified in routes.ts
+   */
+  if (isInboundSSO) {
+    if (isLoggedIn) {
+      return Response.redirect(
+        new URL(
+          inboundSSORoutes.get(nextUrl.pathname) || '/dashboard',
+          nextUrl,
+        ),
+      );
+    } else {
+      return;
+    }
   }
 
   /**
@@ -37,10 +47,23 @@ export default auth(async (req) => {
    */
   if (isAuthRoute) {
     if (isLoggedIn) {
-      console.log(`Redirecting logged-in client to ${DEFAULT_LOGIN_REDIRECT}`);
-      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+      const redir = process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard';
+      console.log(`Redirecting logged-in client to ${redir}`);
+      return Response.redirect(new URL(redir, nextUrl));
+    } else {
+      return;
     }
-    return;
+  }
+
+  if (
+    process.env.WPS_REDIRECT_ENABLED == 'true' &&
+    isLoggedIn &&
+    !nextUrl.pathname.includes('/embed')
+  ) {
+    console.log('Redirecting logged-in user to WebSphere');
+    return Response.redirect(
+      new URL(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/', nextUrl),
+    );
   }
 
   /**

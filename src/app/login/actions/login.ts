@@ -7,6 +7,7 @@ import { esApi } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
+import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
 import {
   LoginRequest,
@@ -42,11 +43,19 @@ export async function callLogin(
       case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
+        await setWebsphereRedirectCookie({
+          ...resp.data.data,
+        });
         status = LoginStatus.LOGIN_OK;
         break;
       case 'EMAIL_VERIFICATION_REQUIRED':
       case 'NO_DEVICES_EMAIL_VERIFICATION_REQUIRED':
         authUser = request.username; //TODO REMOVE THIS when email verification UI is implemented!!
+        await setWebsphereRedirectCookie({
+          interactionId: resp.data.data?.interactionId,
+          interactionToken: resp.data.data?.interactionToken,
+          sessionToken: resp.data.data?.sessionToken,
+        });
         status = LoginStatus.VERIFY_EMAIL;
         break;
       case 'OTP_REQUIRED':
