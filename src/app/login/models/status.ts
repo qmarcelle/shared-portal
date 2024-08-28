@@ -6,7 +6,7 @@ export enum LoginStatus {
   INVALID_CREDENTIALS,
   VALIDATION_FAILURE,
   ERROR,
-  ACCOUNT_INACTIVE,
+  MULTIPLE_LOGIN_ATTEMPTS,
 }
 
 export enum SelectMFAStatus {
