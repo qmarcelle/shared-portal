@@ -6,7 +6,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import FindCare from '../../../public/assets/Find-Care.svg';
-import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
+import { VirtualMentalHealthCareSection } from '../mentalHealthOptions/components/VirtualMentalHealthCareSection';
 import { AboutPrimaryCareProvider } from './components/AboutPrimaryCareProvider';
 import { PrimaryCareProvider } from './components/PrimaryCareProvider';
 

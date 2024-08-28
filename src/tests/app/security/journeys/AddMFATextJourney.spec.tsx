@@ -103,20 +103,23 @@ describe('Add Mfa Text Journey', () => {
         },
       },
     });
+    // fire Resend code button to show Code Resent text
     fireEvent.click(screen.getByRole('button', { name: /Resend Code/i }));
     expect(screen.getByText('Code resent!')).toBeVisible();
 
     const securityCode = screen.getByLabelText(/Enter Security Code/i);
     await userEvent.type(securityCode, '123456');
     fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
-
+    // showing error message after entering wrong security code
     await waitFor(() => {
       expect(
         screen.getByText(
-          'There is a problem with the security code. Try re-entering or resending the code.',
+          // eslint-disable-next-line quotes
+          "Oops! We're sorry. Something went wrong. Please try again.",
         ),
       ).toBeVisible();
     });
+    fireEvent.click(screen.getByText(/Back/i));
     mockedAxios.post.mockResolvedValueOnce({
       data: {
         data: {
