@@ -50,12 +50,6 @@ export async function callLogin(
         break;
       case 'EMAIL_VERIFICATION_REQUIRED':
       case 'NO_DEVICES_EMAIL_VERIFICATION_REQUIRED':
-        authUser = request.username; //TODO REMOVE THIS when email verification UI is implemented!!
-        await setWebsphereRedirectCookie({
-          interactionId: resp.data.data?.interactionId,
-          interactionToken: resp.data.data?.interactionToken,
-          sessionToken: resp.data.data?.sessionToken,
-        });
         status = LoginStatus.VERIFY_EMAIL;
         break;
       case 'OTP_REQUIRED':

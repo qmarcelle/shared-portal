@@ -94,7 +94,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         // Set to success if request succeeded
         set(() => ({ loginProg: AppProg.success }));
         //To Do Uncomment once ES API is available for integration
-        /* if (resp.status == LoginStatus.VERIFY_EMAIL) {
+        if (resp.status == LoginStatus.VERIFY_EMAIL) {
           set({
             verifyEmail: true,
             interactionData: {
@@ -104,7 +104,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
             emailId: resp.data?.email ?? '',
           });
           return;
-        } */
+        }
         // Process login response for further operations
         await get().processLogin(resp.data!);
       } catch (err) {

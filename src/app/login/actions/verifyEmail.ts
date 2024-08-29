@@ -7,6 +7,7 @@ import { esApi } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
+import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
 import { PortalLoginResponse } from '../models/api/login';
 import { VerifyEmailOtpRequest } from '../models/api/verify_email_otp_request';
@@ -33,6 +34,9 @@ export async function callVerifyEmailOtp(
       case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
+        await setWebsphereRedirectCookie({
+          ...resp.data.data,
+        });
         status = LoginStatus.LOGIN_OK;
         break;
       case 'OTP_REQUIRED':
@@ -41,9 +45,6 @@ export async function callVerifyEmailOtp(
       case 'DEVICE_SELECTION_REQUIRED':
         status = LoginStatus.MFA_REQUIRED_MULTIPLE_DEVICES;
         break;
-      case 'ACCOUNT_INACTIVE':
-        status = LoginStatus.ACCOUNT_INACTIVE;
-        throw 'Multiple login attempts';
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {
@@ -59,9 +60,6 @@ export async function callVerifyEmailOtp(
       },
     };
   } catch (error) {
-    if (error == 'Multiple login attempts') {
-      return { status: LoginStatus.ACCOUNT_INACTIVE };
-    }
     if (error instanceof AxiosError) {
       //logger.error("Response from API " + error.response?.data);
       logger.error('Error in Login');
