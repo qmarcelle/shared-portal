@@ -6,7 +6,10 @@ import { callLogin } from '../actions/login';
 import { callSignOut } from '../actions/signOut';
 import { PortalLoginResponse } from '../models/api/login';
 import { AppProg } from '../models/app/app_prog';
-import { errorCodeMessageMap } from '../models/app/error_code_message_map';
+import {
+  inlineErrorCodeMessageMap,
+  slideErrorCodes,
+} from '../models/app/error_code_message_map';
 import { LoginInteractionData } from '../models/app/login_interaction_data';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
@@ -88,14 +91,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         ) {
           throw resp;
         }
-        if (resp.status == LoginStatus.ACCOUNT_INACTIVE) {
-          set({
-            multipleLoginAttempts: true,
-            loginProg: AppProg.failed,
-          });
-          return;
-        }
-
         // Set to success if request succeeded
         set(() => ({ loginProg: AppProg.success }));
         //To Do Uncomment once ES API is available for integration
@@ -116,9 +111,12 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         // Log the error
         logger.error('Error from Login Api', err);
         console.error(err);
+        const errorCode =
+          (err as ActionResponse<LoginStatus, PortalLoginResponse>).error
+            ?.errorCode ?? '';
         // Set indicator for login button
         set(() => ({ loginProg: AppProg.failed }));
-        const errorMessage = errorCodeMessageMap.get(
+        const errorMessage = inlineErrorCodeMessageMap.get(
           (err as ActionResponse<LoginStatus, PortalLoginResponse>)?.error
             ?.errorCode ?? '',
         );
@@ -126,6 +124,13 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
           set((state) => ({
             apiErrors: [...state.apiErrors, errorMessage],
           }));
+        } else if (slideErrorCodes.includes(errorCode)) {
+          if (errorCode == 'UI-405') {
+            set({
+              multipleLoginAttempts: true,
+              loginProg: AppProg.failed,
+            });
+          }
         } else {
           set(() => ({ unhandledErrors: true }));
         }

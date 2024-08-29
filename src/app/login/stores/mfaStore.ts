@@ -3,7 +3,7 @@ import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callSelectDevice, callSubmitMfaOtp } from '../actions/mfa';
 import { AppProg } from '../models/app/app_prog';
-import { errorCodeMessageMap } from '../models/app/error_code_message_map';
+import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
 import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
@@ -83,7 +83,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
         });
 
         if (resp.status == SelectMFAStatus.ERROR) {
-          const errorMessage = errorCodeMessageMap.get(
+          const errorMessage = inlineErrorCodeMessageMap.get(
             resp.error?.errorCode ?? '',
           );
           if (errorMessage != null) {
@@ -148,7 +148,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
         }
 
         if (resp.status == SubmitMFAStatus.ERROR) {
-          const errorMessage = errorCodeMessageMap.get(
+          const errorMessage = inlineErrorCodeMessageMap.get(
             resp.error?.errorCode ?? '',
           );
           if (errorMessage != null && !get().resend) {
