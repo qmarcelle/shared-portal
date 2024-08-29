@@ -5,7 +5,7 @@ import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callVerifyEmailOtp } from '../actions/verifyEmail';
 import { PortalLoginResponse } from '../models/api/login';
-import { errorCodeMessageMap } from '../models/app/error_code_message_map';
+import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
 import { LoginStatus } from '../models/status';
 import { useLoginStore } from './loginStore';
 
@@ -54,12 +54,6 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
           case LoginStatus.LOGIN_OK:
             useLoginStore.getState().updateLoggedUser(true);
             break;
-          case LoginStatus.ACCOUNT_INACTIVE:
-            useLoginStore.getState().updateMultipleLoginAttempts(true);
-            set({
-              completeVerifyEmailProg: AppProg.failed,
-            });
-            return;
         }
         // Process login response for further operations
         await useLoginStore.getState().processLogin(resp.data!);
@@ -71,7 +65,7 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
         console.error(err);
         // Set indicator for login button
         set(() => ({ completeVerifyEmailProg: AppProg.failed }));
-        const errorMessage = errorCodeMessageMap.get(
+        const errorMessage = inlineErrorCodeMessageMap.get(
           (err as ActionResponse<LoginStatus, PortalLoginResponse>)?.error
             ?.errorCode ?? '',
         );
