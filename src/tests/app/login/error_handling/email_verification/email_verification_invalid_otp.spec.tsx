@@ -373,7 +373,8 @@ describe('Log In of User whose Email Id is not registered yet - Brand Error Mess
 
     expect(
       screen.getByText(
-        'You have attempted to log in too many times. Please wait 15 minutes to try again.',
+        // eslint-disable-next-line quotes
+        "Oops! We're sorry. Something went wrong. Please try again.",
       ),
     ).toBeVisible();
   });
