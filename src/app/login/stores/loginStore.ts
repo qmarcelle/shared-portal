@@ -147,7 +147,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       });
 
       // Set the User data and exit if no mfa devices are configured
-      if (data.mfaDeviceList.length == 0) {
+      if (data.mfaDeviceList?.length == 0) {
         set({
           loggedUser: true,
         });
@@ -155,24 +155,28 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       }
 
       // Map the avail mfa devices data from api to App Model
-      const availMfaDevices: MfaOption[] = data.mfaDeviceList.map((item) => {
-        const deviceType = mapMfaDeviceType(item.deviceType);
-        return {
-          id: item.deviceId,
-          type: deviceType,
-          metadata: mapMfaDeviceMetadata(item, deviceType),
-        };
-      });
+      const availMfaDevices: MfaOption[] = (data.mfaDeviceList || []).map(
+        (item) => {
+          const deviceType = mapMfaDeviceType(item.deviceType);
+          return {
+            id: item.deviceId,
+            type: deviceType,
+            metadata: mapMfaDeviceMetadata(item, deviceType),
+          };
+        },
+      );
 
-      // Update avail mfa devices in mfa store
-      useMfaStore.getState().updateAvailableMfa(availMfaDevices);
-      useMfaStore.getState().updateMfaMode(availMfaDevices[0]);
+      if (availMfaDevices.length > 0) {
+        // Update avail mfa devices in mfa store
+        useMfaStore.getState().updateAvailableMfa(availMfaDevices);
+        useMfaStore.getState().updateMfaMode(availMfaDevices[0]);
 
-      // If there is only one mfa device, go to code entry screen
-      if (availMfaDevices.length == 1) {
-        useMfaStore.getState().updateMfaStage(MfaModeState.code);
+        // If there is only one mfa device, go to code entry screen
+        if (availMfaDevices.length == 1) {
+          useMfaStore.getState().updateMfaStage(MfaModeState.code);
+        }
+        set({ mfaNeeded: true });
       }
-      set({ mfaNeeded: true });
     },
     resetToHome: () => {
       set({
