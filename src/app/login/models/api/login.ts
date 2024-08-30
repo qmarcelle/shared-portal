@@ -19,7 +19,7 @@ export interface LoginResponse {
   sessionToken?: string;
   interactionId: string;
   interactionToken: string;
-  mfaDeviceList: MfaDeviceListItem[];
+  mfaDeviceList?: MfaDeviceListItem[];
   email?: string;
 }
 
