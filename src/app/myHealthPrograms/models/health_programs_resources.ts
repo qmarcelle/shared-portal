@@ -187,12 +187,23 @@ export const healthProgramsandResourcesDetails: Map<
         icon: questSelectLogo,
         redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
       },
-      whyUseThisOptionDetails: [],
+      whyUseThisOptionDetails: [
+        'In-network with your plan*',
+        'Pay lowest price in network for labs',
+        'No need to change your doctor — just show your QuestSelect card',
+        'Get access to your lab results online',
+      ],
+      programType: 'QuestSelect',
       costForThisOptionDetails: {
-        description: '',
+        description: 'Your lab benefits will apply when using QuestSelect.',
         cost: '',
       },
-      goodForOptionDetails: [],
+      goodForOptionDetails: [
+        'Blood samples',
+        'Urine samples',
+        'Throat cultures',
+        'And more',
+      ],
     },
   ],
 ]);
