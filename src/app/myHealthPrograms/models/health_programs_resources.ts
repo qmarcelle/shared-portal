@@ -142,6 +142,38 @@ export const healthProgramsandResourcesDetails: Map<
     },
   ],
   [
+    HealthProgramType.TeladocHealthDiabetesManagement,
+    {
+      healthProgramType: HealthProgramType.TeladocHealthDiabetesManagement,
+      healthProgramHeaderDetails: {
+        title: 'Teladoc Health Diabetes Management Program',
+        description:
+          'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost to you.',
+        serviceDesc:
+          'The first time using this service, you’ll need to create an account.',
+        buttonText: 'Use Teladoc Health',
+        icon: teladocHealthLogo,
+        redirectLink: '',
+      },
+      whyUseThisOptionDetails: [
+        'If eligible, covered by your plan at no extra cost',
+        'Personalized tips, action plans and coaching',
+        'Free smart meter and unlimited strips and lancets',
+      ],
+      costForThisOptionDetails: {
+        description:
+          'If you have been diagnosed with type 1 or type 2 diabetes, you can expect to pay:',
+        cost: '$0',
+      },
+      goodForOptionDetails: [
+        'Living with diabetes',
+        'Receiving diabetes supplies',
+        'Monitoring glucose',
+        'Building healthy habits ',
+      ],
+    },
+  ],
+  [
     HealthProgramType.QuestSelect,
     {
       healthProgramType: HealthProgramType.QuestSelect,
