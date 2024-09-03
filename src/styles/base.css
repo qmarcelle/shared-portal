@@ -345,3 +345,51 @@
 .caremark button {
   padding-top: 0;
 }
+
+.overlap-bottom {
+  margin-bottom: -21px;
+}
+
+.accessCodeBackground {
+  background-color: #e7f6ff;
+  border-radius: 7px;
+  width: 40%;
+  margin: auto;
+}
+
+.stepSection .stepRoundBlue {
+  border-radius: 9999px;
+  background-color: #005eb9;
+  display: inline-block;
+  width: 30px;
+  padding-top: 5px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.stepSection .stepRoundGrey {
+  border-radius: 9999px;
+  border: 1px solid rgb(204, 204, 204);
+  background-color: #ffffff;
+  display: inline-block;
+  width: 30px;
+  padding-top: 5px;
+  text-align: center;
+  color: rgb(204, 204, 204);
+}
+
+.stepSection .stepLineGrey {
+  width: 32% !important;
+  height: 2px !important;
+  background-color: rgb(204, 204, 204) !important;
+  margin-bottom: 5px !important;
+  display: inline-block;
+}
+
+.stepSection .stepLineBlue {
+  width: 32% !important;
+  height: 2px !important;
+  background-color: #005eb9 !important;
+  margin-bottom: 5px !important;
+  display: inline-block;
+}
