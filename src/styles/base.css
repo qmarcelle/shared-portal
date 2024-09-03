@@ -349,3 +349,6 @@
 .caremark button {
   padding-top: 0;
 }
+.manage-image .link {
+  display: ruby;
+}
