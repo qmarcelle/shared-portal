@@ -108,7 +108,142 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
                 <section>
-                  <ul />
+                  <ul>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <img
+                            alt="Info"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 pt-1 ml-2"
+                          >
+                            In-network with your plan*
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <img
+                            alt="Info"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 pt-1 ml-2"
+                          >
+                            Pay lowest price in network for labs
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <img
+                            alt="Info"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 pt-1 ml-2"
+                          >
+                            No need to change your doctor — just show your QuestSelect card
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <img
+                            alt="Info"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 pt-1 ml-2"
+                          >
+                            Get access to your lab results online
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                  </ul>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      aria-label="divider"
+                      class="mt-4"
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <p
+                      class="body-1 body-2 mt-8"
+                    >
+                      *If you get lab testing out of state, call the Member Service number on the back of your Member ID card to make sure Quest Diagnostics is in network in that state
+                    </p>
+                  </div>
                 </section>
               </div>
             </div>
@@ -131,7 +266,9 @@ exports[`Quest Select should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
-                  />
+                  >
+                    Your lab benefits will apply when using QuestSelect.
+                  </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                   />
@@ -167,7 +304,92 @@ exports[`Quest Select should render the UI correctly 1`] = `
                 >
                   <ul
                     class="ml-4"
-                  />
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            Blood samples
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            Urine samples
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            Throat cultures
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            And more
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -280,7 +502,142 @@ exports[`Quest Select should render the UI correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
               />
               <section>
-                <ul />
+                <ul>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <img
+                          alt="Info"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 pt-1 ml-2"
+                        >
+                          In-network with your plan*
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <img
+                          alt="Info"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 pt-1 ml-2"
+                        >
+                          Pay lowest price in network for labs
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <img
+                          alt="Info"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 pt-1 ml-2"
+                        >
+                          No need to change your doctor — just show your QuestSelect card
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <img
+                          alt="Info"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 pt-1 ml-2"
+                        >
+                          Get access to your lab results online
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    aria-label="divider"
+                    class="mt-4"
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <p
+                    class="body-1 body-2 mt-8"
+                  >
+                    *If you get lab testing out of state, call the Member Service number on the back of your Member ID card to make sure Quest Diagnostics is in network in that state
+                  </p>
+                </div>
               </section>
             </div>
           </div>
@@ -303,7 +660,9 @@ exports[`Quest Select should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1"
-                />
+                >
+                  Your lab benefits will apply when using QuestSelect.
+                </p>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                 />
@@ -339,7 +698,92 @@ exports[`Quest Select should render the UI correctly 1`] = `
               >
                 <ul
                   class="ml-4"
-                />
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                        />
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          Blood samples
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                        />
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          Urine samples
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                        />
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          Throat cultures
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                        />
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          And more
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
               </div>
             </div>
           </div>

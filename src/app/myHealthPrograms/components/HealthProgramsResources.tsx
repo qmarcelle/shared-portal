@@ -32,6 +32,7 @@ export const HealthProgramsResources = ({
             whyThisOptionDetails={
               healthProgramDetails?.whyUseThisOptionDetails ?? []
             }
+            programType={healthProgramDetails?.programType}
           />
           <CostforThisOptionCard
             costForThisOptionDetails={
