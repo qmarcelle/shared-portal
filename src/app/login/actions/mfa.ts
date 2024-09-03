@@ -11,6 +11,7 @@ import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
 import { LoginResponse } from '../models/api/login';
 import { SelectMfaDeviceResponse } from '../models/api/select_mfa_device_response';
+import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
 import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
 
 type SelectMfaArgs = {
@@ -96,12 +97,31 @@ export async function callSubmitMfaOtp(
     if (err instanceof AxiosError) {
       console.error('Error in submitMfaOtp');
       console.error(err.response?.data);
-      return {
-        status: SubmitMFAStatus.ERROR,
-        error: {
-          errorCode: err.response?.data.data.errorCode,
-        },
-      };
+
+      if (inlineErrorCodeMessageMap.has(err.response?.data.data.errorCode)) {
+        if (err.response?.data.data.errorCode == 'MF-405') {
+          return {
+            status: SubmitMFAStatus.OTP_INVALID,
+            error: {
+              errorCode: err.response?.data.data.errorCode,
+            },
+          };
+        } else {
+          return {
+            status: SubmitMFAStatus.ERROR,
+            error: {
+              errorCode: err.response?.data.data.errorCode,
+            },
+          };
+        }
+      } else {
+        return {
+          status: SubmitMFAStatus.ERROR,
+          error: {
+            errorCode: err.response?.data.data.errorCode,
+          },
+        };
+      }
     } else {
       throw 'An error occurred';
     }

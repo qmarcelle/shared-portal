@@ -17,6 +17,7 @@ type MfaStore = {
   availMfaModes: MfaOption[];
   initMfaProg: AppProg;
   completeMfaProg: AppProg;
+  multipleMFASecurityCodeAttempts: boolean;
   updateMfaMode: (mode: MfaOption) => void;
   updateCode: (code: string) => void;
   updateResendCode: (resent: boolean) => void;
@@ -36,6 +37,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
     availMfaModes: [],
     initMfaProg: AppProg.init,
     completeMfaProg: AppProg.init,
+    multipleMFASecurityCodeAttempts: false,
     updateMfaMode: (mode: MfaOption) =>
       set(() => ({
         selectedMfa: mode,
@@ -159,6 +161,13 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             useLoginStore.setState({ unhandledErrors: true });
           }
           set({ completeMfaProg: AppProg.failed });
+          return;
+        }
+        if (resp.status == SubmitMFAStatus.OTP_INVALID) {
+          set({
+            completeMfaProg: AppProg.failed,
+            multipleMFASecurityCodeAttempts: true,
+          });
           return;
         }
 
