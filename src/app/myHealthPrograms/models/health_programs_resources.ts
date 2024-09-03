@@ -1,6 +1,7 @@
 import {
   alightIcon,
   hingeHealthLogo,
+  questSelectLogo,
   silverFitLogo,
   teladocHealthLogo,
 } from '@/components/foundation/Icons';
@@ -138,6 +139,28 @@ export const healthProgramsandResourcesDetails: Map<
         'Shin and calve pain ',
         'Feet pain',
       ],
+    },
+  ],
+  [
+    HealthProgramType.QuestSelect,
+    {
+      healthProgramType: HealthProgramType.QuestSelect,
+      healthProgramHeaderDetails: {
+        title: 'QuestSelect Low-Cost Lab Testing',
+        description:
+          'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+        serviceDesc:
+          'The first time using this service, you’ll need to create an account.',
+        buttonText: 'Get Your QuestSelect Card',
+        icon: questSelectLogo,
+        redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
+      },
+      whyUseThisOptionDetails: [],
+      costForThisOptionDetails: {
+        description: '',
+        cost: '',
+      },
+      goodForOptionDetails: [],
     },
   ],
 ]);
