@@ -6,7 +6,7 @@ import { AppProg } from '../models/app/app_prog';
 import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
-import { GENERIC_OR_INLINE_ERROR, SelectMFAStatus } from '../models/status';
+import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
 import { useLoginStore } from './loginStore';
 
 type MfaStore = {
@@ -143,13 +143,13 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           userToken: useLoginStore.getState().userToken,
         });
 
-        if (resp.status == GENERIC_OR_INLINE_ERROR.OTP_OK) {
+        if (resp.status == SubmitMFAStatus.OTP_OK) {
           useLoginStore.setState({
             loggedUser: true,
           });
         }
 
-        if (resp.status == GENERIC_OR_INLINE_ERROR.ERROR) {
+        if (resp.status == SubmitMFAStatus.GENERIC_OR_INLINE_ERROR) {
           const errorMessage = inlineErrorCodeMessageMap.get(
             resp.error?.errorCode ?? '',
           );
@@ -163,7 +163,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           set({ completeMfaProg: AppProg.failed });
           return;
         }
-        if (resp.status == GENERIC_OR_INLINE_ERROR.OTP_INVALID) {
+        if (resp.status == SubmitMFAStatus.OTP_INVALID) {
           set({
             completeMfaProg: AppProg.failed,
             multipleMFASecurityCodeAttempts: true,
