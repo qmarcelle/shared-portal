@@ -163,7 +163,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           set({ completeMfaProg: AppProg.failed });
           return;
         }
-        if (resp.status == SubmitMFAStatus.OTP_INVALID) {
+        if (resp.status == SubmitMFAStatus.OTP_INVALID_LIMIT_REACHED) {
           set({
             completeMfaProg: AppProg.failed,
             multipleMFASecurityCodeAttempts: true,
