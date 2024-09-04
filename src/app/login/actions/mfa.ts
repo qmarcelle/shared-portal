@@ -11,7 +11,7 @@ import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
 import { LoginResponse } from '../models/api/login';
 import { SelectMfaDeviceResponse } from '../models/api/select_mfa_device_response';
-import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
+import { slideErrorCodes } from '../models/app/error_code_message_map';
 import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
 
 type SelectMfaArgs = {
@@ -98,7 +98,7 @@ export async function callSubmitMfaOtp(
       console.error('Error in submitMfaOtp');
       console.error(err.response?.data);
 
-      if (inlineErrorCodeMessageMap.has(err.response?.data.data.errorCode)) {
+      if (slideErrorCodes.includes(err.response?.data.data.errorCode)) {
         if (err.response?.data.data.errorCode == 'MF-405') {
           return {
             status: SubmitMFAStatus.OTP_INVALID_LIMIT_REACHED,
