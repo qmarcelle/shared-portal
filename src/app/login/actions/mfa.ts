@@ -12,7 +12,7 @@ import { AxiosError } from 'axios';
 import { LoginResponse } from '../models/api/login';
 import { SelectMfaDeviceResponse } from '../models/api/select_mfa_device_response';
 import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
-import { GENERIC_OR_INLINE_ERROR, SelectMFAStatus } from '../models/status';
+import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
 
 type SelectMfaArgs = {
   deviceId: string;
@@ -67,7 +67,7 @@ export async function callSelectDevice(
 
 export async function callSubmitMfaOtp(
   params: SubmitMfaOtpArgs,
-): Promise<ActionResponse<GENERIC_OR_INLINE_ERROR, LoginResponse>> {
+): Promise<ActionResponse<SubmitMFAStatus, LoginResponse>> {
   let authUser: string | null = null;
   try {
     params.policyId = process.env.ES_API_POLICY_ID;
@@ -89,7 +89,7 @@ export async function callSubmitMfaOtp(
       ...resp.data.data,
     });
     return {
-      status: GENERIC_OR_INLINE_ERROR.OTP_OK,
+      status: SubmitMFAStatus.OTP_OK,
       data: resp.data.data,
     };
   } catch (err) {
@@ -101,14 +101,14 @@ export async function callSubmitMfaOtp(
       if (inlineErrorCodeMessageMap.has(err.response?.data.data.errorCode)) {
         if (err.response?.data.data.errorCode == 'MF-405') {
           return {
-            status: GENERIC_OR_INLINE_ERROR.OTP_INVALID,
+            status: SubmitMFAStatus.OTP_INVALID,
             error: {
               errorCode: err.response?.data.data.errorCode,
             },
           };
         } else {
           return {
-            status: GENERIC_OR_INLINE_ERROR.ERROR,
+            status: SubmitMFAStatus.GENERIC_OR_INLINE_ERROR,
             error: {
               errorCode: err.response?.data.data.errorCode,
             },
@@ -116,7 +116,7 @@ export async function callSubmitMfaOtp(
         }
       } else {
         return {
-          status: GENERIC_OR_INLINE_ERROR.ERROR,
+          status: SubmitMFAStatus.GENERIC_OR_INLINE_ERROR,
           error: {
             errorCode: err.response?.data.data.errorCode,
           },
