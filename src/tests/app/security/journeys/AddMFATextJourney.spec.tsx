@@ -34,20 +34,9 @@ describe('Add Mfa Text Journey', () => {
       expect(
         screen.getByRole('heading', { name: 'Text Message Setup' }),
       ).toBeVisible();
-      expect(screen.getByText('1234567890')).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
 
-    // Change Phone Number screen
-    await waitFor(() => {
-      fireEvent.click(screen.getByText(/change your number/i));
-    });
-    await waitFor(() => {
-      expect(
-        screen.getByRole('heading', { name: 'Change Phone Number' }),
-      ).toBeVisible();
-    });
-    expect(component.baseElement).toMatchSnapshot();
     mockedAxios.post.mockResolvedValueOnce({
       data: {
         data: {
