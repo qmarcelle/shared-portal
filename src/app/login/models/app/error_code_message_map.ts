@@ -15,10 +15,9 @@ export const inlineErrorCodeMessageMap = new Map<string | number, string>([
     'UI-403',
     "We didn't recognize the username or password you entered. Please try again. [UI-403]",
   ],
-  ['MF-405', 'Account locked due to invalid OTP attempts'],
   ['MFA-403', 'Invalid OTP'],
 ]);
 
 export const UNDEFINED_ERROR_CODE = 500;
 
-export const slideErrorCodes = ['UI-405'];
+export const slideErrorCodes = ['UI-405', 'MF-405'];
