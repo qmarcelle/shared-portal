@@ -101,7 +101,7 @@ export async function callSubmitMfaOtp(
       if (inlineErrorCodeMessageMap.has(err.response?.data.data.errorCode)) {
         if (err.response?.data.data.errorCode == 'MF-405') {
           return {
-            status: SubmitMFAStatus.OTP_INVALID,
+            status: SubmitMFAStatus.OTP_INVALID_LIMIT_REACHED,
             error: {
               errorCode: err.response?.data.data.errorCode,
             },
