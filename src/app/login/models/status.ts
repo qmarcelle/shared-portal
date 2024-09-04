@@ -15,7 +15,7 @@ export enum SelectMFAStatus {
   ERROR,
 }
 
-export enum SubmitMFAStatus {
+export enum GENERIC_OR_INLINE_ERROR {
   OTP_OK,
   OTP_INVALID,
   VALIDATION_FAILURE,
