@@ -5,20 +5,26 @@ import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
+import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
 import { useLoginStore } from './stores/loginStore';
 
 export default function LogIn() {
-  const [unhandledErrors, loggedUser, mfaNeeded, multipleLoginAttempts] =
-    useLoginStore((state) => [
-      state.unhandledErrors,
-      state.loggedUser,
-      state.mfaNeeded,
-      state.multipleLoginAttempts,
-    ],
-  );
+  const [
+    unhandledErrors,
+    loggedUser,
+    mfaNeeded,
+    multipleLoginAttempts,
+    verifyEmail,
+  ] = useLoginStore((state) => [
+    state.unhandledErrors,
+    state.loggedUser,
+    state.mfaNeeded,
+    state.multipleLoginAttempts,
+    state.verifyEmail,
+  ]);
 
   const router = useRouter();
   function renderComp() {
@@ -34,7 +40,11 @@ export default function LogIn() {
       return <MultipleAttemptsErrorComponent />;
     }
     if (mfaNeeded == false) {
-      return <LoginComponent />;
+      if (verifyEmail == true) {
+        return <LoginEmailVerification />;
+      } else {
+        return <LoginComponent />;
+      }
     } else {
       return <MfaComponent />;
     }
