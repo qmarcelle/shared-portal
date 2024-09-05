@@ -20,6 +20,7 @@
 @import './tooltip.css';
 @import './filter.css';
 @import './search_typeahead.css';
+@import './idcard.css';
 
 :root {
   --primary-color: #005eb9;
@@ -343,34 +344,4 @@
 }
 .caremark button {
   padding-top: 0;
-}
-
-input.numberOfCards {
-  width: 90px;
-  height: 50px;
-  padding-left: 21px;
-  margin: 0 auto;
-  display: block;
-  border-radius: 3px;
-  border: 1px solid #666666;
-  font-weight: bold;
-}
-
-.upIcon,
-.downIcon {
-  position: absolute;
-  margin-left: 30%;
-  cursor: pointer;
-}
-
-.input.numberOfCards {
-  border: none;
-}
-
-.upIcon {
-  margin-top: -10%;
-}
-
-.downIcon {
-  margin-top: -7%;
 }

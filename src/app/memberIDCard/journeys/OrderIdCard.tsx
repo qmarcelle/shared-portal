@@ -52,10 +52,10 @@ export const OrderIdCard = ({
             maxValue={dependentCount}
           />
           <span onClick={handleIncrement}>
-            <Image alt="Up Icon" src={upIcon} className="upIcon" />
+            <Image alt="Up Icon" src={upIcon} className="upIdCardIcon" />
           </span>
           <span onClick={handleDecrement}>
-            <Image alt="Down Icon" src={downIcon} className="downIcon" />
+            <Image alt="Down Icon" src={downIcon} className="downIdCardIcon" />
           </span>
         </Column>
       }
