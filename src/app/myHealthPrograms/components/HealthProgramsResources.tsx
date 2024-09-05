@@ -41,7 +41,7 @@ export const HealthProgramsResources = ({
             }
           />
         </Column>
-        <Column className=" flex-grow page-section-36_67 items-stretch ml-2">
+        <Column className=" flex-grow page-section-36_67 items-stretch md:ml-4">
           <GoodforThisOptionCard
             goodforThisOptionDetails={
               healthProgramDetails?.goodForOptionDetails ?? []
