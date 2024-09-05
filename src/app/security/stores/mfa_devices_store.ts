@@ -13,6 +13,7 @@ export type MfaDevicesStore = {
   mfaDevices: Map<MfaDeviceType, MfaDevice>;
   defaultMfaDevices: Map<MfaDeviceType, MfaDevice>;
   getDeviceError: boolean;
+  mfaDevicesEnabled: boolean;
 };
 
 export const createMfaDevicesStore: StateCreator<
@@ -22,6 +23,7 @@ export const createMfaDevicesStore: StateCreator<
   MfaDevicesStore
 > = (set, get) => ({
   getDeviceError: false,
+  mfaDevicesEnabled: false,
   mfaDevices: new Map([
     [
       MfaDeviceType.authenticator,
@@ -113,8 +115,12 @@ export const createMfaDevicesStore: StateCreator<
           JSON.parse(JSON.stringify([...state.defaultMfaDevices])),
         ),
       }));
-      if (!resp.data || !resp.data?.devices?.length) throw resp;
-      if (resp.data && resp.data.devices?.length) {
+      if (!resp.data || !resp.data?.devices) throw resp;
+      if (
+        resp.data &&
+        resp.data.devices?.length &&
+        resp.data.mfaEnabled == 'true'
+      ) {
         resp.data.devices.forEach((item) => {
           const mfa = get().mfaDevices.get(
             item.deviceType.toLocaleLowerCase() as MfaDeviceType,
@@ -129,12 +135,18 @@ export const createMfaDevicesStore: StateCreator<
           }
         });
         set((state) => ({
+          mfaDevicesEnabled: true,
           mfaDevices: new Map([...state.mfaDevices]),
         }));
+      } else {
+        set({
+          mfaDevicesEnabled: false,
+        });
       }
     } catch (err) {
       set({
         getDeviceError: true,
+        mfaDevicesEnabled: false,
       });
       logger.error('Loading Mfa Devices failed');
       logger.error('GetDevices' + err);
