@@ -29,11 +29,14 @@ export async function getMfaDevices(): Promise<ESResponse<GetMfaDevices>> {
       return {
         errorCode:
           error.response?.data?.data?.errorCode ??
-          error.response?.data?.details?.returnCode,
+          error.response?.data?.details?.returnCode ??
+          '500',
       };
     } else {
       console.log(`GetMFADevices Failed With Error - ${JSON.stringify(error)}`);
-      throw 'An error occured';
+      return {
+        errorCode: '500',
+      };
     }
   }
 }

@@ -5,6 +5,7 @@ import { ESResponse } from '@/models/enterprise/esResponse';
 import { logger } from '@/utils/logger';
 import { StateCreator } from 'zustand';
 import { deleteMfaDevices } from '../actions/deleteMfaDevices';
+import { callToggleMfa } from '../actions/toggleMfaDevice';
 import { updateMfaDevices } from '../actions/updateMfaDevices';
 import { verifyMfaDevices } from '../actions/verifyMfaDevices';
 import { errorCodeMessageMap } from '../models/error_code_message_map';
@@ -37,6 +38,8 @@ export type UpdateMfaDevicesStore = {
   updateInvalidError: (errors: string[]) => void;
   invalidErrors?: string[];
   resetVerifyMfaError: () => void;
+  toggleMfaDevices: () => void;
+  toggleMfaDeviceError: boolean;
 };
 
 export const createUpdateMfaDevicesStore: StateCreator<
@@ -189,5 +192,27 @@ export const createUpdateMfaDevicesStore: StateCreator<
         errors: [],
       },
     }));
+  },
+  toggleMfaDeviceError: false,
+  toggleMfaDevices: async () => {
+    const newToggleState = !get().mfaDevicesEnabled;
+    try {
+      set({ mfaDevicesEnabled: newToggleState });
+      const result = await callToggleMfa(newToggleState);
+      if (result.data) {
+        set({
+          mfaDevicesEnabled:
+            result.data.mfaEnabled.toLocaleLowerCase() == 'true' ? true : false,
+          toggleMfaDeviceError: false,
+        });
+        if (result.data.mfaEnabled.toLocaleLowerCase() == 'true') {
+          get().loadMfaDevices();
+        }
+      } else {
+        set({ toggleMfaDeviceError: true, mfaDevicesEnabled: !newToggleState });
+      }
+    } catch (err) {
+      set({ toggleMfaDeviceError: true, mfaDevicesEnabled: !newToggleState });
+    }
   },
 });
