@@ -11,6 +11,7 @@ import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
 import { useLoginStore } from './stores/loginStore';
+import { useMfaStore } from './stores/mfaStore';
 
 export default function LogIn() {
   const [
@@ -25,6 +26,9 @@ export default function LogIn() {
     state.mfaNeeded,
     state.multipleLoginAttempts,
     state.verifyEmail,
+  ]);
+  const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
+    state.multipleMFASecurityCodeAttempts,
   ]);
 
   const router = useRouter();
