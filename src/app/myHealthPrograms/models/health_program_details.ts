@@ -8,4 +8,5 @@ export interface HealthProgramDetails {
   whyUseThisOptionDetails: string[];
   costForThisOptionDetails: CostForThisOptionDetails;
   goodForOptionDetails: string[];
+  programType?: string;
 }
