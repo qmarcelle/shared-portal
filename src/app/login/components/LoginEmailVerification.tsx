@@ -37,7 +37,7 @@ export const LoginEmailVerification = () => {
   const showTooltip = actions.code.length < 1;
   return (
     <div id="mainSection">
-      <Header text="Let's Confirm Your Identity" />
+      <Header text="Let's Verify Your Email" />
       <Spacer size={16} />
       <TextBox text="We’ll need to confirm your email address before you can log in." />
       <Spacer size={16} />

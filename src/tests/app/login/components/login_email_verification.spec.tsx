@@ -10,7 +10,7 @@ describe('Login Email Verfication Component', () => {
   it('should render UI correctly', () => {
     const component = renderUI();
     // eslint-disable-next-line quotes
-    screen.getByRole('heading', { name: "Let's Confirm Your Identity" });
+    screen.getByRole('heading', { name: "Let's Verify Your Email" });
     screen.getByText(
       'We’ll need to confirm your email address before you can log in.',
     );

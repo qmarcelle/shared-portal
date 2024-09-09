@@ -9,7 +9,7 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
       <h1
         class="title-1"
       >
-        Let's Confirm Your Identity
+        Let's Verify Your Email
       </h1>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
