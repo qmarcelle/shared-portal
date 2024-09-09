@@ -8,8 +8,10 @@ import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
+import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
 import { useLoginStore } from './stores/loginStore';
+import { useMfaStore } from './stores/mfaStore';
 
 export default function LogIn() {
   const [
@@ -25,6 +27,9 @@ export default function LogIn() {
     state.multipleLoginAttempts,
     state.verifyEmail,
   ]);
+  const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
+    state.multipleMFASecurityCodeAttempts,
+  ]);
 
   const router = useRouter();
   function renderComp() {
@@ -36,6 +41,9 @@ export default function LogIn() {
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
+    }
+    if (multipleMFASecurityCodeAttempts == true) {
+      return <MFASecurityCodeMultipleAttemptComponent />;
     }
     if (mfaNeeded == false) {
       if (verifyEmail == true) {

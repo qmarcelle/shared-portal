@@ -17,6 +17,7 @@ type MfaStore = {
   availMfaModes: MfaOption[];
   initMfaProg: AppProg;
   completeMfaProg: AppProg;
+  multipleMFASecurityCodeAttempts: boolean;
   updateMfaMode: (mode: MfaOption) => void;
   updateCode: (code: string) => void;
   updateResendCode: (resent: boolean) => void;
@@ -36,6 +37,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
     availMfaModes: [],
     initMfaProg: AppProg.init,
     completeMfaProg: AppProg.init,
+    multipleMFASecurityCodeAttempts: false,
     updateMfaMode: (mode: MfaOption) =>
       set(() => ({
         selectedMfa: mode,
@@ -147,7 +149,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           });
         }
 
-        if (resp.status == SubmitMFAStatus.ERROR) {
+        if (resp.status == SubmitMFAStatus.GENERIC_OR_INLINE_ERROR) {
           const errorMessage = inlineErrorCodeMessageMap.get(
             resp.error?.errorCode ?? '',
           );
@@ -159,6 +161,13 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             useLoginStore.setState({ unhandledErrors: true });
           }
           set({ completeMfaProg: AppProg.failed });
+          return;
+        }
+        if (resp.status == SubmitMFAStatus.OTP_INVALID_LIMIT_REACHED) {
+          set({
+            completeMfaProg: AppProg.failed,
+            multipleMFASecurityCodeAttempts: true,
+          });
           return;
         }
 
