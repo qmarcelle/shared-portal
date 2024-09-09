@@ -1,6 +1,7 @@
 import {
   alightIcon,
   hingeHealthLogo,
+  questSelectLogo,
   silverFitLogo,
   teladocHealthLogo,
 } from '@/components/foundation/Icons';
@@ -169,6 +170,39 @@ export const healthProgramsandResourcesDetails: Map<
         'Receiving diabetes supplies',
         'Monitoring glucose',
         'Building healthy habits ',
+      ],
+    },
+  ],
+  [
+    HealthProgramType.QuestSelect,
+    {
+      healthProgramType: HealthProgramType.QuestSelect,
+      healthProgramHeaderDetails: {
+        title: 'QuestSelect Low-Cost Lab Testing',
+        description:
+          'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+        serviceDesc:
+          'The first time using this service, you’ll need to create an account.',
+        buttonText: 'Get Your QuestSelect Card',
+        icon: questSelectLogo,
+        redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
+      },
+      whyUseThisOptionDetails: [
+        'In-network with your plan*',
+        'Pay lowest price in network for labs',
+        'No need to change your doctor — just show your QuestSelect card',
+        'Get access to your lab results online',
+      ],
+      programType: 'QuestSelect',
+      costForThisOptionDetails: {
+        description: 'Your lab benefits will apply when using QuestSelect.',
+        cost: '',
+      },
+      goodForOptionDetails: [
+        'Blood samples',
+        'Urine samples',
+        'Throat cultures',
+        'And more',
       ],
     },
   ],

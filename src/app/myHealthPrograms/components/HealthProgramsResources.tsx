@@ -1,13 +1,13 @@
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
+import { CostForThisOptionDetails } from '../models/cost_for_this_option_details';
+import { HealthProgramDetails } from '../models/health_program_details';
+import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
 import { CostforThisOptionCard } from './CostforThisOptionCard';
+import { GoodforThisOptionCard } from './GoodforThisOptionCard';
 import { HealthProgramsHeaderCard } from './HealthProgramsHeaderCard';
 import { WhyUseThisOptionCard } from './WhyUseThisOptionCard';
-import { HealthProgramDetails } from '../models/health_program_details';
-import { IComponent } from '@/components/IComponent';
-import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
-import { CostForThisOptionDetails } from '../models/cost_for_this_option_details';
-import { GoodforThisOptionCard } from './GoodforThisOptionCard';
 
 interface HealthProgramsResourcesProps extends IComponent {
   healthProgramDetails?: HealthProgramDetails;
@@ -32,6 +32,7 @@ export const HealthProgramsResources = ({
             whyThisOptionDetails={
               healthProgramDetails?.whyUseThisOptionDetails ?? []
             }
+            programType={healthProgramDetails?.programType}
           />
           <CostforThisOptionCard
             costForThisOptionDetails={
@@ -40,7 +41,7 @@ export const HealthProgramsResources = ({
             }
           />
         </Column>
-        <Column className=" flex-grow page-section-36_67 items-stretch ml-2">
+        <Column className=" flex-grow page-section-36_67 items-stretch md:ml-4">
           <GoodforThisOptionCard
             goodforThisOptionDetails={
               healthProgramDetails?.goodForOptionDetails ?? []
