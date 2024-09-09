@@ -5,23 +5,26 @@ import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
+import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
 import { useLoginStore } from './stores/loginStore';
-import { useMfaStore } from './stores/mfaStore';
 
 export default function LogIn() {
-  const [unhandledErrors, loggedUser, mfaNeeded, multipleLoginAttempts] =
-    useLoginStore((state) => [
-      state.unhandledErrors,
-      state.loggedUser,
-      state.mfaNeeded,
-      state.multipleLoginAttempts,
-    ]);
-  const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
-    state.multipleMFASecurityCodeAttempts,
+  const [
+    unhandledErrors,
+    loggedUser,
+    mfaNeeded,
+    multipleLoginAttempts,
+    verifyEmail,
+  ] = useLoginStore((state) => [
+    state.unhandledErrors,
+    state.loggedUser,
+    state.mfaNeeded,
+    state.multipleLoginAttempts,
+    state.verifyEmail,
   ]);
 
   const router = useRouter();
@@ -30,9 +33,7 @@ export default function LogIn() {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace(
-        process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard',
-      );
+      router.replace(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/security');
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
@@ -41,7 +42,11 @@ export default function LogIn() {
       return <MFASecurityCodeMultipleAttemptComponent />;
     }
     if (mfaNeeded == false) {
-      return <LoginComponent />;
+      if (verifyEmail == true) {
+        return <LoginEmailVerification />;
+      } else {
+        return <LoginComponent />;
+      }
     } else {
       return <MfaComponent />;
     }

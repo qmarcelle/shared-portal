@@ -9,34 +9,25 @@ import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
-import {
-  LoginRequest,
-  LoginResponse,
-  PortalLoginResponse,
-} from '../models/api/login';
+import { PortalLoginResponse } from '../models/api/login';
+import { VerifyEmailOtpRequest } from '../models/api/verify_email_otp_request';
 import { LoginStatus } from '../models/status';
 
-const INVALID_CREDENTIALS_ES_ERROR_CODE = 'UI-401';
-
-export async function callLogin(
-  request: LoginRequest,
+export async function callVerifyEmailOtp(
+  request: VerifyEmailOtpRequest,
 ): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
   let status: LoginStatus;
   try {
-    if (!request.username || !request.password) {
-      return {
-        status: LoginStatus.VALIDATION_FAILURE,
-      };
-    }
     request.policyId = process.env.ES_API_POLICY_ID;
     request.appId = process.env.ES_API_APP_ID;
-    const resp = await esApi.post<ESResponse<LoginResponse>>(
-      '/mfAuthentication/loginAuthentication',
+    console.log(request);
+    const resp = await esApi.post<ESResponse<PortalLoginResponse>>(
+      '/mfAuthentication/loginAuthentication/verifyEmailOtp',
       request,
     );
 
-    console.debug(resp);
+    console.debug(resp.data);
     status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
@@ -47,10 +38,6 @@ export async function callLogin(
           ...resp.data.data,
         });
         status = LoginStatus.LOGIN_OK;
-        break;
-      case 'EMAIL_VERIFICATION_REQUIRED':
-      case 'NO_DEVICES_EMAIL_VERIFICATION_REQUIRED':
-        status = LoginStatus.VERIFY_EMAIL;
         break;
       case 'OTP_REQUIRED':
         status = LoginStatus.MFA_REQUIRED_ONE_DEVICE;
@@ -78,11 +65,7 @@ export async function callLogin(
       logger.error('Error in Login');
       console.error(error.response?.data);
       return {
-        status:
-          error.response?.data.data.errorCode ==
-          INVALID_CREDENTIALS_ES_ERROR_CODE
-            ? LoginStatus.INVALID_CREDENTIALS
-            : LoginStatus.ERROR,
+        status: LoginStatus.ERROR,
         data: error.response?.data.data,
         error: {
           errorCode: error.response?.data.data.errorCode,
