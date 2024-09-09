@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisableMFAWarning should render ui correctly for disabled mfa 1`] = `
+<div>
+  <div
+    class="card-elevated container"
+  >
+    <div
+      class="flex flex-col flex-grow m-4"
+    >
+      <div
+        class="flex flex-row items-center justify-between mb-4"
+      >
+        <p
+          class="body-1 font-bold mt-2"
+        >
+          MFA is 
+          turned off.
+        </p>
+        <label
+          aria-label="toggle mfa"
+          class="switch"
+        >
+          <input
+            type="checkbox"
+          />
+          <div
+            class="flex items-center toggle-slider round justify-end"
+          >
+            <p
+              class="block text-primary mt-[6px] mr-[6px] body-1"
+            >
+              OFF
+            </p>
+            <p
+              class="hidden text-white mt-1 ml-2 body-1"
+            >
+              ON
+            </p>
+          </div>
+        </label>
+      </div>
+      <p
+        class="body-1"
+      >
+        Turn on MFA to keep your account more secure.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DisableMFAWarning should render ui correctly for enabled mfa 1`] = `
+<div>
+  <div
+    class="card-elevated container"
+  >
+    <div
+      class="flex flex-col flex-grow m-4"
+    >
+      <div
+        class="flex flex-row items-center justify-between mb-4"
+      >
+        <p
+          class="body-1 font-bold mt-2"
+        >
+          MFA is 
+          turned on.
+        </p>
+        <label
+          aria-label="toggle mfa"
+          class="switch"
+        >
+          <input
+            checked=""
+            type="checkbox"
+          />
+          <div
+            class="flex items-center toggle-slider round justify-start"
+          >
+            <p
+              class="hidden text-primary mt-[6px] mr-[6px] body-1"
+            >
+              OFF
+            </p>
+            <p
+              class="block text-white mt-1 ml-2 body-1"
+            >
+              ON
+            </p>
+          </div>
+        </label>
+      </div>
+      <p
+        class="body-1"
+      >
+        We'll send a one-time security code to your email by default. Set up   multiple methods for more options when you log in.
+      </p>
+    </div>
+  </div>
+</div>
+`;
