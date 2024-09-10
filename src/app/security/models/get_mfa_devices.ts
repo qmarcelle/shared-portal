@@ -2,7 +2,7 @@ import { MfaDeviceType } from './mfa_device_type';
 
 export interface GetMfaDevices {
   mfaEnabled: string;
-  devices: Device[];
+  devices?: Device[];
 }
 
 export interface Device {
