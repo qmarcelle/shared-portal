@@ -1,3 +1,4 @@
+import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
@@ -9,9 +10,11 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useState } from 'react';
+import { OrderIdCard } from '../journeys/OrderIdCard';
 import { ImageSlider } from './ImageSlider';
 
 export const MemberIDCardInfo = () => {
+  const { showAppModal } = useAppModalStore();
   const [selectedText, setselectedText] = useState('Current Plan');
   const dropDownList = [{ id: 'Current Plan' }, { id: 'Future Plan' }];
   const handleDropDownUpdate = (value: string) => {
@@ -65,7 +68,11 @@ export const MemberIDCardInfo = () => {
               <Button
                 label="Order New ID Card"
                 type="secondary"
-                callback={() => {}}
+                callback={() =>
+                  showAppModal({
+                    content: <OrderIdCard dependentCount={3} />,
+                  })
+                }
               />
             </Column>
           </section>
