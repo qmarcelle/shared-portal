@@ -5,6 +5,7 @@ import { Divider } from '@/components/foundation/Divider';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
+import ReactGA from 'react-ga4';
 import { AppProg } from '../models/app/app_prog';
 import { useLoginStore } from '../stores/loginStore';
 
@@ -23,7 +24,14 @@ export const LoginComponent = () => {
   async function registerNewAcccount(): Promise<void> {
     window.open(await getConfig('REGISTER_NEW_ACCOUNT'), '_self');
   }
-
+  const loginAnalytics = () => {
+    ReactGA.event('login', {
+      click_text: 'log in',
+      click_url: window.location.href,
+      element_category: 'login',
+    });
+    actions.login();
+  };
   return (
     <div id="mainSection" className="dark:text-black">
       <h1 className="self-start">Member Login</h1>
@@ -57,7 +65,7 @@ export const LoginComponent = () => {
           <Button
             callback={
               username.length > 0 && password.length > 0
-                ? actions.login
+                ? loginAnalytics
                 : undefined
             }
             label={loginProg == AppProg.loading ? 'Logging In...' : 'Log In'}
