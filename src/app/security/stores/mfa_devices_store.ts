@@ -115,13 +115,9 @@ export const createMfaDevicesStore: StateCreator<
           JSON.parse(JSON.stringify([...state.defaultMfaDevices])),
         ),
       }));
-      if (!resp.data || !resp.data?.devices) throw resp;
-      if (
-        resp.data &&
-        resp.data.devices?.length &&
-        resp.data.mfaEnabled == 'true'
-      ) {
-        resp.data.devices.forEach((item) => {
+      if (!resp.data) throw resp;
+      if (resp.data && resp.data.mfaEnabled == 'true') {
+        resp.data.devices?.forEach((item) => {
           const mfa = get().mfaDevices.get(
             item.deviceType.toLocaleLowerCase() as MfaDeviceType,
           );
