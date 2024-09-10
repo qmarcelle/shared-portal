@@ -1,6 +1,5 @@
 import { ChangeAuthDeviceSlide } from '@/components/composite/ChangeAuthDeviceSlide';
 import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
-import { InitModalSlide } from '@/components/composite/InitModalSlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -76,7 +75,7 @@ export const AddMFAEmailJourney = ({
       await updateMfaDevice(MfaDeviceType.email, email);
       changePageIndex?.(1, true);
     } catch (errorMessage: unknown) {
-      changePageIndex?.(4, true);
+      changePageIndex?.(3, true);
     }
   };
 
@@ -97,14 +96,14 @@ export const AddMFAEmailJourney = ({
         throw 'error';
       }
     } catch (errorMessage: unknown) {
-      changePageIndex?.(4, true);
+      changePageIndex?.(3, true);
     }
   };
 
-  const sendCode = async () => {
+  /* const sendCode = async () => {
     initNewDevice(false);
     changePageIndex?.(1, true);
-  };
+  }; */
 
   const validateEmailAddress = (value: string) => {
     setNewAuthDevice(value);
@@ -129,28 +128,25 @@ export const AddMFAEmailJourney = ({
   };
 
   const pages = [
-    <InitModalSlide
+    <ChangeAuthDeviceSlide
       key={0}
       label="Email Setup"
-      subLabel={
-        <Column>
-          <TextBox
-            className="body-1 center"
-            text={'Continue with your current email or change it.'}
-          />
-          <TextBox className="body-1 text-center" text="Your email is:" />
-        </Column>
-      }
-      // actionArea="chall123@gmail.com"
-      actionArea={mainAuthDevice}
-      changeAuthButton={
-        <AppLink
-          label="Change Your Email Address"
-          callback={() => changePageIndex?.(3, true)}
+      subLabel="Enter the email address you'd like to use for communications and security settings."
+      actionArea={
+        <TextField
+          valueCallback={(val) => validateEmailAddress(val)}
+          label="Email Address"
+          type="email"
+          value={newAuthDevice}
+          errors={invalidErrors}
         />
       }
       cancelCallback={() => dismissModal()}
-      nextCallback={() => sendCode()}
+      nextCallback={
+        isValidEmailAddress(newAuthDevice) && newAuthDevice.length !== 0
+          ? () => initNewDevice(false)
+          : undefined
+      }
     />,
 
     <InputModalSlide
@@ -203,28 +199,8 @@ export const AddMFAEmailJourney = ({
       }
       doneCallBack={() => dismissModal()}
     />,
-    <ChangeAuthDeviceSlide
-      key={3}
-      label="Change Email Address"
-      subLabel="Enter the new email address you'd like to use for communications and security settings."
-      actionArea={
-        <TextField
-          valueCallback={(val) => validateEmailAddress(val)}
-          label="Email Address"
-          type="email"
-          value={newAuthDevice}
-          errors={invalidErrors}
-        />
-      }
-      cancelCallback={() => dismissModal()}
-      nextCallback={
-        isValidEmailAddress(newAuthDevice) && newAuthDevice.length !== 0
-          ? () => initNewDevice(false)
-          : undefined
-      }
-    />,
     <ErrorDisplaySlide
-      key={4}
+      key={3}
       label="Try Again Later"
       body={
         <Column className="items-center">
