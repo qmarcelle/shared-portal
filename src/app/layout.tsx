@@ -9,6 +9,8 @@ import '@/styles/base.css';
 import '@/styles/checkbox.css';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import ReactGA from 'react-ga4';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -20,6 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
+
+  useEffect(() => {
+    console.log('Initializing Google Analytics');
+    ReactGA.initialize('G-M0JDZR3EBP');
+  }, []);
+
   return (
     <html lang="en">
       <body>
