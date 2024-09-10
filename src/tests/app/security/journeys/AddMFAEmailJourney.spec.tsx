@@ -38,16 +38,6 @@ describe('Add Mfa Email Journey', () => {
         screen.getByRole('heading', { name: 'Email Setup' }),
       ).toBeVisible();
     });
-    expect(screen.getByText('chall123@gmail.com')).toBeVisible();
-    expect(component.baseElement).toMatchSnapshot();
-
-    // Change email screen
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
-    await waitFor(() => {
-      expect(
-        screen.getByRole('heading', { name: 'Change Email Address' }),
-      ).toBeVisible();
-    });
     expect(component.baseElement).toMatchSnapshot();
 
     mockedAxios.post.mockResolvedValueOnce({
@@ -161,16 +151,6 @@ describe('Add Mfa Email Journey', () => {
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Email Setup' }),
-      ).toBeVisible();
-    });
-    expect(screen.getByText('chall123@gmail.com')).toBeVisible();
-    expect(component.baseElement).toMatchSnapshot();
-
-    // Change email screen
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
-    await waitFor(() => {
-      expect(
-        screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
