@@ -23,6 +23,6 @@ export interface ShortLinkNavItem {
 
 export interface QuickTipNavItem {
   firstParagraph: string;
-  secondParagraph: string;
+  secondParagraph: JSX.Element;
   link: string;
 }

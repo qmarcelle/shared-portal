@@ -5,8 +5,8 @@ import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { useState } from 'react';
-import { SearchResultList } from '../components/SearchResultList';
 import { SearchBanner } from './SearchBanner';
+import { SearchResultList } from './SearchResultList';
 
 export const SearchResultsInfoComponent = () => {
   const resultList = [

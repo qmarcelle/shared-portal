@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { SearchResultList } from '@/app/searchResults/components/SearchResultList';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
 const resultList = [
   {

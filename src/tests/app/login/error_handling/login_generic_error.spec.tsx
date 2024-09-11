@@ -41,10 +41,10 @@ describe('Login API Error', () => {
           password: 'Th1sisagreatpassword!!',
         },
       );
-      expect(screen.getByText('Login Error')).toBeVisible();
       expect(
         screen.getByText(
-          'Something went wrong while logging in to your profile. Please try again later.',
+          // eslint-disable-next-line quotes
+          "Oops! We're sorry. Something went wrong. Please try again.",
         ),
       ).toBeVisible();
     });

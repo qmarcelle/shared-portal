@@ -3,20 +3,24 @@ import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callSelectDevice, callSubmitMfaOtp } from '../actions/mfa';
 import { AppProg } from '../models/app/app_prog';
-import { errorCodeMessageMap } from '../models/app/error_code_message_map';
+import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
+import { SelectMFAStatus, SubmitMFAStatus } from '../models/status';
 import { useLoginStore } from './loginStore';
 
 type MfaStore = {
   selectedMfa: MfaOption | null;
   code: string;
+  resend: boolean;
   stage: MfaModeState;
   availMfaModes: MfaOption[];
   initMfaProg: AppProg;
   completeMfaProg: AppProg;
+  multipleMFASecurityCodeAttempts: boolean;
   updateMfaMode: (mode: MfaOption) => void;
   updateCode: (code: string) => void;
+  updateResendCode: (resent: boolean) => void;
   updateAvailableMfa: (mfaModes: MfaOption[]) => void;
   updateMfaStage: (mfaModeStage: MfaModeState) => void;
   startMfaAuth: () => void;
@@ -28,10 +32,12 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
   (set, get) => ({
     selectedMfa: null,
     code: '',
+    resend: false,
     stage: MfaModeState.selection,
     availMfaModes: [],
     initMfaProg: AppProg.init,
     completeMfaProg: AppProg.init,
+    multipleMFASecurityCodeAttempts: false,
     updateMfaMode: (mode: MfaOption) =>
       set(() => ({
         selectedMfa: mode,
@@ -39,6 +45,10 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
     updateCode: (val: string) =>
       set(() => ({
         code: val.trim(),
+      })),
+    updateResendCode: (val: boolean) =>
+      set(() => ({
+        resend: val,
       })),
     updateAvailableMfa: (mfaModes: MfaOption[]) =>
       set(() => ({
@@ -52,6 +62,8 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
         ) {
           const login = useLoginStore.getState().login;
           login();
+          get().updateCode('');
+          get().updateResendCode(false);
         }
         return {
           stage: stage,
@@ -72,10 +84,17 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             useLoginStore.getState().interactionData!.interactionToken,
         });
 
-        if (resp.errorCode) {
-          useLoginStore.setState({
-            apiErrors: [errorCodeMessageMap.get(resp.errorCode)!],
-          });
+        if (resp.status == SelectMFAStatus.ERROR) {
+          const errorMessage = inlineErrorCodeMessageMap.get(
+            resp.error?.errorCode ?? '',
+          );
+          if (errorMessage != null) {
+            useLoginStore.setState({
+              apiErrors: [errorMessage],
+            });
+          } else {
+            useLoginStore.setState({ unhandledErrors: true });
+          }
           set({ initMfaProg: AppProg.failed });
           return;
         }
@@ -121,13 +140,34 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             useLoginStore.getState().interactionData!.interactionId,
           interactionToken:
             useLoginStore.getState().interactionData!.interactionToken,
+          userToken: useLoginStore.getState().userToken,
         });
 
-        if (resp.errorCode) {
+        if (resp.status == SubmitMFAStatus.OTP_OK) {
           useLoginStore.setState({
-            apiErrors: [errorCodeMessageMap.get(resp.errorCode)!],
+            loggedUser: true,
           });
+        }
+
+        if (resp.status == SubmitMFAStatus.GENERIC_OR_INLINE_ERROR) {
+          const errorMessage = inlineErrorCodeMessageMap.get(
+            resp.error?.errorCode ?? '',
+          );
+          if (errorMessage != null && !get().resend) {
+            useLoginStore.setState({
+              apiErrors: [errorMessage],
+            });
+          } else {
+            useLoginStore.setState({ unhandledErrors: true });
+          }
           set({ completeMfaProg: AppProg.failed });
+          return;
+        }
+        if (resp.status == SubmitMFAStatus.OTP_INVALID_LIMIT_REACHED) {
+          set({
+            completeMfaProg: AppProg.failed,
+            multipleMFASecurityCodeAttempts: true,
+          });
           return;
         }
 
@@ -161,10 +201,13 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
         // Update the Mfa with prev selected mode, finding the correct device
         set({
           selectedMfa: prevSelectedMfa,
+          resend: true,
         });
 
-        // Start Mfa auth
-        get().startMfaAuth();
+        // Start Mfa auth only if we have multiple mfa selection
+        if (get().availMfaModes.length > 1) {
+          get().startMfaAuth();
+        }
 
         // Set prog to successful
         set({ initMfaProg: AppProg.success });

@@ -1,10 +1,10 @@
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Header } from '../../../components/foundation/Header';
-import { InlineLink } from '../../../components/foundation/InlineLink';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
+import { Card } from '@/components/foundation/Card';
+import { Header } from '@/components/foundation/Header';
+import { InlineLink } from '@/components/foundation/InlineLink';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 
 interface RequestPrintMaterialProps extends IComponent {}
 

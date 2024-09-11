@@ -1,3 +1,11 @@
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { ListOrder } from '@/components/foundation/ListOrder';
+import { Row } from '@/components/foundation/Row';
+import { Spacer, SpacerX } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -5,14 +13,6 @@ import AbleToIcon from '../../../../public/assets/ableTo.svg';
 import BlueTennesseIcon from '../../../../public/assets/blueTennesee.svg';
 import HingeHealthIcon from '../../../../public/assets/hingeHealth.svg';
 import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Column } from '../../../components/foundation/Column';
-import { ListOrder } from '../../../components/foundation/ListOrder';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer, SpacerX } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {

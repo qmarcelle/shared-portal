@@ -4,9 +4,9 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { FindInNetworkProviderSection } from '../../app/mentalHealthOptions/components//FindInNetworkProviderSection';
-import { ChooseMentalHealthProvider } from '../../app/mentalHealthOptions/components/ChooseMentalHealthProviderSection';
-import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
+import { ChooseMentalHealthProvider } from './components/ChooseMentalHealthProviderSection';
+import { FindInNetworkProviderSection } from './components/FindInNetworkProviderSection';
+import { VirtualMentalHealthCareSection } from './components/VirtualMentalHealthCareSection';
 
 const MentalHealthOptions = () => {
   return (
