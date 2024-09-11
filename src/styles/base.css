@@ -350,3 +350,9 @@ input::-ms-clear {
 .caremark button {
   padding-top: 0;
 }
+.cardColor {
+  height: 56px;
+  width: 672px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
