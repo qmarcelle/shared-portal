@@ -1,126 +1,131 @@
 button {
-    @apply flex flex-row p-2;
-    width: 100%;
+  @apply flex flex-row p-2;
+  width: 100%;
 }
 
 button.inactive {
-    opacity: 0.4;
+  opacity: 0.4;
 }
 
 button.primary {
-    padding: 8px;
-    border-radius: 2px;
-    background-color: var(--primary-color);
-    color: white;
+  padding: 8px;
+  border-radius: 2px;
+  background-color: var(--primary-color);
+  color: white;
 }
 
 button.primary:hover,
 button.elevated:hover {
-    background-color: var(--secondary-color-2);
-    text-decoration: underline solid white;
+  background-color: var(--secondary-color-2);
+  text-decoration: underline solid white;
 }
 
 button.primary:focus {
-    background-color: var(--secondary-color-2);
-    text-decoration: underline solid white;
-    outline-offset: 2px;
-    outline: 2px solid var(--secondary-color-2);
+  background-color: var(--secondary-color-2);
+  text-decoration: underline solid white;
+  outline-offset: 2px;
+  outline: 2px solid var(--secondary-color-2);
 }
 
 button.secondary {
-    padding: 8px;
-    border-radius: 2px;
-    border: 1px solid var(--primary-color);
+  padding: 8px;
+  border-radius: 2px;
+  border: 1px solid var(--primary-color);
 }
 
 button.secondary:disabled {
-    color: #005cb9b7;
+  color: #005cb9b7;
 }
 
 button.secondary:hover {
-    background-color: var(--secondary-color-2);
-    color: white;
-    text-decoration: underline solid white;
+  background-color: var(--secondary-color-2);
+  color: white;
+  text-decoration: underline solid white;
 }
 
 button.secondary:focus {
-    outline: 2px solid var(--secondary-color-2);
-    outline-offset: 2px;
-    background-color: var(--secondary-color-2);
-    color: white;
-    text-decoration: underline solid white;
+  outline: 2px solid var(--secondary-color-2);
+  outline-offset: 2px;
+  background-color: var(--secondary-color-2);
+  color: white;
+  text-decoration: underline solid white;
 }
 
 button.rounded {
-    @apply rounded-full flex flex-row p-2;
-    background-color: var(--primary-accent-color);
-    border: 1px solid var(--primary-color);
+  @apply rounded-full flex flex-row p-2;
+  background-color: var(--primary-accent-color);
+  border: 1px solid var(--primary-color);
 }
 
 button.rounded:hover {
-    background-color: var(--secondary-color-2);
-    color: white;
+  background-color: var(--secondary-color-2);
+  color: white;
 }
 
 button.rounded:focus {
-    outline: 2px solid var(--secondary-color-2);
-    outline-offset: 2px;
-    background-color: var(--secondary-color-2);
-    color: white;
+  outline: 2px solid var(--secondary-color-2);
+  outline-offset: 2px;
+  background-color: var(--secondary-color-2);
+  color: white;
 }
 
 button.elevated {
-    background-color: var(--primary-color);
-    border-radius: 100%;
-    box-shadow: 0px 2px 0px 0px var(--secondary-color-2), 0px 1px 16px 0px rgba(0, 73, 126, 0.32);
+  background-color: var(--primary-color);
+  border-radius: 100%;
+  box-shadow:
+    0px 2px 0px 0px var(--secondary-color-2),
+    0px 1px 16px 0px rgba(0, 73, 126, 0.32);
 }
 
 button.card {
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0px 1px 4px 0px rgba(0, 73, 126, 0.24), 0px 1px 8px 0px rgba(0, 73, 126, 0.16);
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow:
+    0px 1px 4px 0px rgba(0, 73, 126, 0.24),
+    0px 1px 8px 0px rgba(0, 73, 126, 0.16);
 }
 
 button.card-guidance {
-    background-color: var(--secondary-color-1-accent);
-    border-radius: 8px;
-    box-shadow: 0px 1px 4px 0px rgba(0, 73, 126, 0.24), 0px 1px 8px 0px rgba(0, 73, 126, 0.16);
+  background-color: var(--secondary-color-1-accent);
+  border-radius: 8px;
+  box-shadow:
+    0px 1px 4px 0px rgba(0, 73, 126, 0.24),
+    0px 1px 8px 0px rgba(0, 73, 126, 0.16);
 }
 
-
 button.pill {
-    @apply rounded-full flex flex-row p-2;
-    max-width: fit-content;
-    background-color: var(--primary-accent-color);
-    border: 1px solid var(--primary-color);
+  @apply rounded-full flex flex-row p-2;
+  max-width: fit-content;
+  background-color: var(--primary-accent-color);
+  border: 1px solid var(--primary-color);
 }
 
 button.pill:hover {
-    background-color: var(--secondary-color-2);
-    color: white;
+  background-color: var(--secondary-color-2);
+  color: white;
 }
 
 button.pill:focus {
-    outline: 2px solid var(--secondary-color-2);
-    outline-offset: 2px;
-    background-color: var(--secondary-color-2);
-    color: white;
+  outline: 2px solid var(--secondary-color-2);
+  outline-offset: 2px;
+  background-color: var(--secondary-color-2);
+  color: white;
 }
 
 button.ghost {
-    color: var(--primary-color);
-    font-weight: bold;
-    cursor: pointer;
+  color: var(--primary-color);
+  font-weight: bold;
+  cursor: pointer;
 }
 
 button.ghost:hover {
-    text-decoration: underline;
-    color: var(--secondary-color-2);
+  text-decoration: underline;
+  color: var(--secondary-color-2);
 }
 
 button.ghost:focus {
-    text-decoration: underline;
-    color: var(--secondary-color-2);
-    outline: 2px solid var(--secondary-color-2);
-    outline-offset: 2px;
+  text-decoration: underline;
+  color: var(--secondary-color-2);
+  outline: 2px solid var(--secondary-color-2);
+  outline-offset: 2px;
 }
