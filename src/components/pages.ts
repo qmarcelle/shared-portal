@@ -230,7 +230,7 @@ const pages: SiteHeaderSubNavProps[] = [
       firstParagraph:
         'Looking for a virtual care provider for mental health or physical therapy?',
       secondParagraph: 'View Virtual Care Options.',
-      link: '/virtualcare',
+      link: '/virtualCareOptions',
     },
     template: {
       firstCol: 'Wellness',
