@@ -15,6 +15,7 @@ interface RichDropDownProps<T> extends IComponent {
   itemsBuilder: (data: T, index: number, selected: T) => ReactNode;
   selected: T;
   onSelectItem: (val: T) => void;
+  maxHeight?: string;
 }
 
 const DefaultDropDownHead = () => {
@@ -34,6 +35,7 @@ export const RichDropDown = <T extends { id: string }>({
   itemsBuilder,
   selected,
   onSelectItem,
+  maxHeight = 'max-h-[420px]',
 }: RichDropDownProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const listRef = useRef(null);
@@ -66,7 +68,7 @@ export const RichDropDown = <T extends { id: string }>({
         <div onClick={openDropDown}>{headBuilder(selected)}</div>
       )}
       {isOpen && <div onClick={closeDropdown}>{dropdownHeader}</div>}
-      <ul ref={listRef} className="max-h-[420px] overflow-y-scroll">
+      <ul ref={listRef} className={`${maxHeight} overflow-y-scroll`}>
         {isOpen &&
           itemData.map((item, index) => {
             const isSelcted = selected.id == item.id;
