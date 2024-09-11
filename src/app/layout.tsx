@@ -9,16 +9,21 @@ import '@/styles/base.css';
 import '@/styles/checkbox.css';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import ClientLayout from './ClientLayout';
+import { initPingOne } from './pingOne/setupPingOne';
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    initPingOne();
+  }, []);
   const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <html lang="en">
@@ -32,6 +37,10 @@ export default function RootLayout({
         <ClientLayout>{children}</ClientLayout>
         <AppModal />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <script
+          src="https://apps.pingone.com/signals/web-sdk/5.3.7/signals-sdk.js"
+          defer
+        ></script>
       </body>
     </html>
   );

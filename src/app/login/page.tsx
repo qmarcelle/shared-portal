@@ -19,12 +19,16 @@ export default function LogIn() {
     loggedUser,
     mfaNeeded,
     multipleLoginAttempts,
+    isRiskScoreHigh,
+    riskLevelNotDetermined,
     verifyEmail,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
     state.mfaNeeded,
     state.multipleLoginAttempts,
+    state.isRiskScoreHigh,
+    state.riskLevelNotDetermined,
     state.verifyEmail,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
@@ -41,6 +45,9 @@ export default function LogIn() {
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
+    }
+    if (isRiskScoreHigh == true || riskLevelNotDetermined == true) {
+      router.replace(process.env.NEXT_PUBLIC_PORTAL_ERROR_URL ?? '');
     }
     if (multipleMFASecurityCodeAttempts == true) {
       return <MFASecurityCodeMultipleAttemptComponent />;

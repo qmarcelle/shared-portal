@@ -9,6 +9,8 @@ import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
+import { headers } from 'next/headers';
+import { userAgent } from 'next/server';
 import {
   LoginRequest,
   LoginResponse,
@@ -22,6 +24,12 @@ export async function callLogin(
   request: LoginRequest,
 ): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
+  const headersInfo = headers();
+  const ipAddress = headersInfo.get('x-forwarded-for');
+  const userAgentStructure = {
+    headers: headersInfo,
+  };
+  const uAgent = userAgent(userAgentStructure);
   let status: LoginStatus;
   try {
     if (!request.username || !request.password) {
@@ -31,6 +39,8 @@ export async function callLogin(
     }
     request.policyId = process.env.ES_API_POLICY_ID;
     request.appId = process.env.ES_API_APP_ID;
+    request.ipAddress = ipAddress;
+    request.userAgent = uAgent.ua;
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication',
       request,

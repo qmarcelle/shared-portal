@@ -38,6 +38,10 @@ describe('Login invalid credentials Error', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(

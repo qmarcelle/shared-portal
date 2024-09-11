@@ -1,5 +1,6 @@
 import { LoginResponse } from '@/app/login/models/api/login';
 import LogInPage from '@/app/login/page';
+import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
@@ -119,9 +120,24 @@ describe('Log In of User', () => {
       {
         username: 'username',
         password: 'password',
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+        ipAddress: '1',
+        deviceProfile: 'Testing',
       },
     );
     // The loading progress should be out now and not vivible
     expect(screen.queryByLabelText(/Logging In.../i)).not.toBeInTheDocument();
+    // Verify that the `getData` method of the `_pingOneSignals` object on the global `window` has been called.
+    expect(window._pingOneSignals.getData).toHaveBeenCalled();
+  });
+
+  test('should call initSilent with correct arguments when initializing PingOne', async () => {
+    initPingOne();
+    expect(window._pingOneSignals.initSilent).toHaveBeenCalledWith({
+      envId: 'DEV',
+      universalDeviceIdentification: true,
+    });
+    expect(window._pingOneSignals.initSilent).toHaveBeenCalledTimes(1);
   });
 });

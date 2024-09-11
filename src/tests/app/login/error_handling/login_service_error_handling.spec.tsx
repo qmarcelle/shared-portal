@@ -1,3 +1,4 @@
+process.env.NEXT_PUBLIC_PORTAL_ERROR_URL = 'https://www.bcbst.com/error/';
 import LogInPage from '@/app/login/page';
 import { useLoginStore } from '@/app/login/stores/loginStore';
 import { mockedAxios } from '@/tests/__mocks__/axios';
@@ -8,6 +9,7 @@ import userEvent from '@testing-library/user-event';
 
 // Mock useRouter:
 const mockReplace = jest.fn();
+
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
@@ -35,6 +37,7 @@ describe('Login Service Errors', () => {
   afterEach(() => {
     resetToHome();
   });
+
   test('Login Service ErrorCode 501 error', async () => {
     const { inputUsername, inputPassword, loginButton } = setupUI();
 
@@ -61,6 +64,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -98,6 +105,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -134,6 +145,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -170,6 +185,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -206,6 +225,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -242,6 +265,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -274,6 +301,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -306,6 +337,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -338,6 +373,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -370,6 +409,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -402,6 +445,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -434,6 +481,10 @@ describe('Login Service Errors', () => {
         {
           username: 'username',
           password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
       expect(
@@ -442,6 +493,78 @@ describe('Login Service Errors', () => {
           "Oops! We're sorry. Something went wrong. Please try again.",
         ),
       ).toBeVisible();
+    });
+  });
+
+  test('Login Service ErrorCode 600 error', async () => {
+    const { inputUsername, inputPassword, loginButton } = setupUI();
+    await userEvent.type(inputUsername, 'username');
+    await userEvent.type(inputPassword, 'password');
+
+    const esRespData = {
+      data: { errorCode: 'PP-600' },
+    };
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        errorObject: esRespData,
+        status: 600,
+      }),
+    );
+
+    fireEvent.click(loginButton);
+    await waitFor(async () => {
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        '/mfAuthentication/loginAuthentication',
+        {
+          username: 'username',
+          password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
+        },
+      );
+      await waitFor(() => {
+        expect(mockReplace).toHaveBeenCalledWith(
+          process.env.NEXT_PUBLIC_PORTAL_ERROR_URL,
+        );
+      });
+    });
+  });
+
+  test('Login Service ErrorCode 601 error', async () => {
+    const { inputUsername, inputPassword, loginButton } = setupUI();
+    await userEvent.type(inputUsername, 'username');
+    await userEvent.type(inputPassword, 'password');
+
+    const esRespData = {
+      data: { errorCode: 'PP-601' },
+    };
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({
+        errorObject: esRespData,
+        status: 600,
+      }),
+    );
+
+    fireEvent.click(loginButton);
+    await waitFor(async () => {
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        '/mfAuthentication/loginAuthentication',
+        {
+          username: 'username',
+          password: 'password',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
+        },
+      );
+      await waitFor(() => {
+        expect(mockReplace).toHaveBeenCalledWith(
+          process.env.NEXT_PUBLIC_PORTAL_ERROR_URL,
+        );
+      });
     });
   });
 });
