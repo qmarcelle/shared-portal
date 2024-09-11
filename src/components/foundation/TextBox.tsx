@@ -10,5 +10,12 @@ export const TextBox = ({
   type = 'body-1',
   className = '',
 }: TextBoxProps) => {
+  if (type == 'title-1') {
+    return <h1 className={`${type} ${className}`.trimEnd()}>{text}</h1>;
+  } else if (type == 'title-2') {
+    return <h2 className={`${type} ${className}`.trimEnd()}>{text}</h2>;
+  } else if (type == 'title-3') {
+    return <h3 className={`${type} ${className}`.trimEnd()}>{text}</h3>;
+  }
   return <p className={`${type} ${className}`.trimEnd()}>{text}</p>;
 };

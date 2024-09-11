@@ -6,7 +6,8 @@ type ButtonType =
   | 'ghost'
   | 'rounded'
   | 'pill'
-  | 'elevated';
+  | 'elevated'
+  | 'card';
 
 interface ButtonProps extends IComponent {
   type?: ButtonType;
