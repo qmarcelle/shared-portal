@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AmplifyHealthAdvisorBanner should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="card-elevated health-advisor-card basis-0 px-3 pt-3 sm:shrink-1 sm:basis-[96.7%] sm:ml-4 sm:pr-0 sm:mt-4 sm:pl-8 sm:pt-8"
+    >
+      <section
+        class="sm:flex sm:flex-row"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2 !font-light !text-[32px]/[40px]"
+          >
+            My AmplifyHealth Advisor
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p>
+            Have a question or need advice? Your AmplifyHealth Advisor is here for you 24/7. You can start a chat or call us at [1-800-000-0000].
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <a
+            class="link link-hover"
+            href="/amplifyHealthSupport"
+          >
+            <p
+              class="pb-2 pt-2"
+            >
+              Learn More About My AmplifyHealth Advisor
+            </p>
+          </a>
+        </div>
+        <section
+          class="health-advisor-image max-md:w-full"
+        />
+      </section>
+    </div>
+  </div>
+</body>
+`;

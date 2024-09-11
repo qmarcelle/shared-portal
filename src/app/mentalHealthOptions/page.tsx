@@ -36,7 +36,7 @@ const MentalHealthOptions = () => {
               text="Virtual Mental Health Care"
             ></TextBox>
             <Spacer size={32} />
-            <Row className="flex-grow page-section-63_33 items-stretch">
+            <Row className="flex-grow page-section-63_33 items-stretch gap-4">
               <VirtualMentalHealthCareSection
                 mentalHealthCareOptions={[
                   {
