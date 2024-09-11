@@ -10,8 +10,8 @@ export const VirtualMentalHealthCareSection = ({
   mentalHealthCareOptions,
 }: VirtualMentalHealthCareSectionProps) => {
   return (
-    <div className="gap-4 md:flex sm:inline">
-      {mentalHealthCareOptions.slice(0, 2).map((item) => (
+    <>
+      {mentalHealthCareOptions.map((item) => (
         <HealthCareItem
           key={item.healthCareName}
           className="mb-4"
@@ -20,6 +20,6 @@ export const VirtualMentalHealthCareSection = ({
           healthCareInfo={item}
         />
       ))}
-    </div>
+    </>
   );
 };
