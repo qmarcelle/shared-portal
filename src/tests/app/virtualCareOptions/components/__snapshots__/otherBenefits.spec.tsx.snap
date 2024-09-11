@@ -1,61 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
+exports[`Other Benefits should render UI correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="card-main section"
+        class="card-main large-section"
       >
         <div
           class="flex flex-col"
         >
-          <img
-            alt="Provider logo"
-            class="block mb-6 mt-3 sm:hidden"
-            data-nimg="1"
-            decoding="async"
-            height="55"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
-            style="color: transparent;"
-            width="170"
-          />
-          <div
-            class="flex flex-row justify-between"
+          <h1
+            class="title-1 mb-0 title-2"
           >
-            <div
-              class="flex flex-col"
-            >
-              <h2
-                class="title-2"
-              >
-                Provided By Ben Cole Co
-              </h2>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <p
-                class="body-1"
-              >
-                Your employer offers even more programs and benefits you can explore here
-              </p>
-            </div>
-            <img
-              alt="Provider logo"
-              class="hidden sm:block"
-              data-nimg="1"
-              decoding="async"
-              height="55"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
-              style="color: transparent;"
-              width="170"
-            />
-          </div>
+            Health Programs & Resources
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1 mb-0"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
@@ -82,11 +50,11 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-main mr-4 shrink-0"
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
                       >
                         <a
                           class="p-4 block"
-                          href="https://davis-vision.com"
+                          href="null"
                         >
                           <div
                             class="flex flex-row"
@@ -94,23 +62,8 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                             <p
                               class="font-bold primary-color"
                             >
-                              Davis Vision
+                              Alight Second Opinion Advice & Support
                             </p>
-                            <div
-                              class="ml-2"
-                            >
-                              <img
-                                alt="external"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                            </div>
                           </div>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -118,7 +71,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           <p
                             class="body-1"
                           >
-                            1-800-456-9876
+                            Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
                           </p>
                         </a>
                       </div>
@@ -133,11 +86,11 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-main mr-4 shrink-0"
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
                       >
                         <a
                           class="p-4 block"
-                          href="https://nirmaldental.com"
+                          href="null"
                         >
                           <div
                             class="flex flex-row"
@@ -145,23 +98,8 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                             <p
                               class="font-bold primary-color"
                             >
-                              Nirmal Dental
+                              CareTN One-on-One Health Support 
                             </p>
-                            <div
-                              class="ml-2"
-                            >
-                              <img
-                                alt="external"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                            </div>
                           </div>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -169,7 +107,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           <p
                             class="body-1"
                           >
-                            1-800-367-9676
+                            The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                           </p>
                         </a>
                       </div>
@@ -184,23 +122,28 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-main mr-4 shrink-0"
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
                       >
                         <a
                           class="p-4 block"
+                          href="null"
                         >
-                          <p
-                            class="body-1 body-1 font-bold"
+                          <div
+                            class="flex flex-row"
                           >
-                            Low Pharm
-                          </p>
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Healthy Maternity
+                            </p>
+                          </div>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
                           <p
                             class="body-1"
                           >
-                            1-800-834-2465
+                            This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
                           </p>
                         </a>
                       </div>
@@ -215,23 +158,28 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-main mr-4 shrink-0"
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
                       >
                         <a
                           class="p-4 block"
+                          href="null"
                         >
-                          <p
-                            class="body-1 body-1 font-bold"
+                          <div
+                            class="flex flex-row"
                           >
-                            Quant Labs
-                          </p>
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Test
+                            </p>
+                          </div>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
                           <p
                             class="body-1"
                           >
-                            1-800-834-3465
+                            THis is test card.
                           </p>
                         </a>
                       </div>
@@ -275,7 +223,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             </div>
           </div>
           <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
           />
           <a
             style="display: block;"
@@ -288,7 +236,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
               <p
                 class="link"
               >
-                View All Employer Provided Benefits
+                View All Health Programs & Resources
               </p>
             </button>
           </a>
@@ -298,56 +246,24 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="card-main section"
+      class="card-main large-section"
     >
       <div
         class="flex flex-col"
       >
-        <img
-          alt="Provider logo"
-          class="block mb-6 mt-3 sm:hidden"
-          data-nimg="1"
-          decoding="async"
-          height="55"
-          loading="lazy"
-          src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
-          srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
-          style="color: transparent;"
-          width="170"
-        />
-        <div
-          class="flex flex-row justify-between"
+        <h1
+          class="title-1 mb-0 title-2"
         >
-          <div
-            class="flex flex-col"
-          >
-            <h2
-              class="title-2"
-            >
-              Provided By Ben Cole Co
-            </h2>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <p
-              class="body-1"
-            >
-              Your employer offers even more programs and benefits you can explore here
-            </p>
-          </div>
-          <img
-            alt="Provider logo"
-            class="hidden sm:block"
-            data-nimg="1"
-            decoding="async"
-            height="55"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
-            style="color: transparent;"
-            width="170"
-          />
-        </div>
+          Health Programs & Resources
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1 mb-0"
+        >
+          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+        </p>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
@@ -374,11 +290,11 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-main mr-4 shrink-0"
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
                     >
                       <a
                         class="p-4 block"
-                        href="https://davis-vision.com"
+                        href="null"
                       >
                         <div
                           class="flex flex-row"
@@ -386,23 +302,8 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           <p
                             class="font-bold primary-color"
                           >
-                            Davis Vision
+                            Alight Second Opinion Advice & Support
                           </p>
-                          <div
-                            class="ml-2"
-                          >
-                            <img
-                              alt="external"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                          </div>
                         </div>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -410,7 +311,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         <p
                           class="body-1"
                         >
-                          1-800-456-9876
+                          Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
                         </p>
                       </a>
                     </div>
@@ -425,11 +326,11 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-main mr-4 shrink-0"
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
                     >
                       <a
                         class="p-4 block"
-                        href="https://nirmaldental.com"
+                        href="null"
                       >
                         <div
                           class="flex flex-row"
@@ -437,23 +338,8 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           <p
                             class="font-bold primary-color"
                           >
-                            Nirmal Dental
+                            CareTN One-on-One Health Support 
                           </p>
-                          <div
-                            class="ml-2"
-                          >
-                            <img
-                              alt="external"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                          </div>
                         </div>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -461,7 +347,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         <p
                           class="body-1"
                         >
-                          1-800-367-9676
+                          The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                         </p>
                       </a>
                     </div>
@@ -476,23 +362,28 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-main mr-4 shrink-0"
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
                     >
                       <a
                         class="p-4 block"
+                        href="null"
                       >
-                        <p
-                          class="body-1 body-1 font-bold"
+                        <div
+                          class="flex flex-row"
                         >
-                          Low Pharm
-                        </p>
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Healthy Maternity
+                          </p>
+                        </div>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <p
                           class="body-1"
                         >
-                          1-800-834-2465
+                          This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
                         </p>
                       </a>
                     </div>
@@ -507,23 +398,28 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-main mr-4 shrink-0"
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
                     >
                       <a
                         class="p-4 block"
+                        href="null"
                       >
-                        <p
-                          class="body-1 body-1 font-bold"
+                        <div
+                          class="flex flex-row"
                         >
-                          Quant Labs
-                        </p>
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Test
+                          </p>
+                        </div>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <p
                           class="body-1"
                         >
-                          1-800-834-3465
+                          THis is test card.
                         </p>
                       </a>
                     </div>
@@ -567,7 +463,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
           </div>
         </div>
         <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
         />
         <a
           style="display: block;"
@@ -580,7 +476,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             <p
               class="link"
             >
-              View All Employer Provided Benefits
+              View All Health Programs & Resources
             </p>
           </button>
         </a>

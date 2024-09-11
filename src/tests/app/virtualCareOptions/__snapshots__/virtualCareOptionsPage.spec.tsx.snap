@@ -1,0 +1,2186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualCareOptions Page should render UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mb-0 title-1"
+          >
+            Virtual Care Options
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <p
+                class="body-1 body-1 mb-0"
+              >
+                The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our Find Care tool.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-2 mb-0"
+              >
+                In case of a medical emergency, call 911. In case of a mental health crisis, call 988.
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row  flex-grow page-section-36_67 items-stretch"
+            >
+              <div />
+            </div>
+          </section>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow items-stretch"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <p
+                class="body-1 title-2"
+              >
+                Virtual Mental Health Care
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row flex-grow items-stretch gap-4 flex-wrap"
+              >
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Mental Health
+                    </p>
+                    <img
+                      alt="Vendor Logo"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Teladoc Mental Health
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere. 
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Anxiety, stress, feeling overwhelmed
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Relationship conflicts
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Depression
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Trauma and PTSD
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Learn More About Teladoc Mental Health
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Mental Health
+                    </p>
+                    <img
+                      alt="Vendor Logo"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        AbleTo
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Anxiety
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Depression
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Grief
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Stress
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Learn More About AbleTo
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Physical Therapy
+                    </p>
+                    <img
+                      alt="Vendor Logo"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Hinge Health Back & Joint Care
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Back pain
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Wrist and ankle pain
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Pelvic pain and incontinence
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Neck and shoulder pain
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Learn More About Hinge Health
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Primary Care
+                    </p>
+                    <img
+                      alt="Vendor Logo"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Blue of Tennessee Medical Centers Virtual Visits 
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Primary Care visits
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Urgent Care (rashes, fever, migraines, diarrhea)
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Get support for a health condition
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Get help with your health plan
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Learn More About Blue of Tennessee Medical Centers
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Primary Care
+                    </p>
+                    <img
+                      alt="Vendor Logo"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Teladoc Health Primary Care Provider
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Annual checkups and preventive care
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Prescriptions
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Lab orders and recommended screenings 
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Referrals to in-network specialists 
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Learn More About Teladoc Health Primary Care
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Urgent Care
+                    </p>
+                    <img
+                      alt="Vendor Logo"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Teladoc Health General & Urgent Care
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Allergies, cold, fever or flu
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Skin condition (rashes or insect bites)
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Urinary tract infections
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Constipation or diarrhea 
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Learn More About Teladoc Health Urgent Care
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Urgent Care
+                    </p>
+                    <img
+                      alt="Vendor Logo"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      src=""
+                      style="color: transparent;"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Talk to a Nurse
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care. 
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Assessing symptoms and advice
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              General health information
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Education and support on conditions or procedures
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Help making decisions for surgery or other treatments 
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Learn More About Nurse Chat
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1"
+          >
+            Other Benefits
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="flex-row items-start app-body"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h1
+                  class="title-1 mb-0 title-2"
+                >
+                  Health Programs & Resources
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1 mb-0"
+                >
+                  Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="slider-container carousel flex flex-col"
+                >
+                  <div
+                    class="slick-slider slick-initialized"
+                    dir="ltr"
+                  >
+                    <div
+                      class="slick-list"
+                    >
+                      <div
+                        class="slick-track"
+                        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                      >
+                        <div
+                          aria-hidden="false"
+                          class="slick-slide slick-active slick-current"
+                          data-index="0"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href="null"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Alight Second Opinion Advice & Support
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                >
+                                  Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="false"
+                          class="slick-slide slick-active"
+                          data-index="1"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href="null"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    CareTN One-on-One Health Support 
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                >
+                                  The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="false"
+                          class="slick-slide slick-active"
+                          data-index="2"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href="null"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Healthy Maternity
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                >
+                                  This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="3"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href="null"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Test
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                >
+                                  THis is test card.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="slick-arrow slick-next"
+                    >
+                      <button
+                        class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
+                        type="button"
+                      >
+                        <img
+                          alt="scroll right"
+                          class="icon-sm"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </button>
+                      ,
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <div
+                    class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
+                  >
+                    <div
+                      class="primary-bg-color h-1.5 rounded-full"
+                      style="width: 75%;"
+                    />
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+                />
+                <a
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container undefined"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link"
+                    >
+                      View All Health Programs & Resources
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mb-0 title-1"
+        >
+          Virtual Care Options
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <p
+              class="body-1 body-1 mb-0"
+            >
+              The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our Find Care tool.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-2 mb-0"
+            >
+              In case of a medical emergency, call 911. In case of a mental health crisis, call 988.
+            </p>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="flex flex-row  flex-grow page-section-36_67 items-stretch"
+          >
+            <div />
+          </div>
+        </section>
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow items-stretch"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <p
+              class="body-1 title-2"
+            >
+              Virtual Mental Health Care
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow items-stretch gap-4 flex-wrap"
+            >
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Mental Health
+                  </p>
+                  <img
+                    alt="Vendor Logo"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Teladoc Mental Health
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere. 
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Anxiety, stress, feeling overwhelmed
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Relationship conflicts
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Depression
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Trauma and PTSD
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link"
+                        >
+                          Learn More About Teladoc Mental Health
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Mental Health
+                  </p>
+                  <img
+                    alt="Vendor Logo"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      AbleTo
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Anxiety
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Depression
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Grief
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Stress
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link"
+                        >
+                          Learn More About AbleTo
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Physical Therapy
+                  </p>
+                  <img
+                    alt="Vendor Logo"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Hinge Health Back & Joint Care
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Back pain
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Wrist and ankle pain
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Pelvic pain and incontinence
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Neck and shoulder pain
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link"
+                        >
+                          Learn More About Hinge Health
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Primary Care
+                  </p>
+                  <img
+                    alt="Vendor Logo"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Blue of Tennessee Medical Centers Virtual Visits 
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Primary Care visits
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Urgent Care (rashes, fever, migraines, diarrhea)
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Get support for a health condition
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Get help with your health plan
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link"
+                        >
+                          Learn More About Blue of Tennessee Medical Centers
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Primary Care
+                  </p>
+                  <img
+                    alt="Vendor Logo"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Teladoc Health Primary Care Provider
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Annual checkups and preventive care
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Prescriptions
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Lab orders and recommended screenings 
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Referrals to in-network specialists 
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link"
+                        >
+                          Learn More About Teladoc Health Primary Care
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Urgent Care
+                  </p>
+                  <img
+                    alt="Vendor Logo"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Teladoc Health General & Urgent Care
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Allergies, cold, fever or flu
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Skin condition (rashes or insect bites)
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Urinary tract infections
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Constipation or diarrhea 
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link"
+                        >
+                          Learn More About Teladoc Health Urgent Care
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Urgent Care
+                  </p>
+                  <img
+                    alt="Vendor Logo"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    src=""
+                    style="color: transparent;"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Talk to a Nurse
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care. 
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Assessing symptoms and advice
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            General health information
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Education and support on conditions or procedures
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Help making decisions for surgery or other treatments 
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link"
+                        >
+                          Learn More About Nurse Chat
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <h1
+          class="title-1"
+        >
+          Other Benefits
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="flex-row items-start app-body"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h1
+                class="title-1 mb-0 title-2"
+              >
+                Health Programs & Resources
+              </h1>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1 mb-0"
+              >
+                Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="slider-container carousel flex flex-col"
+              >
+                <div
+                  class="slick-slider slick-initialized"
+                  dir="ltr"
+                >
+                  <div
+                    class="slick-list"
+                  >
+                    <div
+                      class="slick-track"
+                      style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                    >
+                      <div
+                        aria-hidden="false"
+                        class="slick-slide slick-active slick-current"
+                        data-index="0"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href="null"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Alight Second Opinion Advice & Support
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                              >
+                                Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="false"
+                        class="slick-slide slick-active"
+                        data-index="1"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href="null"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  CareTN One-on-One Health Support 
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                              >
+                                The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="false"
+                        class="slick-slide slick-active"
+                        data-index="2"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href="null"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Healthy Maternity
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                              >
+                                This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="3"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href="null"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Test
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                              >
+                                THis is test card.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="slick-arrow slick-next"
+                  >
+                    <button
+                      class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
+                      type="button"
+                    >
+                      <img
+                        alt="scroll right"
+                        class="icon-sm"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </button>
+                    ,
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <div
+                  class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
+                >
+                  <div
+                    class="primary-bg-color h-1.5 rounded-full"
+                    style="width: 75%;"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+              />
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container undefined"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    View All Health Programs & Resources
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

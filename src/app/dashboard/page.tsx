@@ -17,6 +17,8 @@ import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import EstimateCost from '../../../public/assets/Estimate-Cost.svg';
 import FindCare from '../../../public/assets/Find-Care.svg';
+import { AmplifyHealthAdvisorBanner } from './components/AmplifyHealthAdvisorBanner';
+import { AmplifyHealthCard } from './components/AmplifyHealthCard';
 
 const Dashboard = () => {
   return (
@@ -41,6 +43,10 @@ const Dashboard = () => {
       />
       <Spacer size={32}></Spacer>
       <Column className="app-content app-base-font-color">
+        <section className="sm:flex sm:flex-row items-start">
+          <AmplifyHealthAdvisorBanner />
+        </section>
+        <Spacer size={32}></Spacer>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <RecentClaimSection
@@ -254,6 +260,9 @@ const Dashboard = () => {
               ]}
             ></PillBox>
           </Column>
+        </section>
+        <section>
+          <AmplifyHealthCard />
         </section>
         <section>
           <EmployeeProvidedBenefitsTile

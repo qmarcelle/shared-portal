@@ -9,8 +9,9 @@ import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
 import AbleToIcon from '../../../../public/assets/ableTo.svg';
+import BlueTennesseIcon from '../../../../public/assets/blueTennesee.svg';
+import HingeHealthIcon from '../../../../public/assets/hingeHealth.svg';
 import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
@@ -23,7 +24,6 @@ interface HealthCareItemProps extends IComponent {
 export const HealthCareItem = ({
   healthCareInfo,
   onClick,
-  className,
   itemDataTitle,
   itemData,
 }: HealthCareItemProps) => {
@@ -39,9 +39,11 @@ export const HealthCareItem = ({
       return TelaDocIcon;
     } else if (healthCareInfo.icon == 'AbleToIcon') {
       return AbleToIcon;
-    } else if (healthCareInfo.icon == 'Sanitas') {
-      return SanitasIcon;
-    }
+    } else if (healthCareInfo.icon == 'HingeHealthIcon') {
+      return HingeHealthIcon;
+    } else if (healthCareInfo.icon == 'BlueTennesseIcon') {
+      return BlueTennesseIcon;
+    } else null;
   }
 
   function getDesktopView() {
@@ -51,11 +53,9 @@ export const HealthCareItem = ({
           className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
           text={healthCareInfo.healthcareType}
         ></TextBox>
-        <Image
-          src={getHealthIcon()}
-          className="w-1/2"
-          alt={healthCareInfo.icon}
-        />
+        {getHealthIcon() ? (
+          <Image src={getHealthIcon()} className="w-1/2" alt="Vendor Logo" />
+        ) : null}
         <Spacer axis="horizontal" size={8} />
         <Column className="flex flex-col flex-grow">
           <TextBox
@@ -83,11 +83,7 @@ export const HealthCareItem = ({
             className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
             text="Medical Health"
           ></TextBox>
-          <Image
-            src={getHealthIcon()}
-            className="w-1/2"
-            alt={healthCareInfo.icon}
-          />
+          <Image src={getHealthIcon()} className="w-1/2" alt="Vendor Logo" />
           <SpacerX size={8} />
           <Column className="flex flex-col flex-grow">
             <TextBox
@@ -110,7 +106,7 @@ export const HealthCareItem = ({
 
   return isClient ? (
     <Card
-      className={`cursor-pointer ${className} md:w-1/3`}
+      className={'cursor-pointer ${className} md:w-80'}
       type="elevated"
       onClick={onClick}
     >

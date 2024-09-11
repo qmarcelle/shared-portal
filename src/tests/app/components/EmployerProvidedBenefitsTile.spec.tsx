@@ -39,6 +39,15 @@ describe('EmployeeProvidedBenefitsTile', () => {
   it('should render UI correctly', async () => {
     const component = renderUI();
 
+    // The top logo should be visible only on mobile devices
+    expect(screen.getAllByAltText('Provider logo')[0]).toHaveClass(
+      'block mb-6 mt-3 sm:hidden',
+    );
+    // The right logo should be visible on all screens except mobile
+    expect(screen.getAllByAltText('Provider logo')[1]).toHaveClass(
+      'hidden sm:block',
+    );
+
     expect(
       screen.getByRole('heading', { name: 'Provided By Ben Cole Co' }),
     ).toBeVisible();
