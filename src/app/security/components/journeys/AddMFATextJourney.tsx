@@ -1,6 +1,5 @@
 import { ChangeAuthDeviceSlide } from '@/components/composite/ChangeAuthDeviceSlide';
 import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
-import { InitModalSlide } from '@/components/composite/InitModalSlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -20,8 +19,8 @@ import { MfaDeviceType } from '../../models/mfa_device_type';
 import { VerifyMfaResponse } from '../../models/verify_mfa_devices';
 import { useSecuritySettingsStore } from '../../stores/security_settings_store';
 
-const bottomNote =
-  'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.';
+/* const bottomNote =
+  'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.'; */
 const headerText = 'Text Message Setup';
 
 interface AddMfaTextJourneyProps {
@@ -40,10 +39,12 @@ export const AddMFATextJourney = ({
     resetState,
     invalidErrors,
     updateInvalidError,
+    resetVerifyMfaError,
   } = useSecuritySettingsStore();
   const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
+  const [resentCode, setResentCode] = useState(false);
   const { dismissModal } = useAppModalStore();
   let isBackSpacePressed: boolean = false;
 
@@ -60,14 +61,26 @@ export const AddMFATextJourney = ({
     resetState();
   }
 
-  const initNewDevice = async () => {
+  const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
-      await updateMfaDevice(MfaDeviceType.text, newAuthDevice);
-      setMainAuthDevice(newAuthDevice);
+      let phone = '';
+      if (newAuthDevice == '') {
+        phone = mainAuthDevice;
+        setNewAuthDevice(mainAuthDevice);
+      } else {
+        phone = newAuthDevice;
+        setMainAuthDevice(newAuthDevice);
+      }
+      if (value) {
+        setResentCode(true);
+      } else {
+        setResentCode(false);
+      }
+      await updateMfaDevice(MfaDeviceType.text, phone);
       changePageIndex?.(1, true);
     } catch (errorMessage: unknown) {
-      changePageIndex?.(4, true);
+      changePageIndex?.(3, true);
     }
   };
 
@@ -81,12 +94,19 @@ export const AddMFATextJourney = ({
           newAuthDevice && newAuthDevice != '' ? newAuthDevice : mainAuthDevice,
         );
       if (response?.state == AppProg.success) {
-        changePageIndex?.(3, false);
+        changePageIndex?.(2, false);
+      }
+      if (response?.state == AppProg.failed && resentCode) {
+        throw 'error';
       }
     } catch (errorMessage: unknown) {
-      changePageIndex?.(4, true);
+      changePageIndex?.(3, true);
     }
   };
+  /* const sendCode = async () => {
+    initNewDevice(false);
+    changePageIndex?.(1, true);
+  }; */
   const validatePhoneNumber = (phoneNumber: string) => {
     let value = phoneNumber;
     if (!isBackSpacePressed) {
@@ -99,61 +119,20 @@ export const AddMFATextJourney = ({
       updateInvalidError([]);
     }
   };
+  const updateSecurityCode = (value: string) => {
+    setConfirmCode(value);
+    if (verifyMfaResult?.errors.length) {
+      resetVerifyMfaError();
+    }
+  };
   const keyDownCallBack = (keyCode: string) => {
     isBackSpacePressed = keyCode == 'Backspace';
   };
   const pages = [
-    <InitModalSlide
+    <ChangeAuthDeviceSlide
       key={0}
       label="Text Message Setup"
-      subLabel={
-        <Column className="items-center">
-          <TextBox
-            className="text-center"
-            text="Continue with your current phone number or change it."
-          />
-          <TextBox text="Your phone number is:" />
-        </Column>
-      }
-      actionArea={mainAuthDevice}
-      changeAuthButton={
-        <AppLink
-          label="Change Your Number"
-          callback={() => changePageIndex?.(2, true)}
-        />
-      }
-      bottomNote={<TextBox text={bottomNote} />}
-      nextCallback={() => changePageIndex?.(1, true)}
-      cancelCallback={() => dismissModal()}
-    />, // MfaInit
-    <InputModalSlide
-      key={1}
-      label={headerText}
-      subLabel="Enter the security code sent to you phone number to complete text message setup. We've sent a code to:"
-      actionArea={
-        <Column className="items-center">
-          <TextBox className="font-bold" text={mainAuthDevice} />
-          <Spacer size={32} />
-          <TextField
-            valueCallback={(val) => setConfirmCode(val)}
-            label="Enter Security Code"
-            errors={verifyMfaResult?.errors}
-          />
-          <AppLink
-            className="self-start"
-            callback={initNewDevice}
-            label="Resend Code"
-          />
-          <Spacer size={32} />
-        </Column>
-      }
-      nextCallback={confirmCode.length > 5 ? () => submitCode() : undefined}
-      cancelCallback={() => dismissModal()}
-    />, // MfaEntry
-    <ChangeAuthDeviceSlide
-      key={2}
-      label="Change Phone Number"
-      subLabel="Enter the new phone number you'd like to use for Communications and Security Settings"
+      subLabel="Enter the phone number you'd like to use for Communications and Security Settings"
       bottomNote="By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions."
       actionArea={
         <TextField
@@ -166,11 +145,42 @@ export const AddMFATextJourney = ({
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        isValidMobileNumber(newAuthDevice) ? () => initNewDevice() : undefined
+        isValidMobileNumber(newAuthDevice)
+          ? () => initNewDevice(false)
+          : undefined
       }
     />,
+    <InputModalSlide
+      key={1}
+      label={headerText}
+      subLabel="Enter the security code sent to you phone number to complete text message setup. We've sent a code to:"
+      actionArea={
+        <Column>
+          <TextBox className="font-bold text-center" text={mainAuthDevice} />
+          <Spacer size={32} />
+          <TextField
+            valueCallback={(val) => updateSecurityCode(val)}
+            label="Enter Security Code"
+            errors={verifyMfaResult?.errors}
+          />
+          {resentCode && (
+            <TextBox className="body-1 text-lime-700" text="Code resent!" />
+          )}
+          {!resentCode && (
+            <AppLink
+              className="self-start"
+              callback={() => initNewDevice(true)}
+              label="Resend Code"
+            />
+          )}
+          <Spacer size={32} />
+        </Column>
+      }
+      nextCallback={confirmCode.length > 5 ? () => submitCode() : undefined}
+      cancelCallback={() => dismissModal()}
+    />, // MfaEntry
     <SuccessSlide
-      key={3}
+      key={2}
       label="Text Message Setup is Complete"
       body={
         <Column className="items-center">
@@ -185,7 +195,7 @@ export const AddMFATextJourney = ({
       doneCallBack={() => dismissModal()}
     />,
     <ErrorDisplaySlide
-      key={4}
+      key={3}
       label="Try Again Later"
       body={
         <Column className="items-center">

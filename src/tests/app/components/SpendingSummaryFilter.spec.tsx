@@ -1,6 +1,6 @@
+import { Filter } from '@/components/foundation/Filter';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Filter } from '../../../components/foundation/Filter';
 
 const renderUI = () => {
   return render(

@@ -38,11 +38,13 @@ export const AddMFAVoiceJourney = ({
     verifyMfaResult,
     invalidErrors,
     updateInvalidError,
+    resetVerifyMfaError,
   } = useSecuritySettingsStore();
   const [confirmCode, setConfirmCode] = useState('');
 
   const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
   const [newAuthDevice, setNewAuthDevice] = useState('');
+  const [resentCode, setResentCode] = useState(false);
   const { dismissModal } = useAppModalStore();
   let isBackSpacePressed: boolean = false;
 
@@ -59,9 +61,14 @@ export const AddMFAVoiceJourney = ({
     resetState();
   }
 
-  const initNewDevice = async () => {
+  const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
+      if (value) {
+        setResentCode(true);
+      } else {
+        setResentCode(false);
+      }
       await updateMfaDevice(MfaDeviceType.voice, newAuthDevice);
       setMainAuthDevice(newAuthDevice);
       changePageIndex?.(1, true);
@@ -78,6 +85,9 @@ export const AddMFAVoiceJourney = ({
       if (response?.state == AppProg.success) {
         changePageIndex?.(2, false);
       }
+      if (response?.state == AppProg.failed && resentCode) {
+        throw 'error';
+      }
     } catch (errorMessage: unknown) {
       changePageIndex?.(3, true);
     }
@@ -93,6 +103,13 @@ export const AddMFAVoiceJourney = ({
       updateInvalidError(['Invalid Phone Number']);
     } else {
       updateInvalidError([]);
+    }
+  };
+
+  const updateSecurityCode = (value: string) => {
+    setConfirmCode(value);
+    if (verifyMfaResult?.errors.length) {
+      resetVerifyMfaError();
     }
   };
 
@@ -117,7 +134,9 @@ export const AddMFAVoiceJourney = ({
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        isValidMobileNumber(newAuthDevice) ? () => initNewDevice() : undefined
+        isValidMobileNumber(newAuthDevice)
+          ? () => initNewDevice(false)
+          : undefined
       }
     />,
 
@@ -126,15 +145,24 @@ export const AddMFAVoiceJourney = ({
       label="Voice Call Setup"
       subLabel="Enter the 6-digit security code you heard to complete voice setup."
       actionArea={
-        <Column className="items-center">
-          <TextBox className="font-bold" text={mainAuthDevice} />
+        <Column>
+          <TextBox className="font-bold text-center" text={mainAuthDevice} />
           <Spacer size={32} />
           <TextField
-            valueCallback={(val) => setConfirmCode(val)}
+            valueCallback={(val) => updateSecurityCode(val)}
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           />
-          <AppLink className="self-start" label="Resend Code" />
+          {resentCode && (
+            <TextBox className="body-1 text-lime-700" text="Code resent!" />
+          )}
+          {!resentCode && (
+            <AppLink
+              className="self-start"
+              callback={() => initNewDevice(true)}
+              label="Resend Code"
+            />
+          )}
           <Spacer size={32} />
         </Column>
       }
