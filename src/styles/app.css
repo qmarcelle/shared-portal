@@ -163,3 +163,6 @@
   right: -9px;
   top: -4px;
 }
+.download-pdf .gap-1 div.flex-col {
+  margin: 0.25rem;
+}
