@@ -3,7 +3,7 @@
 import { signIn } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
-import { esApi } from '@/utils/api/esApi';
+import { esApi, logESTransactionId } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
@@ -45,7 +45,7 @@ export async function callLogin(
       '/mfAuthentication/loginAuthentication',
       request,
     );
-
+    logESTransactionId(resp);
     console.debug(resp);
     status = LoginStatus.ERROR;
 
@@ -86,6 +86,7 @@ export async function callLogin(
     if (error instanceof AxiosError) {
       //logger.error("Response from API " + error.response?.data);
       logger.error('Error in Login');
+      logESTransactionId(error);
       console.error(error.response?.data);
       return {
         status:
