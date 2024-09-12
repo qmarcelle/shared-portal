@@ -1,3 +1,11 @@
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { ListOrder } from '@/components/foundation/ListOrder';
+import { Row } from '@/components/foundation/Row';
+import { Spacer, SpacerX } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -9,15 +17,8 @@ import hingeHealthIcon from '../../../../public/assets/hinge-health.svg';
 import questSelectIcon from '../../../../public/assets/questselect.svg';
 import sanitasIcon from '../../../../public/assets/sanitas-bot.svg';
 import silverFitIcon from '../../../../public/assets/silver-and-fit.svg';
-import teladocIcon from '../../../../public/assets/teladoc-health.svg';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Column } from '../../../components/foundation/Column';
-import { ListOrder } from '../../../components/foundation/ListOrder';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer, SpacerX } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import teladocIcon from '../../../../public/assets/teladoc_health.svg';
+
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {
@@ -29,7 +30,6 @@ interface HealthCareItemProps extends IComponent {
 export const HealthCareItem = ({
   healthCareInfo,
   onClick,
-  className,
   itemDataTitle,
   itemData,
 }: HealthCareItemProps) => {
@@ -132,7 +132,7 @@ export const HealthCareItem = ({
 
   return isClient ? (
     <Card
-      className={`cursor-pointer ${className} md:w-1/3`}
+      className={'cursor-pointer ${className} md:w-80'}
       type="elevated"
       onClick={onClick}
     >

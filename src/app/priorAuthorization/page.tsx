@@ -6,7 +6,7 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
-import { extrenalIcon } from '@/components/foundation/Icons';
+import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
@@ -33,7 +33,7 @@ const PriorAuthorization = () => {
                 <AppLink
                   label="caremark.com account"
                   className="link flex caremark"
-                  icon={<Image src={extrenalIcon} alt="external" />}
+                  icon={<Image src={externalIcon} alt="external" />}
                 />
               </Row>,
             ]}
@@ -45,10 +45,11 @@ const PriorAuthorization = () => {
             <Filter
               className="large-section px-0 m-0"
               filterHeading="Filter Prior Authorizations"
-              dropDown={[
+              filterItems={[
                 {
-                  dropNownName: 'Connected Plans',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Connected Plans',
+                  value: [
                     {
                       label: 'All Plans',
                       value: '1',
@@ -63,8 +64,9 @@ const PriorAuthorization = () => {
                   selectedValue: { label: 'All Plans', value: '1', id: '1' },
                 },
                 {
-                  dropNownName: 'Member',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Member',
+                  value: [
                     {
                       label: 'All Members',
                       value: '1',
@@ -99,8 +101,9 @@ const PriorAuthorization = () => {
                   selectedValue: { label: 'All Members', value: '1', id: '1' },
                 },
                 {
-                  dropNownName: 'Date Range',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Date Range',
+                  value: [
                     {
                       label: 'Last 30 days',
                       value: '1',

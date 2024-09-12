@@ -1,13 +1,13 @@
 import { BenefitDetails } from '@/app/dashboard/models/benefits_detail';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Divider } from '@/components/foundation/Divider';
+import SearchField from '@/components/foundation/SearchField';
+import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import { useState } from 'react';
 import RightIcon from '../../../../public/assets/right.svg';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Divider } from '../../../components/foundation/Divider';
-import SearchField from '../../../components/foundation/SearchField';
-import { Spacer } from '../../../components/foundation/Spacer';
 
 interface BenefitsAndCoverageSectionProps extends IComponent {
   benefits: BenefitDetails[];
@@ -43,8 +43,8 @@ export const BenefitsAndCoverageSection = ({
           <label className="body-1">Browse your benefits by category:</label>
           <Spacer size={32} />
         </div>
-        {filteredUsers.slice(0, filteredUsers.length).map((item) => (
-          <>
+        {filteredUsers.slice(0, filteredUsers.length).map((item, index) => (
+          <div key={index}>
             <Spacer size={16} />
             <a
               href={item.benefitURL}
@@ -66,7 +66,7 @@ export const BenefitsAndCoverageSection = ({
             </a>
             <Spacer size={16} />
             <Divider />
-          </>
+          </div>
         ))}
         <Spacer size={32} />
         <AppLink label="View All Benefits & Coverage" />

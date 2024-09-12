@@ -11,19 +11,51 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
         <div
           class="flex flex-col"
         >
-          <h2
-            class="title-2"
-          >
-            Provided By Ben Cole Co
-          </h2>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          <img
+            alt="Provider logo"
+            class="block mb-6 mt-3 sm:hidden"
+            data-nimg="1"
+            decoding="async"
+            height="55"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
+            style="color: transparent;"
+            width="170"
           />
-          <p
-            class="body-1"
+          <div
+            class="flex flex-row justify-between"
           >
-            Your employer offers even more programs and benefits you can explore here
-          </p>
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Provided By Ben Cole Co
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                Your employer offers even more programs and benefits you can explore here
+              </p>
+            </div>
+            <img
+              alt="Provider logo"
+              class="hidden sm:block"
+              data-nimg="1"
+              decoding="async"
+              height="55"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
+              style="color: transparent;"
+              width="170"
+            />
+          </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
@@ -246,11 +278,11 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
-            class="block undefined"
+            style="display: block;"
           >
             <button
-              class="flex flex-row link-container"
-              style="max-width: max-content; height: auto;"
+              class="flex flex-row link-container undefined"
+              style="max-width: max-content; height: auto; display: block;"
               tabindex="0"
             >
               <p
@@ -271,19 +303,51 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
       <div
         class="flex flex-col"
       >
-        <h2
-          class="title-2"
-        >
-          Provided By Ben Cole Co
-        </h2>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        <img
+          alt="Provider logo"
+          class="block mb-6 mt-3 sm:hidden"
+          data-nimg="1"
+          decoding="async"
+          height="55"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
+          style="color: transparent;"
+          width="170"
         />
-        <p
-          class="body-1"
+        <div
+          class="flex flex-row justify-between"
         >
-          Your employer offers even more programs and benefits you can explore here
-        </p>
+          <div
+            class="flex flex-col"
+          >
+            <h2
+              class="title-2"
+            >
+              Provided By Ben Cole Co
+            </h2>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+            >
+              Your employer offers even more programs and benefits you can explore here
+            </p>
+          </div>
+          <img
+            alt="Provider logo"
+            class="hidden sm:block"
+            data-nimg="1"
+            decoding="async"
+            height="55"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
+            style="color: transparent;"
+            width="170"
+          />
+        </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
@@ -506,11 +570,11 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <a
-          class="block undefined"
+          style="display: block;"
         >
           <button
-            class="flex flex-row link-container"
-            style="max-width: max-content; height: auto;"
+            class="flex flex-row link-container undefined"
+            style="max-width: max-content; height: auto; display: block;"
             tabindex="0"
           >
             <p

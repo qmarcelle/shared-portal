@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   ChildPages,
   QuickTipNavItem,
   ShortLinkNavItem,
 } from '../../models/site_header_sub_nav_item';
+import { AppLink } from '../foundation/AppLink';
 import { externalIcon, parentPageArrowIcon } from '../foundation/Icons';
 import { IComponent } from '../IComponent';
 
@@ -18,16 +20,22 @@ export interface SiteHeaderSubNavItemProps extends IComponent {
 
 export const SubNavItemSection = ({
   colType,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   url,
   qt,
   shortLinks,
   childPages,
 }: SiteHeaderSubNavItemProps) => {
   const tempChildPages: ChildPages[] = [];
+  const router = useRouter();
 
   childPages.map((item) => {
     if (colType == item.category) tempChildPages.push(item);
   });
+
+  function ChangeUrl(link: string) {
+    router.replace(link);
+  }
 
   return (
     <div className="lg:grid-rows-4">
@@ -63,7 +71,9 @@ export const SubNavItemSection = ({
         } else if (colType.length != 0) {
           return (
             <>
-              <h1 className="text-xl py-2 text-gray-500">{colType}</h1>
+              {colType !== 'Support' && (
+                <h1 className="text-xl py-2 text-gray-500">{colType}</h1>
+              )}
               {tempChildPages.map((item, index) =>
                 item.external ? (
                   <Link
@@ -80,9 +90,12 @@ export const SubNavItemSection = ({
                     />
                   </Link>
                 ) : (
-                  <Link key={index} href={url + item.url}>
-                    <p className="pb-2 pt-2">{item.title}</p>
-                  </Link>
+                  <AppLink
+                    key={index}
+                    label={item.title}
+                    callback={() => ChangeUrl(item.url)}
+                    className="pb-2 pt-2 manage-underline"
+                  />
                 ),
               )}
             </>
