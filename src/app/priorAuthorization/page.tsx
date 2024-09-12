@@ -5,6 +5,7 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
+import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
@@ -41,7 +42,7 @@ const PriorAuthorization = () => {
                 <AppLink
                   label="caremark.com account"
                   className="link !flex caremark pt-0"
-                  icon={<Image src={extrenalIcon} alt="external" />}
+                  icon={<Image src={externalIcon} alt="external" />}
                 />
               </Row>,
             ]}
