@@ -8,6 +8,7 @@ ARG NEXT_PUBLIC_LOGIN_REDIRECT_URL=https://members-gdev.bcbst.com/wps/myportal/m
 ARG NEXT_PUBLIC_PORTAL_URL='https://test.bcbst.com/'
 ARG NEXT_PUBLIC_ENV_ID='DEV'
 ARG NEXT_PUBLIC_PORTAL_ERROR_URL='https://www.bcbst.com/error/'
+ARG NEXT_PUBLIC_PORTAL_ContactUS_URL='https://test.bcbst.com/contact-us'
 
 # Set the working directory to /app
 WORKDIR  /app
