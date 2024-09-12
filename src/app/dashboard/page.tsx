@@ -111,6 +111,7 @@ const Dashboard = () => {
               outOfPocketSpent={1500}
               selectedMemberId="43"
               selectedNetworkId="1"
+              displayDisclaimerText={false}
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">

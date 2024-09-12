@@ -1,3 +1,4 @@
+import SpendingSummary from '@/app/spendingSummary/page';
 import {
   dentalIcon,
   medicalIcon,
@@ -112,5 +113,15 @@ describe('SpendingAccountSummary', () => {
     expect(serviceRenderedSectionContent).not.toBeInTheDocument();
 
     expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should render the UI correctly', async () => {
+    render(<SpendingSummary />);
+    screen.getByRole('heading', {
+      name: 'Spending Summary',
+    });
+    screen.getByRole('button', {
+      name: /Download a PDF Statement/i,
+    });
   });
 });

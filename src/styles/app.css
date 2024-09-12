@@ -174,3 +174,13 @@
   height: 63px;
   background-color: #e7f6ff;
 }
+.prior-auth-card {
+  width: 39%;
+}
+.prior-auth-card .absolute {
+  right: -9px;
+  top: -4px;
+}
+.download-pdf .gap-1 div.flex-col {
+  margin: 0.25rem;
+}

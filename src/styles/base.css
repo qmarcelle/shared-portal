@@ -419,14 +419,24 @@ input::-ms-clear {
 .caremark button {
   padding-top: 0;
 }
-.manage-underline .link {
-  text-decoration: none;
-}
 .cardColor {
   height: 56px;
   width: 672px;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.manage-benefit {
+  div .flex.flex-row.m-2 {
+    margin: 0px;
+  }
+  div .link-row-head.mr-2 {
+    margin-left: 8px;
+  }
+}
+
+.manage-underline .link {
+  text-decoration: none;
 }
 
 .overlap-bottom {

@@ -1,0 +1,1771 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionCardSection should render UI correctly 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 m-4 mb-0 !font-light !text-[32px]/[40px]"
+        >
+          Spending Accounts
+        </h1>
+        <section
+          class="flex justify-start self-start"
+        >
+          <span
+            class="body-1 undefined"
+          >
+            <div
+              class="flex flex-row m-4 mb-0"
+            >
+              To manage your health spending account details
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container link !flex caremark pt-0"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    visit Health Equity
+                  </p>
+                  <p
+                    class="ml-1"
+                  >
+                    <img
+                      alt="external"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
+              </a>
+            </div>
+          </span>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col bg-sky-100 justify-center items-center bg-sky-100 rounded-md"
+                    >
+                       
+                      <div
+                        class="rounded-md"
+                      >
+                        <p
+                          class="font-bold w-50 h-50 px-10 py-5 text-lg justify-center items-center"
+                        >
+                          HSA
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col justify-center items-center ml-2"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Health Saving Account Balance
+                      </h1>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p>
+                      Viewing details for:
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="relative"
+                    >
+                      <div
+                        class="flex flex-row link"
+                      >
+                        <p>
+                          2023
+                        </p>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <img
+                          alt="down icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <section
+                        class="card-elevated py-2 z-20"
+                        style="display: none; position: absolute;"
+                      >
+                        <div
+                          class="selected-dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2023
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2022
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2021
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Contributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      $
+                      4000
+                      .00
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Distributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      -$
+                      4000
+                      .00
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    aria-label="divider"
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow font-bold"
+                    >
+                      Balance
+                    </div>
+                    <div
+                      class="flex flex-col font-bold items-end"
+                    >
+                      $
+                      0
+                      .00
+                    </div>
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        View HSA Transactions
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col bg-sky-100 justify-center items-center bg-sky-100 rounded-md"
+                    >
+                       
+                      <div
+                        class="rounded-md"
+                      >
+                        <p
+                          class="font-bold w-50 h-50 px-10 py-5 text-lg justify-center items-center"
+                        >
+                          HSA
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col justify-center items-center ml-2"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Flexible Spending Account Balance
+                      </h1>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p>
+                      Viewing details for:
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="relative"
+                    >
+                      <div
+                        class="flex flex-row link"
+                      >
+                        <p>
+                          2023
+                        </p>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <img
+                          alt="down icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <section
+                        class="card-elevated py-2 z-20"
+                        style="display: none; position: absolute;"
+                      >
+                        <div
+                          class="selected-dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2023
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2022
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2021
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Contributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      $
+                      1200
+                      .00
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Distributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      -$
+                      850
+                      .00
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    aria-label="divider"
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow font-bold"
+                    >
+                      Balance
+                    </div>
+                    <div
+                      class="flex flex-col font-bold items-end"
+                    >
+                      $
+                      0
+                      .00
+                    </div>
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        View FSA Transactions
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col  flex-grow page-section-36_67 items-stretch mt-4"
+            >
+              <div
+                class="card-main !mt-0 md:ml-8 p-8"
+              >
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Related Links
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container link no-underline !flex caremark"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Direct Deposit Form  
+                      </p>
+                      <p
+                        class="ml-1"
+                      >
+                        <img
+                          alt="external"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    Make transactions quick and easy. setup direct deposit for your spending account
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    aria-label="divider"
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container link n0-underline !flex caremark"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Eligible Expenses 
+                      </p>
+                      <p
+                        class="ml-1"
+                      >
+                        <img
+                          alt="external"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    Discover what medical expenses your health saving account may cover - from prescriptions to fitness programs.
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+              />
+              <div
+                class="card-main !mt-0 md:ml-8 p-8"
+              >
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Get Help With Your Spending Accounts
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <span
+                    class="body-1 undefined"
+                  >
+                    <span>
+                      if you need help, please reach out to us.You can
+                       
+                    </span>
+                    <span
+                      class="link"
+                    >
+                      <a>
+                        start a chat 
+                      </a>
+                    </span>
+                    <span>
+                      or call us at [1-800-000-000] or email consumercoach @bcbst.com
+                    </span>
+                  </span>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <div
+      class="card-main undefined"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col bg-sky-100 justify-center items-center bg-sky-100 rounded-md"
+          >
+             
+            <div
+              class="rounded-md"
+            >
+              <p
+                class="font-bold w-50 h-50 px-10 py-5 text-lg justify-center items-center"
+              >
+                HSA
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-center items-center ml-2"
+          >
+            <h1
+              class="title-1 title-2"
+            >
+              Flexible Spending Account Balance
+            </h1>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <p>
+            Viewing details for:
+          </p>
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="relative"
+          >
+            <div
+              class="flex flex-row link"
+            >
+              <p>
+                2023
+              </p>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <img
+                alt="down icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <section
+              class="card-elevated py-2 z-20"
+              style="display: none; position: absolute;"
+            >
+              <div
+                class="selected-dropdown-item cursor-pointer"
+              >
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  2023
+                </p>
+              </div>
+              <div
+                class="dropdown-item cursor-pointer"
+              >
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  2022
+                </p>
+              </div>
+              <div
+                class="dropdown-item cursor-pointer"
+              >
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  2021
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            Contributions
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            $
+            1200
+            .00
+          </div>
+        </div>
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            Distributions
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            -$
+            850
+            .00
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col flex-grow font-bold"
+          >
+            Balance
+          </div>
+          <div
+            class="flex flex-col font-bold items-end"
+          >
+            $
+            0
+            .00
+          </div>
+        </div>
+        <a
+          style="display: block;"
+        >
+          <button
+            class="flex flex-row link-container undefined"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              View FSA Transactions
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </div>
+    </div>
+    ,
+    <div
+      class="card-main !mt-0 md:ml-8 p-8"
+    >
+      <div
+        class="flex flex-col flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Related Links
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          style="display: block;"
+        >
+          <button
+            class="flex flex-row link-container link no-underline !flex caremark"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              Direct Deposit Form  
+            </p>
+            <p
+              class="ml-1"
+            >
+              <img
+                alt="external"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          Make transactions quick and easy. setup direct deposit for your spending account
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <a
+          style="display: block;"
+        >
+          <button
+            class="flex flex-row link-container link n0-underline !flex caremark"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              Eligible Expenses 
+            </p>
+            <p
+              class="ml-1"
+            >
+              <img
+                alt="external"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          Discover what medical expenses your health saving account may cover - from prescriptions to fitness programs.
+        </div>
+      </div>
+    </div>
+    ,
+  </div>
+</body>
+`;
+
+exports[`TransactionCardSection should render UI correctly for mobile device 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 m-4 mb-0 !font-light !text-[32px]/[40px]"
+        >
+          Spending Accounts
+        </h1>
+        <section
+          class="flex justify-start self-start"
+        >
+          <span
+            class="body-1 undefined"
+          >
+            <div
+              class="flex flex-row m-4 mb-0"
+            >
+              To manage your health spending account details
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container link !flex caremark pt-0"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    visit Health Equity
+                  </p>
+                  <p
+                    class="ml-1"
+                  >
+                    <img
+                      alt="external"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
+              </a>
+            </div>
+          </span>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col bg-sky-100 justify-center items-center bg-sky-100 rounded-md"
+                    >
+                       
+                      <div
+                        class="rounded-md"
+                      >
+                        <p
+                          class="font-bold w-50 h-50 px-10 py-5 text-lg justify-center items-center"
+                        >
+                          HSA
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col justify-center items-center ml-2"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Health Saving Account Balance
+                      </h1>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p>
+                      Viewing details for:
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="relative"
+                    >
+                      <div
+                        class="flex flex-row link"
+                      >
+                        <p>
+                          2023
+                        </p>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <img
+                          alt="down icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <section
+                        class="card-elevated py-2 z-20"
+                        style="display: none; position: absolute;"
+                      >
+                        <div
+                          class="selected-dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2023
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2022
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2021
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Contributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      $
+                      4000
+                      .00
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Distributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      -$
+                      4000
+                      .00
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    aria-label="divider"
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow font-bold"
+                    >
+                      Balance
+                    </div>
+                    <div
+                      class="flex flex-col font-bold items-end"
+                    >
+                      $
+                      0
+                      .00
+                    </div>
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        View HSA Transactions
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col bg-sky-100 justify-center items-center bg-sky-100 rounded-md"
+                    >
+                       
+                      <div
+                        class="rounded-md"
+                      >
+                        <p
+                          class="font-bold w-50 h-50 px-10 py-5 text-lg justify-center items-center"
+                        >
+                          HSA
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col justify-center items-center ml-2"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Flexible Spending Account Balance
+                      </h1>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p>
+                      Viewing details for:
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="relative"
+                    >
+                      <div
+                        class="flex flex-row link"
+                      >
+                        <p>
+                          2023
+                        </p>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <img
+                          alt="down icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <section
+                        class="card-elevated py-2 z-20"
+                        style="display: none; position: absolute;"
+                      >
+                        <div
+                          class="selected-dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2023
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2022
+                          </p>
+                        </div>
+                        <div
+                          class="dropdown-item cursor-pointer"
+                        >
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            2021
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Contributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      $
+                      1200
+                      .00
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      Distributions
+                    </div>
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      -$
+                      850
+                      .00
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    aria-label="divider"
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <div
+                      class="flex flex-col flex-grow font-bold"
+                    >
+                      Balance
+                    </div>
+                    <div
+                      class="flex flex-col font-bold items-end"
+                    >
+                      $
+                      0
+                      .00
+                    </div>
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        View FSA Transactions
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col  flex-grow page-section-36_67 items-stretch mt-4"
+            >
+              <div
+                class="card-main !mt-0 md:ml-8 p-8"
+              >
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Related Links
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container link no-underline !flex caremark"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Direct Deposit Form  
+                      </p>
+                      <p
+                        class="ml-1"
+                      >
+                        <img
+                          alt="external"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    Make transactions quick and easy. setup direct deposit for your spending account
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    aria-label="divider"
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container link n0-underline !flex caremark"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Eligible Expenses 
+                      </p>
+                      <p
+                        class="ml-1"
+                      >
+                        <img
+                          alt="external"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    Discover what medical expenses your health saving account may cover - from prescriptions to fitness programs.
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+              />
+              <div
+                class="card-main !mt-0 md:ml-8 p-8"
+              >
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Get Help With Your Spending Accounts
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <span
+                    class="body-1 undefined"
+                  >
+                    <span>
+                      if you need help, please reach out to us.You can
+                       
+                    </span>
+                    <span
+                      class="link"
+                    >
+                      <a>
+                        start a chat 
+                      </a>
+                    </span>
+                    <span>
+                      or call us at [1-800-000-000] or email consumercoach @bcbst.com
+                    </span>
+                  </span>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <div
+      class="card-main undefined"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col bg-sky-100 justify-center items-center bg-sky-100 rounded-md"
+          >
+             
+            <div
+              class="rounded-md"
+            >
+              <p
+                class="font-bold w-50 h-50 px-10 py-5 text-lg justify-center items-center"
+              >
+                HSA
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-center items-center ml-2"
+          >
+            <h1
+              class="title-1 title-2"
+            >
+              Flexible Spending Account Balance
+            </h1>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <p>
+            Viewing details for:
+          </p>
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="relative"
+          >
+            <div
+              class="flex flex-row link"
+            >
+              <p>
+                2023
+              </p>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <img
+                alt="down icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <section
+              class="card-elevated py-2 z-20"
+              style="display: none; position: absolute;"
+            >
+              <div
+                class="selected-dropdown-item cursor-pointer"
+              >
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  2023
+                </p>
+              </div>
+              <div
+                class="dropdown-item cursor-pointer"
+              >
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  2022
+                </p>
+              </div>
+              <div
+                class="dropdown-item cursor-pointer"
+              >
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  2021
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            Contributions
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            $
+            1200
+            .00
+          </div>
+        </div>
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            Distributions
+          </div>
+          <div
+            class="flex flex-col items-end"
+          >
+            -$
+            850
+            .00
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-col flex-grow font-bold"
+          >
+            Balance
+          </div>
+          <div
+            class="flex flex-col font-bold items-end"
+          >
+            $
+            0
+            .00
+          </div>
+        </div>
+        <a
+          style="display: block;"
+        >
+          <button
+            class="flex flex-row link-container undefined"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              View FSA Transactions
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </div>
+    </div>
+    ,
+    <div
+      class="card-main !mt-0 md:ml-8 p-8"
+    >
+      <div
+        class="flex flex-col flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Related Links
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          style="display: block;"
+        >
+          <button
+            class="flex flex-row link-container link no-underline !flex caremark"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              Direct Deposit Form  
+            </p>
+            <p
+              class="ml-1"
+            >
+              <img
+                alt="external"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          Make transactions quick and easy. setup direct deposit for your spending account
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          aria-label="divider"
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <a
+          style="display: block;"
+        >
+          <button
+            class="flex flex-row link-container link n0-underline !flex caremark"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              Eligible Expenses 
+            </p>
+            <p
+              class="ml-1"
+            >
+              <img
+                alt="external"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          Discover what medical expenses your health saving account may cover - from prescriptions to fitness programs.
+        </div>
+      </div>
+    </div>
+    ,
+  </div>
+</body>
+`;
