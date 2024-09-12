@@ -168,3 +168,9 @@
 .priorAuthDetail .statusDetail {
   margin-left: 70px;
 }
+
+.access-code {
+  width: 114px;
+  height: 63px;
+  background-color: #e7f6ff;
+}
