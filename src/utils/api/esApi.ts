@@ -1,6 +1,8 @@
-import axios from 'axios';
+import axios, { AxiosError, AxiosHeaders, AxiosResponse } from 'axios';
 import { logger } from '../logger';
 import { getAuthToken } from './getToken';
+
+export const ES_TRANSACTION_ID = 'ES-transactionId';
 
 export const esApi = axios.create({
   baseURL: process.env.ES_API_URL,
@@ -36,3 +38,19 @@ esApi.interceptors.request?.use(
     return Promise.reject(error);
   },
 );
+
+export const logESTransactionId = (resp: AxiosResponse | AxiosError) => {
+  if ((resp as AxiosResponse).headers instanceof AxiosHeaders) {
+    const esTransactionId = ((resp as AxiosResponse).headers as AxiosHeaders)
+      .get(ES_TRANSACTION_ID)
+      ?.toString();
+    logger.info(`ES TRANSACTION ID: ${esTransactionId}`);
+  } else if ((resp as AxiosError).response?.headers instanceof AxiosHeaders) {
+    const esTransactionId = (
+      (resp as AxiosError).response?.headers as AxiosHeaders
+    )
+      .get(ES_TRANSACTION_ID)
+      ?.toString();
+    logger.error(`ES TRANSACTION ID: ${esTransactionId}`);
+  }
+};

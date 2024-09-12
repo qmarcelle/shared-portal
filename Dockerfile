@@ -5,6 +5,7 @@ FROM nexus.bcbst.com:8096/node:20
 ARG NEXT_PUBLIC_REGISTER_NEW_ACCOUNT=https://test.bcbst.com/register-member/
 ARG NEXT_PUBLIC_PASSWORD_RESET=https://test.bcbst.com/forgot-password/
 ARG NEXT_PUBLIC_LOGIN_REDIRECT_URL=https://members-gdev.bcbst.com/wps/myportal/member/
+ARG NEXT_PUBLIC_LOGOUT_REDIRECT_URL=https://sso1.bcbst.com/idp/startSLO.ping?TargetResource=https://portals-gdev.bcbst.com/login
 ARG NEXT_PUBLIC_PORTAL_URL='https://test.bcbst.com/'
 ARG NEXT_PUBLIC_ENV_ID='DEV'
 ARG NEXT_PUBLIC_PORTAL_ERROR_URL='https://www.bcbst.com/error/'
