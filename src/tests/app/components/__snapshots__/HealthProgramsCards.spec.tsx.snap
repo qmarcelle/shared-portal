@@ -1,0 +1,698 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="gap-4 md:flex sm:inline"
+      >
+        <div
+          class="card-elevated cursor-pointer mb-4 md:w-1/3"
+        >
+          <div
+            class="flex flex-row flex flex-col align-top m-4 mt-8"
+          >
+            <p
+              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            >
+              Advice & Support
+            </p>
+            <img
+              alt="Alight"
+              class="w-1/2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="body-1 title-3 !font-bold m-4 mb-0"
+              >
+                Alight Second Opinion Advice & Support
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1 m-4 mb-0"
+              >
+                Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <div>
+                <p
+                  class="body-1 body-1 m-4"
+                >
+                  Generally good for:
+                </p>
+                <ul
+                  class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                >
+                  <div>
+                    <li>
+                      Speaking with an expert about your diagnosis
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Rare or life-threatening condition support
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Considering risky or complicated treatment
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Compare costs of treatment or tests
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+              </div>
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container text-left"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                    style="display: block;"
+                  >
+                    Learn More About Alight
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-elevated cursor-pointer mb-4 md:w-1/3"
+        >
+          <div
+            class="flex flex-row flex flex-col align-top m-4 mt-8"
+          >
+            <p
+              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            >
+              Advice & Support
+            </p>
+            <img
+              alt="CareTN"
+              class="w-1/2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="body-1 title-3 !font-bold m-4 mb-0"
+              >
+                CareTN One-on-One Health Support
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1 m-4 mb-0"
+              >
+                Did you know you can talk to your very own care team? The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <div>
+                <p
+                  class="body-1 body-1 m-4"
+                >
+                  Generally good for:
+                </p>
+                <ul
+                  class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                >
+                  <div>
+                    <li>
+                      Living with long-term health conditions
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Diabetes
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Respiratory health
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Mental health
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+              </div>
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container text-left"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                    style="display: block;"
+                  >
+                    Learn More About CareTN
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-elevated cursor-pointer mb-4 md:w-1/3"
+        >
+          <div
+            class="flex flex-row flex flex-col align-top m-4 mt-8"
+          >
+            <p
+              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            >
+              Blood Pressure
+            </p>
+            <img
+              alt="TelaDoc"
+              class="w-1/2"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col flex flex-col flex-grow"
+            >
+              <p
+                class="body-1 title-3 !font-bold m-4 mb-0"
+              >
+                Teladoc Health Blood Pressure Management Program
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1 m-4 mb-0"
+              >
+                Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <div>
+                <p
+                  class="body-1 body-1 m-4"
+                >
+                  Generally good for:
+                </p>
+                <ul
+                  class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                >
+                  <div>
+                    <li>
+                      High blood pressure management
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Meal planning
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div>
+                    <li>
+                      Building healthy habits
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+              </div>
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container text-left"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                    style="display: block;"
+                  >
+                    Learn More About Blood Pressure Management
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="gap-4 md:flex sm:inline"
+    >
+      <div
+        class="card-elevated cursor-pointer mb-4 md:w-1/3"
+      >
+        <div
+          class="flex flex-row flex flex-col align-top m-4 mt-8"
+        >
+          <p
+            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+          >
+            Advice & Support
+          </p>
+          <img
+            alt="Alight"
+            class="w-1/2"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="flex flex-col flex flex-col flex-grow"
+          >
+            <p
+              class="body-1 title-3 !font-bold m-4 mb-0"
+            >
+              Alight Second Opinion Advice & Support
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1 m-4 mb-0"
+            >
+              Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div>
+              <p
+                class="body-1 body-1 m-4"
+              >
+                Generally good for:
+              </p>
+              <ul
+                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+              >
+                <div>
+                  <li>
+                    Speaking with an expert about your diagnosis
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Rare or life-threatening condition support
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Considering risky or complicated treatment
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Compare costs of treatment or tests
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+              </ul>
+            </div>
+            <a
+              style="display: block;"
+            >
+              <button
+                class="flex flex-row link-container text-left"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="0"
+              >
+                <p
+                  class="link"
+                  style="display: block;"
+                >
+                  Learn More About Alight
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card-elevated cursor-pointer mb-4 md:w-1/3"
+      >
+        <div
+          class="flex flex-row flex flex-col align-top m-4 mt-8"
+        >
+          <p
+            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+          >
+            Advice & Support
+          </p>
+          <img
+            alt="CareTN"
+            class="w-1/2"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="flex flex-col flex flex-col flex-grow"
+          >
+            <p
+              class="body-1 title-3 !font-bold m-4 mb-0"
+            >
+              CareTN One-on-One Health Support
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1 m-4 mb-0"
+            >
+              Did you know you can talk to your very own care team? The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div>
+              <p
+                class="body-1 body-1 m-4"
+              >
+                Generally good for:
+              </p>
+              <ul
+                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+              >
+                <div>
+                  <li>
+                    Living with long-term health conditions
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Diabetes
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Respiratory health
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Mental health
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+              </ul>
+            </div>
+            <a
+              style="display: block;"
+            >
+              <button
+                class="flex flex-row link-container text-left"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="0"
+              >
+                <p
+                  class="link"
+                  style="display: block;"
+                >
+                  Learn More About CareTN
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card-elevated cursor-pointer mb-4 md:w-1/3"
+      >
+        <div
+          class="flex flex-row flex flex-col align-top m-4 mt-8"
+        >
+          <p
+            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+          >
+            Blood Pressure
+          </p>
+          <img
+            alt="TelaDoc"
+            class="w-1/2"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="flex flex-col flex flex-col flex-grow"
+          >
+            <p
+              class="body-1 title-3 !font-bold m-4 mb-0"
+            >
+              Teladoc Health Blood Pressure Management Program
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1 m-4 mb-0"
+            >
+              Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div>
+              <p
+                class="body-1 body-1 m-4"
+              >
+                Generally good for:
+              </p>
+              <ul
+                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+              >
+                <div>
+                  <li>
+                    High blood pressure management
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Meal planning
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+                <div>
+                  <li>
+                    Building healthy habits
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+              </ul>
+            </div>
+            <a
+              style="display: block;"
+            >
+              <button
+                class="flex flex-row link-container text-left"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="0"
+              >
+                <p
+                  class="link"
+                  style="display: block;"
+                >
+                  Learn More About Blood Pressure Management
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
