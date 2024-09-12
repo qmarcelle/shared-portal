@@ -1,11 +1,11 @@
 import { IComponent } from '@/components/IComponent';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { alertBlueIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import { ReactElement } from 'react';
 import Image from 'next/image';
-import { alertBlueIcon } from '@/components/foundation/Icons';
+import { ReactElement } from 'react';
 
 interface LoginErrorTemplateProps extends IComponent {
   label: string;
@@ -31,7 +31,13 @@ export const LoginErrorTemplate = ({
         {body}
         <Row>
           <p className="text-center">
-            {bottomNote} <a className="link">{contactUs}</a>
+            {bottomNote}{' '}
+            <a
+              className="link"
+              href={process.env.NEXT_PUBLIC_PORTAL_ContactUS_URL ?? ''}
+            >
+              {contactUs}
+            </a>
           </p>
         </Row>
       </Column>
