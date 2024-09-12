@@ -9,10 +9,16 @@ import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import AbleToIcon from '../../../../public/assets/ableTo.svg';
-import BlueTennesseIcon from '../../../../public/assets/blueTennesee.svg';
-import HingeHealthIcon from '../../../../public/assets/hingeHealth.svg';
-import TelaDocIcon from '../../../../public/assets/teladoc_health.svg';
+import ableToIcon from '../../../../public/assets/ableto.svg';
+import alightIcon from '../../../../public/assets/alight.svg';
+import careTNIcon from '../../../../public/assets/caretn.svg';
+import healthyMaternityIcon from '../../../../public/assets/healthymaternity.svg';
+import hingeHealthIcon from '../../../../public/assets/hinge-health.svg';
+import questSelectIcon from '../../../../public/assets/questselect.svg';
+import sanitasIcon from '../../../../public/assets/sanitas-bot.svg';
+import silverFitIcon from '../../../../public/assets/silver-and-fit.svg';
+import teladocIcon from '../../../../public/assets/teladoc_health.svg';
+
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {
@@ -36,14 +42,24 @@ export const HealthCareItem = ({
 
   function getHealthIcon() {
     if (healthCareInfo.icon == 'TelaDoc') {
-      return TelaDocIcon;
+      return teladocIcon;
     } else if (healthCareInfo.icon == 'AbleToIcon') {
-      return AbleToIcon;
-    } else if (healthCareInfo.icon == 'HingeHealthIcon') {
-      return HingeHealthIcon;
-    } else if (healthCareInfo.icon == 'BlueTennesseIcon') {
-      return BlueTennesseIcon;
-    } else null;
+      return ableToIcon;
+    } else if (healthCareInfo.icon == 'Sanitas') {
+      return sanitasIcon;
+    } else if (healthCareInfo.icon == 'Alight') {
+      return alightIcon;
+    } else if (healthCareInfo.icon == 'CareTN') {
+      return careTNIcon;
+    } else if (healthCareInfo.icon == 'SilverFit') {
+      return silverFitIcon;
+    } else if (healthCareInfo.icon == 'QuestSelect') {
+      return questSelectIcon;
+    } else if (healthCareInfo.icon == 'HingeHealth') {
+      return hingeHealthIcon;
+    } else if (healthCareInfo.icon == 'HealthyMaternity') {
+      return healthyMaternityIcon;
+    }
   }
 
   function getDesktopView() {
@@ -53,9 +69,13 @@ export const HealthCareItem = ({
           className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
           text={healthCareInfo.healthcareType}
         ></TextBox>
-        {getHealthIcon() ? (
-          <Image src={getHealthIcon()} className="w-1/2" alt="Vendor Logo" />
-        ) : null}
+        {healthCareInfo.icon && (
+          <Image
+            src={getHealthIcon()}
+            className="w-1/2"
+            alt={healthCareInfo.icon}
+          />
+        )}
         <Spacer axis="horizontal" size={8} />
         <Column className="flex flex-col flex-grow">
           <TextBox
@@ -83,7 +103,13 @@ export const HealthCareItem = ({
             className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
             text="Medical Health"
           ></TextBox>
-          <Image src={getHealthIcon()} className="w-1/2" alt="Vendor Logo" />
+          {healthCareInfo.icon && (
+            <Image
+              src={getHealthIcon()}
+              className="w-1/2"
+              alt={healthCareInfo.icon}
+            />
+          )}
           <SpacerX size={8} />
           <Column className="flex flex-col flex-grow">
             <TextBox

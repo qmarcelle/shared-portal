@@ -23,6 +23,7 @@
 @import './dashboard.css';
 @import './toggle_switch.css';
 @import './my_health_programs.css';
+@import './my_health.css';
 
 :root {
   --primary-color: #005eb9;
@@ -336,6 +337,11 @@ input::-ms-clear {
   margin-top: 75px;
 }
 
+.doughnutTextWellness {
+  margin-left: 21px;
+  margin-top: 108px;
+}
+
 .spendingSummaryChart {
   width: 260px;
   height: 260px;
@@ -343,9 +349,32 @@ input::-ms-clear {
   max-height: 260px;
 }
 
+.card-small {
+  flex-basis: 37.5%;
+  flex-shrink: 1;
+  margin: 7px;
+  padding: 12px;
+  max-width: 31%;
+}
+
+.card-small p {
+  color: #005eb9;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card-section {
+  flex-wrap: wrap;
+}
+
 @media (width<=768px) {
   .doughnutText {
     margin: 75px auto;
+    width: 85%;
+    padding-left: 0;
+  }
+  .doughnutTextWellness {
+    margin: 100px auto;
     width: 85%;
     padding-left: 0;
   }
@@ -358,6 +387,13 @@ input::-ms-clear {
   }
   .chartText {
     padding-left: 0px;
+  }
+  .card-small {
+    flex-basis: 96%;
+    flex-shrink: 1;
+    margin: 7px;
+    padding: 15px;
+    max-width: 96%;
   }
 }
 
@@ -439,4 +475,7 @@ input::-ms-clear {
   background-color: #005eb9 !important;
   margin-bottom: 5px !important;
   display: inline-block;
+}
+.skip-underscore .link {
+  text-decoration: none;
 }
