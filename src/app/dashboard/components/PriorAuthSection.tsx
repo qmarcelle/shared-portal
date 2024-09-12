@@ -1,8 +1,8 @@
 import { PriorAuthDetails } from '@/app/dashboard/models/priorAuth_details';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Spacer } from '@/components/foundation/Spacer';
 import { BlankPriorAuthSection } from './BlankPriorAuthSection';
 import { PriorAuthCard } from './PrioAuthCard';
 
@@ -21,8 +21,9 @@ export const PriorAuthSection = ({
         <Spacer size={32} />
         {(() => {
           if (priorauth.length !== 0) {
-            return priorauth.slice(0, 3).map((item) => (
-              <>
+            return priorauth
+              .slice(0, 3)
+              .map((item) => (
                 <PriorAuthCard
                   key={item.priorAuthName + item.priorAuthStatus}
                   priorAuthStatus={item.priorAuthStatus}
@@ -31,8 +32,7 @@ export const PriorAuthSection = ({
                   dateOfVisit={item.dateOfVisit}
                   priorAuthType={item.priorAuthType}
                 />
-              </>
-            ));
+              ));
           } else {
             return <BlankPriorAuthSection />;
           }

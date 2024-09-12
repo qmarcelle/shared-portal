@@ -20,6 +20,8 @@
 @import './tooltip.css';
 @import './filter.css';
 @import './search_typeahead.css';
+@import './dashboard.css';
+@import './toggle_switch.css';
 @import './my_health_programs.css';
 
 :root {
@@ -47,6 +49,11 @@
 
 * {
   font-family: 'Univers-45';
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
 }
 
 .app-base-font-color {
@@ -108,6 +115,33 @@
     linear-gradient(245deg, #067dac 0%, #00497e 70%);
 }
 
+.surface-gradient-flipped {
+  background: radial-gradient(
+      farthest-corner at bottom right,
+      rgba(93, 193, 253, 0.3) 0%,
+      transparent 60%
+    ),
+    linear-gradient(90deg, rgba(0, 73, 126, 1) 20%, rgba(6, 125, 172, 1) 120%);
+}
+
+.surface-gradient-amplify {
+  background: radial-gradient(
+      farthest-corner at top right,
+      rgba(0, 94, 185, 0.6),
+      transparent
+    ),
+    linear-gradient(146deg, rgba(0, 94, 185, 1) 30%, rgba(93, 193, 253, 1) 120%);
+}
+
+.surface-gradient-amplify-flipped {
+  background: radial-gradient(
+      farthest-corner at bottom right,
+      rgba(0, 94, 185, 0.6),
+      transparent
+    ),
+    linear-gradient(39deg, rgba(0, 94, 185, 1) 30%, rgba(93, 193, 253, 1) 120%);
+}
+
 .page-section-63_33 {
   flex-basis: 63.33%;
   flex-shrink: 1;
@@ -131,6 +165,10 @@
 .large-section {
   margin: 16px;
   padding: 32px;
+}
+
+.rich-text > * {
+  display: inline;
 }
 
 .title-1 {
@@ -344,6 +382,15 @@
 }
 .caremark button {
   padding-top: 0;
+}
+.manage-underline .link {
+  text-decoration: none;
+}
+.cardColor {
+  height: 56px;
+  width: 672px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .overlap-bottom {

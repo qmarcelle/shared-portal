@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FindCarePillBox should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 sm:m-4"
+    >
+      <section
+        class="gap-8"
+      >
+        <div
+          class="flex flex-row align-top items-center"
+        >
+          <img
+            alt=""
+            class="w-[40px] h-[40px]"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+          />
+          <h3
+            class="title-3 !font-bold"
+          >
+            Looking for care? Find a:
+          </h3>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-row flex-wrap gap-x-2 gap-y-4"
+        >
+          <button
+            aria-label="Primary Care Provider"
+            class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
+            type="button"
+          >
+            Primary Care Provider
+          </button>
+          <button
+            aria-label="Dentist"
+            class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
+            type="button"
+          >
+            Dentist
+          </button>
+          <button
+            aria-label="Mental Health Provider"
+            class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
+            type="button"
+          >
+            Mental Health Provider
+          </button>
+          <button
+            aria-label="Eye Doctor"
+            class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
+            type="button"
+          >
+            Eye Doctor
+          </button>
+          <button
+            aria-label="Pharmacy"
+            class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
+            type="button"
+          >
+            Pharmacy
+          </button>
+          <button
+            aria-label="Virtual Care"
+            class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
+            type="button"
+          >
+            Virtual Care
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;

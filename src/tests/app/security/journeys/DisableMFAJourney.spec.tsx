@@ -15,6 +15,10 @@ const renderUI = () => {
   return render(<AppModal />);
 };
 
+jest.mock('../../../../utils/server_session', () => ({
+  getServerSideUserId: jest.fn(() => Promise.resolve('test1234')),
+}));
+
 describe('Disable MFA Journey', () => {
   let component: RenderResult;
   beforeAll(() => {
