@@ -294,6 +294,15 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
       {
+        id: 80,
+        title: 'Dental Health Library',
+        description: 'This is Dental Health Library',
+        category: 'Advice & Support',
+        showOnMenu: true,
+        url: 'https://bcbstwelltuned.com/',
+        external: true,
+      },
+      {
         id: 79,
         title: 'Health Library',
         description: 'This is Health Library',
@@ -395,13 +404,61 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     category: '',
     showOnMenu: true,
     url: '/support',
+    qt: {
+      // eslint-disable-next-line quotes
+      firstParagraph: "We're here to help.",
+      secondParagraph: (
+        <p className="pb-1">
+          <span className="font-bold">Start a chat</span> or call us at
+          [1-800-000-0000].
+        </p>
+      ),
+      link: '/support',
+    },
     template: {
-      firstCol: '',
-      secondCol: '',
+      firstCol: 'QT',
+      secondCol: 'Support',
       thirdCol: '',
       fourthCol: '',
     },
-    childPages: [],
+    childPages: [
+      {
+        id: 82,
+        title: 'Frequently Asked Questions',
+        description: 'Frequently Asked Questions',
+        category: 'Support',
+        showOnMenu: true,
+        url: '/frequentlyAskedQuestions',
+        external: false,
+      },
+      {
+        id: 83,
+        title: 'Health Insurance Glossary',
+        description: 'Health Insurance Glossary',
+        category: 'Support',
+        showOnMenu: true,
+        url: 'https://www.healthcare.gov/glossary/',
+        external: true,
+      },
+      {
+        id: 84,
+        title: 'Find a Form',
+        description: 'Find a Form',
+        category: 'Support',
+        showOnMenu: true,
+        url: 'https://www.bcbst.com/use-insurance/documents-forms/',
+        external: false,
+      },
+      {
+        id: 85,
+        title: 'Share Website Feedback',
+        description: 'Share Website Feedback',
+        category: 'Support',
+        showOnMenu: true,
+        url: '/shareWebsiteFeedback',
+        external: false,
+      },
+    ],
   },
 ];
 
