@@ -5,7 +5,7 @@ import { Header } from '@/components/foundation/Header';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { IComponent } from '../../../components/IComponent';
+import { IComponent } from '@/components/IComponent';
 import { RepresentativeAccessDetails } from '../models/representativeaccess_details';
 import { MembersRepresentativeItem } from './MembersRepresentativeItem';
 

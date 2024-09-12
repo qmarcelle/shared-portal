@@ -1,9 +1,9 @@
+import { IComponent } from '@/components/IComponent';
+import { Card } from '@/components/foundation/Card';
+import { Spacer } from '@/components/foundation/Spacer';
+import { StatusLabel } from '@/components/foundation/StatusLabel';
 import Image from 'next/image';
 import MedicalIcon from '../../../../public/assets/medical.svg';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { StatusLabel } from '../../../components/foundation/StatusLabel';
 
 interface PriorAuthCardProps extends IComponent {
   priorAuthType: 'Medical' | 'Pharmacy' | 'Dental';

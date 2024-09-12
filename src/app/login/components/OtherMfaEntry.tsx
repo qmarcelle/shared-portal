@@ -2,7 +2,9 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Divider } from '@/components/foundation/Divider';
 import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { ToolTip } from '@/components/foundation/Tooltip';
 import { AppProg } from '../models/app/app_prog';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { useLoginStore } from '../stores/loginStore';
@@ -14,14 +16,17 @@ export type OtherMfaEntryProps = {
 
 export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
   const code = useMfaStore((state) => state.code);
+  const resend = useMfaStore((state) => state.resend);
   const completeMfaProg = useMfaStore((state) => state.completeMfaProg);
   const actions = useMfaStore((state) => ({
     submitMfa: state.submitMfaAuth,
     updateCode: state.updateCode,
     resendMfa: state.resendMfa,
     updateMfaStage: state.updateMfaStage,
+    availMfaOptions: state.availMfaModes,
   }));
-  const apiErrors = useLoginStore((state) => state.apiErrors);
+  const { resetApiErrors, apiErrors } = useLoginStore();
+  const showTooltip = code.length < 1;
 
   function validateSecurityCode() {
     if (code.length > 0) {
@@ -31,6 +36,17 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
     }
   }
 
+  const updateSecurityCode = (value: string) => {
+    actions.updateCode(value);
+    if (apiErrors.length) {
+      resetApiErrors();
+    }
+  };
+
+  const updateCodeResentText = () => {
+    actions.resendMfa();
+  };
+
   return (
     <div id="mainSection">
       <h1>Let&apos;s Confirm Your Identity</h1>
@@ -39,22 +55,38 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
       <Spacer size={32} />
       <TextField
         label="Enter Security Code"
-        valueCallback={(val) => actions.updateCode(val)}
+        valueCallback={(val) => updateSecurityCode(val)}
         errors={apiErrors}
       />
       <Spacer size={24} />
-      <AppLink label="Resend Code" callback={() => actions.resendMfa()} />
+      {resend && <TextBox className="text-lime-700" text="Code resent!" />}
+      {!resend && (
+        <AppLink
+          className="self-start"
+          callback={() => updateCodeResentText()}
+          label="Resend Code"
+        />
+      )}
       <Spacer size={32} />
-      <Button
-        callback={validateSecurityCode()}
-        label={completeMfaProg == AppProg.loading ? 'Confirming' : 'Confirm'}
-      />
+      <ToolTip
+        showTooltip={showTooltip}
+        className="flex flex-row justify-center items-center tooltip"
+        label="Enter a Security Code."
+      >
+        <Button
+          callback={validateSecurityCode()}
+          label={completeMfaProg == AppProg.loading ? 'Confirming' : 'Confirm'}
+        />
+      </ToolTip>
+
       <Spacer size={16} />
-      <AppLink
-        label="Choose a Different Method"
-        callback={() => actions.updateMfaStage(MfaModeState.selection)}
-        className="m-auto"
-      />
+      {actions.availMfaOptions.length > 1 ? (
+        <AppLink
+          label="Choose a Different Method"
+          callback={() => actions.updateMfaStage(MfaModeState.selection)}
+          className="m-auto"
+        />
+      ) : null}
       <Spacer size={32} />
       <Divider />
       <Spacer size={16} />

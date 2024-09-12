@@ -1,5 +1,5 @@
-import { ProgressBar } from '../../../components/foundation/ProgressBar';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { ProgressBar } from '@/components/foundation/ProgressBar';
+import { Spacer } from '@/components/foundation/Spacer';
 
 interface BalanceChartProps {
   label: string;

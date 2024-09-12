@@ -91,6 +91,7 @@ export const ClaimItem = ({
           <p className="font-bold" style={{ color: 'var(--primary-color)' }}>
             {claimInfo.issuer}
           </p>
+
           {!claimInfo.claimsFlag &&
             !claimInfo.priorAuthFlag &&
             !claimInfo.viewCareFlag && (
@@ -104,6 +105,7 @@ export const ClaimItem = ({
               {claimInfo.serviceDate} {claimInfo.memberName}
             </span>
           )}
+
           {claimInfo.claimsFlag && (
             <Row className="mt-2">
               <Row className="flex flex-col mr-2">

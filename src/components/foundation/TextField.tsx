@@ -19,6 +19,7 @@ export interface TextFieldProps {
   suffixIconCallback?: () => void;
   maxWidth?: number;
   isSuffixNeeded?: boolean;
+  highlightError?: boolean;
   onFocusCallback?: () => void;
 }
 
@@ -117,6 +118,7 @@ export const TextField = ({
   onKeydownCallback,
   maxWidth,
   isSuffixNeeded = false,
+  highlightError = true,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -147,7 +149,7 @@ export const TextField = ({
       <div
         className={`flex flex-row items-center input ${
           focus ? 'input-focus' : ''
-        } ${errors!.length > 0 ? 'error-input' : ''}`}
+        } ${errors!.length > 0 && highlightError ? 'error-input' : ''}`}
       >
         <input
           aria-label={label}

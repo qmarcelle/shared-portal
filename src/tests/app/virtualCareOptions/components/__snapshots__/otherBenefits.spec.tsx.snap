@@ -1,0 +1,538 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Other Benefits should render UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h1
+            class="title-1 mb-0 title-2"
+          >
+            Health Programs & Resources
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1 mb-0"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="slider-container carousel flex flex-col"
+          >
+            <div
+              class="slick-slider slick-initialized"
+              dir="ltr"
+            >
+              <div
+                class="slick-list"
+              >
+                <div
+                  class="slick-track"
+                  style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                >
+                  <div
+                    aria-hidden="false"
+                    class="slick-slide slick-active slick-current"
+                    data-index="0"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Alight Second Opinion Advice & Support
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="false"
+                    class="slick-slide slick-active"
+                    data-index="1"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              CareTN One-on-One Health Support 
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="false"
+                    class="slick-slide slick-active"
+                    data-index="2"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Healthy Maternity
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="3"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Test
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            THis is test card.
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="slick-arrow slick-next"
+              >
+                <button
+                  class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
+                  type="button"
+                >
+                  <img
+                    alt="scroll right"
+                    class="icon-sm"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </button>
+                ,
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
+            >
+              <div
+                class="primary-bg-color h-1.5 rounded-full"
+                style="width: 75%;"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+          />
+          <a
+            style="display: block;"
+          >
+            <button
+              class="flex flex-row link-container undefined"
+              style="max-width: max-content; height: auto; display: block;"
+              tabindex="0"
+            >
+              <p
+                class="link"
+              >
+                View All Health Programs & Resources
+              </p>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="title-1 mb-0 title-2"
+        >
+          Health Programs & Resources
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1 mb-0"
+        >
+          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="slider-container carousel flex flex-col"
+        >
+          <div
+            class="slick-slider slick-initialized"
+            dir="ltr"
+          >
+            <div
+              class="slick-list"
+            >
+              <div
+                class="slick-track"
+                style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+              >
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active slick-current"
+                  data-index="0"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Alight Second Opinion Advice & Support
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="1"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            CareTN One-on-One Health Support 
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="2"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Healthy Maternity
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="3"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Test
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          THis is test card.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="slick-arrow slick-next"
+            >
+              <button
+                class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
+                type="button"
+              >
+                <img
+                  alt="scroll right"
+                  class="icon-sm"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </button>
+              ,
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
+          >
+            <div
+              class="primary-bg-color h-1.5 rounded-full"
+              style="width: 75%;"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+        />
+        <a
+          style="display: block;"
+        >
+          <button
+            class="flex flex-row link-container undefined"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              View All Health Programs & Resources
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

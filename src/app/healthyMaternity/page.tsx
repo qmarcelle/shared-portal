@@ -1,4 +1,5 @@
 'use client';
+import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Button } from '@/components/foundation/Button';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
@@ -10,7 +11,6 @@ import healthSupport from '../../../public/assets/health-support.svg';
 import maternity from '../../../public/assets/maternity-breast-pump.svg';
 import primaryCare from '../../../public/assets/primary_care.svg';
 import healthyMaternityVideo from '../../../public/assets/video-healthy-maternity.jpg';
-import { WelcomeBanner } from '../dashboard/components/WelcomeBanner';
 import AboutEnrollment from './components/AboutEnrollment';
 import EnrollmentForm from './components/EnrollmentForm';
 import HealthyMaternityMobileApp from './components/HealthyMaternityMobileApp';

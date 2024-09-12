@@ -2,6 +2,7 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextField } from '@/components/foundation/TextField';
+import { ToolTip } from '@/components/foundation/Tooltip';
 import { AppProg } from '../models/app/app_prog';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { useLoginStore } from '../stores/loginStore';
@@ -16,7 +17,8 @@ export const AuthenticatorAppMfa = () => {
     resendMfa: state.resendMfa,
     updateMfaStage: state.updateMfaStage,
   }));
-  const apiErrors = useLoginStore((state) => state.apiErrors);
+  const { resetApiErrors, apiErrors } = useLoginStore();
+  const showTooltip = code.length < 1;
 
   function validateSecurityCode() {
     if (code.length > 0) {
@@ -25,6 +27,12 @@ export const AuthenticatorAppMfa = () => {
       return undefined;
     }
   }
+  const updateSecurityCode = (value: string) => {
+    actions.updateCode(value);
+    if (apiErrors.length) {
+      resetApiErrors();
+    }
+  };
   return (
     <div id="mainSection">
       <h1>Let&apos;s Confirm Your Identity</h1>
@@ -33,16 +41,22 @@ export const AuthenticatorAppMfa = () => {
       </p>
       <TextField
         label="Enter Security Code"
-        valueCallback={(val) => actions.updateCode(val)}
+        valueCallback={(val) => updateSecurityCode(val)}
         errors={apiErrors}
       />
       <Spacer size={24} />
-      <AppLink label="Resend Code" callback={() => actions.resendMfa()} />
       <Spacer size={32} />
-      <Button
-        callback={validateSecurityCode()}
-        label={completeMfaProg == AppProg.loading ? 'Confirming' : 'Confirm'}
-      />
+      <ToolTip
+        showTooltip={showTooltip}
+        className="flex flex-row justify-center items-center tooltip"
+        label="Enter a Security Code."
+      >
+        <Button
+          callback={validateSecurityCode()}
+          label={completeMfaProg == AppProg.loading ? 'Confirming' : 'Confirm'}
+        />
+      </ToolTip>
+
       <Spacer size={16} />
       <AppLink
         label="Choose a Different Method"
