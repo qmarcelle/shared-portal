@@ -1,0 +1,8 @@
+.health-advisor-image {
+  content: url('/assets/amplify_health_advisors.png');
+  display: inline-block;
+}
+.health-advisor-card {
+  border-radius: 8px;
+  background-color: #e7f6ff;
+}

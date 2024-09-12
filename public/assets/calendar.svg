@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon-App/Function/Calendar</title>
+    <defs>
+        <path d="M8,15 C8.55,15 9,15.45 9,16 C9,16.55 8.55,17 8,17 C7.45,17 7,16.55 7,16 C7,15.45 7.45,15 8,15 Z M16,15 C16.55,15 17,15.45 17,16 C17,16.55 16.55,17 16,17 L12,17 C11.45,17 11,16.55 11,16 C11,15.45 11.45,15 12,15 Z M19,13 L19,19 C19,19.551 18.551,20 18,20 L6,20 C5.449,20 5,19.551 5,19 L5,13 L19,13 Z M7,6 L7,7 C7,7.55 7.45,8 8,8 C8.55,8 9,7.55 9,7 L9,6 L15,6 L15,7 C15,7.55 15.45,8 16,8 C16.55,8 17,7.55 17,7 L17,6 L18,6 C18.551,6 19,6.449 19,7 L19,11 L5,11 L5,7 C5,6.449 5.449,6 6,6 L7,6 Z M18,4 L17,4 L17,3 C17,2.45 16.55,2 16,2 C15.45,2 15,2.45 15,3 L15,4 L9,4 L9,3 C9,2.45 8.55,2 8,2 C7.45,2 7,2.45 7,3 L7,4 L6,4 C4.346,4 3,5.346 3,7 L3,19 C3,20.654 4.346,22 6,22 L18,22 C19.654,22 21,20.654 21,19 L21,7 C21,5.346 19.654,4 18,4" id="path-1"></path>
+    </defs>
+    <g id="Icon-App/Function/Calendar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="24x24-Spacers">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+        </g>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="🎨-Icon-Сolor" fill="#005EB9" xlink:href="#path-1"></use>
+    </g>
+</svg>

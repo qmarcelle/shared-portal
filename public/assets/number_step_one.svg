@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>AEDD6CE4-1AF3-4CAA-8A61-191C56526529</title>
+    <g id="Icon-Enterprise/Secondary/Number-Step-Large/1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Number-Step-1">
+            <path d="M15,30 C23.3,30 30,23.3 30,15 C30,6.7 23.3,0 15,0 C6.7,0 0,6.7 0,15 C0,23.3 6.7,30 15,30" id="Circle" fill="#5DC1FD"></path>
+            <g id="1" transform="translate(12.1074, 9.7939)" fill="#FFFFFF" fill-rule="nonzero">
+                <path d="M4.40234375,10.0625 L2.48144531,10.0625 L2.48144531,2.82324219 C1.7796224,3.47949219 0.952473958,3.96484375 0,4.27929688 L0,2.53613281 C0.501302083,2.37207031 1.04589844,2.06103516 1.63378906,1.60302734 C2.22167969,1.14501953 2.625,0.610677083 2.84375,0 L4.40234375,0 L4.40234375,10.0625 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

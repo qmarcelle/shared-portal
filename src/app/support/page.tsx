@@ -1,0 +1,147 @@
+'use client';
+
+import { AppLink } from '@/components/foundation/AppLink';
+import { Button } from '@/components/foundation/Button';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import {
+  callIcon,
+  chatIcon,
+  emailIcon,
+  findFormIcon,
+  glossaryIcon,
+  questionsIcon,
+} from '@/components/foundation/Icons';
+import { RichText } from '@/components/foundation/RichText';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import Image from 'next/image';
+import { ContactUsItemTile } from './components/ContactUsItemTile';
+import { ResourceMiniCard } from './components/ResourceMiniCard';
+
+const SupportPage = () => {
+  return (
+    <div className="flex flex-col justify-center items-center page">
+      {/* Page Header */}
+      <div className="flex flex-col h-[175px] w-full text-white justify-center items-center brand-gradient">
+        <div className="flex flex-col items-start w-full app-content px-4">
+          <h1 className="title-1">Support</h1>
+          <Spacer size={16} />
+          <TextBox text="We're here to help answer your questions" />
+        </div>
+      </div>
+
+      {/* Page Body */}
+      <Column className="app-content app-base-font-color px-4 my-8 gap-8">
+        {/* Contact Us UI */}
+        <section className="self-stretch px-8">
+          <TextBox type="title-2" text="Contact Us" />
+          <Spacer size={32} />
+          <Row className="justify-stretch gap-8 flex-wrap">
+            <ContactUsItemTile
+              icon={<Image src={callIcon} alt="call" />}
+              label="Call"
+              body={
+                <div>
+                  <TextBox text="8 a.m. - 6 p.m. ET," />
+                  <TextBox text="Mon - Fri" />
+                </div>
+              }
+              footer={
+                <RichText
+                  spans={[
+                    <TextBox key="first" text="Call " />,
+                    <TextBox
+                      className="font-bold"
+                      key="second"
+                      text="1-800-000-0000, TTY 711"
+                    />,
+                  ]}
+                />
+              }
+            />
+            <ContactUsItemTile
+              icon={<Image src={chatIcon} alt="chat" />}
+              label="Chat"
+              body={
+                <div>
+                  <TextBox text="8 a.m. - 5:15 p.m. ET," />
+                  <TextBox text="Mon - Fri" />
+                </div>
+              }
+              footer={<Button callback={() => {}} label="Start a Chat" />}
+            />
+            <ContactUsItemTile
+              icon={<Image src={emailIcon} alt="call" />}
+              label="Email"
+              body={
+                <div>
+                  <TextBox text="If it's after hours or you'd rather send us an email, we're right here." />
+                </div>
+              }
+              footer={<AppLink className="!px-0" label="Send an Email" />}
+            />
+          </Row>
+        </section>
+      </Column>
+      {/* Resources */}
+      <section className="flex flex-col w-full">
+        <div className="app-content self-center relative top-8">
+          <Card className="p-4 mx-4 sm:p-8">
+            <Column>
+              <TextBox type="title-2" text="Resources" />
+              <Spacer size={16} />
+              <TextBox text="Find answers to your health insurance questions or find a form." />
+              <Spacer size={32} />
+              <Row className="gap-4 flex-wrap">
+                <ResourceMiniCard
+                  className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  icon={<Image src={questionsIcon} alt="call" />}
+                  label="Frequently Asked Questions"
+                  link="/faq"
+                  external={false}
+                />
+                <ResourceMiniCard
+                  className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  icon={<Image src={glossaryIcon} alt="call" />}
+                  label="Health Insurance Glossary"
+                  link="https://www.healthcare.gov/glossary"
+                  external={true}
+                />
+                <ResourceMiniCard
+                  className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  icon={<Image src={findFormIcon} alt="call" />}
+                  label="Find a Form"
+                  link="https://www.bcbst.com/use-insurance/documents-forms"
+                  external={true}
+                />
+              </Row>
+            </Column>
+          </Card>
+        </div>
+        <div className="w-full surface-gradient-flipped">
+          <Column className="mt-16 text-white items-center px-4 gap-4">
+            <TextBox
+              type="title-2"
+              className="text-center"
+              text="Have feedback about our website?"
+            />
+            <TextBox
+              className="text-center"
+              text="We want to hear from you. Share your feedback about your experience using our website."
+            />
+            <Button
+              type="primary"
+              className="!bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+              label="Share Your Feedback"
+              callback={() => {}}
+            />
+          </Column>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default SupportPage;

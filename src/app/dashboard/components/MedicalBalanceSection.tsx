@@ -1,10 +1,10 @@
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
 import { Divider } from '@/components/foundation/Divider';
+import { Dropdown, SelectItem } from '@/components/foundation/Dropdown';
+import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Dropdown, SelectItem } from '../../../components/foundation/Dropdown';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
 import { BalanceChart } from './BalanceChart';
 
 interface MedicalBalanceSectionProps extends IComponent {

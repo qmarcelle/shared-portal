@@ -1,7 +1,7 @@
 'use client';
 
 import { SharingAndPermissionsInfo } from '@/app/sharingPermissions/components/SharingAndPermissionsInfo';
-import { Header } from '../../components/foundation/Header';
+import { Header } from '@/components/foundation/Header';
 
 const SharingAndPermissionsPage = () => {
   return (

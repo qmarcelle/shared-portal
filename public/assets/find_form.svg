@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon-Enterprise/Primary/Fill-Form</title>
+    <g id="Icon-Enterprise/Primary/Fill-Form" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-Paperwork" fill-rule="nonzero">
+            <rect id="Rectangle-260" fill="#5DC1FD" x="4.25" y="5.15000012" width="29.7600002" height="39.9099998"></rect>
+            <rect id="Rectangle-261" fill="#FFFFFF" x="7.38999987" y="0.9" width="31.7900009" height="41.0699997"></rect>
+            <rect id="Rectangle-262" stroke="#161616" stroke-width="1.5" stroke-linecap="round" x="7.38999987" y="0.9" width="31.7900009" height="41.0699997"></rect>
+            <line x1="11.9200001" y1="13.0600004" x2="34.4500008" y2="13.0600004" id="Line-19" stroke="#5DC1FD" stroke-linecap="round"></line>
+            <line x1="11.9200001" y1="16.4799996" x2="34.4500008" y2="16.4799996" id="Line-20" stroke="#5DC1FD" stroke-linecap="round"></line>
+            <line x1="11.9200001" y1="30.9699993" x2="23.3299999" y2="30.9699993" id="Line-21" stroke="#5DC1FD" stroke-linecap="round"></line>
+            <line x1="11.9200001" y1="27.5300007" x2="23.3299999" y2="27.5300007" id="Line-22" stroke="#5DC1FD" stroke-linecap="round"></line>
+            <rect id="Rectangle-263" stroke="#5DC1FD" stroke-linecap="round" x="11.9200001" y="20.1100006" width="22.5300007" height="3.1400001"></rect>
+            <rect id="Rectangle-264" stroke="#5DC1FD" stroke-linecap="round" x="11.9200001" y="34.2099991" width="11.4099998" height="3.1400001"></rect>
+            <path d="M42.830002,44.9099996 L32.66,31.76 L29.66,34.26 L39.66,47.26 C39.74395,47.3748243 39.8340837,47.4849851 39.9300043,47.5900076 C40.234379,47.9917868 40.6932718,48.2475317 41.1950761,48.2950514 C41.6968843,48.3425672 42.1956216,48.1775053 42.5700037,47.8400076 C42.9954073,47.5106581 43.2701837,47.0238073 43.3322794,46.4894064 C43.394375,45.9550054 43.2385522,45.4181211 42.8999979,45.0000036" id="Path-779" fill="#5DC1FD"></path>
+            <path d="M33.0899992,31.29 L29.29,34.29 L40.5499983,48.4599982 C40.6424284,48.5889769 40.7461729,48.7094527 40.8599997,48.8199988 C41.2474623,49.2685042 41.80017,49.5408164 42.3918906,49.5747367 C42.983615,49.6086531 43.563819,49.40129 43.9999991,48.9999953 C45.0386305,48.2731734 45.2974692,46.8451148 44.5800009,45.7999983 L33.0899992,31.29 Z" id="Path-780" stroke="#161616" stroke-width="1.5" stroke-linecap="round"></path>
+            <line x1="43.2399983" y1="44.2799988" x2="39.7599983" y2="47.0499988" id="Line-23" stroke="#161616" stroke-width="0.990029991" stroke-linecap="round"></line>
+            <path d="M32.7999998,30.9799996 L28.31,29.33 L29.020001,34.0099984" id="Path-781" fill="#FFFFFF"></path>
+            <path d="M32.7000001,30.7999994 L28.53,29.41 L28.8599999,33.7999994" id="Path-782" stroke="#161616" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M44.8299982,44.849999 C46.0433313,44.2366668 45.1533319,42.2800005 42.16,38.98" id="Path-783" stroke="#161616" stroke-width="1.5" stroke-linecap="round"></path>
+            <line x1="11.9200001" y1="9.64000037" x2="34.4500008" y2="9.64000037" id="Line-24" stroke="#5DC1FD" stroke-linecap="round"></line>
+            <line x1="11.9200001" y1="6.23000004" x2="34.4500008" y2="6.23000004" id="Line-25" stroke="#5DC1FD" stroke-linecap="round"></line>
+            <g id="50x50-Spacers">
+                <rect id="Rectangle-265" x="0" y="0" width="50" height="50"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

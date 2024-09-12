@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { IComponent } from '@/components/IComponent';
 import { ClaimItem } from '@/components/composite/ClaimItem';
+import { Column } from '@/components/foundation/Column';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { RichDropDown } from '@/components/foundation/RichDropDown';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
-import { IComponent } from '../../../components/IComponent';
-import { Column } from '../../../components/foundation/Column';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 import { PriorAuthFilterDetails } from '../models/prior_AuthFilterDetails';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
