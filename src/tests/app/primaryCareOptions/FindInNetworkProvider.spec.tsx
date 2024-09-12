@@ -1,6 +1,6 @@
+import { InfoCard } from '@/components/composite/InfoCard';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { InfoCard } from '../../../components/composite/InfoCard';
 import FindCare from '../../../public/assets/Find-Care.svg';
 
 const renderUI = () => {

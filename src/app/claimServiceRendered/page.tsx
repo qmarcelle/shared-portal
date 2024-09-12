@@ -3,6 +3,7 @@
 import { ServicesRenderedSection } from '@/app/claimServiceRendered/components/ServicesRenderedSection';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
+import { PayProvider } from './components/PayProvider';
 
 const ClaimServiceRendered = () => {
   return (
@@ -67,7 +68,7 @@ const ClaimServiceRendered = () => {
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <div></div>
+            <PayProvider className="large-section" balanceAmount={30.24} />
           </Column>
         </section>
       </Column>

@@ -105,6 +105,18 @@
   margin-right: 5px;
 }
 
+#signoutButton::after {
+  content: url('/assets/Signout.svg');
+  display: inline-block;
+  margin-left: 7px;
+}
+
+#signoutButton:hover::after {
+  content: url('/assets/signout-white.svg');
+  display: inline-block;
+  margin-left: 7px;
+}
+
 #contactbutton,
 #resendbutton,
 #choosebutton {
@@ -165,4 +177,20 @@
 .sliderdots .slick-dots li button:before {
   border-color: #005eb9;
   font-size: 12px;
+}
+
+.access-code {
+  width: 114px;
+  height: 63px;
+  background-color: #e7f6ff;
+}
+.prior-auth-card {
+  width: 39%;
+}
+.prior-auth-card .absolute {
+  right: -9px;
+  top: -4px;
+}
+.download-pdf .gap-1 div.flex-col {
+  margin: 0.25rem;
 }

@@ -20,6 +20,7 @@ export interface TextFieldProps extends IComponent {
   suffixIconCallback?: () => void;
   maxWidth?: number;
   isSuffixNeeded?: boolean;
+  highlightError?: boolean;
   onFocusCallback?: () => void;
   minValue?: number;
   maxValue?: number;
@@ -123,6 +124,7 @@ export const TextField = ({
   minValue,
   maxValue,
   className = '',
+  highlightError = true,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -153,7 +155,7 @@ export const TextField = ({
       <div
         className={`flex flex-row items-center input ${className} ${
           focus ? 'input-focus' : ''
-        } ${errors!.length > 0 ? 'error-input' : ''}`}
+        } ${errors!.length > 0 && highlightError ? 'error-input' : ''}`}
       >
         <input
           aria-label={label}

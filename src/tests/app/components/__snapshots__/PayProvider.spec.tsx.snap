@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PayProvider should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main undefined"
+      >
+        <div>
+          <p
+            class="title-2"
+          >
+            Pay This Provider
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+          />
+          <div
+            class="flex flex-row"
+          >
+            <p
+              class="body-1"
+            >
+              Your estimated balance is 
+            </p>
+            <p
+              class="body-1 font-bold"
+            >
+              $30.24
+            </p>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+          />
+          <div
+            class="flex flex-row"
+          >
+            <div
+              class="flex flex-row gap-2 p-2  checkbox-disabled"
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Mark as Paid
+                  </p>
+                </label>
+              </div>
+            </div>
+            <img
+              alt="info icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+          />
+          <button
+            aria-label="Pay This Provider"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+            type="button"
+          >
+            Pay This Provider
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main undefined"
+    >
+      <div>
+        <p
+          class="title-2"
+        >
+          Pay This Provider
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <p
+            class="body-1"
+          >
+            Your estimated balance is 
+          </p>
+          <p
+            class="body-1 font-bold"
+          >
+            $30.24
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <div
+            class="flex flex-row gap-2 p-2  checkbox-disabled"
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Mark as Paid
+                </p>
+              </label>
+            </div>
+          </div>
+          <img
+            alt="info icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <button
+          aria-label="Pay This Provider"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          Pay This Provider
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
