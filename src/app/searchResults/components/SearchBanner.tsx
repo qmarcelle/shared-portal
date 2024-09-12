@@ -12,13 +12,17 @@ export const SearchBanner = () => {
     <Card className="searchBanner container">
       <Column>
         <Spacer size={16} />
-        <Header className="title-3" text="Talk With a Care Provider" />
+        <Header className="title-3 pl-2" text="Talk With a Care Provider" />
         <Spacer size={16} />
-        <TextBox text="Schedule an appointment or get health information 24/7 for non-emergency conditions." />
-        <Spacer size={32} />
+        <TextBox
+          className="pl-2"
+          text="Schedule an appointment or get health information 24/7 for non-emergency conditions."
+        />
+        <Spacer size={16} />
         <AppLink
           label="Get Started with Teladoc Health"
-          className="searchBannerLink"
+          className="searchBannerLink inline"
+          displayStyle="inline-flex"
           icon={<Image src={externalIcon} alt="external" />}
         />
       </Column>
