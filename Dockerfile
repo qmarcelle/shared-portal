@@ -7,6 +7,11 @@ ARG NEXT_PUBLIC_PASSWORD_RESET=https://test.bcbst.com/forgot-password/
 ARG NEXT_PUBLIC_LOGIN_REDIRECT_URL=https://members-gdev.bcbst.com/wps/myportal/member/
 ARG NEXT_PUBLIC_PORTAL_URL='https://test.bcbst.com/'
 
+ARG NEXT_PUBLIC_SILVER_FIT=https://www.silverandfit.com/
+ARG NEXT_PUBLIC_ALIGHT=https://mymedicalally.alight.com/s/login/
+ARG NEXT_PUBLIC_HINGE_HEALTH=https://hinge.health/bcbstnfi
+ARG NEXT_PUBLIC_QUEST_SELECT=https://www.questselect.com/
+
 # Set the working directory to /app
 WORKDIR  /app
 

@@ -12,7 +12,7 @@ import { useMediaQuery } from 'react-responsive';
 import AbleToIcon from '../../../../public/assets/ableTo.svg';
 import BlueTennesseIcon from '../../../../public/assets/blueTennesee.svg';
 import HingeHealthIcon from '../../../../public/assets/hingeHealth.svg';
-import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
+import TelaDocIcon from '../../../../public/assets/teladoc_health.svg';
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {
