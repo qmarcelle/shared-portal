@@ -1,0 +1,592 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Security Page should render page correctly when mfa is enabled 1`] = `
+<div>
+  <div
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1 pl-3"
+      >
+        Security Settings
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-36_67 items-stretch"
+        >
+          <div
+            class="card-main small-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Login Information
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                Below is your username and a link to change your password.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row m-2  "
+              >
+                <p
+                  class="font-bold"
+                >
+                  Username
+                </p>
+                <div
+                  class="flex flex-row justify-center items-center toptooltip pl-2"
+                >
+                  <span
+                    class="tooltiptext"
+                  >
+                    To change your username, you will need to delete your registered account and create a new account. This will not affect your health plan information.
+                  </span>
+                  <img
+                    alt="Info"
+                    class="icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <p
+                class="m-2"
+              >
+                Testuser
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+              />
+              <div
+                aria-label="divider"
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-col p-1 false cursor-pointer link-row-container"
+              >
+                <div
+                  class="flex flex-row m-2"
+                >
+                  <p
+                    class="link-row-head mr-2"
+                  >
+                    Change My Password
+                  </p>
+                  <img
+                    alt="link"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-main small-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Identity Protection Services
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container pl-0"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    View Identity Protection Services
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Multi-Factor Authentication (MFA)
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                   Multi-factor authentication (MFA) will confirm your identity when you log in,    protecting your important health information.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="mb-8"
+              >
+                <div
+                  class="card-elevated container"
+                >
+                  <div
+                    class="flex flex-col flex-grow m-4"
+                  >
+                    <div
+                      class="flex flex-row items-center justify-between mb-4"
+                    >
+                      <p
+                        class="body-1 font-bold mt-2"
+                      >
+                        MFA is 
+                        turned on.
+                      </p>
+                      <label
+                        aria-label="toggle mfa"
+                        class="switch"
+                      >
+                        <input
+                          checked=""
+                          type="checkbox"
+                        />
+                        <div
+                          class="flex items-center toggle-slider round justify-start"
+                        >
+                          <p
+                            class="hidden text-primary mt-[6px] mr-[6px] body-1"
+                          >
+                            OFF
+                          </p>
+                          <p
+                            class="block text-white mt-1 ml-2 body-1"
+                          >
+                            ON
+                          </p>
+                        </div>
+                      </label>
+                    </div>
+                    <p
+                      class="body-1"
+                    >
+                      We'll send a one-time security code to your email by default. Set up   multiple methods for more options when you log in.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <div
+                    class="flex flex-col mb-8"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-desktop"
+                          style="min-width: 40px; height: 24px; background-color: rgb(242, 242, 242); color: rgb(51, 51, 51); border-color: gray; border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="off-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          OFF
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-mobile"
+                          style="min-width: 40px; height: 24px; background-color: rgb(242, 242, 242); color: rgb(51, 51, 51); border-color: gray; border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="off-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          OFF
+                        </div>
+                        <p
+                          class="body-1 underline underline-offset-4 decoration-dashed app-underline font-bold"
+                        >
+                          Authenticator App
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Set Up Method
+                          </p>
+                          <div
+                            class="ml-2"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-label="divider"
+                      class="mt-8"
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="flex flex-col mb-8"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-desktop"
+                          style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="on-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          ON
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-mobile"
+                          style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="on-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          ON
+                        </div>
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Email Message
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1 mb-4"
+                        >
+                          Send a security code to testEmail@bcbst.com.
+                        </p>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Remove Method
+                          </p>
+                          <div
+                            class="ml-2"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-label="divider"
+                      class="mt-8"
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="flex flex-col mb-8"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-desktop"
+                          style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="on-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          ON
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-mobile"
+                          style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="on-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          ON
+                        </div>
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Text Message
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1 mb-4"
+                        >
+                          Send a security code to (467) 589-6875.
+                        </p>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Remove Method
+                          </p>
+                          <div
+                            class="ml-2"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-label="divider"
+                      class="mt-8"
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="flex flex-col mb-8"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-desktop"
+                          style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="on-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          ON
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="on-off justify-center items-center body-2 onOff-mobile"
+                          style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
+                        >
+                          <div>
+                            <span
+                              class="on-dot"
+                            >
+                               
+                            </span>
+                          </div>
+                          ON
+                        </div>
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Voice Call
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1 mb-4"
+                        >
+                          Send a security code to (467) 589-6875.
+                        </p>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Remove Method
+                          </p>
+                          <div
+                            class="ml-2"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;

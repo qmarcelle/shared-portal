@@ -1,12 +1,12 @@
+import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import DownloadIcon from '../../../../public/assets/Download.svg';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 
 interface AuthorizationFormProps extends IComponent {
   linkLabel: string;

@@ -299,10 +299,10 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <div
-                      class="flex flex-col items-center"
+                      class="flex flex-col"
                     >
                       <p
-                        class="body-1 font-bold"
+                        class="body-1 font-bold text-center"
                       >
                         (111) 111-1111
                       </p>

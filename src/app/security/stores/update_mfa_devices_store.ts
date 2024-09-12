@@ -5,6 +5,7 @@ import { ESResponse } from '@/models/enterprise/esResponse';
 import { logger } from '@/utils/logger';
 import { StateCreator } from 'zustand';
 import { deleteMfaDevices } from '../actions/deleteMfaDevices';
+import { callToggleMfa } from '../actions/toggleMfaDevice';
 import { updateMfaDevices } from '../actions/updateMfaDevices';
 import { verifyMfaDevices } from '../actions/verifyMfaDevices';
 import { errorCodeMessageMap } from '../models/error_code_message_map';
@@ -36,6 +37,9 @@ export type UpdateMfaDevicesStore = {
   resetState: () => void;
   updateInvalidError: (errors: string[]) => void;
   invalidErrors?: string[];
+  resetVerifyMfaError: () => void;
+  toggleMfaDevices: () => void;
+  toggleMfaDeviceError: boolean;
 };
 
 export const createUpdateMfaDevicesStore: StateCreator<
@@ -66,7 +70,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
   updateMfaDevice: async (deviceType: MfaDeviceType, value?: string) => {
     try {
       let request: UpdateMfaRequest = {
-        userId: useLoginStore.getState().username,
+        userId: '',
         deviceType: deviceType,
       };
       if (value) {
@@ -136,6 +140,7 @@ export const createUpdateMfaDevicesStore: StateCreator<
       const errorMessage = errorCodeMessageMap.get(
         (err as ESResponse<VerifyMfaResponse>).errorCode!,
       );
+      if (!errorMessage) throw err;
       set({
         verifyMfaResult: {
           state: AppProg.failed,
@@ -177,6 +182,37 @@ export const createUpdateMfaDevicesStore: StateCreator<
         verifyMfaResult: undefined,
         updatedMfaResult: undefined,
       }));
+    }
+  },
+  resetVerifyMfaError: () => {
+    set(() => ({
+      verifyMfaResult: {
+        ...(get().verifyMfaResult ??
+          ({} as ComponentDetails<VerifyMfaResponse>)),
+        errors: [],
+      },
+    }));
+  },
+  toggleMfaDeviceError: false,
+  toggleMfaDevices: async () => {
+    const newToggleState = !get().mfaDevicesEnabled;
+    try {
+      set({ mfaDevicesEnabled: newToggleState });
+      const result = await callToggleMfa(newToggleState);
+      if (result.data) {
+        set({
+          mfaDevicesEnabled:
+            result.data.mfaEnabled.toLocaleLowerCase() == 'true' ? true : false,
+          toggleMfaDeviceError: false,
+        });
+        if (result.data.mfaEnabled.toLocaleLowerCase() == 'true') {
+          get().loadMfaDevices();
+        }
+      } else {
+        set({ toggleMfaDeviceError: true, mfaDevicesEnabled: !newToggleState });
+      }
+    } catch (err) {
+      set({ toggleMfaDeviceError: true, mfaDevicesEnabled: !newToggleState });
     }
   },
 });

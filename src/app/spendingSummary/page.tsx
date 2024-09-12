@@ -1,6 +1,7 @@
 'use client';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
+import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
 import {
   dentalIcon,
@@ -13,7 +14,6 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
 import { useAppModalStore } from '../../components/foundation/AppModal';
-import { Filter } from '../../components/foundation/Filter';
 import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
 import { DownloadPdf } from '../spendingSummary/journeys/DownloadPdf';
 
