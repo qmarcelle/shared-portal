@@ -1,5 +1,7 @@
 'use client';
+import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
+import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
 import {
   dentalIcon,
@@ -11,13 +13,16 @@ import {
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
-import { Filter } from '../../components/foundation/Filter';
+import { useAppModalStore } from '../../components/foundation/AppModal';
 import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
+import { DownloadPdf } from '../spendingSummary/journeys/DownloadPdf';
 
 const SpendingSummary = () => {
+  const { showAppModal } = useAppModalStore();
+
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Column className="app-content app-base-font-color">
+      <Column className="app-content app-base-font-color mt-20">
         <Header
           text="Spending Summary"
           className="m-4 mb-0 !font-light !text-[32px]/[40px]"
@@ -30,14 +35,16 @@ const SpendingSummary = () => {
                 processed.
               </Row>,
               <Row className="body-1 flex-grow align-top mt-4 ml-4" key={1}>
-                <Column className="link ml-4 !no-underline">
-                  <a className="inline-flex">
-                    Download a PDF Statement
-                    <span>
-                      <Image src={downloadIcon} alt="external" />
-                    </span>
-                  </a>
-                </Column>
+                <AppLink
+                  className="!flex pl-0 manage-underline"
+                  label="Download a PDF Statement"
+                  icon={<Image src={downloadIcon} alt="external" />}
+                  callback={() =>
+                    showAppModal({
+                      content: <DownloadPdf />,
+                    })
+                  }
+                />
               </Row>,
             ]}
           />
@@ -46,12 +53,13 @@ const SpendingSummary = () => {
         <section className="flex flex-row items-start app-body" id="Filter">
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <Filter
-              className="large-section px-0 m-0"
+              className="large-section px-0 m-0 w-11/12"
               filterHeading="Filter Summary"
-              dropDown={[
+              filterItems={[
                 {
-                  dropNownName: 'Member',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Member',
+                  value: [
                     {
                       label: 'All Members',
                       value: '1',
@@ -86,8 +94,9 @@ const SpendingSummary = () => {
                   selectedValue: { label: 'All Members', value: '1', id: '1' },
                 },
                 {
-                  dropNownName: 'Date Range',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Date Range',
+                  value: [
                     {
                       label: '2023',
                       value: '1',
@@ -107,8 +116,9 @@ const SpendingSummary = () => {
                   selectedValue: { label: '2023', value: '1', id: '1' },
                 },
                 {
-                  dropNownName: 'Claim Type',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Claim Type',
+                  value: [
                     {
                       label: 'All Types',
                       value: '1',

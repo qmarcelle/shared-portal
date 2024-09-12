@@ -1,6 +1,6 @@
-import { Card } from '../../../components/foundation/Card';
-import { Column } from '../../../components/foundation/Column';
-import { LinkRow } from '../../../components/foundation/LinkRow';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { LinkRow } from '@/components/foundation/LinkRow';
 
 export const SharingAndPermissionsInfo = () => {
   return (

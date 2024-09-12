@@ -1,17 +1,24 @@
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { ListOrder } from '@/components/foundation/ListOrder';
+import { Row } from '@/components/foundation/Row';
+import { Spacer, SpacerX } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
-import AbleToIcon from '../../../../public/assets/ableTo.svg';
-import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Column } from '../../../components/foundation/Column';
-import { ListOrder } from '../../../components/foundation/ListOrder';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer, SpacerX } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import ableToIcon from '../../../../public/assets/ableto.svg';
+import alightIcon from '../../../../public/assets/alight.svg';
+import careTNIcon from '../../../../public/assets/caretn.svg';
+import healthyMaternityIcon from '../../../../public/assets/healthymaternity.svg';
+import hingeHealthIcon from '../../../../public/assets/hinge-health.svg';
+import questSelectIcon from '../../../../public/assets/questselect.svg';
+import sanitasIcon from '../../../../public/assets/sanitas-bot.svg';
+import silverFitIcon from '../../../../public/assets/silver-and-fit.svg';
+import teladocIcon from '../../../../public/assets/teladoc_health.svg';
+
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {
@@ -23,7 +30,6 @@ interface HealthCareItemProps extends IComponent {
 export const HealthCareItem = ({
   healthCareInfo,
   onClick,
-  className,
   itemDataTitle,
   itemData,
 }: HealthCareItemProps) => {
@@ -36,11 +42,23 @@ export const HealthCareItem = ({
 
   function getHealthIcon() {
     if (healthCareInfo.icon == 'TelaDoc') {
-      return TelaDocIcon;
+      return teladocIcon;
     } else if (healthCareInfo.icon == 'AbleToIcon') {
-      return AbleToIcon;
+      return ableToIcon;
     } else if (healthCareInfo.icon == 'Sanitas') {
-      return SanitasIcon;
+      return sanitasIcon;
+    } else if (healthCareInfo.icon == 'Alight') {
+      return alightIcon;
+    } else if (healthCareInfo.icon == 'CareTN') {
+      return careTNIcon;
+    } else if (healthCareInfo.icon == 'SilverFit') {
+      return silverFitIcon;
+    } else if (healthCareInfo.icon == 'QuestSelect') {
+      return questSelectIcon;
+    } else if (healthCareInfo.icon == 'HingeHealth') {
+      return hingeHealthIcon;
+    } else if (healthCareInfo.icon == 'HealthyMaternity') {
+      return healthyMaternityIcon;
     }
   }
 
@@ -51,11 +69,13 @@ export const HealthCareItem = ({
           className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
           text={healthCareInfo.healthcareType}
         ></TextBox>
-        <Image
-          src={getHealthIcon()}
-          className="w-1/2"
-          alt={healthCareInfo.icon}
-        />
+        {healthCareInfo.icon && (
+          <Image
+            src={getHealthIcon()}
+            className="w-1/2"
+            alt={healthCareInfo.icon}
+          />
+        )}
         <Spacer axis="horizontal" size={8} />
         <Column className="flex flex-col flex-grow">
           <TextBox
@@ -83,11 +103,13 @@ export const HealthCareItem = ({
             className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
             text="Medical Health"
           ></TextBox>
-          <Image
-            src={getHealthIcon()}
-            className="w-1/2"
-            alt={healthCareInfo.icon}
-          />
+          {healthCareInfo.icon && (
+            <Image
+              src={getHealthIcon()}
+              className="w-1/2"
+              alt={healthCareInfo.icon}
+            />
+          )}
           <SpacerX size={8} />
           <Column className="flex flex-col flex-grow">
             <TextBox
@@ -110,7 +132,7 @@ export const HealthCareItem = ({
 
   return isClient ? (
     <Card
-      className={`cursor-pointer ${className} md:w-1/3`}
+      className={'cursor-pointer ${className} md:w-80'}
       type="elevated"
       onClick={onClick}
     >

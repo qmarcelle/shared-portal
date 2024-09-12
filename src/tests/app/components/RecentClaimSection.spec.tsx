@@ -1,6 +1,6 @@
-import { RecentClaimSection } from '../../../app/dashboard/components/RecentClaimSection';
 import { render, screen } from '@testing-library/react';
 import { Context as ResponsiveContext } from 'react-responsive';
+import { RecentClaimSection } from '../../../app/dashboard/components/RecentClaimSection';
 
 const renderUI = (width: number = 1000) => {
   return render(

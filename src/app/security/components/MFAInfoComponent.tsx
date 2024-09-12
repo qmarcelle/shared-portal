@@ -12,6 +12,8 @@ import { AddMFAVoiceJourney } from '../components/journeys/AddMFAVoiceJourney';
 import { DisableMFAJourney } from '../components/journeys/DisableMFAJourney';
 import { MfaDevice } from '../models/mfa_device';
 import { MfaDeviceType } from '../models/mfa_device_type';
+import { useSecuritySettingsStore } from '../stores/security_settings_store';
+import { ErrorMfaCard } from './ErrorMfaCard';
 
 interface MFAInfoComponentProps {
   mfaDevices: Map<MfaDeviceType, MfaDevice>;
@@ -19,6 +21,7 @@ interface MFAInfoComponentProps {
 
 export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
   const { showAppModal } = useAppModalStore();
+  const { getDeviceError, mfaDevicesEnabled } = useSecuritySettingsStore();
   const getOnClickContent = (mfa: MfaDevice) => {
     if (mfa.enabled == true) {
       return (
@@ -45,17 +48,6 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
 
   const authenticator = mfaDevices.get(MfaDeviceType.authenticator)!;
 
-  const checkIfAllDisabled = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    for (const [_, device] of mfaDevices) {
-      if (device.enabled) {
-        return false;
-      }
-    }
-
-    return true;
-  };
-
   return (
     <Card className="large-section">
       <div className="flex flex-col">
@@ -63,71 +55,83 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
         <Spacer size={16} />
         <TextBox
           text="
-                When you log in to your account, you'll be prompted to enter a one-time
-                security code. Set up multiple methods for more options when you log in."
+                Multi-factor authentication (MFA) will confirm your identity when you log in, 
+                protecting your important health information."
         />
         <Spacer size={32} />
-        {checkIfAllDisabled() && (
+        {getDeviceError && (
+          <ErrorMfaCard
+            className="mt-4"
+            errorText="We're not able to load your MFA settings right now. Please try again later."
+          />
+        )}
+        {!getDeviceError && (
           <div className="mb-8">
-            <DisableMFAWarning />
+            {/* TODO: Update key during store integration */}
+            <DisableMFAWarning
+              key={mfaDevicesEnabled ? '1' : '0'}
+              enabled={mfaDevicesEnabled}
+            />
           </div>
         )}
-        <ul>
-          <li key={'AuthApp'}>
-            <UpdateRowWithStatus
-              className="mb-8"
-              onClick={() =>
-                showAppModal({
-                  content: getOnClickContent(
-                    mfaDevices.get(MfaDeviceType.authenticator)!,
-                  ),
-                })
+        {mfaDevicesEnabled && !getDeviceError && (
+          <ul>
+            <li key={'AuthApp'}>
+              <UpdateRowWithStatus
+                className="mb-8"
+                onClick={() =>
+                  showAppModal({
+                    content: getOnClickContent(
+                      mfaDevices.get(MfaDeviceType.authenticator)!,
+                    ),
+                  })
+                }
+                label={
+                  <TextBox
+                    className="underline underline-offset-4 decoration-dashed app-underline font-bold"
+                    text="Authenticator App"
+                  />
+                }
+                enabled={
+                  mfaDevices.get(MfaDeviceType.authenticator)?.enabled ?? false
+                }
+                subLabel={
+                  authenticator.enabled ? authenticator.subLabel : undefined
+                }
+                methodName={
+                  mfaDevices.get(MfaDeviceType.authenticator)?.enabled
+                    ? 'Remove Method'
+                    : 'Set Up Method'
+                }
+                divider={true}
+              />
+            </li>
+            {[...mfaDevices.entries()].map(([key, val], index) => {
+              if (key == MfaDeviceType.authenticator) {
+                return null;
               }
-              label={
-                <TextBox
-                  className="underline underline-offset-4 decoration-dashed app-underline font-bold"
-                  text="Authenticator App"
-                />
-              }
-              enabled={
-                mfaDevices.get(MfaDeviceType.authenticator)?.enabled ?? false
-              }
-              subLabel={
-                authenticator.enabled ? authenticator.subLabel : undefined
-              }
-              methodName={
-                mfaDevices.get(MfaDeviceType.authenticator)?.enabled
-                  ? 'Remove Method'
-                  : 'Set Up Method'
-              }
-              divider={true}
-            />
-          </li>
-          {[...mfaDevices.entries()].map(([key, val], index) => {
-            if (key == MfaDeviceType.authenticator) {
-              return null;
-            }
-            return (
-              <li key={val.label}>
-                <UpdateRowWithStatus
-                  className="mb-8"
-                  onClick={() =>
-                    showAppModal({ content: getOnClickContent(val) })
-                  }
-                  label={<TextBox className="font-bold" text={val.label} />}
-                  subLabel={val.enabled ? getEnabledText(val) : undefined}
-                  enabled={mfaDevices.get(key)?.enabled ?? false}
-                  methodName={
-                    mfaDevices.get(key)?.enabled
-                      ? 'Remove Method'
-                      : 'Set Up Method'
-                  }
-                  divider={index == 3 ? false : true}
-                />
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={val.label}>
+                  <UpdateRowWithStatus
+                    className="mb-8"
+                    onClick={() =>
+                      showAppModal({ content: getOnClickContent(val) })
+                    }
+                    label={<TextBox className="font-bold" text={val.label} />}
+                    subLabel={val.enabled ? getEnabledText(val) : undefined}
+                    enabled={mfaDevices.get(key)?.enabled ?? false}
+                    methodName={
+                      mfaDevices.get(key)?.enabled
+                        ? 'Remove Method'
+                        : 'Set Up Method'
+                    }
+                    divider={index == 3 ? false : true}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </Card>
   );

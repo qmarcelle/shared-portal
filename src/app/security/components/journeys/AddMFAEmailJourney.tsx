@@ -1,6 +1,5 @@
 import { ChangeAuthDeviceSlide } from '@/components/composite/ChangeAuthDeviceSlide';
 import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
-import { InitModalSlide } from '@/components/composite/InitModalSlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -38,6 +37,7 @@ export const AddMFAEmailJourney = ({
     verifyMfaResult,
     invalidErrors,
     updateInvalidError,
+    resetVerifyMfaError,
   } = useSecuritySettingsStore();
   const { dismissModal } = useAppModalStore();
   /* const initChange = () => {
@@ -50,19 +50,32 @@ export const AddMFAEmailJourney = ({
   const [mainAuthDevice, setMainAuthDevice] = useState(email);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
+  const [resentCode, setResentCode] = useState(false);
   // const [emailError, setemailError] = useState<string[]>([]);
   useEffect(() => {
     updateInvalidError([]);
   }, [updateInvalidError]);
 
-  const initNewDevice = async () => {
+  const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
-      await updateMfaDevice(MfaDeviceType.email, newAuthDevice);
-      setMainAuthDevice(newAuthDevice);
+      let email = '';
+      if (newAuthDevice == '') {
+        email = mainAuthDevice;
+        setNewAuthDevice(mainAuthDevice);
+      } else {
+        email = newAuthDevice;
+        setMainAuthDevice(newAuthDevice);
+      }
+      if (value) {
+        setResentCode(true);
+      } else {
+        setResentCode(false);
+      }
+      await updateMfaDevice(MfaDeviceType.email, email);
       changePageIndex?.(1, true);
     } catch (errorMessage: unknown) {
-      changePageIndex?.(4, true);
+      changePageIndex?.(3, true);
     }
   };
 
@@ -78,10 +91,19 @@ export const AddMFAEmailJourney = ({
       if (response?.state == AppProg.success) {
         changePageIndex?.(2, false);
       }
+
+      if (response?.state == AppProg.failed && resentCode) {
+        throw 'error';
+      }
     } catch (errorMessage: unknown) {
-      changePageIndex?.(4, true);
+      changePageIndex?.(3, true);
     }
   };
+
+  /* const sendCode = async () => {
+    initNewDevice(false);
+    changePageIndex?.(1, true);
+  }; */
 
   const validateEmailAddress = (value: string) => {
     setNewAuthDevice(value);
@@ -98,29 +120,33 @@ export const AddMFAEmailJourney = ({
     }
   };
 
+  const updateSecurityCode = (value: string) => {
+    setConfirmCode(value);
+    if (verifyMfaResult?.errors.length) {
+      resetVerifyMfaError();
+    }
+  };
+
   const pages = [
-    <InitModalSlide
+    <ChangeAuthDeviceSlide
       key={0}
       label="Email Setup"
-      subLabel={
-        <Column>
-          <TextBox
-            className="body-1 center"
-            text={'Continue with your current email or change it.'}
-          />
-          <TextBox className="body-1 text-center" text="Your email is:" />
-        </Column>
-      }
-      // actionArea="chall123@gmail.com"
-      actionArea={mainAuthDevice}
-      changeAuthButton={
-        <AppLink
-          label="Change Your Email Address"
-          callback={() => changePageIndex?.(3, true)}
+      subLabel="Enter the email address you'd like to use for communications and security settings."
+      actionArea={
+        <TextField
+          valueCallback={(val) => validateEmailAddress(val)}
+          label="Email Address"
+          type="email"
+          value={newAuthDevice}
+          errors={invalidErrors}
         />
       }
       cancelCallback={() => dismissModal()}
-      nextCallback={() => changePageIndex?.(1, true)}
+      nextCallback={
+        isValidEmailAddress(newAuthDevice) && newAuthDevice.length !== 0
+          ? () => initNewDevice(false)
+          : undefined
+      }
     />,
 
     <InputModalSlide
@@ -136,16 +162,21 @@ export const AddMFAEmailJourney = ({
           <Spacer size={32} />
           <TextField
             type="text"
-            valueCallback={(val) => setConfirmCode(val)}
+            valueCallback={(val) => updateSecurityCode(val)}
             label="Enter Security Code"
             errors={verifyMfaResult?.errors}
           ></TextField>
           <Spacer size={16} />
-          <AppLink
-            className="self-start"
-            callback={initNewDevice}
-            label="Resend Code"
-          />
+          {resentCode && (
+            <TextBox className="body-1 text-lime-700" text="Code resent!" />
+          )}
+          {!resentCode && (
+            <AppLink
+              className="self-start"
+              callback={() => initNewDevice(true)}
+              label="Resend Code"
+            />
+          )}
           <Spacer size={32} />
         </Column>
       }
@@ -168,28 +199,8 @@ export const AddMFAEmailJourney = ({
       }
       doneCallBack={() => dismissModal()}
     />,
-    <ChangeAuthDeviceSlide
-      key={3}
-      label="Change Email Address"
-      subLabel="enter the new email address you'd like to use for communications and security settings."
-      actionArea={
-        <TextField
-          valueCallback={(val) => validateEmailAddress(val)}
-          label="Email Address"
-          type="email"
-          value={newAuthDevice}
-          errors={invalidErrors}
-        />
-      }
-      cancelCallback={() => dismissModal()}
-      nextCallback={
-        isValidEmailAddress(newAuthDevice) && newAuthDevice.length !== 0
-          ? () => initNewDevice()
-          : undefined
-      }
-    />,
     <ErrorDisplaySlide
-      key={4}
+      key={3}
       label="Try Again Later"
       body={
         <Column className="items-center">

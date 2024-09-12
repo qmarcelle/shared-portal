@@ -1,0 +1,529 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Amplify Health Support Page should render the page correctly 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <section
+      class="flex flex-col w-full"
+    >
+      <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient surface-gradient-amplify min-h-[450px] px-4 md:min-h-[325px] lg:min-h-[250px]"
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <h1
+            class="title-1"
+          >
+             
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="justify-between md:flex md:flex-row"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h1
+                class="title-1 title-1"
+              >
+                Support
+              </h1>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 max-w-[400px]"
+              >
+                Your advisors are here to answer your questions. Chat online or call   1-800-000-0000, anytime 24/7.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <section
+                class="md:flex md:flex-row"
+              >
+                <button
+                  aria-label="Start a Chat"
+                  class="button-text card text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                  type="button"
+                >
+                  Start a Chat
+                </button>
+                <span
+                  style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                />
+                <button
+                  aria-label="Send an Email"
+                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content mt-[10px] md:mt-[0px]"
+                  type="button"
+                >
+                  Send an Email
+                </button>
+              </section>
+            </div>
+            <span
+              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+            />
+            <img
+              alt="Amplify Health App"
+              class="min-h-[200px] self-end object-cover md:max-lg:mt-20 sm:self-auto basis-1/2 min-w-0"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </section>
+        </div>
+      </div>
+      <div
+        class="flex flex-col relative bottom-[3rem]"
+      >
+        <div
+          class="app-content self-center"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h1
+                class="title-1 title-3"
+              >
+                Your AmplifyHealth Advisors can:
+              </h1>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <section
+                class="md:flex md:flex-row"
+              >
+                <div
+                  class="flex flex-col max-w-[450px]"
+                >
+                  <div
+                    class="flex flex-row py-2"
+                  >
+                    <img
+                      alt="search"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 pl-2"
+                    >
+                      Find providers close to you
+                    </p>
+                  </div>
+                  <div
+                    class="flex flex-row py-2"
+                  >
+                    <img
+                      alt="dollar"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 pl-2"
+                    >
+                      Save you money on health costs
+                    </p>
+                  </div>
+                  <div
+                    class="flex flex-row py-2"
+                  >
+                    <img
+                      alt="medical"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 pl-2"
+                    >
+                      Help with prior approvals or other complex parts of health care
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row py-2"
+                  >
+                    <img
+                      alt="calendar"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 pl-2"
+                    >
+                      Schedule your appointments, tests and procedures
+                    </p>
+                  </div>
+                  <div
+                    class="flex flex-row py-2"
+                  >
+                    <img
+                      alt="dollar"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 pl-2"
+                    >
+                      Give you extra support for health needs and questions
+                    </p>
+                  </div>
+                  <div
+                    class="flex flex-row py-2"
+                  >
+                    <img
+                      alt="care management"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 pl-2"
+                    >
+                      Recommend programs for healthy living
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <section
+                class="px-[10px]"
+              >
+                <section
+                  class="md:flex md:flex-row"
+                >
+                  <span
+                    style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <img
+                      alt="Amplify Health Get Care"
+                      class="min-h-[280px] self-center md:self-end object-cover sm:self-auto basis-1/2 min-w-0"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col max-w-[100%] px-8 pt-5 md:px-0 md:pl-0 md:max-w-[65%]"
+                  >
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Bring Your Advisors With You
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1"
+                    >
+                      Use the AmplifyHealth app to connect with your health advisors and access your benefits. Getting started is easy. You’ll use the same login information you use to access your account at bcbst.com.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-row justify-start"
+                    >
+                      <a
+                        href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                      >
+                        <img
+                          alt="Download Amplify App from AppStore"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </a>
+                      <a
+                        class="pl-[10px]"
+                        href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                      >
+                        <img
+                          alt="Download Amplify App from PlayStore"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+      <section
+        class="flex flex-col w-full -mt-16"
+      >
+        <div
+          class="app-content self-center relative top-12"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h1
+                class="title-1 title-2"
+              >
+                Resources
+              </h1>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                Find answers to your health insurance questions or find a form.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-col gap-y-4 md:gap-4 md:flex-row"
+              >
+                <a
+                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  href="/faq"
+                >
+                  <div
+                    class="card-main px-4 py-3"
+                  >
+                    <div
+                      class="flex flex-row items-center"
+                    >
+                      <img
+                        alt="call"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div>
+                        <p
+                          class="link inline !no-underline"
+                        >
+                          Frequently Asked Questions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  href="https://www.healthcare.gov/glossary"
+                >
+                  <div
+                    class="card-main px-4 py-3"
+                  >
+                    <div
+                      class="flex flex-row items-center"
+                    >
+                      <img
+                        alt="call"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div>
+                        <p
+                          class="link inline !no-underline"
+                        >
+                          Health Insurance Glossary
+                        </p>
+                        <img
+                          alt="external"
+                          class="inline"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  href="https://www.bcbst.com/use-insurance/documents-forms"
+                >
+                  <div
+                    class="card-main px-4 py-3"
+                  >
+                    <div
+                      class="flex flex-row items-center"
+                    >
+                      <img
+                        alt="call"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div>
+                        <p
+                          class="link inline !no-underline"
+                        >
+                          Find a Form
+                        </p>
+                        <img
+                          alt="external"
+                          class="inline"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full surface-gradient-amplify-flipped"
+        >
+          <div
+            class="flex flex-col mt-16 text-white items-center px-4 gap-4"
+          >
+            <h2
+              class="title-2 text-center"
+            >
+              Have feedback about our website?
+            </h2>
+            <p
+              class="body-1 text-center"
+            >
+              We want to hear from you. Share your feedback about your experience using our website.
+            </p>
+            <button
+              aria-label="Share Your Feedback"
+              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+              type="button"
+            >
+              Share Your Feedback
+            </button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>
+`;

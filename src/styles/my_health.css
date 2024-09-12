@@ -1,0 +1,30 @@
+.my-health-card {
+    max-width: 33.5%;
+ }
+
+ .my-health-card-member-wellness {
+    height: 100%;
+    margin: 6px;
+    padding: 10px;
+ }
+
+ .my-health-card-health-library {
+   height: 100%;
+   margin: 6px;
+   padding: 10px;
+}
+
+.my-health-link .link:hover{  
+      color:#005EB9 !important;
+}
+
+.my-health-card-link .link-row-head:hover{  
+   color:#005EB9 !important;
+}
+
+@media (768px < width){
+.my-health-image-card {
+   @apply flex flex-row;
+   margin-bottom: 14px;
+ }
+}

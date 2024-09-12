@@ -1,3 +1,5 @@
+import { InfoCard } from '@/components/composite/InfoCard';
+import { Column } from '@/components/foundation/Column';
 import {
   benefits,
   claimsBenefitsCoverage,
@@ -6,8 +8,6 @@ import {
   spendingAccounts,
   spendingSummary,
 } from '@/components/foundation/Icons';
-import { InfoCard } from '../../../components/composite/InfoCard';
-import { Column } from '../../../components/foundation/Column';
 
 export const ViewOtherPlanInformation = () => {
   const ViewOtherPlanInformationDetails = [
