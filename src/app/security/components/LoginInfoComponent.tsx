@@ -38,7 +38,12 @@ export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
         <Spacer size={24} />
         <Divider />
         <Spacer size={16} />
-        <LinkRow label="Change My Password" />
+        <LinkRow
+          label="Change My Password"
+          onClick={() => {
+            window.location.href = process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '';
+          }}
+        />
       </div>
     </Card>
   );

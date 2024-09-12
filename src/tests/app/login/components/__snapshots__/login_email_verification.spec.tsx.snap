@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Email Verfication Component should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      id="mainSection"
+    >
+      <h1
+        class="title-1"
+      >
+        Let's Verify Your Email
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1"
+      >
+        We’ll need to confirm your email address before you can log in.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1"
+      >
+        We’ve sent a code to:
+      </p>
+      <p
+        class="body-1 font-bold"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1"
+      >
+        Enter the security code to verify your email address.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-full text-field"
+      >
+        <p>
+          Enter Security Code
+        </p>
+        <div
+          class="flex flex-row items-center input  "
+        >
+          <input
+            aria-label="Enter Security Code"
+            type="text"
+            value=""
+          />
+          <div
+            class="cursor-pointer"
+          />
+        </div>
+        <div
+          class="error-container mt-1 p-1"
+        >
+          <div />
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-row justify-center items-center tooltip"
+      >
+        <span
+          class="tooltiptext"
+        >
+          Enter a Security Code.
+        </span>
+        <button
+          aria-label="Confirm Code"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          type="button"
+        >
+          Confirm Code
+        </button>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        aria-label="divider"
+        class=""
+        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <h3
+        class="title-3"
+      >
+        Don’t see your confirmation email?
+      </h3>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1 pr-5"
+      >
+        Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
+      </p>
+      <section
+        class="flex flex-row"
+      >
+        <a
+          href="https://www.bcbst.com/contact-us"
+          style="display: inline;"
+        >
+          <button
+            class="flex flex-row link-container p-0"
+            style="max-width: max-content; height: auto; display: inline;"
+            tabindex="0"
+          >
+            <p
+              class="link"
+            >
+              contact us
+            </p>
+          </button>
+        </a>
+        <p
+          class="body-1"
+        >
+          .
+        </p>
+      </section>
+    </div>
+  </div>
+</body>
+`;

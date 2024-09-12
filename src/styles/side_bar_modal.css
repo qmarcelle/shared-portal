@@ -1,21 +1,23 @@
 .sidebar-overlay {
-    background: rgba(73, 73, 73, 0.747);
+  background: rgba(73, 73, 73, 0.747);
 }
 
 .sideBar-Container {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 100%;
-    transition: .5s ease;
-    width: 25%;
-    /* overflow: hidden; */
+  position: absolute !important;
+  padding-left: 0px !important;
+  margin: 0px !important;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  transition: 0.5s ease;
+  width: 25%;
+  /* overflow: hidden; */
 }
 
 .sideBar-content {
-    position: absolute;
-    top: 0;
-    bottom: 80px;
-    overflow: auto;
-    width: 100%
+  position: absolute;
+  top: 0;
+  bottom: 80px;
+  overflow: auto;
+  width: 100%;
 }

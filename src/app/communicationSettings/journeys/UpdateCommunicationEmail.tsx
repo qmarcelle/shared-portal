@@ -1,4 +1,5 @@
 import { ChangeAuthDeviceSlide } from '@/components/composite/ChangeAuthDeviceSlide';
+import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import { AppLink } from '@/components/foundation/AppLink';
 import {
@@ -6,11 +7,10 @@ import {
   useAppModalStore,
 } from '@/components/foundation/AppModal';
 import { Column } from '@/components/foundation/Column';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { useState } from 'react';
-import { InputModalSlide } from '../../../components/composite/InputModalSlide';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 
 const headerText = 'Confirm Email Address';
 interface UpdateCommunicationEmailProps {

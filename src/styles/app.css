@@ -105,6 +105,18 @@
   margin-right: 5px;
 }
 
+#signoutButton::after {
+  content: url('/assets/Signout.svg');
+  display: inline-block;
+  margin-left: 7px;
+}
+
+#signoutButton:hover::after {
+  content: url('/assets/signout-white.svg');
+  display: inline-block;
+  margin-left: 7px;
+}
+
 #contactbutton,
 #resendbutton,
 #choosebutton {
@@ -155,4 +167,10 @@
 }
 .priorAuthDetail .statusDetail {
   margin-left: 70px;
+}
+
+.access-code {
+  width: 114px;
+  height: 63px;
+  background-color: #e7f6ff;
 }

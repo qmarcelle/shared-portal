@@ -1,8 +1,8 @@
 import { ClaimDetails } from '@/app/dashboard/models/claim_details';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Spacer } from '@/components/foundation/Spacer';
 import { ClaimItem } from './ClaimItem';
 
 interface RecentClaimSectionProps extends IComponent {

@@ -1,0 +1,2329 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render appropriate message on axios error 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                tabindex="1"
+              />
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Voice Call Setup
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 text-center"
+                  >
+                    Enter the phone number where you can receive a phone call with your security code.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col w-[352px]"
+                  >
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Phone Number
+                      </p>
+                      <div
+                        class="flex flex-row items-center input  "
+                      >
+                        <input
+                          aria-label="Phone Number"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                      <div
+                        class="error-container mt-1 p-1"
+                      >
+                        <div />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                    <p
+                      class="body-1 mb-8"
+                    >
+                      By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
+                    </p>
+                    <button
+                      aria-label="Next"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                      type="button"
+                    >
+                      Next
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <button
+                      aria-label="Cancel"
+                      class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render appropriate message on axios error 2`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <h2
+                    class="title-2"
+                  >
+                    Voice Call Setup
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1 text-center"
+                  >
+                    Enter the 6-digit security code you heard to complete voice setup.
+                  </p>
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <p
+                        class="body-1 font-bold text-center"
+                      >
+                        (111) 111-1111
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Enter Security Code
+                        </p>
+                        <div
+                          class="flex flex-row items-center input  "
+                        >
+                          <input
+                            aria-label="Enter Security Code"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                        <div
+                          class="error-container mt-1 p-1"
+                        >
+                          <div />
+                        </div>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container self-start"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Resend Code
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <button
+                      aria-label="Confirm"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                      type="button"
+                    >
+                      Confirm
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Cancel
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render appropriate message on axios error 3`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <img
+                    alt="alert"
+                    class="size-[80px]"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Try Again Later
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <p
+                        class="body-1 text-center"
+                      >
+                        Oops! We're sorry. Something went wrong. Please try again.
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <button
+                      aria-label="Done"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                tabindex="1"
+              />
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Voice Call Setup
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 text-center"
+                  >
+                    Enter the phone number where you can receive a phone call with your security code.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col w-[352px]"
+                  >
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Phone Number
+                      </p>
+                      <div
+                        class="flex flex-row items-center input  "
+                      >
+                        <input
+                          aria-label="Phone Number"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                      <div
+                        class="error-container mt-1 p-1"
+                      >
+                        <div />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                    <p
+                      class="body-1 mb-8"
+                    >
+                      By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
+                    </p>
+                    <button
+                      aria-label="Next"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                      type="button"
+                    >
+                      Next
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <button
+                      aria-label="Cancel"
+                      class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <h2
+                    class="title-2"
+                  >
+                    Voice Call Setup
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1 text-center"
+                  >
+                    Enter the 6-digit security code you heard to complete voice setup.
+                  </p>
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <p
+                        class="body-1 font-bold text-center"
+                      >
+                        (111) 111-1111
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Enter Security Code
+                        </p>
+                        <div
+                          class="flex flex-row items-center input  "
+                        >
+                          <input
+                            aria-label="Enter Security Code"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                        <div
+                          class="error-container mt-1 p-1"
+                        >
+                          <div />
+                        </div>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container self-start"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Resend Code
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <button
+                      aria-label="Confirm"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                      type="button"
+                    >
+                      Confirm
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Cancel
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <img
+                    alt="alert"
+                    class="size-[80px]"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Try Again Later
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <p
+                        class="body-1 text-center"
+                      >
+                        Oops! We're sorry. Something went wrong. Please try again.
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <button
+                      aria-label="Done"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                tabindex="1"
+              />
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Voice Call Setup
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 text-center"
+                  >
+                    Enter the phone number where you can receive a phone call with your security code.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col w-[352px]"
+                  >
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Phone Number
+                      </p>
+                      <div
+                        class="flex flex-row items-center input  "
+                      >
+                        <input
+                          aria-label="Phone Number"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                      <div
+                        class="error-container mt-1 p-1"
+                      >
+                        <div />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                    <p
+                      class="body-1 mb-8"
+                    >
+                      By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
+                    </p>
+                    <button
+                      aria-label="Next"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                      type="button"
+                    >
+                      Next
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <button
+                      aria-label="Cancel"
+                      class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <h2
+                    class="title-2"
+                  >
+                    Voice Call Setup
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1 text-center"
+                  >
+                    Enter the 6-digit security code you heard to complete voice setup.
+                  </p>
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <p
+                        class="body-1 font-bold text-center"
+                      >
+                        (111) 111-1111
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Enter Security Code
+                        </p>
+                        <div
+                          class="flex flex-row items-center input  "
+                        >
+                          <input
+                            aria-label="Enter Security Code"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                        <div
+                          class="error-container mt-1 p-1"
+                        >
+                          <div />
+                        </div>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container self-start"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Resend Code
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <button
+                      aria-label="Confirm"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                      type="button"
+                    >
+                      Confirm
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Cancel
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <img
+                    alt="alert"
+                    class="size-[80px]"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Try Again Later
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <p
+                        class="body-1 text-center"
+                      >
+                        Oops! We're sorry. Something went wrong. Please try again.
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <button
+                      aria-label="Done"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                tabindex="1"
+              />
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Voice Call Setup
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 text-center"
+                  >
+                    Enter the phone number where you can receive a phone call with your security code.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col w-[352px]"
+                  >
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Phone Number
+                      </p>
+                      <div
+                        class="flex flex-row items-center input  "
+                      >
+                        <input
+                          aria-label="Phone Number"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                      <div
+                        class="error-container mt-1 p-1"
+                      >
+                        <div />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                    <p
+                      class="body-1 mb-8"
+                    >
+                      By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
+                    </p>
+                    <button
+                      aria-label="Next"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                      type="button"
+                    >
+                      Next
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <button
+                      aria-label="Cancel"
+                      class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <h2
+                    class="title-2"
+                  >
+                    Voice Call Setup
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1 text-center"
+                  >
+                    Enter the 6-digit security code you heard to complete voice setup.
+                  </p>
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <p
+                        class="body-1 font-bold text-center"
+                      >
+                        (111) 111-1111
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Enter Security Code
+                        </p>
+                        <div
+                          class="flex flex-row items-center input  "
+                        >
+                          <input
+                            aria-label="Enter Security Code"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                        <div
+                          class="error-container mt-1 p-1"
+                        >
+                          <div />
+                        </div>
+                      </div>
+                      <a
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container self-start"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link"
+                          >
+                            Resend Code
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <button
+                      aria-label="Confirm"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                      type="button"
+                    >
+                      Confirm
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                  </div>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Cancel
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col modal-container"
+          >
+            <div
+              class="flex flex-row justify-between modal-header items-center relative"
+            >
+              <div
+                class="flex flex-row items-center focus-icon"
+                tabindex="1"
+              >
+                <img
+                  alt="back"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 primary-color underline"
+                >
+                  Back
+                </p>
+              </div>
+              <img
+                alt="bcbst logo"
+                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="size-8 focus-icon"
+                tabindex="0"
+              >
+                <img
+                  alt="close"
+                  class="size-4"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row flex-grow justify-center"
+            >
+              <div
+                class="flex flex-row justify-center modal-content"
+              >
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <img
+                    alt="alert"
+                    class="size-[80px]"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Try Again Later
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col w-[358px]"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <p
+                        class="body-1 text-center"
+                      >
+                        Oops! We're sorry. Something went wrong. Please try again.
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <button
+                      aria-label="Done"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-center modal-footer"
+            >
+              <img
+                alt="bcbst logo"
+                class="modal-icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
