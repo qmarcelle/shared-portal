@@ -1,0 +1,1232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Member ID Card Info should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section sliderdots-active sliderdots "
+      >
+        <section
+          id="Filter"
+        >
+          <div
+            class="flex flex-col"
+          >
+            <h1
+              class="title-1 title-2"
+            >
+              Member ID Card
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row"
+            >
+              <p
+                class="body-1"
+              >
+                View ID Card for:
+              </p>
+              <span
+                style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-col switch-filter default"
+                tabindex="1"
+              >
+                <div>
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p
+                      class="body-1 link"
+                    >
+                      Current Plan
+                    </p>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+                <ul
+                  class="max-h-[420px] overflow-y-scroll"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10"
+            >
+              <div
+                class="slick-slider slick-initialized"
+                dir="ltr"
+              >
+                <div
+                  class="slick-arrow slick-prev"
+                >
+                  <img
+                    alt="scroll left"
+                    class="icon-sm"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="slick-list"
+                >
+                  <div
+                    class="slick-track"
+                    style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="slick-slide slick-cloned"
+                      data-index="-1"
+                      style="width: 0px;"
+                      tabindex="-1"
+                    >
+                      <div>
+                        <div
+                          class="flex flex-col"
+                          tabindex="-1"
+                        >
+                          <img
+                            alt="BackCard"
+                            class="m-auto"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="false"
+                      class="slick-slide slick-active slick-current"
+                      data-index="0"
+                      style="outline: none; width: 0px;"
+                      tabindex="-1"
+                    >
+                      <div>
+                        <div
+                          class="flex flex-col slider-container carousel flex flex-col"
+                          tabindex="-1"
+                        >
+                          <img
+                            alt="FrontCard"
+                            class="m-auto"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="slick-slide"
+                      data-index="1"
+                      style="outline: none; width: 0px;"
+                      tabindex="-1"
+                    >
+                      <div>
+                        <div
+                          class="flex flex-col"
+                          tabindex="-1"
+                        >
+                          <img
+                            alt="BackCard"
+                            class="m-auto"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="slick-slide slick-cloned"
+                      data-index="2"
+                      style="width: 0px;"
+                      tabindex="-1"
+                    >
+                      <div>
+                        <div
+                          class="flex flex-col slider-container carousel flex flex-col"
+                          tabindex="-1"
+                        >
+                          <img
+                            alt="FrontCard"
+                            class="m-auto"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="slick-slide slick-cloned"
+                      data-index="3"
+                      style="width: 0px;"
+                      tabindex="-1"
+                    >
+                      <div>
+                        <div
+                          class="flex flex-col"
+                          tabindex="-1"
+                        >
+                          <img
+                            alt="BackCard"
+                            class="m-auto"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="slick-arrow slick-next"
+                >
+                  <img
+                    alt="scroll left"
+                    class="icon-sm ml-20px"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <ul
+                  class="slick-dots"
+                  style="display: block;"
+                >
+                  <li
+                    class="slick-active"
+                  >
+                    <button>
+                      1
+                    </button>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <button>
+                      2
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <section
+              class="md:flex md:flex-row"
+            >
+              <p
+                class="body-1 title-3 pb-[5px] md:pr-[5px] md:pb-0"
+              >
+                All members of your plan use the same ID card.
+              </p>
+              <div
+                class="flex flex-col md:w-[405px] body-1"
+              >
+                <button
+                  aria-label="Download ID Card"
+                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                  type="button"
+                >
+                  Download ID Card
+                </button>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <button
+                  aria-label="Order New ID Card"
+                  class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                  type="button"
+                >
+                  Order New ID Card
+                </button>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+      <div
+        class="flex flex-col"
+      >
+        <a
+          href="/myPlan"
+        >
+          <div
+            class="card-elevated small-section"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="link"
+                class="size-10"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="flex flex-col ml-4"
+              >
+                <p
+                  class="body-1 link-row-head"
+                >
+                  My Plan Details
+                </p>
+                <p
+                  class="body-1 body-1"
+                >
+                  View your plan details.
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          href="/benefits"
+        >
+          <div
+            class="card-elevated small-section"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="link"
+                class="size-10"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="flex flex-col ml-4"
+              >
+                <p
+                  class="body-1 link-row-head"
+                >
+                  Benefits & Coverage
+                </p>
+                <p
+                  class="body-1 body-1"
+                >
+                  View what's covered under your plan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex flex-col w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10"
+      >
+        <div
+          class="slick-slider slick-initialized"
+          dir="ltr"
+        >
+          <div
+            class="slick-arrow slick-prev"
+          >
+            <img
+              alt="scroll left"
+              class="icon-sm"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="-1"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="flex flex-col"
+                    tabindex="-1"
+                  >
+                    <img
+                      alt="BackCard"
+                      class="m-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="flex flex-col slider-container carousel flex flex-col"
+                    tabindex="-1"
+                  >
+                    <img
+                      alt="FrontCard"
+                      class="m-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="flex flex-col"
+                    tabindex="-1"
+                  >
+                    <img
+                      alt="BackCard"
+                      class="m-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="2"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="flex flex-col slider-container carousel flex flex-col"
+                    tabindex="-1"
+                  >
+                    <img
+                      alt="FrontCard"
+                      class="m-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="3"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="flex flex-col"
+                    tabindex="-1"
+                  >
+                    <img
+                      alt="BackCard"
+                      class="m-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="slick-arrow slick-next"
+          >
+            <img
+              alt="scroll left"
+              class="icon-sm ml-20px"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <ul
+            class="slick-dots"
+            style="display: block;"
+          >
+            <li
+              class="slick-active"
+            >
+              <button>
+                1
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                2
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section sliderdots-active sliderdots "
+    >
+      <section
+        id="Filter"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h1
+            class="title-1 title-2"
+          >
+            Member ID Card
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row"
+          >
+            <p
+              class="body-1"
+            >
+              View ID Card for:
+            </p>
+            <span
+              style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+            />
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
+                <div
+                  class="flex flex-row"
+                >
+                  <p
+                    class="body-1 link"
+                  >
+                    Current Plan
+                  </p>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <ul
+                class="max-h-[420px] overflow-y-scroll"
+              />
+            </div>
+          </div>
+          <div
+            class="flex flex-col w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10"
+          >
+            <div
+              class="slick-slider slick-initialized"
+              dir="ltr"
+            >
+              <div
+                class="slick-arrow slick-prev"
+              >
+                <img
+                  alt="scroll left"
+                  class="icon-sm"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+              <div
+                class="slick-list"
+              >
+                <div
+                  class="slick-track"
+                  style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="-1"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="flex flex-col"
+                        tabindex="-1"
+                      >
+                        <img
+                          alt="BackCard"
+                          class="m-auto"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="false"
+                    class="slick-slide slick-active slick-current"
+                    data-index="0"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="flex flex-col slider-container carousel flex flex-col"
+                        tabindex="-1"
+                      >
+                        <img
+                          alt="FrontCard"
+                          class="m-auto"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="1"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="flex flex-col"
+                        tabindex="-1"
+                      >
+                        <img
+                          alt="BackCard"
+                          class="m-auto"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="2"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="flex flex-col slider-container carousel flex flex-col"
+                        tabindex="-1"
+                      >
+                        <img
+                          alt="FrontCard"
+                          class="m-auto"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="3"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="flex flex-col"
+                        tabindex="-1"
+                      >
+                        <img
+                          alt="BackCard"
+                          class="m-auto"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="slick-arrow slick-next"
+              >
+                <img
+                  alt="scroll left"
+                  class="icon-sm ml-20px"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+              <ul
+                class="slick-dots"
+                style="display: block;"
+              >
+                <li
+                  class="slick-active"
+                >
+                  <button>
+                    1
+                  </button>
+                </li>
+                <li
+                  class=""
+                >
+                  <button>
+                    2
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="md:flex md:flex-row"
+          >
+            <p
+              class="body-1 title-3 pb-[5px] md:pr-[5px] md:pb-0"
+            >
+              All members of your plan use the same ID card.
+            </p>
+            <div
+              class="flex flex-col md:w-[405px] body-1"
+            >
+              <button
+                aria-label="Download ID Card"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                type="button"
+              >
+                Download ID Card
+              </button>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <button
+                aria-label="Order New ID Card"
+                class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                type="button"
+              >
+                Order New ID Card
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+    <div
+      class="flex flex-col"
+    >
+      <a
+        href="/myPlan"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                My Plan Details
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                View your plan details.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/benefits"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Benefits & Coverage
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                View what's covered under your plan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      class="flex flex-col w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10"
+    >
+      <div
+        class="slick-slider slick-initialized"
+        dir="ltr"
+      >
+        <div
+          class="slick-arrow slick-prev"
+        >
+          <img
+            alt="scroll left"
+            class="icon-sm"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="slick-list"
+        >
+          <div
+            class="slick-track"
+            style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          >
+            <div
+              aria-hidden="true"
+              class="slick-slide slick-cloned"
+              data-index="-1"
+              style="width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="flex flex-col"
+                  tabindex="-1"
+                >
+                  <img
+                    alt="BackCard"
+                    class="m-auto"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active slick-current"
+              data-index="0"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="flex flex-col slider-container carousel flex flex-col"
+                  tabindex="-1"
+                >
+                  <img
+                    alt="FrontCard"
+                    class="m-auto"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="slick-slide"
+              data-index="1"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="flex flex-col"
+                  tabindex="-1"
+                >
+                  <img
+                    alt="BackCard"
+                    class="m-auto"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="slick-slide slick-cloned"
+              data-index="2"
+              style="width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="flex flex-col slider-container carousel flex flex-col"
+                  tabindex="-1"
+                >
+                  <img
+                    alt="FrontCard"
+                    class="m-auto"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="slick-slide slick-cloned"
+              data-index="3"
+              style="width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="flex flex-col"
+                  tabindex="-1"
+                >
+                  <img
+                    alt="BackCard"
+                    class="m-auto"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="slick-arrow slick-next"
+        >
+          <img
+            alt="scroll left"
+            class="icon-sm ml-20px"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <ul
+          class="slick-dots"
+          style="display: block;"
+        >
+          <li
+            class="slick-active"
+          >
+            <button>
+              1
+            </button>
+          </li>
+          <li
+            class=""
+          >
+            <button>
+              2
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
