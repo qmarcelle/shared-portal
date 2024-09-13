@@ -34,7 +34,7 @@ export const LoginErrorTemplate = ({
             {bottomNote}{' '}
             <a
               className="link"
-              href={process.env.NEXT_PUBLIC_PORTAL_ContactUS_URL ?? ''}
+              href={process.env.NEXT_PUBLIC_PORTAL_CONTACT_US_URL ?? ''}
             >
               {contactUs}
             </a>
