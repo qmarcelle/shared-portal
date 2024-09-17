@@ -10,6 +10,9 @@ const customJestConfig = {
     'next-auth/providers/credentials':
       '<rootDir>/src/tests/__mocks__/next-auth-providers-credentials.ts',
   },
+  setupFilesAfterEnv: [
+    '<rootDir>/src/tests/__mocks__/ping-jest-mock-data-setup.ts',
+  ],
   testEnvironment: 'jest-environment-jsdom',
   testMatch: [
     '**/tests/app/login/**/*spec.{ts,tsx}',

@@ -19,8 +19,6 @@ export const ToggleSwitch = ({
     onToggleCallback?.();
   };
 
-  console.log('Checked State', checkedState);
-
   return (
     <label aria-label={ariaLabel} className="switch">
       <input type="checkbox" onChange={onToggle} checked={checkedState} />

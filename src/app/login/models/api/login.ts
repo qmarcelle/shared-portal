@@ -3,6 +3,9 @@ export interface LoginRequest {
   password: string;
   policyId?: string;
   appId?: string;
+  deviceProfile?: string;
+  ipAddress?: string | null;
+  userAgent?: string;
 }
 
 export enum LoginMessage {

@@ -79,232 +79,10 @@ exports[`Add Mfa Text Journey should render the screens correctly 1`] = `
                 <div
                   class="flex flex-col items-center"
                 >
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <h2
-                    class="title-2"
-                  >
-                    Text Message Setup
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class="flex flex-col items-center  w-[358px]"
-                  >
-                    <div
-                      class="flex flex-col items-center"
-                    >
-                      <p
-                        class="body-1 text-center"
-                      >
-                        Continue with your current phone number or change it.
-                      </p>
-                      <p
-                        class="body-1"
-                      >
-                        Your phone number is:
-                      </p>
-                    </div>
-                    <div
-                      class="mb-4"
-                    >
-                      <p
-                        class="body-1 body-1 center font-bold"
-                      >
-                        1234567890
-                      </p>
-                    </div>
-                    <div
-                      class="mb-4"
-                    >
-                      <a
-                        style="display: block;"
-                      >
-                        <button
-                          class="flex flex-row link-container undefined"
-                          style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
-                        >
-                          <p
-                            class="link"
-                          >
-                            Change Your Number
-                          </p>
-                        </button>
-                      </a>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                    <div
-                      class="mb-8"
-                    >
-                      <p
-                        class="body-1"
-                      >
-                        By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
-                      </p>
-                    </div>
-                    <button
-                      aria-label="Send Code"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color"
-                      type="button"
-                    >
-                      Send Code
-                    </button>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <a
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container undefined"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
-                      >
-                        <p
-                          class="link"
-                        >
-                          Cancel
-                        </p>
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
-<body
-  style="overflow: hidden;"
->
-  <div />
-  <div>
-    <div
-      class="react-responsive-modal-root"
-      data-testid="root"
-    >
-      <div
-        aria-hidden="true"
-        class="react-responsive-modal-overlay modal-overlay"
-        data-testid="overlay"
-        style="animation: react-responsive-modal-overlay-in 300ms;"
-      />
-      <div
-        class="react-responsive-modal-container"
-        data-testid="modal-container"
-      >
-        <div
-          aria-modal="true"
-          class="react-responsive-modal-modal"
-          data-testid="modal"
-          role="dialog"
-          style="animation: react-responsive-modal-modal-in 300ms;"
-          tabindex="-1"
-        >
-          <div
-            class="flex flex-col modal-container"
-          >
-            <div
-              class="flex flex-row justify-between modal-header items-center relative"
-            >
-              <div
-                class="flex flex-row items-center focus-icon"
-                tabindex="1"
-              >
-                <img
-                  alt="back"
-                  class="modal-icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <p
-                  class="body-1 primary-color underline"
-                >
-                  Back
-                </p>
-              </div>
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <div
-                class="size-8 focus-icon"
-                tabindex="0"
-              >
-                <img
-                  alt="close"
-                  class="size-4"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
                   <h1
                     class="title-1 title-2"
                   >
-                    Change Phone Number
+                    Text Message Setup
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -312,7 +90,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                   <p
                     class="body-1 text-center"
                   >
-                    Enter the new phone number you'd like to use for Communications and Security Settings
+                    Enter the phone number you'd like to use for Communications and Security Settings
                   </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -400,7 +178,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
 </body>
 `;
 
-exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
+exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
 <body
   style="overflow: hidden;"
 >
@@ -630,7 +408,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
 </body>
 `;
 
-exports[`Add Mfa Text Journey should render the screens correctly 4`] = `
+exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
 <body
   style="overflow: hidden;"
 >
