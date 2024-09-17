@@ -15,8 +15,8 @@ const LogoutPage = () => {
   useEffect(() => {
     const logout = async () => {
       await signOut();
-      router.replace('/login');
-    }
+      router.replace(process.env.NEXT_PUBLIC_LOGOUT_REDIRECT_URL || '/login');
+    };
     logout();
   });
 

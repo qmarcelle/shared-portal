@@ -15,14 +15,13 @@ import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import ClientLayout from './ClientLayout';
+import { initPingOne } from './pingOne/setupPingOne';
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
-
   useEffect(() => {
     const TagManagerArgs = {
       gtmId: 'GTM-5GNS5V6',
@@ -30,8 +29,9 @@ export default function RootLayout({
     console.log('Initializing Google Analytics');
     TagManager.initialize(TagManagerArgs);
     //ReactGA.initialize('G-M0JDZR3EBP');
+    initPingOne();
   }, []);
-
+  const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <html lang="en">
       <body>
@@ -44,6 +44,10 @@ export default function RootLayout({
         <ClientLayout>{children}</ClientLayout>
         <AppModal />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <script
+          src="https://apps.pingone.com/signals/web-sdk/5.3.7/signals-sdk.js"
+          defer
+        ></script>
       </body>
     </html>
   );

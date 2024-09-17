@@ -3,12 +3,14 @@
 import { signIn } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
-import { esApi } from '@/utils/api/esApi';
+import { esApi, logESTransactionId } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
 import { AxiosError } from 'axios';
+import { headers } from 'next/headers';
+import { userAgent } from 'next/server';
 import {
   LoginRequest,
   LoginResponse,
@@ -22,6 +24,12 @@ export async function callLogin(
   request: LoginRequest,
 ): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
+  const headersInfo = headers();
+  const ipAddress = headersInfo.get('x-forwarded-for');
+  const userAgentStructure = {
+    headers: headersInfo,
+  };
+  const uAgent = userAgent(userAgentStructure);
   let status: LoginStatus;
   try {
     if (!request.username || !request.password) {
@@ -31,11 +39,13 @@ export async function callLogin(
     }
     request.policyId = process.env.ES_API_POLICY_ID;
     request.appId = process.env.ES_API_APP_ID;
+    request.ipAddress = ipAddress;
+    request.userAgent = uAgent.ua;
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication',
       request,
     );
-
+    logESTransactionId(resp);
     console.debug(resp);
     status = LoginStatus.ERROR;
 
@@ -76,6 +86,7 @@ export async function callLogin(
     if (error instanceof AxiosError) {
       //logger.error("Response from API " + error.response?.data);
       logger.error('Error in Login');
+      logESTransactionId(error);
       console.error(error.response?.data);
       return {
         status:
