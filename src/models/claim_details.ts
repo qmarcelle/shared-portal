@@ -6,14 +6,18 @@ export interface ClaimDetails {
   serviceDate: string;
   claimTotal: string | null;
   claimStatus: string;
-  totalBilled?: string | null;
-  planPaid?: string | null;
-  myShare?: string | null;
-  claimsFlag?: boolean;
-  // TODO: Find the correct model and type it here
+  // TODO: Find the correct Model and type it here
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   claimInfo: any;
-  ReferredBy?: string;
-  ReferredTo?: string;
-  priorAuthFlag?: boolean;
+  isMiniCard?: boolean;
+  callBack?: (claimId: string) => void;
+  columns?: ColumnInfo[];
+}
+
+export interface ColumnInfo {
+  label: string;
+  value: string | null;
+  defaultValue: string;
+  isValueBold?: boolean;
+  isVisibleInMobile?: boolean;
 }

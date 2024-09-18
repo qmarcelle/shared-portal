@@ -66,6 +66,10 @@ input::-ms-clear {
   color: var(--primary-color);
 }
 
+.tertiary-color {
+  color: var(--tertiary-color-3);
+}
+
 .primary-bg-color {
   background-color: var(--primary-color);
 }
@@ -419,6 +423,9 @@ input::-ms-clear {
 }
 .caremark button {
   padding-top: 0;
+}
+.manage-image .link {
+  display: ruby;
 }
 .cardColor {
   height: 56px;

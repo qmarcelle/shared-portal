@@ -1,44 +1,40 @@
 import { ViewCareOptions } from '@/app/findcare/components/ViewCareOptions';
 import { render, screen } from '@testing-library/react';
-import { Context as ResponsiveContext } from 'react-responsive';
+import Image from 'next/image';
+import MentalCareIcon from '../../../public/assets/mental_health.svg';
+import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 
-const renderUI = (width: number = 1000) => {
+const renderUI = () => {
   return render(
-    <ResponsiveContext.Provider value={{ width }}>
-      <ViewCareOptions
-        className="large-section"
-        claims={[
-          {
-            id: '1',
-            claimStatus: '',
-            claimType: 'PrimaryCare',
-            claimTotal: 'null',
-            issuer: 'Primary Care Options',
-            memberName:
-              'Learn more about Primary Care Providers and view your options.',
-            serviceDate: '',
-            claimInfo: {},
-            priorAuthFlag: false,
-            claimsFlag: false,
-            viewCareFlag: true,
-          },
-          {
-            id: '2',
-            claimStatus: '',
-            claimType: 'MentalCare',
-            claimTotal: null,
-            issuer: 'Mental Care Options',
-            memberName:
-              'Learn more about Mental Health Providers and view your options.',
-            serviceDate: '',
-            claimInfo: {},
-            priorAuthFlag: false,
-            claimsFlag: false,
-            viewCareFlag: true,
-          },
-        ]}
-      />
-    </ResponsiveContext.Provider>,
+    <ViewCareOptions
+      className="large-section"
+      options={[
+        {
+          title: 'Primary Care Options',
+          description:
+            'Learn more about Primary Care Providers and view your options.',
+          image: (
+            <Image
+              className="max-md:w-[80px] max-md:h-[80px]"
+              src={PrimaryCareIcon}
+              alt="Primary Care"
+            />
+          ),
+        },
+        {
+          title: 'Mental Care Options',
+          description:
+            'Learn more about Mental Health Providers and view your options.',
+          image: (
+            <Image
+              className="max-md:w-[80px] max-md:h-[80px]"
+              src={MentalCareIcon}
+              alt="Mental Care"
+            />
+          ),
+        },
+      ]}
+    />,
   );
 };
 
@@ -57,34 +53,13 @@ describe('ViewCareOptions', () => {
     screen.getByText(
       'Learn more about Primary Care Providers and view your options.',
     );
-    screen.getByAltText(/PrimaryCare/i);
+    screen.getByAltText(/Primary Care/i);
 
     screen.getByText('Mental Care Options');
     screen.getByText(
       'Learn more about Mental Health Providers and view your options.',
     );
-    screen.getByAltText(/MentalCare/i);
-
-    expect(component.baseElement).toMatchSnapshot();
-  });
-
-  it('should render UI correctly for mobile device', () => {
-    const component = renderUI(700);
-
-    // screen.getByRole('heading', { name: 'View Care Options' })
-    screen.getByText('View Care Options');
-
-    screen.getByText('Primary Care Options');
-    screen.getByText(
-      'Learn more about Primary Care Providers and view your options.',
-    );
-    screen.getByAltText(/PrimaryCare/i);
-
-    screen.getByText('Mental Care Options');
-    screen.getByText(
-      'Learn more about Mental Health Providers and view your options.',
-    );
-    screen.getByAltText(/MentalCare/i);
+    screen.getByAltText(/Mental Care/i);
 
     expect(component.baseElement).toMatchSnapshot();
   });

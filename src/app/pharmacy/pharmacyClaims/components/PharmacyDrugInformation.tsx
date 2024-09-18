@@ -8,8 +8,8 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import Down from '../../../../public/assets/down.svg';
-import Up from '../../../../public/assets/up.svg';
+import Down from '../../../../../public/assets/down.svg';
+import Up from '../../../../../public/assets/up.svg';
 
 interface PharmacyDrugInformationProps extends IComponent {
   drugInformation: PharmacyDrugCollapsibleProps[];
