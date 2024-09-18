@@ -1,3 +1,4 @@
+import { getPingOneData } from '@/app/pingOne/setupPingOne';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
 import { shallow } from 'zustand/shallow';
@@ -8,6 +9,7 @@ import { PortalLoginResponse } from '../models/api/login';
 import { AppProg } from '../models/app/app_prog';
 import {
   inlineErrorCodeMessageMap,
+  pingErrorCodes,
   slideErrorCodes,
 } from '../models/app/error_code_message_map';
 import { LoginInteractionData } from '../models/app/login_interaction_data';
@@ -27,6 +29,8 @@ export type LoginStore = {
   loggedUser: boolean;
   unhandledErrors: boolean;
   multipleLoginAttempts: boolean;
+  isRiskScoreHigh: boolean;
+  riskLevelNotDetermined: boolean;
   verifyEmail: boolean;
   mfaNeeded: boolean;
   updateUsername: (val: string) => void;
@@ -53,6 +57,8 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     loggedUser: false,
     unhandledErrors: false,
     multipleLoginAttempts: false,
+    isRiskScoreHigh: false,
+    riskLevelNotDetermined: false,
     mfaNeeded: false,
     userToken: '',
     verifyEmail: false,
@@ -68,8 +74,10 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       set(() => ({
         password: val.trim(),
       })),
+
     login: async () => {
       try {
+        const pingOneData = await getPingOneData();
         // Set the errors to empty
         set(() => ({ apiErrors: [] }));
         // Set loading indicator
@@ -77,6 +85,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         const resp = await callLogin({
           username: get().username, //get().userName,
           password: get().password, //get().password,
+          deviceProfile: pingOneData, //ping one device profile
         });
 
         if (resp.status == LoginStatus.LOGIN_OK) {
@@ -130,6 +139,18 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
               multipleLoginAttempts: true,
               loginProg: AppProg.failed,
             });
+          }
+        } else if (pingErrorCodes.includes(errorCode)) {
+          if (errorCode == 'PP-600') {
+            set({
+              isRiskScoreHigh: true,
+            });
+            return;
+          } else if (errorCode == 'PP-601') {
+            set({
+              riskLevelNotDetermined: true,
+            });
+            return;
           }
         } else {
           set(() => ({ unhandledErrors: true }));

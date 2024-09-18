@@ -140,6 +140,10 @@ describe('Login Provide Otp', () => {
         password: 'password',
         appId: 'appId',
         policyId: 'policyId',
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+        ipAddress: '1',
+        deviceProfile: 'Testing',
       },
     );
     // The loading progress should be out now and not visible

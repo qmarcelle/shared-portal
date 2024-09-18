@@ -4,7 +4,7 @@ import { signIn } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { DXAuthToken } from '@/models/auth/dx_auth_token';
 import { ESResponse } from '@/models/enterprise/esResponse';
-import { esApi } from '@/utils/api/esApi';
+import { esApi, logESTransactionId } from '@/utils/api/esApi';
 import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
@@ -44,6 +44,7 @@ export async function callSelectDevice(
       args,
     );
     logger.info('Successful Select Device Api response');
+    logESTransactionId(resp);
     console.log(resp.data);
     return {
       status: SelectMFAStatus.OK,
@@ -52,6 +53,7 @@ export async function callSelectDevice(
   } catch (err) {
     logger.error('Error from SelectDevice Api');
     if (err instanceof AxiosError) {
+      logESTransactionId(err);
       console.error(err.response?.data);
       return {
         status: SelectMFAStatus.ERROR,
@@ -77,7 +79,7 @@ export async function callSubmitMfaOtp(
       '/mfAuthentication/loginAuthentication/provideOtp',
       params,
     );
-
+    logESTransactionId(resp);
     logger.info('Successful Submit Api response');
     console.log(resp.data);
     const username = verifyUserId(params.userToken);
@@ -95,7 +97,7 @@ export async function callSubmitMfaOtp(
   } catch (err) {
     logger.error('Error from Submit Otp Api');
     if (err instanceof AxiosError) {
-      console.error('Error in submitMfaOtp');
+      logESTransactionId(err);
       console.error(err.response?.data);
 
       if (slideErrorCodes.includes(err.response?.data.data.errorCode)) {
