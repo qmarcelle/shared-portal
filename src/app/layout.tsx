@@ -10,7 +10,6 @@ import '@/styles/checkbox.css';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import ReactGA from 'react-ga4';
 import TagManager from 'react-gtm-module';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -26,12 +25,19 @@ export default function RootLayout({
   useEffect(() => {
     const TagManagerArgs = {
       gtmId: 'GTM-5GNS5V6',
+      dataLayer: {
+        business_unit: 'member',
+      },
     };
+    // (window.dataLayer || []).push({
+    //   business_unit: 'member',
+    // });
     console.log('Initializing Google Analytics');
     TagManager.initialize(TagManagerArgs);
-    ReactGA.initialize('G-M0JDZR3EBP');
+
     initPingOne();
   }, []);
+
   const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <html lang="en">
