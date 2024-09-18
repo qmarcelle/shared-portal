@@ -1,0 +1,644 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 m-4 mb-0 !font-light !text-[32px]/[40px]"
+        >
+          Transactions
+        </h1>
+        <section
+          class="flex justify-start self-start"
+        >
+          <span
+            class="body-1 undefined"
+          >
+            <div
+              class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-4"
+            >
+              To manage your health spending account details
+              <a
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container link caremark !flex pt-0"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    Visit Health Equity
+                  </p>
+                  <p
+                    class="ml-1"
+                  >
+                    <img
+                      alt="external"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
+              </a>
+            </div>
+          </span>
+        </section>
+        <section
+          class="ml-4"
+        >
+          <span
+            class="body-1 undefined"
+          >
+            <span>
+              If you need help,
+            </span>
+            <span
+              class="link"
+            >
+              <a>
+                start a chat,
+              </a>
+            </span>
+            <span>
+               
+              call us at [1-800-000-000] or email consumercoach@bcbst.com
+               
+            </span>
+          </span>
+        </section>
+        <section
+          class="flex flex-row items-start app-body mt-8"
+          id="Filter"
+        >
+          <div
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main large-section px-0 m-0"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  Filter Transactions
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="body-1"
+                  >
+                    Account Type
+                     
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <div
+                    class="body-1 input"
+                  >
+                    <div
+                      class="flex flex-col switch-filter default"
+                      tabindex="1"
+                    >
+                      <div>
+                        <div
+                          class="border-none"
+                        >
+                          <div
+                            class="flex flex-row p-1 items-center"
+                          >
+                            <div
+                              class="flex flex-col border-none flex-grow"
+                            >
+                              <p
+                                class="body-1"
+                              >
+                                HSA
+                              </p>
+                            </div>
+                            <img
+                              alt=""
+                              class="w-[20px] h-[20px] ml-2 items-end"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <ul
+                        class="max-h-[420px] overflow-y-scroll"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="body-1"
+                  >
+                    Date Range
+                     
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <div
+                    class="body-1 input"
+                  >
+                    <div
+                      class="flex flex-col switch-filter default"
+                      tabindex="1"
+                    >
+                      <div>
+                        <div
+                          class="border-none"
+                        >
+                          <div
+                            class="flex flex-row p-1 items-center"
+                          >
+                            <div
+                              class="flex flex-col border-none flex-grow"
+                            >
+                              <p
+                                class="body-1"
+                              >
+                                Last two Years
+                              </p>
+                            </div>
+                            <img
+                              alt=""
+                              class="w-[20px] h-[20px] ml-2 items-end"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <ul
+                        class="max-h-[420px] overflow-y-scroll"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="flex flex-col mt-2"
+            >
+              <div
+                class="xs:block md:inline-flex max-sm:m-4 md:my-2"
+              >
+                <div
+                  class="flex flex-row body-1 flex-grow align-top mb-0"
+                >
+                  Filter Results:
+                   
+                  <p
+                    class="body-1 font-bold ml-2"
+                  >
+                    5 Prior Authorizations
+                  </p>
+                </div>
+                <div
+                  class="flex flex-row body-1 items-end"
+                >
+                  Sort by:
+                   
+                  <a
+                    class="link ml-2 flex"
+                  >
+                    Date (Most Recent)
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                </div>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+              </div>
+              <div
+                class="card-elevated "
+              >
+                <div
+                  class="flex flex-row p-8 font-bold"
+                >
+                  <p
+                    class="body-1 body-1 flex-grow"
+                  >
+                    Health Savings Account Balance
+                  </p>
+                  <p
+                    class="body-1 body-1 flex-end"
+                  >
+                    $3,850.10
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col max-sm:m-4"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col items-stretch p-3"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            Marcus Howard
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-row px-3 py-2"
+                        >
+                          <div
+                            class="flex flex-col flex-grow"
+                          >
+                            <span
+                              class="body-1"
+                            >
+                              Date Recieved:
+                              01/23/23
+                            </span>
+                          </div>
+                          <div
+                            class="flex flex-col flex-end"
+                          >
+                            <span
+                              class="body-1 text-rose-700"
+                            >
+                              -$780.74
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col items-stretch p-3"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            John HopKins
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-row px-3 py-2"
+                        >
+                          <div
+                            class="flex flex-col flex-grow"
+                          >
+                            <span
+                              class="body-1"
+                            >
+                              Date Recieved:
+                              01/23/23
+                            </span>
+                          </div>
+                          <div
+                            class="flex flex-col flex-end"
+                          >
+                            <span
+                              class="body-1 text-rose-700"
+                            >
+                              -$780.74
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col items-stretch p-3"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            123 Pharmacy
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-row px-3 py-2"
+                        >
+                          <div
+                            class="flex flex-col flex-grow"
+                          >
+                            <span
+                              class="body-1"
+                            >
+                              Date Recieved:
+                              01/23/23
+                            </span>
+                          </div>
+                          <div
+                            class="flex flex-col flex-end"
+                          >
+                            <span
+                              class="body-1 text-rose-700"
+                            >
+                              -$780.74
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col items-stretch p-3"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            Marcus Howard
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-row px-3 py-2"
+                        >
+                          <div
+                            class="flex flex-col flex-grow"
+                          >
+                            <span
+                              class="body-1"
+                            >
+                              Date Recieved:
+                              01/23/23
+                            </span>
+                          </div>
+                          <div
+                            class="flex flex-col flex-end"
+                          >
+                            <span
+                              class="body-1 text-rose-700"
+                            >
+                              -$780.74
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col items-stretch p-3"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            Marcus Howard
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-row px-3 py-2"
+                        >
+                          <div
+                            class="flex flex-col flex-grow"
+                          >
+                            <span
+                              class="body-1"
+                            >
+                              Date Recieved:
+                              01/23/23
+                            </span>
+                          </div>
+                          <div
+                            class="flex flex-col flex-end"
+                          >
+                            <span
+                              class="body-1 text-rose-700"
+                            >
+                              -$780.74
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+            </div>
+            <section
+              class="flex justify-center self-center"
+            >
+              <div
+                class="flex flex-row m-2 mt-0"
+              >
+                Viewing 5 of 5 Prior Authorizations
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+`;

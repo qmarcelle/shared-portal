@@ -20,7 +20,11 @@
 @import './tooltip.css';
 @import './filter.css';
 @import './search_typeahead.css';
+@import './idcard.css';
 @import './dashboard.css';
+@import './toggle_switch.css';
+@import './my_health_programs.css';
+@import './my_health.css';
 
 :root {
   --primary-color: #005eb9;
@@ -47,6 +51,11 @@
 
 * {
   font-family: 'Univers-45';
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
 }
 
 .app-base-font-color {
@@ -112,6 +121,33 @@
     linear-gradient(245deg, #067dac 0%, #00497e 70%);
 }
 
+.surface-gradient-flipped {
+  background: radial-gradient(
+      farthest-corner at bottom right,
+      rgba(93, 193, 253, 0.3) 0%,
+      transparent 60%
+    ),
+    linear-gradient(90deg, rgba(0, 73, 126, 1) 20%, rgba(6, 125, 172, 1) 120%);
+}
+
+.surface-gradient-amplify {
+  background: radial-gradient(
+      farthest-corner at top right,
+      rgba(0, 94, 185, 0.6),
+      transparent
+    ),
+    linear-gradient(146deg, rgba(0, 94, 185, 1) 30%, rgba(93, 193, 253, 1) 120%);
+}
+
+.surface-gradient-amplify-flipped {
+  background: radial-gradient(
+      farthest-corner at bottom right,
+      rgba(0, 94, 185, 0.6),
+      transparent
+    ),
+    linear-gradient(39deg, rgba(0, 94, 185, 1) 30%, rgba(93, 193, 253, 1) 120%);
+}
+
 .page-section-63_33 {
   flex-basis: 63.33%;
   flex-shrink: 1;
@@ -135,6 +171,10 @@
 .large-section {
   margin: 16px;
   padding: 32px;
+}
+
+.rich-text > * {
+  display: inline;
 }
 
 .title-1 {
@@ -302,6 +342,11 @@
   margin-top: 75px;
 }
 
+.doughnutTextWellness {
+  margin-left: 21px;
+  margin-top: 108px;
+}
+
 .spendingSummaryChart {
   width: 260px;
   height: 260px;
@@ -309,9 +354,32 @@
   max-height: 260px;
 }
 
+.card-small {
+  flex-basis: 37.5%;
+  flex-shrink: 1;
+  margin: 7px;
+  padding: 12px;
+  max-width: 31%;
+}
+
+.card-small p {
+  color: #005eb9;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card-section {
+  flex-wrap: wrap;
+}
+
 @media (width<=768px) {
   .doughnutText {
     margin: 75px auto;
+    width: 85%;
+    padding-left: 0;
+  }
+  .doughnutTextWellness {
+    margin: 100px auto;
     width: 85%;
     padding-left: 0;
   }
@@ -324,6 +392,13 @@
   }
   .chartText {
     padding-left: 0px;
+  }
+  .card-small {
+    flex-basis: 96%;
+    flex-shrink: 1;
+    margin: 7px;
+    padding: 15px;
+    max-width: 96%;
   }
 }
 
@@ -351,4 +426,74 @@
 }
 .manage-image .link {
   display: ruby;
+}
+.cardColor {
+  height: 56px;
+  width: 672px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.manage-benefit {
+  div .flex.flex-row.m-2 {
+    margin: 0px;
+  }
+  div .link-row-head.mr-2 {
+    margin-left: 8px;
+  }
+}
+
+.manage-underline .link {
+  text-decoration: none;
+}
+
+.overlap-bottom {
+  margin-bottom: -21px;
+}
+
+.accessCodeBackground {
+  background-color: #e7f6ff;
+  border-radius: 7px;
+  width: 40%;
+  margin: auto;
+}
+
+.stepSection .stepRoundBlue {
+  border-radius: 9999px;
+  background-color: #005eb9;
+  display: inline-block;
+  width: 30px;
+  padding-top: 5px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.stepSection .stepRoundGrey {
+  border-radius: 9999px;
+  border: 1px solid rgb(204, 204, 204);
+  background-color: #ffffff;
+  display: inline-block;
+  width: 30px;
+  padding-top: 5px;
+  text-align: center;
+  color: rgb(204, 204, 204);
+}
+
+.stepSection .stepLineGrey {
+  width: 32% !important;
+  height: 2px !important;
+  background-color: rgb(204, 204, 204) !important;
+  margin-bottom: 5px !important;
+  display: inline-block;
+}
+
+.stepSection .stepLineBlue {
+  width: 32% !important;
+  height: 2px !important;
+  background-color: #005eb9 !important;
+  margin-bottom: 5px !important;
+  display: inline-block;
+}
+.skip-underscore .link {
+  text-decoration: none;
 }

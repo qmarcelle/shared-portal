@@ -36,10 +36,11 @@ const ClaimsSnapshot = () => {
             <Filter
               className="large-section px-0 m-0"
               filterHeading="Filter Claims"
-              dropDown={[
+              filterItems={[
                 {
-                  dropNownName: 'Connected Plans',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Connected Plans',
+                  value: [
                     {
                       label: 'All Plans',
                       value: '1',
@@ -54,8 +55,9 @@ const ClaimsSnapshot = () => {
                   selectedValue: { label: 'All Plans', value: '1', id: '1' },
                 },
                 {
-                  dropNownName: 'Member',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Member',
+                  value: [
                     {
                       label: 'All Members',
                       value: '1',
@@ -90,8 +92,9 @@ const ClaimsSnapshot = () => {
                   selectedValue: { label: 'All Members', value: '1', id: '1' },
                 },
                 {
-                  dropNownName: 'Date Range',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Date Range',
+                  value: [
                     {
                       label: '2023',
                       value: '1',
@@ -111,8 +114,9 @@ const ClaimsSnapshot = () => {
                   selectedValue: { label: '2023', value: '1', id: '1' },
                 },
                 {
-                  dropNownName: 'Claim Type',
-                  dropDownval: [
+                  type: 'dropdown',
+                  label: 'Claim Type',
+                  value: [
                     {
                       label: 'All Types',
                       value: '1',

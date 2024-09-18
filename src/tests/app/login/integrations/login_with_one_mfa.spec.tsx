@@ -1,3 +1,7 @@
+process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777882';
+process.env.ES_API_POLICY_ID = 'aa080f071f4e8f1ce4ab0072d2aeaa12';
+process.env.ES_API_APP_ID =
+  '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef';
 import { LoginResponse } from '@/app/login/models/api/login';
 import { SubmitMfaOtpResponse } from '@/app/login/models/api/submit_mfa_otp_response';
 import LogInPage from '@/app/login/page';
@@ -179,6 +183,7 @@ describe('Log In of User', () => {
 
     await userEvent.type(ui.inputUsername, 'username');
     await userEvent.type(ui.inputPassword, 'password');
+
     // The input username field should have the value
     expect(ui.inputUsername).toHaveValue('username');
     // The input password field should have the password
@@ -189,12 +194,20 @@ describe('Log In of User', () => {
     await waitFor(() => {
       expect(screen.getByLabelText(/Logging In.../i)).toBeInTheDocument();
     });
+
     // Should call login post api with correct parameters
     expect(mockedAxios.post).toHaveBeenCalledWith(
       '/mfAuthentication/loginAuthentication',
       {
-        username: 'username',
+        appId:
+          '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef',
+        ipAddress: '1',
         password: 'password',
+        policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+        username: 'username',
+        deviceProfile: 'Testing',
       },
     );
     // The loading progress should be out now and not visible
@@ -210,11 +223,6 @@ describe('Log In of User', () => {
       ).toBeInTheDocument();
       expect(
         screen.getByRole('button', { name: 'Confirm' }),
-      ).toBeInTheDocument();
-      expect(
-        screen.getByRole('button', {
-          name: 'Choose a Different Method',
-        }),
       ).toBeInTheDocument();
       expect(
         screen.getByRole('button', { name: 'contact us' }),
@@ -246,6 +254,11 @@ describe('Log In of User', () => {
         interactionId: 'interactionId1',
         interactionToken: 'interactionToken1',
         otp: 'some-code',
+        appId:
+          '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef',
+        policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
+
+        userToken: expect.anything(),
       },
     );
 
@@ -253,6 +266,6 @@ describe('Log In of User', () => {
     expect(screen.queryByLabelText(/Confirming/i)).not.toBeInTheDocument();
 
     // Assert the user user is taken to dashboard
-    expect(mockReplace).toHaveBeenCalledWith('/dashboard');
+    expect(mockReplace).toHaveBeenCalledWith('/security');
   });
 });

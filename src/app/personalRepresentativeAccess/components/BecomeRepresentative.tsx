@@ -1,10 +1,10 @@
 import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
 
 interface BecomeRepresentativeProps extends IComponent {
   linkLabel: string;

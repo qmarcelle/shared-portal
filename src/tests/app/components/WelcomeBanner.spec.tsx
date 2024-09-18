@@ -1,6 +1,6 @@
-import { WelcomeBanner } from '../../../components/composite/WelcomeBanner';
-import { render, screen } from '@testing-library/react';
+import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
 const element = () => {
   return (

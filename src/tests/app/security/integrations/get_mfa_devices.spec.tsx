@@ -1,5 +1,8 @@
 import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
-import SecurityPage from '@/app/security/page';
+import { SecuritySettings } from '@/app/security/components/SecuritySettingsComponent';
+import { GetMfaDevices } from '@/app/security/models/get_mfa_devices';
+import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
+import { ESResponse } from '@/models/enterprise/esResponse';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor, within } from '@testing-library/react';
@@ -7,8 +10,12 @@ import { mockedAxios } from '../../../__mocks__/axios';
 
 //jest.setTimeout(30000);
 const setupUI = () => {
-  render(<SecurityPage />);
+  render(<SecuritySettings username="Testuser" />);
 };
+
+jest.mock('../../../../utils/server_session', () => ({
+  getServerSideUserId: jest.fn(() => Promise.resolve('xxxx')),
+}));
 
 describe('Get MFA Devices', () => {
   beforeEach(() => {
@@ -21,9 +28,10 @@ describe('Get MFA Devices', () => {
     mockedAxios.post.mockResolvedValueOnce({
       data: {
         data: {
+          mfaEnabled: 'true',
           devices: [
             {
-              deviceType: 'sms',
+              deviceType: MfaDeviceType.text,
               deviceStatus: 'ACTIVE',
               createdAt: 'string',
               updatedAt: 'string',
@@ -31,7 +39,7 @@ describe('Get MFA Devices', () => {
               email: 'string',
             },
             {
-              deviceType: 'voice',
+              deviceType: MfaDeviceType.voice,
               deviceStatus: 'ACTIVE',
               createdAt: 'string',
               updatedAt: 'string',
@@ -39,7 +47,7 @@ describe('Get MFA Devices', () => {
               email: 'string',
             },
             {
-              deviceType: 'email',
+              deviceType: MfaDeviceType.email,
               deviceStatus: 'ACTIVE',
               createdAt: 'string',
               updatedAt: 'string',
@@ -48,7 +56,7 @@ describe('Get MFA Devices', () => {
             },
           ],
         },
-      },
+      } satisfies ESResponse<GetMfaDevices>,
     });
 
     setupUI();
@@ -67,7 +75,7 @@ describe('Get MFA Devices', () => {
     expect(within(mfaOptions[1]).getAllByText('ON')[0]).toBeVisible();
     expect(
       within(mfaOptions[1]).getByText(
-        'Send a security code to testEmail@bcbst.com',
+        'Send a security code to testEmail@bcbst.com.',
       ),
     ).toBeVisible();
     expect(within(mfaOptions[1]).getByText('Remove Method')).toBeVisible();
@@ -76,7 +84,9 @@ describe('Get MFA Devices', () => {
     within(mfaOptions[2]).getByText('Text Message');
     expect(within(mfaOptions[2]).getAllByText('ON')[0]).toBeVisible();
     expect(
-      within(mfaOptions[2]).getByText('Send a security code to (467) 589-6875'),
+      within(mfaOptions[2]).getByText(
+        'Send a security code to (467) 589-6875.',
+      ),
     ).toBeVisible();
     expect(within(mfaOptions[2]).getByText('Remove Method')).toBeVisible();
 
@@ -84,7 +94,9 @@ describe('Get MFA Devices', () => {
     within(mfaOptions[3]).getByText('Voice Call');
     expect(within(mfaOptions[3]).getAllByText('ON')[0]).toBeVisible();
     expect(
-      within(mfaOptions[3]).getByText('Send a security code to (467) 589-6875'),
+      within(mfaOptions[3]).getByText(
+        'Send a security code to (467) 589-6875.',
+      ),
     ).toBeVisible();
     expect(within(mfaOptions[3]).getByText('Remove Method')).toBeVisible();
 
@@ -106,18 +118,22 @@ describe('Get MFA Devices', () => {
     );
   });
 
-  it('should call getDevices api and render disable status when it fails with generic error', async () => {
+  it('should call getDevices api and render error card when it fails with generic error', async () => {
     mockedAxios.post.mockRejectedValueOnce({});
 
     setupUI();
 
     await waitFor(() => {
-      const onIndicators = screen.getAllByText('OFF');
-      expect(onIndicators.length).toBe(2);
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "We're not able to load your MFA settings right now. Please try again later.",
+        ),
+      ).toBeVisible();
     });
   });
 
-  it('should call getDevices api and render disable status when it fails with axios error', async () => {
+  it('should call getDevices api and render error card when it fails with axios error', async () => {
     const getDeviceError = createAxiosErrorForTest({
       errorObject: {
         data: {},
@@ -151,8 +167,63 @@ describe('Get MFA Devices', () => {
     setupUI();
 
     await waitFor(() => {
-      const onIndicators = screen.getAllByText('OFF');
-      expect(onIndicators.length).toBe(8);
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "We're not able to load your MFA settings right now. Please try again later.",
+        ),
+      ).toBeVisible();
+    });
+  });
+
+  it('should call getDevices api and render error message when it fails with 400 error', async () => {
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({ errorObject: {}, status: 400 }),
+    );
+
+    setupUI();
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "We're not able to load your MFA settings right now. Please try again later.",
+        ),
+      ).toBeVisible();
+    });
+  });
+
+  it('should call getDevices api and render error message when it fails with 500 error', async () => {
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({ errorObject: {}, status: 500 }),
+    );
+
+    setupUI();
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "We're not able to load your MFA settings right now. Please try again later.",
+        ),
+      ).toBeVisible();
+    });
+  });
+
+  it('should call getDevices api and render error message when it fails with 408 error', async () => {
+    mockedAxios.post.mockRejectedValueOnce(
+      createAxiosErrorForTest({ errorObject: {}, status: 408 }),
+    );
+
+    setupUI();
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "We're not able to load your MFA settings right now. Please try again later.",
+        ),
+      ).toBeVisible();
     });
   });
 });

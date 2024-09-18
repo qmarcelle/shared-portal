@@ -1,3 +1,7 @@
+process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777882';
+process.env.ES_API_POLICY_ID = 'aa080f071f4e8f1ce4ab0072d2aeaa12';
+process.env.ES_API_APP_ID =
+  '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef';
 import { LoginResponse } from '@/app/login/models/api/login';
 import { SelectMfaDeviceResponse } from '@/app/login/models/api/select_mfa_device_response';
 import LogInPage from '@/app/login/page';
@@ -16,6 +20,32 @@ jest.mock('next/navigation', () => ({
       replace: mockReplace,
     };
   },
+}));
+
+jest.mock('next/headers', () => {
+  return {
+    headers: (): Headers => {
+      return {
+        get: (headerName: string): string | undefined => {
+          // Return the mocked value based on the header name
+          if (headerName === 'x-forwarded-for') {
+            return '1';
+          }
+          return undefined;
+        },
+      } as Headers;
+    },
+  };
+});
+
+jest.mock('next/server', () => ({
+  userAgent: jest.fn(() => ({
+    ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent
+  })),
+}));
+
+jest.mock('../../../../app/pingOne/setupPingOne', () => ({
+  getPingOneData: jest.fn().mockResolvedValue('Testing'), // Mock the return value as a string
 }));
 
 const setupUI = () => {
@@ -244,6 +274,13 @@ describe('Resend Mfa Code', () => {
       {
         username: 'username',
         password: 'password',
+        policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
+        appId:
+          '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef',
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+        ipAddress: '1',
+        deviceProfile: 'Testing',
       },
     );
     // The loading progress should be out now and not vivible
@@ -306,17 +343,28 @@ describe('Resend Mfa Code', () => {
         3,
         '/mfAuthentication/loginAuthentication',
         {
-          password: 'password',
           username: 'username',
+          password: 'password',
+          policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
+          appId:
+            '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef',
+          userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36', // mock User Agent,
+          ipAddress: '1',
+          deviceProfile: 'Testing',
         },
       );
+
       expect(mockedAxios.post).toHaveBeenNthCalledWith(
         4,
         '/mfAuthentication/loginAuthentication/selectDevice',
         {
+          appId:
+            '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef',
           deviceId: '9803c2fd-1106-44a7-828a-c0fa9ef34427',
           interactionId: 'interactionId3',
           interactionToken: 'interactionToken3',
+          policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
         },
       );
     });
@@ -325,9 +373,7 @@ describe('Resend Mfa Code', () => {
     expect(
       screen.getByRole('textbox', { name: 'Enter Security Code' }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: 'Resend Code' }),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Code resent!')).toBeVisible();
     expect(screen.getByRole('button', { name: 'Confirm' })).toBeInTheDocument();
     expect(
       screen.getByRole('button', {
