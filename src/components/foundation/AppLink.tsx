@@ -29,8 +29,14 @@ export const AppLink = ({
         tabIndex={0}
         className={`flex flex-row link-container ${className}`}
       >
-        <p className="link">{label}</p>
-        {icon && <p className="ml-1">{icon}</p>}
+        <p className="link" style={{ display: `${displayStyle}` }}>
+          {label}
+        </p>
+        {icon && (
+          <p className="ml-1" style={{ display: `${displayStyle}` }}>
+            {icon}
+          </p>
+        )}
       </button>
     </a>
   );

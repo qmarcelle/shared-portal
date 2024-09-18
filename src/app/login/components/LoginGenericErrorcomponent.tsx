@@ -12,7 +12,7 @@ export const LoginGenericErrorcomponent = () => {
         <Column className="items-center">
           <TextBox
             className="text-center"
-            text="Something went wrong while logging in to your profile. Please try again later."
+            text="Oops! We're sorry. Something went wrong. Please try again."
           />
           <Spacer size={32} />
           <Divider />

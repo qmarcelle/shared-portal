@@ -1,6 +1,6 @@
-import { IComponent } from '../../../components/IComponent';
-import { HealthCareItem } from '../components/HealthCareItem';
+import { IComponent } from '@/components/IComponent';
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
+import { HealthCareItem } from './HealthCareItem';
 
 interface VirtualMentalHealthCareSectionProps extends IComponent {
   mentalHealthCareOptions: VirtualHealthCareDetails[];
@@ -11,15 +11,17 @@ export const VirtualMentalHealthCareSection = ({
 }: VirtualMentalHealthCareSectionProps) => {
   return (
     <div className="gap-4 md:flex sm:inline">
-      {mentalHealthCareOptions.slice(0, 2).map((item) => (
-        <HealthCareItem
-          key={item.healthCareName}
-          className="mb-4"
-          itemDataTitle={item.itemDataTitle}
-          itemData={item.itemData}
-          healthCareInfo={item}
-        />
-      ))}
+      {mentalHealthCareOptions
+        .slice(0, mentalHealthCareOptions.length)
+        .map((item) => (
+          <HealthCareItem
+            key={item.healthCareName}
+            className="mb-4"
+            itemDataTitle={item.itemDataTitle}
+            itemData={item.itemData}
+            healthCareInfo={item}
+          />
+        ))}
     </div>
   );
 };

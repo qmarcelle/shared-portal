@@ -1,6 +1,6 @@
-import { PayPremiumSection } from '../../../app/dashboard/components/PayPremium';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { PayPremiumSection } from '../../../app/dashboard/components/PayPremium';
 
 const renderUI = () => {
   return render(

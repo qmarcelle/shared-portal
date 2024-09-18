@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>DC489BFE-68E0-4AB3-B6BA-79C97D0E9B40</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="26" height="26"></rect>
+    </defs>
+    <g id="UI-Web/Chevron-Large/Right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Mask"></g>
+        <g id="Icon-App/Function/Chevron/Right" mask="url(#mask-2)">
+            <g transform="translate(-8, -9)">
+                <g id="24x24-Spacers" stroke-width="1" fill="none">
+                    <rect id="Rectangle" x="0" y="0" width="44" height="44"></rect>
+                </g>
+                <path d="M15.2036376,9.70363757 C15.8645248,9.0427503 16.9044484,8.99191282 17.623649,9.55112512 L17.7963624,9.70363757 L28.7963624,20.7036376 C29.4572497,21.3645248 29.5080872,22.4044484 28.9488749,23.123649 L28.7963624,23.2963624 L17.7963624,34.2963624 C17.0804012,35.0123236 15.9195988,35.0123236 15.2036376,34.2963624 C14.5427503,33.6354752 14.4919128,32.5955516 15.0511251,31.876351 L15.2036376,31.7036376 L24.9058333,22 L15.2036376,12.2963624 C14.5427503,11.6354752 14.4919128,10.5955516 15.0511251,9.87635102 L15.2036376,9.70363757 Z" id="Path" fill="#008CC9"></path>
+            </g>
+        </g>
+    </g>
+</svg>

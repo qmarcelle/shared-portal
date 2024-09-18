@@ -124,22 +124,24 @@ export const ClaimItem = ({
           {claimInfo.priorAuthFlag && (
             <Row className="mt-2">
               <Column className="flex flex-col mr-2">
-                <span className="body-1">
-                  Visited on {claimInfo.serviceDate}
-                </span>
+                <span className="body-1">Visited on {claimInfo.fromDate}</span>
                 <span className="body-1 mt-2">For {claimInfo.memberName}</span>
               </Column>
               <Column className="flex flex-col mr-4 ml-4">
                 <span className="body-1" style={{ opacity: '0.7' }}>
                   Referred by
                 </span>
-                <span className="body-1 mt-2">{claimInfo.ReferredBy}</span>
+                <span className="body-1 mt-2">
+                  {claimInfo.getProviderReferredBy.name}
+                </span>
               </Column>
               <Column className="flex flex-col mr-4 ml-4">
                 <span className="body-1" style={{ opacity: '0.7' }}>
                   Referred to
                 </span>
-                <span className="body-1 mt-2">{claimInfo.ReferredTo}</span>
+                <span className="body-1 mt-2">
+                  {claimInfo.getProviderReferredTo.name}
+                </span>
               </Column>
             </Row>
           )}

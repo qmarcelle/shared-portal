@@ -15,7 +15,7 @@ class Logger {
     console.error(
       `[${new Date().toLocaleString()}] E Sequence-${
         this.sequence
-      }-${msg}-${JSON.stringify(err)}`,
+      }-${msg}-${JSON.stringify(err, Object.getOwnPropertyNames(err), 4)}`,
     );
     ++this.sequence;
   }

@@ -1,10 +1,10 @@
-import { IComponent } from '../../../components/IComponent';
-import { Button } from '../../../components/foundation/Button';
-import { Card } from '../../../components/foundation/Card';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
+import { Button } from '@/components/foundation/Button';
+import { Card } from '@/components/foundation/Card';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
 
-import { Header } from '../../../components/foundation/Header';
+import { Header } from '@/components/foundation/Header';
 
 interface PillBoxProps extends IComponent {
   title: string;

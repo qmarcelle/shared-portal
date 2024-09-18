@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyHealthOffsiteLinkCard should render the  Biometric UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section skip-underscore"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <section
+              class="flex justify-start self-start my-health-link"
+            >
+              <span
+                class="body-1 undefined"
+              >
+                <div
+                  class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+                >
+                  <a
+                    href=""
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                      >
+                        Schedule a Biometric Screening
+                      </p>
+                      <p
+                        class="ml-1"
+                      >
+                        <img
+                          alt="external"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </span>
+            </section>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1 body-1 ml-11"
+          >
+            We will help you schedule this important health screening and walk you through the steps to prepare for your doctor visit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section skip-underscore"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="flex flex-row"
+        >
+          <img
+            alt="link"
+            class="size-10"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <section
+            class="flex justify-start self-start my-health-link"
+          >
+            <span
+              class="body-1 undefined"
+            >
+              <div
+                class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+              >
+                <a
+                  href=""
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link"
+                    >
+                      Schedule a Biometric Screening
+                    </p>
+                    <p
+                      class="ml-1"
+                    >
+                      <img
+                        alt="external"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </span>
+          </section>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+        />
+        <p
+          class="body-1 body-1 ml-11"
+        >
+          We will help you schedule this important health screening and walk you through the steps to prepare for your doctor visit.
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

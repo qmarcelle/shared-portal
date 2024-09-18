@@ -1,16 +1,16 @@
+import { ClaimItem } from '@/components/composite/ClaimItem';
 import { Column } from '@/components/foundation/Column';
 import { SelectItem } from '@/components/foundation/Dropdown';
 import { Row } from '@/components/foundation/Row';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
 import { ClaimDetails } from '@/models/claim_details';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import downIcon from '../../../../public/assets/down.svg';
 import DownloadIcon from '../../../../public/assets/Download.svg';
-import { ClaimItem } from '../../../components/composite/ClaimItem';
-import { IComponent } from '../../../components/IComponent';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];
