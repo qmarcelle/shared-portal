@@ -21,3 +21,5 @@ export const inlineErrorCodeMessageMap = new Map<string | number, string>([
 export const UNDEFINED_ERROR_CODE = 500;
 
 export const slideErrorCodes = ['UI-405', 'MF-405'];
+
+export const pingErrorCodes = ['PP-600', 'PP-601'];

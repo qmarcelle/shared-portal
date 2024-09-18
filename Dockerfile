@@ -2,10 +2,9 @@
 FROM nexus.bcbst.com:8096/node:20
 
 # Env args for redirection
-ARG NEXT_PUBLIC_REGISTER_NEW_ACCOUNT=https://test.bcbst.com/register-member/
-ARG NEXT_PUBLIC_PASSWORD_RESET=https://test.bcbst.com/forgot-password/
-ARG NEXT_PUBLIC_LOGIN_REDIRECT_URL=https://members-gdev.bcbst.com/wps/myportal/member/
-ARG NEXT_PUBLIC_PORTAL_URL='https://test.bcbst.com/'
+# The below line acts as a key for the CI/CD to provide the environment specific Client Side values. It will be replaced in the deployment pipeline.
+# DO NOT CHANGE THE BELOW LINE
+# <Insert env args here>
 
 ARG NEXT_PUBLIC_SILVER_FIT=https://www.silverandfit.com/
 ARG NEXT_PUBLIC_ALIGHT=https://mymedicalally.alight.com/s/login/
