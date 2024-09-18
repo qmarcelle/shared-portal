@@ -16,16 +16,11 @@ export async function getMfaDevices(): Promise<ESResponse<GetMfaDevices>> {
       '/mfAuthentication/getDevices',
       request,
     );
-    console.log(
-      `GetMFADevices Success Response - ${JSON.stringify(axiosResponse.data)}`,
-    );
+    logger.info('GetMFADevices API - Success', axiosResponse);
     return axiosResponse?.data;
   } catch (error) {
+    logger.error('GetMFADevices API - Failure', error);
     if (error instanceof AxiosError) {
-      logger.error('Response from API ' + error.response?.data);
-      console.log(
-        `GetMFADevices Failed With Error Code - ${error.response?.data?.data?.errorCode}, Error Response - ${JSON.stringify(error.response?.data)}`,
-      );
       return {
         errorCode:
           error.response?.data?.data?.errorCode ??
@@ -33,7 +28,6 @@ export async function getMfaDevices(): Promise<ESResponse<GetMfaDevices>> {
           '500',
       };
     } else {
-      console.log(`GetMFADevices Failed With Error - ${JSON.stringify(error)}`);
       return {
         errorCode: '500',
       };
