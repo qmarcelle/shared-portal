@@ -1,15 +1,15 @@
 import { ClaimDetails } from '@/models/claim_details';
+import Image from 'next/image';
+import DentalIcon from '../../../public/Dental.svg';
+import MedicalIcon from '../../../public/Medical.svg';
+import PharmacyIcon from '../../../public/Pharmacy.svg';
+import VisionIcon from '../../../public/Vision.svg';
 import { AppLink } from '../foundation/AppLink';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
-import { extrenalIcon } from '../foundation/Icons';
-import Image from 'next/image';
-import { Spacer } from '../foundation/Spacer';
-import MedicalIcon from '../../../public/Medical.svg';
-import PharmacyIcon from '../../../public/Pharmacy.svg';
-import DentalIcon from '../../../public/Dental.svg';
-import VisionIcon from '../../../public/Vision.svg';
+import { externalIcon } from '../foundation/Icons';
 import { Row } from '../foundation/Row';
+import { Spacer } from '../foundation/Spacer';
 import { StatusLabel } from '../foundation/StatusLabel';
 import { TextBox } from '../foundation/TextBox';
 
@@ -49,7 +49,7 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
           <AppLink
             label="Review This Provider"
             className="link flex "
-            icon={<Image src={extrenalIcon} alt="external" />}
+            icon={<Image src={externalIcon} alt="external" />}
           />
         </Column>
       );

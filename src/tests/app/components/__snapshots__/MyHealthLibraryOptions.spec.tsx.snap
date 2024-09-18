@@ -1,0 +1,616 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2"
+          >
+            Health Library
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="my-health-image-card"
+          >
+            <a
+              class="my-health-card my-health-card-link"
+              href="#path-1"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                    >
+                      Learning Center
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Get more information about specific health terms, topics and conditions to better manage your health.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="#path-1"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                    >
+                      Interactive Tools
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="#path-1"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                    >
+                      Health Videos
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </section>
+          <section
+            class="my-health-image-card"
+          >
+            <a
+              class="my-health-card my-health-card-link"
+              href="#path-1"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                    >
+                      Symptom Checker
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Get more reliable information about the symptom you’re experiencing to help find the care you need.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="#path-1"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                    >
+                      Manage Your Diabetes
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="#path-1"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                    >
+                      Decision Support
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <section
+            class="flex justify-start self-start my-health-link"
+          >
+            <span
+              class="body-1 undefined"
+            >
+              <div
+                class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+              >
+                <a
+                  href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link"
+                    >
+                      Visit The Health Library
+                    </p>
+                    <p
+                      class="ml-1"
+                    >
+                      <img
+                        alt="external"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </span>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Health Library
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
+        >
+          From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="my-health-image-card"
+        >
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                  >
+                    Learning Center
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Get more information about specific health terms, topics and conditions to better manage your health.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                  >
+                    Interactive Tools
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                  >
+                    Health Videos
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+        <section
+          class="my-health-image-card"
+        >
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                  >
+                    Symptom Checker
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Get more reliable information about the symptom you’re experiencing to help find the care you need.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                  >
+                    Manage Your Diabetes
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                  >
+                    Decision Support
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+        />
+        <section
+          class="flex justify-start self-start my-health-link"
+        >
+          <span
+            class="body-1 undefined"
+          >
+            <div
+              class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+            >
+              <a
+                href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89"
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="0"
+                >
+                  <p
+                    class="link"
+                  >
+                    Visit The Health Library
+                  </p>
+                  <p
+                    class="ml-1"
+                  >
+                    <img
+                      alt="external"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
+              </a>
+            </div>
+          </span>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

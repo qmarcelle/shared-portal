@@ -1,16 +1,122 @@
+'use client';
 import { ViewCareOptions } from '@/app/findcare/components/ViewCareOptions';
 import { VirtualCareOptions } from '@/app/findcare/components/VirtualCareOptions';
 import { Column } from '@/components/foundation/Column';
-import { Spacer } from '@/components/foundation/Spacer';
+import SearchField from '@/components/foundation/SearchField';
+import { Spacer, SpacerX } from '@/components/foundation/Spacer';
 import Image from 'next/image';
+import EstimateCost from '../../../public/assets/Estimate-Cost.svg';
+import findCareIcon from '../../../public/assets/Find-Care.svg';
 import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
+import { FindCarePillBox } from './components/FindCarePillBox';
 
 const FindCare = () => {
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Column className="app-content app-base-font-color">
+      <Column className="app-content app-base-font-color md:p-0 p-4">
+        <section className={'card-main max-sm:mt-24 mt-8 '}>
+          <SearchField
+            onSearch={() => null}
+            hint="Search by procedure, specialty, facility or provider name..."
+          />
+        </section>
         <section className="flex flex-row items-start app-body">
+          <Column className="page-section-36_67 items-stretch flex-grow page-section-63_33 md:flex-row">
+            <Column className="page-section-36_67 items-stretch">
+              <FindCarePillBox
+                className="md:w-[480px] md:h-[164px] my-8 p-4 w-11/12"
+                title="Planning for a procedure? Estimate costs for:"
+                icon={
+                  <Image
+                    src={EstimateCost}
+                    className="w-[40px] h-[40px]"
+                    alt=""
+                  />
+                }
+                pillObjects={[
+                  {
+                    label: 'Medical',
+                    callback: () => {
+                      console.log('Clicked Pill Medical');
+                    },
+                  },
+                  {
+                    label: 'Dental',
+                    callback: () => {
+                      console.log('Clicked Pill Dental');
+                    },
+                  },
+                  {
+                    label: 'Prescription Drugs',
+                    callback: () => {
+                      console.log('Clicked Pill Prescription Drugs');
+                    },
+                  },
+                  {
+                    label: 'Vision',
+                    callback: () => {
+                      console.log('Clicked Pill Vision');
+                    },
+                  },
+                ]}
+              />
+            </Column>
+            <SpacerX size={32} />
+            <Column className="page-section-36_67 items-stretch">
+              <FindCarePillBox
+                className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
+                title="Looking for care? Find a:"
+                icon={
+                  <Image
+                    src={findCareIcon}
+                    className="w-[40px] h-[40px]"
+                    alt=""
+                  />
+                }
+                pillObjects={[
+                  {
+                    label: 'Primary Care Provider',
+                    callback: () => {
+                      console.log('Clicked Pill PCP');
+                    },
+                  },
+                  {
+                    label: 'Dentist',
+                    callback: () => {
+                      console.log('Clicked Pill Dentist');
+                    },
+                  },
+                  {
+                    label: 'Mental Health Provider',
+                    callback: () => {
+                      console.log('Clicked Pill Mental Health Provider');
+                    },
+                  },
+                  {
+                    label: 'Eye Doctor',
+                    callback: () => {
+                      console.log('Clicked Pill Eye Doctor');
+                    },
+                  },
+                  {
+                    label: 'Pharmacy',
+                    callback: () => {
+                      console.log('Clicked Pill Pharmacy');
+                    },
+                  },
+                  {
+                    label: 'Virtual Care',
+                    callback: () => {
+                      console.log('Clicked Pill Virtual Care');
+                    },
+                  },
+                ]}
+              />
+            </Column>
+          </Column>
+        </section>
+        <section className="flex flex-row items-start app-body mt-4">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <ViewCareOptions
               className="large-section"
@@ -43,9 +149,10 @@ const FindCare = () => {
             />
           </Column>
         </section>
+        <Spacer size={32} />
         <section>
           <VirtualCareOptions
-            className="large-section"
+            className="p-8"
             options={[
               {
                 id: '1',

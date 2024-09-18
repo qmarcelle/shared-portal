@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
-import pages from '../pages';
+import menuNavigation from '../menuNavigation';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 import {
   bcbstBlueLogo,
@@ -22,7 +22,7 @@ export default function SiteHeader() {
   return (
     <nav className="primary-color">
       {/* Header Top Bar */}
-      <div className="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30">
+      <div className="h-18 w-full lg:static flex justify-between border-b bg-white z-30">
         <div className="flex items-center">
           <div className="flex lg:hidden h-18 w-18 items-center justify-center border-r">
             <button
@@ -102,10 +102,10 @@ export default function SiteHeader() {
         data-accordion="collapse"
       >
         <div className="flex font-bold">
-          <SiteHeaderNavSection parentPages={pages} />
+          <SiteHeaderNavSection parentPages={menuNavigation} />
         </div>
         <div className="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0">
-          {pages.map((page, index) => (
+          {menuNavigation.map((page, index) => (
             <SiteHeaderSubNavSection
               key={index}
               id={page.id}
@@ -117,6 +117,7 @@ export default function SiteHeader() {
               qt={page.qt}
               childPages={page.childPages}
               template={page.template}
+              shortLinks={page.shortLinks}
             />
           ))}
         </div>

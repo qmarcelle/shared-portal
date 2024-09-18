@@ -7,9 +7,9 @@ import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
-import { WelcomeBanner } from '@/app/dashboard/components/WelcomeBanner';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { SearchNavigation } from '@/components/composite/SearchNavigation';
+import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { AlertBar } from '@/components/foundation/AlertBar';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -116,6 +116,7 @@ const Dashboard = () => {
               outOfPocketSpent={1500}
               selectedMemberId="43"
               selectedNetworkId="1"
+              displayDisclaimerText={false}
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">

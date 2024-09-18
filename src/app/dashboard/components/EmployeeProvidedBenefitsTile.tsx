@@ -1,15 +1,15 @@
 import { BenefitsProviderInfo } from '@/app/dashboard/models/BenefitsProviderInfo';
+import { IComponent } from '@/components/IComponent';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { Header } from '@/components/foundation/Header';
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
+import { SlidingCarousel } from '@/components/foundation/SlidingCarousel';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Column } from '../../../components/foundation/Column';
-import { Header } from '../../../components/foundation/Header';
-import { SlidingCarousel } from '../../../components/foundation/SlidingCarousel';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 import { BenefitsProviderInfoCard } from './BenefitsProviderInfoCard';
 
 interface EmployeeProvidedBenefitsProps extends IComponent {

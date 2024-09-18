@@ -1,5 +1,6 @@
 import { AddMFAEmailJourney } from '@/app/security/components/journeys/AddMFAEmailJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
+import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import {
   RenderResult,
@@ -15,10 +16,15 @@ const renderUI = () => {
   return render(<AppModal />);
 };
 
+jest.mock('../../../../utils/server_session', () => ({
+  getServerSideUserId: jest.fn(() => Promise.resolve('test1234')),
+}));
+
 describe('Add Mfa Email Journey', () => {
   let component: RenderResult;
-  beforeAll(() => {
-    const showAppModal = useAppModalStore.getState().showAppModal;
+  beforeEach(() => {
+    const { showAppModal, dismissModal } = useAppModalStore.getState();
+    dismissModal();
     component = renderUI();
     showAppModal({
       content: <AddMFAEmailJourney email="chall123@gmail.com" />,
@@ -30,16 +36,6 @@ describe('Add Mfa Email Journey', () => {
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Email Setup' }),
-      ).toBeVisible();
-    });
-    expect(screen.getByText('chall123@gmail.com')).toBeVisible();
-    expect(component.baseElement).toMatchSnapshot();
-
-    // Change email screen
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
-    await waitFor(() => {
-      expect(
-        screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
@@ -74,6 +70,49 @@ describe('Add Mfa Email Journey', () => {
     });
     expect(component.baseElement).toMatchSnapshot();
 
+    mockedAxios.post.mockRejectedValue(
+      createAxiosErrorForTest({
+        errorObject: {
+          data: { errorCode: 'INVALID_OTP' },
+        },
+        status: 400,
+      }),
+    );
+
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          message: 'Phone already registered.',
+          deviceType: 'SMS',
+          deviceStatus: 'ACTIVATION_REQUIRED',
+          createdAt: '2024-02-09T12:40:33.554Z',
+          updatedAt: '2024-02-09T12:40:33.554Z',
+          phone: '11111111111',
+          email: 'chall123@gmail.com',
+          secret: 'ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+          keyUri:
+            'otpauth://totp/thomas@abc.com?secret=ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+        },
+      },
+    });
+    // fire Resend code button to show Code Resent text
+    fireEvent.click(screen.getByRole('button', { name: /Resend Code/i }));
+    expect(screen.getByText('Code resent!')).toBeVisible();
+
+    const securityCode = screen.getByLabelText(/Enter Security Code/i);
+    await userEvent.type(securityCode, '123456');
+    fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
+    // showing error message after entering wrong security code
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          // eslint-disable-next-line quotes
+          "Oops! We're sorry. Something went wrong. Please try again.",
+        ),
+      ).toBeVisible();
+    });
+    fireEvent.click(screen.getByText(/Back/i));
+
     mockedAxios.post.mockResolvedValueOnce({
       data: {
         data: {
@@ -85,8 +124,18 @@ describe('Add Mfa Email Journey', () => {
         },
       },
     });
+
     const codeEntryInput = screen.getByLabelText(/Enter Security Code/i);
+
     await userEvent.type(codeEntryInput, '123456');
+    await waitFor(() => {
+      expect(
+        screen.queryByText(
+          'There is a problem with the security code. Try re-entering or resending the code.',
+        ),
+      ).not.toBeInTheDocument();
+    });
+
     fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
     // Success screen rendered correctly
     await waitFor(() => {
@@ -102,16 +151,6 @@ describe('Add Mfa Email Journey', () => {
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Email Setup' }),
-      ).toBeVisible();
-    });
-    expect(screen.getByText('chall123@gmail.com')).toBeVisible();
-    expect(component.baseElement).toMatchSnapshot();
-
-    // Change email screen
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
-    await waitFor(() => {
-      expect(
-        screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
