@@ -330,7 +330,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     showOnMenu: true,
     url: '/pharmacy',
     qt: {
-      firstParagraph: 'Your pharmacy benefits are managed by CVS Caremark.',
+      firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
       secondParagraph: (
         <p className="pb-1">
           <span className="font-bold">A caremark.com</span> account will let you
@@ -340,8 +340,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       link: '/pharmacy',
     },
     shortLinks: [
-      { title: 'Pharmacy Claims', link: '/claims' },
-      { title: 'Pharmacy Spending', link: '/pharmacyspending' },
+      { title: 'Pharmacy Claims', link: '/claimSnapshotList' },
+      { title: 'Pharmacy Spending', link: '/spendingSummary' },
     ],
     template: {
       firstCol: 'QT',
@@ -356,7 +356,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is My Prescriptions',
         category: 'Manage My Prescriptions',
         showOnMenu: true,
-        url: '/myprescription',
+        url: 'https://www.caremark.com/refillRx?newLogin=yes',
         external: true,
       },
       {
@@ -365,7 +365,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Price a Medication',
         category: 'Manage My Prescriptions',
         showOnMenu: true,
-        url: '/pricemedication',
+        url: 'https://www.caremark.com/drugSearchInit.do?newLogin=yes',
         external: true,
       },
       {
@@ -374,7 +374,16 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Mail Order',
         category: 'Manage My Prescriptions',
         showOnMenu: true,
-        url: '/mailorder',
+        url: 'https://www.caremark.com/refillRx?newLogin=yes',
+        external: true,
+      },
+      {
+        id: 100,
+        title: 'Find a Pharmacy',
+        description: 'This is Find a Pharmacy',
+        category: 'Manage My Prescriptions',
+        showOnMenu: true,
+        url: 'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
         external: true,
       },
       {

@@ -117,6 +117,7 @@ export default function SiteHeader() {
               qt={page.qt}
               childPages={page.childPages}
               template={page.template}
+              shortLinks={page.shortLinks}
             />
           ))}
         </div>
