@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="UI_Icon_Signout" data-name="UI/Icon/Signout">
+    <path id="Combined-Shape" class="cls-1" d="M7,6c.55,0,1-.45,1-1s-.45-1-1-1h-2c-.55,0-1,.45-1,1v14c0,.55.45,1,1,1h2c.55,0,1-.45,1-1s-.45-1-1-1h-1V6h1ZM20.82,11.42l-2.82-4c-.32-.45-.94-.56-1.39-.24-.22.15-.37.39-.41.65-.05.26.02.53.17.75l1.72,2.42h-8.09c-.55,0-1,.45-1,1s.45,1,1,1h8l-1.8,2.4c-.16.21-.23.48-.19.74.04.26.18.5.39.66.17.13.38.2.6.2.31,0,.61-.15.8-.4l3-4c.26-.35.27-.82.02-1.18h0Z"/>
+  </g>
+</svg>

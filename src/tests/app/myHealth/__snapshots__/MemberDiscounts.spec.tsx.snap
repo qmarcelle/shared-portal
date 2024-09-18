@@ -1,0 +1,474 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberDiscountsSection should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2"
+          >
+            Member Discounts
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            Want access to new healthy living discounts every week? Find savings on nutrition programs, fitness accessories, medical supplies and services like hearing aids and LASIK eye surgey.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="flex flex-row card-section"
+          >
+            <div
+              class="card-main card-small"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="Apparel Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 inline my-auto ml-4"
+                >
+                  Apparel & Footwear
+                </p>
+              </div>
+            </div>
+            <div
+              class="card-main card-small"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="Fitness Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 inline my-auto ml-4"
+                >
+                  Fitness
+                </p>
+              </div>
+            </div>
+            <div
+              class="card-main card-small"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="Vision Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 inline my-auto ml-4"
+                >
+                  Hearing & Vision
+                </p>
+              </div>
+            </div>
+            <div
+              class="card-main card-small"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="Nutrition Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 inline my-auto ml-4"
+                >
+                  Nutrition
+                </p>
+              </div>
+            </div>
+            <div
+              class="card-main card-small"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="Travel Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 inline my-auto ml-4"
+                >
+                  Travel
+                </p>
+              </div>
+            </div>
+            <div
+              class="card-main card-small"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="Personal Care Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 inline my-auto ml-4"
+                >
+                  Personal Care
+                </p>
+              </div>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div>
+            <a
+              href=""
+              style="display: inline-flex;"
+            >
+              <button
+                class="flex flex-row link-container p-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="0"
+              >
+                <p
+                  class="link"
+                >
+                  View All Member Discounts
+                </p>
+              </button>
+            </a>
+            <img
+              alt="icon"
+              class="inline"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Member Discounts
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
+        >
+          Want access to new healthy living discounts every week? Find savings on nutrition programs, fitness accessories, medical supplies and services like hearing aids and LASIK eye surgey.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row card-section"
+        >
+          <div
+            class="card-main card-small"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Apparel Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 inline my-auto ml-4"
+              >
+                Apparel & Footwear
+              </p>
+            </div>
+          </div>
+          <div
+            class="card-main card-small"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Fitness Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 inline my-auto ml-4"
+              >
+                Fitness
+              </p>
+            </div>
+          </div>
+          <div
+            class="card-main card-small"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Vision Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 inline my-auto ml-4"
+              >
+                Hearing & Vision
+              </p>
+            </div>
+          </div>
+          <div
+            class="card-main card-small"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Nutrition Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 inline my-auto ml-4"
+              >
+                Nutrition
+              </p>
+            </div>
+          </div>
+          <div
+            class="card-main card-small"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Travel Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 inline my-auto ml-4"
+              >
+                Travel
+              </p>
+            </div>
+          </div>
+          <div
+            class="card-main card-small"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Personal Care Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 inline my-auto ml-4"
+              >
+                Personal Care
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div>
+          <a
+            href=""
+            style="display: inline-flex;"
+          >
+            <button
+              class="flex flex-row link-container p-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="0"
+            >
+              <p
+                class="link"
+              >
+                View All Member Discounts
+              </p>
+            </button>
+          </a>
+          <img
+            alt="icon"
+            class="inline"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

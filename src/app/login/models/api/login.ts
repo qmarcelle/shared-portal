@@ -1,6 +1,17 @@
 export interface LoginRequest {
   username: string;
   password: string;
+  policyId?: string;
+  appId?: string;
+  deviceProfile?: string;
+  ipAddress?: string | null;
+  userAgent?: string;
+}
+
+export enum LoginMessage {
+  COMPLETED,
+  OTP_REQUIRED,
+  NO_DEVICES_EMAIL_VERIFICATION_REQUIRED,
 }
 
 export interface LoginResponse {
@@ -8,9 +19,11 @@ export interface LoginResponse {
   accessToken?: string;
   refreshToken?: string;
   idToken?: string;
+  sessionToken?: string;
   interactionId: string;
   interactionToken: string;
-  mfaDeviceList: MfaDeviceListItem[];
+  mfaDeviceList?: MfaDeviceListItem[];
+  email?: string;
 }
 
 export interface MfaDeviceListItem {
@@ -21,4 +34,8 @@ export interface MfaDeviceListItem {
   updatedAt: string;
   phone?: string;
   email?: string;
+}
+
+export interface PortalLoginResponse extends LoginResponse {
+  userToken: string;
 }

@@ -1,11 +1,11 @@
 import { UpdateCommunicationEmail } from '@/app/communicationSettings/journeys/UpdateCommunicationEmail';
 import { UpdateCommunicationText } from '@/app/communicationSettings/journeys/UpdateCommunicationText';
-import { IComponent } from '../../../components/IComponent';
-import { useAppModalStore } from '../../../components/foundation/AppModal';
-import { Card } from '../../../components/foundation/Card';
-import { Header } from '../../../components/foundation/Header';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
+import { useAppModalStore } from '@/components/foundation/AppModal';
+import { Card } from '@/components/foundation/Card';
+import { Header } from '@/components/foundation/Header';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { UpdateCommunication } from './UpdateCommunication';
 
 interface ContactInformationProps extends IComponent {

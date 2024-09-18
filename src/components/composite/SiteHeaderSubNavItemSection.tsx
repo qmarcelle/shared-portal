@@ -76,8 +76,13 @@ export const SubNavItemSection = ({
               )}
               {tempChildPages.map((item, index) =>
                 item.external ? (
-                  <Link key={index} className="flex" href={item.url}>
-                    <p className="pb-2 pt-2 pr-1 ml-2">{item.title}</p>
+                  <Link
+                    key={index}
+                    className="flex"
+                    href={item.url}
+                    target="_blank"
+                  >
+                    <p className="pb-2 pt-2 pr-1">{item.title}</p>
                     <Image
                       className="pb-2"
                       src={externalIcon}

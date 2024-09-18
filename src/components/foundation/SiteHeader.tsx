@@ -22,7 +22,7 @@ export default function SiteHeader() {
   return (
     <nav className="primary-color">
       {/* Header Top Bar */}
-      <div className="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30">
+      <div className="h-18 w-full lg:static flex justify-between border-b bg-white z-30">
         <div className="flex items-center">
           <div className="flex lg:hidden h-18 w-18 items-center justify-center border-r">
             <button

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { IComponent } from '../IComponent';
 import {
   alertErrorIcon,
   showPasswordIcon,
@@ -7,19 +8,22 @@ import {
 } from './Icons';
 import { Row } from './Row';
 
-export interface TextFieldProps {
+export interface TextFieldProps extends IComponent {
   label: string;
-  type?: 'text' | 'password' | 'email';
+  type?: 'text' | 'password' | 'email' | 'number';
   errors?: string[] | null;
   fillGuidance?: string[] | null;
-  value?: string;
+  value?: string | number;
   hint?: string;
   valueCallback?: (value: string) => void;
   onKeydownCallback?: (key: string) => void;
   suffixIconCallback?: () => void;
   maxWidth?: number;
   isSuffixNeeded?: boolean;
+  highlightError?: boolean;
   onFocusCallback?: () => void;
+  minValue?: number;
+  maxValue?: number;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -47,7 +51,7 @@ const SuffixIcon = ({
   type,
   obscured,
 }: {
-  type: 'text' | 'password' | 'email';
+  type: 'text' | 'password' | 'email' | 'number';
   errors?: string[] | null;
   obscured?: boolean | null;
 }) => {
@@ -117,6 +121,10 @@ export const TextField = ({
   onKeydownCallback,
   maxWidth,
   isSuffixNeeded = false,
+  minValue,
+  maxValue,
+  className = '',
+  highlightError = true,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -145,9 +153,9 @@ export const TextField = ({
     >
       <p>{label}</p>
       <div
-        className={`flex flex-row items-center input ${
+        className={`flex flex-row items-center input ${className} ${
           focus ? 'input-focus' : ''
-        } ${errors!.length > 0 ? 'error-input' : ''}`}
+        } ${errors!.length > 0 && highlightError ? 'error-input' : ''}`}
       >
         <input
           aria-label={label}
@@ -161,6 +169,9 @@ export const TextField = ({
           value={value}
           placeholder={hint}
           type={computeType()}
+          min={minValue}
+          max={maxValue}
+          className={className}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
           {isSuffixNeeded && (

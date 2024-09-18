@@ -5,19 +5,35 @@ import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
+import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
+import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
+import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
 import { useLoginStore } from './stores/loginStore';
+import { useMfaStore } from './stores/mfaStore';
 
 export default function LogIn() {
-  const [unhandledErrors, loggedUser, mfaNeeded, backToHome] = useLoginStore(
-    (state) => [
-      state.unhandledErrors,
-      state.loggedUser,
-      state.mfaNeeded,
-      state.resetToHome,
-    ],
-  );
+  const [
+    unhandledErrors,
+    loggedUser,
+    mfaNeeded,
+    multipleLoginAttempts,
+    isRiskScoreHigh,
+    riskLevelNotDetermined,
+    verifyEmail,
+  ] = useLoginStore((state) => [
+    state.unhandledErrors,
+    state.loggedUser,
+    state.mfaNeeded,
+    state.multipleLoginAttempts,
+    state.isRiskScoreHigh,
+    state.riskLevelNotDetermined,
+    state.verifyEmail,
+  ]);
+  const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
+    state.multipleMFASecurityCodeAttempts,
+  ]);
 
   const router = useRouter();
   function renderComp() {
@@ -25,10 +41,23 @@ export default function LogIn() {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace('/security');
+      router.replace(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/security');
+    }
+    if (multipleLoginAttempts == true) {
+      return <MultipleAttemptsErrorComponent />;
+    }
+    if (isRiskScoreHigh == true || riskLevelNotDetermined == true) {
+      router.replace(process.env.NEXT_PUBLIC_PORTAL_ERROR_URL ?? '');
+    }
+    if (multipleMFASecurityCodeAttempts == true) {
+      return <MFASecurityCodeMultipleAttemptComponent />;
     }
     if (mfaNeeded == false) {
-      return <LoginComponent />;
+      if (verifyEmail == true) {
+        return <LoginEmailVerification />;
+      } else {
+        return <LoginComponent />;
+      }
     } else {
       return <MfaComponent />;
     }
@@ -58,7 +87,9 @@ export default function LogIn() {
         <div id="blueback">
           <div id="marginSection">
             <button
-              onClick={backToHome}
+              onClick={() => {
+                router.replace(process.env.NEXT_PUBLIC_PORTAL_URL ?? '');
+              }}
               id="backButton"
               className="buttonlink pt-9"
             >

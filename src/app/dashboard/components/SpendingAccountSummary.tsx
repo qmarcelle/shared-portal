@@ -1,17 +1,17 @@
 import { ServiceDetails } from '@/app/claimServiceRendered/models/service_details';
+import { IComponent } from '@/components/IComponent';
+import { Accordion } from '@/components/foundation/Accordion';
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Circle } from '@/components/foundation/Circle';
+import { Column } from '@/components/foundation/Column';
+import { Header } from '@/components/foundation/Header';
+import { downIcon, upIcon } from '@/components/foundation/Icons';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { formatCurrency } from '@/utils/currency_formatter';
 import Image from 'next/image';
-import { IComponent } from '../../../components/IComponent';
-import { Accordion } from '../../../components/foundation/Accordion';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Circle } from '../../../components/foundation/Circle';
-import { Column } from '../../../components/foundation/Column';
-import { Header } from '../../../components/foundation/Header';
-import { downIcon, upIcon } from '../../../components/foundation/Icons';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 import { ServicesRenderedInformation } from '../../claimServiceRendered/components/ServicesRenderedInformation';
 import { SpendingChart } from './SpendingChart';
 

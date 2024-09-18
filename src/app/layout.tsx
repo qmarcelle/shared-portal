@@ -4,21 +4,27 @@
 import '@/app/globals.css';
 import { AppModal } from '@/components/foundation/AppModal';
 import { SideBarModal } from '@/components/foundation/SideBarModal';
+import SiteHeader from '@/components/foundation/SiteHeader';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
+import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import SiteHeader from '../components/foundation/SiteHeader';
 import ClientLayout from './ClientLayout';
+import { initPingOne } from './pingOne/setupPingOne';
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const showHeader = usePathname() == '/login' ? false : true;
+  useEffect(() => {
+    initPingOne();
+  }, []);
+  const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <html lang="en">
       <body>
@@ -31,6 +37,10 @@ export default function RootLayout({
         <ClientLayout>{children}</ClientLayout>
         <AppModal />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <script
+          src="https://apps.pingone.com/signals/web-sdk/5.3.7/signals-sdk.js"
+          defer
+        ></script>
       </body>
     </html>
   );

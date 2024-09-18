@@ -1,16 +1,17 @@
+import { Filter } from '@/components/foundation/Filter';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Filter } from '../../../components/foundation/Filter';
 
 const renderUI = () => {
   return render(
     <Filter
       className="large-section px-0 m-0"
       filterHeading="Filter Summary"
-      dropDown={[
+      filterItems={[
         {
-          dropNownName: 'Member',
-          dropDownval: [
+          type: 'dropdown',
+          label: 'Member',
+          value: [
             {
               label: 'All Members',
               value: '1',
@@ -45,8 +46,9 @@ const renderUI = () => {
           selectedValue: { label: 'All Members', value: '1', id: '1' },
         },
         {
-          dropNownName: 'Date Range',
-          dropDownval: [
+          type: 'dropdown',
+          label: 'Date Range',
+          value: [
             {
               label: '2023',
               value: '1',
@@ -66,8 +68,9 @@ const renderUI = () => {
           selectedValue: { label: '2023', value: '1', id: '1' },
         },
         {
-          dropNownName: 'Claim Type',
-          dropDownval: [
+          type: 'dropdown',
+          label: 'Claim Type',
+          value: [
             {
               label: 'All Types',
               value: '1',

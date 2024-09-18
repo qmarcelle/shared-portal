@@ -1,16 +1,16 @@
 import { UpdateCommunicationTerms } from '@/app/communicationSettings/journeys/UpdateCommunicationTerms';
+import { IComponent } from '@/components/IComponent';
+import { useAppModalStore } from '@/components/foundation/AppModal';
+import { Button } from '@/components/foundation/Button';
+import { Card } from '@/components/foundation/Card';
+import { Checkbox } from '@/components/foundation/Checkbox';
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
+import { Header } from '@/components/foundation/Header';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { useState } from 'react';
-import { IComponent } from '../../../components/IComponent';
-import { useAppModalStore } from '../../../components/foundation/AppModal';
-import { Button } from '../../../components/foundation/Button';
-import { Card } from '../../../components/foundation/Card';
-import { Checkbox } from '../../../components/foundation/Checkbox';
-import { Column } from '../../../components/foundation/Column';
-import { Divider } from '../../../components/foundation/Divider';
-import { Header } from '../../../components/foundation/Header';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
 
 interface EditAlertPreferncesProps extends IComponent {
   isTextAlert: boolean;
