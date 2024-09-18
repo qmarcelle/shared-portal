@@ -5,7 +5,6 @@ import { Divider } from '@/components/foundation/Divider';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
-import ReactGA from 'react-ga4';
 import { AppProg } from '../models/app/app_prog';
 import { useLoginStore } from '../stores/loginStore';
 
@@ -25,11 +24,20 @@ export const LoginComponent = () => {
     window.open(await getConfig('REGISTER_NEW_ACCOUNT'), '_self');
   }
   const loginAnalytics = () => {
-    ReactGA.event('login', {
+    window.dataLayer.push({
       click_text: 'log in',
       click_url: window.location.href,
       element_category: 'login',
+      event: 'login',
     });
+    // TagManager.dataLayer({
+    //   dataLayer: {
+    //     click_text: 'log in',
+    //     click_url: window.location.href,
+    //     element_category: 'login',
+    //     event: 'login',
+    //   },
+    //});
     actions.login();
   };
   return (
