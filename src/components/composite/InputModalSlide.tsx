@@ -1,3 +1,4 @@
+import { googleAnalytics } from '@/utils/analytics';
 import { ReactElement } from 'react';
 import { IComponent } from '../IComponent';
 import { AppLink } from '../foundation/AppLink';
@@ -42,11 +43,34 @@ export const InputModalSlide = ({
           className="font-bold active"
           label={buttonLabel}
           type="primary"
-          callback={nextCallback}
+          callback={() => {
+            nextCallback?.();
+            googleAnalytics(
+              buttonLabel,
+              undefined,
+              label,
+              buttonLabel,
+              'select_content',
+              'select',
+            );
+          }}
         ></Button>
         <Spacer size={24} />
       </Column>
-      <AppLink label="Cancel" callback={cancelCallback} />
+      <AppLink
+        label="Cancel"
+        callback={() => {
+          cancelCallback?.();
+          googleAnalytics(
+            'cancel',
+            undefined,
+            label,
+            'cancel',
+            'select_content',
+            'select',
+          );
+        }}
+      />
     </Column>
   );
 };

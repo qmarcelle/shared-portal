@@ -4,6 +4,7 @@ import { LinkRow } from '@/components/foundation/LinkRow';
 import { ListRow } from '@/components/foundation/ListRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { ToolTip } from '@/components/foundation/Tooltip';
+import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import infoIcon from '../../../../public/assets/info.svg';
 
@@ -42,6 +43,13 @@ export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
           label="Change My Password"
           onClick={() => {
             window.location.href = process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '';
+            googleAnalytics(
+              'change my password',
+              process.env.NEXT_PUBLIC_PASSWORD_RESET,
+              'content interaction',
+              'click',
+              'internal_link_click',
+            );
           }}
         />
       </div>

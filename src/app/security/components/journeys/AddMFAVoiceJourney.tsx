@@ -13,6 +13,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
+import { googleAnalytics } from '@/utils/analytics';
 import { formatPhoneNumber, isValidMobileNumber } from '@/utils/inputValidator';
 import { useEffect, useState } from 'react';
 import { MfaDeviceType } from '../../models/mfa_device_type';
@@ -65,6 +66,14 @@ export const AddMFAVoiceJourney = ({
     // Do API call for new device
     try {
       if (value) {
+        googleAnalytics(
+          'resend code',
+          undefined,
+          'voice call setup',
+          'resend code',
+          'select_content',
+          'select',
+        );
         setResentCode(true);
       } else {
         setResentCode(false);
