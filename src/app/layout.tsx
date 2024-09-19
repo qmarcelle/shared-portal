@@ -27,11 +27,9 @@ export default function RootLayout({
       gtmId: 'GTM-5GNS5V6',
       dataLayer: {
         business_unit: 'member',
+        page_name: window.document.title,
       },
     };
-    // (window.dataLayer || []).push({
-    //   business_unit: 'member',
-    // });
     console.log('Initializing Google Analytics');
     TagManager.initialize(TagManagerArgs);
 

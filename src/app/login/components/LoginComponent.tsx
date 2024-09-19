@@ -30,14 +30,6 @@ export const LoginComponent = () => {
       element_category: 'login',
       event: 'login',
     });
-    // TagManager.dataLayer({
-    //   dataLayer: {
-    //     click_text: 'log in',
-    //     click_url: window.location.href,
-    //     element_category: 'login',
-    //     event: 'login',
-    //   },
-    //});
     actions.login();
   };
   return (
