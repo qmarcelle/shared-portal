@@ -52,10 +52,10 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
       content: getOnClickContent(val),
     });
     googleAnalytics(
-      val?.enabled ? 'Remove Method' : 'Set Up Method',
+      val?.enabled ? 'remove Method' : 'set Up Method',
       undefined,
       MfaDeviceTypeAnalytics[val.deviceType],
-      val?.enabled ? 'Remove Method' : 'Set Up Method',
+      val?.enabled ? 'remove Method' : 'set Up Method',
       'select_content',
       'select',
     );

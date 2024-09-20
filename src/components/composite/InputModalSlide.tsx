@@ -46,10 +46,10 @@ export const InputModalSlide = ({
           callback={() => {
             nextCallback?.();
             googleAnalytics(
-              buttonLabel,
+              buttonLabel?.toLocaleLowerCase(),
               undefined,
-              label,
-              buttonLabel,
+              label?.toLocaleLowerCase(),
+              buttonLabel?.toLocaleLowerCase(),
               'select_content',
               'select',
             );
@@ -64,7 +64,7 @@ export const InputModalSlide = ({
           googleAnalytics(
             'cancel',
             undefined,
-            label,
+            label?.toLocaleLowerCase(),
             'cancel',
             'select_content',
             'select',

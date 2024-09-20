@@ -3,6 +3,7 @@ import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ToggleSwitch } from '@/components/foundation/ToggleSwitch';
+import { googleAnalytics } from '@/utils/analytics';
 import { useState } from 'react';
 import { useSecuritySettingsStore } from '../stores/security_settings_store';
 import { ErrorMfaCard } from './ErrorMfaCard';
@@ -33,6 +34,14 @@ export const DisableMFAWarning = ({ enabled }: DisableMFAWarningProps) => {
               try {
                 setChecked(!checked);
                 toggleMfa();
+                googleAnalytics(
+                  'MFA',
+                  undefined,
+                  'content interaction',
+                  !checked ? 'on' : 'off',
+                  'select_content',
+                  'toggle',
+                );
               } catch (err) {
                 useSecuritySettingsStore.setState({
                   toggleMfaDeviceError: true,
