@@ -7,6 +7,7 @@ import { SideBarModal } from '@/components/foundation/SideBarModal';
 import SiteHeader from '@/components/foundation/SiteHeader';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
+import { GTM_ID } from '@/utils/analytics';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
@@ -24,7 +25,7 @@ export default function RootLayout({
 }) {
   useEffect(() => {
     const TagManagerArgs = {
-      gtmId: 'GTM-5GNS5V6',
+      gtmId: GTM_ID,
       dataLayer: {
         business_unit: 'member',
         page_name: window.document.title,
