@@ -2,6 +2,8 @@ import { useLoginStore } from '@/app/login/stores/loginStore';
 import { getUserIdDetails } from '../actions/userSessionDetails';
 import { logger } from './logger';
 
+export const GTM_ID = 'GTM-5GNS5V6';
+
 export const googleAnalytics = async (
   click_text?: string,
   click_url?: string,
