@@ -119,7 +119,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       } catch (err) {
         // Log the error
         logger.error('Error from Login Api', err);
-        console.error(err);
         const errorCode =
           (err as ActionResponse<LoginStatus, PortalLoginResponse>).error
             ?.errorCode ?? '';
@@ -234,7 +233,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       } catch (error) {
         // Log the error
         logger.error('Error from SignOut Action', error);
-        console.error(error);
       }
     },
   }),

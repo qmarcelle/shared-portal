@@ -144,8 +144,7 @@ export const createMfaDevicesStore: StateCreator<
         getDeviceError: true,
         mfaDevicesEnabled: false,
       });
-      logger.error('Loading Mfa Devices failed');
-      logger.error('GetDevices' + err);
+      logger.error('Loading Mfa Devices failed', err);
     }
   },
 });

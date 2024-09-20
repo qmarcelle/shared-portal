@@ -15,14 +15,7 @@ export async function getAuthToken() {
       token = await invokePingToken(retry);
     }
   } catch (error) {
-    logger.error('getToken' + error);
-    if (error instanceof AxiosError) {
-      logger.error(
-        `PING Auth Token API - Status ${
-          error.response?.status
-        }, Response ${JSON.stringify(error.response?.data)}`,
-      );
-    }
+    logger.error('PING Auth Token API - Failure', error);
   }
   return token;
 }
@@ -59,12 +52,8 @@ export async function invokePingToken(retry: number) {
       token = globalThis.accessToken.access_token;
     }
   } catch (error) {
+    logger.error(`PING Auth Token API, Retry ${retry} - Failure`, error);
     if (error instanceof AxiosError) {
-      logger.error(
-        `PING Auth Token API, Retry ${retry} - Status ${
-          error.response?.status
-        }, Response ${JSON.stringify(error.response?.data)}`,
-      );
       //Retry the PING Token API if it get failed. In future retry count will vary based on error code
       if (retry <= 2) {
         retry = retry + 1;

@@ -21,8 +21,7 @@ export async function invokeSmartSearch(
   } catch (error) {
     if (error instanceof AxiosError) {
       //logger.error("Response from API " + error.response?.data);
-      logger.error('Error in Login');
-      console.error(error.response?.data);
+      logger.error('Smart Search API - Failure', error);
       return { errorCode: error.response?.data?.data?.errorCode };
     } else {
       throw error;
