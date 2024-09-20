@@ -1,7 +1,7 @@
 /**
  * Routes that are accessible to non-logged-in clients.
  */
-export const publicRoutes = ['/'];
+export const publicRoutes = ['/embed/logout'];
 
 /**
  * Routes that are used for authentication.
@@ -24,7 +24,12 @@ export const inboundSSORoutes = new Map<string, string>([
 /**
  * Routes that the root layout will not display the header and footer on.
  */
-export const noHeaderAndFooterRoutes = ['/login', '/embed/security'];
+export const noHeaderAndFooterRoutes = [
+  '/login',
+  '/embed/security',
+  '/embed/logout',
+  '/',
+];
 
 export const SECURITY_SETTINGS_PATH = '/security';
 
