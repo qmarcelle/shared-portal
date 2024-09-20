@@ -16,18 +16,15 @@ export async function callToggleMfa(
       userId: await getServerSideUserId(),
       mfaEnabled: mfaState ? 'true' : 'false',
     };
-    console.log(req);
     const resp = await esApi.put<ESResponse<PutMfaToggle>>(
       '/mfAuthentication/mfaEnableDisable',
       req,
     );
-    console.log(resp.data);
+    logger.info('Toggle MFA API - Success', resp);
     return resp.data;
   } catch (err) {
-    logger.error('Error in Toggle Mfa', err);
+    logger.error('Toggle MFA API - Failure', err);
     if (err instanceof AxiosError) {
-      console.log(err.response?.data);
-      logger.error('Axios Error occurred');
       return {
         errorCode: err.response?.status.toString(),
       };

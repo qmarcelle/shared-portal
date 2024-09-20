@@ -17,16 +17,11 @@ export async function deleteMfaDevices(
       '/mfAuthentication/deleteDevices',
       request,
     );
-    console.log(
-      `DeleteMFADevices Success Response - ${JSON.stringify(axiosResponse.data)}`,
-    );
+    logger.info('DeleteMFADevices API - Success', axiosResponse);
     return axiosResponse?.data;
   } catch (error) {
+    logger.error('DeleteMFADevices API - Failure', error);
     if (error instanceof AxiosError) {
-      logger.error('Response from API ' + error.response?.data);
-      console.log(
-        `DeleteMFADevices Failed With Error Code - ${error.response?.data?.data?.errorCode}, Error Response - ${JSON.stringify(error.response?.data)}`,
-      );
       return {
         errorCode:
           error.response?.data?.data?.errorCode ??
@@ -34,9 +29,6 @@ export async function deleteMfaDevices(
           error.response?.status,
       };
     } else {
-      console.log(
-        `DeleteMFADevices Failed with Error - ${JSON.stringify(error)}`,
-      );
       throw 'An error occured';
     }
   }

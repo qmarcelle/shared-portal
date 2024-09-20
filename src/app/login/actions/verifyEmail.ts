@@ -21,13 +21,12 @@ export async function callVerifyEmailOtp(
   try {
     request.policyId = process.env.ES_API_POLICY_ID;
     request.appId = process.env.ES_API_APP_ID;
-    console.log(request);
     const resp = await esApi.post<ESResponse<PortalLoginResponse>>(
       '/mfAuthentication/loginAuthentication/verifyEmailOtp',
       request,
     );
 
-    console.debug(resp.data);
+    logger.info('Verify Email OTP API- Success', resp);
     status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
@@ -60,10 +59,8 @@ export async function callVerifyEmailOtp(
       },
     };
   } catch (error) {
+    logger.error('Verify Email OTP API - Failure', error);
     if (error instanceof AxiosError) {
-      //logger.error("Response from API " + error.response?.data);
-      logger.error('Error in Login');
-      console.error(error.response?.data);
       return {
         status: LoginStatus.ERROR,
         data: error.response?.data.data,
