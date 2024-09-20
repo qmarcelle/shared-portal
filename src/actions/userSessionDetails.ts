@@ -3,5 +3,9 @@
 import { getServerSideUserId } from '@/utils/server_session';
 
 export async function getUserIdDetails(): Promise<string> {
-  return await getServerSideUserId();
+  try {
+    return await getServerSideUserId();
+  } catch (error) {
+    throw new Error('Invalid session');
+  }
 }

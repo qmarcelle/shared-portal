@@ -40,7 +40,7 @@ export const ChangeAuthDeviceSlide = ({
             googleAnalytics(
               'next',
               undefined,
-              label,
+              label?.toLocaleLowerCase(),
               'next',
               'select_content',
               'select',
@@ -55,7 +55,7 @@ export const ChangeAuthDeviceSlide = ({
             googleAnalytics(
               'cancel',
               undefined,
-              label,
+              label?.toLocaleLowerCase(),
               'cancel',
               'select_content',
               'select',
