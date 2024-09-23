@@ -33,6 +33,7 @@ export const MemberIDCardInfo = () => {
               onSelectItem={(val) => {
                 handleDropDownUpdate(val.id);
               }}
+              minWidth="min-w-[232px]"
               itemData={dropDownList}
               dropdownHeader={null}
               headBuilder={() => (

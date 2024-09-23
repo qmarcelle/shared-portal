@@ -2,6 +2,7 @@ import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
 import Image from 'next/image';
 import { ReactElement, ReactNode, useRef, useState } from 'react';
 import { IComponent } from '../IComponent';
+import { Card } from './Card';
 import { Column } from './Column';
 import { Header } from './Header';
 import { checkBlueIcon, switchFilterIcon } from './Icons';
@@ -15,7 +16,11 @@ interface RichDropDownProps<T> extends IComponent {
   itemsBuilder: (data: T, index: number, selected: T) => ReactNode;
   selected: T;
   onSelectItem: (val: T) => void;
+  onClickFooter?: () => void;
   maxHeight?: string;
+  minWidth?: string;
+  showSelected?: boolean;
+  divider?: boolean;
 }
 
 const DefaultDropDownHead = () => {
@@ -36,6 +41,10 @@ export const RichDropDown = <T extends { id: string }>({
   selected,
   onSelectItem,
   maxHeight = 'max-h-[420px]',
+  minWidth,
+  showSelected = true,
+  divider = true,
+  onClickFooter,
 }: RichDropDownProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const listRef = useRef(null);
@@ -60,42 +69,58 @@ export const RichDropDown = <T extends { id: string }>({
   });
 
   return (
-    <Column
-      tabIndex={1}
-      className={`switch-filter ${itemData.length > 1 ? 'default' : 'disabled'}`}
-    >
-      {isOpen == false && (
+    <div className="rich-dropdown">
+      <Column
+        tabIndex={1}
+        className={`switch-filter ${itemData.length > 1 ? 'default' : 'disabled'}`}
+      >
         <div onClick={openDropDown}>{headBuilder(selected)}</div>
+      </Column>
+
+      {isOpen && (
+        <Card
+          type="elevated"
+          tabIndex={1}
+          className={`switch-filter absolute-dropdown ${minWidth ?? 'min-w-[100%]'} ${itemData.length > 1 ? 'default' : 'disabled'}`}
+        >
+          <div ref={listRef}>
+            <div onClick={closeDropdown}>{dropdownHeader}</div>
+            <ul
+              className={`${maxHeight} ${minWidth ?? 'min-w-[100%]'} overflow-auto`}
+            >
+              {itemData.map((item, index) => {
+                const isSelcted = selected.id == item.id && showSelected;
+                return (
+                  <li key={item.id}>
+                    <Row
+                      tabIndex={1}
+                      className={`p-4 ${divider ? 'divider-bottom' : ''} ${isSelcted ? 'selected' : ''} item`}
+                      key={item.id}
+                      onClick={() => selectItem(item)}
+                    >
+                      {isSelcted ? (
+                        <div className="size-5 mr-2">
+                          <Image
+                            alt="selcted"
+                            className="size-5"
+                            src={checkBlueIcon}
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className={showSelected ? 'size-5 mr-2' : ''}
+                        ></div>
+                      )}
+                      {itemsBuilder(item, index, selected)}
+                    </Row>
+                  </li>
+                );
+              })}
+            </ul>
+            <div onClick={() => onClickFooter?.()}>{dropdownFooter}</div>
+          </div>
+        </Card>
       )}
-      {isOpen && <div onClick={closeDropdown}>{dropdownHeader}</div>}
-      <ul ref={listRef} className={`${maxHeight} overflow-y-scroll`}>
-        {isOpen &&
-          itemData.map((item, index) => {
-            const isSelcted = selected.id == item.id;
-            return (
-              <li key={item.id}>
-                <Row
-                  tabIndex={1}
-                  className={`p-4 divider-bottom ${isSelcted ? 'selected' : ''} item`}
-                  key={item.id}
-                  onClick={() => selectItem(item)}
-                >
-                  <div className="size-5 mr-2">
-                    {isSelcted && (
-                      <Image
-                        alt="selcted"
-                        className="size-5"
-                        src={checkBlueIcon}
-                      />
-                    )}
-                  </div>
-                  {itemsBuilder(item, index, selected)}
-                </Row>
-              </li>
-            );
-          })}
-      </ul>
-      {isOpen && dropdownFooter}
-    </Column>
+    </div>
   );
 };

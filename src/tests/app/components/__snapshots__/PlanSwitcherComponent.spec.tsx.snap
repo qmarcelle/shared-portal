@@ -1,0 +1,1431 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanSwitcher Component should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mx-4 w-[268px] hidden md:block"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mx-4 w-[268px] hidden md:block"
+    >
+      <div
+        class="rich-dropdown"
+      >
+        <div
+          class="flex flex-col switch-filter default"
+          tabindex="1"
+        >
+          <div>
+            <div
+              class="flex flex-row px-4 py-2 items-center justify-between"
+            >
+              <div
+                class="flex flex-col max-w-[90%]"
+              >
+                <p
+                  class="body-2 app-base-font-color"
+                >
+                  View Plan:
+                </p>
+                <p
+                  class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                >
+                  BlueCross BlueShield of Tennessee
+                </p>
+              </div>
+              <img
+                alt="switch"
+                class="size-5 head-icon m-[4px]"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PlanSwitcher Component should render the UI correctly 2`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mx-4 w-[268px] hidden md:block"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+          >
+            <div>
+              <div>
+                <div
+                  class="flex flex-row px-4 py-2 items-center divider-bottom"
+                >
+                  <h3
+                    class="title-3 grow font-bold app-base-font-color"
+                  >
+                    Select plan view...
+                  </h3>
+                  <img
+                    alt="switch"
+                    class="size-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <ul
+                class="max-h-[420px] min-w-[100%] overflow-auto"
+              >
+                <li>
+                  <div
+                    class="flex flex-row p-4   item"
+                    tabindex="1"
+                  >
+                    <div
+                      class=""
+                    />
+                    <div
+                      class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            BlueCross BlueShield of Tennessee
+                          </p>
+                          <img
+                            alt="selected"
+                            class="size-5 m-[2px]"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Subscriber: Chris Hall
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            ID: ABC1234567890
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            Policies: Medical, Vision, Dental
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="flex flex-row p-4   item"
+                    tabindex="1"
+                  >
+                    <div
+                      class=""
+                    />
+                    <div
+                      class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 font-bold primary-color"
+                          >
+                            Tennessee Valley Authority
+                          </p>
+                          <img
+                            alt="selected"
+                            class="size-5 m-[2px]"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Subscriber: Maddison Hall
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            ID: ABC000000000
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            Policies: Dental
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div>
+                <div
+                  class="flex flex-row p-4 items-center"
+                >
+                  <img
+                    alt="Maximize"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="body-1 mx-1"
+                  >
+                    View Past Plans
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mx-4 w-[268px] hidden md:block"
+    >
+      <div
+        class="rich-dropdown"
+      >
+        <div
+          class="flex flex-col switch-filter default"
+          tabindex="1"
+        >
+          <div>
+            <div
+              class="flex flex-row px-4 py-2 items-center justify-between"
+            >
+              <div
+                class="flex flex-col max-w-[90%]"
+              >
+                <p
+                  class="body-2 app-base-font-color"
+                >
+                  View Plan:
+                </p>
+                <p
+                  class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                >
+                  BlueCross BlueShield of Tennessee
+                </p>
+              </div>
+              <img
+                alt="switch"
+                class="size-5 head-icon m-[4px]"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+        >
+          <div>
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center divider-bottom"
+              >
+                <h3
+                  class="title-3 grow font-bold app-base-font-color"
+                >
+                  Select plan view...
+                </h3>
+                <img
+                  alt="switch"
+                  class="size-5"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] min-w-[100%] overflow-auto"
+            >
+              <li>
+                <div
+                  class="flex flex-row p-4   item"
+                  tabindex="1"
+                >
+                  <div
+                    class=""
+                  />
+                  <div
+                    class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                        <img
+                          alt="selected"
+                          class="size-5 m-[2px]"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Subscriber: Chris Hall
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          ID: ABC1234567890
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          Policies: Medical, Vision, Dental
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="flex flex-row p-4   item"
+                  tabindex="1"
+                >
+                  <div
+                    class=""
+                  />
+                  <div
+                    class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold primary-color"
+                        >
+                          Tennessee Valley Authority
+                        </p>
+                        <img
+                          alt="selected"
+                          class="size-5 m-[2px]"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Subscriber: Maddison Hall
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          ID: ABC000000000
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          Policies: Dental
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div>
+              <div
+                class="flex flex-row p-4 items-center"
+              >
+                <img
+                  alt="Maximize"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 mx-1"
+                >
+                  View Past Plans
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PlanSwitcher Component should render the UI correctly 3`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mx-4 w-[268px] hidden md:block"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+          >
+            <div>
+              <div>
+                <div
+                  class="flex flex-row px-4 py-2 items-center divider-bottom"
+                >
+                  <h3
+                    class="title-3 grow font-bold app-base-font-color"
+                  >
+                    Select plan view...
+                  </h3>
+                  <img
+                    alt="switch"
+                    class="size-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <ul
+                class="max-h-[420px] min-w-[100%] overflow-auto"
+              >
+                <li>
+                  <div
+                    class="flex flex-row p-4   item"
+                    tabindex="1"
+                  >
+                    <div
+                      class=""
+                    />
+                    <div
+                      class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            BlueCross BlueShield of Tennessee
+                          </p>
+                          <img
+                            alt="selected"
+                            class="size-5 m-[2px]"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Subscriber: Chris Hall
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            ID: ABC1234567890
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            Policies: Medical, Vision, Dental
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="flex flex-row p-4   item"
+                    tabindex="1"
+                  >
+                    <div
+                      class=""
+                    />
+                    <div
+                      class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 font-bold primary-color"
+                          >
+                            Tennessee Valley Authority
+                          </p>
+                          <img
+                            alt="selected"
+                            class="size-5 m-[2px]"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Subscriber: Maddison Hall
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            ID: ABC000000000
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            Policies: Dental
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="flex flex-row p-4   item"
+                    tabindex="1"
+                  >
+                    <div
+                      class=""
+                    />
+                    <div
+                      class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 font-bold primary-color"
+                          >
+                            Dollar General
+                          </p>
+                          <img
+                            alt="selected"
+                            class="size-5 m-[2px]"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Subscriber: Chris Hall
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            ID: ABC1234567891
+                          </p>
+                          <p
+                            class="body-1"
+                          >
+                            Policies: Medical, Vision, Dental
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-2"
+                          >
+                            Ended 2023
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div>
+                <div
+                  class="flex flex-row p-4 items-center"
+                >
+                  <img
+                    alt="Minimize"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="body-1 mx-1"
+                  >
+                    Hide Past Plans
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mx-4 w-[268px] hidden md:block"
+    >
+      <div
+        class="rich-dropdown"
+      >
+        <div
+          class="flex flex-col switch-filter default"
+          tabindex="1"
+        >
+          <div>
+            <div
+              class="flex flex-row px-4 py-2 items-center justify-between"
+            >
+              <div
+                class="flex flex-col max-w-[90%]"
+              >
+                <p
+                  class="body-2 app-base-font-color"
+                >
+                  View Plan:
+                </p>
+                <p
+                  class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                >
+                  BlueCross BlueShield of Tennessee
+                </p>
+              </div>
+              <img
+                alt="switch"
+                class="size-5 head-icon m-[4px]"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+        >
+          <div>
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center divider-bottom"
+              >
+                <h3
+                  class="title-3 grow font-bold app-base-font-color"
+                >
+                  Select plan view...
+                </h3>
+                <img
+                  alt="switch"
+                  class="size-5"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <ul
+              class="max-h-[420px] min-w-[100%] overflow-auto"
+            >
+              <li>
+                <div
+                  class="flex flex-row p-4   item"
+                  tabindex="1"
+                >
+                  <div
+                    class=""
+                  />
+                  <div
+                    class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                        <img
+                          alt="selected"
+                          class="size-5 m-[2px]"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Subscriber: Chris Hall
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          ID: ABC1234567890
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          Policies: Medical, Vision, Dental
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="flex flex-row p-4   item"
+                  tabindex="1"
+                >
+                  <div
+                    class=""
+                  />
+                  <div
+                    class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold primary-color"
+                        >
+                          Tennessee Valley Authority
+                        </p>
+                        <img
+                          alt="selected"
+                          class="size-5 m-[2px]"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Subscriber: Maddison Hall
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          ID: ABC000000000
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          Policies: Dental
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="flex flex-row p-4   item"
+                  tabindex="1"
+                >
+                  <div
+                    class=""
+                  />
+                  <div
+                    class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold primary-color"
+                        >
+                          Dollar General
+                        </p>
+                        <img
+                          alt="selected"
+                          class="size-5 m-[2px]"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Subscriber: Chris Hall
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          ID: ABC1234567891
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          Policies: Medical, Vision, Dental
+                        </p>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-2"
+                        >
+                          Ended 2023
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div>
+              <div
+                class="flex flex-row p-4 items-center"
+              >
+                <img
+                  alt="Minimize"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 mx-1"
+                >
+                  Hide Past Plans
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PlanSwitcher Component should render the UI correctly 4`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mx-4 w-[268px] hidden md:block"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    Tennessee Valley Authority
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mx-4 w-[268px] hidden md:block"
+    >
+      <div
+        class="rich-dropdown"
+      >
+        <div
+          class="flex flex-col switch-filter default"
+          tabindex="1"
+        >
+          <div>
+            <div
+              class="flex flex-row px-4 py-2 items-center justify-between"
+            >
+              <div
+                class="flex flex-col max-w-[90%]"
+              >
+                <p
+                  class="body-2 app-base-font-color"
+                >
+                  View Plan:
+                </p>
+                <p
+                  class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                >
+                  Tennessee Valley Authority
+                </p>
+              </div>
+              <img
+                alt="switch"
+                class="size-5 head-icon m-[4px]"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -38,7 +38,7 @@ const FilterTile = ({ user }: { user: FilterDetails }) => {
 
 const FilterHead = ({ user }: { user: FilterDetails }) => {
   return (
-    <div className="border-none">
+    <div className="body-1 input">
       <Row className="p-1 items-center">
         <FilterTile user={user} />
         <Image
@@ -101,7 +101,7 @@ export const Filter = ({
               ) : null}
               <Spacer size={5} />
               {item.type == 'dropdown' ? (
-                <div className="body-1 input">
+                <div>
                   <RichDropDown<FilterDetails>
                     headBuilder={(val) => <FilterHead user={val} />}
                     itemData={item.value as FilterDetails[]}
