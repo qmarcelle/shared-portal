@@ -4,6 +4,7 @@ import { Card } from '@/components/foundation/Card';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { googleAnalytics } from '@/utils/analytics';
 import { DisableMFAWarning } from '../components/DisableMFAWarning';
 import { AddMFAAuthenticatorJourney } from '../components/journeys/AddMFAAuthenticatorJourney';
 import { AddMFAEmailJourney } from '../components/journeys/AddMFAEmailJourney';
@@ -11,7 +12,10 @@ import { AddMFATextJourney } from '../components/journeys/AddMFATextJourney';
 import { AddMFAVoiceJourney } from '../components/journeys/AddMFAVoiceJourney';
 import { DisableMFAJourney } from '../components/journeys/DisableMFAJourney';
 import { MfaDevice } from '../models/mfa_device';
-import { MfaDeviceType } from '../models/mfa_device_type';
+import {
+  MfaDeviceType,
+  MfaDeviceTypeAnalytics,
+} from '../models/mfa_device_type';
 import { useSecuritySettingsStore } from '../stores/security_settings_store';
 import { ErrorMfaCard } from './ErrorMfaCard';
 
@@ -43,6 +47,19 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
     }
   };
 
+  const getMFAContentModal = (val: MfaDevice) => {
+    showAppModal({
+      content: getOnClickContent(val),
+    });
+    googleAnalytics(
+      val?.enabled ? 'remove Method' : 'set Up Method',
+      undefined,
+      MfaDeviceTypeAnalytics[val.deviceType],
+      val?.enabled ? 'remove Method' : 'set Up Method',
+      'select_content',
+      'select',
+    );
+  };
   const getEnabledText = (val: MfaDevice) =>
     `Send a security code to ${val.emailOrPhone}.`;
 
@@ -79,13 +96,11 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
             <li key={'AuthApp'}>
               <UpdateRowWithStatus
                 className="mb-8"
-                onClick={() =>
-                  showAppModal({
-                    content: getOnClickContent(
-                      mfaDevices.get(MfaDeviceType.authenticator)!,
-                    ),
-                  })
-                }
+                onClick={() => {
+                  getMFAContentModal(
+                    mfaDevices.get(MfaDeviceType.authenticator)!,
+                  );
+                }}
                 label={
                   <TextBox
                     className="underline underline-offset-4 decoration-dashed app-underline font-bold"
@@ -114,9 +129,9 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
                 <li key={val.label}>
                   <UpdateRowWithStatus
                     className="mb-8"
-                    onClick={() =>
-                      showAppModal({ content: getOnClickContent(val) })
-                    }
+                    onClick={() => {
+                      getMFAContentModal(val);
+                    }}
                     label={<TextBox className="font-bold" text={val.label} />}
                     subLabel={val.enabled ? getEnabledText(val) : undefined}
                     enabled={mfaDevices.get(key)?.enabled ?? false}

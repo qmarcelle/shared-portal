@@ -7,9 +7,11 @@ import { SideBarModal } from '@/components/foundation/SideBarModal';
 import SiteHeader from '@/components/foundation/SiteHeader';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
+import { GTM_ID } from '@/utils/analytics';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import TagManager from 'react-gtm-module';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -22,8 +24,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   useEffect(() => {
+    const TagManagerArgs = {
+      gtmId: GTM_ID,
+      dataLayer: {
+        business_unit: 'member',
+        page_name: window.document.title,
+      },
+    };
+    console.log('Initializing Google Analytics');
+    TagManager.initialize(TagManagerArgs);
+
     initPingOne();
   }, []);
+
   const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <html lang="en">
