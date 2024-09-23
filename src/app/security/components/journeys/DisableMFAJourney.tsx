@@ -7,7 +7,11 @@ import {
 } from '@/components/foundation/AppModal';
 import { Column } from '@/components/foundation/Column';
 import { TextBox } from '@/components/foundation/TextBox';
-import { MfaDeviceType } from '../../models/mfa_device_type';
+import { googleAnalytics } from '@/utils/analytics';
+import {
+  MfaDeviceSetUpAnalytics,
+  MfaDeviceType,
+} from '../../models/mfa_device_type';
 import { useSecuritySettingsStore } from '../../stores/security_settings_store';
 const headerText = 'Turn Off Method';
 
@@ -27,6 +31,14 @@ export const DisableMFAJourney = ({
 
   const callDeleteMfaDevice = async () => {
     try {
+      googleAnalytics(
+        'turn off method',
+        undefined,
+        MfaDeviceSetUpAnalytics[deviceType],
+        'confirm',
+        'select_content',
+        'select',
+      );
       await deleteMfaDevice(deviceType, emailOrPhone);
       // Do API call for turn off method
       changePage?.(1, false);

@@ -1,3 +1,4 @@
+import { googleAnalytics } from '@/utils/analytics';
 import { ReactElement } from 'react';
 import { Button } from '../foundation/Button';
 import { Column } from '../foundation/Column';
@@ -33,9 +34,36 @@ export const ChangeAuthDeviceSlide = ({
         {actionArea}
         <Spacer size={24} />
         {bottomNote && <TextBox className="mb-8" text={bottomNote} />}
-        <Button callback={nextCallback} label="Next" />
+        <Button
+          callback={() => {
+            nextCallback?.();
+            googleAnalytics(
+              'next',
+              undefined,
+              label?.toLocaleLowerCase(),
+              'next',
+              'select_content',
+              'select',
+            );
+          }}
+          label="Next"
+        />
         <Spacer size={16} />
-        <Button callback={cancelCallback} type="ghost" label="Cancel" />
+        <Button
+          callback={() => {
+            cancelCallback?.();
+            googleAnalytics(
+              'cancel',
+              undefined,
+              label?.toLocaleLowerCase(),
+              'cancel',
+              'select_content',
+              'select',
+            );
+          }}
+          type="ghost"
+          label="Cancel"
+        />
       </Column>
     </Column>
   );

@@ -6,6 +6,7 @@ declare global {
   interface Window {
     _pingOneSignals: PingOneSignals;
     _pingOneSignalsReady: boolean;
+    dataLayer: Record<string, unknown>[];
   }
 }
 
