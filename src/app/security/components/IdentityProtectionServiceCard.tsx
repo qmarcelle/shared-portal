@@ -6,7 +6,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { googleAnalytics } from '@/utils/analytics';
 
-export const IdentityProtectionService = () => {
+export const IdentityProtectionServiceCard = () => {
   return (
     <Card className="small-section">
       <Column>
