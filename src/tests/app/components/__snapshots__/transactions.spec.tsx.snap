@@ -18,7 +18,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
           class="flex justify-start self-start"
         >
           <span
-            class="body-1 undefined"
+            class="rich-text body-1 undefined"
           >
             <div
               class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-4"
@@ -34,11 +34,13 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                 >
                   <p
                     class="link"
+                    style="display: block;"
                   >
                     Visit Health Equity
                   </p>
                   <p
                     class="ml-1"
+                    style="display: block;"
                   >
                     <img
                       alt="external"
@@ -61,7 +63,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
           class="ml-4"
         >
           <span
-            class="body-1 undefined"
+            class="rich-text body-1 undefined"
           >
             <span>
               If you need help,
@@ -113,47 +115,46 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
                   />
-                  <div
-                    class="body-1 input"
-                  >
+                  <div>
                     <div
-                      class="flex flex-col switch-filter default"
-                      tabindex="1"
+                      class="rich-dropdown"
                     >
-                      <div>
-                        <div
-                          class="border-none"
-                        >
+                      <div
+                        class="flex flex-col switch-filter default"
+                        tabindex="1"
+                      >
+                        <div>
                           <div
-                            class="flex flex-row p-1 items-center"
+                            class="body-1 input"
                           >
                             <div
-                              class="flex flex-col border-none flex-grow"
+                              class="flex flex-row p-1 items-center"
                             >
-                              <p
-                                class="body-1"
+                              <div
+                                class="flex flex-col border-none flex-grow"
                               >
-                                HSA
-                              </p>
+                                <p
+                                  class="body-1"
+                                >
+                                  HSA
+                                </p>
+                              </div>
+                              <img
+                                alt=""
+                                class="w-[20px] h-[20px] ml-2 items-end"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
                             </div>
-                            <img
-                              alt=""
-                              class="w-[20px] h-[20px] ml-2 items-end"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
                           </div>
                         </div>
                       </div>
-                      <ul
-                        class="max-h-[420px] overflow-y-scroll"
-                      />
                     </div>
                   </div>
                 </div>
@@ -166,56 +167,58 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                   <div
                     class="body-1"
                   >
-                    Date Range
+                    Account Type
                      
                   </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
                   />
-                  <div
-                    class="body-1 input"
-                  >
+                  <div>
                     <div
-                      class="flex flex-col switch-filter default"
-                      tabindex="1"
+                      class="rich-dropdown"
                     >
-                      <div>
-                        <div
-                          class="border-none"
-                        >
+                      <div
+                        class="flex flex-col switch-filter default"
+                        tabindex="1"
+                      >
+                        <div>
                           <div
-                            class="flex flex-row p-1 items-center"
+                            class="body-1 input"
                           >
                             <div
-                              class="flex flex-col border-none flex-grow"
+                              class="flex flex-row p-1 items-center"
                             >
-                              <p
-                                class="body-1"
+                              <div
+                                class="flex flex-col border-none flex-grow"
                               >
-                                Last two Years
-                              </p>
+                                <p
+                                  class="body-1"
+                                >
+                                  Last two Years
+                                </p>
+                              </div>
+                              <img
+                                alt=""
+                                class="w-[20px] h-[20px] ml-2 items-end"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
                             </div>
-                            <img
-                              alt=""
-                              class="w-[20px] h-[20px] ml-2 items-end"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
                           </div>
                         </div>
                       </div>
-                      <ul
-                        class="max-h-[420px] overflow-y-scroll"
-                      />
                     </div>
                   </div>
                 </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />

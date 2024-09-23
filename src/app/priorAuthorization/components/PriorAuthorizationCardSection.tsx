@@ -28,7 +28,7 @@ const PriorAuthFilterTile = ({ user }: { user: PriorAuthFilterDetails }) => {
 
 const PriorAuthFilterHead = ({ user }: { user: PriorAuthFilterDetails }) => {
   return (
-    <div className="border-none">
+    <div className="body-1 link">
       <Row className="p-1 items-center">
         <PriorAuthFilterTile user={user} />
         <Image
@@ -92,8 +92,9 @@ export const PriorAuthorizationCardSection = ({
         </Row>
         <Row className="body-1 items-end prior-auth-card">
           <div className="body-1">Sort by:</div>
-          <div className="body-1 link absolute">
+          <div className="absolute">
             <RichDropDown
+              minWidth="min-w-[280px]"
               headBuilder={(val) => <PriorAuthFilterHead user={val} />}
               itemData={sortBy}
               itemsBuilder={(data) => <PriorAuthFilterTile user={data} />}

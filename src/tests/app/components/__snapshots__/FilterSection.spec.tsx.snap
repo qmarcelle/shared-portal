@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilterSection should render the UI correctly for more that one options 1`] = `
+exports[`FilterSection should render the UI correctly 1`] = `
 <div>
   <div
     class="card-main large-section px-0 m-0"
@@ -28,47 +28,46 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      All Plans
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        All Plans
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
@@ -87,47 +86,46 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      All Members
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        All Members
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
@@ -146,47 +144,46 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      2023
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        2023
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
@@ -205,50 +202,52 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      All Types
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        All Types
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
@@ -260,7 +259,7 @@ exports[`FilterSection should render the UI correctly for more that one options 
 </div>
 `;
 
-exports[`FilterSection should render the UI correctly for more that one options 2`] = `
+exports[`FilterSection should render the UI correctly 2`] = `
 <div>
   <div
     class="card-main large-section px-0 m-0"
@@ -288,47 +287,46 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      All Plans
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        All Plans
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
@@ -347,47 +345,46 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      All Members
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        All Members
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
@@ -406,47 +403,46 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      2023
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        2023
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
@@ -465,50 +461,52 @@ exports[`FilterSection should render the UI correctly for more that one options 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div
-          class="body-1 input"
-        >
+        <div>
           <div
-            class="flex flex-col switch-filter default"
-            tabindex="1"
+            class="rich-dropdown"
           >
-            <div>
-              <div
-                class="border-none"
-              >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
                 <div
-                  class="flex flex-row p-1 items-center"
+                  class="body-1 input"
                 >
                   <div
-                    class="flex flex-col border-none flex-grow"
+                    class="flex flex-row p-1 items-center"
                   >
-                    <p
-                      class="body-1"
+                    <div
+                      class="flex flex-col border-none flex-grow"
                     >
-                      All Types
-                    </p>
+                      <p
+                        class="body-1"
+                      >
+                        All Types
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
                   </div>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
                 </div>
               </div>
             </div>
-            <ul
-              class="max-h-[420px] overflow-y-scroll"
-            />
           </div>
         </div>
       </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />

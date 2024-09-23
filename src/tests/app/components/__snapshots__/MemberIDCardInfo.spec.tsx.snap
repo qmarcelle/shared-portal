@@ -34,35 +34,36 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                 style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
               />
               <div
-                class="flex flex-col switch-filter default"
-                tabindex="1"
+                class="rich-dropdown"
               >
-                <div>
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="body-1 link"
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
+                    <div
+                      class="flex flex-row"
                     >
-                      Current Plan
-                    </p>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                      <p
+                        class="body-1 link"
+                      >
+                        Current Plan
+                      </p>
+                      <img
+                        alt=""
+                        class="w-[20px] h-[20px] ml-2 items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
                   </div>
                 </div>
-                <ul
-                  class="max-h-[420px] overflow-y-scroll"
-                />
               </div>
             </div>
             <div
@@ -621,35 +622,36 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
             />
             <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
+              class="rich-dropdown"
             >
-              <div>
-                <div
-                  class="flex flex-row"
-                >
-                  <p
-                    class="body-1 link"
+              <div
+                class="flex flex-col switch-filter default"
+                tabindex="1"
+              >
+                <div>
+                  <div
+                    class="flex flex-row"
                   >
-                    Current Plan
-                  </p>
-                  <img
-                    alt=""
-                    class="w-[20px] h-[20px] ml-2 items-end"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
+                    <p
+                      class="body-1 link"
+                    >
+                      Current Plan
+                    </p>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
                 </div>
               </div>
-              <ul
-                class="max-h-[420px] overflow-y-scroll"
-              />
             </div>
           </div>
           <div

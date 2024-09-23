@@ -9,7 +9,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
         class="primary-color"
       >
         <div
-          class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
         >
           <div
             class="flex items-center"
@@ -58,6 +58,51 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 width="174"
               />
             </a>
+            <div
+              class="mx-4 w-[268px] hidden md:block"
+            >
+              <div
+                class="rich-dropdown"
+              >
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
+                    <div
+                      class="flex flex-row px-4 py-2 items-center justify-between"
+                    >
+                      <div
+                        class="flex flex-col max-w-[90%]"
+                      >
+                        <p
+                          class="body-2 app-base-font-color"
+                        >
+                          View Plan:
+                        </p>
+                        <p
+                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                      </div>
+                      <img
+                        alt="switch"
+                        class="size-5 head-icon m-[4px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="flex items-center"
@@ -485,9 +530,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/findprovider"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Find a Provider
                     </p>
@@ -514,6 +560,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Primary Care Options
                       </p>
@@ -529,6 +576,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Mental Health Options
                       </p>
@@ -544,6 +592,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Virtual Care Options
                       </p>
@@ -565,9 +614,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/pricemedicalcare"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Price Medical Care
                     </p>
@@ -594,6 +644,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Price Dental Care
                       </p>
@@ -602,9 +653,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/pricevisioncare"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Price Vision Care
                     </p>
@@ -624,9 +676,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/pricemedication"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Price a Medication
                     </p>
@@ -779,6 +832,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Benefits & Coverage
                       </p>
@@ -794,6 +848,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Plan Documents
                       </p>
@@ -809,6 +864,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Services Used
                       </p>
@@ -837,6 +893,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         View Claims
                       </p>
@@ -852,6 +909,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Prior Authorizations
                       </p>
@@ -867,6 +925,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Submit a Claim
                       </p>
@@ -895,6 +954,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Balances
                       </p>
@@ -910,6 +970,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Spending Accounts (HSA, FSA)
                       </p>
@@ -925,6 +986,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Spending Summary
                       </p>
@@ -946,9 +1008,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/balances"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       View or Pay Premium
                     </p>
@@ -968,9 +1031,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/enrollhealthplan"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Enroll in a Health Plan
                     </p>
@@ -997,6 +1061,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Report Other Health Insurance
                       </p>
@@ -1076,9 +1141,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/wellnessrewards"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Wellness Rewards
                     </p>
@@ -1098,9 +1164,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/memberwellnesscenter"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Member Wellness Canter
                     </p>
@@ -1127,6 +1194,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         My Primary Care Provider
                       </p>
@@ -1135,9 +1203,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="/memberdiscounts"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Member Discounts
                     </p>
@@ -1177,6 +1246,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Health Programs & Resources
                       </p>
@@ -1185,9 +1255,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://bcbstwelltuned.com/"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Dental Health Library
                     </p>
@@ -1207,9 +1278,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Health Library
                     </p>
@@ -1229,9 +1301,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://bcbstwelltuned.com/"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       WellTuned Blog
                     </p>
@@ -1425,9 +1498,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       My Prescriptions
                     </p>
@@ -1447,9 +1521,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://www.caremark.com/drugSearchInit.do?newLogin=yes"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Price a Medication
                     </p>
@@ -1469,9 +1544,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Mail Order
                     </p>
@@ -1491,9 +1567,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://www.caremark.com/pharmacySearchFast?newLogin=yes"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Find a Pharmacy
                     </p>
@@ -1533,6 +1610,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Pharmacy Documents & Forms
                       </p>
@@ -1548,6 +1626,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Pharmacy FAQ
                       </p>
@@ -1735,6 +1814,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Frequently Asked Questions
                       </p>
@@ -1743,9 +1823,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   <a
                     class="flex"
                     href="https://www.healthcare.gov/glossary/"
+                    target="_blank"
                   >
                     <p
-                      class="pb-2 pt-2 pr-1 ml-2"
+                      class="pb-2 pt-2 pr-1"
                     >
                       Health Insurance Glossary
                     </p>
@@ -1772,6 +1853,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Find a Form
                       </p>
@@ -1787,6 +1869,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                     >
                       <p
                         class="link"
+                        style="display: block;"
                       >
                         Share Website Feedback
                       </p>
@@ -1812,6 +1895,51 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
           </div>
         </div>
       </nav>
+      <div
+        class="mx-2 py-2 block md:hidden"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -1819,7 +1947,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
       class="primary-color"
     >
       <div
-        class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+        class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
       >
         <div
           class="flex items-center"
@@ -1868,6 +1996,51 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
               width="174"
             />
           </a>
+          <div
+            class="mx-4 w-[268px] hidden md:block"
+          >
+            <div
+              class="rich-dropdown"
+            >
+              <div
+                class="flex flex-col switch-filter default"
+                tabindex="1"
+              >
+                <div>
+                  <div
+                    class="flex flex-row px-4 py-2 items-center justify-between"
+                  >
+                    <div
+                      class="flex flex-col max-w-[90%]"
+                    >
+                      <p
+                        class="body-2 app-base-font-color"
+                      >
+                        View Plan:
+                      </p>
+                      <p
+                        class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                      >
+                        BlueCross BlueShield of Tennessee
+                      </p>
+                    </div>
+                    <img
+                      alt="switch"
+                      class="size-5 head-icon m-[4px]"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           class="flex items-center"
@@ -2295,9 +2468,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/findprovider"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Find a Provider
                   </p>
@@ -2324,6 +2498,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Primary Care Options
                     </p>
@@ -2339,6 +2514,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Mental Health Options
                     </p>
@@ -2354,6 +2530,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Virtual Care Options
                     </p>
@@ -2375,9 +2552,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/pricemedicalcare"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Price Medical Care
                   </p>
@@ -2404,6 +2582,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Price Dental Care
                     </p>
@@ -2412,9 +2591,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/pricevisioncare"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Price Vision Care
                   </p>
@@ -2434,9 +2614,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/pricemedication"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Price a Medication
                   </p>
@@ -2589,6 +2770,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Benefits & Coverage
                     </p>
@@ -2604,6 +2786,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Plan Documents
                     </p>
@@ -2619,6 +2802,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Services Used
                     </p>
@@ -2647,6 +2831,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       View Claims
                     </p>
@@ -2662,6 +2847,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Prior Authorizations
                     </p>
@@ -2677,6 +2863,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Submit a Claim
                     </p>
@@ -2705,6 +2892,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Balances
                     </p>
@@ -2720,6 +2908,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Spending Accounts (HSA, FSA)
                     </p>
@@ -2735,6 +2924,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Spending Summary
                     </p>
@@ -2756,9 +2946,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/balances"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     View or Pay Premium
                   </p>
@@ -2778,9 +2969,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/enrollhealthplan"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Enroll in a Health Plan
                   </p>
@@ -2807,6 +2999,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Report Other Health Insurance
                     </p>
@@ -2886,9 +3079,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/wellnessrewards"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Wellness Rewards
                   </p>
@@ -2908,9 +3102,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/memberwellnesscenter"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Member Wellness Canter
                   </p>
@@ -2937,6 +3132,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       My Primary Care Provider
                     </p>
@@ -2945,9 +3141,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="/memberdiscounts"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Member Discounts
                   </p>
@@ -2987,6 +3184,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Health Programs & Resources
                     </p>
@@ -2995,9 +3193,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://bcbstwelltuned.com/"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Dental Health Library
                   </p>
@@ -3017,9 +3216,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Health Library
                   </p>
@@ -3039,9 +3239,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://bcbstwelltuned.com/"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     WellTuned Blog
                   </p>
@@ -3235,9 +3436,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://www.caremark.com/refillRx?newLogin=yes"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     My Prescriptions
                   </p>
@@ -3257,9 +3459,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://www.caremark.com/drugSearchInit.do?newLogin=yes"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Price a Medication
                   </p>
@@ -3279,9 +3482,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://www.caremark.com/refillRx?newLogin=yes"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Mail Order
                   </p>
@@ -3301,9 +3505,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://www.caremark.com/pharmacySearchFast?newLogin=yes"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Find a Pharmacy
                   </p>
@@ -3343,6 +3548,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Pharmacy Documents & Forms
                     </p>
@@ -3358,6 +3564,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Pharmacy FAQ
                     </p>
@@ -3545,6 +3752,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Frequently Asked Questions
                     </p>
@@ -3553,9 +3761,10 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                 <a
                   class="flex"
                   href="https://www.healthcare.gov/glossary/"
+                  target="_blank"
                 >
                   <p
-                    class="pb-2 pt-2 pr-1 ml-2"
+                    class="pb-2 pt-2 pr-1"
                   >
                     Health Insurance Glossary
                   </p>
@@ -3582,6 +3791,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Find a Form
                     </p>
@@ -3597,6 +3807,7 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
                   >
                     <p
                       class="link"
+                      style="display: block;"
                     >
                       Share Website Feedback
                     </p>
@@ -3622,6 +3833,51 @@ exports[`MenuNavigation should render the UI correctly 1`] = `
         </div>
       </div>
     </nav>
+    <div
+      class="mx-2 py-2 block md:hidden"
+    >
+      <div
+        class="rich-dropdown"
+      >
+        <div
+          class="flex flex-col switch-filter default"
+          tabindex="1"
+        >
+          <div>
+            <div
+              class="flex flex-row px-4 py-2 items-center justify-between"
+            >
+              <div
+                class="flex flex-col max-w-[90%]"
+              >
+                <p
+                  class="body-2 app-base-font-color"
+                >
+                  View Plan:
+                </p>
+                <p
+                  class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                >
+                  BlueCross BlueShield of Tennessee
+                </p>
+              </div>
+              <img
+                alt="switch"
+                class="size-5 head-icon m-[4px]"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>UI/Icon/View-Less</title>
+    <g id="UI/Icon/View-Less" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-App/Function/Minimize">
+            <g id="24x24-Spacers">
+                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            </g>
+            <path d="M19.2,10 C20.1941125,10 21,10.8954305 21,12 C21,13.0543618 20.26571,13.9181651 19.3343361,13.9945143 L19.2,14 L4.8,14 C3.80588745,14 3,13.1045695 3,12 C3,10.9456382 3.73429001,10.0818349 4.66566389,10.0054857 L4.8,10 L19.2,10 Z" id="Line-2" fill="#005EB9"></path>
+        </g>
+    </g>
+</svg>
