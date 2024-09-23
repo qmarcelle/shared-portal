@@ -53,7 +53,12 @@ export const AuthenticatorAppMfa = () => {
       >
         <Button
           callback={validateSecurityCode()}
-          label={completeMfaProg == AppProg.loading ? 'Confirming' : 'Confirm'}
+          label={
+            completeMfaProg == AppProg.loading ||
+            completeMfaProg == AppProg.success
+              ? 'Confirming'
+              : 'Confirm'
+          }
         />
       </ToolTip>
 
