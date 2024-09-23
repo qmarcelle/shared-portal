@@ -208,7 +208,10 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         multipleLoginAttempts: false,
         verifyEmail: false,
       });
-      useMfaStore.setState({ stage: MfaModeState.selection });
+      useMfaStore.setState({
+        stage: MfaModeState.selection,
+        completeMfaProg: AppProg.init,
+      });
       useMfaStore.getState().updateCode('');
       useMfaStore.getState().updateResendCode(false);
       useVerifyEmailStore.getState().updateCode('');
