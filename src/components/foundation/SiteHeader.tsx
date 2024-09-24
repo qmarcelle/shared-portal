@@ -11,8 +11,8 @@ import {
   bcbstBlueLogo,
   bcbstStackedlogo,
   closeIcon,
+  globalIdCardIcon,
   hamburgerMenuIcon,
-  idCardIcon,
   inboxIcon,
   profileWhiteIcon,
 } from './Icons';
@@ -122,7 +122,7 @@ export default function SiteHeader() {
               {
                 title: 'ID Card',
                 label: 'id card',
-                icon: <Image src={idCardIcon} alt="ID Card" />,
+                icon: <Image src={globalIdCardIcon} alt="ID Card" />,
                 url: 'idcard',
               },
             ]}

@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Frequently Asked Question Page should render the page correctly 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col flex flex-col app-content"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="pl-5"
+      >
+        <h1
+          class="title-1 title-1"
+        >
+          Frequently Asked Questions
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
+        >
+          We’ve answered some of the most common questions about health insurance.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </section>
+      <a
+        href="/benefits"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Benefits & Coverage
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                Learn more about service limits, deductibles and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/claims"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Claims
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                Learn more about claims or how to file a dispute.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/memberIDCard"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                ID Cards
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                Do you have questions about your ID cards? We're here to help.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/spendingAccount"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                My Plan Information
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                How to update your address, dependents, and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/spendingSummary"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Pharmacy
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                How to find pharmacies, find prescription drug coverage and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/priorAuth"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Prior Authorization
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                Learn more about prior authorizations, statuses and how to make appeals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/planDocuments"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Sharing, Permissions & Security
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                How to share your health insurance information, represent a dependent individual and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </main>
+</div>
+`;
