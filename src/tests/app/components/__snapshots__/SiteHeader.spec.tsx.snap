@@ -8,7 +8,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
         class="primary-color"
       >
         <div
-          class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
         >
           <div
             class="flex items-center"
@@ -483,7 +483,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/findcare/findprovider"
+                    href="/findprovider"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -504,31 +505,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     />
                   </a>
                   <a
-                    href="/findcare/primarycareoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Primary Care Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Primary Care Options
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/findcare/mentalhealthoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Mental Health Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Mental Health Options
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/findcare/virtualcareoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Virtual Care Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Virtual Care Options
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -545,7 +567,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/findcare/pricemedicalcare"
+                    href="/pricemedicalcare"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -566,17 +589,25 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     />
                   </a>
                   <a
-                    href="/findcare/pricedentalcare"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Price Dental Care
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Price Dental Care
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/findcare/pricevisioncare"
+                    href="/pricevisioncare"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -598,7 +629,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/findcare/pricemedication"
+                    href="/pricemedication"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -645,7 +677,12 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       <p
                         class="pb-1"
                       >
-                        Check out your Benefits & Coverages.
+                        Check out your
+                        <span
+                          class="font-bold"
+                        >
+                          Benefits & Coverages.
+                        </span>
                       </p>
                       <img
                         alt="Page Arrow"
@@ -740,31 +777,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     Plan Details
                   </h1>
                   <a
-                    href="/myplan/benefitscoverage"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Benefits & Coverage
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Benefits & Coverage
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/plandocs"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Plan Documents
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Plan Documents
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/servicesused"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Services Used
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Services Used
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -780,31 +838,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     Claims
                   </h1>
                   <a
-                    href="/myplan/viewclaims"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      View Claims
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        View Claims
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/priorauths"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Prior Authorizations
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Prior Authorizations
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/submitclaim"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Submit a Claim
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Submit a Claim
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -820,31 +899,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     Spending
                   </h1>
                   <a
-                    href="/myplan/balances"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Balances
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Balances
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/spendingaccounts"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Spending Accounts (HSA, FSA)
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Spending Accounts (HSA, FSA)
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/spendingsummary"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Spending Summary
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Spending Summary
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -861,7 +961,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/myplan/balances"
+                    href="/balances"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -883,7 +984,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myplan/enrollhealthplan"
+                    href="/enrollhealthplan"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -904,13 +1006,20 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     />
                   </a>
                   <a
-                    href="/myplan/reportotherhealthinsurance"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Report Other Health Insurance
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Report Other Health Insurance
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -985,7 +1094,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/myhealth/wellnessrewards"
+                    href="/wellnessrewards"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1007,7 +1117,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/memberwellnesscenter"
+                    href="/memberwellnesscenter"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1028,17 +1139,25 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     />
                   </a>
                   <a
-                    href="/myhealth/myprimarycareprov"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      My Primary Care Provider
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        My Primary Care Provider
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/memberdiscounts"
+                    href="/memberdiscounts"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1072,17 +1191,48 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     Advice & Support
                   </h1>
                   <a
-                    href="/myhealth/healthprogramsresources"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Health Programs & Resources
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Health Programs & Resources
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/healthlibrary"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Dental Health Library
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1104,7 +1254,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/welltunedblog"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1151,7 +1302,12 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       <p
                         class="pb-1"
                       >
-                        View Virtual Care Options.
+                        View 
+                        <span
+                          class="font-bold"
+                        >
+                          Virtual Care Options.
+                        </span>
                       </p>
                       <img
                         alt="Page Arrow"
@@ -1254,12 +1410,17 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       <p
                         class="pb-1"
                       >
-                        Your pharmacy benefits are managed by CVS Caremark.
+                        CVS Caremark™ helps manage your pharmacy benefits.
                       </p>
                       <p
                         class="pb-1"
                       >
-                        A caremark.com account will let you get prescriptions by mail, price a medication and more.
+                        <span
+                          class="font-bold"
+                        >
+                          A caremark.com
+                        </span>
+                         account will let you get prescriptions by mail, price a medication and more.
                       </p>
                       <img
                         alt="Page Arrow"
@@ -1290,7 +1451,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/pharmacy/myprescription"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1312,7 +1474,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/pharmacy/pricemedication"
+                    href="https://www.caremark.com/drugSearchInit.do?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1334,12 +1497,36 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/pharmacy/mailorder"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
                     >
                       Mail Order
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.caremark.com/pharmacySearchFast?newLogin=yes"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Find a Pharmacy
                     </p>
                     <img
                       alt="External Link"
@@ -1368,22 +1555,36 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                     Resources & Support
                   </h1>
                   <a
-                    href="/pharmacy/pharmacydocsforms"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Pharmacy Documents & Forms
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Pharmacy Documents & Forms
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/pharmacy/pharmacyfaq"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Pharmacy FAQ
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Pharmacy FAQ
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -1392,7 +1593,58 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    href="/claimSnapshotList"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Claims
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="/spendingSummary"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Spending
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
             <div
@@ -1457,14 +1709,127 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    href="/support"
+                  >
+                    <div
+                      class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
+                    >
+                      <h3
+                        class="pb-3 text-sm"
+                      >
+                        Quick Tip
+                      </h3>
+                      <p
+                        class="pb-1"
+                      >
+                        We're here to help.
+                      </p>
+                      <p
+                        class="pb-1"
+                      >
+                        <span
+                          class="font-bold"
+                        >
+                          Start a chat
+                        </span>
+                         or call us at [1-800-000-0000].
+                      </p>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
               </div>
               <div
                 class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Frequently Asked Questions
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthcare.gov/glossary/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Health Insurance Glossary
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Find a Form
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Share Website Feedback
+                      </p>
+                    </button>
+                  </a>
+                </div>
               </div>
               <div
                 class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
@@ -1499,7 +1864,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
         class="primary-color"
       >
         <div
-          class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
         >
           <div
             class="flex items-center"
@@ -1974,7 +2339,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/findcare/findprovider"
+                    href="/findprovider"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -1995,31 +2361,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     />
                   </a>
                   <a
-                    href="/findcare/primarycareoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Primary Care Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Primary Care Options
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/findcare/mentalhealthoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Mental Health Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Mental Health Options
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/findcare/virtualcareoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Virtual Care Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Virtual Care Options
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -2036,7 +2423,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/findcare/pricemedicalcare"
+                    href="/pricemedicalcare"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2057,17 +2445,25 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     />
                   </a>
                   <a
-                    href="/findcare/pricedentalcare"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Price Dental Care
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Price Dental Care
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/findcare/pricevisioncare"
+                    href="/pricevisioncare"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2089,7 +2485,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/findcare/pricemedication"
+                    href="/pricemedication"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2136,7 +2533,12 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       <p
                         class="pb-1"
                       >
-                        Check out your Benefits & Coverages.
+                        Check out your
+                        <span
+                          class="font-bold"
+                        >
+                          Benefits & Coverages.
+                        </span>
                       </p>
                       <img
                         alt="Page Arrow"
@@ -2231,31 +2633,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     Plan Details
                   </h1>
                   <a
-                    href="/myplan/benefitscoverage"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Benefits & Coverage
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Benefits & Coverage
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/plandocs"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Plan Documents
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Plan Documents
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/servicesused"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Services Used
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Services Used
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -2271,31 +2694,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     Claims
                   </h1>
                   <a
-                    href="/myplan/viewclaims"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      View Claims
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        View Claims
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/priorauths"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Prior Authorizations
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Prior Authorizations
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/submitclaim"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Submit a Claim
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Submit a Claim
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -2311,31 +2755,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     Spending
                   </h1>
                   <a
-                    href="/myplan/balances"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Balances
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Balances
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/spendingaccounts"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Spending Accounts (HSA, FSA)
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Spending Accounts (HSA, FSA)
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/spendingsummary"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Spending Summary
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Spending Summary
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -2352,7 +2817,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/myplan/balances"
+                    href="/balances"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2374,7 +2840,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myplan/enrollhealthplan"
+                    href="/enrollhealthplan"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2395,13 +2862,20 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     />
                   </a>
                   <a
-                    href="/myplan/reportotherhealthinsurance"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Report Other Health Insurance
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Report Other Health Insurance
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -2476,7 +2950,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/myhealth/wellnessrewards"
+                    href="/wellnessrewards"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2498,7 +2973,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/memberwellnesscenter"
+                    href="/memberwellnesscenter"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2519,17 +2995,25 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     />
                   </a>
                   <a
-                    href="/myhealth/myprimarycareprov"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      My Primary Care Provider
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        My Primary Care Provider
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/memberdiscounts"
+                    href="/memberdiscounts"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2563,17 +3047,48 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     Advice & Support
                   </h1>
                   <a
-                    href="/myhealth/healthprogramsresources"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Health Programs & Resources
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Health Programs & Resources
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/healthlibrary"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Dental Health Library
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2595,7 +3110,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/welltunedblog"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2642,7 +3158,12 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       <p
                         class="pb-1"
                       >
-                        View Virtual Care Options.
+                        View 
+                        <span
+                          class="font-bold"
+                        >
+                          Virtual Care Options.
+                        </span>
                       </p>
                       <img
                         alt="Page Arrow"
@@ -2745,12 +3266,17 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       <p
                         class="pb-1"
                       >
-                        Your pharmacy benefits are managed by CVS Caremark.
+                        CVS Caremark™ helps manage your pharmacy benefits.
                       </p>
                       <p
                         class="pb-1"
                       >
-                        A caremark.com account will let you get prescriptions by mail, price a medication and more.
+                        <span
+                          class="font-bold"
+                        >
+                          A caremark.com
+                        </span>
+                         account will let you get prescriptions by mail, price a medication and more.
                       </p>
                       <img
                         alt="Page Arrow"
@@ -2781,7 +3307,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/pharmacy/myprescription"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2803,7 +3330,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/pharmacy/pricemedication"
+                    href="https://www.caremark.com/drugSearchInit.do?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -2825,12 +3353,36 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/pharmacy/mailorder"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
                     >
                       Mail Order
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.caremark.com/pharmacySearchFast?newLogin=yes"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Find a Pharmacy
                     </p>
                     <img
                       alt="External Link"
@@ -2859,22 +3411,36 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     Resources & Support
                   </h1>
                   <a
-                    href="/pharmacy/pharmacydocsforms"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Pharmacy Documents & Forms
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Pharmacy Documents & Forms
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/pharmacy/pharmacyfaq"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Pharmacy FAQ
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Pharmacy FAQ
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -2883,7 +3449,58 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    href="/claimSnapshotList"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Claims
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="/spendingSummary"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Spending
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
             <div
@@ -2948,14 +3565,127 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    href="/support"
+                  >
+                    <div
+                      class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
+                    >
+                      <h3
+                        class="pb-3 text-sm"
+                      >
+                        Quick Tip
+                      </h3>
+                      <p
+                        class="pb-1"
+                      >
+                        We're here to help.
+                      </p>
+                      <p
+                        class="pb-1"
+                      >
+                        <span
+                          class="font-bold"
+                        >
+                          Start a chat
+                        </span>
+                         or call us at [1-800-000-0000].
+                      </p>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
               </div>
               <div
                 class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Frequently Asked Questions
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthcare.gov/glossary/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Health Insurance Glossary
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Find a Form
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Share Website Feedback
+                      </p>
+                    </button>
+                  </a>
+                </div>
               </div>
               <div
                 class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
@@ -3216,7 +3946,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
         class="primary-color"
       >
         <div
-          class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
         >
           <div
             class="flex items-center"
@@ -3691,7 +4421,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/findcare/findprovider"
+                    href="/findprovider"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -3712,31 +4443,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     />
                   </a>
                   <a
-                    href="/findcare/primarycareoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Primary Care Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Primary Care Options
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/findcare/mentalhealthoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Mental Health Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Mental Health Options
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/findcare/virtualcareoptions"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Virtual Care Options
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Virtual Care Options
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -3753,7 +4505,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/findcare/pricemedicalcare"
+                    href="/pricemedicalcare"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -3774,17 +4527,25 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     />
                   </a>
                   <a
-                    href="/findcare/pricedentalcare"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Price Dental Care
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Price Dental Care
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/findcare/pricevisioncare"
+                    href="/pricevisioncare"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -3806,7 +4567,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/findcare/pricemedication"
+                    href="/pricemedication"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -3853,7 +4615,12 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       <p
                         class="pb-1"
                       >
-                        Check out your Benefits & Coverages.
+                        Check out your
+                        <span
+                          class="font-bold"
+                        >
+                          Benefits & Coverages.
+                        </span>
                       </p>
                       <img
                         alt="Page Arrow"
@@ -3948,31 +4715,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     Plan Details
                   </h1>
                   <a
-                    href="/myplan/benefitscoverage"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Benefits & Coverage
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Benefits & Coverage
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/plandocs"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Plan Documents
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Plan Documents
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/servicesused"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Services Used
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Services Used
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -3988,31 +4776,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     Claims
                   </h1>
                   <a
-                    href="/myplan/viewclaims"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      View Claims
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        View Claims
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/priorauths"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Prior Authorizations
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Prior Authorizations
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/submitclaim"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Submit a Claim
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Submit a Claim
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -4028,31 +4837,52 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     Spending
                   </h1>
                   <a
-                    href="/myplan/balances"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Balances
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Balances
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/spendingaccounts"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Spending Accounts (HSA, FSA)
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Spending Accounts (HSA, FSA)
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/myplan/spendingsummary"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Spending Summary
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Spending Summary
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -4069,7 +4899,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/myplan/balances"
+                    href="/balances"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4091,7 +4922,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myplan/enrollhealthplan"
+                    href="/enrollhealthplan"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4112,13 +4944,20 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     />
                   </a>
                   <a
-                    href="/myplan/reportotherhealthinsurance"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Report Other Health Insurance
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Report Other Health Insurance
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -4193,7 +5032,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/myhealth/wellnessrewards"
+                    href="/wellnessrewards"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4215,7 +5055,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/memberwellnesscenter"
+                    href="/memberwellnesscenter"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4236,17 +5077,25 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     />
                   </a>
                   <a
-                    href="/myhealth/myprimarycareprov"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      My Primary Care Provider
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        My Primary Care Provider
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/memberdiscounts"
+                    href="/memberdiscounts"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4280,17 +5129,48 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     Advice & Support
                   </h1>
                   <a
-                    href="/myhealth/healthprogramsresources"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Health Programs & Resources
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Health Programs & Resources
+                      </p>
+                    </button>
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/healthlibrary"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Dental Health Library
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4312,7 +5192,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/myhealth/welltunedblog"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4359,7 +5240,12 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       <p
                         class="pb-1"
                       >
-                        View Virtual Care Options.
+                        View 
+                        <span
+                          class="font-bold"
+                        >
+                          Virtual Care Options.
+                        </span>
                       </p>
                       <img
                         alt="Page Arrow"
@@ -4462,12 +5348,17 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       <p
                         class="pb-1"
                       >
-                        Your pharmacy benefits are managed by CVS Caremark.
+                        CVS Caremark™ helps manage your pharmacy benefits.
                       </p>
                       <p
                         class="pb-1"
                       >
-                        A caremark.com account will let you get prescriptions by mail, price a medication and more.
+                        <span
+                          class="font-bold"
+                        >
+                          A caremark.com
+                        </span>
+                         account will let you get prescriptions by mail, price a medication and more.
                       </p>
                       <img
                         alt="Page Arrow"
@@ -4498,7 +5389,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     class="flex"
-                    href="/pharmacy/myprescription"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4520,7 +5412,8 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/pharmacy/pricemedication"
+                    href="https://www.caremark.com/drugSearchInit.do?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
@@ -4542,12 +5435,36 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     class="flex"
-                    href="/pharmacy/mailorder"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
                   >
                     <p
                       class="pb-2 pt-2 pr-1"
                     >
                       Mail Order
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.caremark.com/pharmacySearchFast?newLogin=yes"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Find a Pharmacy
                     </p>
                     <img
                       alt="External Link"
@@ -4576,22 +5493,36 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     Resources & Support
                   </h1>
                   <a
-                    href="/pharmacy/pharmacydocsforms"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Pharmacy Documents & Forms
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Pharmacy Documents & Forms
+                      </p>
+                    </button>
                   </a>
                   <a
-                    href="/pharmacy/pharmacyfaq"
+                    style="display: block;"
                   >
-                    <p
-                      class="pb-2 pt-2"
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
                     >
-                      Pharmacy FAQ
-                    </p>
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Pharmacy FAQ
+                      </p>
+                    </button>
                   </a>
                 </div>
               </div>
@@ -4600,7 +5531,58 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    href="/claimSnapshotList"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Claims
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="/spendingSummary"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Spending
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
             <div
@@ -4665,14 +5647,127 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    href="/support"
+                  >
+                    <div
+                      class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
+                    >
+                      <h3
+                        class="pb-3 text-sm"
+                      >
+                        Quick Tip
+                      </h3>
+                      <p
+                        class="pb-1"
+                      >
+                        We're here to help.
+                      </p>
+                      <p
+                        class="pb-1"
+                      >
+                        <span
+                          class="font-bold"
+                        >
+                          Start a chat
+                        </span>
+                         or call us at [1-800-000-0000].
+                      </p>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
               </div>
               <div
                 class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
               >
                 <div
                   class="lg:grid-rows-4"
-                />
+                >
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Frequently Asked Questions
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthcare.gov/glossary/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Health Insurance Glossary
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Find a Form
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link"
+                        style="display: block;"
+                      >
+                        Share Website Feedback
+                      </p>
+                    </button>
+                  </a>
+                </div>
               </div>
               <div
                 class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
