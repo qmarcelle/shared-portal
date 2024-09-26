@@ -2,8 +2,11 @@
 
 import { Column } from '@/components/foundation/Column';
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
@@ -34,6 +37,9 @@ export default function LogIn() {
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
   ]);
+  useEffect(() => {
+    document.title = 'Member Login';
+  }, []);
 
   const router = useRouter();
   function renderComp() {
@@ -63,6 +69,30 @@ export default function LogIn() {
     }
   }
 
+  const trackContactUsAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'contact us',
+      click_url: process.env.NEXT_PUBLIC_PORTAL_CONTACT_US_URL,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+  };
+
+  const trackBackToHomeAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'back to homepage',
+      click_url: process.env.NEXT_PUBLIC_PORTAL_URL,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+  };
+
   return (
     <div>
       <header>
@@ -75,7 +105,11 @@ export default function LogIn() {
                 alt="Blue Cross Blue Shield of Tennessee"
               ></Image>
             </a>
-            <a className="float-right" href="https://www.bcbst.com/contact-us">
+            <a
+              className="float-right"
+              href="https://www.bcbst.com/contact-us"
+              onClick={trackContactUsAnalytics}
+            >
               <button className="buttonlink headerbutton" id="contactbutton">
                 Contact Us
               </button>
@@ -88,6 +122,7 @@ export default function LogIn() {
           <div id="marginSection">
             <button
               onClick={() => {
+                trackBackToHomeAnalytics();
                 router.replace(process.env.NEXT_PUBLIC_PORTAL_URL ?? '');
               }}
               id="backButton"

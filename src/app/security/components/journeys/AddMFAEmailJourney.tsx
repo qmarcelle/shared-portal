@@ -11,6 +11,7 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
 import { googleAnalytics } from '@/utils/analytics';
@@ -57,6 +58,17 @@ export const AddMFAEmailJourney = ({
     updateInvalidError([]);
   }, [updateInvalidError]);
 
+  const addMFAEmailAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'resend code',
+      click_url: undefined,
+      element_category: 'email setup',
+      action: 'resend code',
+      event: 'select_content',
+      content_type: 'select',
+    };
+    googleAnalytics(analytics);
+  };
   const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
@@ -69,14 +81,7 @@ export const AddMFAEmailJourney = ({
         setMainAuthDevice(newAuthDevice);
       }
       if (value) {
-        googleAnalytics(
-          'resend code',
-          'undefined',
-          'email setup',
-          'resend code',
-          'select_content',
-          'select',
-        );
+        addMFAEmailAnalytics();
         setResentCode(true);
       } else {
         setResentCode(false);

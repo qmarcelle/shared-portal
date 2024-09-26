@@ -5,7 +5,13 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { AppProg } from '../models/app/app_prog';
+import {
+  INVALID_CODE_LENGTH,
+  MIN_CODE_LENGTH,
+} from '../models/app/login_constants';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { useLoginStore } from '../stores/loginStore';
 import { useMfaStore } from '../stores/mfaStore';
@@ -15,40 +21,94 @@ export type OtherMfaEntryProps = {
 };
 
 export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
-  const code = useMfaStore((state) => state.code);
-  const resend = useMfaStore((state) => state.resend);
-  const completeMfaProg = useMfaStore((state) => state.completeMfaProg);
-  const actions = useMfaStore((state) => ({
-    submitMfa: state.submitMfaAuth,
+  const {
+    code,
+    resend,
+    completeMfaProg,
+    submitMfaAuth,
+    updateCode,
+    resendMfa,
+    updateMfaStage,
+    availMfaModes,
+  } = useMfaStore((state) => ({
+    code: state.code,
+    resend: state.resend,
+    completeMfaProg: state.completeMfaProg,
+    submitMfaAuth: state.submitMfaAuth,
     updateCode: state.updateCode,
     resendMfa: state.resendMfa,
     updateMfaStage: state.updateMfaStage,
-    availMfaOptions: state.availMfaModes,
+    availMfaModes: state.availMfaModes,
   }));
   const { resetApiErrors, apiErrors } = useLoginStore();
-  const showTooltip = code.length < 1;
+  const showTooltip = code.length < MIN_CODE_LENGTH;
 
   function validateSecurityCode() {
-    if (code.length > 0) {
-      return () => actions.submitMfa();
-    } else {
-      return undefined;
+    const analytics: AnalyticsData = {
+      click_text: 'confirm',
+      click_url: process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL,
+      element_category: 'login',
+      action: undefined,
+      event: 'login',
+      content_type: undefined,
+    };
+
+    if (code.length > INVALID_CODE_LENGTH) {
+      return () => {
+        submitMfaAuth();
+        googleAnalytics(analytics);
+      };
     }
+    return undefined;
   }
 
   const updateSecurityCode = (value: string) => {
-    actions.updateCode(value);
+    updateCode(value);
     if (apiErrors.length) {
       resetApiErrors();
     }
   };
 
   const updateCodeResentText = () => {
-    actions.resendMfa();
+    const analytics: AnalyticsData = {
+      click_text: 'resend code',
+      click_url: undefined,
+      element_category: 'content interaction',
+      action: 'select',
+      event: 'select_content',
+      content_type: 'select',
+    };
+    googleAnalytics(analytics);
+    resendMfa();
+  };
+
+  const chooseDifferentMfaMethod = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'choose a different method',
+      click_url: window.location.href,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+    updateMfaStage(MfaModeState.selection);
+  };
+
+  const trackContactUsAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'contact us',
+      click_url: process.env.NEXT_PUBLIC_PORTAL_CONTACT_US_URL,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
   };
 
   return (
-    <div id="mainSection">
+    <section id="mainSection">
       <h1>Let&apos;s Confirm Your Identity</h1>
       <p>We&apos;ve sent a code to:</p>
       <span aria-label="authentication-method">{authMethod}</span>
@@ -85,13 +145,13 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
       </ToolTip>
 
       <Spacer size={16} />
-      {actions.availMfaOptions.length > 1 ? (
+      {availMfaModes.length > 1 && (
         <AppLink
           label="Choose a Different Method"
-          callback={() => actions.updateMfaStage(MfaModeState.selection)}
+          callback={chooseDifferentMfaMethod}
           className="m-auto"
         />
-      ) : null}
+      )}
       <Spacer size={32} />
       <Divider />
       <Spacer size={16} />
@@ -103,9 +163,10 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
           url="https://www.bcbst.com/contact-us"
           label="contact us"
           displayStyle="inline"
+          callback={trackContactUsAnalytics}
         />
         .
       </p>
-    </div>
+    </section>
   );
 };

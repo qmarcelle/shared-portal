@@ -1,3 +1,4 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import { ReactElement } from 'react';
 import { Button } from '../foundation/Button';
@@ -24,6 +25,18 @@ export const ChangeAuthDeviceSlide = ({
   nextCallback,
   cancelCallback,
 }: ChangeAuthDeviceProps) => {
+  const changeDeviceAnalytics = (actionVal: string, labelVal: string) => {
+    const analytics: AnalyticsData = {
+      click_text: actionVal,
+      click_url: undefined,
+      element_category: labelVal?.toLocaleLowerCase(),
+      action: actionVal,
+      event: 'select_content',
+      content_type: 'select',
+    };
+    googleAnalytics(analytics);
+  };
+
   return (
     <Column className="items-center">
       <Header className="title-2" text={label} />
@@ -37,14 +50,7 @@ export const ChangeAuthDeviceSlide = ({
         <Button
           callback={() => {
             nextCallback?.();
-            googleAnalytics(
-              'next',
-              undefined,
-              label?.toLocaleLowerCase(),
-              'next',
-              'select_content',
-              'select',
-            );
+            changeDeviceAnalytics('next', label);
           }}
           label="Next"
         />
@@ -52,14 +58,7 @@ export const ChangeAuthDeviceSlide = ({
         <Button
           callback={() => {
             cancelCallback?.();
-            googleAnalytics(
-              'cancel',
-              undefined,
-              label?.toLocaleLowerCase(),
-              'cancel',
-              'select_content',
-              'select',
-            );
+            changeDeviceAnalytics('cancel', label);
           }}
           type="ghost"
           label="Cancel"

@@ -4,9 +4,22 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 
 export const IdentityProtectionServiceCard = () => {
+  const trackIdentityProtectionAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'view identity protection services',
+      click_url: window.location.href,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+  };
+
   return (
     <Card className="small-section">
       <Column>
@@ -17,15 +30,7 @@ export const IdentityProtectionServiceCard = () => {
         <AppLink
           label="View Identity Protection Services"
           className="pl-0"
-          callback={() =>
-            googleAnalytics(
-              'view identity protection services',
-              window.location.href,
-              'content interaction',
-              'click',
-              'internal_link_click',
-            )
-          }
+          callback={trackIdentityProtectionAnalytics}
         />
       </Column>
     </Card>
