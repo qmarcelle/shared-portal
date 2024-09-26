@@ -50,10 +50,10 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
 
   const getMFAContentModal = (val: MfaDevice) => {
     const analytics: AnalyticsData = {
-      click_text: val?.enabled ? 'remove Method' : 'set Up Method',
-      click_url: process.env.NEXT_PUBLIC_PORTAL_CONTACT_US_URL,
+      click_text: val?.enabled ? 'remove method' : 'set up method',
+      click_url: undefined,
       element_category: MfaDeviceTypeAnalytics[val.deviceType],
-      action: val?.enabled ? 'remove Method' : 'set Up Method',
+      action: val?.enabled ? 'remove method' : 'set up method',
       event: 'select_content',
       content_type: 'select',
     };
