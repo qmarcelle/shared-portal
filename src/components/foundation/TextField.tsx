@@ -24,6 +24,7 @@ export interface TextFieldProps extends IComponent {
   onFocusCallback?: () => void;
   minValue?: number;
   maxValue?: number;
+  maxLength?: number;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -123,6 +124,7 @@ export const TextField = ({
   isSuffixNeeded = false,
   minValue,
   maxValue,
+  maxLength,
   className = '',
   highlightError = true,
 }: TextFieldProps) => {
@@ -172,6 +174,7 @@ export const TextField = ({
           min={minValue}
           max={maxValue}
           className={className}
+          maxLength={maxLength}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
           {isSuffixNeeded && (
