@@ -206,4 +206,40 @@ export const healthProgramsandResourcesDetails: Map<
       ],
     },
   ],
+  [
+    HealthProgramType.TeladocHealthDiabetesPrevention,
+    {
+      healthProgramType: HealthProgramType.TeladocHealthDiabetesPrevention,
+      healthProgramHeaderDetails: {
+        title: 'Teladoc Health Diabetes Prevention Program',
+        description:
+          'Get a personal action plan, health coaching and a smart scale at no extra cost.',
+        serviceDesc:
+          // eslint-disable-next-line quotes
+          "The first time using this service, you'll need to create an account.",
+        buttonText: 'Use Teladoc Health',
+        icon: teladocHealthLogo,
+        redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
+      },
+      whyUseThisOptionDetails: [
+        'If eligible, covered by your plan at no extra cost',
+        'Dedicated expert coaching support',
+        'Programs for healthy habits',
+        'Free smart scale',
+      ],
+      programType: 'TeladocHealthDiabetesPrevention',
+      costForThisOptionDetails: {
+        description: 'If eligible, you can expect to pay:',
+        cost: '$0',
+      },
+      goodForOptionDetails: [
+        'Viewing weight trends',
+        'Expert coaching and advice',
+        'Sharing reports with the doctor ',
+        'Personalized eating tips',
+        'Setting goals and tracking progress',
+        'Logging food',
+      ],
+    },
+  ],
 ]);
