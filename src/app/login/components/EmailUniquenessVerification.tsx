@@ -98,7 +98,7 @@ export const EmailUniqueVerification = () => {
         onKeydownCallback={(val) => keyDownCallBack(val)}
         value={date}
         errors={invalidDate}
-        maxValue={10}
+        maxLength={10}
       ></TextField>
       <Spacer size={32} />
       <TextField
