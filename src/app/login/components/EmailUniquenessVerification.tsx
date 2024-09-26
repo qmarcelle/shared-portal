@@ -25,10 +25,13 @@ export const EmailUniqueVerification = () => {
     confirmEmail: '',
   });
   const [date, setDate] = useState('');
+  let isBackSpacePressed: boolean = false;
 
   const handleChange = (val: string) => {
-    let formattedDate = '';
-    formattedDate = formatDate(val);
+    let formattedDate = val;
+    if (!isBackSpacePressed) {
+      formattedDate = formatDate(val);
+    }
     setDate(formattedDate);
     if (!validateDate(date)) {
       setInvalidDate(['Please follow the MM/DD/YYYY format.']);
@@ -75,6 +78,9 @@ export const EmailUniqueVerification = () => {
       setemailConfirmationError([]);
     }
   };
+  const keyDownCallBack = (keyCode: string) => {
+    isBackSpacePressed = keyCode == 'Backspace';
+  };
 
   return (
     <div id="mainSection">
@@ -89,8 +95,10 @@ export const EmailUniqueVerification = () => {
         className="body-1"
         label="Date of Birth (MM/DD/YYYY)"
         valueCallback={(val) => handleChange(val)}
+        onKeydownCallback={(val) => keyDownCallBack(val)}
         value={date}
         errors={invalidDate}
+        maxValue={10}
       ></TextField>
       <Spacer size={32} />
       <TextField
