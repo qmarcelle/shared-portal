@@ -1,26 +1,30 @@
 import { useLoginStore } from '@/app/login/stores/loginStore';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { getUserIdDetails } from '../actions/userSessionDetails';
 import { logger } from './logger';
 
 export const GTM_ID = 'GTM-5GNS5V6';
 
-export const googleAnalytics = async (
-  click_text?: string,
-  click_url?: string,
-  element_category?: string,
-  action?: string,
-  event?: string,
-  content_type?: string,
-) => {
+export const ANALYTICS_KEYS = {
+  CLICK_TEXT: 'click_text',
+  CLICK_URL: 'click_url',
+  ELEMENT_CATEGORY: 'element_category',
+  ACTION: 'action',
+  EVENT: 'event',
+  CONTENT_TYPE: 'content_type',
+  USER_ID: 'user_id',
+} as const;
+
+export const googleAnalytics = async (data: AnalyticsData) => {
   try {
-    (window?.dataLayer || []).push({
-      click_text: click_text,
-      click_url: click_url,
-      element_category: element_category,
-      action: action,
-      event: event,
-      content_type: content_type,
-      user_id: await getUserId(),
+    (window?.dataLayer ?? []).push({
+      [ANALYTICS_KEYS.CLICK_TEXT]: data.click_text,
+      [ANALYTICS_KEYS.CLICK_URL]: data.click_url,
+      [ANALYTICS_KEYS.ELEMENT_CATEGORY]: data.element_category,
+      [ANALYTICS_KEYS.ACTION]: data.action,
+      [ANALYTICS_KEYS.EVENT]: data.event,
+      [ANALYTICS_KEYS.CONTENT_TYPE]: data.content_type,
+      [ANALYTICS_KEYS.USER_ID]: await getUserId(),
     });
   } catch (error) {
     logger.error('googleAnalytics', error);
@@ -28,11 +32,13 @@ export const googleAnalytics = async (
 };
 
 export const getUserId = async () => {
-  let userId = '';
   try {
-    userId = await getUserIdDetails();
+    return await getUserIdDetails();
   } catch (error) {
-    userId = useLoginStore.getState().username;
+    logger.warn(
+      'Failed to get user ID from details, falling back to username',
+      error,
+    );
+    return useLoginStore.getState().username;
   }
-  return userId;
 };

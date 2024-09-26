@@ -98,5 +98,21 @@ class Logger {
       );
     }
   }
+
+  warn(msg: string, ...err: any) {
+    try {
+      console.warn(
+        `[${new Date().toLocaleString()}] E Sequence-${
+          this.sequence
+        }-${msg}-${JSON.stringify(err, Object.getOwnPropertyNames(err), 4)}`,
+      );
+
+      ++this.sequence;
+    } catch (error) {
+      console.error(
+        `Logger Error ${JSON.stringify(error, Object.getOwnPropertyNames(error), 4)}`,
+      );
+    }
+  }
 }
 export const logger = new Logger();

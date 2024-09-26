@@ -1,3 +1,4 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import { ReactElement } from 'react';
 import { IComponent } from '../IComponent';
@@ -30,6 +31,17 @@ export const InputModalSlide = ({
   nextCallback,
   cancelCallback,
 }: InputModalSlideProps) => {
+  const inputModalAnalytics = (buttonLabelVal: string, labelVal: string) => {
+    const analytics: AnalyticsData = {
+      click_text: buttonLabelVal?.toLocaleLowerCase(),
+      click_url: undefined,
+      element_category: labelVal?.toLocaleLowerCase(),
+      action: buttonLabelVal?.toLocaleLowerCase(),
+      event: 'select_content',
+      content_type: 'select',
+    };
+    googleAnalytics(analytics);
+  };
   return (
     <Column className="items-center">
       <Spacer size={32} />
@@ -45,14 +57,7 @@ export const InputModalSlide = ({
           type="primary"
           callback={() => {
             nextCallback?.();
-            googleAnalytics(
-              buttonLabel?.toLocaleLowerCase(),
-              undefined,
-              label?.toLocaleLowerCase(),
-              buttonLabel?.toLocaleLowerCase(),
-              'select_content',
-              'select',
-            );
+            inputModalAnalytics(buttonLabel, label);
           }}
         ></Button>
         <Spacer size={24} />
@@ -61,14 +66,7 @@ export const InputModalSlide = ({
         label="Cancel"
         callback={() => {
           cancelCallback?.();
-          googleAnalytics(
-            'cancel',
-            undefined,
-            label?.toLocaleLowerCase(),
-            'cancel',
-            'select_content',
-            'select',
-          );
+          inputModalAnalytics('cancel', label);
         }}
       />
     </Column>

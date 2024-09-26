@@ -3,6 +3,7 @@ import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ToggleSwitch } from '@/components/foundation/ToggleSwitch';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import { useState } from 'react';
 import { useSecuritySettingsStore } from '../stores/security_settings_store';
@@ -20,6 +21,19 @@ export const DisableMFAWarning = ({ enabled }: DisableMFAWarningProps) => {
     toggleMfa: state.toggleMfaDevices,
     toggleError: state.toggleMfaDeviceError,
   }));
+  const mfaToggle = (checkedVal: boolean) => {
+    const analytics: AnalyticsData = {
+      click_text: 'MFA',
+      click_url: undefined,
+      element_category: 'content interaction',
+      action: !checkedVal ? 'on' : 'off',
+      event: 'select_content',
+      content_type: 'toggle',
+    };
+    setChecked(!checkedVal);
+    toggleMfa();
+    googleAnalytics(analytics);
+  };
   return (
     <Card type="elevated" className="container">
       <Column className="flex-grow m-4">
@@ -32,16 +46,7 @@ export const DisableMFAWarning = ({ enabled }: DisableMFAWarningProps) => {
             initChecked={enabled}
             onToggleCallback={() => {
               try {
-                setChecked(!checked);
-                toggleMfa();
-                googleAnalytics(
-                  'MFA',
-                  undefined,
-                  'content interaction',
-                  !checked ? 'on' : 'off',
-                  'select_content',
-                  'toggle',
-                );
+                mfaToggle(checked);
               } catch (err) {
                 useSecuritySettingsStore.setState({
                   toggleMfaDeviceError: true,

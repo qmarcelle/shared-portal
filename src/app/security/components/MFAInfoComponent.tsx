@@ -4,6 +4,7 @@ import { Card } from '@/components/foundation/Card';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import { DisableMFAWarning } from '../components/DisableMFAWarning';
 import { AddMFAAuthenticatorJourney } from '../components/journeys/AddMFAAuthenticatorJourney';
@@ -48,17 +49,18 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
   };
 
   const getMFAContentModal = (val: MfaDevice) => {
+    const analytics: AnalyticsData = {
+      click_text: val?.enabled ? 'remove Method' : 'set Up Method',
+      click_url: process.env.NEXT_PUBLIC_PORTAL_CONTACT_US_URL,
+      element_category: MfaDeviceTypeAnalytics[val.deviceType],
+      action: val?.enabled ? 'remove Method' : 'set Up Method',
+      event: 'select_content',
+      content_type: 'select',
+    };
     showAppModal({
       content: getOnClickContent(val),
     });
-    googleAnalytics(
-      val?.enabled ? 'remove Method' : 'set Up Method',
-      undefined,
-      MfaDeviceTypeAnalytics[val.deviceType],
-      val?.enabled ? 'remove Method' : 'set Up Method',
-      'select_content',
-      'select',
-    );
+    googleAnalytics(analytics);
   };
   const getEnabledText = (val: MfaDevice) =>
     `Send a security code to ${val.emailOrPhone}.`;
