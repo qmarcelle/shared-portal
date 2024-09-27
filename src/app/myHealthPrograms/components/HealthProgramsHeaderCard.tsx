@@ -2,6 +2,7 @@ import { Button } from '@/components/foundation/Button';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
+import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -23,11 +24,13 @@ export const HealthProgramsHeaderCard = ({
     <Column className="md:m-2 m-4">
       <Row className="md:hidden">
         <Column className="mt-8">
-          <Image
-            src={healthProgramHeaderDetails.icon}
-            className="size-100"
-            alt="Info"
-          />
+          {healthProgramHeaderDetails.icon && (
+            <Image
+              src={healthProgramHeaderDetails.icon}
+              className="size-100"
+              alt="Info"
+            />
+          )}
         </Column>
       </Row>
       <Row className="justify-between mt-2 md:mt-16 lg:mt-0">
@@ -44,23 +47,35 @@ export const HealthProgramsHeaderCard = ({
             className="body-1"
             text={healthProgramHeaderDetails.serviceDesc}
           />
-          <Spacer size={23} />
-          <Button
-            icon={icon}
-            label={healthProgramHeaderDetails.buttonText}
-            className="my-health-programs-header-button"
-            callback={() => {
-              window.location.href =
-                healthProgramHeaderDetails.redirectLink ?? ' ';
-            }}
-          />
+
+          <Column className="w-fit md:w-[83%]">
+            <RichText
+              type="body-1"
+              spans={[healthProgramHeaderDetails.serviceDesc2]}
+            />
+          </Column>
+          {healthProgramHeaderDetails.serviceDesc && <Spacer size={23} />}
+
+          {healthProgramHeaderDetails.buttonText && (
+            <Button
+              icon={icon}
+              label={healthProgramHeaderDetails.buttonText}
+              className="my-health-programs-header-button"
+              callback={() => {
+                window.location.href =
+                  healthProgramHeaderDetails.redirectLink ?? ' ';
+              }}
+            />
+          )}
         </Column>
         <Column className="hidden md:block">
-          <Image
-            src={healthProgramHeaderDetails.icon}
-            className="size-100 "
-            alt="Info"
-          />
+          {healthProgramHeaderDetails.icon && (
+            <Image
+              src={healthProgramHeaderDetails.icon}
+              className="size-100 "
+              alt="Info"
+            />
+          )}
         </Column>
       </Row>
     </Column>
