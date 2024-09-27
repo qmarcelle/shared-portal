@@ -1,5 +1,10 @@
 import { getServerSideUserId } from '@/utils/server_session';
+import { Metadata } from 'next';
 import { SecuritySettings } from '../../security/components/SecuritySettingsComponent';
+
+export const metadata: Metadata = {
+  title: 'Security Settings',
+};
 
 const SecurityPage = async () => {
   return <SecuritySettings username={await getServerSideUserId()} />;
