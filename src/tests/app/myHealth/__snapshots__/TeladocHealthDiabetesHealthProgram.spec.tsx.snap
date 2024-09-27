@@ -1,0 +1,856 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
+        />
+        <div
+          class="flex flex-col md:m-2 m-4"
+        >
+          <div
+            class="flex flex-row md:hidden"
+          >
+            <div
+              class="flex flex-col mt-8"
+            >
+              <img
+                alt="Info"
+                class="size-100"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+          <div
+            class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
+          >
+            <div
+              class="flex flex-col max-w-2xl"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <h1
+                class="title-1"
+              >
+                Teladoc Health Diabetes Management Program
+              </h1>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <p
+                class="body-1 body-1"
+              >
+                Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost to you.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1"
+              >
+                The first time using this service, you’ll need to create an account.
+              </p>
+              <div
+                class="flex flex-col w-fit md:w-[83%]"
+              >
+                <span
+                  class="body-1 undefined"
+                />
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+              />
+              <button
+                aria-label="Use Teladoc Health"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null my-health-programs-header-button"
+                type="button"
+              >
+                Use Teladoc Health
+                <p
+                  class="ml-2"
+                >
+                  <img
+                    alt="external icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </p>
+              </button>
+            </div>
+            <div
+              class="flex flex-col hidden md:block"
+            >
+              <img
+                alt="Info"
+                class="size-100 "
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main my-health-programs-cost-option"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2 !font-light !text-[26px]/[40px]"
+                >
+                  Why Use This Option
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <section>
+                  <ul>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <img
+                            alt="Info"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 pt-1 ml-2"
+                          >
+                            If eligible, covered by your plan at no extra cost
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <img
+                            alt="Info"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 pt-1 ml-2"
+                          >
+                            Personalized tips, action plans and coaching
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <img
+                            alt="Info"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 pt-1 ml-2"
+                          >
+                            Free smart meter and unlimited strips and lancets
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                  </ul>
+                </section>
+              </div>
+            </div>
+            <div
+              class="card-main my-health-programs-cost-option"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2 !font-light !text-[26px]/[40px]"
+                >
+                  Your Cost for This Option
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1"
+                  >
+                    If you have been diagnosed with type 1 or type 2 diabetes, you can expect to pay:
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <p
+                    class="body-1 font-bold text-xl"
+                  >
+                    $0
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col flex-grow page-section-36_67 items-stretch md:ml-4"
+          >
+            <div
+              class="card-main my-health-programs-good-option"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <h2
+                  class="title-2 !font-light !text-[26px]/[40px] ml-4"
+                >
+                  This Option is Generally Good for:
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-row"
+                >
+                  <ul
+                    class="ml-4"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            Living with diabetes
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            Receiving diabetes supplies
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            Monitoring glucose
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <div
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
+                          <p
+                            class="body-1 ml-3"
+                          >
+                            Building healthy habits 
+                          </p>
+                        </div>
+                      </li>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
+      />
+      <div
+        class="flex flex-col md:m-2 m-4"
+      >
+        <div
+          class="flex flex-row md:hidden"
+        >
+          <div
+            class="flex flex-col mt-8"
+          >
+            <img
+              alt="Info"
+              class="size-100"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
+        >
+          <div
+            class="flex flex-col max-w-2xl"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <h1
+              class="title-1"
+            >
+              Teladoc Health Diabetes Management Program
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost to you.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              The first time using this service, you’ll need to create an account.
+            </p>
+            <div
+              class="flex flex-col w-fit md:w-[83%]"
+            >
+              <span
+                class="body-1 undefined"
+              />
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+            />
+            <button
+              aria-label="Use Teladoc Health"
+              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null my-health-programs-header-button"
+              type="button"
+            >
+              Use Teladoc Health
+              <p
+                class="ml-2"
+              >
+                <img
+                  alt="external icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </p>
+            </button>
+          </div>
+          <div
+            class="flex flex-col hidden md:block"
+          >
+            <img
+              alt="Info"
+              class="size-100 "
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main my-health-programs-cost-option"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2 !font-light !text-[26px]/[40px]"
+              >
+                Why Use This Option
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <section>
+                <ul>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <img
+                          alt="Info"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 pt-1 ml-2"
+                        >
+                          If eligible, covered by your plan at no extra cost
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <img
+                          alt="Info"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 pt-1 ml-2"
+                        >
+                          Personalized tips, action plans and coaching
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <img
+                          alt="Info"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 pt-1 ml-2"
+                        >
+                          Free smart meter and unlimited strips and lancets
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+              </section>
+            </div>
+          </div>
+          <div
+            class="card-main my-health-programs-cost-option"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2 !font-light !text-[26px]/[40px]"
+              >
+                Your Cost for This Option
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1"
+                >
+                  If you have been diagnosed with type 1 or type 2 diabetes, you can expect to pay:
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1 font-bold text-xl"
+                >
+                  $0
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col flex-grow page-section-36_67 items-stretch md:ml-4"
+        >
+          <div
+            class="card-main my-health-programs-good-option"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <h2
+                class="title-2 !font-light !text-[26px]/[40px] ml-4"
+              >
+                This Option is Generally Good for:
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-row"
+              >
+                <ul
+                  class="ml-4"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          Living with diabetes
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          Receiving diabetes supplies
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          Monitoring glucose
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <li>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
+                        <p
+                          class="body-1 ml-3"
+                        >
+                          Building healthy habits 
+                        </p>
+                      </div>
+                    </li>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
