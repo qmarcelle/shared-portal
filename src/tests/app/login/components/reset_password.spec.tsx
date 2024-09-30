@@ -23,8 +23,7 @@ describe('Reset password screen', () => {
 
     expect(
       screen.getByText(
-        // eslint-disable-next-line quotes
-        "We've updated our security requirements. Please reset your password to continue.",
+        /We've updated our security requirements. Please reset your password to continue./i,
       ),
     ).toBeVisible();
     expect(
