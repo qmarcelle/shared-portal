@@ -11,13 +11,11 @@ export const ResetPasswordComponent = () => {
       <Header className="title-2" text="Reset Your Password"></Header>
       <Spacer size={16} />
       <TextBox
-        ariaLabel="SubTitle"
-        className="body-1"
+        ariaLabel="We've updated our security requirements. Please reset your password to continue."
         text="We've updated our security requirements. Please reset your password to continue."
       />
       <Spacer size={32} />
       <Button
-        className="body-1"
         label="Go to Password Reset"
         callback={() => {
           window.location.href = process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '';
@@ -28,7 +26,7 @@ export const ResetPasswordComponent = () => {
       <Spacer size={32} />
 
       <TextBox
-        ariaLabel="NeedHelp"
+        ariaLabel="Need Help?"
         className="title-3"
         text="Need help?"
       ></TextBox>
