@@ -7,7 +7,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 
 export const ResetPasswordComponent = () => {
   return (
-    <div id="mainSection">
+    <section id="mainSection">
       <Header className="title-2" text="Reset Your Password"></Header>
       <Spacer size={16} />
       <TextBox
@@ -19,7 +19,9 @@ export const ResetPasswordComponent = () => {
       <Button
         className="body-1"
         label="Go to Password Reset"
-        callback={() => {}}
+        callback={() => {
+          window.location.href = process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '';
+        }}
       />
       <Spacer size={32} />
       <Divider />
@@ -44,6 +46,6 @@ export const ResetPasswordComponent = () => {
           </span>,
         ]}
       />
-    </div>
+    </section>
   );
 };
