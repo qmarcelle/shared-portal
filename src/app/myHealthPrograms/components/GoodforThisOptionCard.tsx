@@ -30,14 +30,16 @@ export const GoodforThisOptionCard = ({
                 <Column key={index}>
                   <li>
                     <Row>
-                      <Circle
-                        width={5}
-                        height={5}
-                        color="#5DC1FD"
-                        radius={50}
-                        top={7}
-                        right={0}
-                      />
+                      <Column className="no-shrink">
+                        <Circle
+                          width={5}
+                          height={5}
+                          color="#5DC1FD"
+                          radius={50}
+                          top={7}
+                          right={0}
+                        />
+                      </Column>
                       <TextBox text={item} className="ml-3" />
                     </Row>
                   </li>
