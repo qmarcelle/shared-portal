@@ -47,7 +47,9 @@ export const EmailUniqueVerification = () => {
     });
     const isEmailMatch = isConfirmEmailAddressMatch(value, formEmailData.email);
     if (!isEmailMatch) {
-      setemailConfirmationError(['Email must match']);
+      setemailConfirmationError([
+        'The email addresses must match. Please check and try again.',
+      ]);
     } else {
       setemailConfirmationError([]);
     }
@@ -61,11 +63,11 @@ export const EmailUniqueVerification = () => {
       ['email']: value,
     });
     if (!isValidEmail && !isValidLength) {
-      setEmailError(['Invalid Email Address']);
+      setEmailError(['Please enter a valid Email address.']);
     } else if (isValidEmail && !isValidLength) {
-      setEmailError(['Invalid Email Address']);
+      setEmailError(['Please enter a valid Email address.']);
     } else if (!isValidEmail && isValidLength) {
-      setEmailError(['Invalid Email Address']);
+      setEmailError(['Please enter a valid Email address.']);
     } else {
       setEmailError([]);
     }
@@ -73,7 +75,9 @@ export const EmailUniqueVerification = () => {
       value !== formEmailData.confirmEmail &&
       formEmailData.confirmEmail !== ''
     ) {
-      setemailConfirmationError(['Email must match']);
+      setemailConfirmationError([
+        'The email addresses must match. Please check and try again.',
+      ]);
     } else {
       setemailConfirmationError([]);
     }

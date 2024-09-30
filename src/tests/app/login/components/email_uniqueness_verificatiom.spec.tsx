@@ -12,7 +12,7 @@ jest.mock('next/navigation', () => ({
   },
 }));
 const setupUI = () => {
-  render(<EmailUniqueVerification />);
+  return render(<EmailUniqueVerification />);
 };
 describe('Email Unique Verification screen', () => {
   test('Email Unique Verification screen UI', async () => {
@@ -36,7 +36,7 @@ describe('Email Unique Verification screen', () => {
       ),
     ).toBeVisible();
 
-    expect(component).toMatchSnapshot();
+    expect(component.baseElement).toMatchSnapshot();
   });
 
   test('Email Unique Verification screen UI Field Validations', async () => {
@@ -63,7 +63,9 @@ describe('Email Unique Verification screen', () => {
     const emailEntryInput = screen.getByLabelText('Email Address');
     await userEvent.type(emailEntryInput, 'chall123gmail.com');
     await waitFor(() => {
-      expect(screen.getByText('Invalid Email Address')).toBeVisible();
+      expect(
+        screen.getByText('Please enter a valid Email address.'),
+      ).toBeVisible();
     });
 
     //check confirm email address
@@ -73,9 +75,13 @@ describe('Email Unique Verification screen', () => {
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
     await userEvent.type(confirmEmailEntryInput, 'chall1811@gmail.com');
     await waitFor(() => {
-      expect(screen.getByText('Email must match')).toBeVisible();
+      expect(
+        screen.getByText(
+          'The email addresses must match. Please check and try again.',
+        ),
+      ).toBeVisible();
     });
 
-    expect(component).toMatchSnapshot();
+    expect(component.baseElement).toMatchSnapshot();
   });
 });
