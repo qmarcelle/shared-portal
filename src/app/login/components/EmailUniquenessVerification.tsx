@@ -92,7 +92,7 @@ export const EmailUniquenessVerification = () => {
       <Header className="title-2" text="Choose Your Email Address"></Header>
       <Spacer size={16} />
       <TextBox
-        ariaLabel="SubTitle"
+        ariaLabel="Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue."
         text="Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue."
       />
       <Spacer size={32} />
