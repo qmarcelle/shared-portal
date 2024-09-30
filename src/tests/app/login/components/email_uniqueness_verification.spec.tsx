@@ -26,7 +26,6 @@ describe('Email Unique Verification screen', () => {
         'Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue.',
       ),
     ).toBeVisible();
-    //  expect(screen.getByLabelText(/Email Address/i)).toBeVisible();
     expect(screen.getByLabelText(/Confirm Email Address/i)).toBeVisible();
     expect(screen.getByRole('button', { name: /Next/i })).toBeVisible();
 
