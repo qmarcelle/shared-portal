@@ -3,7 +3,7 @@
 exports[`Email Unique Verification screen Email Unique Verification screen UI 1`] = `
 <body>
   <div>
-    <div
+    <section
       id="mainSection"
     >
       <h1
@@ -15,7 +15,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
       <p
-        class="body-1 body-1"
+        class="body-1"
       >
         Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue.
       </p>
@@ -29,11 +29,11 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
           Date of Birth (MM/DD/YYYY)
         </p>
         <div
-          class="flex flex-row items-center input body-1  "
+          class="flex flex-row items-center input   "
         >
           <input
             aria-label="Date of Birth (MM/DD/YYYY)"
-            class="body-1"
+            class=""
             maxlength="10"
             type="text"
             value=""
@@ -58,11 +58,11 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
           Email Address
         </p>
         <div
-          class="flex flex-row items-center input body-1  "
+          class="flex flex-row items-center input   "
         >
           <input
             aria-label="Email Address"
-            class="body-1"
+            class=""
             type="email"
             value=""
           />
@@ -86,11 +86,11 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
           Confirm Email Address
         </p>
         <div
-          class="flex flex-row items-center input body-1  "
+          class="flex flex-row items-center input   "
         >
           <input
             aria-label="Confirm Email Address"
-            class="body-1"
+            class=""
             type="email"
             value=""
           />
@@ -107,13 +107,22 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
-      <button
-        aria-label="Next"
-        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-        type="button"
+      <div
+        class="flex flex-row justify-center items-center tooltip"
       >
-        Next
-      </button>
+        <span
+          class="tooltiptext"
+        >
+          Fill out the form to continue.
+        </span>
+        <button
+          aria-label="Next"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          type="button"
+        >
+          Next
+        </button>
+      </div>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
@@ -150,7 +159,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
           </a>
         </span>
       </span>
-    </div>
+    </section>
   </div>
 </body>
 `;
@@ -158,7 +167,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
 exports[`Email Unique Verification screen Email Unique Verification screen UI Field Validations 1`] = `
 <body>
   <div>
-    <div
+    <section
       id="mainSection"
     >
       <h1
@@ -170,7 +179,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
       <p
-        class="body-1 body-1"
+        class="body-1"
       >
         Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue.
       </p>
@@ -184,11 +193,11 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
           Date of Birth (MM/DD/YYYY)
         </p>
         <div
-          class="flex flex-row items-center input body-1  error-input"
+          class="flex flex-row items-center input   error-input"
         >
           <input
             aria-label="Date of Birth (MM/DD/YYYY)"
-            class="body-1"
+            class=""
             maxlength="10"
             type="text"
             value="18/11/1970"
@@ -239,11 +248,11 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
           Email Address
         </p>
         <div
-          class="flex flex-row items-center input body-1  "
+          class="flex flex-row items-center input   "
         >
           <input
             aria-label="Email Address"
-            class="body-1"
+            class=""
             type="email"
             value="chall123gmail.comchall123@gmail.com"
           />
@@ -267,11 +276,11 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
           Confirm Email Address
         </p>
         <div
-          class="flex flex-row items-center input body-1 input-focus error-input"
+          class="flex flex-row items-center input  input-focus error-input"
         >
           <input
             aria-label="Confirm Email Address"
-            class="body-1"
+            class=""
             type="email"
             value="chall1811@gmail.com"
           />
@@ -314,13 +323,22 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
-      <button
-        aria-label="Next"
-        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-        type="button"
+      <div
+        class="flex flex-row justify-center items-center tooltip"
       >
-        Next
-      </button>
+        <span
+          class="tooltiptext"
+        >
+          Fill out the form to continue.
+        </span>
+        <button
+          aria-label="Next"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          type="button"
+        >
+          Next
+        </button>
+      </div>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
@@ -357,7 +375,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
           </a>
         </span>
       </span>
-    </div>
+    </section>
   </div>
 </body>
 `;

@@ -5,6 +5,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { ToolTip } from '@/components/foundation/Tooltip';
 import {
   formatDate,
   isConfirmEmailAddressMatch,
@@ -14,10 +15,10 @@ import {
 } from '@/utils/inputValidator';
 import { useState } from 'react';
 
-export const EmailUniqueVerification = () => {
+export const EmailUniquenessVerification = () => {
   const [invalidDate, setInvalidDate] = useState<string[]>([]);
   const [emailError, setEmailError] = useState<string[]>([]);
-  const [emailConfirmationError, setemailConfirmationError] = useState<
+  const [emailConfirmationError, setEmailConfirmationError] = useState<
     string[]
   >([]);
   const [formEmailData, setFormEmailData] = useState({
@@ -47,11 +48,11 @@ export const EmailUniqueVerification = () => {
     });
     const isEmailMatch = isConfirmEmailAddressMatch(value, formEmailData.email);
     if (!isEmailMatch) {
-      setemailConfirmationError([
+      setEmailConfirmationError([
         'The email addresses must match. Please check and try again.',
       ]);
     } else {
-      setemailConfirmationError([]);
+      setEmailConfirmationError([]);
     }
   };
 
@@ -75,11 +76,11 @@ export const EmailUniqueVerification = () => {
       value !== formEmailData.confirmEmail &&
       formEmailData.confirmEmail !== ''
     ) {
-      setemailConfirmationError([
+      setEmailConfirmationError([
         'The email addresses must match. Please check and try again.',
       ]);
     } else {
-      setemailConfirmationError([]);
+      setEmailConfirmationError([]);
     }
   };
   const keyDownCallBack = (keyCode: string) => {
@@ -87,16 +88,16 @@ export const EmailUniqueVerification = () => {
   };
 
   return (
-    <div id="mainSection">
+    <section id="mainSection">
       <Header className="title-2" text="Choose Your Email Address"></Header>
       <Spacer size={16} />
       <TextBox
-        className="body-1"
+        ariaLabel="SubTitle"
         text="Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue."
       />
       <Spacer size={32} />
       <TextField
-        className="body-1"
+        ariaLabel="Date of Birth (MM/DD/YYYY)"
         label="Date of Birth (MM/DD/YYYY)"
         valueCallback={(val) => handleChange(val)}
         onKeydownCallback={(val) => keyDownCallBack(val)}
@@ -106,7 +107,7 @@ export const EmailUniqueVerification = () => {
       ></TextField>
       <Spacer size={32} />
       <TextField
-        className="body-1"
+        ariaLabel="Email Address"
         label="Email Address"
         valueCallback={(val) => validateEmailAddress(val)}
         type="email"
@@ -115,7 +116,7 @@ export const EmailUniqueVerification = () => {
       ></TextField>
       <Spacer size={32} />
       <TextField
-        className="body-1"
+        ariaLabel="Confirm Email Address"
         label="Confirm Email Address"
         type="email"
         value={formEmailData.confirmEmail}
@@ -123,11 +124,22 @@ export const EmailUniqueVerification = () => {
         errors={emailConfirmationError}
       ></TextField>
       <Spacer size={32} />
-      <Button label="Next" />
+      <ToolTip
+        showTooltip={true}
+        className="flex flex-row justify-center items-center tooltip"
+        label="Fill out the form to continue."
+      >
+        <Button label="Next" />
+      </ToolTip>
+
       <Spacer size={32} />
       <Divider />
       <Spacer size={32} />
-      <TextBox className="title-3" text="Need help?"></TextBox>
+      <TextBox
+        ariaLabel="Need Help?"
+        className="title-3"
+        text="Need help?"
+      ></TextBox>
       <Spacer size={16} />
 
       <RichText
@@ -143,6 +155,6 @@ export const EmailUniqueVerification = () => {
           </span>,
         ]}
       />
-    </div>
+    </section>
   );
 };
