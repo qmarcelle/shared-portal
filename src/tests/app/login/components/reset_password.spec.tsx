@@ -20,6 +20,7 @@ describe('Reset password screen', () => {
     expect(
       screen.getByRole('heading', { name: 'Reset Your Password' }),
     ).toBeVisible();
+
     expect(
       screen.getByText(
         // eslint-disable-next-line quotes
