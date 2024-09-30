@@ -1,4 +1,4 @@
-import { EmailUniqueVerification } from '@/app/login/components/EmailUniquenessVerification';
+import { EmailUniquenessVerification } from '@/app/login/components/EmailUniquenessVerification';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -12,7 +12,7 @@ jest.mock('next/navigation', () => ({
   },
 }));
 const setupUI = () => {
-  return render(<EmailUniqueVerification />);
+  return render(<EmailUniquenessVerification />);
 };
 describe('Email Unique Verification screen', () => {
   test('Email Unique Verification screen UI', async () => {
