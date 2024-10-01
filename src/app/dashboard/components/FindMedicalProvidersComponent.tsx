@@ -9,13 +9,13 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-import FindCare from '../../../../public/assets/Find-Care.svg';
+import FindCare from '../../../../public/assets/find_Care.svg';
 export const FindMedicalProvidersComponent = ({}) => {
   return (
-    <Card className="large-section">
+    <Card className="large-section !mx-3">
       <section className="gap-8">
         <Row className="align-top items-center">
-          <Image src={FindCare} className="w-[50px] h-[50px]" alt="" />
+          <Image src={FindCare} className="w-[40px] h-[40px]" alt="" />
           <Spacer axis="horizontal" size={16} />
           <Header
             text="Find Medical Providers"
