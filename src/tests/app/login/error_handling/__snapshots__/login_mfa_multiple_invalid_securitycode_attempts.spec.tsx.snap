@@ -54,7 +54,7 @@ exports[`Multiple Login MFA Invalid Secutity Code Attempts Error should render M
           >
             Back to Homepage
           </button>
-          <div
+          <article
             id="mainSection"
           >
             <div
@@ -114,9 +114,7 @@ exports[`Multiple Login MFA Invalid Secutity Code Attempts Error should render M
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
               </div>
-              <div
-                class="flex flex-row"
-              >
+              <footer>
                 <p
                   class="text-center"
                 >
@@ -124,13 +122,14 @@ exports[`Multiple Login MFA Invalid Secutity Code Attempts Error should render M
                    
                   <a
                     class="link"
+                    href=""
                   >
                     contact us.
                   </a>
                 </p>
-              </div>
+              </footer>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>

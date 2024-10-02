@@ -290,7 +290,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Set Up Method
                           </p>
@@ -379,7 +379,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Remove Method
                           </p>
@@ -468,7 +468,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Remove Method
                           </p>
@@ -557,7 +557,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Remove Method
                           </p>

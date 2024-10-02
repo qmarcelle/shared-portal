@@ -1,6 +1,8 @@
 import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
+import { Divider } from '@/components/foundation/Divider';
 import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import { AnalyticsData } from '@/models/app/analyticsData';
@@ -52,16 +54,15 @@ export const AuthenticatorAppMfa = () => {
 
   return (
     <div id="mainSection">
-      <h1>Let&apos;s Confirm Your Identity</h1>
-      <p className="mb-4">
-        Enter the security code from your authenticator app.
-      </p>
+      <TextBox type="title-2" text="Let's Confirm Your Identity" />
+      <Spacer size={16} />
+      <p>Enter the security code from your authenticator app.</p>
+      <Spacer size={32} />
       <TextField
         label="Enter Security Code"
         valueCallback={(val) => updateSecurityCode(val)}
         errors={apiErrors}
       />
-      <Spacer size={24} />
       <Spacer size={32} />
       <ToolTip
         showTooltip={showTooltip}
@@ -78,21 +79,24 @@ export const AuthenticatorAppMfa = () => {
           }
         />
       </ToolTip>
-
       <Spacer size={16} />
       <AppLink
         label="Choose a Different Method"
         callback={() => updateMfaStage(MfaModeState.selection)}
         className="m-auto"
       />
-      <Spacer size={65} />
+      <Spacer size={32} />
+      <Divider />
+      <Spacer size={32} />
       <h3>Need Help?</h3>
       <p>
         Give us a call using the number listed on the back of your Member ID
         card or{' '}
         <AppLink
+          className="pl-0 pt-0"
           url="https://www.bcbst.com/contact-us"
           label="contact us"
+          displayStyle="inline"
           callback={trackContactUsAnalytics}
         />
       </p>

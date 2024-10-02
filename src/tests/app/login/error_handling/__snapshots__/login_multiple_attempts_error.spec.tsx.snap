@@ -54,7 +54,7 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
           >
             Back to Homepage
           </button>
-          <div
+          <article
             id="mainSection"
           >
             <div
@@ -132,9 +132,7 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
               </div>
-              <div
-                class="flex flex-row"
-              >
+              <footer>
                 <p
                   class="text-center"
                 >
@@ -142,13 +140,14 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
                    
                   <a
                     class="link"
+                    href=""
                   >
                     contact us.
                   </a>
                 </p>
-              </div>
+              </footer>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>

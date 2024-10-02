@@ -48,7 +48,7 @@ export const UpdateRowWithStatus = ({
           <Spacer size={16} />
           {subLabel && <TextBox className="mb-4" text={subLabel} />}
           <Title
-            className="font-bold primary-color"
+            className="body-bold primary-color"
             text={methodName}
             suffix={icon}
           />

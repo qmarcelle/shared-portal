@@ -46,7 +46,8 @@
 }
 
 * {
-  font-family: 'Univers-45';
+  font-family: 'Univers-55';
+  -webkit-font-smoothing: antialiased;
 }
 
 input::-ms-reveal,
@@ -139,21 +140,21 @@ input::-ms-clear {
 }
 
 .title-1 {
-  font-weight: lighter;
   font-size: 2.5rem;
   line-height: 3rem;
+  font-family: 'Univers-45';
 }
 
 .title-2 {
-  font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
+  font-family: 'Univers-55';
 }
 
 .title-3 {
-  font-weight: 500;
   font-size: 1.25rem;
   line-height: 1.75rem;
+  font-family: 'Univers-55';
 }
 
 .find-care-costs-title {
@@ -165,20 +166,26 @@ input::-ms-clear {
 }
 
 .body {
-  font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
+  font-family: 'Univers-55';
+}
+
+.body-bold {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: 'Univers-65';
 }
 
 .body-2 {
-  font-weight: 300;
   font-size: 0.75rem;
   line-height: 1rem;
+  font-family: 'Univers-55';
 }
 
 .link {
   color: #005eb9;
-  font-weight: bold;
+  font-family: 'Univers-65';
   text-decoration: underline;
   cursor: pointer;
 }
@@ -190,9 +197,9 @@ input::-ms-clear {
 
 .button-text {
   color: #005eb9;
-  font-weight: bold;
   font-size: 1rem;
   line-height: 1.5rem;
+  font-family: 'Univers-65';
 }
 
 /* Dividers */
