@@ -48,7 +48,17 @@
 
 @font-face {
   font-family: 'Univers-45';
-  src: url(./UniversLTPro-55Roman.woff2);
+  src: url(./../../public/assets/universLTPro_45Light.woff);
+}
+
+@font-face {
+  font-family: 'Univers-55';
+  src: url(./../../public/assets/universLTPro_55Roman.woff);
+}
+
+@font-face {
+  font-family: 'Univers-65';
+  src: url(./../../public/assets/universLTPro_65Bold.woff);
 }
 
 #blueback {
@@ -96,6 +106,7 @@
   border: none;
   text-decoration: underline;
   margin-top: 25px;
+  font-family: 'Univers-65';
 }
 
 #backButton::before {

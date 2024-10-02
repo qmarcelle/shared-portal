@@ -2,12 +2,17 @@
 
 exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
 <div>
-  <div
+  <section
     id="mainSection"
   >
-    <h1>
+    <p
+      class="title-2"
+    >
       Let's Confirm Your Identity
-    </h1>
+    </p>
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+    />
     <p>
       We've sent a code to:
     </p>
@@ -92,11 +97,14 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
     />
     <span
-      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
     />
     <h3>
       Need Help?
     </h3>
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+    />
     <p>
       Give us a call using the number listed on the back of your Member ID card or
        
@@ -105,7 +113,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
         style="display: inline;"
       >
         <button
-          class="flex flex-row link-container undefined"
+          class="flex flex-row link-container pl-0 pt-0 pr-0"
           style="max-width: max-content; height: auto; display: inline;"
           tabindex="0"
         >
@@ -118,6 +126,6 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       </a>
       .
     </p>
-  </div>
+  </section>
 </div>
 `;

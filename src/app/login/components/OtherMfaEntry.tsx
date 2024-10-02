@@ -109,7 +109,8 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
 
   return (
     <section id="mainSection">
-      <h1>Let&apos;s Confirm Your Identity</h1>
+      <TextBox type="title-2" text="Let's Confirm Your Identity" />
+      <Spacer size={16} />
       <p>We&apos;ve sent a code to:</p>
       <span aria-label="authentication-method">{authMethod}</span>
       <Spacer size={32} />
@@ -154,12 +155,14 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
       )}
       <Spacer size={32} />
       <Divider />
-      <Spacer size={16} />
+      <Spacer size={32} />
       <h3>Need Help?</h3>
+      <Spacer size={8} />
       <p>
         Give us a call using the number listed on the back of your Member ID
         card or{' '}
         <AppLink
+          className="pl-0 pt-0 pr-0"
           url="https://www.bcbst.com/contact-us"
           label="contact us"
           displayStyle="inline"

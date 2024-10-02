@@ -290,7 +290,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Set Up Method
                           </p>
@@ -374,7 +374,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Set Up Method
                           </p>
@@ -458,7 +458,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Set Up Method
                           </p>
@@ -542,7 +542,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Set Up Method
                           </p>

@@ -82,7 +82,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                   <h1
                     class="title-1 title-2"
                   >
-                    Email Message Setup
+                    Email Setup
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -127,7 +127,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                     />
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
                       type="button"
                     >
                       Next
@@ -352,7 +352,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                     </div>
                     <button
                       aria-label="Confirm"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
                       type="button"
                     >
                       Confirm
@@ -651,7 +651,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   <h1
                     class="title-1 title-2"
                   >
-                    Email Message Setup
+                    Email Setup
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -696,7 +696,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
                       type="button"
                     >
                       Next
@@ -824,7 +824,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   <h1
                     class="title-1 title-2"
                   >
-                    Email Message Setup
+                    Email Setup
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -895,7 +895,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
                       type="button"
                     >
                       Next
