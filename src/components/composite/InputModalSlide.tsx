@@ -55,19 +55,27 @@ export const InputModalSlide = ({
           className="font-bold active"
           label={buttonLabel}
           type="primary"
-          callback={() => {
-            nextCallback?.();
-            inputModalAnalytics(buttonLabel, label);
-          }}
+          callback={
+            nextCallback
+              ? () => {
+                  nextCallback();
+                  inputModalAnalytics(buttonLabel, label);
+                }
+              : undefined
+          }
         ></Button>
         <Spacer size={24} />
       </Column>
       <AppLink
         label="Cancel"
-        callback={() => {
-          cancelCallback?.();
-          inputModalAnalytics('cancel', label);
-        }}
+        callback={
+          cancelCallback
+            ? () => {
+                cancelCallback();
+                inputModalAnalytics('cancel', label);
+              }
+            : undefined
+        }
       />
     </Column>
   );

@@ -132,7 +132,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                     </p>
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
                       type="button"
                     >
                       Next
@@ -354,7 +354,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                     </div>
                     <button
                       aria-label="Confirm"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
                       type="button"
                     >
                       Confirm
@@ -714,7 +714,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                     </p>
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
                       type="button"
                     >
                       Next
@@ -936,7 +936,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                     </div>
                     <button
                       aria-label="Confirm"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
                       type="button"
                     >
                       Confirm
@@ -1296,7 +1296,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                     </p>
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
                       type="button"
                     >
                       Next
@@ -1518,7 +1518,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                     </div>
                     <button
                       aria-label="Confirm"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
                       type="button"
                     >
                       Confirm
@@ -1878,7 +1878,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                     </p>
                     <button
                       aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
                       type="button"
                     >
                       Next
@@ -2100,7 +2100,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                     </div>
                     <button
                       aria-label="Confirm"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
                       type="button"
                     >
                       Confirm

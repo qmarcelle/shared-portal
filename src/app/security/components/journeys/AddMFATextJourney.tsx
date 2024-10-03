@@ -54,10 +54,6 @@ export const AddMFATextJourney = ({
     updateInvalidError([]);
   }, [updateInvalidError]);
 
-  useEffect(() => {
-    updateInvalidError([]);
-  }, [updateInvalidError]);
-
   function changePageIndex(index: number, showback = true) {
     changePage?.(index, showback);
     resetState();

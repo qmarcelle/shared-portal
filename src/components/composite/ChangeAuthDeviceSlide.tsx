@@ -48,18 +48,26 @@ export const ChangeAuthDeviceSlide = ({
         <Spacer size={24} />
         {bottomNote && <TextBox className="mb-8" text={bottomNote} />}
         <Button
-          callback={() => {
-            nextCallback?.();
-            changeDeviceAnalytics('next', label);
-          }}
+          callback={
+            nextCallback
+              ? () => {
+                  nextCallback();
+                  changeDeviceAnalytics('next', label);
+                }
+              : undefined
+          }
           label="Next"
         />
         <Spacer size={16} />
         <Button
-          callback={() => {
-            cancelCallback?.();
-            changeDeviceAnalytics('cancel', label);
-          }}
+          callback={
+            cancelCallback
+              ? () => {
+                  cancelCallback();
+                  changeDeviceAnalytics('cancel', label);
+                }
+              : undefined
+          }
           type="ghost"
           label="Cancel"
         />
