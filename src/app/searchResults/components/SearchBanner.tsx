@@ -18,7 +18,7 @@ export const SearchBanner = () => {
         <Spacer size={32} />
         <AppLink
           label="Get Started with Teladoc Health"
-          className="searchBannerLink"
+          className="searchBannerLink !flex"
           icon={<Image src={externalIcon} alt="external" />}
         />
       </Column>

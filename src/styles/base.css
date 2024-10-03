@@ -21,6 +21,8 @@
 @import './filter.css';
 @import './search_typeahead.css';
 @import './toggle_switch.css';
+@import './on_off_option.css';
+@import './spending_Summary.css';
 
 :root {
   --primary-color: #005eb9;
@@ -130,12 +132,12 @@ input::-ms-clear {
 }
 
 .small-section {
-  margin: 16px;
+  margin: 16px 0px;
   padding: 32px;
 }
 
 .large-section {
-  margin: 16px;
+  margin: 16px 0px;
   padding: 32px;
 }
 
@@ -223,9 +225,11 @@ input::-ms-clear {
   height: auto;
 }
 
-@media (768px < width) {
+/* Media Query for the devices starting from medium till 2xl */
+@media (768px <= width) {
   .app-content {
     max-width: 992px;
+    padding: 32px 0px;
   }
 
   .section {
@@ -237,21 +241,34 @@ input::-ms-clear {
   .small-section {
     flex-basis: 37.5%;
     flex-shrink: 1;
-    margin: 16px;
+    margin: 16px 0px;
     padding: 32px;
   }
 
   .large-section {
     flex-basis: 62.5%;
     flex-shrink: 1;
-    margin: 16px;
+    margin: 16px 0px;
     padding: 32px;
+  }
+
+  .app-body {
+    gap: 32px;
   }
 }
 
-@media (width <=768px) {
+/* Media Query for the devices starting from medium till large */
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
+  .app-content {
+    padding: 16px;
+  }
+}
+
+/* Media Query for the small devices */
+@media (width < 768px) {
   .app-content {
     max-width: 768px;
+    padding: 16px;
   }
 
   .page-section-63_33 {
@@ -269,91 +286,20 @@ input::-ms-clear {
 
   .small-section {
     flex-basis: initial;
-    padding: 12px;
+    padding: 16px;
   }
 
   .large-section {
     flex-basis: initial;
-    padding: 12px;
+    padding: 16px;
   }
 
   .app-body {
     flex-wrap: wrap;
   }
-}
 
-.on-dot {
-  height: 12px;
-  width: 12px;
-  background-color: #508316;
-  border-radius: 50%;
-  display: block;
-  margin-right: 3px;
-}
-
-.off-dot {
-  height: 12px;
-  width: 12px;
-  background-color: #cccccc;
-  border-radius: 50%;
-  display: block;
-  margin-right: 3px;
-}
-
-.on-off {
-  width: 55px;
-  height: 24px;
-}
-
-.doughnutText {
-  margin-left: 45px;
-  margin-top: 75px;
-}
-
-.spendingSummaryChart {
-  width: 260px;
-  height: 260px;
-  max-width: 260px;
-  max-height: 260px;
-}
-
-@media (width<=768px) {
-  .doughnutText {
-    margin: 75px auto;
-    width: 85%;
-    padding-left: 0;
+  .title-1 {
+    font-size: 2rem;
+    line-height: 3.5rem;
   }
-  .spendingSummaryChart {
-    margin: auto;
-  }
-  .chartTextDivider {
-    width: 132px;
-    margin: auto;
-  }
-  .chartText {
-    padding-left: 0px;
-  }
-}
-
-@media (width>768px) {
-  .statementSummary .chartSection {
-    float: left;
-  }
-  .statementSummary .sectionAlignment {
-    margin-top: 120px;
-  }
-  .statementSummary .sectionAlignment p {
-    margin-left: 9px;
-  }
-  .statementSummary .sectionAlignment {
-    display: inline-block;
-    margin-left: 30px;
-  }
-}
-
-.card-end {
-  align-self: flex-end;
-}
-.caremark button {
-  padding-top: 0;
 }

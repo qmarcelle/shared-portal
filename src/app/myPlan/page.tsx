@@ -58,7 +58,7 @@ const MyPlan = () => {
         </section>
         <Column>
           <Spacer size={32} />
-          <Title className="title-2 ml-5" text="View Other Plan Information" />
+          <Title className="title-2" text="View Other Plan Information" />
           <Spacer size={32} />
           <section className="flex flex-row items-start app-body">
             <Column className=" flex-grow page-section-36_67 items-stretch">

@@ -20,17 +20,17 @@ const SpendingSummary = () => {
       <Column className="app-content app-base-font-color">
         <Header
           text="Spending Summary"
-          className="m-4 mb-0 !font-light !text-[32px]/[40px]"
+          className="mb-0 !font-light !text-[32px]/[40px]"
         />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
-              <Row className="m-4 mb-0" key={0}>
+              <Row className="mb-0" key={0}>
                 Your annual statement shows claims we&apos;ve received and
                 processed.
               </Row>,
-              <Row className="body-1 flex-grow align-top mt-4 ml-4" key={1}>
-                <Column className="link ml-4 !no-underline">
+              <Row className="body-1 flex-grow align-top mt-4" key={1}>
+                <Column className="link !no-underline">
                   <a className="inline-flex">
                     Download a PDF Statement
                     <span>

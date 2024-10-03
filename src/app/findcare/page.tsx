@@ -10,7 +10,6 @@ const FindCare = () => {
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <ViewCareOptions
-              className="large-section"
               claims={[
                 {
                   id: '1',

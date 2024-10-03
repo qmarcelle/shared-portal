@@ -10,7 +10,7 @@ const ProfileSettings = () => {
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
         <Spacer size={32} />
-        <Header className="pl-3" type="title-1" text="Inbox" />
+        <Header type="title-1" text="Inbox" />
         <Spacer size={32} />
         <NotificationSection
           notificationCards={[

@@ -13,10 +13,10 @@ const MentalHealthOptions = () => {
     <div className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
       <Column className="app-content app-base-font-color">
-        <Header className="m-4 mb-0" text="Mental Health Options" />
+        <Header className="mb-0" text="Mental Health Options" />
         <Spacer size={16} />
         <TextBox
-          className="body-1 m-4 mb-0"
+          className="body-1 mb-0"
           text="Learn more about Mental Health Providers and view your options."
         ></TextBox>
         <section className="flex flex-row items-start app-body">

@@ -15,16 +15,16 @@ const ClaimsSnapshot = () => {
         <Header
           text="Claims"
           type="title-2"
-          className="m-4 mb-0 !font-light !text-[32px]/[40px]"
+          className="mb-0 !font-light !text-[32px]/[40px]"
         />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
-              <div className="m-4 mb-0">
+              <div className="mb-0">
                 If you need more than two years of claims, call [1-800-000-000].
                 Need to submit a claim?
               </div>,
-              <div className="link ml-4">
+              <div className="link">
                 <a>Get the form you need here.</a>
               </div>,
             ]}
