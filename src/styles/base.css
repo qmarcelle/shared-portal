@@ -303,3 +303,11 @@ input::-ms-clear {
     line-height: 3.5rem;
   }
 }
+
+.animate-pulse .loaderWidth {
+  width: 74%;
+}
+
+.animate-pulse .loaderWidth.max-w-\[330px\] {
+  width: 61%;
+}

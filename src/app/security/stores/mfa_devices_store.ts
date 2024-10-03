@@ -1,19 +1,19 @@
+import { getMfaDevices } from '@/app/security/actions/getMfaDevices';
+import { GetMfaDevices } from '@/app/security/models/get_mfa_devices';
+import { MfaDevice } from '@/app/security/models/mfa_device';
+import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
+import { SecuritySettingsStore } from '@/app/security/stores/security_settings_store';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { formatPhoneNumber } from '@/utils/inputValidator';
 import { logger } from '@/utils/logger';
 import { StateCreator } from 'zustand';
-import { getMfaDevices } from '../actions/getMfaDevices';
-import { GetMfaDevices } from '../models/get_mfa_devices';
-import { MfaDevice } from '../models/mfa_device';
-import { MfaDeviceType } from '../models/mfa_device_type';
-import { SecuritySettingsStore } from './security_settings_store';
 
 export type MfaDevicesStore = {
   loadMfaDevices: () => void;
   mfaDevices: Map<MfaDeviceType, MfaDevice>;
   defaultMfaDevices: Map<MfaDeviceType, MfaDevice>;
   getDeviceError: boolean;
-  mfaDevicesEnabled: boolean;
+  mfaDevicesEnabled: boolean | undefined;
 };
 
 export const createMfaDevicesStore: StateCreator<
@@ -23,7 +23,7 @@ export const createMfaDevicesStore: StateCreator<
   MfaDevicesStore
 > = (set, get) => ({
   getDeviceError: false,
-  mfaDevicesEnabled: false,
+  mfaDevicesEnabled: undefined,
   mfaDevices: new Map([
     [
       MfaDeviceType.authenticator,
@@ -105,6 +105,7 @@ export const createMfaDevicesStore: StateCreator<
     ],
   ]),
   loadMfaDevices: async () => {
+    // default MFA devices are displayed and respective state is set for the device
     try {
       set({
         getDeviceError: false,
