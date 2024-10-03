@@ -142,7 +142,7 @@ const Dashboard = () => {
         <Header
           text="Find Care & Costs"
           type="title-2"
-          className="m-4 !font-light !text-[32px]/[40px]"
+          className="!font-light !text-[32px]/[40px]"
         />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">

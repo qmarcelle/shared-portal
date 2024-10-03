@@ -3,6 +3,15 @@ import SiteHeader from '@/components/foundation/SiteHeader';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
+
 const renderUI = () => {
   return render(
     <div>

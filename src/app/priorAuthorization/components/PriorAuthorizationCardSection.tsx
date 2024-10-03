@@ -25,7 +25,7 @@ export const PriorAuthorizationCardSection = ({
 
   return (
     <Column className="mt-8">
-      <div className={'xs:block md:inline-flex max-sm:m-4 md:my-2'}>
+      <div className={'xs:block md:inline-flex max-sm:my-4 md:my-2'}>
         <Row className="body-1 flex-grow align-top mb-0 ">
           Filter Results:{' '}
           <TextBox
@@ -45,7 +45,7 @@ export const PriorAuthorizationCardSection = ({
         <Spacer axis="horizontal" size={8} />
       </div>
 
-      <div className={'flex flex-col max-sm:m-4'}>
+      <div className={'flex flex-col max-sm:my-4'}>
         <Spacer size={16} />
         {claims.slice(0, 5).map((item) => (
           <ClaimItem key={item.id} className="mb-4" claimInfo={item} />

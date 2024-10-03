@@ -17,22 +17,22 @@ const PriorAuthorization = () => {
       <Column className="app-content app-base-font-color">
         <Header
           text="Prior Authorization"
-          className="m-4 mb-0 !font-light !text-[32px]/[40px]"
+          className="mb-0 !font-light !text-[32px]/[40px]"
         />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
-              <Row className="m-4 mb-0" key={0}>
+              <Row className="mb-0" key={0}>
                 If you need more than two years of prior authorizations, call
                 [1-800-000-000]. If your authorization is not fully approved, we
                 will send you a letter explaining why and details on how to ask
                 for an appeal.
               </Row>,
-              <Row className="body-1 flex-grow align-top mt-4 ml-4" key={1}>
+              <Row className="body-1 flex-grow align-top mt-4" key={1}>
                 Looking for a prescription drug pre-approval? Go to your{' '}
                 <AppLink
                   label="caremark.com account"
-                  className="link flex caremark"
+                  className="link !flex pt-0"
                   icon={<Image src={extrenalIcon} alt="external" />}
                 />
               </Row>,

@@ -8,7 +8,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
         class="primary-color"
       >
         <div
-          class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
         >
           <div
             class="flex items-center"
@@ -1499,7 +1499,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
         class="primary-color"
       >
         <div
-          class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
         >
           <div
             class="flex items-center"
@@ -3216,7 +3216,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
         class="primary-color"
       >
         <div
-          class="absolute h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
         >
           <div
             class="flex items-center"

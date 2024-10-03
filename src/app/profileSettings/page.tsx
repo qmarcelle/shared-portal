@@ -11,7 +11,7 @@ const ProfileSettings = () => {
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
         <Spacer size={32} />
-        <Header className="pl-3" type="title-1" text="Profile Settings" />
+        <Header type="title-1" text="Profile Settings" />
         <Spacer size={32} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
