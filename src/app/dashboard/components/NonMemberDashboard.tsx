@@ -2,10 +2,11 @@
 
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
 import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
-//import SwitchAccountComponent from './SwitchAccountComponent';
+import { SwitchAccountComponent } from './SwitchAccountComponent';
 
 const NonMemberDashboard = () => {
   return (
@@ -16,7 +17,14 @@ const NonMemberDashboard = () => {
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <div />
-            {/* <SwitchAccountComponent /> */}
+            <SwitchAccountComponent
+              switchAccountDetails={[
+                {
+                  memberName: 'Robert Hall',
+                  DOB: '01/01/1943',
+                },
+              ]}
+            />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <Card className="large-section">
@@ -24,15 +32,22 @@ const NonMemberDashboard = () => {
                 <Header className="title-2 mr-2" text="Related Links" />
                 <Spacer size={16} />
                 <LinkRow
+                  className="w-[104%]"
                   label="Access Others' Information"
                   description={
                     <div className="body-1 flex flex-row">
                       View or request access to others&apos; plan information.
                     </div>
                   }
-                  divider={true}
+                  onClick={() => {
+                    window.location.href = '/accessOthersInformation';
+                  }}
                 />
+                <Spacer size={16} />
+                <Divider />
+                <Spacer size={16} />
                 <LinkRow
+                  className="lg:w-[112%]"
                   label="Personal Representative Access"
                   description={
                     <div className="body-1 flex flex-row">

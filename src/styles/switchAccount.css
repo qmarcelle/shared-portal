@@ -1,0 +1,9 @@
+.switchAccountTextAlign .linkAlignment div.m-2 {
+  margin: 0 !important;
+}
+.switchAccountTextAlign .linkAlignment {
+  padding-left: 0;
+}
+.switchAccountTextAlign .linkAlignment p {
+  flex-grow: 1;
+}

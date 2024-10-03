@@ -4,7 +4,7 @@ import { SearchNavigation } from '@/components/composite/SearchNavigation';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { AlertBar } from '@/components/foundation/AlertBar';
 import { Spacer } from '@/components/foundation/Spacer';
-import NonMemberDashboard from './components/NonMemberDashboard';
+import MemberDashboard from './components/MemberDashboard';
 
 const Dashboard = () => {
   return (
@@ -28,8 +28,7 @@ const Dashboard = () => {
         }
       />
       <Spacer size={32}></Spacer>
-      <NonMemberDashboard />
-      {/* <NonMemberDashboard /> */}
+      <MemberDashboard />
     </div>
   );
 };
