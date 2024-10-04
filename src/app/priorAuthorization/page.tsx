@@ -60,23 +60,6 @@ const PriorAuthorization = () => {
               filterItems={[
                 {
                   type: 'dropdown',
-                  label: 'Connected Plans',
-                  value: [
-                    {
-                      label: 'All Plans',
-                      value: '1',
-                      id: '1',
-                    },
-                    {
-                      label: 'Plans',
-                      value: '2',
-                      id: '2',
-                    },
-                  ],
-                  selectedValue: { label: 'All Plans', value: '1', id: '1' },
-                },
-                {
-                  type: 'dropdown',
                   label: 'Member',
                   value: [
                     {
