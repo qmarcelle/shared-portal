@@ -29,7 +29,6 @@ const NonMemberDashboard = () => {
                 <Header className="title-2" text="Related Links" />
                 <Spacer size={16} />
                 <LinkRow
-                  className="w-[104%]"
                   label="Access Others' Information"
                   description={
                     <div className="body-1 flex flex-row">
@@ -44,7 +43,6 @@ const NonMemberDashboard = () => {
                 <Divider />
                 <Spacer size={16} />
                 <LinkRow
-                  className="lg:w-[112%]"
                   label="Personal Representative Access"
                   description={
                     <div className="body-1 flex flex-row">

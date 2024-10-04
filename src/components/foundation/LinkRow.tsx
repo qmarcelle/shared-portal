@@ -7,7 +7,6 @@ export interface LinkRowProps {
   icon?: JSX.Element;
   divider?: boolean;
   onClick?: () => void | Promise<void>;
-  className?: string;
 }
 
 export const LinkRow = ({
@@ -16,12 +15,11 @@ export const LinkRow = ({
   icon = <Image src={rightIcon} alt="link" />,
   divider = false,
   onClick,
-  className,
 }: LinkRowProps) => {
   return (
     <div
       onClick={onClick}
-      className={`flex flex-col p-1 ${divider && 'link-row'} cursor-pointer link-row-container ${className}`}
+      className={`flex flex-col p-1 ${divider && 'link-row'} cursor-pointer link-row-container`}
     >
       <div className="flex flex-row m-2">
         <p className={'link-row-head mr-2'}>{label}</p>
