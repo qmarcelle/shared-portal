@@ -7,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 const SecurityPage = async () => {
-  return <SecuritySettings username={await getServerSideUserId()} />;
+  return (
+    <section className="px-4">
+      <SecuritySettings username={await getServerSideUserId()} />
+    </section>
+  );
 };
 
 export default SecurityPage;
