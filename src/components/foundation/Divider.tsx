@@ -16,7 +16,6 @@ export const Divider = ({
   const height = axis === 'horizontal' ? '100%' : size;
   return (
     <div
-      aria-label="divider"
       className={className || ''}
       style={{ width, height, backgroundColor: color }}
     />

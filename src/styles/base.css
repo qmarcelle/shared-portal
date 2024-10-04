@@ -311,3 +311,8 @@ input::-ms-clear {
 .animate-pulse .loaderWidth.max-w-\[330px\] {
   width: 61%;
 }
+
+.react-responsive-modal-modal {
+  padding: 0px !important;
+  margin: 0px !important;
+}

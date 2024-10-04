@@ -47,6 +47,7 @@ export const LoginErrorTemplate = ({
             {bottomNote}{' '}
             <a
               className="link"
+              tabIndex={0}
               href={process.env.NEXT_PUBLIC_PORTAL_CONTACT_US_URL ?? ''}
               onClick={trackContactUsAnalytics}
             >

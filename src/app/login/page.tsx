@@ -6,7 +6,6 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
@@ -37,9 +36,6 @@ export default function LogIn() {
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
   ]);
-  useEffect(() => {
-    document.title = 'Member Login';
-  }, []);
 
   const router = useRouter();
   function renderComp() {
@@ -96,6 +92,7 @@ export default function LogIn() {
   return (
     <div>
       <header>
+        <title>Member Login</title>
         <Column>
           <div className="flow-root">
             <a className="float-left" href="https://www.bcbst.com">
@@ -107,6 +104,7 @@ export default function LogIn() {
             </a>
             <a
               className="float-right"
+              tabIndex={-1}
               href="https://www.bcbst.com/contact-us"
               onClick={trackContactUsAnalytics}
             >
