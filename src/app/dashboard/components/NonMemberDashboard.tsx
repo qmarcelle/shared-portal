@@ -11,12 +11,9 @@ import { SwitchAccountComponent } from './SwitchAccountComponent';
 const NonMemberDashboard = () => {
   return (
     <div className="flex flex-col justify-center items-center page">
-      <Spacer size={32}></Spacer>
       <Column className="app-content app-base-font-color">
-        <Spacer size={32}></Spacer>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <div />
             <SwitchAccountComponent
               switchAccountDetails={[
                 {
@@ -29,7 +26,7 @@ const NonMemberDashboard = () => {
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <Card className="large-section">
               <Column className="flex flex-col">
-                <Header className="title-2 mr-2" text="Related Links" />
+                <Header className="title-2" text="Related Links" />
                 <Spacer size={16} />
                 <LinkRow
                   className="w-[104%]"
