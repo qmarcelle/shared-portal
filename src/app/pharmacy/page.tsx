@@ -3,12 +3,17 @@
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
-import { externalIcon } from '@/components/foundation/Icons';
+import {
+  downloadIcon,
+  externalIcon,
+  rightIcon,
+} from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { PharmacyDocuments } from './components/PharmacyDocuments';
 import { PharmacyFAQ } from './components/PharmacyFAQ';
 
 const Pharmacy = () => {
@@ -86,7 +91,81 @@ const Pharmacy = () => {
         <Spacer size={32} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
-            <div></div>
+            <Card className="large-section flex flex-row items-start app-body ">
+              <Column>
+                <TextBox type="title-2" text="Pharmacy Documents & Forms" />
+                <Spacer size={21} />
+                <PharmacyDocuments
+                  linkDetails={[
+                    {
+                      linkTitle: 'View Covered Drug List (Formulary)',
+                      linkDescription:
+                        'Download a list of all the drugs your plan covers.',
+                      linkURL: 'http://www.bcbst.com/docs/pharmacy/go-510.pdf',
+                      linkIcon: (
+                        <Image
+                          src={downloadIcon}
+                          alt="download Icon"
+                          className="inline"
+                        />
+                      ),
+                    },
+                    {
+                      linkTitle: 'Prescription Drug Claim Form',
+                      linkDescription:
+                        // eslint-disable-next-line quotes
+                        "We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.",
+                      linkURL: 'http://www.bcbst.com/docs/pharmacy/go-510.pdf',
+                      linkIcon: (
+                        <Image
+                          src={downloadIcon}
+                          alt="download Icon"
+                          className="inline"
+                        />
+                      ),
+                    },
+                    {
+                      linkTitle: 'Prescription Mail Service Order Form',
+                      linkDescription:
+                        'Mail order is easy and convenient. You can have your prescriptions delivered right to your home.',
+                      linkIcon: (
+                        <Image
+                          src={downloadIcon}
+                          alt="download Icon"
+                          className="inline"
+                        />
+                      ),
+                    },
+                    {
+                      linkTitle:
+                        'Request for Medicare Prescription Drug Coverage Determination',
+                      linkDescription:
+                        'You can request an exception for prescription drug coverage.',
+                      linkIcon: (
+                        <Image
+                          src={rightIcon}
+                          alt="right arrow Icon"
+                          className="inline"
+                        />
+                      ),
+                    },
+                    {
+                      linkTitle:
+                        'Request for Redetermination of Medicare Prescription Drug Denial',
+                      linkDescription:
+                        'If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).',
+                      linkIcon: (
+                        <Image
+                          src={rightIcon}
+                          alt="right arrow Icon"
+                          className="inline"
+                        />
+                      ),
+                    },
+                  ]}
+                />
+              </Column>
+            </Card>
           </Column>
           <Column className=" flex-grow page-section-63_33 items-stretch">
             <Card className="large-section flex flex-row items-start app-body ">
