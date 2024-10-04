@@ -16,11 +16,11 @@ import EstimateCost from '../../../../public/assets/Estimate-Cost.svg';
 import FindCare from '../../../../public/assets/Find-Care.svg';
 import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBanner';
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
+import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
 
 const MemberDashboard = () => {
   return (
     <div className="flex flex-col w-full justify-center items-center page">
-      <Spacer size={32}></Spacer>
       <Column className="app-content app-base-font-color">
         <section className="sm:flex sm:flex-row items-start">
           <AmplifyHealthAdvisorBanner />
@@ -164,6 +164,7 @@ const MemberDashboard = () => {
             />
           </Column>
           <Column className="page-section-36_67 items-stretch">
+            <FindMedicalProvidersComponent />
             <PillBox
               title="Looking for Care? Find A:"
               icon={
