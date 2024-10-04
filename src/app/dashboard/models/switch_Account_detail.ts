@@ -1,4 +1,4 @@
 export interface SwitchAccountDetails {
   memberName: string;
-  DOB: string;
+  dateOfBirth: string;
 }
