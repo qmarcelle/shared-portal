@@ -6,7 +6,7 @@ import { AlertBar } from '@/components/foundation/AlertBar';
 import { Spacer } from '@/components/foundation/Spacer';
 import MemberDashboard from './components/MemberDashboard';
 import NonMemberDashboard from './components/NonMemberDashboard';
-const isMemberDashboardVisible = false;
+const isMemberDashboardVisible = true;
 
 const Dashboard = () => {
   return (
