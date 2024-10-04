@@ -33,7 +33,7 @@ export const SwitchAccountComponent = ({
               key={index}
               className="mb-4"
               memberName={item.memberName}
-              DOB={item.DOB}
+              DOB={item.dateOfBirth}
             />
           ))}
         </Column>

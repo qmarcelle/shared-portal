@@ -18,7 +18,7 @@ const NonMemberDashboard = () => {
               switchAccountDetails={[
                 {
                   memberName: 'Robert Hall',
-                  DOB: '01/01/1943',
+                  dateOfBirth: '01/01/1943',
                 },
               ]}
             />
