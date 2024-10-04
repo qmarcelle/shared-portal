@@ -59,7 +59,6 @@ export const RichDropDown = <T extends { id: string }>({
 
   return (
     <Column
-      tabIndex={1}
       className={`switch-filter ${itemData.length > 1 ? 'default' : 'disabled'}`}
     >
       {isOpen == false && (
@@ -73,7 +72,7 @@ export const RichDropDown = <T extends { id: string }>({
             return (
               <li key={item.id}>
                 <Row
-                  tabIndex={1}
+                  tabIndex={0}
                   className={`p-4 divider-bottom ${isSelcted ? 'selected' : ''} item`}
                   key={item.id}
                   onClick={() => selectItem(item)}
