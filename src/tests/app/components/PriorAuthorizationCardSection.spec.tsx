@@ -1,38 +1,78 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { PriorAuthorizationCardSection } from '../../../app/priorAuthorization/components/PriorAuthorizationCardSection';
 
 const renderUI = () => {
   return render(
     <PriorAuthorizationCardSection
-      sortby={[
+      sortBy={[
         {
           label: 'Date (Most Recent)',
           value: '43',
+          id: '1',
         },
         {
           label: 'Status (Denied First)',
           value: '2',
+          id: '2',
         },
       ]}
       onSelectedDateChange={() => {}}
-      selectedDate="43"
-      claims={[
-        {
-          id: 'Claim1',
-          claimStatus: 'Pending',
-          claimType: 'Medical',
-          claimTotal: null,
-          issuer: 'Physical Therapy',
-          memberName: 'Chris Hall',
-          serviceDate: '04/06/23',
-          claimInfo: {},
-          columns: [
-            { label: 'Referred by', value: 'Anand Patel', defaultValue: 'N/A' },
-            { label: 'Referred to', value: 'Anand Patel', defaultValue: 'N/A' },
-          ],
-        },
-      ]}
+      selectedDate={{
+        label: 'Date (Most Recent)',
+        value: '43',
+        id: '1',
+      }}
+      claims={{
+        data: [
+          {
+            referenceId: 'ref123',
+            memberName: 'Chris Hall',
+            lastName: 'Stark',
+            memberId: 'mem123',
+            claimType: 'Medical',
+            authorizationIndicator: 'AuthIndicator',
+            referenceIndicator: 'RefIndicator',
+            statusCode: 'StatusCode',
+            claimStatus: 'Approved',
+            issuer: 'Service Group Description',
+            serviceGroupId: 'grp123',
+            fromDate: '04/06/2022',
+            toDate: '04/06/2022',
+            priorAuthFlag: 'flase',
+            getProviderReferredTo: {
+              providerId: 'prv123',
+              name: 'Anand Patel',
+              city: 'Nashville',
+              postalCode: '90265',
+              state: 'Tennessee',
+              streetAddress1: '10880',
+              streetAddress2: 'Malibu Point',
+              phoneNumber: '1234567890',
+            },
+            getProviderReferredBy: {
+              providerId: 'prv123',
+              name: 'Anand Patel',
+              city: 'Nashville',
+              postalCode: '90265',
+              state: 'Tennessee',
+              streetAddress1: '10880',
+              streetAddress2: 'Malibu Point',
+              phoneNumber: '1234567890',
+            },
+            getProviderFacilityId: {
+              providerId: 'prv123',
+              name: 'Ironman',
+              city: 'Nashville',
+              postalCode: '90265',
+              state: 'Tennessee',
+              streetAddress1: '10880',
+              streetAddress2: 'Malibu Point',
+              phoneNumber: '1234567890',
+            },
+          },
+        ],
+      }}
     />,
   );
 };
@@ -44,17 +84,21 @@ describe('PriorAuthorizationCardSection', () => {
 
   it('should render UI correctly', () => {
     const component = renderUI();
-    screen.getByText('Sort by:');
+    expect(screen.getByText('Sort by:')).toBeVisible();
     screen.getAllByText('Date (Most Recent)');
 
-    screen.getByText('Physical Therapy');
-    screen.getByText('Visited on 04/06/23');
-    screen.getAllByText('For Chris Hall');
-    screen.getAllByText('Pending');
-    screen.getByText('Referred by');
-    screen.getByText('Referred to');
+    expect(screen.getByText('Service Group Description')).toBeVisible();
+    expect(screen.getByText('Approved')).toBeVisible();
     screen.getAllByAltText(/medical/i);
+    const dateMostRecentDropdown = screen.getByText('Date (Most Recent)');
 
+    // changing the value of the dropdown
+    fireEvent.click(dateMostRecentDropdown);
+
+    // Assert that "Status (Denied First)" is now the selected value
+    const selectedDeniedOption = screen.getByText('Status (Denied First)');
+    fireEvent.click(selectedDeniedOption);
+    expect(screen.getByText('Status (Denied First)')).toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 });
