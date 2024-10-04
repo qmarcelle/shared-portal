@@ -10,7 +10,7 @@ import { SwitchAccountComponent } from './SwitchAccountComponent';
 
 const NonMemberDashboard = () => {
   return (
-    <div className="flex flex-col justify-center items-center page">
+    <div className="flex flex-col justify-center w-full items-center page">
       <Column className="app-content app-base-font-color">
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">

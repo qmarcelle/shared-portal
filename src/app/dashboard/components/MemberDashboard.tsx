@@ -19,7 +19,7 @@ import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
 
 const MemberDashboard = () => {
   return (
-    <div className="flex flex-col justify-center items-center page">
+    <div className="flex flex-col w-full justify-center items-center page">
       <Spacer size={32}></Spacer>
       <Column className="app-content app-base-font-color">
         <section className="sm:flex sm:flex-row items-start">
