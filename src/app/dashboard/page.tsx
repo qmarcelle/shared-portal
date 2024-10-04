@@ -19,6 +19,7 @@ import EstimateCost from '../../../public/assets/Estimate-Cost.svg';
 import FindCare from '../../../public/assets/Find-Care.svg';
 import { AmplifyHealthAdvisorBanner } from './components/AmplifyHealthAdvisorBanner';
 import { AmplifyHealthCard } from './components/AmplifyHealthCard';
+import { FindMedicalProvidersComponent } from './components/FindMedicalProvidersComponent';
 
 const Dashboard = () => {
   return (
@@ -185,6 +186,7 @@ const Dashboard = () => {
             />
           </Column>
           <Column className="page-section-36_67 items-stretch">
+            <FindMedicalProvidersComponent />
             <PillBox
               title="Looking for Care? Find A:"
               icon={
