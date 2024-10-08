@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`planDocuments should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="ml-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <p
+                class="title-1"
+              >
+                Plan Documents
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 max-w-[650px]"
+            >
+              We’ve put together quick-reference guides that explain your plan   details and help you get the most from your benefits.
+            </p>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            href=""
+          >
+            <div
+              class="card-elevated small-section"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="link"
+                  class="size-10"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="flex flex-col ml-4"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                  >
+                    Request Printed Material
+                  </p>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Ask us to mail your plan documents to you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="ml-4"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <p
+              class="title-1"
+            >
+              Plan Documents
+            </p>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 max-w-[650px]"
+          >
+            We’ve put together quick-reference guides that explain your plan   details and help you get the most from your benefits.
+          </p>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          href=""
+        >
+          <div
+            class="card-elevated small-section"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="link"
+                class="size-10"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="flex flex-col ml-4"
+              >
+                <p
+                  class="body-1 link-row-head"
+                >
+                  Request Printed Material
+                </p>
+                <p
+                  class="body-1 body-1"
+                >
+                  Ask us to mail your plan documents to you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
