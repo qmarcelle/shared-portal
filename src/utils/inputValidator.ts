@@ -56,3 +56,63 @@ export const validateLength = (value: string): boolean => {
   const checkLength = value.length <= 40 ? true : false;
   return checkLength;
 };
+/**
+ * Validates the given Date formate ib MM/DD/YYYY.
+ * @param dateVal
+ * @returns date
+ */
+export const validateDate = (dateVal: string) => {
+  // Regular expression to match MM/DD/YYYY format
+  const datePattern =
+    /(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)dd/;
+
+  // Check if the input matches the date pattern
+  if (datePattern.test(dateVal)) {
+    return false;
+  }
+  // Parse the date parts to integers
+  const parts = dateVal.split('/');
+  const month = parseInt(parts[0], 10);
+  const day = parseInt(parts[1], 10);
+  const year = parseInt(parts[2], 10);
+
+  // Check if the date is valid
+  const dateObj = new Date(year, month - 1, day);
+  return (
+    dateObj.getFullYear() === year &&
+    dateObj.getMonth() === month - 1 &&
+    dateObj.getDate() === day
+  );
+};
+/**
+ * Formats the given Date.
+ * Will Replace the all characters except number and format it as per below sample
+ * For example : a date as 11181994 will be formatted as
+ * 11/18/1994
+ * @param value
+ * @returns masked  date
+ */
+export const formatDate = (value: string) => {
+  // Remove all non-digit characters
+  value = value.replace(/\D/g, '');
+  //Add slashes at the appropriate positions
+  if (value.length > 2) {
+    value = value.slice(0, 2) + '/' + value.slice(2);
+  }
+  if (value.length > 5) {
+    value = value.slice(0, 5) + '/' + value.slice(5);
+  }
+  return value;
+};
+/**
+ * Confirms if email and confiem email match or not
+ * @param email and confirm email
+ * @returns boolen
+ */
+export const isConfirmEmailAddressMatch = (value: string, email: string) => {
+  if (value !== email) {
+    return false;
+  } else {
+    return true;
+  }
+};
