@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NonMemberDashboard should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div />
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Switch Account
+                </h2>
+                <p
+                  class="body-1"
+                >
+                  Select the account to switch to:
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <div
+                    class="card-elevated cursor-pointer switchAccountTextAlign mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <p
+                        class="body-1 body-2"
+                      >
+                        View as Personal Representative:
+                      </p>
+                      <div
+                        class="flex flex-col p-1 false cursor-pointer link-row-container"
+                      >
+                        <div
+                          class="flex flex-row m-2"
+                        >
+                          <p
+                            class="link-row-head mr-2 title-3 flex-grow linkAlignment"
+                          >
+                            Robert Hall
+                          </p>
+                          <img
+                            alt="link"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          DOB: 
+                        </p>
+                        <p
+                          class="body-1"
+                        >
+                          01/01/1943
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <h1
+                  class="title-1 title-2 mr-2"
+                >
+                  Related Links
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+                >
+                  <div
+                    class="flex flex-row m-2"
+                  >
+                    <p
+                      class="link-row-head mr-2 undefined"
+                    >
+                      Access Others' Information
+                    </p>
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-2"
+                  >
+                    <div
+                      class="body-1 flex flex-row"
+                    >
+                      View or request access to others' plan information.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col p-1 false cursor-pointer link-row-container"
+                >
+                  <div
+                    class="flex flex-row m-2"
+                  >
+                    <p
+                      class="link-row-head mr-2 undefined"
+                    >
+                      Personal Representative Access
+                    </p>
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-2"
+                  >
+                    <div
+                      class="body-1 flex flex-row"
+                    >
+                      A personal representative is an individual with the legal authority to make decisions for others, such as minor dependent or other dependent individual.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
