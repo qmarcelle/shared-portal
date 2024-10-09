@@ -113,7 +113,6 @@ const Pharmacy = () => {
                     {
                       linkTitle: 'Prescription Drug Claim Form',
                       linkDescription:
-                        // eslint-disable-next-line quotes
                         "We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.",
                       linkURL: 'http://www.bcbst.com/docs/pharmacy/go-510.pdf',
                       linkIcon: (
