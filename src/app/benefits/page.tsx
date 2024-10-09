@@ -38,7 +38,7 @@ const Benefits = () => {
                   title: 'Office Visits',
                   body: '',
                   externalLink: false,
-                  url: 'url',
+                  url: 'benefits/officeVisits',
                 },
                 {
                   title: 'Allergy',
@@ -93,7 +93,7 @@ const Benefits = () => {
                   title: 'Prescription Drugs',
                   body: '',
                   externalLink: false,
-                  url: 'url',
+                  url: '/benefits/prescriptionDrugs',
                 },
               ]}
             />

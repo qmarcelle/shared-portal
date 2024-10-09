@@ -7,7 +7,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { BalanceChart } from './BalanceChart';
 
-interface MedicalBalanceSectionProps extends IComponent {
+export interface MedicalBalanceSectionProps extends IComponent {
   members: SelectItem[];
   selectedMemberId: string;
   balanceNetworks: SelectItem[];
@@ -74,7 +74,9 @@ export const MedicalBalanceSection = ({
           limitAmount={outOfPocketLimit}
         />
         <Spacer size={32} />
-        {!displayDisclaimerText && <AppLink label="View All Balances" />}
+        {!displayDisclaimerText && (
+          <AppLink label="View All Balances" url="/balances" />
+        )}
         {displayDisclaimerText && disclaimerText && (
           <>
             <Divider />

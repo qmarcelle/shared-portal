@@ -5,21 +5,31 @@ import { Column } from '../foundation/Column';
 import { Row } from '../foundation/Row';
 import { TextBox } from '../foundation/TextBox';
 
-interface InfoCardProps extends IComponent {
+export interface InfoCardProps extends IComponent {
   label: string;
   body: string;
   icon: string;
   link?: string;
+  suffix?: JSX.Element;
 }
 
-export const InfoCard = ({ label, body, icon, link }: InfoCardProps) => {
+export const InfoCard = ({
+  label,
+  body,
+  icon,
+  link,
+  suffix,
+}: InfoCardProps) => {
   return (
     <a href={link}>
       <Card type="elevated" key={label} className="small-section">
         <Row>
           <Image className="size-10" src={icon} alt="link" />
           <Column className="ml-4">
-            <TextBox className="link-row-head" text={label} />
+            <div className="link-row-head">
+              {label}
+              {suffix && suffix}
+            </div>
             <TextBox className="body-1" text={body} />
           </Column>
         </Row>
