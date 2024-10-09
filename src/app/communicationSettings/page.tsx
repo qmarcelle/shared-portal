@@ -11,8 +11,9 @@ const CommunicationSettings = () => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
+        <Spacer size={32} />
         <section className="flex justify-start self-start">
-          <Header text="Communication Settings" />
+          <Header className="pl-3" text="Communication Settings" />
         </section>
         <Spacer size={32}></Spacer>
         <section className="flex flex-row items-start app-body">
