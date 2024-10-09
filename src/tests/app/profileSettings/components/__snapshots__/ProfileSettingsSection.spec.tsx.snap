@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Settings Card Component should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col"
+    >
+      <a
+        href="/communicationSettings"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Communication Settings
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                Update your alert preferences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/security"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Security Settings
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                Change your password and edit your account security.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        href="/sharingPermissions"
+      >
+        <div
+          class="card-elevated small-section"
+        >
+          <div
+            class="flex flex-row"
+          >
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
+            >
+              <p
+                class="body-1 link-row-head"
+              >
+                Sharing & Permissions
+              </p>
+              <p
+                class="body-1 body-1"
+              >
+                View or edit access to plan information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</body>
+`;
