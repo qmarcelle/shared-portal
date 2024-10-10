@@ -7,13 +7,14 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
       class="flex flex-col"
     >
       <section
-        class="card-main max-sm:m-4 md:my-8"
+        class="card-main max-sm:my-4 md:my-8"
       >
         <div
-          class="flex flex-row items-center input  "
+          class="flex flex-row items-center input  input-focus "
         >
           <input
             class="body-1 search-textfield"
+            name="search-Field"
             placeholder="Search Claims..."
             type="text"
             value=""
@@ -42,7 +43,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
         </div>
       </section>
       <div
-        class="xs:block md:inline-flex max-sm:m-4 md:my-2"
+        class="xs:block md:inline-flex max-sm:my-4 md:my-2"
       >
         <div
           class="flex flex-row body-1 flex-grow align-top mb-0"
@@ -96,7 +97,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
         />
       </div>
       <div
-        class="flex flex-col max-sm:m-4"
+        class="flex flex-col max-sm:my-4"
       >
         <span
           style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"

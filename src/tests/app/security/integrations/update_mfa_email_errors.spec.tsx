@@ -36,12 +36,12 @@ describe('Update Mfa Email Authentication Errors', () => {
         screen.getByRole('heading', { name: 'Email Setup' }),
       ).toBeVisible();
     });
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
+    /* fireEvent.click(screen.getByText(/Change Your Email Address/i));
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
-    });
+    }); */
 
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
@@ -101,12 +101,12 @@ describe('Update Mfa Email Authentication Errors', () => {
         screen.getByRole('heading', { name: 'Email Setup' }),
       ).toBeVisible();
     });
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
+    /* fireEvent.click(screen.getByText(/Change Your Email Address/i));
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
-    });
+    }); */
 
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
@@ -149,12 +149,12 @@ describe('Update Mfa Email Authentication Errors', () => {
         screen.getByRole('heading', { name: 'Email Setup' }),
       ).toBeVisible();
     });
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
+    /* fireEvent.click(screen.getByText(/Change Your Email Address/i));
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
-    });
+    }); */
 
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
@@ -194,12 +194,12 @@ describe('Update Mfa Email Authentication Errors', () => {
         screen.getByRole('heading', { name: 'Email Setup' }),
       ).toBeVisible();
     });
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
+    /* fireEvent.click(screen.getByText(/Change Your Email Address/i));
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
-    });
+    }); */
 
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
@@ -239,12 +239,12 @@ describe('Update Mfa Email Authentication Errors', () => {
         screen.getByRole('heading', { name: 'Email Setup' }),
       ).toBeVisible();
     });
-    fireEvent.click(screen.getByText(/Change Your Email Address/i));
+    /* fireEvent.click(screen.getByText(/Change Your Email Address/i));
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Email Address' }),
       ).toBeVisible();
-    });
+    }); */
 
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');

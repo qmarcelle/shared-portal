@@ -1,3 +1,5 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { ReactElement } from 'react';
 import { IComponent } from '../IComponent';
 import { AppLink } from '../foundation/AppLink';
@@ -29,6 +31,17 @@ export const InputModalSlide = ({
   nextCallback,
   cancelCallback,
 }: InputModalSlideProps) => {
+  const inputModalAnalytics = (buttonLabelVal: string, labelVal: string) => {
+    const analytics: AnalyticsData = {
+      click_text: buttonLabelVal?.toLocaleLowerCase(),
+      click_url: undefined,
+      element_category: labelVal?.toLocaleLowerCase(),
+      action: buttonLabelVal?.toLocaleLowerCase(),
+      event: 'select_content',
+      content_type: 'select',
+    };
+    googleAnalytics(analytics);
+  };
   return (
     <Column className="items-center">
       <Spacer size={32} />
@@ -42,11 +55,28 @@ export const InputModalSlide = ({
           className="font-bold active"
           label={buttonLabel}
           type="primary"
-          callback={nextCallback}
+          callback={
+            nextCallback
+              ? () => {
+                  nextCallback();
+                  inputModalAnalytics(buttonLabel, label);
+                }
+              : undefined
+          }
         ></Button>
         <Spacer size={24} />
       </Column>
-      <AppLink label="Cancel" callback={cancelCallback} />
+      <AppLink
+        label="Cancel"
+        callback={
+          cancelCallback
+            ? () => {
+                cancelCallback();
+                inputModalAnalytics('cancel', label);
+              }
+            : undefined
+        }
+      />
     </Column>
   );
 };

@@ -1,21 +1,21 @@
 .link-row {
-    border-bottom: 1px solid var(--tertiary-color-4);
+  border-bottom: 1px solid var(--tertiary-color-4);
 }
 
 .link-row-container {
-    display: flex;
+  display: flex;
 }
 
 .link-row-container:hover .link-row-head {
-    color: var(--secondary-color-2);
+  color: var(--secondary-color-2);
 }
 
 .link-row-head {
-    color: #005EB9;
-    font-weight: bold;
-    cursor: pointer;
+  color: #005eb9;
+  font-family: 'Univers-65';
+  cursor: pointer;
 }
 
 .link-row-head:hover {
-    color: var(--secondary-color-2);
+  color: var(--secondary-color-2);
 }

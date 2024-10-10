@@ -6,14 +6,27 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { AppProg } from '@/models/app_prog';
+import { googleAnalytics } from '@/utils/analytics';
 import { maskEmail } from '@/utils/mask_utils';
+import {
+  INVALID_CODE_LENGTH,
+  MIN_CODE_LENGTH,
+} from '../models/app/login_constants';
 import { useLoginStore } from '../stores/loginStore';
 import { useVerifyEmailStore } from '../stores/verifyEmailStore';
 
 export const LoginEmailVerification = () => {
   const { emailId } = useLoginStore();
-  const actions = useVerifyEmailStore((state) => ({
+  const {
+    resetApiErrors,
+    updateCode,
+    apiErrors,
+    code,
+    completeVerifyEmailProg,
+    submitVerifyEmailAuth,
+  } = useVerifyEmailStore((state) => ({
     resetApiErrors: state.resetApiErrors,
     updateCode: state.updateCode,
     apiErrors: state.apiErrors,
@@ -22,19 +35,27 @@ export const LoginEmailVerification = () => {
     submitVerifyEmailAuth: state.submitVerifyEmailAuth,
   }));
   const updateSecurityCode = (value: string) => {
-    actions.updateCode(value);
-    if (actions.apiErrors.length) {
-      actions.resetApiErrors();
+    updateCode(value);
+    if (apiErrors.length) {
+      resetApiErrors();
     }
   };
-  function validateSecurityCode() {
-    if (actions.code.length > 0) {
-      return () => actions.submitVerifyEmailAuth();
-    } else {
-      return undefined;
-    }
-  }
-  const showTooltip = actions.code.length < 1;
+  const validateSecurityCode = () =>
+    code.length > INVALID_CODE_LENGTH ? submitVerifyEmailAuth : undefined;
+  const showTooltip = code.length < MIN_CODE_LENGTH;
+
+  const trackContactUsAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'contact us',
+      click_url: process.env.NEXT_PUBLIC_PORTAL_CONTACT_US_URL,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+  };
+
   return (
     <div id="mainSection">
       <Header text="Let's Verify Your Email" />
@@ -49,7 +70,7 @@ export const LoginEmailVerification = () => {
       <TextField
         label="Enter Security Code"
         valueCallback={(val) => updateSecurityCode(val)}
-        errors={actions.apiErrors}
+        errors={apiErrors}
       />
       <Spacer size={16} />
       <ToolTip
@@ -60,7 +81,7 @@ export const LoginEmailVerification = () => {
         <Button
           callback={validateSecurityCode()}
           label={
-            actions.completeVerifyEmailProg == AppProg.loading
+            completeVerifyEmailProg == AppProg.loading
               ? 'Confirming...'
               : 'Confirm Code'
           }
@@ -81,6 +102,7 @@ export const LoginEmailVerification = () => {
           url="https://www.bcbst.com/contact-us"
           label="contact us"
           displayStyle="inline"
+          callback={trackContactUsAnalytics}
         />
         <TextBox text="." />
       </section>

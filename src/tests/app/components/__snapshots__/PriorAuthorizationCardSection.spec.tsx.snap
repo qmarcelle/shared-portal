@@ -7,7 +7,7 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
       class="flex flex-col mt-8"
     >
       <div
-        class="xs:block md:inline-flex max-sm:m-4 md:my-2 relative"
+        class="xs:block md:inline-flex max-sm:my-4 md:my-2 relative"
       >
         <div
           class="flex flex-row body-1 align-top mb-0 flex-grow"
@@ -77,7 +77,7 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
         />
       </div>
       <div
-        class="flex flex-col max-sm:m-4"
+        class="flex flex-col max-sm:my-4"
       >
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"

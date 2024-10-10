@@ -25,12 +25,12 @@ const SpendingSummary = () => {
       <Column className="app-content app-base-font-color mt-20">
         <Header
           text="Spending Summary"
-          className="m-4 mb-0 !font-light !text-[32px]/[40px]"
+          className="mb-0 !font-light !text-[32px]/[40px]"
         />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
-              <Row className="m-4 mb-0" key={0}>
+              <Row className="mb-0" key={0}>
                 Your annual statement shows claims we&apos;ve received and
                 processed.
               </Row>,

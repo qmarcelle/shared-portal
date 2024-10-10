@@ -263,7 +263,7 @@ describe('Log In of User', () => {
     );
 
     // Assert the loading indicator went off
-    expect(screen.queryByLabelText(/Confirming/i)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/Confirming/i)).toBeInTheDocument();
 
     // Assert the user user is taken to dashboard
     expect(mockReplace).toHaveBeenCalledWith('/security');

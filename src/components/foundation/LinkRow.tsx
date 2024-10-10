@@ -22,7 +22,9 @@ export const LinkRow = ({
       className={`flex flex-col p-1 ${divider && 'link-row'} cursor-pointer link-row-container`}
     >
       <div className="flex flex-row m-2">
-        <p className={'link-row-head mr-2'}>{label}</p>
+        <p className="link-row-head mr-2" tabIndex={0}>
+          {label}
+        </p>
         {icon}
       </div>
       {description && <div className="m-2">{description}</div>}

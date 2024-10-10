@@ -8,11 +8,8 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
     <div
       class="flex flex-col app-content app-base-font-color"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
       <h1
-        class="title-1 pl-3"
+        class="title-1"
       >
         Security Settings
       </h1>
@@ -290,7 +287,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Set Up Method
                           </p>
@@ -379,7 +376,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Remove Method
                           </p>
@@ -468,7 +465,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Remove Method
                           </p>
@@ -557,7 +554,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Remove Method
                           </p>

@@ -81,7 +81,7 @@ export const PriorAuthorizationCardSection = ({
   console.log('claimList', claimList);
   return (
     <Column className="mt-8">
-      <div className={'xs:block md:inline-flex max-sm:m-4 md:my-2 relative'}>
+      <div className={'xs:block md:inline-flex max-sm:my-4 md:my-2 relative'}>
         <Row className="body-1 align-top mb-0 flex-grow">
           Filter Results:{' '}
           <TextBox
@@ -108,7 +108,7 @@ export const PriorAuthorizationCardSection = ({
         <Spacer axis="horizontal" size={8} />
       </div>
 
-      <div className={'flex flex-col max-sm:m-4'}>
+      <div className={'flex flex-col max-sm:my-4'}>
         <Spacer size={16} />
 
         {claimList &&

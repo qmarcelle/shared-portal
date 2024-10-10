@@ -82,7 +82,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                   <h1
                     class="title-1 title-2"
                   >
-                    Email Message Setup
+                    Email Setup
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -651,7 +651,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   <h1
                     class="title-1 title-2"
                   >
-                    Email Message Setup
+                    Email Setup
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -824,7 +824,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   <h1
                     class="title-1 title-2"
                   >
-                    Email Message Setup
+                    Email Setup
                   </h1>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"

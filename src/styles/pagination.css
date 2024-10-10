@@ -42,27 +42,27 @@
 .pagination-container .pagination-item:hover,
 .pagination-container .pagination-item:focus {
   text-decoration: underline;
-  background-color: #005EB9;
+  background-color: #005eb9;
   color: #ffffff;
 }
 
 .pagination-item .arrow:hover .left-icon-white,
-.pagination-item .arrow:focus .left-icon-white{
+.pagination-item .arrow:focus .left-icon-white {
   display: inline;
 }
 
 .pagination-item .arrow:hover .left-icon,
-.pagination-item .arrow:focus .left-icon{
+.pagination-item .arrow:focus .left-icon {
   display: none;
 }
 
 .pagination-item .arrow:hover .right-icon-white,
-.pagination-item .arrow:focus .right-icon-white{
+.pagination-item .arrow:focus .right-icon-white {
   display: inline;
 }
 
 .pagination-item .arrow:hover .right-icon,
-.pagination-item .arrow:focus .right-icon{
+.pagination-item .arrow:focus .right-icon {
   display: none;
 }
 
@@ -83,11 +83,11 @@
 }
 .pagination-mobile-container .pagination-item:hover,
 .pagination-mobile-container .link:hover {
-  background-color: #005EB9;
+  background-color: #005eb9;
   color: #ffffff;
 }
 
-@media (width <=768px) {
+@media (width < 768px) {
   .pagination-container {
     display: none;
   }
