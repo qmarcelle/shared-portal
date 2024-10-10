@@ -2,13 +2,13 @@ import Image from 'next/image';
 import { ReactElement } from 'react';
 import editIcon from '../../../public/assets/edit.svg';
 import { IComponent } from '../IComponent';
+import { AppLink } from '../foundation/AppLink';
 import { Column } from '../foundation/Column';
 import { Divider } from '../foundation/Divider';
 import { OnOffLabel } from '../foundation/OnOffLabel';
 import { Row } from '../foundation/Row';
 import { Spacer, SpacerX } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
-import { Title } from '../foundation/Title';
 
 export interface UpdateRowWithStatusProps extends IComponent {
   label: ReactElement;
@@ -47,10 +47,12 @@ export const UpdateRowWithStatus = ({
           {label}
           <Spacer size={16} />
           {subLabel && <TextBox className="mb-4" text={subLabel} />}
-          <Title
-            className="font-bold primary-color"
-            text={methodName}
-            suffix={icon}
+          <AppLink
+            className="font-bold primary-color pl-0"
+            displayStyle="flex"
+            linkUnderline="linkUnderlineNone"
+            label={methodName}
+            icon={icon}
           />
         </Column>
       </Row>

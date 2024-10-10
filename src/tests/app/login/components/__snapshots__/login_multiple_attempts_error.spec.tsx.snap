@@ -5,7 +5,7 @@ exports[`Multiple Attempts for login error should render all the required compon
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
+      <article
         id="mainSection"
       >
         <div
@@ -83,9 +83,7 @@ exports[`Multiple Attempts for login error should render all the required compon
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
           </div>
-          <div
-            class="flex flex-row"
-          >
+          <footer>
             <p
               class="text-center"
             >
@@ -93,17 +91,18 @@ exports[`Multiple Attempts for login error should render all the required compon
                
               <a
                 class="link"
+                href=""
               >
                 contact us.
               </a>
             </p>
-          </div>
+          </footer>
         </div>
-      </div>
+      </article>
     </div>
   </body>,
   "container": <div>
-    <div
+    <article
       id="mainSection"
     >
       <div
@@ -181,9 +180,7 @@ exports[`Multiple Attempts for login error should render all the required compon
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
         </div>
-        <div
-          class="flex flex-row"
-        >
+        <footer>
           <p
             class="text-center"
           >
@@ -191,13 +188,14 @@ exports[`Multiple Attempts for login error should render all the required compon
              
             <a
               class="link"
+              href=""
             >
               contact us.
             </a>
           </p>
-        </div>
+        </footer>
       </div>
-    </div>
+    </article>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

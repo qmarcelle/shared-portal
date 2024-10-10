@@ -25,6 +25,9 @@
 @import './toggle_switch.css';
 @import './my_health_programs.css';
 @import './my_health.css';
+@import './on_off_option.css';
+@import './spending_Summary.css';
+@import './loader.css';
 
 :root {
   --primary-color: #005eb9;
@@ -50,7 +53,8 @@
 }
 
 * {
-  font-family: 'Univers-45';
+  font-family: 'Univers-55';
+  -webkit-font-smoothing: antialiased;
 }
 
 input::-ms-reveal,
@@ -164,12 +168,12 @@ input::-ms-clear {
 }
 
 .small-section {
-  margin: 16px;
+  margin: 16px 0px;
   padding: 32px;
 }
 
 .large-section {
-  margin: 16px;
+  margin: 16px 0px;
   padding: 32px;
 }
 
@@ -178,21 +182,21 @@ input::-ms-clear {
 }
 
 .title-1 {
-  font-weight: lighter;
   font-size: 2.5rem;
   line-height: 3rem;
+  font-family: 'Univers-45';
 }
 
 .title-2 {
-  font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
+  font-family: 'Univers-55';
 }
 
 .title-3 {
-  font-weight: 500;
   font-size: 1.25rem;
   line-height: 1.75rem;
+  font-family: 'Univers-55';
 }
 
 .find-care-costs-title {
@@ -204,20 +208,26 @@ input::-ms-clear {
 }
 
 .body {
-  font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
+  font-family: 'Univers-55';
+}
+
+.body-bold {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: 'Univers-65';
 }
 
 .body-2 {
-  font-weight: 300;
   font-size: 0.75rem;
   line-height: 1rem;
+  font-family: 'Univers-55';
 }
 
 .link {
   color: #005eb9;
-  font-weight: bold;
+  font-family: 'Univers-65';
   text-decoration: underline;
   cursor: pointer;
 }
@@ -229,9 +239,9 @@ input::-ms-clear {
 
 .button-text {
   color: #005eb9;
-  font-weight: bold;
   font-size: 1rem;
   line-height: 1.5rem;
+  font-family: 'Univers-65';
 }
 
 /* Dividers */
@@ -255,9 +265,11 @@ input::-ms-clear {
   height: auto;
 }
 
-@media (768px < width) {
+/* Media Query for the devices starting from medium till 2xl */
+@media (768px <= width) {
   .app-content {
     max-width: 992px;
+    padding: 32px 0px;
   }
 
   .section {
@@ -269,21 +281,34 @@ input::-ms-clear {
   .small-section {
     flex-basis: 37.5%;
     flex-shrink: 1;
-    margin: 16px;
+    margin: 16px 0px;
     padding: 32px;
   }
 
   .large-section {
     flex-basis: 62.5%;
     flex-shrink: 1;
-    margin: 16px;
+    margin: 16px 0px;
     padding: 32px;
+  }
+
+  .app-body {
+    gap: 32px;
   }
 }
 
-@media (width <=768px) {
+/* Media Query for the devices starting from medium till large */
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
+  .app-content {
+    padding: 16px;
+  }
+}
+
+/* Media Query for the small devices */
+@media (width < 768px) {
   .app-content {
     max-width: 768px;
+    padding: 16px;
   }
 
   .page-section-63_33 {
@@ -301,199 +326,20 @@ input::-ms-clear {
 
   .small-section {
     flex-basis: initial;
-    padding: 12px;
+    padding: 16px;
   }
 
   .large-section {
     flex-basis: initial;
-    padding: 12px;
+    padding: 16px;
   }
 
   .app-body {
     flex-wrap: wrap;
   }
-}
 
-.on-dot {
-  height: 12px;
-  width: 12px;
-  background-color: #508316;
-  border-radius: 50%;
-  display: block;
-  margin-right: 3px;
-}
-
-.off-dot {
-  height: 12px;
-  width: 12px;
-  background-color: #cccccc;
-  border-radius: 50%;
-  display: block;
-  margin-right: 3px;
-}
-
-.on-off {
-  width: 55px;
-  height: 24px;
-}
-
-.doughnutText {
-  margin-left: 45px;
-  margin-top: 75px;
-}
-
-.doughnutTextWellness {
-  margin-left: 21px;
-  margin-top: 108px;
-}
-
-.spendingSummaryChart {
-  width: 260px;
-  height: 260px;
-  max-width: 260px;
-  max-height: 260px;
-}
-
-.card-small {
-  flex-basis: 37.5%;
-  flex-shrink: 1;
-  margin: 7px;
-  padding: 12px;
-  max-width: 31%;
-}
-
-.card-small p {
-  color: #005eb9;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.card-section {
-  flex-wrap: wrap;
-}
-
-@media (width<=768px) {
-  .doughnutText {
-    margin: 75px auto;
-    width: 85%;
-    padding-left: 0;
+  .title-1 {
+    font-size: 2rem;
+    line-height: 3.5rem;
   }
-  .doughnutTextWellness {
-    margin: 100px auto;
-    width: 85%;
-    padding-left: 0;
-  }
-  .spendingSummaryChart {
-    margin: auto;
-  }
-  .chartTextDivider {
-    width: 132px;
-    margin: auto;
-  }
-  .chartText {
-    padding-left: 0px;
-  }
-  .card-small {
-    flex-basis: 96%;
-    flex-shrink: 1;
-    margin: 7px;
-    padding: 15px;
-    max-width: 96%;
-  }
-}
-
-@media (width>768px) {
-  .statementSummary .chartSection {
-    float: left;
-  }
-  .statementSummary .sectionAlignment {
-    margin-top: 120px;
-  }
-  .statementSummary .sectionAlignment p {
-    margin-left: 9px;
-  }
-  .statementSummary .sectionAlignment {
-    display: inline-block;
-    margin-left: 30px;
-  }
-}
-
-.card-end {
-  align-self: flex-end;
-}
-.caremark button {
-  padding-top: 0;
-}
-.manage-image .link {
-  display: ruby;
-}
-.cardColor {
-  height: 56px;
-  width: 672px;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.manage-benefit {
-  div .flex.flex-row.m-2 {
-    margin: 0px;
-  }
-  div .link-row-head.mr-2 {
-    margin-left: 8px;
-  }
-}
-
-.manage-underline .link {
-  text-decoration: none;
-}
-
-.overlap-bottom {
-  margin-bottom: -21px;
-}
-
-.accessCodeBackground {
-  background-color: #e7f6ff;
-  border-radius: 7px;
-  width: 40%;
-  margin: auto;
-}
-
-.stepSection .stepRoundBlue {
-  border-radius: 9999px;
-  background-color: #005eb9;
-  display: inline-block;
-  width: 30px;
-  padding-top: 5px;
-  text-align: center;
-  color: #ffffff;
-}
-
-.stepSection .stepRoundGrey {
-  border-radius: 9999px;
-  border: 1px solid rgb(204, 204, 204);
-  background-color: #ffffff;
-  display: inline-block;
-  width: 30px;
-  padding-top: 5px;
-  text-align: center;
-  color: rgb(204, 204, 204);
-}
-
-.stepSection .stepLineGrey {
-  width: 32% !important;
-  height: 2px !important;
-  background-color: rgb(204, 204, 204) !important;
-  margin-bottom: 5px !important;
-  display: inline-block;
-}
-
-.stepSection .stepLineBlue {
-  width: 32% !important;
-  height: 2px !important;
-  background-color: #005eb9 !important;
-  margin-bottom: 5px !important;
-  display: inline-block;
-}
-.skip-underscore .link {
-  text-decoration: none;
 }

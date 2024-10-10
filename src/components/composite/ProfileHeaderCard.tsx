@@ -26,6 +26,8 @@ export const ProfileHeaderCard = ({ user, icon }: ProfileHeaderCardProps) => {
   return (
     <div
       className="flex h-full secondary-bg-color2 text-white px-4 py-1"
+      tabIndex={0}
+      aria-label="Profile Card"
       onClick={() =>
         showSideBar({
           content: (
@@ -65,6 +67,7 @@ export const ProfileHeaderCard = ({ user, icon }: ProfileHeaderCardProps) => {
                 <Spacer size={16} />
                 <Button
                   className="font-bold w-[288px] h-[40px] "
+                  tabIndex={0}
                   label="Signout"
                   type="secondary"
                   id="signoutButton"

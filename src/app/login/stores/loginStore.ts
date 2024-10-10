@@ -119,7 +119,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       } catch (err) {
         // Log the error
         logger.error('Error from Login Api', err);
-        console.error(err);
         const errorCode =
           (err as ActionResponse<LoginStatus, PortalLoginResponse>).error
             ?.errorCode ?? '';
@@ -209,7 +208,10 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         multipleLoginAttempts: false,
         verifyEmail: false,
       });
-      useMfaStore.setState({ stage: MfaModeState.selection });
+      useMfaStore.setState({
+        stage: MfaModeState.selection,
+        completeMfaProg: AppProg.init,
+      });
       useMfaStore.getState().updateCode('');
       useMfaStore.getState().updateResendCode(false);
       useVerifyEmailStore.getState().updateCode('');
@@ -234,7 +236,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       } catch (error) {
         // Log the error
         logger.error('Error from SignOut Action', error);
-        console.error(error);
       }
     },
   }),
