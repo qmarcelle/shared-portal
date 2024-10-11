@@ -53,6 +53,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
     />
     <a
       style="display: block;"
+      tabindex="-1"
     >
       <button
         class="flex flex-row link-container self-start"
@@ -60,7 +61,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
         tabindex="0"
       >
         <p
-          class="link"
+          class="link undefined"
         >
           Resend Code
         </p>
@@ -73,7 +74,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       class="flex flex-row justify-center items-center tooltip"
     >
       <span
-        class="tooltiptext"
+        class="tooltiptext !p-2"
       >
         Enter a Security Code.
       </span>
@@ -92,7 +93,6 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
     />
     <div
-      aria-label="divider"
       class=""
       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
     />
@@ -111,6 +111,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       <a
         href="https://www.bcbst.com/contact-us"
         style="display: inline;"
+        tabindex="-1"
       >
         <button
           class="flex flex-row link-container pl-0 pt-0 pr-0"
@@ -118,7 +119,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
           tabindex="0"
         >
           <p
-            class="link"
+            class="link undefined"
           >
             contact us
           </p>

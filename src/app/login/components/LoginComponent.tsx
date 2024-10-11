@@ -1,4 +1,3 @@
-import { getConfig } from '@/actions/config';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Divider } from '@/components/foundation/Divider';
@@ -9,6 +8,7 @@ import { googleAnalytics } from '@/utils/analytics';
 import { AppProg } from '../models/app/app_prog';
 
 import { AnalyticsData } from '@/models/app/analyticsData';
+import { useRouter } from 'next/navigation';
 import { MIN_CODE_LENGTH } from '../models/app/login_constants';
 import { useLoginStore } from '../stores/loginStore';
 
@@ -32,6 +32,7 @@ export const LoginComponent = () => {
     login: state.login,
     resetApiErrors: state.resetApiErrors,
   }));
+  const router = useRouter();
   const showTooltip =
     username.length < MIN_CODE_LENGTH && password.length < MIN_CODE_LENGTH;
   async function registerNewAccount(): Promise<void> {
@@ -44,7 +45,7 @@ export const LoginComponent = () => {
       content_type: undefined,
     };
     googleAnalytics(analytics);
-    window.open(await getConfig('REGISTER_NEW_ACCOUNT'), '_self');
+    router.replace(process.env.NEXT_PUBLIC_REGISTER_NEW_ACCOUNT ?? '');
   }
   const loginAnalytics = () => {
     const analytics: AnalyticsData = {

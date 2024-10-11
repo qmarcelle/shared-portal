@@ -5,6 +5,16 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+const mockReplace = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: mockReplace,
+    };
+  },
+}));
+
 const setupUI = () => {
   render(<LoginComponent />);
 };

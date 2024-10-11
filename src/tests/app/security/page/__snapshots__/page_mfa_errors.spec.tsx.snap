@@ -56,7 +56,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                   class="flex flex-row justify-center items-center toptooltip pl-2"
                 >
                   <span
-                    class="tooltiptext"
+                    class="tooltiptext !p-2"
                   >
                     To change your username, you will need to delete your registered account and create a new account. This will not affect your health plan information.
                   </span>
@@ -83,7 +83,6 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
               />
               <div
-                aria-label="divider"
                 class=""
                 style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
               />
@@ -98,6 +97,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                 >
                   <p
                     class="link-row-head mr-2"
+                    tabindex="0"
                   >
                     Change My Password
                   </p>
@@ -140,6 +140,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
               />
               <a
                 style="display: block;"
+                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container pl-0"
@@ -147,7 +148,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                   tabindex="0"
                 >
                   <p
-                    class="link"
+                    class="link undefined"
                   >
                     View Identity Protection Services
                   </p>
