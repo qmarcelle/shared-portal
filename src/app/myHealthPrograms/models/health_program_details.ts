@@ -6,7 +6,7 @@ export interface HealthProgramDetails {
   healthProgramType: HealthProgramType;
   healthProgramHeaderDetails: HealthProgramHeaderCardDetails;
   whyUseThisOptionDetails: string[];
-  costForThisOptionDetails: CostForThisOptionDetails;
+  costForThisOptionDetails: CostForThisOptionDetails[];
   goodForOptionDetails: string[];
   programType?: string;
 }

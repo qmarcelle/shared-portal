@@ -31,10 +31,12 @@ export const healthProgramsandResourcesDetails: Map<
         'Earn a $400 gift card if your doctor has suggested certain surgeries',
         'Call, chat or email available',
       ],
-      costForThisOptionDetails: {
-        description: 'You can expect to pay:',
-        cost: '$0',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'You can expect to pay:',
+          cost: '$0',
+        },
+      ],
       goodForOptionDetails: [
         'Speaking with an expert about your diagnosis',
         'Rare or life-threatening condition support',
@@ -60,10 +62,12 @@ export const healthProgramsandResourcesDetails: Map<
         'In-network & covered by your plan at no extra cost',
         'Discounted fitness memberships',
       ],
-      costForThisOptionDetails: {
-        description: 'You can expect to pay:',
-        cost: '$0',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'You can expect to pay:',
+          cost: '$0',
+        },
+      ],
       goodForOptionDetails: [
         'Weight loss',
         'Getting fit',
@@ -93,11 +97,13 @@ export const healthProgramsandResourcesDetails: Map<
         'Free smart blood pressure monitor',
         'Tips on nutrition, activity and more',
       ],
-      costForThisOptionDetails: {
-        description:
-          'If you have been diagnosed with high blood pressure, you can expect to pay: ',
-        cost: '$0',
-      },
+      costForThisOptionDetails: [
+        {
+          description:
+            'If you have been diagnosed with high blood pressure, you can expect to pay: ',
+          cost: '$0',
+        },
+      ],
       goodForOptionDetails: [
         'High blood pressure management',
         'Meal planning',
@@ -125,10 +131,12 @@ export const healthProgramsandResourcesDetails: Map<
         'Downloadable app available',
         'Support in pain management',
       ],
-      costForThisOptionDetails: {
-        description: 'Depending on the type of visit, you can expect to pay:',
-        cost: '$15 or less',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'Depending on the type of visit, you can expect to pay:',
+          cost: '$15 or less',
+        },
+      ],
       goodForOptionDetails: [
         'Back pain',
         'Wrist and ankle pain',
@@ -160,11 +168,13 @@ export const healthProgramsandResourcesDetails: Map<
         'Personalized tips, action plans and coaching',
         'Free smart meter and unlimited strips and lancets',
       ],
-      costForThisOptionDetails: {
-        description:
-          'If you have been diagnosed with type 1 or type 2 diabetes, you can expect to pay:',
-        cost: '$0',
-      },
+      costForThisOptionDetails: [
+        {
+          description:
+            'If you have been diagnosed with type 1 or type 2 diabetes, you can expect to pay:',
+          cost: '$0',
+        },
+      ],
       goodForOptionDetails: [
         'Living with diabetes',
         'Receiving diabetes supplies',
@@ -194,10 +204,12 @@ export const healthProgramsandResourcesDetails: Map<
         'Get access to your lab results online',
       ],
       programType: 'QuestSelect',
-      costForThisOptionDetails: {
-        description: 'Your lab benefits will apply when using QuestSelect.',
-        cost: '',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'Your lab benefits will apply when using QuestSelect.',
+          cost: '',
+        },
+      ],
       goodForOptionDetails: [
         'Blood samples',
         'Urine samples',
@@ -225,10 +237,12 @@ export const healthProgramsandResourcesDetails: Map<
         'See a PCP as early as the next day',
         'Downloadable app, call or video chat available',
       ],
-      costForThisOptionDetails: {
-        description: 'Depending on the type of visit, you can expect to pay:',
-        cost: '$99 or less',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'Depending on the type of visit, you can expect to pay:',
+          cost: '$99 or less',
+        },
+      ],
       goodForOptionDetails: [
         'Annual checkups and preventive care',
         'Prescriptions',
@@ -267,10 +281,12 @@ export const healthProgramsandResourcesDetails: Map<
         'In-network & covered by your plan with no cost to you',
         'Connect anytime 24/7',
       ],
-      costForThisOptionDetails: {
-        description: 'You can expect to pay:',
-        cost: '$0',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'You can expect to pay:',
+          cost: '$0',
+        },
+      ],
       goodForOptionDetails: [
         'Assessing symptoms and advice',
         'General health information',
@@ -299,10 +315,12 @@ export const healthProgramsandResourcesDetails: Map<
         'Less expensive than urgent care or the ER',
         'Downloadable app, call or video chat available',
       ],
-      costForThisOptionDetails: {
-        description: 'Depending on the type of visit, you can expect to pay:',
-        cost: '$55 or less',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'Depending on the type of visit, you can expect to pay:',
+          cost: '$55 or less',
+        },
+      ],
       goodForOptionDetails: [
         'Allergies, cold, fever or flu',
         'Skin condition (rashes or insect bites)',
@@ -319,7 +337,8 @@ export const healthProgramsandResourcesDetails: Map<
         'Nasal congestion',
       ],
     },
-  ],[
+  ],
+  [
     HealthProgramType.TeladocHealthDiabetesPrevention,
     {
       healthProgramType: HealthProgramType.TeladocHealthDiabetesPrevention,
@@ -341,10 +360,12 @@ export const healthProgramsandResourcesDetails: Map<
         'Free smart scale',
       ],
       programType: 'TeladocHealthDiabetesPrevention',
-      costForThisOptionDetails: {
-        description: 'If eligible, you can expect to pay:',
-        cost: '$0',
-      },
+      costForThisOptionDetails: [
+        {
+          description: 'If eligible, you can expect to pay:',
+          cost: '$0',
+        },
+      ],
       goodForOptionDetails: [
         'Viewing weight trends',
         'Expert coaching and advice',
@@ -352,6 +373,53 @@ export const healthProgramsandResourcesDetails: Map<
         'Personalized eating tips',
         'Setting goals and tracking progress',
         'Logging food',
+      ],
+    },
+  ],
+  [
+    HealthProgramType.TeladocMentalHealth,
+    {
+      healthProgramType: HealthProgramType.TeladocMentalHealth,
+      healthProgramHeaderDetails: {
+        title: 'Teladoc Mental Health',
+        description:
+          'Speak with a therapist, psychologist or psychiatrist* seven days a week from anywhere.',
+        serviceDesc:
+          // eslint-disable-next-line quotes
+          "The first time using this service, you'll need to create an account.",
+        buttonText: 'Use Teladoc Health',
+        icon: teladocHealthLogo,
+        redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
+      },
+      whyUseThisOptionDetails: [
+        'In-network & covered by your plan',
+        'Self-guided or live therapy options available',
+        'Downloadable app, call or video chat available ',
+      ],
+      programType: 'TeladocMentalHealth',
+      costForThisOptionDetails: [
+        {
+          description: 'Initial visit with a psychiatrist:',
+          cost: '$220 or less',
+        },
+        {
+          description: 'Subsequent visits with a psychiatrist:',
+          cost: '$100 or less',
+        },
+        {
+          description: 'Talk therapy with a therapist:',
+          cost: '$90 or less',
+        },
+      ],
+      goodForOptionDetails: [
+        'Anxiety, stress, feeling overwhelmed',
+        'Relationship conflicts',
+        'Depression',
+        'Trauma and PTSD',
+        'Not feeling like yourself',
+        'Mood swings',
+        'Not wanting to get out of bed',
+        'Medication management (Psychiatry only)',
       ],
     },
   ],
