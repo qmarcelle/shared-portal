@@ -5,6 +5,7 @@ interface WelcomeBannerProps extends IComponent {
   name?: string;
   titleText?: string;
   body?: JSX.Element;
+  minHeight?: string;
 }
 
 export const WelcomeBanner = ({
@@ -12,12 +13,14 @@ export const WelcomeBanner = ({
   body,
   titleText,
   className,
+  minHeight,
 }: WelcomeBannerProps) => {
   return (
     <div
-      className={`flex flex-col h-175px w-full text-white justify-center items-center brand-gradient ${className ?? ''}`}
+      className={`flex flex-col h-175px w-full text-white justify-center items-center brand-gradient ${className ?? ''} ${minHeight ?? ''}`}
     >
       <div className="flex flex-col items-start w-full app-content px-4">
+        <Spacer size={32}></Spacer>
         <h1 className="title-1">
           {titleText} {name}
         </h1>

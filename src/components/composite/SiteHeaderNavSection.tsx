@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { IComponent } from '../IComponent';
-import { rightIcon, searchIcon, upIcon } from '../foundation/Icons';
+import { rightIcon, upIcon } from '../foundation/Icons';
+import { SearchNavigation } from './SearchNavigation';
 import { SiteHeaderSubNavProps } from './SiteHeaderSubNavSection';
 
 export interface SiteHeaderNavProps extends IComponent {
@@ -43,14 +44,8 @@ export const SiteHeaderNavSection = ({ parentPages }: SiteHeaderNavProps) => {
           </div>
         </div>
       ))}
-      <div className="order-first lg:order-last px-5 mx-auto lg:ml-auto lg:mr-0">
-        <button
-          type="button"
-          className="items-center content-center lg:pr-0 py-4"
-        >
-          <span className="px-2">Search</span>
-          <Image src={searchIcon} alt="Search" />
-        </button>
+      <div className="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:px-5">
+        <SearchNavigation></SearchNavigation>
       </div>
     </div>
   );
