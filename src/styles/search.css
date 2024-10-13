@@ -10,7 +10,7 @@
 }
 
 .searchBar {
-  width: 544px;
+  width: 500px;
 }
 
 .searchhover:hover {
@@ -39,8 +39,14 @@
   padding: 25px;
 }
 
-@media (width < 768px) {
+@media (width <= 820px) {
   .searchBar {
-    width: 96%;
+    width: 94%;
+  }
+}
+
+@media (min-device-width: 821px) and (max-device-width: 1024px) {
+  .searchBar {
+    width: 275px;
   }
 }

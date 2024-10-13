@@ -237,6 +237,16 @@ input::-ms-clear {
   color: var(--secondary-color-2);
 }
 
+.link-white-text {
+  @apply link;
+  color: #ffffff;
+}
+
+.link-white-text:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .button-text {
   color: #005eb9;
   font-size: 1rem;
