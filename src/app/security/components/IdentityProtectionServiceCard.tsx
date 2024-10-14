@@ -30,6 +30,7 @@ export const IdentityProtectionServiceCard = () => {
         <AppLink
           label="View Identity Protection Services"
           className="pl-0"
+          url="/benefits/identityProtectionServices"
           callback={trackIdentityProtectionAnalytics}
         />
       </Column>
