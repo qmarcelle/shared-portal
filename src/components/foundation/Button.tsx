@@ -8,8 +8,11 @@ type ButtonType =
   | 'pill'
   | 'elevated';
 
+type ButtonStyle = 'button' | 'submit' | 'reset';
+
 interface ButtonProps extends IComponent {
   type?: ButtonType;
+  style?: ButtonStyle;
   id?: string;
   label?: string;
   icon?: ReactNode;
@@ -18,6 +21,7 @@ interface ButtonProps extends IComponent {
 
 export const Button = ({
   type = 'primary',
+  style = 'button',
   label,
   icon,
   id,
@@ -42,7 +46,7 @@ export const Button = ({
       onClick={callback}
       aria-label={label}
       className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`}
-      type="button"
+      type={style}
       id={id}
     >
       {computeContent()}
