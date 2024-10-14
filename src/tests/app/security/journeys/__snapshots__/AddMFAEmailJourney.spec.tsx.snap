@@ -28,34 +28,134 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col modal-container"
-          >
+          <div>
             <div
-              class="flex flex-row justify-between modal-header items-center relative"
+              class="flex flex-col modal-container"
             >
               <div
-                tabindex="1"
-              />
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  tabindex="1"
+                />
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <div
-                class="size-8 focus-icon"
-                tabindex="0"
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Email Setup
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 text-center"
+                    >
+                      Enter the email address you'd like to use for communications and security settings.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-col w-[352px]"
+                    >
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Email Address
+                        </p>
+                        <div
+                          class="flex flex-row items-center input  "
+                        >
+                          <input
+                            aria-label="Email Address"
+                            type="email"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                        <div
+                          class="error-container mt-1 p-1"
+                        >
+                          <div />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                      />
+                      <button
+                        aria-label="Next"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                        type="button"
+                      >
+                        Next
+                      </button>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <button
+                        aria-label="Cancel"
+                        class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="close"
-                  class="size-4"
+                  alt="bcbst logo"
+                  class="modal-icon"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -66,104 +166,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                   width="40"
                 />
               </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
-                  <h1
-                    class="title-1 title-2"
-                  >
-                    Email Setup
-                  </h1>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <p
-                    class="body-1 text-center"
-                  >
-                    Enter the email address you'd like to use for communications and security settings.
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
-                    class="flex flex-col w-[352px]"
-                  >
-                    <div
-                      class="flex flex-col w-full text-field"
-                    >
-                      <p>
-                        Email Address
-                      </p>
-                      <div
-                        class="flex flex-row items-center input  "
-                      >
-                        <input
-                          aria-label="Email Address"
-                          type="email"
-                          value=""
-                        />
-                        <div
-                          class="cursor-pointer"
-                        />
-                      </div>
-                      <div
-                        class="error-container mt-1 p-1"
-                      >
-                        <div />
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                    />
-                    <button
-                      aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-                      type="button"
-                    >
-                      Next
-                    </button>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <button
-                      aria-label="Cancel"
-                      class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                      type="button"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
             </div>
           </div>
         </div>
@@ -201,18 +203,195 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col modal-container"
-          >
+          <div>
             <div
-              class="flex flex-row justify-between modal-header items-center relative"
+              class="flex flex-col modal-container"
             >
               <div
-                class="flex flex-row items-center focus-icon"
-                tabindex="1"
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  class="flex flex-row items-center focus-icon"
+                  tabindex="1"
+                >
+                  <img
+                    alt="back"
+                    class="modal-icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="body-1 primary-color underline"
+                  >
+                    Back
+                  </p>
+                </div>
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <h2
+                      class="title-2"
+                    >
+                      Email Setup
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 text-center"
+                    >
+                      Enter the security code sent to your email to complete email setup.We've sent a code to:
+                    </p>
+                    <div
+                      class="flex flex-col w-[358px]"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 body-1 text-center font-bold"
+                        >
+                          chall123@gmail.com
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Enter Security Code
+                          </p>
+                          <div
+                            class="flex flex-row items-center input  "
+                          >
+                            <input
+                              aria-label="Enter Security Code"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                          <div
+                            class="error-container mt-1 p-1"
+                          >
+                            <div />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <a
+                          style="display: block;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container self-start"
+                            style="max-width: max-content; height: auto; display: block;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                            >
+                              Resend Code
+                            </p>
+                          </button>
+                        </a>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <button
+                        aria-label="Confirm"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                        type="button"
+                      >
+                        Confirm
+                      </button>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                      />
+                    </div>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                        >
+                          Cancel
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="back"
+                  alt="bcbst logo"
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -223,180 +402,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                   style="color: transparent;"
                   width="40"
                 />
-                <p
-                  class="body-1 primary-color underline"
-                >
-                  Back
-                </p>
               </div>
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <div
-                class="size-8 focus-icon"
-                tabindex="0"
-              >
-                <img
-                  alt="close"
-                  class="size-4"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <h2
-                    class="title-2"
-                  >
-                    Email Setup
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <p
-                    class="body-1 body-1 text-center"
-                  >
-                    Enter the security code sent to your email to complete email setup.We've sent a code to:
-                  </p>
-                  <div
-                    class="flex flex-col w-[358px]"
-                  >
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 body-1 text-center font-bold"
-                      >
-                        chall123@gmail.com
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Enter Security Code
-                        </p>
-                        <div
-                          class="flex flex-row items-center input  "
-                        >
-                          <input
-                            aria-label="Enter Security Code"
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <a
-                        style="display: block;"
-                      >
-                        <button
-                          class="flex flex-row link-container self-start"
-                          style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
-                        >
-                          <p
-                            class="link"
-                          >
-                            Resend Code
-                          </p>
-                        </button>
-                      </a>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                    </div>
-                    <button
-                      aria-label="Confirm"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
-                      type="button"
-                    >
-                      Confirm
-                    </button>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                    />
-                  </div>
-                  <a
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
-                    >
-                      <p
-                        class="link"
-                      >
-                        Cancel
-                      </p>
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
             </div>
           </div>
         </div>
@@ -434,34 +440,124 @@ exports[`Add Mfa Email Journey should render the screens correctly 3`] = `
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col modal-container"
-          >
+          <div>
             <div
-              class="flex flex-row justify-between modal-header items-center relative"
+              class="flex flex-col modal-container"
             >
               <div
-                tabindex="1"
-              />
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  tabindex="1"
+                />
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <div
-                class="size-8 focus-icon"
-                tabindex="0"
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <img
+                      alt="success"
+                      class="size-[80px]"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Email Setup is Complete
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col w-[358px]"
+                    >
+                      <div
+                        class="flex flex-col items-center"
+                      >
+                        <p
+                          class="body-1 text-center"
+                        >
+                          The next time you login, you'll receive an email with a security code to:
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          chall123@gmail.com
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <button
+                        aria-label="Done"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Done
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="close"
-                  class="size-4"
+                  alt="bcbst logo"
+                  class="modal-icon"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -472,94 +568,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 3`] = `
                   width="40"
                 />
               </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
-                  <img
-                    alt="success"
-                    class="size-[80px]"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                  />
-                  <h1
-                    class="title-1 title-2"
-                  >
-                    Email Setup is Complete
-                  </h1>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class="flex flex-col w-[358px]"
-                  >
-                    <div
-                      class="flex flex-col items-center"
-                    >
-                      <p
-                        class="body-1 text-center"
-                      >
-                        The next time you login, you'll receive an email with a security code to:
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <p
-                        class="body-1"
-                      >
-                        chall123@gmail.com
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                    <button
-                      aria-label="Done"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                      type="button"
-                    >
-                      Done
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
             </div>
           </div>
         </div>
@@ -597,34 +605,134 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col modal-container"
-          >
+          <div>
             <div
-              class="flex flex-row justify-between modal-header items-center relative"
+              class="flex flex-col modal-container"
             >
               <div
-                tabindex="1"
-              />
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  tabindex="1"
+                />
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <div
-                class="size-8 focus-icon"
-                tabindex="0"
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Email Setup
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 text-center"
+                    >
+                      Enter the email address you'd like to use for communications and security settings.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-col w-[352px]"
+                    >
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Email Address
+                        </p>
+                        <div
+                          class="flex flex-row items-center input  "
+                        >
+                          <input
+                            aria-label="Email Address"
+                            type="email"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                        <div
+                          class="error-container mt-1 p-1"
+                        >
+                          <div />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                      />
+                      <button
+                        aria-label="Next"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                        type="button"
+                      >
+                        Next
+                      </button>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <button
+                        aria-label="Cancel"
+                        class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="close"
-                  class="size-4"
+                  alt="bcbst logo"
+                  class="modal-icon"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -635,104 +743,6 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   width="40"
                 />
               </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
-                  <h1
-                    class="title-1 title-2"
-                  >
-                    Email Setup
-                  </h1>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <p
-                    class="body-1 text-center"
-                  >
-                    Enter the email address you'd like to use for communications and security settings.
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
-                    class="flex flex-col w-[352px]"
-                  >
-                    <div
-                      class="flex flex-col w-full text-field"
-                    >
-                      <p>
-                        Email Address
-                      </p>
-                      <div
-                        class="flex flex-row items-center input  "
-                      >
-                        <input
-                          aria-label="Email Address"
-                          type="email"
-                          value=""
-                        />
-                        <div
-                          class="cursor-pointer"
-                        />
-                      </div>
-                      <div
-                        class="error-container mt-1 p-1"
-                      >
-                        <div />
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                    />
-                    <button
-                      aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-                      type="button"
-                    >
-                      Next
-                    </button>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <button
-                      aria-label="Cancel"
-                      class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                      type="button"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
             </div>
           </div>
         </div>
@@ -770,34 +780,160 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col modal-container"
-          >
+          <div>
             <div
-              class="flex flex-row justify-between modal-header items-center relative"
+              class="flex flex-col modal-container"
             >
               <div
-                tabindex="1"
-              />
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  tabindex="1"
+                />
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <div
-                class="size-8 focus-icon"
-                tabindex="0"
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Email Setup
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 text-center"
+                    >
+                      Enter the email address you'd like to use for communications and security settings.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-col w-[352px]"
+                    >
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Email Address
+                        </p>
+                        <div
+                          class="flex flex-row items-center input input-focus error-input"
+                        >
+                          <input
+                            aria-label="Email Address"
+                            type="email"
+                            value="chall123gmail.com"
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                        <div
+                          class="error-container mt-1 p-1"
+                        >
+                          <div>
+                            <div
+                              class="flex flex-row"
+                            >
+                              <div
+                                class="inline-flex"
+                              >
+                                <img
+                                  alt="ErrorIcon"
+                                  class="icon"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                                <p
+                                  class="ml-2"
+                                >
+                                  Invalid Email Address
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                      />
+                      <button
+                        aria-label="Next"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                        type="button"
+                      >
+                        Next
+                      </button>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <button
+                        aria-label="Cancel"
+                        class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="close"
-                  class="size-4"
+                  alt="bcbst logo"
+                  class="modal-icon"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -808,130 +944,6 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   width="40"
                 />
               </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
-                  <h1
-                    class="title-1 title-2"
-                  >
-                    Email Setup
-                  </h1>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <p
-                    class="body-1 text-center"
-                  >
-                    Enter the email address you'd like to use for communications and security settings.
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
-                    class="flex flex-col w-[352px]"
-                  >
-                    <div
-                      class="flex flex-col w-full text-field"
-                    >
-                      <p>
-                        Email Address
-                      </p>
-                      <div
-                        class="flex flex-row items-center input input-focus error-input"
-                      >
-                        <input
-                          aria-label="Email Address"
-                          type="email"
-                          value="chall123gmail.com"
-                        />
-                        <div
-                          class="cursor-pointer"
-                        />
-                      </div>
-                      <div
-                        class="error-container mt-1 p-1"
-                      >
-                        <div>
-                          <div
-                            class="flex flex-row"
-                          >
-                            <div
-                              class="inline-flex"
-                            >
-                              <img
-                                alt="ErrorIcon"
-                                class="icon"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                              <p
-                                class="ml-2"
-                              >
-                                Invalid Email Address
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                    />
-                    <button
-                      aria-label="Next"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-                      type="button"
-                    >
-                      Next
-                    </button>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <button
-                      aria-label="Cancel"
-                      class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                      type="button"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
             </div>
           </div>
         </div>

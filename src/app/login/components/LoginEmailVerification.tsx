@@ -57,55 +57,61 @@ export const LoginEmailVerification = () => {
   };
 
   return (
-    <div id="mainSection">
-      <Header text="Let's Verify Your Email" />
-      <Spacer size={16} />
-      <TextBox text="We’ll need to confirm your email address before you can log in." />
-      <Spacer size={16} />
-      <TextBox text="We’ve sent a code to:" />
-      <TextBox text={emailId ? maskEmail(emailId) : ''} className="font-bold" />
-      <Spacer size={16} />
-      <TextBox text="Enter the security code to verify your email address." />
-      <Spacer size={32} />
-      <TextField
-        label="Enter Security Code"
-        valueCallback={(val) => updateSecurityCode(val)}
-        errors={apiErrors}
-      />
-      <Spacer size={16} />
-      <ToolTip
-        showTooltip={showTooltip}
-        className="flex flex-row justify-center items-center tooltip"
-        label="Enter a Security Code."
-      >
-        <Button
-          callback={validateSecurityCode()}
-          label={
-            completeVerifyEmailProg == AppProg.loading
-              ? 'Confirming...'
-              : 'Confirm Code'
-          }
+    <form onSubmit={validateSecurityCode()}>
+      <div id="mainSection">
+        <Header text="Let's Verify Your Email" />
+        <Spacer size={16} />
+        <TextBox text="We’ll need to confirm your email address before you can log in." />
+        <Spacer size={16} />
+        <TextBox text="We’ve sent a code to:" />
+        <TextBox
+          text={emailId ? maskEmail(emailId) : ''}
+          className="font-bold"
         />
-      </ToolTip>
-      <Spacer size={32} />
-      <Divider />
-      <Spacer size={16} />
-      <Header text="Don’t see your confirmation email?" type="title-3" />
-      <Spacer size={16} />
-      <TextBox
-        className="pr-5"
-        text="Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or"
-      />
-      <section className="flex flex-row">
-        <AppLink
-          className="p-0"
-          url="https://www.bcbst.com/contact-us"
-          label="contact us"
-          displayStyle="inline"
-          callback={trackContactUsAnalytics}
+        <Spacer size={16} />
+        <TextBox text="Enter the security code to verify your email address." />
+        <Spacer size={32} />
+        <TextField
+          label="Enter Security Code"
+          valueCallback={(val) => updateSecurityCode(val)}
+          errors={apiErrors}
         />
-        <TextBox text="." />
-      </section>
-    </div>
+        <Spacer size={16} />
+        <ToolTip
+          showTooltip={showTooltip}
+          className="flex flex-row justify-center items-center tooltip"
+          label="Enter a Security Code."
+        >
+          <Button
+            style="submit"
+            callback={validateSecurityCode()}
+            label={
+              completeVerifyEmailProg == AppProg.loading
+                ? 'Confirming...'
+                : 'Confirm Code'
+            }
+          />
+        </ToolTip>
+        <Spacer size={32} />
+        <Divider />
+        <Spacer size={16} />
+        <Header text="Don’t see your confirmation email?" type="title-3" />
+        <Spacer size={16} />
+        <TextBox
+          className="pr-5"
+          text="Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or"
+        />
+        <section className="flex flex-row">
+          <AppLink
+            className="p-0"
+            url="https://www.bcbst.com/contact-us"
+            label="contact us"
+            displayStyle="inline"
+            callback={trackContactUsAnalytics}
+          />
+          <TextBox text="." />
+        </section>
+      </div>
+    </form>
   );
 };
