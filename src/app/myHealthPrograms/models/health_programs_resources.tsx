@@ -1,4 +1,5 @@
 import {
+  ableToLogo,
   alightIcon,
   hingeHealthLogo,
   questSelectLogo,
@@ -420,6 +421,44 @@ export const healthProgramsandResourcesDetails: Map<
         'Mood swings',
         'Not wanting to get out of bed',
         'Medication management (Psychiatry only)',
+      ],
+    },
+  ],
+  [
+    HealthProgramType.AbleTo,
+    {
+      healthProgramType: HealthProgramType.AbleTo,
+      healthProgramHeaderDetails: {
+        title: 'AbleTo',
+        description:
+          'AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.',
+        serviceDesc:
+          'The first time using this service, you’ll need to create an account.',
+        buttonText: 'Use AbleTo',
+        icon: ableToLogo,
+        redirectLink: process.env.NEXT_PUBLIC_ABLETO ?? '',
+      },
+      whyUseThisOptionDetails: [
+        'In-network & covered by your plan',
+        'Self-guided or coaching options available',
+        'Work with a therapist or coach',
+      ],
+      costForThisOptionDetails: [
+        {
+          description: 'Depending on your plan, you can expect to pay:',
+          cost: '$15 – $300',
+        },
+      ],
+      goodForOptionDetails: [
+        'Anxiety',
+        'Depression',
+        'Grief',
+        'Stress',
+        'Loneliness',
+        'Social anxiety',
+        'Self-care improvement',
+        'Anxiety related to chronic pain',
+        'Building healthier habits',
       ],
     },
   ],

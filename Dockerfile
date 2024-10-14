@@ -10,6 +10,7 @@ ARG NEXT_PUBLIC_SILVER_FIT=https://www.silverandfit.com/
 ARG NEXT_PUBLIC_ALIGHT=https://mymedicalally.alight.com/s/login/
 ARG NEXT_PUBLIC_HINGE_HEALTH=https://hinge.health/bcbstnfi
 ARG NEXT_PUBLIC_QUEST_SELECT=https://www.questselect.com/
+ARG NEXT_PUBLIC_ABLETO=https://member.ableto.com/bcbst/
 
 # Set the working directory to /app
 WORKDIR  /app
