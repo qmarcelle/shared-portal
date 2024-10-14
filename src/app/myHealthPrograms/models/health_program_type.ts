@@ -10,4 +10,5 @@ export enum HealthProgramType {
   TalkToNurse = 'TalkToNurse',
   TeladocHealthGeneralUrgentCare = 'TeladocHealthGeneralUrgentCare',
   TeladocHealthDiabetesPrevention = 'TeladocHealthDiabetesPrevention',
+  AbleTo = 'AbleTo',
 }
