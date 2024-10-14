@@ -188,7 +188,7 @@ const Benefits = () => {
                   title: 'Identity Protection Services',
                   body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
                   externalLink: false,
-                  url: 'url',
+                  url: '/benefits/identityProtectionServices',
                 },
                 {
                   title: 'Health Programs & Resources',
