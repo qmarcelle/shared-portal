@@ -7,6 +7,8 @@ import { Card } from '../../../components/foundation/Card';
 import { BenefitDetailItem } from '../components/BenefitDetailItem';
 import { ListBenefitDetails } from '../models/benefit_details';
 
+//this section is getting list of cards for each benefit.taking list of benefit details as input
+
 interface BenefitDetailSectionProps extends IComponent {
   benefitDetail: ListBenefitDetails[];
 }
