@@ -1,3 +1,4 @@
+import FocusTrap from 'focus-trap-react';
 import Image from 'next/image';
 import React, { ReactElement, createContext } from 'react';
 import { Modal } from 'react-responsive-modal';
@@ -105,6 +106,16 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
     }
   };
 
+  const handleKeyDown = (e: {
+    preventDefault: () => void;
+    keyCode: number;
+  }) => {
+    e.preventDefault();
+    if (e.keyCode === 13) {
+      onClose();
+    }
+  };
+
   return (
     <Row className="justify-between modal-header items-center relative">
       {showBack ? (
@@ -124,7 +135,12 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
         className="modal-icon modal-header-logo absolute m-auto left-0 right-0"
         alt="bcbst logo"
       />
-      <div tabIndex={0} className="size-8 focus-icon" onClick={onClose}>
+      <div
+        className="size-8 focus-icon"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        onClick={onClose}
+      >
         <Image src={closeIcon} className="size-4" alt="close" />
       </div>
     </Row>
@@ -194,24 +210,28 @@ export const InnerAppModal = ({
       closeOnOverlayClick={true}
       onClose={closeModal}
     >
-      <Column>
-        <div className="sideBar-content">
-          <ModalHeader onClose={closeModal} />
-          <Spacer size={32} />
-          <Column className="items-stretch p-4">
-            {modalBody ? (
-              React.cloneElement(modalBody, {
-                changePage,
-                pageIndex: pageIndex,
-              })
-            ) : (
-              <div />
-            )}
+      <FocusTrap>
+        <div>
+          <Column>
+            <div className="sideBar-content">
+              <ModalHeader onClose={closeModal} />
+              <Spacer size={32} />
+              <Column className="items-stretch p-4">
+                {modalBody ? (
+                  React.cloneElement(modalBody, {
+                    changePage,
+                    pageIndex: pageIndex,
+                  })
+                ) : (
+                  <div />
+                )}
+              </Column>
+              <Spacer size={32} />
+            </div>
+            {modalFooter}
           </Column>
-          <Spacer size={32} />
         </div>
-        {modalFooter}
-      </Column>
+      </FocusTrap>
     </Modal>
   );
 };

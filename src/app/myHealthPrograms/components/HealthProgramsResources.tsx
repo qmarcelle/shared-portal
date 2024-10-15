@@ -1,7 +1,6 @@
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
-import { CostForThisOptionDetails } from '../models/cost_for_this_option_details';
 import { HealthProgramDetails } from '../models/health_program_details';
 import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
 import { CostforThisOptionCard } from './CostforThisOptionCard';
@@ -36,8 +35,7 @@ export const HealthProgramsResources = ({
           />
           <CostforThisOptionCard
             costForThisOptionDetails={
-              healthProgramDetails?.costForThisOptionDetails ??
-              ({} as CostForThisOptionDetails)
+              healthProgramDetails?.costForThisOptionDetails ?? []
             }
           />
         </Column>

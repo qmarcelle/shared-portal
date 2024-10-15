@@ -38,6 +38,9 @@ export const AddMFAAuthenticatorJourney = ({
       if (!initialized.current) {
         initialized.current = true;
         try {
+          if (verifyMfaResult?.errors.length) {
+            resetVerifyMfaError();
+          }
           await updateMfaDevice(MfaDeviceType.authenticator);
         } catch (err) {
           // Change to Error page

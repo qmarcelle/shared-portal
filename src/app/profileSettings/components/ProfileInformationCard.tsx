@@ -4,7 +4,6 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
-import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
@@ -35,24 +34,15 @@ export const ProfileInformationCard = ({
           <Header type="title-2" text="Profile Information" />
           <Spacer size={16} />
           <section>
-            <RichText
-              spans={[
-                <span>
-                  Below is your profile information. The phone number and email
-                  address below will be used for account security and some
-                  communications. You can{' '}
-                </span>,
-                <span className="link">
-                  <a>view your plan details here.</a>
-                </span>,
-              ]}
-            />
+            <TextBox text="The phone number and email address below will be used for account security and some communications." />
           </section>
           <Spacer size={32} />
         </section>{' '}
         {/* Add Other Update Methods here */}
         <Card>
           <Column className="m-4">
+            <TextBox text="My Profile:" className="body-2" />
+            <Spacer size={4} />
             <TextBox className="font-bold body-1" text={name} />
             <Spacer size={8} />
             <TextBox className="body-1" text={'DOB: ' + DOB} />

@@ -48,7 +48,17 @@
 
 @font-face {
   font-family: 'Univers-45';
-  src: url(./UniversLTPro-55Roman.woff2);
+  src: url(./../../public/assets/universLTPro_45Light.woff);
+}
+
+@font-face {
+  font-family: 'Univers-55';
+  src: url(./../../public/assets/universLTPro_55Roman.woff);
+}
+
+@font-face {
+  font-family: 'Univers-65';
+  src: url(./../../public/assets/universLTPro_65Bold.woff);
 }
 
 #blueback {
@@ -96,6 +106,7 @@
   border: none;
   text-decoration: underline;
   margin-top: 25px;
+  font-family: 'Univers-65';
 }
 
 #backButton::before {
@@ -193,4 +204,78 @@
 }
 .download-pdf .gap-1 div.flex-col {
   margin: 0.25rem;
+}
+
+.manage-image .link {
+  display: ruby;
+}
+.cardColor {
+  height: 56px;
+  width: 672px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.manage-benefit {
+  div .flex.flex-row.m-2 {
+    margin: 0px;
+  }
+  div .link-row-head.mr-2 {
+    margin-left: 8px;
+  }
+}
+
+.manage-underline .link {
+  text-decoration: none;
+}
+
+.overlap-bottom {
+  margin-bottom: -21px;
+}
+
+.accessCodeBackground {
+  background-color: #e7f6ff;
+  border-radius: 7px;
+  width: 40%;
+  margin: auto;
+}
+
+.stepSection .stepRoundBlue {
+  border-radius: 9999px;
+  background-color: #005eb9;
+  display: inline-block;
+  width: 30px;
+  padding-top: 5px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.stepSection .stepRoundGrey {
+  border-radius: 9999px;
+  border: 1px solid rgb(204, 204, 204);
+  background-color: #ffffff;
+  display: inline-block;
+  width: 30px;
+  padding-top: 5px;
+  text-align: center;
+  color: rgb(204, 204, 204);
+}
+
+.stepSection .stepLineGrey {
+  width: 32% !important;
+  height: 2px !important;
+  background-color: rgb(204, 204, 204) !important;
+  margin-bottom: 5px !important;
+  display: inline-block;
+}
+
+.stepSection .stepLineBlue {
+  width: 32% !important;
+  height: 2px !important;
+  background-color: #005eb9 !important;
+  margin-bottom: 5px !important;
+  display: inline-block;
+}
+.skip-underscore .link {
+  text-decoration: none;
 }

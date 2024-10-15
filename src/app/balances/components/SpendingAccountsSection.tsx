@@ -8,7 +8,7 @@ import { IComponent } from '../../../components/IComponent';
 import { Card } from '../../../components/foundation/Card';
 import { Spacer } from '../../../components/foundation/Spacer';
 
-interface SpendingAccountSectionProps extends IComponent {
+export interface SpendingAccountSectionProps extends IComponent {
   linkURL: string;
   hsaBalance: number;
   fsaBalance: number;

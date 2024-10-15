@@ -18,6 +18,10 @@ describe('ProfileInformationCard', () => {
     const component = renderUI();
 
     screen.getByText('Profile Information');
+    screen.getByText(
+      'The phone number and email address below will be used for account security and some communications.',
+    );
+    screen.getByText('My Profile:');
     screen.getByText('Chris Hall');
     screen.getByText('DOB: 01/01/1978');
     screen.getByText('Phone Number');

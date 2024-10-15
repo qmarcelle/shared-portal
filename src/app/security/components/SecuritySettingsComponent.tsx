@@ -4,7 +4,7 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { useEffect, useRef } from 'react';
 import { useSecuritySettingsStore } from '../stores/security_settings_store';
-import { IdentityProtectionService } from './IdentityProtectionService';
+import { IdentityProtectionServiceCard } from './IdentityProtectionServiceCard';
 import { LoginInfoComponent } from './LoginInfoComponent';
 import { MFAInfoComponent } from './MFAInfoComponent';
 
@@ -31,13 +31,12 @@ export const SecuritySettings = ({ username }: SecuritySettingsProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Spacer size={32} />
-        <Header className="pl-3" type="title-1" text="Security Settings" />
+        <Header type="title-1" text="Security Settings" />
         <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
             <LoginInfoComponent username={username} />
-            <IdentityProtectionService />
+            <IdentityProtectionServiceCard />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
             <MFAInfoComponent mfaDevices={mfaDevices} />

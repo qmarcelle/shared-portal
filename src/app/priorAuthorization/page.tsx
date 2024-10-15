@@ -5,7 +5,7 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
-import { externalIcon } from '@/components/foundation/Icons';
+import { extrenalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
@@ -23,26 +23,23 @@ const PriorAuthorization = () => {
       <Column className="app-content app-base-font-color">
         <Header
           text="Prior Authorization"
-          className="m-4 mb-0 !font-light !text-[32px]/[40px]"
+          className="mb-0 !font-light !text-[32px]/[40px]"
         />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
-              <Row className="m-4 mb-0" key={0}>
+              <Row className="mb-0" key={0}>
                 If you need more than two years of prior authorizations, call
                 [1-800-000-000]. If your authorization is not fully approved, we
                 will send you a letter explaining why and details on how to ask
                 for an appeal.
               </Row>,
-              <Row
-                className="body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
-                key={1}
-              >
+              <Row className="body-1 flex-grow align-top mt-4" key={1}>
                 Looking for a prescription drug pre-approval? Go to your{' '}
                 <AppLink
                   label="caremark.com account"
-                  className="link !flex caremark pt-0"
-                  icon={<Image src={externalIcon} alt="external" />}
+                  className="link !flex pt-0"
+                  icon={<Image src={extrenalIcon} alt="external" />}
                 />
               </Row>,
             ]}
@@ -58,23 +55,6 @@ const PriorAuthorization = () => {
               className="large-section px-0 m-0"
               filterHeading="Filter Prior Authorizations"
               filterItems={[
-                {
-                  type: 'dropdown',
-                  label: 'Connected Plans',
-                  value: [
-                    {
-                      label: 'All Plans',
-                      value: '1',
-                      id: '1',
-                    },
-                    {
-                      label: 'Plans',
-                      value: '2',
-                      id: '2',
-                    },
-                  ],
-                  selectedValue: { label: 'All Plans', value: '1', id: '1' },
-                },
                 {
                   type: 'dropdown',
                   label: 'Member',

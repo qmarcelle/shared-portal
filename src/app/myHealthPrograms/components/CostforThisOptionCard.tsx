@@ -7,7 +7,7 @@ import { IComponent } from '@/components/IComponent';
 import { CostForThisOptionDetails } from '../models/cost_for_this_option_details';
 
 interface CostforOptionProps extends IComponent {
-  costForThisOptionDetails: CostForThisOptionDetails;
+  costForThisOptionDetails: CostForThisOptionDetails[];
 }
 export const CostforThisOptionCard = ({
   costForThisOptionDetails,
@@ -22,12 +22,16 @@ export const CostforThisOptionCard = ({
         />
         <Spacer size={16} />
         <Column>
-          <TextBox text={costForThisOptionDetails.description} />
-          <Spacer size={8} />
-          <TextBox
-            className="font-bold text-xl"
-            text={costForThisOptionDetails.cost}
-          />
+          {costForThisOptionDetails.map((item, index) => {
+            return (
+              <Column key={index}>
+                <TextBox text={item.description} />
+                <Spacer size={8} />
+                <TextBox className="font-bold text-xl" text={item.cost} />
+                <Spacer size={8} />
+              </Column>
+            );
+          })}
         </Column>
       </Column>
     </Card>

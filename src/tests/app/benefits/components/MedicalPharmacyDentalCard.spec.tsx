@@ -2,7 +2,7 @@ import { MedicalPharmacyDentalCard } from '@/app/benefits/components/MedicalPhar
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import PrimaryCareIcon from '../../../../public/assets/primary_care.svg';
+import PrimaryCareIcon from '../../../../../public/assets/primary_care.svg';
 
 const renderUI = () => {
   return render(
