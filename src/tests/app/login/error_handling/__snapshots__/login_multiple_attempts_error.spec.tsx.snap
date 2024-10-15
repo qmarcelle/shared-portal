@@ -102,13 +102,14 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <a
+                  aria-label="Forgot Username/Password?"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container self-start"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"

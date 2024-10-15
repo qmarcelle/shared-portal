@@ -31,7 +31,9 @@ describe('Multiple Login MFA Invalid Secutity Code Attempts Error', () => {
     // Login Info Card
 
     const inputUserName = screen.getByRole('textbox', { name: /Username/i });
-    const password = screen.getByLabelText(/password/i);
+    const password = screen.getByLabelText(/password/i, {
+      selector: 'input',
+    });
     const loginButton = screen.getByRole('button', {
       name: /Log In/i,
     });
