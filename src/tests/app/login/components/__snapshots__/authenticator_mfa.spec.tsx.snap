@@ -2,119 +2,123 @@
 
 exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
 <div>
-  <div
-    id="mainSection"
-  >
-    <p
-      class="title-2"
-    >
-      Let's Confirm Your Identity
-    </p>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-    />
-    <p>
-      Enter the security code from your authenticator app.
-    </p>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
+  <form>
     <div
-      class="flex flex-col w-full text-field"
+      id="mainSection"
     >
-      <p>
-        Enter Security Code
+      <p
+        class="title-2"
+      >
+        Let's Confirm Your Identity
       </p>
-      <div
-        class="flex flex-row items-center input  "
-      >
-        <input
-          aria-label="Enter Security Code"
-          type="text"
-          value=""
-        />
-        <div
-          class="cursor-pointer"
-        />
-      </div>
-      <div
-        class="error-container mt-1 p-1"
-      >
-        <div />
-      </div>
-    </div>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
-    <div
-      class="flex flex-row justify-center items-center tooltip"
-    >
       <span
-        class="tooltiptext !p-2"
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p>
+        Enter the security code from your authenticator app.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-full text-field"
       >
-        Enter a Security Code.
-      </span>
-      <button
-        aria-label="Confirm"
-        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-        type="button"
-      >
-        Confirm
-      </button>
-    </div>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-    />
-    <a
-      style="display: block;"
-      tabindex="-1"
-    >
-      <button
-        class="flex flex-row link-container m-auto"
-        style="max-width: max-content; height: auto; display: block;"
-        tabindex="0"
-      >
-        <p
-          class="link undefined"
-        >
-          Choose a Different Method
+        <p>
+          Enter Security Code
         </p>
-      </button>
-    </a>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
-    <div
-      class=""
-      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-    />
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
-    <h3>
-      Need Help?
-    </h3>
-    <p>
-      Give us a call using the number listed on the back of your Member ID card or
-       
+        <div
+          class="flex flex-row items-center input  "
+        >
+          <input
+            aria-label="Enter Security Code"
+            type="text"
+            value=""
+          />
+          <div
+            class="cursor-pointer"
+          />
+        </div>
+        <div
+          class="error-container mt-1 p-1"
+        >
+          <div />
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-row justify-center items-center tooltip"
+      >
+        <span
+          class="tooltiptext !p-2"
+        >
+          Enter a Security Code.
+        </span>
+        <button
+          aria-label="Confirm"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          type="submit"
+        >
+          Confirm
+        </button>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
       <a
-        href="https://www.bcbst.com/contact-us"
-        style="display: inline;"
-        tabindex="-1"
+        aria-label="Choose a Different Method"
+        style="display: block;"
       >
         <button
-          class="flex flex-row link-container pl-0 pt-0"
-          style="max-width: max-content; height: auto; display: inline;"
-          tabindex="0"
+          class="flex flex-row link-container m-auto"
+          style="max-width: max-content; height: auto; display: block;"
+          tabindex="-1"
+          type="button"
         >
           <p
             class="link undefined"
           >
-            contact us
+            Choose a Different Method
           </p>
         </button>
       </a>
-    </p>
-  </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class=""
+        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h3>
+        Need Help?
+      </h3>
+      <p>
+        Give us a call using the number listed on the back of your Member ID card or
+         
+        <a
+          aria-label="contact us"
+          href="https://www.bcbst.com/contact-us"
+          style="display: inline;"
+        >
+          <button
+            class="flex flex-row link-container pl-0 pt-0"
+            style="max-width: max-content; height: auto; display: inline;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+            >
+              contact us
+            </p>
+          </button>
+        </a>
+      </p>
+    </div>
+  </form>
 </div>
 `;

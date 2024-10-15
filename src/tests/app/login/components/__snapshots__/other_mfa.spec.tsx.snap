@@ -2,131 +2,135 @@
 
 exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
 <div>
-  <section
-    id="mainSection"
-  >
-    <p
-      class="title-2"
+  <form>
+    <section
+      id="mainSection"
     >
-      Let's Confirm Your Identity
-    </p>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-    />
-    <p>
-      We've sent a code to:
-    </p>
-    <span
-      aria-label="authentication-method"
-    >
-      ********@somemail.com
-    </span>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
-    <div
-      class="flex flex-col w-full text-field"
-    >
-      <p>
-        Enter Security Code
+      <p
+        class="title-2"
+      >
+        Let's Confirm Your Identity
       </p>
-      <div
-        class="flex flex-row items-center input  "
-      >
-        <input
-          aria-label="Enter Security Code"
-          type="text"
-          value=""
-        />
-        <div
-          class="cursor-pointer"
-        />
-      </div>
-      <div
-        class="error-container mt-1 p-1"
-      >
-        <div />
-      </div>
-    </div>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-    />
-    <a
-      style="display: block;"
-      tabindex="-1"
-    >
-      <button
-        class="flex flex-row link-container self-start"
-        style="max-width: max-content; height: auto; display: block;"
-        tabindex="0"
-      >
-        <p
-          class="link undefined"
-        >
-          Resend Code
-        </p>
-      </button>
-    </a>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
-    <div
-      class="flex flex-row justify-center items-center tooltip"
-    >
       <span
-        class="tooltiptext !p-2"
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p>
+        We've sent a code to:
+      </p>
+      <span
+        aria-label="authentication-method"
       >
-        Enter a Security Code.
+        ********@somemail.com
       </span>
-      <button
-        aria-label="Confirm"
-        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-        type="button"
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-full text-field"
       >
-        Confirm
-      </button>
-    </div>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-    />
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
-    <div
-      class=""
-      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-    />
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-    />
-    <h3>
-      Need Help?
-    </h3>
-    <span
-      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-    />
-    <p>
-      Give us a call using the number listed on the back of your Member ID card or
-       
+        <p>
+          Enter Security Code
+        </p>
+        <div
+          class="flex flex-row items-center input  "
+        >
+          <input
+            aria-label="Enter Security Code"
+            type="text"
+            value=""
+          />
+          <div
+            class="cursor-pointer"
+          />
+        </div>
+        <div
+          class="error-container mt-1 p-1"
+        >
+          <div />
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+      />
       <a
-        href="https://www.bcbst.com/contact-us"
-        style="display: inline;"
-        tabindex="-1"
+        aria-label="Resend Code"
+        style="display: block;"
       >
         <button
-          class="flex flex-row link-container pl-0 pt-0 pr-0"
-          style="max-width: max-content; height: auto; display: inline;"
-          tabindex="0"
+          class="flex flex-row link-container self-start"
+          style="max-width: max-content; height: auto; display: block;"
+          tabindex="-1"
+          type="button"
         >
           <p
             class="link undefined"
           >
-            contact us
+            Resend Code
           </p>
         </button>
       </a>
-      .
-    </p>
-  </section>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-row justify-center items-center tooltip"
+      >
+        <span
+          class="tooltiptext !p-2"
+        >
+          Enter a Security Code.
+        </span>
+        <button
+          aria-label="Confirm"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          type="submit"
+        >
+          Confirm
+        </button>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class=""
+        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h3>
+        Need Help?
+      </h3>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+      />
+      <p>
+        Give us a call using the number listed on the back of your Member ID card or
+         
+        <a
+          aria-label="contact us"
+          href="https://www.bcbst.com/contact-us"
+          style="display: inline;"
+        >
+          <button
+            class="flex flex-row link-container pl-0 pt-0 pr-0"
+            style="max-width: max-content; height: auto; display: inline;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+            >
+              contact us
+            </p>
+          </button>
+        </a>
+        .
+      </p>
+    </section>
+  </form>
 </div>
 `;

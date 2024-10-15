@@ -104,13 +104,14 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <a
+                aria-label="View Identity Protection Services"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container pl-0"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"
@@ -259,13 +260,14 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <a
+                          aria-label="Set Up Method"
                           style="display: flex;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container font-bold primary-color pl-0"
                             style="max-width: max-content; height: auto; display: flex;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link linkUnderlineNone"
@@ -349,13 +351,14 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <a
+                          aria-label="Set Up Method"
                           style="display: flex;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container font-bold primary-color pl-0"
                             style="max-width: max-content; height: auto; display: flex;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link linkUnderlineNone"
@@ -439,13 +442,14 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <a
+                          aria-label="Set Up Method"
                           style="display: flex;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container font-bold primary-color pl-0"
                             style="max-width: max-content; height: auto; display: flex;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link linkUnderlineNone"
@@ -529,13 +533,14 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <a
+                          aria-label="Set Up Method"
                           style="display: flex;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container font-bold primary-color pl-0"
                             style="max-width: max-content; height: auto; display: flex;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link linkUnderlineNone"
