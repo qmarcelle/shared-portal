@@ -1,0 +1,1088 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateSocialSecurityNumber Page should render UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 font-bold"
+          >
+            Update Social Security Number
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            You can update the Social Security Number (SSN) we have on file here.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main small-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h1
+                    class="title-1 mb-0 title-2"
+                  >
+                    About Social Security Number
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1 mb-0"
+                  >
+                    For privacy and security, we will not display the current social security number we have on file.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1 mb-0"
+                  >
+                    Your SSN is used to process important tax related documents. Adding or updating your SSN will ensure that your documents are accurate and timely.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="flex flex-col flex flex-col mt-4"
+              >
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2 font-bold title-3"
+                      >
+                        Chris Hall
+                      </p>
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        DOB: 01/01/1978
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        A SSN was found on file.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <p
+                          class="font-bold primary-color ml-2"
+                        >
+                          Update
+                        </p>
+                        <div
+                          class="ml-2"
+                        >
+                          <img
+                            alt="link"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2 font-bold title-3"
+                      >
+                        Maddison Hall
+                      </p>
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        DOB: 01/01/1979
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        A SSN was found on file.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <p
+                          class="font-bold primary-color ml-2"
+                        >
+                          Update
+                        </p>
+                        <div
+                          class="ml-2"
+                        >
+                          <img
+                            alt="link"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2 font-bold title-3"
+                      >
+                        Forest Hall
+                      </p>
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        DOB: 01/01/2001
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        A SSN was found on file.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <p
+                          class="font-bold primary-color ml-2"
+                        >
+                          Update
+                        </p>
+                        <div
+                          class="ml-2"
+                        >
+                          <img
+                            alt="link"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2 font-bold title-3"
+                      >
+                        Corey Hall
+                      </p>
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        DOB: 01/01/2002
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="inline-flex"
+                        >
+                          <img
+                            alt="ErrorIcon"
+                            class="icon mr-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 text-red-600"
+                          >
+                            No SSN on file.
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <p
+                          class="font-bold primary-color ml-2"
+                        >
+                          Update
+                        </p>
+                        <div
+                          class="ml-2"
+                        >
+                          <img
+                            alt="link"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2 font-bold title-3"
+                      >
+                        Telly Hall
+                      </p>
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        DOB: 01/01/2005
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        A SSN was found on file.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <p
+                          class="font-bold primary-color ml-2"
+                        >
+                          Update
+                        </p>
+                        <div
+                          class="ml-2"
+                        >
+                          <img
+                            alt="link"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 ml-2 font-bold title-3"
+                      >
+                        Janie Hall
+                      </p>
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        DOB: 01/01/2015
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="inline-flex"
+                        >
+                          <img
+                            alt="ErrorIcon"
+                            class="icon mr-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 text-red-600"
+                          >
+                            No SSN on file.
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <p
+                          class="font-bold primary-color ml-2"
+                        >
+                          Update
+                        </p>
+                        <div
+                          class="ml-2"
+                        >
+                          <img
+                            alt="link"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 font-bold"
+        >
+          Update Social Security Number
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
+        >
+          You can update the Social Security Number (SSN) we have on file here.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main small-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h1
+                  class="title-1 mb-0 title-2"
+                >
+                  About Social Security Number
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1 mb-0"
+                >
+                  For privacy and security, we will not display the current social security number we have on file.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1 mb-0"
+                >
+                  Your SSN is used to process important tax related documents. Adding or updating your SSN will ensure that your documents are accurate and timely.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="flex flex-col flex flex-col mt-4"
+            >
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2 font-bold title-3"
+                    >
+                      Chris Hall
+                    </p>
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      DOB: 01/01/1978
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      A SSN was found on file.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="font-bold primary-color ml-2"
+                      >
+                        Update
+                      </p>
+                      <div
+                        class="ml-2"
+                      >
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2 font-bold title-3"
+                    >
+                      Maddison Hall
+                    </p>
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      DOB: 01/01/1979
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      A SSN was found on file.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="font-bold primary-color ml-2"
+                      >
+                        Update
+                      </p>
+                      <div
+                        class="ml-2"
+                      >
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2 font-bold title-3"
+                    >
+                      Forest Hall
+                    </p>
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      DOB: 01/01/2001
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      A SSN was found on file.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="font-bold primary-color ml-2"
+                      >
+                        Update
+                      </p>
+                      <div
+                        class="ml-2"
+                      >
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2 font-bold title-3"
+                    >
+                      Corey Hall
+                    </p>
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      DOB: 01/01/2002
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="inline-flex"
+                      >
+                        <img
+                          alt="ErrorIcon"
+                          class="icon mr-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 text-red-600"
+                        >
+                          No SSN on file.
+                        </p>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="font-bold primary-color ml-2"
+                      >
+                        Update
+                      </p>
+                      <div
+                        class="ml-2"
+                      >
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2 font-bold title-3"
+                    >
+                      Telly Hall
+                    </p>
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      DOB: 01/01/2005
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      A SSN was found on file.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="font-bold primary-color ml-2"
+                      >
+                        Update
+                      </p>
+                      <div
+                        class="ml-2"
+                      >
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer mb-4"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 ml-2 font-bold title-3"
+                    >
+                      Janie Hall
+                    </p>
+                    <p
+                      class="body-1 ml-2"
+                    >
+                      DOB: 01/01/2015
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="inline-flex"
+                      >
+                        <img
+                          alt="ErrorIcon"
+                          class="icon mr-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <p
+                          class="body-1 text-red-600"
+                        >
+                          No SSN on file.
+                        </p>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="font-bold primary-color ml-2"
+                      >
+                        Update
+                      </p>
+                      <div
+                        class="ml-2"
+                      >
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
