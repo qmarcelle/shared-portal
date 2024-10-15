@@ -43,7 +43,7 @@ export const ProfileHeaderCardItem = ({
               onSelectionChange={() => {}}
             />
             <Spacer size={32} />
-            <a href={'/profileSettings'}>
+            <a tabIndex={0} href={'/profileSettings'}>
               <Title
                 className="!font-bold primary-color underline underline-offset-3 title-3 "
                 text={profileSetting}

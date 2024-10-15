@@ -45,11 +45,11 @@ export const ClaimsSnapshotCardSection = ({
 
   return (
     <Column>
-      <section className={'card-main max-sm:m-4 md:my-8'}>
+      <section className={'card-main max-sm:my-4 md:my-8'}>
         <SearchField onSearch={handleSearch} hint="Search Claims..." />
       </section>
 
-      <div className={'xs:block md:inline-flex max-sm:m-4 md:my-2'}>
+      <div className={'xs:block md:inline-flex max-sm:my-4 md:my-2'}>
         <Row className="body-1 flex-grow align-top mb-0 ">
           Filter Results:{' '}
           <a className="link ml-2 flex">
@@ -73,7 +73,7 @@ export const ClaimsSnapshotCardSection = ({
         <Spacer axis="horizontal" size={8} />
       </div>
 
-      <div className={'flex flex-col max-sm:m-4'}>
+      <div className={'flex flex-col max-sm:my-4'}>
         <Spacer size={12} />
         {claims.slice(0, 10).map((item) => (
           <ClaimItem key={item.id} className="mb-4" claimInfo={item} />

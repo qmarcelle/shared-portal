@@ -19,6 +19,23 @@ export default auth(async (req) => {
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
   const isInboundSSO = inboundSSORoutes.has(nextUrl.pathname);
 
+  /**
+   * Handle requests to the root of the application (/)
+   * There is no content here. It should redirect to the default login landing if already logged in, or to the login page if not.
+   */
+  if (nextUrl.pathname == '/') {
+    return Response.redirect(
+      new URL(
+        (isLoggedIn ? process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL : '/login') ||
+          '/dashboard',
+        nextUrl,
+      ),
+    );
+  }
+
+  /**
+   * Handle API routes
+   */
   if (isApiAuthRoute) {
     return;
   }
@@ -42,7 +59,7 @@ export default auth(async (req) => {
   }
 
   /**
-   * Routes for the login flow.
+   * Handle login flow routes
    * Already logged-in users should be redirected to the dashboard.
    */
   if (isAuthRoute) {
@@ -55,6 +72,9 @@ export default auth(async (req) => {
     }
   }
 
+  /**
+   * Handle logged-in traffic when HCL redirect is enabled
+   */
   if (
     process.env.WPS_REDIRECT_ENABLED == 'true' &&
     isLoggedIn &&

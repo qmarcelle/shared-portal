@@ -11,10 +11,11 @@ describe('Profile Settings Card Component', () => {
     const component = renderUI();
 
     screen.getByText('Communication Settings');
+    screen.getByText('Update your alert preferences.');
     screen.getByText('Security Settings');
+    screen.getByText('Change your password and edit your account security.');
     screen.getByText('Sharing & Permissions');
-    screen.getByText('Connect Accounts');
-
+    screen.getByText('Change your password and edit your account security.');
     expect(component.baseElement).toMatchSnapshot();
   });
 });

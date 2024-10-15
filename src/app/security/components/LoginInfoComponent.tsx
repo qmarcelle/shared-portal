@@ -4,6 +4,8 @@ import { LinkRow } from '@/components/foundation/LinkRow';
 import { ListRow } from '@/components/foundation/ListRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { ToolTip } from '@/components/foundation/Tooltip';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import infoIcon from '../../../../public/assets/info.svg';
 
@@ -12,6 +14,17 @@ interface LoginInfoComponentProps {
 }
 
 export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
+  const changeMyPasswordAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'change my password',
+      click_url: process.env.NEXT_PUBLIC_PASSWORD_RESET,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+  };
   return (
     <Card className="small-section">
       <div className="flex flex-col">
@@ -42,6 +55,7 @@ export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
           label="Change My Password"
           onClick={() => {
             window.location.href = process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '';
+            changeMyPasswordAnalytics();
           }}
         />
       </div>

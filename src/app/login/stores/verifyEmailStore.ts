@@ -62,7 +62,6 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
         });
       } catch (err) {
         logger.error('Error from Verify Email Api', err);
-        console.error(err);
         // Set indicator for login button
         set(() => ({ completeVerifyEmailProg: AppProg.failed }));
         const errorMessage = inlineErrorCodeMessageMap.get(

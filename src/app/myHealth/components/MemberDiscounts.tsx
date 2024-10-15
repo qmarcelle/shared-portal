@@ -36,7 +36,7 @@ export const MemberDiscounts = ({
         <Spacer size={16} />
         <TextBox text={copy} />
         <Spacer size={32} />
-        <Row className="card-section">
+        <Row className="flex-wrap">
           {discountCards.map((item) => (
             // eslint-disable-next-line react/jsx-key
             <DiscountInfoCard

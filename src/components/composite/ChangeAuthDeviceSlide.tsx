@@ -1,3 +1,5 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { ReactElement } from 'react';
 import { Button } from '../foundation/Button';
 import { Column } from '../foundation/Column';
@@ -23,6 +25,18 @@ export const ChangeAuthDeviceSlide = ({
   nextCallback,
   cancelCallback,
 }: ChangeAuthDeviceProps) => {
+  const changeDeviceAnalytics = (actionVal: string, labelVal: string) => {
+    const analytics: AnalyticsData = {
+      click_text: actionVal,
+      click_url: undefined,
+      element_category: labelVal?.toLocaleLowerCase(),
+      action: actionVal,
+      event: 'select_content',
+      content_type: 'select',
+    };
+    googleAnalytics(analytics);
+  };
+
   return (
     <Column className="items-center">
       <Header className="title-2" text={label} />
@@ -33,9 +47,30 @@ export const ChangeAuthDeviceSlide = ({
         {actionArea}
         <Spacer size={24} />
         {bottomNote && <TextBox className="mb-8" text={bottomNote} />}
-        <Button callback={nextCallback} label="Next" />
+        <Button
+          callback={
+            nextCallback
+              ? () => {
+                  nextCallback();
+                  changeDeviceAnalytics('next', label);
+                }
+              : undefined
+          }
+          label="Next"
+        />
         <Spacer size={16} />
-        <Button callback={cancelCallback} type="ghost" label="Cancel" />
+        <Button
+          callback={
+            cancelCallback
+              ? () => {
+                  cancelCallback();
+                  changeDeviceAnalytics('cancel', label);
+                }
+              : undefined
+          }
+          type="ghost"
+          label="Cancel"
+        />
       </Column>
     </Column>
   );

@@ -14,10 +14,7 @@ const customJestConfig = {
     '<rootDir>/src/tests/__mocks__/ping-jest-mock-data-setup.ts',
   ],
   testEnvironment: 'jest-environment-jsdom',
-  testMatch: [
-    '**/tests/app/login/**/*spec.{ts,tsx}',
-    '**/tests/app/security/**/*spec.{ts,tsx}',
-  ],
+  testMatch: ['**/tests/**/*spec.{ts,tsx}'],
   //coverageProvider: 'v8',
   collectCoverageFrom: ['./src/**'],
   coveragePathIgnorePatterns: ['/tests/'],

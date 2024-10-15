@@ -19,25 +19,17 @@ export async function verifyMfaDevices(
       '/mfAuthentication/verifyDevices',
       request,
     );
-    console.log(
-      `VerifyMFADevices Success Response - ${JSON.stringify(axiosResponse.data)}`,
-    );
+    logger.info('VerifyMFADevices API - Success', axiosResponse);
     return axiosResponse?.data;
   } catch (error) {
+    logger.error('VerifyMFADevices API - Failure', error);
     if (error instanceof AxiosError) {
-      logger.error('Response form API' + error.response?.data);
-      console.log(
-        `VerifyMFaDevices Failed With Error Code - ${error.response?.data?.data?.errorCode}, Error Response - ${JSON.stringify(error.response?.data)}`,
-      );
       return {
         errorCode:
           error.response?.data?.data?.errorCode ??
           error.response?.data?.details?.returnCode,
       };
     } else {
-      console.log(
-        `VerifyMFADevices Failed with Error - ${JSON.stringify(error)}`,
-      );
       throw 'An error occured';
     }
   }

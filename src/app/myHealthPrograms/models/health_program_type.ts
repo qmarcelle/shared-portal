@@ -5,8 +5,10 @@ export enum HealthProgramType {
   HingeHealth = 'HingeHealth',
   TeladocHealthDiabetesManagement = 'TeladocHealthDiabetesManagement',
   QuestSelect = 'QuestSelect',
+  TeladocMentalHealth = 'TeladocMentalHealth',
   TeladocPrimaryCareProvider = 'TeladocPrimaryCareProvider ',
   TalkToNurse = 'TalkToNurse',
   TeladocHealthGeneralUrgentCare = 'TeladocHealthGeneralUrgentCare',
   TeladocHealthDiabetesPrevention = 'TeladocHealthDiabetesPrevention',
+  AbleTo = 'AbleTo',
 }

@@ -22,8 +22,10 @@ jest.mock('../../../../utils/server_session', () => ({
 
 describe('Authenticator App Setup', () => {
   let component: RenderResult;
-  beforeAll(() => {
-    const showAppModal = useAppModalStore.getState().showAppModal;
+  const showAppModal = useAppModalStore.getState().showAppModal;
+  const dismissAppModal = useAppModalStore.getState().dismissModal;
+  beforeEach(() => {
+    dismissAppModal();
     mockedAxios.post.mockResolvedValueOnce({
       data: {
         data: {
@@ -106,6 +108,72 @@ describe('Authenticator App Setup', () => {
           name: 'Authenticator App Setup Complete',
         }),
       ).toBeVisible();
+    });
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should render the screens without error when we close the modal previously with error', async () => {
+    // Init Screen is rendered correctly
+    await waitFor(() => {
+      expect(
+        screen.getByRole('heading', { name: 'Authenticator App Setup' }),
+      ).toBeVisible();
+      expect(screen.getByText('Secret Key:')).toBeVisible();
+      expect(
+        screen.getByText('ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ'),
+      ).toBeVisible();
+    });
+    expect(component.baseElement).toMatchSnapshot();
+
+    mockedAxios.post.mockRejectedValue(
+      createAxiosErrorForTest({
+        errorObject: {
+          data: { errorCode: 'INVALID_OTP' },
+        },
+        status: 400,
+      }),
+    );
+
+    const securityCode = screen.getByLabelText(/Enter Security Code/i);
+    await userEvent.type(securityCode, '123456');
+    fireEvent.click(screen.getByRole('button', { name: /confirm/i }));
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          'There is a problem with the security code. Try re-entering or resending the code.',
+        ),
+      ).toBeVisible();
+    });
+    fireEvent.click(screen.getByAltText('close'));
+    await waitFor(() => {
+      expect(
+        screen.queryByText('Authenticator App Setup'),
+      ).not.toBeInTheDocument();
+    });
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          message: 'Phone already registered.',
+          deviceType: 'SMS',
+          deviceStatus: 'ACTIVATION_REQUIRED',
+          createdAt: '2024-02-09T12:40:33.554Z',
+          updatedAt: '2024-02-09T12:40:33.554Z',
+          phone: '11111111111',
+          email: 'thomas@abc.com',
+          secret: 'ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+          keyUri:
+            'otpauth://totp/thomas@abc.com?secret=ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+        },
+      },
+    });
+    showAppModal({ content: <AddMFAAuthenticatorJourney /> });
+
+    await waitFor(() => {
+      expect(
+        screen.queryByText(
+          'There is a problem with the security code. Try re-entering or resending the code.',
+        ),
+      ).not.toBeInTheDocument();
     });
     expect(component.baseElement).toMatchSnapshot();
   });

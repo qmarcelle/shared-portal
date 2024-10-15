@@ -11,7 +11,7 @@ const OtherProfileSettings = () => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <div className="flex flex-col app-content">
-        <section className="flex flex-col justify-start self-start px-4">
+        <section className="flex flex-col justify-start self-start">
           <Header type="title-1" text="Other Profile Settings" />
           <Spacer size={16} />
           <TextBox text="Add or update details about yourself, including ethnicity, race and language preferences.`" />

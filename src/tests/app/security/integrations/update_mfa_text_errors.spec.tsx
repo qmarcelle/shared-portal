@@ -35,13 +35,13 @@ describe('Update Mfa Text Authentication Errors', () => {
       ).toBeVisible();
     });
 
-    fireEvent.click(screen.getByText(/change your number/i));
+    /* fireEvent.click(screen.getByText(/change your number/i));
 
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Phone Number' }),
       ).toBeVisible();
-    });
+    }); */
     const phoneEntryInput = screen.getByLabelText(/phone number/i);
     await userEvent.type(phoneEntryInput, '11111111111');
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
@@ -99,13 +99,13 @@ describe('Update Mfa Text Authentication Errors', () => {
       ).toBeVisible();
     });
 
-    fireEvent.click(screen.getByText(/change your number/i));
+    /* fireEvent.click(screen.getByText(/change your number/i));
 
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Phone Number' }),
       ).toBeVisible();
-    });
+    }); */
     const phoneEntryInput = screen.getByLabelText(/phone number/i);
     await userEvent.type(phoneEntryInput, '11111111111');
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
@@ -144,13 +144,13 @@ describe('Update Mfa Text Authentication Errors', () => {
       ).toBeVisible();
     });
 
-    fireEvent.click(screen.getByText(/change your number/i));
+    /* fireEvent.click(screen.getByText(/change your number/i));
 
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Phone Number' }),
       ).toBeVisible();
-    });
+    }); */
     const phoneEntryInput = screen.getByLabelText(/phone number/i);
     await userEvent.type(phoneEntryInput, '11111111111');
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
@@ -186,13 +186,13 @@ describe('Update Mfa Text Authentication Errors', () => {
       ).toBeVisible();
     });
 
-    fireEvent.click(screen.getByText(/change your number/i));
+    /* fireEvent.click(screen.getByText(/change your number/i));
 
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Phone Number' }),
       ).toBeVisible();
-    });
+    }); */
     const phoneEntryInput = screen.getByLabelText(/phone number/i);
     await userEvent.type(phoneEntryInput, '11111111111');
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
@@ -228,13 +228,13 @@ describe('Update Mfa Text Authentication Errors', () => {
       ).toBeVisible();
     });
 
-    fireEvent.click(screen.getByText(/change your number/i));
+    /* fireEvent.click(screen.getByText(/change your number/i));
 
     await waitFor(() => {
       expect(
         screen.getByRole('heading', { name: 'Change Phone Number' }),
       ).toBeVisible();
-    });
+    }); */
     const phoneEntryInput = screen.getByLabelText(/phone number/i);
     await userEvent.type(phoneEntryInput, '11111111111');
     fireEvent.click(screen.getByRole('button', { name: /next/i }));

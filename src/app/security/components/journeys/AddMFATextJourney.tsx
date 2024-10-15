@@ -11,8 +11,10 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { AppProg } from '@/models/app_prog';
 import { ComponentDetails } from '@/models/component_details';
+import { googleAnalytics } from '@/utils/analytics';
 import { formatPhoneNumber, isValidMobileNumber } from '@/utils/inputValidator';
 import { useEffect, useState } from 'react';
 import { MfaDeviceType } from '../../models/mfa_device_type';
@@ -52,15 +54,22 @@ export const AddMFATextJourney = ({
     updateInvalidError([]);
   }, [updateInvalidError]);
 
-  useEffect(() => {
-    updateInvalidError([]);
-  }, [updateInvalidError]);
-
   function changePageIndex(index: number, showback = true) {
     changePage?.(index, showback);
     resetState();
   }
 
+  const addMFATextAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'resend code',
+      click_url: undefined,
+      element_category: 'text message setup',
+      action: 'resend code',
+      event: 'select_content',
+      content_type: 'select',
+    };
+    googleAnalytics(analytics);
+  };
   const initNewDevice = async (value: boolean) => {
     // Do API call for new device
     try {
@@ -73,6 +82,7 @@ export const AddMFATextJourney = ({
         setMainAuthDevice(newAuthDevice);
       }
       if (value) {
+        addMFATextAnalytics();
         setResentCode(true);
       } else {
         setResentCode(false);

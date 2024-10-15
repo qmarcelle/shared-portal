@@ -1,0 +1,22 @@
+.on-dot {
+  height: 12px;
+  width: 12px;
+  background-color: #508316;
+  border-radius: 50%;
+  display: block;
+  margin-right: 3px;
+}
+
+.off-dot {
+  height: 12px;
+  width: 12px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  display: block;
+  margin-right: 3px;
+}
+
+.on-off {
+  width: 55px;
+  height: 24px;
+}

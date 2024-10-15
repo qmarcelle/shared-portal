@@ -105,10 +105,7 @@ const SpendingAccount = () => {
                       <span className="link" key={1}>
                         <a>start a chat </a>
                       </span>,
-                      <span key={2}>
-                        or call us at [1-800-000-000] or email consumercoach
-                        @bcbst.com
-                      </span>,
+                      <span key={2}>or call us at [1-800-000-000].</span>,
                     ]}
                   />
 

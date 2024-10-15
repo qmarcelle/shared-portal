@@ -18,13 +18,14 @@ interface AccordionListCardProps extends IComponent {
 export const AccordionListCard = ({
   header,
   information,
+  className,
 }: AccordionListCardProps) => {
   return (
-    <Card className={header && 'large-section p-8'}>
+    <Card className={`${className ?? ''} ${header ? 'large-section' : ''}`}>
       <Column className="items-stretch">
         {header && (
           <div>
-            <Header className="title-2" text={header}></Header>{' '}
+            <Header className="title-2" text={header}></Header>
             <Spacer size={22} />
           </div>
         )}

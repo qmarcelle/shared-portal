@@ -2,7 +2,6 @@ import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import {
   communicationSettingsIcon,
-  connectAccountsIcon,
   securityIcon,
   sharePermissionsIcon,
 } from '@/components/foundation/Icons';
@@ -13,6 +12,7 @@ export const ProfileSettingsSection = () => {
       label: 'Communication Settings',
       description: 'Update your alert preferences.',
       iconName: communicationSettingsIcon,
+      link: '/communicationSettings',
     },
     {
       label: 'Security Settings',
@@ -24,11 +24,7 @@ export const ProfileSettingsSection = () => {
       label: 'Sharing & Permissions',
       description: 'View or edit access to plan information.',
       iconName: sharePermissionsIcon,
-    },
-    {
-      label: 'Connect Accounts',
-      description: 'Connect multiple health plan accounts into one.',
-      iconName: connectAccountsIcon,
+      link: '/sharingPermissions',
     },
   ];
 

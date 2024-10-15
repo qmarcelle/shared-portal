@@ -4,17 +4,27 @@ import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import {
+  costIcon,
+  cvsCaremarkIcon,
   downloadIcon,
   externalIcon,
+  mailOrderPharmacyIcon,
+  prescriptionIcon,
   rightIcon,
+  searchPharmacyIcon,
+  shoppingCreditIcon,
 } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation';
 import { PharmacyDocuments } from './components/PharmacyDocuments';
 import { PharmacyFAQ } from './components/PharmacyFAQ';
+import { PharmacySpendingSummary } from './components/PharmacySpendingSummary';
+import { ShopOverCounterItemsCard } from './components/ShopOverCounterItems';
 
 const Pharmacy = () => {
   const router = useRouter();
@@ -26,8 +36,47 @@ const Pharmacy = () => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <section className="flex flex-row items-start app-body"></section>
-        <Spacer size={32} />
+        <section className="flex flex-row items-start app-body ">
+          <Column className="flex-grow">
+            <CVSCaremarkInformationCard
+              title="Get More with CVS Caremark"
+              description="A caremark.com account will let you get prescriptions by mail, price a medication and more."
+              icon={<Image src={cvsCaremarkIcon} alt="download form" />}
+              linkText="Visit CVS Caremark"
+              linkIcon={<Image src={externalIcon} alt="download form" />}
+              services={[
+                {
+                  serviceIcon: (
+                    <Image src={prescriptionIcon} alt="Prescription Icon" />
+                  ),
+                  serviceLabel: 'View or Refill My Prescriptions',
+                },
+                {
+                  serviceIcon: (
+                    <Image
+                      src={mailOrderPharmacyIcon}
+                      alt="Mail Order Pharmacy Icon"
+                    />
+                  ),
+                  serviceLabel: 'Get My Prescriptions by Mail',
+                },
+                {
+                  serviceIcon: <Image src={costIcon} alt="Cost Icon" />,
+                  serviceLabel: 'Find Drug Cost & My Coverage',
+                },
+                {
+                  serviceIcon: (
+                    <Image
+                      src={searchPharmacyIcon}
+                      alt="Search Pharmacy Icon"
+                    />
+                  ),
+                  serviceLabel: 'Find a Pharmacy',
+                },
+              ]}
+            />
+          </Column>
+        </section>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <RecentClaimSection
@@ -84,11 +133,29 @@ const Pharmacy = () => {
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <></>
+            <PharmacySpendingSummary
+              className="large-section md:w-[352px] md:h-[248px]"
+              title="My Pharmacy Spending Summary"
+              description="View your annual statement for your pharmacy claims."
+              linkLabel="View Pharmacy Spending Summary"
+              url="/spendingSummary"
+            />
           </Column>
         </section>
-
-        <Spacer size={32} />
+        <section className="flex flex-row items-start app-body">
+          <Column className="flex-grow">
+            <Title
+              className="title-1 ml-4 md:mt-12"
+              text="Resources & Support"
+            />
+            <ShopOverCounterItemsCard
+              icon={shoppingCreditIcon}
+              title="Shop Over-the-Counter Items"
+              description="You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door."
+              url="https://www.cvs.com/benefits/account/create-account/email"
+            />{' '}
+          </Column>
+        </section>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
             <Card className="large-section flex flex-row items-start app-body ">
