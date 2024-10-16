@@ -28,7 +28,7 @@ export const Radio = ({
           checked={selected}
         />
       </label>
-      <div className="flex-col mb-3">
+      <div className="flex-col m-1">
         <p className={`${subLabel != null ? 'font-bold' : ''}`}>{label}</p>
         {subLabel && <p>{subLabel}</p>}
       </div>

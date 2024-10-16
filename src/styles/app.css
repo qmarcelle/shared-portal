@@ -279,3 +279,7 @@
 .skip-underscore .link {
   text-decoration: none;
 }
+.disabled-checkbox {
+  opacity: 0.5;
+  pointer-events: none; /* Disables interactions with the checkbox */
+}

@@ -11,7 +11,7 @@ import { VisionBalance } from './components/VisionBalance';
 
 const Balances = () => {
   return (
-    <div className="flex flex-col justify-center items-center page">
+    <main className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
       <Column className="app-content app-base-font-color">
         <Header className="m-4 mb-0" text="Balances" />
@@ -82,6 +82,7 @@ const Balances = () => {
                   serviceName: 'Ortho Lifetime Maximum',
                 },
               ]}
+              balancesFlag={true}
             />
             <VisionBalance className="large-section" linkURL="" />
           </Column>
@@ -107,7 +108,7 @@ const Balances = () => {
           </Column>
         </section>
       </Column>
-    </div>
+    </main>
   );
 };
 

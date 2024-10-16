@@ -217,6 +217,16 @@ describe('Office Visits Detail', () => {
         "View a list of common services, the maximum amount covered by your plan and how many you've used.",
       ),
     ).toBeInTheDocument();
+    expect(
+      screen.getByText('Benefit Level 2 Urgent Care, Facility In-Network:'),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText('Benefit Level 2 Urgent Care, Facility In-Network:'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Benefit Level 2 Urgent Care, Facility In-Network:'),
+    ).toBeInTheDocument();
 
     //get Help
     expect(screen.getByText('Get Help with Benefits')).toBeInTheDocument();

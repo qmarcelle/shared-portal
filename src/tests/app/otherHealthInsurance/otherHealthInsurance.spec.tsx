@@ -1,12 +1,12 @@
 import ReportOtherHealthInsurance from '@/app/reportOtherHealthInsurance/page';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 const renderUI = () => {
-  render(<ReportOtherHealthInsurance />);
+  return render(<ReportOtherHealthInsurance />);
 };
 
-describe('AccessOnMyPlanComponent', () => {
+describe('OtherHealthInsurance', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
     screen.getByRole('heading', { name: 'Report Other Health Insurance' });
@@ -18,7 +18,11 @@ describe('AccessOnMyPlanComponent', () => {
     expect(
       screen.getByRole('heading', { name: 'About Other Insurance' }),
     ).toBeVisible();
-
+    const updateButtons = screen.getAllByText(/Update/i);
+    fireEvent.click(updateButtons[0]);
+    await waitFor(() => {
+      expect(screen.getAllByText(/Other Health Insurance/i));
+    });
     expect(component).toMatchSnapshot();
   });
 });
