@@ -22,14 +22,10 @@ export const UpdateSocialSecurityNumberJourney = ({
   memberName,
 }: ModalChildProps & UpdateSocialSecurityNumberJourneyProps) => {
   const { dismissModal } = useAppModalStore();
-  const [securityNumber, setsecurityNumber] = useState('***-**-****');
+  const [securityNumber, setSecurityNumber] = useState('***-**-****');
 
-  const AddSecurityNumber = (value: string) => {
-    setsecurityNumber(value);
-  };
-
-  const generateNumber = () => {
-    setsecurityNumber('111-22-3333');
+  const addSecurityNumber = (value: string) => {
+    setSecurityNumber(value);
   };
 
   function changePageIndex(index: number, showback = true) {
@@ -55,10 +51,7 @@ export const UpdateSocialSecurityNumberJourney = ({
           <Spacer size={32} />
           <TextField
             value={securityNumber}
-            valueCallback={(val) => AddSecurityNumber(val)}
-            onFocusCallback={() => {
-              generateNumber();
-            }}
+            valueCallback={(val) => addSecurityNumber(val)}
             maxLength={11}
             label="Social Security Number"
           />

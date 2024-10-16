@@ -1,6 +1,6 @@
 import { Column } from '@/components/foundation/Column';
 import { IComponent } from '@/components/IComponent';
-import { MemberListDetails } from '../models/member_list_detail';
+import { MemberListDetails } from '../models/app/member_list_detail';
 import { MemberListItemCard } from './MemberListItemCard';
 
 interface MemberListCardProps extends IComponent {
@@ -16,7 +16,7 @@ export const MemberListCard = ({ memberListDetails }: MemberListCardProps) => {
             key={index}
             className="mb-4"
             memberName={item.memberName}
-            DOB={item.dateOfBirth}
+            dOB={item.dateOfBirth}
             isSSN={item.isSSN}
           />
         ))}
