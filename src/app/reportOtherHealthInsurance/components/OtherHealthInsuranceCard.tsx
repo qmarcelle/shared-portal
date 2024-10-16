@@ -1,7 +1,7 @@
 import { Column } from '@/components/foundation/Column';
 import { IComponent } from '../../../components/IComponent';
 import { OtherHealthInsuranceDetails } from '../models/otherhealthinsurance_details';
-import { OtherHelathInsuranceCardItem } from './OtherHealthInsuranceCardItem';
+import { OtherHealthInsuranceCardItem } from './OtherHealthInsuranceCardItem';
 
 interface OtherHealthInsuranceCardProps extends IComponent {
   otherHealthInsuranceDetails: OtherHealthInsuranceDetails[];
@@ -13,7 +13,7 @@ export const OtherHealthInsuranceCard = ({
   return (
     <Column className="flex flex-col m-4 md:mt-0">
       {otherHealthInsuranceDetails.map((item, index) => (
-        <OtherHelathInsuranceCardItem
+        <OtherHealthInsuranceCardItem
           key={index}
           className="mb-4"
           memberName={item.memberName}

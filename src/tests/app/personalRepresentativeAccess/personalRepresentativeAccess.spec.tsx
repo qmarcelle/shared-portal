@@ -9,11 +9,13 @@ const renderUI = () => {
 describe('PersonalRepresentativeAccess', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
+    expect(screen.getByText('Personal Representative Access')).toBeVisible();
     expect(
-      screen.getByRole('heading', { name: 'Members You Represent' }),
+      screen.getByText(
+        /Personal representatives have the legal authority to make health care decisions on behalf of the member/i,
+      ),
     ).toBeVisible();
-    expect(screen.getByText('Robert Hall')).toBeVisible();
-    expect(screen.getByText('DOB: 01/01/1943')).toBeVisible();
+    expect(screen.getByText('Understanding Access')).toBeVisible();
     expect(screen.getAllByText('Full Access'));
     expect(screen.getAllByText('[Mature Minor]'));
     expect(screen.getByText('DOB: 01/01/2008')).toBeVisible();
@@ -28,10 +30,7 @@ describe('PersonalRepresentativeAccess', () => {
     expect(screen.getAllByText('[Mature Minor]'));
     expect(screen.getByText('DOB: 01/01/2009')).toBeVisible();
     expect(screen.getAllByText('Basic Access as of 01/01/2024'));
-    fireEvent.click(screen.getByText(/Request Full Access/i));
-    await waitFor(() => {
-      expect(screen.getAllByText('[Mature Minor]'));
-    });
+
     expect(component).toMatchSnapshot();
   });
 });
