@@ -1,5 +1,7 @@
 import { AppLink } from '@/components/foundation/AppLink';
-import { TextBox } from '@/components/foundation/TextBox';
+import { Column } from '@/components/foundation/Column';
+import { RichText } from '@/components/foundation/RichText';
+import { Row } from '@/components/foundation/Row';
 import { IComponent } from '../../../components/IComponent';
 import { Card } from '../../../components/foundation/Card';
 import { Dropdown, SelectItem } from '../../../components/foundation/Dropdown';
@@ -8,7 +10,7 @@ import { ServicesUsed } from '../models/servicesused_details';
 import { DentalBalanceChart } from './DentalBalanceChart';
 import { ServicesUsedChart } from './ServicesUsedChart';
 
-interface DentalBalanceProps extends IComponent {
+export interface DentalBalanceProps extends IComponent {
   members: SelectItem[];
   selectedMemberId: string;
   deductibleSpent: number | null;
@@ -17,6 +19,7 @@ interface DentalBalanceProps extends IComponent {
   outOfPocketLimit: number | null;
   serviceDetailsUsed: ServicesUsed[];
   onSelectedMemberChange: () => void;
+  balancesFlag: boolean;
 }
 
 export const DentalBalance = ({
@@ -29,13 +32,14 @@ export const DentalBalance = ({
   outOfPocketSpent,
   serviceDetailsUsed,
   onSelectedMemberChange,
+  balancesFlag,
 }: DentalBalanceProps) => {
   return (
     <Card className={className}>
-      <div>
+      <Column>
         <h2 className="title-2">Dental Balance</h2>
         <Spacer size={32} />
-        <div className="flex flex-row">
+        <Row className="flex flex-row">
           <p>Member :</p>
           <Spacer axis="horizontal" size={8} />
           <Dropdown
@@ -43,7 +47,7 @@ export const DentalBalance = ({
             initialSelectedValue={selectedMemberId}
             items={members}
           />
-        </div>
+        </Row>
         <Spacer size={32} />
         <DentalBalanceChart
           label="Deductible"
@@ -61,22 +65,27 @@ export const DentalBalance = ({
           label="Services Used"
           serviceDetails={serviceDetailsUsed}
         />
-        <TextBox
-          className="inline"
-          type="body-2"
-          text="Services Used is based on your processed items. There may be a delay in the Services Used list updating. If you're if a service has been used, "
-        />
-        <AppLink
-          displayStyle="inline"
-          className="underline py-0 px-1 body-2"
-          label="start a chat"
-        />
-        <TextBox
-          className="inline"
-          type="body-2"
-          text="or call us at [1-800-000-0000]."
-        />
-      </div>
+        {balancesFlag ? (
+          <Column>
+            <RichText
+              type="body-2"
+              spans={[
+                <span key={0}>
+                  Services Used is based on your processed items. There may be a
+                  delay in the Services Used list updating. If you&apos;re
+                  unsure if a service has been used,{' '}
+                </span>,
+                <span className="link" key={1}>
+                  <a> start a chat </a>
+                </span>,
+                <span key={3}> or call us at [1-800-000-0000].</span>,
+              ]}
+            />
+          </Column>
+        ) : (
+          <AppLink label="View Balances" url="/balances" />
+        )}
+      </Column>
     </Card>
   );
 };

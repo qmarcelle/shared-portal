@@ -35,9 +35,12 @@ export const ServicesUsedChart = ({
               </Column>
               <TextBox
                 className="ml-5"
-                text={formatCurrency(item.limitAmount) ?? '--'}
+                text={
+                  (formatCurrency(item.limitAmount) ?? '--') +
+                  ' ' +
+                  item.serviceName
+                }
               />
-              <TextBox className="ml-1" text={item.serviceName} />
             </Row>
             <Spacer size={16} />
             <Divider />

@@ -14,13 +14,10 @@ export const BenefitTypeHeaderSection = ({
   benefitTypeHeaderDetails,
 }: BenefitTypeHeaderSectionProps) => {
   return (
-    <Column>
+    <Column className="ml-2">
       <Column className="title-1">
         {benefitTypeHeaderDetails.title ?? (
-          <Header
-            className="mb-0 title-1"
-            text={benefitTypeHeaderDetails.title}
-          />
+          <Header text={benefitTypeHeaderDetails.title} />
         )}
       </Column>
       {benefitTypeHeaderDetails.benefitLevelDetails && (
