@@ -18,6 +18,7 @@ type SelectMfaArgs = {
   deviceId: string;
   interactionId: string;
   interactionToken: string;
+  userToken: string;
   policyId?: string;
   appId?: string;
 };
@@ -34,21 +35,23 @@ type SubmitMfaOtpArgs = {
 export async function callSelectDevice(
   args: SelectMfaArgs,
 ): Promise<ActionResponse<SelectMFAStatus, SelectMfaDeviceResponse>> {
+  let username: string | null = null;
   try {
     logger.info('Selected Mfa Device');
     args.policyId = process.env.ES_API_POLICY_ID;
     args.appId = process.env.ES_API_APP_ID;
+    username = verifyUserId(args.userToken);
     const resp = await esApi.post<ESResponse<SelectMfaDeviceResponse>>(
       '/mfAuthentication/loginAuthentication/selectDevice',
       args,
     );
-    logger.info('Select Device API - Success', resp);
+    logger.info('Select Device API - Success', resp, username);
     return {
       status: SelectMFAStatus.OK,
       data: resp.data?.data,
     };
   } catch (err) {
-    logger.error('Select Device API - Failure', err);
+    logger.error('Select Device API - Failure', err, username);
     if (err instanceof AxiosError) {
       return {
         status: SelectMFAStatus.ERROR,
@@ -66,15 +69,16 @@ export async function callSubmitMfaOtp(
   params: SubmitMfaOtpArgs,
 ): Promise<ActionResponse<SubmitMFAStatus, LoginResponse>> {
   let authUser: string | null = null;
+  let username: string | null = null;
   try {
     params.policyId = process.env.ES_API_POLICY_ID;
     params.appId = process.env.ES_API_APP_ID;
+    username = verifyUserId(params.userToken);
     const resp = await esApi.post<ESResponse<LoginResponse>>(
       '/mfAuthentication/loginAuthentication/provideOtp',
       params,
     );
-    logger.info('Submit MFA OTP API - Success', resp);
-    const username = verifyUserId(params.userToken);
+    logger.info('Submit MFA OTP API - Success', resp, username);
     if (!username) {
       throw 'Failed to verify username';
     }
@@ -87,7 +91,7 @@ export async function callSubmitMfaOtp(
       data: resp.data.data,
     };
   } catch (err) {
-    logger.error('Submit MFA OTP API - Failure', err);
+    logger.error('Submit MFA OTP API - Failure', err, username);
     if (err instanceof AxiosError) {
       if (slideErrorCodes.includes(err.response?.data.data.errorCode)) {
         if (err.response?.data.data.errorCode == 'MF-405') {

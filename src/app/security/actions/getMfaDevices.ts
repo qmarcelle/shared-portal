@@ -8,18 +8,20 @@ import { AxiosError } from 'axios';
 import { GetMfaDevices } from '../models/get_mfa_devices';
 
 export async function getMfaDevices(): Promise<ESResponse<GetMfaDevices>> {
+  let userId: string | null = null;
   try {
+    userId = await getServerSideUserId();
     const request = {
-      userId: await getServerSideUserId(),
+      userId: userId,
     };
     const axiosResponse = await esApi.post(
       '/mfAuthentication/getDevices',
       request,
     );
-    logger.info('GetMFADevices API - Success', axiosResponse);
+    logger.info('GetMFADevices API - Success', axiosResponse, request.userId);
     return axiosResponse?.data;
   } catch (error) {
-    logger.error('GetMFADevices API - Failure', error);
+    logger.error('GetMFADevices API - Failure', error, userId);
     if (error instanceof AxiosError) {
       return {
         errorCode:
