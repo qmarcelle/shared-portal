@@ -11,7 +11,9 @@ import { PutMfaToggleRequest } from '../models/put_mfa_toggle_request';
 export async function callToggleMfa(
   mfaState: boolean,
 ): Promise<ESResponse<PutMfaToggle>> {
+  let userId: string | null = null;
   try {
+    userId = await getServerSideUserId();
     const req: PutMfaToggleRequest = {
       userId: await getServerSideUserId(),
       mfaEnabled: mfaState ? 'true' : 'false',
@@ -20,10 +22,10 @@ export async function callToggleMfa(
       '/mfAuthentication/mfaEnableDisable',
       req,
     );
-    logger.info('Toggle MFA API - Success', resp);
+    logger.info('Toggle MFA API - Success', resp, userId);
     return resp.data;
   } catch (err) {
-    logger.error('Toggle MFA API - Failure', err);
+    logger.error('Toggle MFA API - Failure', err, userId);
     if (err instanceof AxiosError) {
       return {
         errorCode: err.response?.status.toString(),

@@ -19,10 +19,14 @@ export async function updateMfaDevices(
       '/mfAuthentication/updateDevices',
       request,
     );
-    logger.info('UpdateMFADevices API - Success', axiosResponse);
+    logger.info(
+      'UpdateMFADevices API - Success',
+      axiosResponse,
+      request.userId,
+    );
     return axiosResponse?.data;
   } catch (error) {
-    logger.error('UpdateMFADevices API - Failure', error);
+    logger.error('UpdateMFADevices API - Failure', error, request.userId);
     if (error instanceof AxiosError) {
       return {
         errorCode:

@@ -367,6 +367,7 @@ describe('Resend Mfa Code', () => {
           interactionId: 'interactionId3',
           interactionToken: 'interactionToken3',
           policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
+          userToken: expect.anything(),
         },
       );
     });
