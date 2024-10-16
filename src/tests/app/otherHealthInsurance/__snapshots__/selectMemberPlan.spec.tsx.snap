@@ -1,0 +1,588 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main>
+        <div
+          class="flex flex-col items-center"
+        >
+          <h2
+            class="title-2"
+          >
+            Add Medicare Plan
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            The policy you've entered is:
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col text-center font-bold"
+          >
+            <p
+              class="body-1 body-1"
+            >
+              [Company Name]
+            </p>
+            <p
+              class="body-1 body-1"
+            >
+              [Policy Identification #]
+            </p>
+            <p
+              class="body-1 body-1"
+            >
+              [Policy Start Date]
+            </p>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1 w-[130%] text-center"
+          >
+            Do other members of your plan have this other health insurance policy?
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div
+          class="flex flex-col text-left ml-4"
+        >
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="Apply to All Members"
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                Apply to All Members
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="Select Members"
+                checked=""
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                Select Members
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col ml-7"
+          >
+            <p
+              class="body-1 body-1 text-left"
+            >
+              Check all that apply:
+            </p>
+            <div
+              class="flex flex-row gap-2 p-2  "
+            >
+              <label>
+                <input
+                  checked=""
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Chris Hall
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  "
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Maddison Hall
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  "
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Forrest Hall
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  "
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Corey Hall
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  "
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Telly Hall
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  "
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Janie Hall
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main>
+      <div
+        class="flex flex-col items-center"
+      >
+        <h2
+          class="title-2"
+        >
+          Add Medicare Plan
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1"
+        >
+          The policy you've entered is:
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col text-center font-bold"
+        >
+          <p
+            class="body-1 body-1"
+          >
+            [Company Name]
+          </p>
+          <p
+            class="body-1 body-1"
+          >
+            [Policy Identification #]
+          </p>
+          <p
+            class="body-1 body-1"
+          >
+            [Policy Start Date]
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1 w-[130%] text-center"
+        >
+          Do other members of your plan have this other health insurance policy?
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </div>
+      <div
+        class="flex flex-col text-left ml-4"
+      >
+        <div
+          class="flex flex-row gap-1 "
+        >
+          <label>
+            <input
+              aria-label="Apply to All Members"
+              id=""
+              name=""
+              type="radio"
+            />
+          </label>
+          <div
+            class="flex-col m-1"
+          >
+            <p
+              class=""
+            >
+              Apply to All Members
+            </p>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-row gap-1 "
+        >
+          <label>
+            <input
+              aria-label="Select Members"
+              checked=""
+              id=""
+              name=""
+              type="radio"
+            />
+          </label>
+          <div
+            class="flex-col m-1"
+          >
+            <p
+              class=""
+            >
+              Select Members
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col ml-7"
+        >
+          <p
+            class="body-1 body-1 text-left"
+          >
+            Check all that apply:
+          </p>
+          <div
+            class="flex flex-row gap-2 p-2  "
+          >
+            <label>
+              <input
+                checked=""
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Chris Hall
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  "
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Maddison Hall
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  "
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Forrest Hall
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  "
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Corey Hall
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  "
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Telly Hall
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  "
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Janie Hall
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

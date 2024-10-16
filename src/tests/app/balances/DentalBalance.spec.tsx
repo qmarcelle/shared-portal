@@ -34,6 +34,7 @@ const renderUI = () => {
           serviceName: 'Ortho Lifetime Maximum',
         },
       ]}
+      balancesFlag={true}
     />,
   );
 };

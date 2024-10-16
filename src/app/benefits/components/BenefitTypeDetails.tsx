@@ -1,3 +1,4 @@
+import { DentalBalance } from '@/app/balances/components/DentalBalance';
 import { SpendingAccountSection } from '@/app/balances/components/SpendingAccountsSection';
 import { MedicalBalanceSection } from '@/app/dashboard/components/MedicalBalanceSection';
 import { GetHelpSection } from '@/components/composite/GetHelpSection';
@@ -20,11 +21,9 @@ export const BenefitTypeDetails = ({
     <Column className="app-content app-base-font-color">
       {benefitTypeDetails?.benefitTypeHeaderDetails && (
         <>
-          <Spacer size={32}></Spacer>
           <section className="flex flex-row items-start app-body">
             <Column className="flex-grow page-section-63_33 items-stretch">
               <Column className="app-content app-base-font-color">
-                <Spacer size={32}></Spacer>
                 <BenefitTypeHeaderSection
                   benefitTypeHeaderDetails={
                     benefitTypeDetails?.benefitTypeHeaderDetails
@@ -51,14 +50,6 @@ export const BenefitTypeDetails = ({
                   body={benefitTypeDetails?.estimateCosts.body}
                   icon={benefitTypeDetails?.estimateCosts.icon}
                   link={benefitTypeDetails.estimateCosts.link}
-                />
-              )}
-              {benefitTypeDetails?.findDrugsCostAndCoverage && (
-                <InfoCard
-                  label={benefitTypeDetails?.findDrugsCostAndCoverage.label}
-                  body={benefitTypeDetails?.findDrugsCostAndCoverage.body}
-                  icon={benefitTypeDetails?.findDrugsCostAndCoverage.icon}
-                  suffix={benefitTypeDetails?.findDrugsCostAndCoverage.suffix}
                 />
               )}
               {benefitTypeDetails?.servicesUsed && (
@@ -117,6 +108,34 @@ export const BenefitTypeDetails = ({
                   className={
                     benefitTypeDetails.medicalAndPharmacyBalance.className
                   }
+                />
+              )}
+              {benefitTypeDetails?.dentalBalance && (
+                <DentalBalance
+                  members={benefitTypeDetails?.dentalBalance?.members}
+                  selectedMemberId={
+                    benefitTypeDetails?.dentalBalance?.selectedMemberId
+                  }
+                  deductibleSpent={
+                    benefitTypeDetails?.dentalBalance?.deductibleSpent
+                  }
+                  deductibleLimit={
+                    benefitTypeDetails?.dentalBalance?.deductibleLimit
+                  }
+                  outOfPocketSpent={
+                    benefitTypeDetails?.dentalBalance?.outOfPocketSpent
+                  }
+                  outOfPocketLimit={
+                    benefitTypeDetails?.dentalBalance?.outOfPocketLimit
+                  }
+                  onSelectedMemberChange={
+                    benefitTypeDetails.dentalBalance.onSelectedMemberChange
+                  }
+                  serviceDetailsUsed={
+                    benefitTypeDetails.dentalBalance.serviceDetailsUsed
+                  }
+                  balancesFlag={benefitTypeDetails.dentalBalance.balancesFlag}
+                  className={benefitTypeDetails.dentalBalance.className}
                 />
               )}
               {benefitTypeDetails?.spendingAccounts && (
