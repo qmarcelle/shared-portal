@@ -1,3 +1,4 @@
+import { useAppModalStore } from '@/components/foundation/AppModal';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { IComponent } from '../../../components/IComponent';
@@ -8,25 +9,25 @@ import { Row } from '../../../components/foundation/Row';
 import { Spacer } from '../../../components/foundation/Spacer';
 import { TextBox } from '../../../components/foundation/TextBox';
 import { Title } from '../../../components/foundation/Title';
+import { OtherHealthInsurance } from '../journeys/OtherHealthInsurance';
 
 interface OtherHealthInsuranceCardItemProps extends IComponent {
   memberName: string;
   DOB: string;
   icon?: JSX.Element;
-
   icon1?: JSX.Element;
   updatedDate: string;
 }
 
-export const OtherHelathInsuranceCardItem = ({
+export const OtherHealthInsuranceCardItem = ({
   memberName,
   DOB,
   updatedDate,
   onClick,
   className,
-
   icon = <Image src={editIcon} alt="link" />,
 }: OtherHealthInsuranceCardItemProps) => {
+  const { showAppModal } = useAppModalStore();
   function getHealthInsuranceContent() {
     return (
       <Column>
@@ -36,11 +37,11 @@ export const OtherHelathInsuranceCardItem = ({
             className="font-bold primary-color"
             text="Update"
             suffix={icon}
-            // callback={() =>
-            //   showAppModal({
-            //     content: <RequestAccessOnMyPlan memberName={''} />,
-            //   })
-            // }
+            callback={() =>
+              showAppModal({
+                content: <OtherHealthInsurance />,
+              })
+            }
           />
           <Spacer size={40} />
         </Row>
@@ -72,14 +73,14 @@ export const OtherHelathInsuranceCardItem = ({
         <Row>
           <TextBox
             className="ml-2 body-1"
-            text="Not Covered by other health insurance."
+            text="Not covered by other health insurance."
           />
         </Row>
         <Spacer size={16} />
         <Row>
           <TextBox
             className="ml-2  body-1"
-            text={'Last Updated:' + updatedDate}
+            text={'Last Updated: ' + updatedDate}
           />
         </Row>
         <Spacer size={16} />

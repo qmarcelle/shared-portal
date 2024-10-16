@@ -10,7 +10,7 @@ import { Radio } from '@/components/foundation/Radio';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { useState } from 'react';
-import FullAccessOption from '../components/FullAndBasicAccessOption';
+import FullAndBasicAccessOption from '../components/FullAndBasicAccessOption';
 
 const bottomNote =
   'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and condition.';
@@ -69,7 +69,7 @@ export const EditLevelOfAccess = ({
       key="second"
       label="Edit Level Of Access"
       subLabel=""
-      actionArea={<FullAccessOption selectedData={selectedData} />}
+      actionArea={<FullAndBasicAccessOption selectedData={selectedData} />}
       buttonLabel="Save Permissions"
       nextCallback={() => changePage?.(2, true)}
       cancelCallback={() => dismissModal()}

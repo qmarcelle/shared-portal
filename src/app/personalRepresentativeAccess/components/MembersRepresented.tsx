@@ -27,7 +27,7 @@ export const MembersRepresented = ({
           <Header type="title-2" text="Members You Represent" />
         )}
         {!isRepresentative && (
-          <Header type="title-2" text="Your Representatives" />
+          <Header type="title-2" text="Your Representative(s)" />
         )}
         <Spacer size={32} />
         <Column className="flex flex-col">
