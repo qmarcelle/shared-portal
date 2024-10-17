@@ -1,4 +1,4 @@
-import UpdateSocialSecurityNumber from '@/app/updateSocialSecurityNumber/page';
+import UpdateSocialSecurityNumber from '@/app/updateSocialSecurityNumber';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -41,6 +41,18 @@ describe('UpdateSocialSecurityNumber Page', () => {
     expect(screen.getByText('DOB: 01/01/2005')).toBeInTheDocument();
     expect(screen.getByText('Janie Hall')).toBeInTheDocument();
     expect(screen.getByText('DOB: 01/01/2015')).toBeInTheDocument();
+    expect(screen.queryAllByText('A SSN was found on file.')).toHaveLength(4);
+
+    expect(component).toMatchSnapshot();
+  });
+  it('should render No SSN condition correctly', async () => {
+    const component = renderUI();
+
+    expect(
+      screen.getByRole('heading', { name: 'Update Social Security Number' }),
+    ).toBeVisible();
+    screen.findByAltText(/link/i);
+    expect(screen.queryAllByText('No SSN on file.')).toHaveLength(2);
 
     expect(component).toMatchSnapshot();
   });
