@@ -28,6 +28,7 @@
 @import './on_off_option.css';
 @import './spending_Summary.css';
 @import './loader.css';
+@import './calendar.css';
 
 :root {
   --primary-color: #005eb9;
