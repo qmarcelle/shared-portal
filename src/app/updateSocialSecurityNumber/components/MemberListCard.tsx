@@ -16,7 +16,7 @@ export const MemberListCard = ({ memberListDetails }: MemberListCardProps) => {
             key={index}
             className="mb-4"
             memberName={item.memberName}
-            dOB={item.dateOfBirth}
+            dateOfBirth={item.dateOfBirth}
             isSSN={item.isSSN}
           />
         ))}

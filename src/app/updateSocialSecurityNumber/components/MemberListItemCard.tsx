@@ -14,14 +14,14 @@ import { UpdateSocialSecurityNumberJourney } from './journeys/UpdateSocialSecuri
 
 interface MemberListItemCardProps extends IComponent {
   memberName: string;
-  dOB: string;
+  dateOfBirth: string;
   isSSN: boolean;
   icon?: JSX.Element;
 }
 
 export const MemberListItemCard = ({
   memberName,
-  dOB,
+  dateOfBirth,
   className,
   isSSN,
   icon = <Image src={editIcon} alt="link" />,
@@ -32,7 +32,7 @@ export const MemberListItemCard = ({
       <Column className="m-4">
         <Spacer size={16} />
         <TextBox className="ml-2 font-bold title-3" text={memberName} />
-        <TextBox text={'DOB: ' + dOB} className="ml-2" />
+        <TextBox text={'DOB: ' + dateOfBirth} className="ml-2" />
         <Spacer size={16} />
         <Divider />
         <Spacer size={16} />
