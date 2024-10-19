@@ -23,14 +23,14 @@ export default auth(async (req) => {
   /* Handle POST call from public site
    * This will NOT autofill the username field. It just redirects the POST call to a GET to prevent the app from confusing it for a server action call.
    */
-  if (method == 'POST' && nextUrl.pathname == '/login') {
+  if (req.method == 'POST' && nextUrl.pathname == '/login') {
     try {
       const formData = await req.formData();
       if (formData.get('accountType')) {
         return Response.redirect(new URL('/login', nextUrl));
       }
     } catch (err) {
-      console.log('Skipped POST handling due to no form data.');
+      console.log('Skipped POST request check due to no form data.');
     }
   }
 
