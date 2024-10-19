@@ -19,6 +19,17 @@ export default auth(async (req) => {
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
   const isInboundSSO = inboundSSORoutes.has(nextUrl.pathname);
 
+  /**
+   * Handle POST call from public site
+   * This will NOT autofill the username field. It just redirects the POST call to a GET to prevent the app from confusing it for a server action call.
+   */
+  if (req.method == 'POST' && nextUrl.pathname == '/login') {
+    const formData = await req.formData();
+    if (formData.get('accountType')) {
+      return Response.redirect(new URL('/login', nextUrl));
+    }
+  }
+
   if (isApiAuthRoute) {
     return;
   }
