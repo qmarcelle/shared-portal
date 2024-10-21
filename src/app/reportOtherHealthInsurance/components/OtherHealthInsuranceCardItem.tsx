@@ -48,7 +48,7 @@ export const OtherHealthInsuranceCardItem = ({
                     label="Are you sure you want to exit?"
                     subLabel="Any information you entered will not be saved."
                     primaryButtonLabel="Return to Form"
-                    SecondaryButtonLabel="Exit Anyway"
+                    secondaryButtonLabel="Exit Anyway"
                     primaryButtonCallback={dismissChildModal}
                     secondaryButtonCallback={dismissModal}
                   />
