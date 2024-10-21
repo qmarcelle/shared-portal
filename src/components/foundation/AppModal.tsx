@@ -4,6 +4,7 @@ import React, { ReactElement, createContext } from 'react';
 import { Modal } from 'react-responsive-modal';
 import { create } from 'zustand';
 import leftIcon from '../../../public/assets/left.svg';
+import { IComponent } from '../IComponent';
 import { Column } from './Column';
 import { bcbstSilhouletteLogo, closeIcon } from './Icons';
 import { Row } from './Row';
@@ -11,36 +12,56 @@ import { Spacer } from './Spacer';
 import { TextBox } from './TextBox';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-interface ModalProps {
+interface ModalProps extends IComponent {
   content: ReactElement & ModalChildProps;
   store?: any;
+  isChildActionAppModal?: boolean;
+  childModalContent?: ReactElement & ModalChildProps;
 }
 interface ModalControllerProps {
   showBack: boolean;
   showModal: boolean;
   pageIndex: number;
   store: null;
+  isChildAction?: boolean;
   updateShowBack: (isShowBack: boolean) => void;
   updateshowModal: (isShowBack: boolean) => void;
   updatepageIndex: (pageIndex: number) => void;
   updateStore: (store: null) => void;
   showAppModal: (props: ModalProps) => void;
   dismissModal: () => void;
+  isChildModal: boolean;
+  showChildModal: () => void;
+  dismissChildModal: () => void;
+  isChildActionAppModalProp: boolean;
 }
 
 export const useAppModalStore = create<ModalControllerProps>((set) => ({
   showBack: false,
   showModal: false,
+  isChildModal: false,
   pageIndex: 0,
   store: null,
+  isChildActionAppModalProp: false,
   updateShowBack: (isShowBack: boolean) =>
     set(() => ({ showBack: isShowBack })),
   updateshowModal: (isShowModal: boolean) =>
     set(() => ({ showModal: isShowModal })),
   updatepageIndex: (pageIndex: number) => set(() => ({ pageIndex: pageIndex })),
   updateStore: (store: null) => set(() => ({ store: store })),
-  showAppModal: ({ content, store }: ModalProps) => {
+  showAppModal: ({
+    content,
+    store,
+    isChildActionAppModal,
+    childModalContent,
+  }: ModalProps) => {
     modalBody = content;
+    childModalBody = childModalContent;
+    if (isChildActionAppModal) {
+      set(() => ({
+        isChildActionAppModalProp: isChildActionAppModal,
+      }));
+    }
     set(() => ({
       showModal: true,
     }));
@@ -62,12 +83,25 @@ export const useAppModalStore = create<ModalControllerProps>((set) => ({
     set(() => ({
       pageIndex: 0,
     }));
+    set(() => ({
+      isChildModal: false,
+    }));
     modalBody = null;
+  },
+  showChildModal: () => {
+    set(() => ({
+      isChildModal: true,
+    }));
+  },
+  dismissChildModal: () => {
+    set(() => ({
+      isChildModal: false,
+    }));
   },
 }));
 let modalBody: ReactElement | null = null;
+let childModalBody: ReactElement | null | undefined = null;
 let pageIndexStack: number[] = [];
-
 export interface ModalChildProps {
   changePage?: (pageIndex: number, showBackButton?: boolean) => any;
   pageIndex?: number;
@@ -153,14 +187,24 @@ export const AppModal = () => {
     store,
     showModal,
     pageIndex,
+    isChildModal,
+    showChildModal,
+    dismissChildModal,
+    isChildActionAppModalProp,
   } = useAppModalStore();
   const changePage = (pageIndex: number, showBackButton: boolean = false) => {
     updateShowBack(showBackButton);
     updatepageIndex(pageIndex);
     pageIndexStack.push(pageIndex);
   };
-
   const closeModal = () => {
+    isChildActionAppModalProp ? showChildModal() : dismissModal();
+  };
+
+  const closeChildModal = () => {
+    dismissChildModal();
+  };
+  const closeAllModal = () => {
     dismissModal();
   };
   return (
@@ -171,6 +215,10 @@ export const AppModal = () => {
         changePage={changePage}
         pageIndex={pageIndex}
         closeModal={closeModal}
+        isChildModal={isChildModal}
+        closeChildModal={closeChildModal}
+        closeAllModal={closeAllModal}
+        childModalBody={childModalBody ?? <></>}
       />
     </ModalContext.Provider>
   );
@@ -182,6 +230,10 @@ type InnerAppModalProps = {
   modalBody: ReactElement;
   changePage?: (pageIndex: number, showBackButton: boolean) => any;
   pageIndex?: number;
+  isChildModal?: boolean;
+  closeChildModal?: () => any;
+  closeAllModal?: () => any;
+  childModalBody?: ReactElement;
 };
 
 export const InnerAppModal = ({
@@ -190,6 +242,8 @@ export const InnerAppModal = ({
   modalBody,
   changePage = () => {},
   pageIndex = 0,
+  isChildModal = false,
+  childModalBody,
 }: InnerAppModalProps) => {
   return (
     <Modal
@@ -218,6 +272,11 @@ export const InnerAppModal = ({
                 )}
               </div>
             </div>
+            {isChildModal && (
+              <div className="child-modal">
+                <div className="child-modal-content">{childModalBody}</div>
+              </div>
+            )}
             <Spacer size={32} />
             <ModalFooter />
           </Column>
