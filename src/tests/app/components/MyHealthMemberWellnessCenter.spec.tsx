@@ -1,8 +1,8 @@
-import { MemberWellnessCenterOptions } from '@/app/myHealth/Components/MemberWellnessCenterOptions';
+import { MemberWellnessCenterOptions } from '@/app/myHealth/components/MemberWellnessCenterOptions';
 import {
-  healthAssessmentIcon,
-  wellnessPointsIcon,
-  interactiveProgramsIcon,
+    healthAssessmentIcon,
+    interactiveProgramsIcon,
+    wellnessPointsIcon,
 } from '@/components/foundation/Icons';
 import { render, screen } from '@testing-library/react';
 
