@@ -30,6 +30,9 @@ export const {
       return token;
     },
   },
-  session: { strategy: 'jwt' },
+  session: {
+    strategy: 'jwt',
+    maxAge: parseInt(process.env.JWT_SESSION_EXPIRY_SECONDS || '1800'),
+  },
   ...authConfig,
 });
