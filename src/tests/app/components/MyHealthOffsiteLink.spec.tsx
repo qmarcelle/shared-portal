@@ -1,4 +1,4 @@
-import { MyHealthOffsiteLinkCard } from '@/app/myHealth/Components/MyHealthOffsiteLinkCard';
+import { MyHealthOffsiteLinkCard } from '@/app/myHealth/components/MyHealthOffsiteLinkCard';
 import { biometricScreeningIcon } from '@/components/foundation/Icons';
 import { render, screen } from '@testing-library/react';
 

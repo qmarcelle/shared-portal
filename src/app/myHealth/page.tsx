@@ -1,16 +1,16 @@
 'use client';
 import { Column } from '@/components/foundation/Column';
 import {
-  biometricScreeningIcon,
-  dentalHealthLibraryIcon,
-  healthAssessmentIcon,
-  interactiveProgramsIcon,
-  wellnessPointsIcon,
-  wellTunedBlogIcon,
+    biometricScreeningIcon,
+    dentalHealthLibraryIcon,
+    healthAssessmentIcon,
+    interactiveProgramsIcon,
+    wellnessPointsIcon,
+    wellTunedBlogIcon,
 } from '@/components/foundation/Icons';
-import { HealthLibraryOptions } from './Components/HealthLibraryOptions';
-import { MemberWellnessCenterOptions } from './Components/MemberWellnessCenterOptions';
-import { MyHealthOffsiteLinkCard } from './Components/MyHealthOffsiteLinkCard';
+import { HealthLibraryOptions } from './components/HealthLibraryOptions';
+import { MemberWellnessCenterOptions } from './components/MemberWellnessCenterOptions';
+import { MyHealthOffsiteLinkCard } from './components/MyHealthOffsiteLinkCard';
 
 const MyHealth = () => {
   const MemberWellnessCenterDetails = [
