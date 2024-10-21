@@ -205,6 +205,10 @@
 .download-pdf .gap-1 div.flex-col {
   margin: 0.25rem;
 }
+.disabled-checkbox {
+  opacity: 0.5;
+  pointer-events: none; /* Disables interactions with the checkbox */
+}
 
 .manage-image .link {
   display: ruby;

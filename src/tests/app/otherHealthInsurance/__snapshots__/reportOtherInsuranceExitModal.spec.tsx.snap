@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exit Modal Journey Should render UI properly 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              class="flex flex-col modal-container"
+            >
+              <div
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  tabindex="1"
+                />
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <h2
+                      class="title-2"
+                    >
+                      Other Health Insurance
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col items-center  w-[358px]"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 text-center"
+                        >
+                          Does this plan member have other insurance?
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-row gap-1 "
+                          >
+                            <label>
+                              <input
+                                aria-label="No"
+                                checked=""
+                                id=""
+                                name=""
+                                type="radio"
+                              />
+                            </label>
+                            <div
+                              class="flex-col m-1"
+                            >
+                              <p
+                                class=""
+                              >
+                                No
+                              </p>
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                          <div
+                            class="flex flex-row gap-1 "
+                          >
+                            <label>
+                              <input
+                                aria-label="Yes"
+                                id=""
+                                name=""
+                                type="radio"
+                              />
+                            </label>
+                            <div
+                              class="flex-col m-1"
+                            >
+                              <p
+                                class=""
+                              >
+                                Yes
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <button
+                        aria-label="Next"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color"
+                        type="button"
+                      >
+                        Next
+                      </button>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container undefined"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Cancel
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
+              >
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

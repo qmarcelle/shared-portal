@@ -1,4 +1,5 @@
 import { useAppModalStore } from '@/components/foundation/AppModal';
+import { ChildAppModalBody } from '@/components/foundation/ChildAppModalBody';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { IComponent } from '../../../components/IComponent';
@@ -27,7 +28,7 @@ export const OtherHealthInsuranceCardItem = ({
   className,
   icon = <Image src={editIcon} alt="link" />,
 }: OtherHealthInsuranceCardItemProps) => {
-  const { showAppModal } = useAppModalStore();
+  const { showAppModal, dismissModal, dismissChildModal } = useAppModalStore();
   function getHealthInsuranceContent() {
     return (
       <Column>
@@ -40,6 +41,18 @@ export const OtherHealthInsuranceCardItem = ({
             callback={() =>
               showAppModal({
                 content: <OtherHealthInsurance />,
+                isChildActionAppModal: true,
+                childModalContent: (
+                  <ChildAppModalBody
+                    key="first"
+                    label="Are you sure you want to exit?"
+                    subLabel="Any information you entered will not be saved."
+                    primaryButtonLabel="Return to Form"
+                    SecondaryButtonLabel="Exit Anyway"
+                    primaryButtonCallback={dismissChildModal}
+                    secondaryButtonCallback={dismissModal}
+                  />
+                ),
               })
             }
           />
