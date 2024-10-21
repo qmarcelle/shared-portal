@@ -44,7 +44,7 @@ const MyPlan = () => {
                   title: 'Update Social Security Number',
                   body: 'Add or update the Social Security Number associated with your plan.',
                   externalLink: false,
-                  url: '/profileSettings',
+                  url: '/updateSocialSecurityNumber',
                 },
                 {
                   title: 'Enroll in a Health Plan',
