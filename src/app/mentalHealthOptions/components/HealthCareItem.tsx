@@ -9,7 +9,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import ableToIcon from '../../../../public/assets/ableto.svg';
+import ableToIcon from '../../../../public/assets/ableTo.svg';
 import alightIcon from '../../../../public/assets/alight.svg';
 import careTNIcon from '../../../../public/assets/caretn.svg';
 import healthyMaternityIcon from '../../../../public/assets/healthymaternity.svg';
