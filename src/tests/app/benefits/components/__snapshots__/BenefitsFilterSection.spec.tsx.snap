@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FilterSection should render the UI correctly 1`] = `
+exports[`BenefitsFilterSection should render the UI correctly 1`] = `
 <div>
   <div
     class="card-main large-section px-0 m-0"
@@ -11,7 +11,7 @@ exports[`FilterSection should render the UI correctly 1`] = `
       <h1
         class="title-1 title-2"
       >
-        Filter Claims
+        Filter Benefits
       </h1>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -49,7 +49,7 @@ exports[`FilterSection should render the UI correctly 1`] = `
                       <p
                         class="body-1"
                       >
-                        All Members
+                        Chris Hall
                       </p>
                     </div>
                     <img
@@ -80,7 +80,7 @@ exports[`FilterSection should render the UI correctly 1`] = `
         <div
           class="body-1"
         >
-          Claim Type
+          Benefit Type
            
         </div>
         <span
@@ -108,64 +108,6 @@ exports[`FilterSection should render the UI correctly 1`] = `
                         class="body-1"
                       >
                         All Types
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
-      <div
-        class="flex flex-col"
-      >
-        <div
-          class="body-1"
-        >
-          Date Range
-           
-        </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
-        />
-        <div>
-          <div
-            class="rich-dropdown"
-          >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
-                <div
-                  class="body-1 input"
-                >
-                  <div
-                    class="flex flex-row p-1 items-center"
-                  >
-                    <div
-                      class="flex flex-col border-none flex-grow"
-                    >
-                      <p
-                        class="body-1"
-                      >
-                        Last Two Years
                       </p>
                     </div>
                     <img
@@ -201,7 +143,7 @@ exports[`FilterSection should render the UI correctly 1`] = `
 </div>
 `;
 
-exports[`FilterSection should render the UI correctly 2`] = `
+exports[`BenefitsFilterSection should render the UI correctly 2`] = `
 <div>
   <div
     class="card-main large-section px-0 m-0"
@@ -212,7 +154,7 @@ exports[`FilterSection should render the UI correctly 2`] = `
       <h1
         class="title-1 title-2"
       >
-        Filter Claims
+        Filter Benefits
       </h1>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -250,7 +192,7 @@ exports[`FilterSection should render the UI correctly 2`] = `
                       <p
                         class="body-1"
                       >
-                        All Members
+                        Chris Hall
                       </p>
                     </div>
                     <img
@@ -281,7 +223,7 @@ exports[`FilterSection should render the UI correctly 2`] = `
         <div
           class="body-1"
         >
-          Claim Type
+          Benefit Type
            
         </div>
         <span
@@ -309,64 +251,6 @@ exports[`FilterSection should render the UI correctly 2`] = `
                         class="body-1"
                       >
                         All Types
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
-      <div
-        class="flex flex-col"
-      >
-        <div
-          class="body-1"
-        >
-          Date Range
-           
-        </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
-        />
-        <div>
-          <div
-            class="rich-dropdown"
-          >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
-                <div
-                  class="body-1 input"
-                >
-                  <div
-                    class="flex flex-row p-1 items-center"
-                  >
-                    <div
-                      class="flex flex-col border-none flex-grow"
-                    >
-                      <p
-                        class="body-1"
-                      >
-                        Last Two Years
                       </p>
                     </div>
                     <img
