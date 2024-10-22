@@ -1,4 +1,3 @@
-import { IComponent } from '@/components/IComponent';
 import { OnMyPlanComponent } from '@/components/composite/OnMyPlanComponent';
 import { Accordion } from '@/components/foundation/Accordion';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -8,13 +7,43 @@ import { Divider } from '@/components/foundation/Divider';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
-import IDCardFrontCard from '../../../../public/assets/IDCardFrontCard.svg';
 import Down from '../../../../public/assets/down.svg';
 import Up from '../../../../public/assets/up.svg';
 import { PlanContactInformationSection } from './PlanContactInformationSection';
 
-export const PlanDetailsSection = ({ className }: IComponent) => {
+export type PlanDeatilsSectionProps = {
+  svgData: string | null;
+} & IComponent;
+
+export const PlanDetailsSection = ({
+  className,
+  svgData,
+}: PlanDeatilsSectionProps) => {
+  function IDCardFront() {
+    return (
+      <Column>
+        {svgData == null && (
+          <Column className="m-2 mb-10">
+            <TextBox
+              className="id-card-error-msg"
+              text="Your ID card is not available at this time."
+            ></TextBox>
+          </Column>
+        )}
+        {svgData && (
+          <Image
+            src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgData)}`}
+            alt="switch"
+            fill={true}
+            className="!relative"
+          />
+        )}
+      </Column>
+    );
+  }
+
   return (
     <Card className={className}>
       <div className="flex flex-col">
@@ -28,15 +57,12 @@ export const PlanDetailsSection = ({ className }: IComponent) => {
           ></TextBox>
         </Row>
         <Spacer size={32} />
-        <Image
-          alt="switch"
-          src={IDCardFrontCard}
-          className="items-end id-card"
-        />
+        {IDCardFront()}
+
         <Spacer size={16} />
         <TextBox text="All members of your plan use the same ID card."></TextBox>
         <Spacer size={32} />
-        <AppLink label="View More ID Card Options" />
+        <AppLink label="View More ID Card Options" url="/memberIDCard" />
         <Spacer size={32} />
         <Divider />
         <Spacer size={32} />

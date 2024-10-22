@@ -2,13 +2,12 @@
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
 import { useRef } from 'react';
 import Slider from 'react-slick';
 import rightIcon from '../../../../public//assets/right_large.svg';
 import AlertIcon from '../../../../public/assets/Alert-Gray1.svg';
-import IDCardBackCard from '../../../../public/assets/idcard_back.svg';
-import IDCardFrontCard from '../../../../public/assets/IDCardFrontCard.svg';
 import leftIcon from '../../../../public/assets/left_large.svg';
 
 const PreviousArrow = (props: any) => {
@@ -39,9 +38,16 @@ const NextArrow = (props: any) => {
   );
 };
 
-export const ImageSlider = () => {
+export type ImageSliderProps = {
+  svgFrontData: string | null;
+  svgBackData: string | null;
+} & IComponent;
+
+export const ImageSlider = ({
+  svgFrontData,
+  svgBackData,
+}: ImageSliderProps) => {
   const sliderRef = useRef<any>(null);
-  const isErrorslide = false;
 
   const settings = {
     dots: true,
@@ -57,27 +63,64 @@ export const ImageSlider = () => {
     },
   };
 
+  function iDCardFront() {
+    return (
+      <Column>
+        {svgFrontData == null && idCardErrorMessage()}
+        {svgFrontData && (
+          <Image
+            src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgFrontData)}`}
+            alt="FrontCard"
+            fill={true}
+            className="!relative m-auto"
+          />
+        )}
+      </Column>
+    );
+  }
+
+  function iDCardBack() {
+    return (
+      <Column>
+        {svgBackData == null && idCardErrorMessage()}
+        {svgBackData && (
+          <Image
+            src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgBackData)}`}
+            alt="BackCard"
+            fill={true}
+            className="!relative m-auto"
+          />
+        )}
+      </Column>
+    );
+  }
+
+  function idCardErrorMessage() {
+    return (
+      <Column className="neutral container">
+        <Column className="items-center  p-4 m-[65px]">
+          <Image src={AlertIcon} className="icon" alt="alert" />
+          <Spacer axis="horizontal" size={8} />
+          <TextBox
+            className="text-center"
+            text="There was a problem loading your ID Card. Try refreshing the page or returning to this page later."
+          />
+        </Column>
+      </Column>
+    );
+  }
+
   return (
     <Column
-      className={`w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10 ${isErrorslide ? 'neutral container' : ''}`}
+      className={
+        'w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10 '
+      }
     >
       <Slider ref={sliderRef} {...settings}>
         <Column className="slider-container carousel flex flex-col">
-          <Image src={IDCardFrontCard} className="m-auto" alt="FrontCard" />
+          {iDCardFront()}
         </Column>
-        <Column>
-          <Image src={IDCardBackCard} className="m-auto" alt="BackCard" />
-        </Column>
-        {isErrorslide && (
-          <Column className="items-center  p-4 mt-[65px]">
-            <Image src={AlertIcon} className="icon" alt="alert" />
-            <Spacer axis="horizontal" size={8} />
-            <TextBox
-              className="text-center"
-              text="There was a problem loading your ID Card. Try refreshing the page or returning to this page later."
-            />
-          </Column>
-        )}
+        <Column>{iDCardBack()}</Column>
       </Slider>
     </Column>
   );

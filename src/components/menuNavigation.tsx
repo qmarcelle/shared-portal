@@ -106,7 +106,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     description: 'This is My Plan',
     category: '',
     showOnMenu: true,
-    url: '/myplan',
+    url: '/myPlan',
     template: {
       firstCol: 'Plan Details',
       secondCol: 'Claims',

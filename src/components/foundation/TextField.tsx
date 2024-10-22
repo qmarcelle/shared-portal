@@ -25,6 +25,7 @@ export interface TextFieldProps extends IComponent {
   minValue?: number;
   maxValue?: number;
   maxLength?: number;
+  disabled?: boolean;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -112,8 +113,8 @@ const LowerPart = ({
 export const TextField = ({
   label,
   type = 'text',
-  errors = [],
-  fillGuidance,
+  errors = null,
+  fillGuidance = null,
   value,
   hint,
   valueCallback,
@@ -127,6 +128,7 @@ export const TextField = ({
   maxLength,
   className = '',
   highlightError = true,
+  disabled = false,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -157,7 +159,7 @@ export const TextField = ({
       <div
         className={`flex flex-row items-center input ${className} ${
           focus ? 'input-focus' : ''
-        } ${errors!.length > 0 && highlightError ? 'error-input' : ''}`}
+        } ${(errors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
       >
         <input
           aria-label={label}
@@ -175,6 +177,7 @@ export const TextField = ({
           max={maxValue}
           className={className}
           maxLength={maxLength}
+          disabled={disabled}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
           {isSuffixNeeded && (
@@ -182,7 +185,9 @@ export const TextField = ({
           )}
         </div>
       </div>
-      <LowerPart errors={errors} fillGuidance={fillGuidance} />
+      {(errors || fillGuidance) && (
+        <LowerPart errors={errors} fillGuidance={fillGuidance} />
+      )}
     </div>
   );
 };

@@ -1,81 +1,130 @@
 import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Button } from '@/components/foundation/Button';
+import { CalendarField } from '@/components/foundation/CalendarField';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
 import { Header } from '@/components/foundation/Header';
-import { downIcon } from '@/components/foundation/Icons';
-import { RichDropDown } from '@/components/foundation/RichDropDown';
-import { Row } from '@/components/foundation/Row';
+import { Radio } from '@/components/foundation/Radio';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
+import { IComponent } from '@/components/IComponent';
+import { base64ToBlob } from '@/utils/base64_blob_converter';
+import download from 'downloadjs';
 import { useState } from 'react';
+import { getIDCardPdf } from '../actions/getIdCardPdf';
 import { OrderIdCard } from '../journeys/OrderIdCard';
+import { IdCardMemberDetails } from '../model/app/idCardData';
 import { ImageSlider } from './ImageSlider';
 
-export const MemberIDCardInfo = () => {
+export type MemberIDCardInfoProps = {
+  svgFrontData: string | null;
+  svgBackData: string | null;
+  memberDetails: IdCardMemberDetails | null;
+} & IComponent;
+
+type CardType = 'current' | 'future';
+
+export const MemberIDCardInfo = ({
+  svgFrontData,
+  svgBackData,
+  memberDetails,
+}: MemberIDCardInfoProps) => {
   const { showAppModal } = useAppModalStore();
-  const [selectedText, setselectedText] = useState('Current Plan');
-  const dropDownList = [{ id: 'Current Plan' }, { id: 'Future Plan' }];
-  const handleDropDownUpdate = (value: string) => {
-    setselectedText(value);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedCardType, setSelectedCardType] = useState<CardType>('current');
+
+  const handleDateSelection = (value: string) => {
+    setSelectedDate(value);
+  };
+
+  const handleCardSelection = (value: CardType) => {
+    setSelectedCardType(value);
+  };
+
+  const downloadIdCard = async () => {
+    const resp = await getIDCardPdf(
+      selectedCardType == 'future' && selectedDate != null
+        ? selectedDate
+        : undefined,
+    );
+    if (resp.status == 200) {
+      const pdfBlob = base64ToBlob(resp.data!, 'application/pdf');
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+      // Open the ID Card PDF in a new tab.
+      window.open(pdfUrl);
+      // Download the ID Card pdf
+      download(pdfBlob, 'IDCard', 'application/pdf');
+    }
   };
   return (
-    <Card className="large-section sliderdots-active sliderdots ">
+    <Card className="large-section sliderdots-active sliderdots">
       <section id="Filter">
         <Column>
           <Header className="title-2" text="Member ID Card" />
           <Spacer size={16} />
-          <Row>
-            <TextBox text="View ID Card for:" />
-            <Spacer size={16} axis="horizontal" />
-            <RichDropDown
-              onSelectItem={(val) => {
-                handleDropDownUpdate(val.id);
-              }}
-              minWidth="min-w-[232px]"
-              itemData={dropDownList}
-              dropdownHeader={null}
-              headBuilder={() => (
-                <Row>
-                  <TextBox className="link" type="body-1" text={selectedText} />
-                  <Image
-                    src={downIcon}
-                    className="w-[20px] h-[20px] ml-2 items-end"
-                    alt=""
-                  />
-                </Row>
-              )}
-              selected={{ id: selectedText }}
-              itemsBuilder={(data) => (
-                <TextBox
-                  className="border-none flex-grow"
-                  type="body-1"
-                  text={data.id}
-                />
-              )}
-            />
-          </Row>
-          <ImageSlider />
+          <TextBox text="All members of your plan use the same ID card." />
+          <ImageSlider svgFrontData={svgFrontData} svgBackData={svgBackData} />
           <Spacer size={16} />
-          <section className="md:flex md:flex-row">
+          <section>
+            <TextBox className="title-3" text="Download ID Cards" />
             <TextBox
-              className="title-3 pb-[5px] md:pr-[5px] md:pb-0"
-              text="All members of your plan use the same ID card."
+              type="body-1"
+              className="mt-4 mb-2"
+              text="Select the card you want to download:"
             />
-            <Column className="md:w-[405px] body-1">
-              <Button label="Download ID Card" callback={() => {}} />
-              <Spacer size={16} />
+            <Column className="body-1">
+              <ul className="flex flex-col gap-2">
+                <Radio
+                  key="current"
+                  label="Get a card for the plan I have today."
+                  selected={selectedCardType == 'current'}
+                  callback={() => handleCardSelection('current')}
+                />
+                <Radio
+                  key="later"
+                  label="Get a card for a plan starting at a later date."
+                  childBuilder={(selected) => {
+                    if (selected) {
+                      return (
+                        <CalendarField
+                          disabled={selectedCardType == 'current'}
+                          label="When does this plan begin?"
+                          valueCallback={(val) => handleDateSelection(val)}
+                          isSuffixNeeded={true}
+                          minDate={new Date()}
+                        />
+                      );
+                    }
+                  }}
+                  selected={selectedCardType == 'future'}
+                  callback={() => handleCardSelection('future')}
+                />
+              </ul>
               <Button
-                label="Order New ID Card"
-                type="secondary"
-                callback={() =>
-                  showAppModal({
-                    content: <OrderIdCard dependentCount={3} />,
-                  })
-                }
+                className="w-[256px] mt-5"
+                label="Download ID Card"
+                callback={downloadIdCard}
               />
             </Column>
+          </section>
+          <Divider className="mt-8" />
+          <section>
+            <Spacer size={32} />
+            <TextBox className="title-3" text="Order New ID Cards" />
+            <Spacer size={16} />
+            <TextBox text="Order a printed Member ID card(s) for your current plan." />
+            <Spacer size={32} />
+            <Button
+              label="Order New ID Cards"
+              type="secondary"
+              className="w-[50%]"
+              callback={() =>
+                showAppModal({
+                  content: <OrderIdCard memberDetails={memberDetails} />,
+                })
+              }
+            />
           </section>
         </Column>
       </section>

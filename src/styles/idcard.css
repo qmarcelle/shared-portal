@@ -1,29 +1,11 @@
-input.numberOfCards {
+.numberOfCards {
   width: 90px;
   height: 50px;
-  padding-left: 21px;
-  margin: 0 auto;
-  display: block;
+  margin: 0 auto 16px;
   border-radius: 3px;
   border: 1px solid #666666;
   font-weight: bold;
 }
-
-.upIdCardIcon,
-.downIdCardIcon {
-  position: absolute;
-  margin-left: 30%;
-  cursor: pointer;
-}
-
-.input.numberOfCards {
-  border: none;
-}
-
-.upIdCardIcon {
-  margin-top: -10%;
-}
-
-.downIdCardIcon {
-  margin-top: -7%;
+.numberOfCards input {
+  text-align: center;
 }
