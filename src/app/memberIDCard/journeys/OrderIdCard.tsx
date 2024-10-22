@@ -1,3 +1,4 @@
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import {
@@ -5,58 +6,66 @@ import {
   useAppModalStore,
 } from '@/components/foundation/AppModal';
 import { Column } from '@/components/foundation/Column';
-import { downIcon, upIcon } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
+import { StepUpDown } from '@/components/foundation/StepUpDown';
 import { TextBox } from '@/components/foundation/TextBox';
-import { TextField } from '@/components/foundation/TextField';
-import Image from 'next/image';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
+import { formatZip } from '@/utils/zipcode_formatter';
 import { useState } from 'react';
+import { orderIdCard } from '../actions/orderIdCard';
+import { IdCardMemberDetails } from '../model/app/idCardData';
 
 interface OrderIdCardProps {
-  dependentCount: number;
+  memberDetails: IdCardMemberDetails | null;
 }
 
 export const OrderIdCard = ({
   changePage,
   pageIndex,
-  dependentCount,
+  memberDetails,
 }: ModalChildProps & OrderIdCardProps) => {
   const { dismissModal } = useAppModalStore();
 
   const [count, setCount] = useState(1);
+  const dependentCount =
+    memberDetails?.memberRelation == 'M' ? memberDetails?.noOfDependents : 1;
+  const memberName = toPascalCase(
+    `${memberDetails?.first_name} ${memberDetails?.last_name}`,
+  );
+  const addressLine1 = toPascalCase(memberDetails?.contact?.address1 ?? '');
+  const addressLine2 = toPascalCase(
+    `${memberDetails?.contact?.city} ${memberDetails?.contact?.state} ${formatZip(memberDetails?.contact?.zip)}`,
+  );
 
-  const handleIncrement = () => {
-    if (count < dependentCount) setCount((prevCount) => prevCount + 1);
-  };
-
-  const handleDecrement = () => {
-    if (count > 1) setCount((prevCount) => prevCount - 1);
+  const invokeOrderIdCard = async () => {
+    try {
+      const response = await orderIdCard(count);
+      if (response.retcode != 0) {
+        throw new Error('Return code is not 0');
+      }
+      changePage?.(2, true);
+    } catch (error) {
+      changePage?.(3, true);
+    }
   };
 
   const pages = [
     <InputModalSlide
       key={0}
       label="Order New ID Card"
-      subLabel="Select the number of ID cards you want to order. They will be mailed to your address in 7-14 business days."
+      subLabel="Select the number of ID cards you want to order. They will be mailed to your address in 7–14 business days."
       buttonLabel="Next"
       actionArea={
         <Column>
-          <TextBox className="body-1 text-center" text="Number of ID cards:" />
+          <TextBox className="body-1 text-center" text="Number of ID Cards:" />
           <Spacer size={12} />
-          <TextField
+          <StepUpDown
             className="numberOfCards"
-            label=""
-            type="number"
-            value={count}
+            value={1}
             minValue={1}
             maxValue={dependentCount}
+            valueCallback={(val) => setCount(val)}
           />
-          <span onClick={handleIncrement}>
-            <Image alt="Up Icon" src={upIcon} className="upIdCardIcon" />
-          </span>
-          <span onClick={handleDecrement}>
-            <Image alt="Down Icon" src={downIcon} className="downIdCardIcon" />
-          </span>
         </Column>
       }
       cancelCallback={() => dismissModal()}
@@ -69,29 +78,42 @@ export const OrderIdCard = ({
       buttonLabel="Complete Order"
       actionArea={
         <Column>
-          <TextBox className="body-1 text-center font-bold" text="Chris Hall" />
+          <TextBox className="body-1 text-center font-bold" text={memberName} />
           <TextBox
             className="body-1 text-center font-bold"
-            text="123 Street Address"
+            text={addressLine1 ?? ''}
           />
           <TextBox
             className="body-1 text-center font-bold"
-            text="Chattanooga, Tn 37402"
+            text={addressLine2}
           />
           <Spacer size={21} />
         </Column>
       }
       cancelCallback={() => dismissModal()}
-      nextCallback={() => changePage?.(2, true)}
+      nextCallback={() => invokeOrderIdCard()}
     />,
     <SuccessSlide
       key={2}
       label="Order Complete"
       body={
-        <Column className="items-center ">
+        <Column className="items-center">
           <TextBox
             className="text-center"
-            text="Your new cards will be mailed to your address in 7-14 business days"
+            text="Your new cards will be mailed to your address in 7–14 business days."
+          />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ErrorDisplaySlide
+      key={3}
+      label="Try Again Later"
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="Oops! We're sorry. Something went wrong. Please try again."
           />
         </Column>
       }

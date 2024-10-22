@@ -1,8 +1,12 @@
 .id-card {
-    height: 345px;
-    width: 543.03px;
+  height: 345px;
+  width: 543.03px;
 }
 
 .planType {
-    width: 20%;
+  width: 20%;
+}
+
+.id-card-error-msg {
+  color: #ff0000;
 }

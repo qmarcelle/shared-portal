@@ -1,3 +1,4 @@
+import { formatDateToLocale } from '@/utils/date_formatter';
 import { enUS } from 'date-fns/locale';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -18,6 +19,7 @@ export interface CalendarFieldProps extends IComponent {
   onFocusCallback?: () => void;
   minDate?: Date;
   maxDate?: Date;
+  disabled?: boolean;
 }
 export const CalendarField = ({
   label,
@@ -29,6 +31,7 @@ export const CalendarField = ({
   minDate,
   maxDate,
   valueCallback,
+  disabled,
 }: CalendarFieldProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const datePickerRef = useRef<DatePicker>(null);
@@ -134,7 +137,7 @@ export const CalendarField = ({
   // Sync inputValue with selectedDate
   useEffect(() => {
     if (selectedDate) {
-      setInputValue(selectedDate.toLocaleDateString('en-US'));
+      setInputValue(formatDateToLocale(selectedDate));
     }
   }, [selectedDate]);
 
@@ -151,6 +154,7 @@ export const CalendarField = ({
         } ${error ? 'border !border-red-500' : ''}`}
       >
         <input
+          aria-label={label}
           type="text"
           value={inputValue}
           onChange={handleInputChange}
@@ -162,8 +166,9 @@ export const CalendarField = ({
             onFocusCallback?.();
           }}
           onBlur={() => setFocus(false)}
+          disabled={disabled}
         />
-        <div className="cursor-pointer" onClick={focusCalender}>
+        <div className="cursor-pointer" onMouseDown={focusCalender}>
           {isSuffixNeeded && <SuffixIcon errors={errors} type={type} />}
         </div>
       </div>
@@ -175,10 +180,10 @@ export const CalendarField = ({
           selected={selectedDate}
           onChange={(date: Date | null) => {
             if (date) {
-              valueCallback?.call(this, date.toLocaleDateString('en-US'));
+              valueCallback?.call(this, formatDateToLocale(date));
             }
             setSelectedDate(date);
-            setInputValue(date ? date.toLocaleDateString('en-US') : ''); // Sync input with date picker
+            setInputValue(date ? formatDateToLocale(date) : ''); // Sync input with date picker
             setError('');
           }}
           locale="customLocale"
@@ -188,6 +193,7 @@ export const CalendarField = ({
           minDate={minDate}
           maxDate={maxDate}
           popperClassName="react-datepicker-custom-popper"
+          disabled={disabled}
         />
       </div>
     </div>

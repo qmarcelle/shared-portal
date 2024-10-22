@@ -1,15 +1,19 @@
+import { ReactElement } from 'react';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface RadioProps {
   selected: boolean;
   callback?: ((val: any) => void) | null;
   label: string;
   subLabel?: string;
+  childBuilder?: (selected: boolean) => ReactElement | undefined;
   value?: any;
 }
 
 export const Radio = ({
   selected,
   label,
+  childBuilder,
   callback,
   value,
   subLabel,
@@ -31,6 +35,7 @@ export const Radio = ({
       <div className="flex-col m-1">
         <p className={`${subLabel != null ? 'font-bold' : ''}`}>{label}</p>
         {subLabel && <p>{subLabel}</p>}
+        {childBuilder && childBuilder(selected)}
       </div>
     </div>
   );

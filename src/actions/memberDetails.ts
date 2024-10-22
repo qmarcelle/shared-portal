@@ -1,6 +1,6 @@
 'use server';
 
-import { memberMockResponse } from '@/app/profileSettings/mock/memberMockResponse';
+import { memberMockResponse } from '@/mock/memberMockResponse';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getMemberDetails(): Promise<any> {
