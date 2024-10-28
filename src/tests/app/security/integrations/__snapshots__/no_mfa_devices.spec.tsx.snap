@@ -229,7 +229,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Set Up Method
                             </p>
@@ -320,7 +320,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Set Up Method
                             </p>
@@ -411,7 +411,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Set Up Method
                             </p>
@@ -502,7 +502,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Set Up Method
                             </p>

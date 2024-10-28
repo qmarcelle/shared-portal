@@ -50,7 +50,7 @@ export const UpdateRowWithStatus = ({
           <AppLink
             className="font-bold primary-color pl-0"
             displayStyle="flex"
-            linkUnderline="linkUnderlineNone"
+            linkUnderline="!no-underline"
             label={methodName}
             icon={icon}
           />
