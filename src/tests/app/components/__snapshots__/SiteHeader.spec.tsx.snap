@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
-<body>
+exports[`SiteHeader And Navigation Menu should navigate the menu links correctly 1`] = `
+<body
+  style=""
+>
   <div>
     <div>
       <nav
@@ -57,6 +59,51 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 width="174"
               />
             </a>
+            <div
+              class="mx-4 w-[268px] hidden md:block"
+            >
+              <div
+                class="rich-dropdown"
+              >
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
+                    <div
+                      class="flex flex-row px-4 py-2 items-center justify-between"
+                    >
+                      <div
+                        class="flex flex-col max-w-[90%]"
+                      >
+                        <p
+                          class="body-2 app-base-font-color"
+                        >
+                          View Plan:
+                        </p>
+                        <p
+                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                      </div>
+                      <img
+                        alt="switch"
+                        class="size-5 head-icon m-[4px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="flex items-center"
@@ -104,7 +151,9 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               </span>
             </a>
             <div
+              aria-label="Profile Card"
               class="flex h-full secondary-bg-color2 text-white px-4 py-1"
+              tabindex="0"
             >
               <img
                 alt="Profile Icon"
@@ -384,29 +433,42 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-5 mx-auto lg:ml-auto lg:mr-0"
+                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:px-5"
               >
-                <button
-                  class="items-center content-center lg:pr-0 py-4"
-                  type="button"
+                <div
+                  class="flex flex-col self-strectch w-full items-end"
                 >
-                  <span
-                    class="px-2"
+                  <div
+                    class="flex flex-row align-top m-4"
                   >
-                    Search
-                  </span>
-                  <img
-                    alt="Search"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </button>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a>
+                        <p
+                          class="body-1 link-row-head"
+                        >
+                          Search
+                        </p>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <img
+                        alt="Search"
+                        class="icon items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -506,6 +568,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -513,7 +576,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Primary Care Options
@@ -522,6 +585,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -529,7 +593,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Mental Health Options
@@ -538,6 +602,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -545,7 +610,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Virtual Care Options
@@ -590,6 +655,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -597,7 +663,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Price Dental Care
@@ -745,7 +811,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               >
                 <a
                   class="flex text-3xl"
-                  href="/myplan"
+                  href="/myPlan"
                 >
                   <span
                     class="underline pr-2"
@@ -778,6 +844,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -785,7 +852,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Benefits & Coverage
@@ -794,6 +861,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -801,7 +869,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Plan Documents
@@ -810,6 +878,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -817,7 +886,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Services Used
@@ -839,6 +908,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -846,7 +916,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         View Claims
@@ -855,6 +925,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -862,7 +933,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Prior Authorizations
@@ -871,6 +942,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -878,7 +950,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Submit a Claim
@@ -900,6 +972,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -907,7 +980,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Balances
@@ -916,6 +989,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -923,7 +997,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Spending Accounts (HSA, FSA)
@@ -932,6 +1006,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -939,7 +1014,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Spending Summary
@@ -1007,6 +1082,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1014,7 +1090,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Report Other Health Insurance
@@ -1140,6 +1216,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1147,7 +1224,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         My Primary Care Provider
@@ -1192,6 +1269,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1199,7 +1277,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Health Programs & Resources
@@ -1284,7 +1362,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/virtualcare"
+                    href="/virtualCareOptions"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
@@ -1556,6 +1634,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1563,7 +1642,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Pharmacy Documents & Forms
@@ -1572,6 +1651,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1579,7 +1659,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Pharmacy FAQ
@@ -1760,6 +1840,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 >
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1767,7 +1848,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Frequently Asked Questions
@@ -1799,6 +1880,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1806,7 +1888,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Find a Form
@@ -1815,6 +1897,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -1822,7 +1905,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Share Website Feedback
@@ -1849,6 +1932,2031 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
           </div>
         </div>
       </nav>
+      <div
+        class="mx-2 py-2 block md:hidden"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
+<body>
+  <div>
+    <div>
+      <nav
+        class="primary-color"
+      >
+        <div
+          class="h-18 w-full lg:static flex justify-between border-b bg-white z-30"
+        >
+          <div
+            class="flex items-center"
+          >
+            <div
+              class="flex lg:hidden h-18 w-18 items-center justify-center border-r"
+            >
+              <button
+                aria-controls="menu-bar"
+                aria-expanded="false"
+                class="p-0 justify-center"
+                data-collapse-toggle="menu-bar"
+                type="button"
+              >
+                <span
+                  class="sr-only"
+                >
+                  Open main menu
+                </span>
+                <img
+                  alt="Menu icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="32"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+                  style="color: transparent;"
+                  width="32"
+                />
+              </button>
+            </div>
+            <a
+              class="ml-5 lg:px-0"
+              href="/dashboard"
+            >
+              <img
+                alt="BCBST Logo"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
+                style="color: transparent;"
+                width="174"
+              />
+            </a>
+            <div
+              class="mx-4 w-[268px] hidden md:block"
+            >
+              <div
+                class="rich-dropdown"
+              >
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
+                    <div
+                      class="flex flex-row px-4 py-2 items-center justify-between"
+                    >
+                      <div
+                        class="flex flex-col max-w-[90%]"
+                      >
+                        <p
+                          class="body-2 app-base-font-color"
+                        >
+                          View Plan:
+                        </p>
+                        <p
+                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                      </div>
+                      <img
+                        alt="switch"
+                        class="size-5 head-icon m-[4px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex items-center"
+          >
+            <a
+              class="flex mr-5 font-bold"
+              href="inbox"
+            >
+              <img
+                alt="Inbox"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                class="hidden lg:inline px-2 pt-2"
+              >
+                Inbox
+              </span>
+            </a>
+            <a
+              class="flex mr-5 font-bold"
+              href="idcard"
+            >
+              <img
+                alt="ID Card"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                class="hidden lg:inline px-2 pt-2"
+              >
+                ID Card
+              </span>
+            </a>
+            <div
+              aria-label="Profile Card"
+              class="flex h-full secondary-bg-color2 text-white px-4 py-1"
+              tabindex="0"
+            >
+              <img
+                alt="Profile Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="hidden lg:block p-2"
+              >
+                <span
+                  class="text-xs"
+                >
+                  Primary Profile
+                </span>
+                <p>
+                  Chris Hall
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hidden absolute top-[72px] lg:static lg:block w-full md:w-1/2 lg:w-full bg-white z-40"
+          data-accordion="collapse"
+          id="menu-bar"
+        >
+          <div
+            class="flex font-bold"
+          >
+            <div
+              class="flex flex-col w-full lg:flex-row border-b border-r lg:border-r-0"
+            >
+              <div
+                class="flex px-5 lg:pr-0"
+                id="accordion-collapse-heading-1"
+              >
+                <div
+                  class="w-full"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-1"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:pr-1 py-4"
+                    data-accordion-target="#accordion-collapse-body-1"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      Find Care & Costs
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block rotate-180"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:pr-0"
+                id="accordion-collapse-heading-2"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-2"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:pr-1 py-4"
+                    data-accordion-target="#accordion-collapse-body-2"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      My Plan
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block rotate-180"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:pr-0"
+                id="accordion-collapse-heading-3"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-3"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:pr-1 py-4"
+                    data-accordion-target="#accordion-collapse-body-3"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      My Health
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block rotate-180"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:pr-0"
+                id="accordion-collapse-heading-4"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-4"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:pr-1 py-4"
+                    data-accordion-target="#accordion-collapse-body-4"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      Pharmacy
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block rotate-180"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:pr-0"
+                id="accordion-collapse-heading-5"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-5"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:pr-1 py-4"
+                    data-accordion-target="#accordion-collapse-body-5"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      Support
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block rotate-180"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:px-5"
+              >
+                <div
+                  class="flex flex-col self-strectch w-full items-end"
+                >
+                  <div
+                    class="flex flex-row align-top m-4"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a>
+                        <p
+                          class="body-1 link-row-head"
+                        >
+                          Search
+                        </p>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <img
+                        alt="Search"
+                        class="icon items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0"
+          >
+            <div
+              aria-labelledby="accordion-collapse-heading-1"
+              class="hidden border-b grid p-5 grid-cols-4 gap-1 font-bold"
+              id="accordion-collapse-body-1"
+            >
+              <button
+                class="lg:hidden items-center p-0 mb-4"
+                data-accordion-target="#accordion-collapse-body-1"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-4 h-4 rotate-270 shrink-0 primary-color"
+                  data-accordion-icon="true"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 5 5 1 1 5"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                  />
+                </svg>
+                <span
+                  class="primary-color underline pl-1"
+                >
+                  Back
+                </span>
+              </button>
+              <div
+                class="pb-5 border-b col-start-1 col-end-5 ..."
+              >
+                <a
+                  class="flex text-3xl"
+                  href="/findcare"
+                >
+                  <span
+                    class="underline pr-2"
+                  >
+                    Find Care & Costs
+                  </span>
+                  <img
+                    alt="Parent Page Arrow"
+                    data-nimg="1"
+                    decoding="async"
+                    height="36"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="36"
+                  />
+                </a>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-1 lg:col-end-2 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Find Care
+                  </h1>
+                  <a
+                    class="flex"
+                    href="/findprovider"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Find a Provider
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Primary Care Options
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Mental Health Options
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Virtual Care Options
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Estimate Costs
+                  </h1>
+                  <a
+                    class="flex"
+                    href="/pricemedicalcare"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Price Medical Care
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Price Dental Care
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    class="flex"
+                    href="/pricevisioncare"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Price Vision Care
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="/pricemedication"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Price a Medication
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <a
+                    href="/benefits"
+                  >
+                    <div
+                      class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
+                    >
+                      <h3
+                        class="pb-3 text-sm"
+                      >
+                        Quick Tip
+                      </h3>
+                      <p
+                        class="pb-1"
+                      >
+                        Looking for what's covered under your plan?
+                      </p>
+                      <p
+                        class="pb-1"
+                      >
+                        Check out your
+                        <span
+                          class="font-bold"
+                        >
+                          Benefits & Coverages.
+                        </span>
+                      </p>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                />
+              </div>
+            </div>
+            <div
+              aria-labelledby="accordion-collapse-heading-2"
+              class="hidden border-b grid p-5 grid-cols-4 gap-1 font-bold"
+              id="accordion-collapse-body-2"
+            >
+              <button
+                class="lg:hidden items-center p-0 mb-4"
+                data-accordion-target="#accordion-collapse-body-2"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-4 h-4 rotate-270 shrink-0 primary-color"
+                  data-accordion-icon="true"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 5 5 1 1 5"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                  />
+                </svg>
+                <span
+                  class="primary-color underline pl-1"
+                >
+                  Back
+                </span>
+              </button>
+              <div
+                class="pb-5 border-b col-start-1 col-end-5 ..."
+              >
+                <a
+                  class="flex text-3xl"
+                  href="/myPlan"
+                >
+                  <span
+                    class="underline pr-2"
+                  >
+                    My Plan
+                  </span>
+                  <img
+                    alt="Parent Page Arrow"
+                    data-nimg="1"
+                    decoding="async"
+                    height="36"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="36"
+                  />
+                </a>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-1 lg:col-end-2 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Plan Details
+                  </h1>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Benefits & Coverage
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Plan Documents
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Services Used
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Claims
+                  </h1>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View Claims
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Prior Authorizations
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Submit a Claim
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Spending
+                  </h1>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Balances
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Spending Accounts (HSA, FSA)
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Spending Summary
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Manage My Plan
+                  </h1>
+                  <a
+                    class="flex"
+                    href="/balances"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      View or Pay Premium
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="/enrollhealthplan"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Enroll in a Health Plan
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Report Other Health Insurance
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="accordion-collapse-heading-3"
+              class="hidden border-b grid p-5 grid-cols-4 gap-1 font-bold"
+              id="accordion-collapse-body-3"
+            >
+              <button
+                class="lg:hidden items-center p-0 mb-4"
+                data-accordion-target="#accordion-collapse-body-3"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-4 h-4 rotate-270 shrink-0 primary-color"
+                  data-accordion-icon="true"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 5 5 1 1 5"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                  />
+                </svg>
+                <span
+                  class="primary-color underline pl-1"
+                >
+                  Back
+                </span>
+              </button>
+              <div
+                class="pb-5 border-b col-start-1 col-end-5 ..."
+              >
+                <a
+                  class="flex text-3xl"
+                  href="/myhealth"
+                >
+                  <span
+                    class="underline pr-2"
+                  >
+                    My Health
+                  </span>
+                  <img
+                    alt="Parent Page Arrow"
+                    data-nimg="1"
+                    decoding="async"
+                    height="36"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="36"
+                  />
+                </a>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-1 lg:col-end-2 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Wellness
+                  </h1>
+                  <a
+                    class="flex"
+                    href="/wellnessrewards"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Wellness Rewards
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="/memberwellnesscenter"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Member Wellness Canter
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        My Primary Care Provider
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    class="flex"
+                    href="/memberdiscounts"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Member Discounts
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Advice & Support
+                  </h1>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Health Programs & Resources
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Dental Health Library
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Health Library
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://bcbstwelltuned.com/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      WellTuned Blog
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <a
+                    href="/virtualCareOptions"
+                  >
+                    <div
+                      class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
+                    >
+                      <h3
+                        class="pb-3 text-sm"
+                      >
+                        Quick Tip
+                      </h3>
+                      <p
+                        class="pb-1"
+                      >
+                        Looking for a virtual care provider for mental health or physical therapy?
+                      </p>
+                      <p
+                        class="pb-1"
+                      >
+                        View 
+                        <span
+                          class="font-bold"
+                        >
+                          Virtual Care Options.
+                        </span>
+                      </p>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                />
+              </div>
+            </div>
+            <div
+              aria-labelledby="accordion-collapse-heading-4"
+              class="hidden border-b grid p-5 grid-cols-4 gap-1 font-bold"
+              id="accordion-collapse-body-4"
+            >
+              <button
+                class="lg:hidden items-center p-0 mb-4"
+                data-accordion-target="#accordion-collapse-body-4"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-4 h-4 rotate-270 shrink-0 primary-color"
+                  data-accordion-icon="true"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 5 5 1 1 5"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                  />
+                </svg>
+                <span
+                  class="primary-color underline pl-1"
+                >
+                  Back
+                </span>
+              </button>
+              <div
+                class="pb-5 border-b col-start-1 col-end-5 ..."
+              >
+                <a
+                  class="flex text-3xl"
+                  href="/pharmacy"
+                >
+                  <span
+                    class="underline pr-2"
+                  >
+                    Pharmacy
+                  </span>
+                  <img
+                    alt="Parent Page Arrow"
+                    data-nimg="1"
+                    decoding="async"
+                    height="36"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="36"
+                  />
+                </a>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-1 lg:col-end-2 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <a
+                    href="/pharmacy"
+                  >
+                    <div
+                      class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
+                    >
+                      <h3
+                        class="pb-3 text-sm"
+                      >
+                        Quick Tip
+                      </h3>
+                      <p
+                        class="pb-1"
+                      >
+                        CVS Caremark™ helps manage your pharmacy benefits.
+                      </p>
+                      <p
+                        class="pb-1"
+                      >
+                        <span
+                          class="font-bold"
+                        >
+                          A caremark.com
+                        </span>
+                         account will let you get prescriptions by mail, price a medication and more.
+                      </p>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Manage My Prescriptions
+                  </h1>
+                  <a
+                    class="flex"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      My Prescriptions
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.caremark.com/drugSearchInit.do?newLogin=yes"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Price a Medication
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.caremark.com/refillRx?newLogin=yes"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Mail Order
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.caremark.com/pharmacySearchFast?newLogin=yes"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Find a Pharmacy
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <h1
+                    class="text-xl py-2 text-gray-500"
+                  >
+                    Resources & Support
+                  </h1>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Pharmacy Documents & Forms
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Pharmacy FAQ
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <a
+                    href="/claimSnapshotList"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Claims
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href="/spendingSummary"
+                  >
+                    <div
+                      class="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg"
+                    >
+                      <h3
+                        class="p-2"
+                      >
+                        Pharmacy Spending
+                      </h3>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="accordion-collapse-heading-5"
+              class="hidden border-b grid p-5 grid-cols-4 gap-1 font-bold"
+              id="accordion-collapse-body-5"
+            >
+              <button
+                class="lg:hidden items-center p-0 mb-4"
+                data-accordion-target="#accordion-collapse-body-5"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-4 h-4 rotate-270 shrink-0 primary-color"
+                  data-accordion-icon="true"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 5 5 1 1 5"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                  />
+                </svg>
+                <span
+                  class="primary-color underline pl-1"
+                >
+                  Back
+                </span>
+              </button>
+              <div
+                class="pb-5 border-b col-start-1 col-end-5 ..."
+              >
+                <a
+                  class="flex text-3xl"
+                  href="/support"
+                >
+                  <span
+                    class="underline pr-2"
+                  >
+                    Support
+                  </span>
+                  <img
+                    alt="Parent Page Arrow"
+                    data-nimg="1"
+                    decoding="async"
+                    height="36"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="36"
+                  />
+                </a>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-1 lg:col-end-2 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <a
+                    href="/support"
+                  >
+                    <div
+                      class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
+                    >
+                      <h3
+                        class="pb-3 text-sm"
+                      >
+                        Quick Tip
+                      </h3>
+                      <p
+                        class="pb-1"
+                      >
+                        We're here to help.
+                      </p>
+                      <p
+                        class="pb-1"
+                      >
+                        <span
+                          class="font-bold"
+                        >
+                          Start a chat
+                        </span>
+                         or call us at [1-800-000-0000].
+                      </p>
+                      <img
+                        alt="Page Arrow"
+                        class="ml-auto"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                >
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Frequently Asked Questions
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    class="flex"
+                    href="https://www.healthcare.gov/glossary/"
+                    target="_blank"
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1"
+                    >
+                      Health Insurance Glossary
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Find a Form
+                      </p>
+                    </button>
+                  </a>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container pb-2 pt-2 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Share Website Feedback
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                />
+              </div>
+              <div
+                class="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="mx-2 py-2 block md:hidden"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
@@ -1913,6 +4021,51 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 width="174"
               />
             </a>
+            <div
+              class="mx-4 w-[268px] hidden md:block"
+            >
+              <div
+                class="rich-dropdown"
+              >
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
+                    <div
+                      class="flex flex-row px-4 py-2 items-center justify-between"
+                    >
+                      <div
+                        class="flex flex-col max-w-[90%]"
+                      >
+                        <p
+                          class="body-2 app-base-font-color"
+                        >
+                          View Plan:
+                        </p>
+                        <p
+                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                      </div>
+                      <img
+                        alt="switch"
+                        class="size-5 head-icon m-[4px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="flex items-center"
@@ -1960,7 +4113,9 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               </span>
             </a>
             <div
+              aria-label="Profile Card"
               class="flex h-full secondary-bg-color2 text-white px-4 py-1"
+              tabindex="0"
             >
               <img
                 alt="Profile Icon"
@@ -2240,29 +4395,42 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-5 mx-auto lg:ml-auto lg:mr-0"
+                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:px-5"
               >
-                <button
-                  class="items-center content-center lg:pr-0 py-4"
-                  type="button"
+                <div
+                  class="flex flex-col self-strectch w-full items-end"
                 >
-                  <span
-                    class="px-2"
+                  <div
+                    class="flex flex-row align-top m-4"
                   >
-                    Search
-                  </span>
-                  <img
-                    alt="Search"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </button>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a>
+                        <p
+                          class="body-1 link-row-head"
+                        >
+                          Search
+                        </p>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <img
+                        alt="Search"
+                        class="icon items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -2362,6 +4530,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2369,7 +4538,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Primary Care Options
@@ -2378,6 +4547,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2385,7 +4555,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Mental Health Options
@@ -2394,6 +4564,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2401,7 +4572,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Virtual Care Options
@@ -2446,6 +4617,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2453,7 +4625,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Price Dental Care
@@ -2601,7 +4773,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               >
                 <a
                   class="flex text-3xl"
-                  href="/myplan"
+                  href="/myPlan"
                 >
                   <span
                     class="underline pr-2"
@@ -2634,6 +4806,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2641,7 +4814,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Benefits & Coverage
@@ -2650,6 +4823,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2657,7 +4831,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Plan Documents
@@ -2666,6 +4840,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2673,7 +4848,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Services Used
@@ -2695,6 +4870,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2702,7 +4878,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         View Claims
@@ -2711,6 +4887,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2718,7 +4895,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Prior Authorizations
@@ -2727,6 +4904,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2734,7 +4912,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Submit a Claim
@@ -2756,6 +4934,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2763,7 +4942,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Balances
@@ -2772,6 +4951,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2779,7 +4959,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Spending Accounts (HSA, FSA)
@@ -2788,6 +4968,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2795,7 +4976,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Spending Summary
@@ -2863,6 +5044,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -2870,7 +5052,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Report Other Health Insurance
@@ -2996,6 +5178,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -3003,7 +5186,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         My Primary Care Provider
@@ -3048,6 +5231,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -3055,7 +5239,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Health Programs & Resources
@@ -3140,7 +5324,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/virtualcare"
+                    href="/virtualCareOptions"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
@@ -3412,6 +5596,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -3419,7 +5604,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Pharmacy Documents & Forms
@@ -3428,6 +5613,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -3435,7 +5621,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Pharmacy FAQ
@@ -3616,6 +5802,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 >
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -3623,7 +5810,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Frequently Asked Questions
@@ -3655,6 +5842,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -3662,7 +5850,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Find a Form
@@ -3671,6 +5859,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -3678,7 +5867,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Share Website Feedback
@@ -3705,6 +5894,51 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
           </div>
         </div>
       </nav>
+      <div
+        class="mx-2 py-2 block md:hidden"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div>
@@ -3730,37 +5964,22 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col"
-          >
+          <div>
             <div
-              class="sideBar-content"
+              class="flex flex-col"
             >
               <div
-                class="flex flex-row justify-between modal-header items-center relative"
+                class="sideBar-content"
               >
                 <div
-                  tabindex="1"
-                />
-                <img
-                  alt="bcbst logo"
-                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <div
-                  class="size-8 focus-icon"
-                  tabindex="0"
+                  class="flex flex-row justify-between modal-header items-center relative"
                 >
+                  <div
+                    tabindex="1"
+                  />
                   <img
-                    alt="close"
-                    class="size-4"
+                    alt="bcbst logo"
+                    class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -3770,164 +5989,181 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     style="color: transparent;"
                     width="40"
                   />
+                  <div
+                    class="size-8 focus-icon"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="close"
+                      class="size-4"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
                 </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col items-stretch p-4"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <section>
+                      <div
+                        class="flex flex-col flex flex-col"
+                      >
+                        <section>
+                          <div
+                            class="rich-dropdown"
+                          >
+                            <div
+                              class="flex flex-col switch-filter default"
+                              tabindex="1"
+                            >
+                              <div>
+                                <div
+                                  class="flex flex-row p-4 items-center"
+                                >
+                                  <div
+                                    class="flex flex-col grow"
+                                  >
+                                    <p
+                                      class="body-2"
+                                    >
+                                      Primary Profile
+                                    </p>
+                                    <h3
+                                      class="title-3 font-bold"
+                                    >
+                                      Chris Hall
+                                    </h3>
+                                    <p
+                                      class="body-1"
+                                    >
+                                      DOB: 11/03/2000
+                                    </p>
+                                  </div>
+                                  <img
+                                    alt="switch"
+                                    class="size-5 head-icon"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <a
+                            href="/profileSettings"
+                            tabindex="0"
+                          >
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="!font-bold primary-color underline underline-offset-3 title-3 "
+                              >
+                                All Profile Settings
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                          </a>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                          />
+                          <div
+                            class="w-[288px] h-[1px]"
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                          />
+                          <p
+                            class="body-1 font-bold primary-color"
+                          >
+                            Communication Settings
+                          </p>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1 font-bold primary-color"
+                          >
+                            Security Settings
+                          </p>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1 font-bold primary-color"
+                          >
+                            Sharing & Permissions
+                          </p>
+                        </section>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
               </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <div
-                class="flex flex-col items-stretch p-4"
+              <section
+                class="flex flex-row justify-center"
+                style="position: absolute; bottom: 0px; padding: 10px; overflow: hidden;"
               >
                 <div
                   class="flex flex-col"
                 >
-                  <section>
-                    <div
-                      class="flex flex-col flex flex-col"
-                    >
-                      <section>
-                        <div
-                          class="flex flex-col switch-filter default"
-                          tabindex="1"
-                        >
-                          <div>
-                            <div
-                              class="flex flex-row p-4 items-center"
-                            >
-                              <div
-                                class="flex flex-col grow"
-                              >
-                                <p
-                                  class="body-2"
-                                >
-                                  Primary Profile
-                                </p>
-                                <h3
-                                  class="title-3 font-bold"
-                                >
-                                  Chris Hall
-                                </h3>
-                                <p
-                                  class="body-1"
-                                >
-                                  DOB: 11/03/2000
-                                </p>
-                              </div>
-                              <img
-                                alt="switch"
-                                class="size-5 head-icon"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                            </div>
-                          </div>
-                          <ul
-                            class="max-h-[420px] overflow-y-scroll"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                        />
-                        <a
-                          href="/profileSettings"
-                        >
-                          <div
-                            class="flex flex-row"
-                          >
-                            <p
-                              class="!font-bold primary-color underline underline-offset-3 title-3 "
-                            >
-                              All Profile Settings
-                            </p>
-                            <div
-                              class="ml-2"
-                            >
-                              <img
-                                alt="link"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                            </div>
-                          </div>
-                        </a>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                        />
-                        <div
-                          aria-label="divider"
-                          class="w-[288px] h-[1px]"
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                        />
-                        <p
-                          class="body-1 font-bold primary-color"
-                        >
-                          Communication Settings
-                        </p>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <p
-                          class="body-1 font-bold primary-color"
-                        >
-                          Security Settings
-                        </p>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <p
-                          class="body-1 font-bold primary-color"
-                        >
-                          Sharing & Permissions
-                        </p>
-                      </section>
-                    </div>
-                  </section>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <button
+                    aria-label="Signout"
+                    class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null font-bold w-[288px] h-[40px] "
+                    id="signoutButton"
+                    type="button"
+                  >
+                    Signout
+                  </button>
                 </div>
-              </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
+              </section>
             </div>
-            <section
-              class="flex flex-row justify-center"
-              style="position: absolute; bottom: 0px; padding: 10px; overflow: hidden;"
-            >
-              <div
-                class="flex flex-col"
-              >
-                <div
-                  aria-label="divider"
-                  class=""
-                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                />
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                />
-                <button
-                  aria-label="Signout"
-                  class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null font-bold w-[288px] h-[40px] "
-                  id="signoutButton"
-                  type="button"
-                >
-                  Signout
-                </button>
-              </div>
-            </section>
           </div>
         </div>
       </div>
@@ -3995,6 +6231,51 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 width="174"
               />
             </a>
+            <div
+              class="mx-4 w-[268px] hidden md:block"
+            >
+              <div
+                class="rich-dropdown"
+              >
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
+                    <div
+                      class="flex flex-row px-4 py-2 items-center justify-between"
+                    >
+                      <div
+                        class="flex flex-col max-w-[90%]"
+                      >
+                        <p
+                          class="body-2 app-base-font-color"
+                        >
+                          View Plan:
+                        </p>
+                        <p
+                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                      </div>
+                      <img
+                        alt="switch"
+                        class="size-5 head-icon m-[4px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="flex items-center"
@@ -4042,7 +6323,9 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               </span>
             </a>
             <div
+              aria-label="Profile Card"
               class="flex h-full secondary-bg-color2 text-white px-4 py-1"
+              tabindex="0"
             >
               <img
                 alt="Profile Icon"
@@ -4322,29 +6605,42 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-5 mx-auto lg:ml-auto lg:mr-0"
+                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:px-5"
               >
-                <button
-                  class="items-center content-center lg:pr-0 py-4"
-                  type="button"
+                <div
+                  class="flex flex-col self-strectch w-full items-end"
                 >
-                  <span
-                    class="px-2"
+                  <div
+                    class="flex flex-row align-top m-4"
                   >
-                    Search
-                  </span>
-                  <img
-                    alt="Search"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </button>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a>
+                        <p
+                          class="body-1 link-row-head"
+                        >
+                          Search
+                        </p>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <img
+                        alt="Search"
+                        class="icon items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -4444,6 +6740,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4451,7 +6748,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Primary Care Options
@@ -4460,6 +6757,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4467,7 +6765,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Mental Health Options
@@ -4476,6 +6774,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4483,7 +6782,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Virtual Care Options
@@ -4528,6 +6827,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4535,7 +6835,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Price Dental Care
@@ -4683,7 +6983,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               >
                 <a
                   class="flex text-3xl"
-                  href="/myplan"
+                  href="/myPlan"
                 >
                   <span
                     class="underline pr-2"
@@ -4716,6 +7016,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4723,7 +7024,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Benefits & Coverage
@@ -4732,6 +7033,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4739,7 +7041,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Plan Documents
@@ -4748,6 +7050,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4755,7 +7058,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Services Used
@@ -4777,6 +7080,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4784,7 +7088,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         View Claims
@@ -4793,6 +7097,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4800,7 +7105,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Prior Authorizations
@@ -4809,6 +7114,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4816,7 +7122,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Submit a Claim
@@ -4838,6 +7144,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4845,7 +7152,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Balances
@@ -4854,6 +7161,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4861,7 +7169,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Spending Accounts (HSA, FSA)
@@ -4870,6 +7178,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4877,7 +7186,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Spending Summary
@@ -4945,6 +7254,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -4952,7 +7262,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Report Other Health Insurance
@@ -5078,6 +7388,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -5085,7 +7396,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         My Primary Care Provider
@@ -5130,6 +7441,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -5137,7 +7449,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Health Programs & Resources
@@ -5222,7 +7534,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/virtualcare"
+                    href="/virtualCareOptions"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg"
@@ -5494,6 +7806,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </h1>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -5501,7 +7814,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Pharmacy Documents & Forms
@@ -5510,6 +7823,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -5517,7 +7831,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Pharmacy FAQ
@@ -5698,6 +8012,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 >
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -5705,7 +8020,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Frequently Asked Questions
@@ -5737,6 +8052,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -5744,7 +8060,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Find a Form
@@ -5753,6 +8069,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   </a>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pb-2 pt-2 manage-underline"
@@ -5760,7 +8077,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Share Website Feedback
@@ -5787,6 +8104,51 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
           </div>
         </div>
       </nav>
+      <div
+        class="mx-2 py-2 block md:hidden"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div>
@@ -5812,37 +8174,22 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
           style="animation: react-responsive-modal-modal-out 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col"
-          >
+          <div>
             <div
-              class="sideBar-content"
+              class="flex flex-col"
             >
               <div
-                class="flex flex-row justify-between modal-header items-center relative"
+                class="sideBar-content"
               >
                 <div
-                  tabindex="1"
-                />
-                <img
-                  alt="bcbst logo"
-                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <div
-                  class="size-8 focus-icon"
-                  tabindex="0"
+                  class="flex flex-row justify-between modal-header items-center relative"
                 >
+                  <div
+                    tabindex="1"
+                  />
                   <img
-                    alt="close"
-                    class="size-4"
+                    alt="bcbst logo"
+                    class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -5852,17 +8199,34 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     style="color: transparent;"
                     width="40"
                   />
+                  <div
+                    class="size-8 focus-icon"
+                    tabindex="0"
+                  >
+                    <img
+                      alt="close"
+                      class="size-4"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
                 </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col items-stretch p-4"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
               </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <div
-                class="flex flex-col items-stretch p-4"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
             </div>
           </div>
         </div>
