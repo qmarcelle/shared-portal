@@ -2,7 +2,7 @@ import { FindCarePillBox } from '@/app/findcare/components/FindCarePillBox';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import EstimateCost from '../../../public/assets/Estimate-Cost.svg';
+import EstimateCost from '../../../public/assets/estimate_cost.svg';
 
 const renderUI = () => {
   return render(

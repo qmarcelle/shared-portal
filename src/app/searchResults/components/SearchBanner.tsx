@@ -5,7 +5,7 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import externalIcon from '../../../../public/assets/External-White.svg';
+import externalIcon from '../../../../public/assets/external_white.svg';
 
 export const SearchBanner = () => {
   return (
