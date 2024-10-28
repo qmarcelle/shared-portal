@@ -229,7 +229,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Set Up Method
                             </p>
@@ -325,7 +325,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Remove Method
                             </p>
@@ -421,7 +421,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Remove Method
                             </p>
@@ -517,7 +517,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                             type="button"
                           >
                             <p
-                              class="link linkUnderlineNone"
+                              class="link !no-underline"
                             >
                               Remove Method
                             </p>
