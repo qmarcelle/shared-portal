@@ -2,10 +2,10 @@ import { MemberDiscounts } from '@/app/myHealth/components/MemberDiscounts';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import apparelIcon from '../../../public/assets/apparel-footwear.svg';
+import apparelIcon from '../../../public/assets/apparel_footwear.svg';
 import fitnessIcon from '../../../public/assets/fitness.svg';
 import nutritionIcon from '../../../public/assets/nutrition.svg';
-import personalCareIcon from '../../../public/assets/personal-care.svg';
+import personalCareIcon from '../../../public/assets/personal_care.svg';
 import travelIcon from '../../../public/assets/travel.svg';
 import visionWhiteIcon from '../../../public/assets/vision_white.svg';
 

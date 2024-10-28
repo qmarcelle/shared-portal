@@ -6,9 +6,9 @@ import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
 import { useRef } from 'react';
 import Slider from 'react-slick';
-import rightIcon from '../../../../public//assets/right_large.svg';
-import AlertIcon from '../../../../public/assets/Alert-Gray1.svg';
+import AlertIcon from '../../../../public/assets/alert_gray.svg';
 import leftIcon from '../../../../public/assets/left_large.svg';
+import rightIcon from '../../../../public/assets/right_large.svg';
 
 const PreviousArrow = (props: any) => {
   const { className, onClick } = props;

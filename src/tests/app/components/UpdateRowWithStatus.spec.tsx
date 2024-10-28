@@ -3,7 +3,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import editIcon from '../../../../public/edit.svg';
+import editIcon from '../../../../public/assets/edit.svg';
 
 const renderUI = (enabled: boolean) => {
   return render(

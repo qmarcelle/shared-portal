@@ -1,9 +1,9 @@
 import { ClaimDetails } from '@/models/claim_details';
 import Image from 'next/image';
-import DentalIcon from '../../../public/Dental.svg';
-import MedicalIcon from '../../../public/Medical.svg';
-import PharmacyIcon from '../../../public/Pharmacy.svg';
-import VisionIcon from '../../../public/Vision.svg';
+import DentalIcon from '../../../public/assets/dental.svg';
+import MedicalIcon from '../../../public/assets/medical.svg';
+import PharmacyIcon from '../../../public/assets/pharmacy.svg';
+import VisionIcon from '../../../public/assets/vision.svg';
 import { AppLink } from '../foundation/AppLink';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';

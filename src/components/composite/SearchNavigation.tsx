@@ -1,8 +1,8 @@
 import { useSmartSearchStore } from '@/stores/smartSearchStore';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import searchIcon from '../../../public/assets/Search.svg';
 import CloseIcon from '../../../public/assets/close.svg';
+import searchIcon from '../../../public/assets/search.svg';
 import { IComponent } from '../IComponent';
 import SearchField from '../foundation/SearchField';
 import { SearchTypeAhead } from '../foundation/SearchTypeAhead';

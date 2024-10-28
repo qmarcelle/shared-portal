@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import downloadIcon from '../../../public/assets/Download.svg';
+import downloadIcon from '../../../public/assets/download.svg';
 import { Button } from '../foundation/Button';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';

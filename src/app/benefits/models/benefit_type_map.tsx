@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import estimateCost from '../../../../public/assets/Estimate-Cost.svg';
-import estimatePharmacyCost from '../../../../public/assets/estimate-Pharmacy-Cost.svg';
+import estimateCost from '../../../../public/assets/estimate_cost.svg';
+import estimatePharmacyCost from '../../../../public/assets/estimate_pharmacy_cost.svg';
 import externalIcon from '../../../../public/assets/external.svg';
-import servicesUsed from '../../../../public/assets/services-Used.svg';
+import servicesUsed from '../../../../public/assets/services_used.svg';
 import { BenefitTypeDetail } from './benefit_details';
 import { BenefitType } from './benefit_type';
 

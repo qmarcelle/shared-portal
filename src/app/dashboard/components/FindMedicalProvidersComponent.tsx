@@ -9,7 +9,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-import FindCare from '../../../../public/assets/find_Care.svg';
+import FindCare from '../../../../public/assets/find_care_map.svg';
 export const FindMedicalProvidersComponent = ({}) => {
   return (
     <Card className="large-section !mx-3">
