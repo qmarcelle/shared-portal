@@ -301,7 +301,7 @@ const Benefits = () => {
                   title: 'Employer Provided Benefits',
                   body: 'Your employer offers even more programs and benefits you can explore here.',
                   externalLink: false,
-                  url: 'url',
+                  url: '/benefits/employerProvidedBenefits',
                 },
               ]}
             />
