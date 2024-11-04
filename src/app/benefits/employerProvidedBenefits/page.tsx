@@ -7,7 +7,12 @@ const Page = async () => {
   const result = await getEmployerProvidedBenefits(
     session!.user.currUsr!.plan.memCk,
   );
-  return <EmployerProvidedBenfitsPage benefits={result.data} />;
+  return (
+    <EmployerProvidedBenfitsPage
+      benefits={result.data}
+      groupId={session?.user.currUsr?.plan.grpId}
+    />
+  );
 };
 
 export default Page;

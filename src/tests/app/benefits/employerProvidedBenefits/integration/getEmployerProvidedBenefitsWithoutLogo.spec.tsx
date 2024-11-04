@@ -6,13 +6,13 @@ import { render, screen } from '@testing-library/react';
 jest.mock('../../../../../auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
-      user: { currUsr: { plan: { memCk: '123456789', grpId: '87898' } } },
+      user: { currUsr: { plan: { memCk: '123456789', grpId: '87498' } } },
     }),
   ),
 }));
 
 describe('Employer Provided Benefits Page Api Integration', () => {
-  it('should call the api and display results correctly with logo', async () => {
+  it('should call the api and display results correctly without logo', async () => {
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         benefitSumInfo: [
@@ -61,7 +61,7 @@ describe('Employer Provided Benefits Page Api Integration', () => {
     expect(screen.getByText('Aetna EAP')).toBeVisible();
     expect(screen.getByText('Altra EAP')).toBeVisible();
     expect(screen.getByText('Aprt EAP')).toBeVisible();
-    // Logo for Dollar General group should be visible
-    expect(screen.getAllByAltText('Provider logo')[0]).toBeVisible();
+    // Logo for Dollar General group should not be visible
+    expect(screen.queryAllByAltText('Provider logo')).toEqual([]);
   });
 });
