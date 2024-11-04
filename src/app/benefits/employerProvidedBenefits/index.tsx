@@ -41,7 +41,7 @@ export const EmployerProvidedBenfitsPage = ({
           </Column>
           {groupId == '87898' && (
             <Image
-              className="block mb-6 mt-3 sm:hidden"
+              className="hidden sm:block self-start"
               src={dollarGeneralLogo}
               alt="Provider logo"
               width={170}
