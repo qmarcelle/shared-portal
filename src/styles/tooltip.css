@@ -71,3 +71,6 @@
 .toptooltip:focus-within .tooltiptext {
   display: block;
 }
+.tooltipIcon .tooltiptext {
+  transform: translateX(-27%);
+}
