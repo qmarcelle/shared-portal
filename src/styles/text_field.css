@@ -1,39 +1,44 @@
 textarea,
 .input input {
-    outline: none;
-    width: 100%
+  outline: none;
+  width: 100%;
+  padding: 0.25rem 0.75rem;
 }
 
 .separator {
-    @apply mr-1;
-    width: 1px;
-    height: 20px;
-    background-color: var(--tertiary-color-3);
+  @apply mr-1;
+  width: 1px;
+  height: 20px;
+  background-color: var(--tertiary-color-3);
 }
 
 .input {
-    @apply rounded-sm p-1;
-    border: 1px solid var(--tertiary-color-3);
+  @apply rounded-sm;
+  border: 1px solid var(--tertiary-color-3);
+  border-radius: 0.25rem;
 }
 
 .input:hover {
-    @apply rounded-sm p-1;
-    border: 1px solid var(--primary-color);
+  @apply rounded-sm;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.25rem;
 }
 
 .input-focus {
-    @apply rounded-sm p-1;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0px 0px 0px 3px rgba(0, 144, 237, .4);
+  @apply rounded-sm;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0px 0px 0px 3px rgba(0, 144, 237, 0.4);
+  border-radius: 0.25rem;
 }
 
 .error-input {
-    border: 1px solid var(--color-status-error) !important;
-    color: var(--color-status-error);
+  border: 1px solid var(--color-status-error) !important;
+  color: var(--color-status-error);
+  border-radius: 0.25rem;
 }
 
 .error-container {
-    @apply rounded-sm p-1;
-    background-color: white;
-    color: red;
+  @apply rounded-sm p-1;
+  background-color: white;
+  color: red;
 }
