@@ -1,18 +1,22 @@
 'use client';
+import { VirtualMentalHealthCareSection } from '@/app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import FindCare from '../../../public/assets/find_care_search.svg';
-import { VirtualMentalHealthCareSection } from '../mentalHealthOptions/components/VirtualMentalHealthCareSection';
+import FindCare from '../../../../public/assets/find_care_search.svg';
 import { AboutPrimaryCareProvider } from './components/AboutPrimaryCareProvider';
 import { PrimaryCareProvider } from './components/PrimaryCareProvider';
+import { PrimaryCareOptionsData } from './model/app/primary_care_options_data';
 
-const PrimaryCareOptions = () => {
+export type PrimaryCareOptionsProps = {
+  data: PrimaryCareOptionsData;
+};
+const PrimaryCareOptions = ({ data }: PrimaryCareOptionsProps) => {
   return (
-    <div className="flex flex-col justify-center items-center page">
+    <main className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
       <Column className="app-content app-base-font-color">
         <Header className="mb-0" text="Primary Care Options" />
@@ -25,11 +29,9 @@ const PrimaryCareOptions = () => {
           <Column className="flex-grow page-section-63_33 items-stretch">
             <PrimaryCareProvider
               className="large-section"
-              memberName="John Hopkins"
+              providerDetails={data.primaryCareProvider}
               label="Primary Care Provider"
-              address="John Hopkins Medical Center 123 Street Address Road City Town, TN 12345"
               linkLabel="View or Update Primary Care Provider"
-              primaryPhoneNumber="(123) 456-7890"
               title="My Primary Care Provider"
             />
             <AboutPrimaryCareProvider className="large-section" />
@@ -89,7 +91,7 @@ const PrimaryCareOptions = () => {
           </Column>
         </section>
       </Column>
-    </div>
+    </main>
   );
 };
 

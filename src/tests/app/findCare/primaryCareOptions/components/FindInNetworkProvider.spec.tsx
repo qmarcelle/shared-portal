@@ -1,7 +1,7 @@
 import { InfoCard } from '@/components/composite/InfoCard';
+import FindCare from '@/public/assets/find_care_search.svg';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import FindCare from '../../../public/assets/find_care_search.svg';
 
 const renderUI = () => {
   return render(

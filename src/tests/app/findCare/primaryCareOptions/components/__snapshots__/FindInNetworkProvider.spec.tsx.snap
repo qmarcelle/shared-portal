@@ -27,11 +27,11 @@ exports[`FindInNetworkProviderSection should render the UI correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Find an In-network Provider
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -66,11 +66,11 @@ exports[`FindInNetworkProviderSection should render the UI correctly 1`] = `
           <div
             class="flex flex-col ml-4"
           >
-            <p
-              class="body-1 link-row-head"
+            <div
+              class="link-row-head"
             >
               Find an In-network Provider
-            </p>
+            </div>
             <p
               class="body-1 body-1"
             >

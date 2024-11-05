@@ -4,6 +4,17 @@ import Image from 'next/image';
 import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 
+// Mock useRouter:
+const mockReplace = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: mockReplace,
+    };
+  },
+}));
+
 const renderUI = () => {
   return render(
     <ViewCareOptions
@@ -20,6 +31,7 @@ const renderUI = () => {
               alt="Primary Care"
             />
           ),
+          url: '/findcare/primaryCareOptions',
         },
         {
           title: 'Mental Care Options',
@@ -32,6 +44,7 @@ const renderUI = () => {
               alt="Mental Care"
             />
           ),
+          url: '',
         },
       ]}
     />,

@@ -3,12 +3,11 @@ import { Accordion } from '@/components/foundation/Accordion';
 import { Card } from '@/components/foundation/Card';
 import { Divider } from '@/components/foundation/Divider';
 import { Header } from '@/components/foundation/Header';
+import { downIcon, upIcon } from '@/components/foundation/Icons';
 import { ListOrder } from '@/components/foundation/ListOrder';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import Down from '../../../../public/assets/down.svg';
-import Up from '../../../../public/assets/up.svg';
 
 export const AboutPrimaryCareProvider = ({ className }: IComponent) => {
   return (
@@ -30,10 +29,14 @@ export const AboutPrimaryCareProvider = ({ className }: IComponent) => {
           initialOpen={false}
           type="card"
           openIcon={
-            <Image className="pl-2 w-6" src={Down} alt="Down Chevron"></Image>
+            <Image
+              className="pl-2 w-6"
+              src={downIcon}
+              alt="Down Chevron"
+            ></Image>
           }
           closeIcon={
-            <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
+            <Image className="pl-2 w-6" src={upIcon} alt="Up Chevron"></Image>
           }
           child={
             <ListOrder
@@ -55,10 +58,14 @@ export const AboutPrimaryCareProvider = ({ className }: IComponent) => {
           initialOpen={false}
           type="card"
           openIcon={
-            <Image className="pl-2 w-6" src={Down} alt="Down Chevron"></Image>
+            <Image
+              className="pl-2 w-6"
+              src={downIcon}
+              alt="Down Chevron"
+            ></Image>
           }
           closeIcon={
-            <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
+            <Image className="pl-2 w-6" src={upIcon} alt="Up Chevron"></Image>
           }
           child={
             <ListOrder
