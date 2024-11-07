@@ -8,6 +8,7 @@ import {
 } from '../../models/site_header_sub_nav_item';
 import { AppLink } from '../foundation/AppLink';
 import { externalIcon, parentPageArrowIcon } from '../foundation/Icons';
+import { TextBox } from '../foundation/TextBox';
 import { IComponent } from '../IComponent';
 
 export interface SiteHeaderSubNavItemProps extends IComponent {
@@ -43,9 +44,11 @@ export const SubNavItemSection = ({
         if (colType == 'QT') {
           return (
             <a href={qt?.link}>
-              <div className="row-span-4 font-normal text-gray-500 lg:w-3/4 secondary-bg-color1-accent p-5 rounded-lg">
-                <h3 className="pb-3 text-sm">Quick Tip</h3>
-                <p className="pb-1">{qt?.firstParagraph}</p>
+              <div className="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg">
+                <h3 className="pb-3 text-sm text-black">Quick Tip</h3>
+                <p className="pb-1 text-base app-base-font-color ">
+                  {qt?.firstParagraph}
+                </p>
                 {qt?.secondParagraph}
                 <Image
                   className="ml-auto"
@@ -72,17 +75,23 @@ export const SubNavItemSection = ({
           return (
             <>
               {colType !== 'Support' && (
-                <h1 className="text-xl py-2 text-gray-500">{colType}</h1>
+                <TextBox
+                  type="title-1"
+                  text={colType}
+                  className="py-2 tertiary-color font-thin !text-2xl"
+                />
               )}
               {tempChildPages.map((item, index) =>
                 item.external ? (
                   <Link
                     key={index}
-                    className="flex"
+                    className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline focus:p-1 focus-visible:p-1"
                     href={item.url}
                     target="_blank"
                   >
-                    <p className="pb-2 pt-2 pr-1">{item.title}</p>
+                    <p className="pb-2 pt-2 pr-1 focus-visible:p-1 primary-color hover:text-primary-focus">
+                      {item.title}
+                    </p>
                     <Image
                       className="pb-2"
                       src={externalIcon}
@@ -94,7 +103,7 @@ export const SubNavItemSection = ({
                     key={index}
                     label={item.title}
                     callback={() => ChangeUrl(item.url)}
-                    className="pb-2 pt-2 manage-underline"
+                    className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
                   />
                 ),
               )}

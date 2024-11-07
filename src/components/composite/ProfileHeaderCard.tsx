@@ -26,7 +26,7 @@ export const ProfileHeaderCard = ({ user, icon }: ProfileHeaderCardProps) => {
   };
   return (
     <div
-      className="flex h-full secondary-bg-color2 text-white px-4 py-1"
+      className="flex h-full secondary-bg-color2 text-white px-4 py-1 hover:bg-info focus:bg-info focus:mr-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:h-[90%] "
       tabIndex={0}
       aria-label="Profile Card"
       onClick={() =>
