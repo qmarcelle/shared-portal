@@ -99,6 +99,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 2,
@@ -223,6 +225,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 3,
@@ -321,6 +325,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 4,
@@ -405,6 +411,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 5,
@@ -468,6 +476,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
 ];
 
