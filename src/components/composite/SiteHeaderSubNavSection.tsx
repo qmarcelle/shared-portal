@@ -74,10 +74,10 @@ export const SiteHeaderSubNavSection = ({
       </button>
       <div className="pb-5 border-b col-start-1 col-end-5 ...">
         <Link
-          className="flex text-2xl w-max hover:primary-focus hover:no-underline p-1 focus:rounded focus:ring-2 focus:ring-primary box-border"
+          className="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
           href={url}
         >
-          <span className="underline underline-offset-4 hover:no-underline focus:outline-none focus:no-underline pr-2">
+          <span className="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2">
             {title}
           </span>
           <Image

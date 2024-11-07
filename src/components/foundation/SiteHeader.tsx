@@ -42,7 +42,7 @@ export default function SiteHeader() {
 
   return (
     <>
-      <nav className="primary-color sm:pt-[74px] lg:pt-32">
+      <nav className="primary-color sm:pt-[74px] lg:pt-[134px]">
         {/* Header Top Bar */}
         <div className="h-18 w-full fixed top-0 left-0 right-0 flex justify-between border-b bg-white z-50">
           <div className="flex items-center">
@@ -158,7 +158,7 @@ export default function SiteHeader() {
 
         <div
           id="menu-bar"
-          className={`fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-50 overflow-auto ${activeSubNavId !== null ? 'block' : 'hidden'}`}
+          className={`fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto ${activeSubNavId !== null ? 'block' : 'hidden'}`}
           data-accordion="collapse"
         >
           <div className="flex font-bold">

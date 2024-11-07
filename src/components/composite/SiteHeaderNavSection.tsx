@@ -20,7 +20,7 @@ export const SiteHeaderNavSection = ({
 }: SiteHeaderNavProps) => {
   const [currentPageId, setCurrentPageId] = useState<number>(0);
   return (
-    <div className="flex flex-col w-full lg:flex-row border-b border-r lg:border-r-0">
+    <div className="flex flex-col w-full lg:flex-row mt-1 border-b border-r lg:border-r-0">
       {parentPages.map((item, index) => (
         <div
           key={index}
