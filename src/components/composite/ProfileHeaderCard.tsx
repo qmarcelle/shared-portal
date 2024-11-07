@@ -1,4 +1,5 @@
 import { useLoginStore } from '@/app/login/stores/loginStore';
+import { UserType } from '@/models/user_profile';
 import { DEFAULT_LOGOUT_REDIRECT } from '@/utils/routes';
 import { useRouter } from 'next/navigation';
 import { IComponent } from '../IComponent';
@@ -32,22 +33,24 @@ export const ProfileHeaderCard = ({ user, icon }: ProfileHeaderCardProps) => {
         showSideBar({
           content: (
             <ProfileHeaderCardItem
-              profileSetting="All Profile Settings"
-              communicationSetting="Communication Settings"
-              securitySetting="Security Settings"
-              sharingAndPermissions="Sharing & Permissions"
               profiles={[
                 {
                   id: '456',
                   name: 'Chris Hall',
-                  dob: '11/03/2000',
-                  type: 'Primary',
+                  dob: '01/01/1978',
+                  type: UserType.Primary,
                 },
                 {
                   id: '457',
-                  name: 'Chris Hall',
-                  dob: '11/03/2000',
-                  type: 'Primary',
+                  name: 'Robert Hall',
+                  dob: '01/01/1943',
+                  type: UserType.PersonalRepresentative,
+                },
+                {
+                  id: '458',
+                  name: 'Ellie Williams',
+                  dob: '01/01/1943',
+                  type: UserType.AuthorizedUser,
                 },
               ]}
             />
@@ -81,7 +84,7 @@ export const ProfileHeaderCard = ({ user, icon }: ProfileHeaderCardProps) => {
     >
       {icon}
       <div className="hidden lg:block p-2">
-        <span className="text-xs">Primary Profile</span>
+        <span className="text-xs">My Profile</span>
         <p>{user}</p>
       </div>
     </div>

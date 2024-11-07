@@ -10,7 +10,7 @@
   right: 0;
   height: 100%;
   transition: 0.5s ease;
-  width: 25%;
+  width: 320px;
   /* overflow: hidden; */
 }
 
@@ -20,4 +20,33 @@
   bottom: 80px;
   overflow: auto;
   width: 100%;
+}
+.switchFilter .overflow-auto {
+  max-height: 100% !important;
+}
+.switchFilter .divider-bottom {
+  box-sizing: border-box;
+  height: 105px;
+  width: auto;
+}
+.switchFilter .switch-filter.default,
+.switchFilter .switch-filter.default:hover {
+  box-shadow: unset !important;
+  border: 1px solid #cccccc !important;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow:
+    0 1px 4px 0 rgba(0, 73, 126, 0.24),
+    0 1px 8px 0 rgba(0, 73, 126, 0.16) !important;
+}
+.switch-filter .grow {
+  font-weight: bold;
+}
+.sideBar-content .modal-header-logo {
+  display: none !important;
+}
+@media (768px >= width) {
+  .react-responsive-modal-modal.sideBar-Container {
+    width: 100% !important;
+  }
 }
