@@ -12,9 +12,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       // eslint-disable-next-line quotes
       firstParagraph: "Looking for what's covered under your plan?",
       secondParagraph: (
-        <p className="pb-1">
-          Check out your
-          <span className="font-bold">Benefits & Coverages.</span>
+        <p className="pb-1 text-base app-base-font-color ">
+          Check out your{''}
+          <span className="font-bold"> Benefits & Coverages.</span>
         </p>
       ),
       link: '/benefits',
@@ -235,7 +235,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       firstParagraph:
         'Looking for a virtual care provider for mental health or physical therapy?',
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           View <span className="font-bold">Virtual Care Options.</span>
         </p>
       ),
@@ -332,7 +332,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           <span className="font-bold">A caremark.com</span> account will let you
           get prescriptions by mail, price a medication and more.
         </p>
@@ -417,7 +417,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       // eslint-disable-next-line quotes
       firstParagraph: "We're here to help.",
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           <span className="font-bold">Start a chat</span> or call us at
           [1-800-000-0000].
         </p>
