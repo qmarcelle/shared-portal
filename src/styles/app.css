@@ -287,3 +287,6 @@
   opacity: 0.5;
   pointer-events: none; /* Disables interactions with the checkbox */
 }
+.manage-link {
+  display: ruby;
+}
