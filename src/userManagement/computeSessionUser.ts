@@ -39,7 +39,7 @@ export async function computeSessionUser(
           memCk: plan.memeCk,
           sbsbCk: loggedUserInfo.subscriberCK,
           subId: loggedUserInfo.subscriberID,
-          planName: '',
+          planName: loggedUserInfo.groupData.groupName,
           coverageType: computeCoverageType(loggedUserInfo.coverageTypes),
         },
       },
@@ -53,7 +53,9 @@ export async function computeSessionUser(
 const computeCoverageType = (coverageTypes: CoverageType[]): string[] => {
   const policies: string[] = [];
   coverageTypes.map((coverage) => {
-    policies.push(CoverageTypes.get(coverage.productType)!);
+    if (CoverageTypes.get(coverage.productType)) {
+      policies.push(CoverageTypes.get(coverage.productType)!);
+    }
   });
   return policies;
 };

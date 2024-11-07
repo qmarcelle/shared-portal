@@ -42,7 +42,7 @@ const Dashboard = ({ data }: DashboardProps) => {
             />
             <Spacer size={8} />
             <TextBox
-              text={`Policies: ${data.currentUser.currUsr?.plan?.coverageType.join(', ')}`}
+              text={`Policies: ${data.currentUser.currUsr?.plan?.coverageType?.join(', ')}`}
             />
             <Spacer size={16} />
             <Link href="/myPlan" className="link-white-text">
