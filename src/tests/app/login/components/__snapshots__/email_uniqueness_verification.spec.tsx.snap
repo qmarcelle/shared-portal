@@ -127,7 +127,6 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
       <div
-        aria-label="divider"
         class=""
         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
       />
@@ -343,7 +342,6 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
       <div
-        aria-label="divider"
         class=""
         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
       />

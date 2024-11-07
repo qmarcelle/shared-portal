@@ -25,7 +25,7 @@ exports[`Account selection Component should render all the required details 1`] 
           <p
             class="body-1 w-72"
           >
-            First, let's confirm the username and password you will use from now on.
+            First, let's confirm the username and password you will use   from now on.
           </p>
           <div
             class="flex flex-row justify-center items-end tooltip tooltipIcon relative"
@@ -228,7 +228,7 @@ exports[`Account selection Component should render all the required details 1`] 
         <p
           class="body-1 w-72"
         >
-          First, let's confirm the username and password you will use from now on.
+          First, let's confirm the username and password you will use   from now on.
         </p>
         <div
           class="flex flex-row justify-center items-end tooltip tooltipIcon relative"

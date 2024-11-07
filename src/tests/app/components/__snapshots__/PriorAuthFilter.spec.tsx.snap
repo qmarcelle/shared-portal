@@ -20,9 +20,28 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
           class="rich-text body-1 undefined"
         >
           <div
-            class="flex flex-row m-4 mb-0"
+            class="flex flex-row body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
           >
-            If you need more than two years of prior authorizations, call [1-800-000-000]. If your authorization is not fully approved, we will send you a letter explaining why and details on how to ask for an appeal.
+            Need more than two years of prior authorizations?
+             
+            <a
+              style="display: block;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container link !flex caremark pt-0"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="0"
+              >
+                <p
+                  class="link undefined"
+                  style="display: block;"
+                >
+                  Start a chat
+                </p>
+              </button>
+            </a>
+            or call [1-800-000-000].
           </div>
           <div
             class="flex flex-row body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
@@ -31,6 +50,7 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
              
             <a
               style="display: block;"
+              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container link !flex caremark pt-0"
@@ -38,7 +58,7 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                 tabindex="0"
               >
                 <p
-                  class="link"
+                  class="link undefined"
                   style="display: block;"
                 >
                   caremark.com account
@@ -65,7 +85,7 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
         </span>
       </section>
       <section
-        class="flex flex-row items-start app-body mt-8"
+        class="flex flex-row items-start app-body mt-2"
         id="Filter"
       >
         <div
@@ -97,47 +117,46 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
                 />
-                <div
-                  class="body-1 input"
-                >
+                <div>
                   <div
-                    class="flex flex-col switch-filter default"
-                    tabindex="1"
+                    class="rich-dropdown"
                   >
-                    <div>
-                      <div
-                        class="border-none"
-                      >
+                    <div
+                      class="flex flex-col switch-filter default"
+                      tabindex="1"
+                    >
+                      <div>
                         <div
-                          class="flex flex-row p-1 items-center"
+                          class="body-1 input"
                         >
                           <div
-                            class="flex flex-col border-none flex-grow"
+                            class="flex flex-row p-1 items-center"
                           >
-                            <p
-                              class="body-1"
+                            <div
+                              class="flex flex-col border-none flex-grow"
                             >
-                              All Members
-                            </p>
+                              <p
+                                class="body-1"
+                              >
+                                All Members
+                              </p>
+                            </div>
+                            <img
+                              alt=""
+                              class="w-[20px] h-[20px] ml-2 items-end"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
                           </div>
-                          <img
-                            alt=""
-                            class="w-[20px] h-[20px] ml-2 items-end"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
                         </div>
                       </div>
                     </div>
-                    <ul
-                      class="max-h-[420px] overflow-y-scroll"
-                    />
                   </div>
                 </div>
               </div>
@@ -156,47 +175,46 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
                 />
-                <div
-                  class="body-1 input"
-                >
+                <div>
                   <div
-                    class="flex flex-col switch-filter default"
-                    tabindex="1"
+                    class="rich-dropdown"
                   >
-                    <div>
-                      <div
-                        class="border-none"
-                      >
+                    <div
+                      class="flex flex-col switch-filter default"
+                      tabindex="1"
+                    >
+                      <div>
                         <div
-                          class="flex flex-row p-1 items-center"
+                          class="body-1 input"
                         >
                           <div
-                            class="flex flex-col border-none flex-grow"
+                            class="flex flex-row p-1 items-center"
                           >
-                            <p
-                              class="body-1"
+                            <div
+                              class="flex flex-col border-none flex-grow"
                             >
-                              Last 90 days
-                            </p>
+                              <p
+                                class="body-1"
+                              >
+                                Last 90 days
+                              </p>
+                            </div>
+                            <img
+                              alt=""
+                              class="w-[20px] h-[20px] ml-2 items-end"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
                           </div>
-                          <img
-                            alt=""
-                            class="w-[20px] h-[20px] ml-2 items-end"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
                         </div>
                       </div>
                     </div>
-                    <ul
-                      class="max-h-[420px] overflow-y-scroll"
-                    />
                   </div>
                 </div>
               </div>
@@ -233,6 +251,105 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
         <div
           class="flex flex-col flex-grow page-section-63_33 items-stretch"
         >
+          <div
+            class="flex flex-col mt-2"
+          >
+            <div
+              class="xs:block md:inline-flex max-sm:m-4 md:my-2 relative"
+            >
+              <div
+                class="flex flex-row body-1 align-top mb-0 flex-grow"
+              >
+                Filter Results:
+                 
+                <p
+                  class="body-1 font-bold ml-2"
+                >
+                  5 Prior Authorizations
+                </p>
+              </div>
+              <div
+                class="flex flex-row body-1 items-end"
+              >
+                <div
+                  class="body-1 mb-1"
+                >
+                  Sort by:
+                </div>
+                <div>
+                  <div
+                    class="rich-dropdown"
+                  >
+                    <div
+                      class="flex flex-col switch-filter default"
+                      tabindex="1"
+                    >
+                      <div>
+                        <div
+                          class="body-1 link"
+                        >
+                          <div
+                            class="flex flex-row p-1 items-center"
+                          >
+                            <div
+                              class="flex flex-col border-none flex-grow"
+                            >
+                              <p
+                                class="body-1"
+                              >
+                                Date (Most Recent)
+                              </p>
+                            </div>
+                            <img
+                              alt=""
+                              class="w-[20px] h-[20px] ml-2 items-end"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col max-sm:my-4"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-col neutral container"
+              >
+                <div
+                  class="flex flex-col items-center  p-4 m-[65px]"
+                >
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <p
+                    class="body-1 text-center"
+                  >
+                    There was a problem loading prior auth details
+                  </p>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+            </div>
+          </div>
           <section
             class="flex justify-center self-center"
           >
@@ -246,6 +363,5 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
       </section>
     </div>
   </main>
-  ,
 </div>
 `;

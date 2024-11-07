@@ -29,7 +29,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 class="flex flex-col items-end"
               >
                 <button
-                  class="flex flex-col  "
+                  class="flex flex-col p-[0.125rem]  "
                   type="submit"
                 >
                   <img
@@ -75,7 +75,6 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                     teladoc
                   </p>
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -145,7 +144,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               class="flex flex-col items-end"
             >
               <button
-                class="flex flex-col  "
+                class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
@@ -191,7 +190,6 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                   teladoc
                 </p>
                 <div
-                  aria-label="divider"
                   class=""
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />

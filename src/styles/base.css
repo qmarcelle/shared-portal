@@ -373,3 +373,7 @@ body {
     line-height: 3.5rem;
   }
 }
+
+.caremark button {
+  padding-top: 0;
+}

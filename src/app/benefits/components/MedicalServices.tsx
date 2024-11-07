@@ -8,7 +8,7 @@ import { Spacer } from '../../../components/foundation/Spacer';
 
 import { TextBox } from '@/components/foundation/TextBox';
 import { ServicesUsed } from '@/models/app/servicesused_details';
-import { MedicalServicesUsedChart } from './medicalServicesUsedChart';
+import { MedicalServicesUsedChart } from './MedicalServicesUsedChart';
 
 export interface MedicalServicesProps extends IComponent {
   members: SelectItem[];

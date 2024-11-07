@@ -12,76 +12,107 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
           style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
         />
         <div
-          class="flex flex-row justify-between mt-16 lg:mt-0"
+          class="flex flex-col md:m-2 m-4"
         >
           <div
-            class="flex flex-col pl-3 my-health-programs-header"
+            class="flex flex-row md:hidden"
           >
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <h1
-              class="title-1"
+            <div
+              class="flex flex-col mt-8"
             >
-              Teladoc Health Blood Pressure Management Program
-            </h1>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <p
-              class="body-1 body-1"
-            >
-              Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
-            </p>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <p
-              class="body-1 body-1"
-            >
-              The first time using this service, you’ll need to create an account.
-            </p>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
-            />
-            <button
-              aria-label="Use Teladoc Health"
-              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null my-health-programs-header-button"
-              type="button"
-            >
-              Use Teladoc Health
-              <p
-                class="ml-2"
-              >
-                <img
-                  alt="external icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </p>
-            </button>
+              <img
+                alt="Info"
+                class="size-100"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
           </div>
           <div
-            class="flex flex-col"
+            class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
           >
-            <img
-              alt="Info"
-              class="size-100"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
+            <div
+              class="flex flex-col max-w-2xl"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <h1
+                class="title-1"
+              >
+                Teladoc Health Blood Pressure Management Program
+              </h1>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <p
+                class="body-1 body-1"
+              >
+                Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-1"
+              >
+                The first time using this service, you’ll need to create an account.
+              </p>
+              <div
+                class="flex flex-col w-fit md:w-[83%]"
+              >
+                <span
+                  class="rich-text body-1 undefined"
+                />
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+              />
+              <button
+                aria-label="Use Teladoc Health"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null my-health-programs-header-button"
+                type="button"
+              >
+                Use Teladoc Health
+                <p
+                  class="ml-2"
+                >
+                  <img
+                    alt="external icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </p>
+              </button>
+            </div>
+            <div
+              class="flex flex-col hidden md:block"
+            >
+              <img
+                alt="Info"
+                class="size-100 "
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
           </div>
         </div>
         <span
@@ -250,25 +281,32 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                 <div
                   class="flex flex-col"
                 >
-                  <p
-                    class="body-1"
+                  <div
+                    class="flex flex-col"
                   >
-                    If you have been diagnosed with high blood pressure, you can expect to pay: 
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                  />
-                  <p
-                    class="body-1 font-bold text-xl"
-                  >
-                    $0
-                  </p>
+                    <p
+                      class="body-1"
+                    >
+                      If you have been diagnosed with high blood pressure, you can expect to pay: 
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <p
+                      class="body-1 font-bold text-xl"
+                    >
+                      $0
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="flex flex-col  flex-grow page-section-36_67 items-stretch ml-2"
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch md:ml-4"
           >
             <div
               class="card-main my-health-programs-good-option"
@@ -301,8 +339,12 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -322,8 +364,12 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -343,8 +389,12 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -373,76 +423,107 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
         style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
       />
       <div
-        class="flex flex-row justify-between mt-16 lg:mt-0"
+        class="flex flex-col md:m-2 m-4"
       >
         <div
-          class="flex flex-col pl-3 my-health-programs-header"
+          class="flex flex-row md:hidden"
         >
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <h1
-            class="title-1"
+          <div
+            class="flex flex-col mt-8"
           >
-            Teladoc Health Blood Pressure Management Program
-          </h1>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <p
-            class="body-1 body-1"
-          >
-            Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
-          </p>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <p
-            class="body-1 body-1"
-          >
-            The first time using this service, you’ll need to create an account.
-          </p>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
-          />
-          <button
-            aria-label="Use Teladoc Health"
-            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null my-health-programs-header-button"
-            type="button"
-          >
-            Use Teladoc Health
-            <p
-              class="ml-2"
-            >
-              <img
-                alt="external icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </p>
-          </button>
+            <img
+              alt="Info"
+              class="size-100"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
         </div>
         <div
-          class="flex flex-col"
+          class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
         >
-          <img
-            alt="Info"
-            class="size-100"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
+          <div
+            class="flex flex-col max-w-2xl"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <h1
+              class="title-1"
+            >
+              Teladoc Health Blood Pressure Management Program
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              The first time using this service, you’ll need to create an account.
+            </p>
+            <div
+              class="flex flex-col w-fit md:w-[83%]"
+            >
+              <span
+                class="rich-text body-1 undefined"
+              />
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+            />
+            <button
+              aria-label="Use Teladoc Health"
+              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null my-health-programs-header-button"
+              type="button"
+            >
+              Use Teladoc Health
+              <p
+                class="ml-2"
+              >
+                <img
+                  alt="external icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </p>
+            </button>
+          </div>
+          <div
+            class="flex flex-col hidden md:block"
+          >
+            <img
+              alt="Info"
+              class="size-100 "
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
         </div>
       </div>
       <span
@@ -611,25 +692,32 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
               <div
                 class="flex flex-col"
               >
-                <p
-                  class="body-1"
+                <div
+                  class="flex flex-col"
                 >
-                  If you have been diagnosed with high blood pressure, you can expect to pay: 
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <p
-                  class="body-1 font-bold text-xl"
-                >
-                  $0
-                </p>
+                  <p
+                    class="body-1"
+                  >
+                    If you have been diagnosed with high blood pressure, you can expect to pay: 
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <p
+                    class="body-1 font-bold text-xl"
+                  >
+                    $0
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="flex flex-col  flex-grow page-section-36_67 items-stretch ml-2"
+          class="flex flex-col  flex-grow page-section-36_67 items-stretch md:ml-4"
         >
           <div
             class="card-main my-health-programs-good-option"
@@ -662,8 +750,12 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >
@@ -683,8 +775,12 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >
@@ -704,8 +800,12 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >

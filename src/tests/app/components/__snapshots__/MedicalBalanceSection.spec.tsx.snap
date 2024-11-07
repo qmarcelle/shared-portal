@@ -51,26 +51,49 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
                 />
               </div>
               <section
-                class="card-elevated py-2 z-20"
+                class="card-elevated z-20 dropdown-section"
                 style="display: none; position: absolute;"
               >
                 <div
-                  class="dropdown-item cursor-pointer"
+                  class="flex flex-row  dropdown-item p-2"
                 >
-                  <p
-                    class="whitespace-nowrap mx-2"
-                  >
-                    Chris Hall
-                  </p>
+                  <div
+                    class="size-5 mx-2"
+                  />
+                  <div>
+                    <p
+                      class="whitespace-nowrap mx-2"
+                    >
+                      Chris Hall
+                    </p>
+                  </div>
                 </div>
                 <div
-                  class="selected-dropdown-item cursor-pointer"
+                  class="flex flex-row dropdown-item-selected dropdown-item p-2"
                 >
-                  <p
-                    class="whitespace-nowrap mx-2"
+                  <div
+                    class="size-5 mx-2 "
                   >
-                    Megan Chaler
-                  </p>
+                    <img
+                      alt="selcted"
+                      class="size-5"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div>
+                    <p
+                      class="whitespace-nowrap mx-2"
+                    >
+                      Megan Chaler
+                    </p>
+                  </div>
                 </div>
               </section>
             </div>
@@ -112,26 +135,49 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
                 />
               </div>
               <section
-                class="card-elevated py-2 z-20"
+                class="card-elevated z-20 dropdown-section"
                 style="display: none; position: absolute;"
               >
                 <div
-                  class="dropdown-item cursor-pointer"
+                  class="flex flex-row  dropdown-item p-2"
                 >
-                  <p
-                    class="whitespace-nowrap mx-2"
-                  >
-                    In-Network
-                  </p>
+                  <div
+                    class="size-5 mx-2"
+                  />
+                  <div>
+                    <p
+                      class="whitespace-nowrap mx-2"
+                    >
+                      In-Network
+                    </p>
+                  </div>
                 </div>
                 <div
-                  class="selected-dropdown-item cursor-pointer"
+                  class="flex flex-row dropdown-item-selected dropdown-item p-2"
                 >
-                  <p
-                    class="whitespace-nowrap mx-2"
+                  <div
+                    class="size-5 mx-2 "
                   >
-                    Out-of-Network
-                  </p>
+                    <img
+                      alt="selcted"
+                      class="size-5"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div>
+                    <p
+                      class="whitespace-nowrap mx-2"
+                    >
+                      Out-of-Network
+                    </p>
+                  </div>
                 </div>
               </section>
             </div>
@@ -244,15 +290,18 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
-            class="block undefined"
+            href="/balances"
+            style="display: block;"
+            tabindex="-1"
           >
             <button
-              class="flex flex-row link-container"
-              style="max-width: max-content; height: auto;"
+              class="flex flex-row link-container undefined"
+              style="max-width: max-content; height: auto; display: block;"
               tabindex="0"
             >
               <p
-                class="link"
+                class="link undefined"
+                style="display: block;"
               >
                 View All Balances
               </p>
@@ -309,26 +358,49 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
               />
             </div>
             <section
-              class="card-elevated py-2 z-20"
+              class="card-elevated z-20 dropdown-section"
               style="display: none; position: absolute;"
             >
               <div
-                class="dropdown-item cursor-pointer"
+                class="flex flex-row  dropdown-item p-2"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
-                >
-                  Chris Hall
-                </p>
+                <div
+                  class="size-5 mx-2"
+                />
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    Chris Hall
+                  </p>
+                </div>
               </div>
               <div
-                class="selected-dropdown-item cursor-pointer"
+                class="flex flex-row dropdown-item-selected dropdown-item p-2"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
+                <div
+                  class="size-5 mx-2 "
                 >
-                  Megan Chaler
-                </p>
+                  <img
+                    alt="selcted"
+                    class="size-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    Megan Chaler
+                  </p>
+                </div>
               </div>
             </section>
           </div>
@@ -370,26 +442,49 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
               />
             </div>
             <section
-              class="card-elevated py-2 z-20"
+              class="card-elevated z-20 dropdown-section"
               style="display: none; position: absolute;"
             >
               <div
-                class="dropdown-item cursor-pointer"
+                class="flex flex-row  dropdown-item p-2"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
-                >
-                  In-Network
-                </p>
+                <div
+                  class="size-5 mx-2"
+                />
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    In-Network
+                  </p>
+                </div>
               </div>
               <div
-                class="selected-dropdown-item cursor-pointer"
+                class="flex flex-row dropdown-item-selected dropdown-item p-2"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
+                <div
+                  class="size-5 mx-2 "
                 >
-                  Out-of-Network
-                </p>
+                  <img
+                    alt="selcted"
+                    class="size-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    Out-of-Network
+                  </p>
+                </div>
               </div>
             </section>
           </div>
@@ -502,15 +597,18 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <a
-          class="block undefined"
+          href="/balances"
+          style="display: block;"
+          tabindex="-1"
         >
           <button
-            class="flex flex-row link-container"
-            style="max-width: max-content; height: auto;"
+            class="flex flex-row link-container undefined"
+            style="max-width: max-content; height: auto; display: block;"
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               View All Balances
             </p>

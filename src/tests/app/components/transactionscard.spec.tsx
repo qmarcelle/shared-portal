@@ -29,7 +29,7 @@ const renderUI = () => {
           },
           {
             type: 'dropdown',
-            label: 'Account Type',
+            label: 'Date Range',
             value: [
               {
                 label: 'Last 30 days',
@@ -101,7 +101,7 @@ describe('TransactionCardSection', () => {
 
   it('should render UI correctly', () => {
     const component = renderUI();
-    screen.getByRole('heading', { name: 'Transactions' });
+    screen.getByRole('heading', { name: 'Filter Transactions' });
     screen.getByText('Sort by:');
     screen.getAllByText('Date (Most Recent)');
     expect(screen.getByText('Account Type')).toBeVisible();
