@@ -15,18 +15,19 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 
 const FrequentlyAskedQuestions = () => {
+  const baseUrl = window.location.origin;
   const faqInformationDetails = [
     {
       label: 'Benefits & Coverage',
       description: 'Learn more about service limits, deductibles and more.',
       iconName: benefits,
-      link: '/benefits',
+      link: `${baseUrl}/support/faqTopics?faqtype=Benefits&Coverage`,
     },
     {
       label: 'Claims',
       description: 'Learn more about claims or how to file a dispute.',
       iconName: claimsBenefitsCoverage,
-      link: '/claims',
+      link: `${baseUrl}/support/faqTopics?faqtype=Claims`,
     },
     {
       label: 'ID Cards',
@@ -34,34 +35,34 @@ const FrequentlyAskedQuestions = () => {
         // eslint-disable-next-line quotes
         "Do you have questions about your ID cards? We're here to help.",
       iconName: idCardPrimaryIconSvg,
-      link: '/memberIDCard',
+      link: `${baseUrl}/support/faqTopics?faqtype=IDCards`,
     },
     {
       label: 'My Plan Information',
       description: 'How to update your address, dependents, and more.',
       iconName: enrollment,
-      link: '/spendingAccount',
+      link: `${baseUrl}/support/faqTopics?faqtype=MyPlanInformation`,
     },
     {
       label: 'Pharmacy',
       description:
         'How to find pharmacies, find prescription drug coverage and more.',
       iconName: prescription,
-      link: '/spendingSummary',
+      link: `${baseUrl}/support/faqTopics?faqtype=Pharmacy`,
     },
     {
       label: 'Prior Authorization',
       description:
         'Learn more about prior authorizations, statuses and how to make appeals.',
       iconName: priorAuthorizations,
-      link: '/priorAuth',
+      link: `${baseUrl}/support/faqTopics?faqtype=PriorAuthorization`,
     },
     {
       label: 'Sharing, Permissions & Security',
       description:
         'How to share your health insurance information, represent a dependent individual and more.',
       iconName: keyIcon,
-      link: '/planDocuments',
+      link: `${baseUrl}/support/faqTopics?faqtype=SharingPermissions&Security`,
     },
   ];
 
