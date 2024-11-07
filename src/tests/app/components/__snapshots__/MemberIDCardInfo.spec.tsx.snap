@@ -6,7 +6,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="card-main large-section sliderdots-active sliderdots "
+        class="card-main large-section sliderdots-active sliderdots"
       >
         <section
           id="Filter"
@@ -22,50 +22,11 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
-            <div
-              class="flex flex-row"
+            <p
+              class="body-1"
             >
-              <p
-                class="body-1"
-              >
-                View ID Card for:
-              </p>
-              <span
-                style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-              />
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter default"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row"
-                    >
-                      <p
-                        class="body-1 link"
-                      >
-                        Current Plan
-                      </p>
-                      <img
-                        alt=""
-                        class="w-[20px] h-[20px] ml-2 items-end"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              All members of your plan use the same ID card.
+            </p>
             <div
               class="flex flex-col w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10"
             >
@@ -108,18 +69,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col"
                           tabindex="-1"
                         >
-                          <img
-                            alt="BackCard"
-                            class="m-auto"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="flex flex-col neutral container"
+                            >
+                              <div
+                                class="flex flex-col items-center  p-4 m-[65px]"
+                              >
+                                <img
+                                  alt="alert"
+                                  class="icon"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                                <span
+                                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                />
+                                <p
+                                  class="body-1 text-center"
+                                >
+                                  There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -135,18 +116,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col slider-container carousel flex flex-col"
                           tabindex="-1"
                         >
-                          <img
-                            alt="FrontCard"
-                            class="m-auto"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="flex flex-col neutral container"
+                            >
+                              <div
+                                class="flex flex-col items-center  p-4 m-[65px]"
+                              >
+                                <img
+                                  alt="alert"
+                                  class="icon"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                                <span
+                                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                />
+                                <p
+                                  class="body-1 text-center"
+                                >
+                                  There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -162,18 +163,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col"
                           tabindex="-1"
                         >
-                          <img
-                            alt="BackCard"
-                            class="m-auto"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="flex flex-col neutral container"
+                            >
+                              <div
+                                class="flex flex-col items-center  p-4 m-[65px]"
+                              >
+                                <img
+                                  alt="alert"
+                                  class="icon"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                                <span
+                                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                />
+                                <p
+                                  class="body-1 text-center"
+                                >
+                                  There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -189,18 +210,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col slider-container carousel flex flex-col"
                           tabindex="-1"
                         >
-                          <img
-                            alt="FrontCard"
-                            class="m-auto"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="flex flex-col neutral container"
+                            >
+                              <div
+                                class="flex flex-col items-center  p-4 m-[65px]"
+                              >
+                                <img
+                                  alt="alert"
+                                  class="icon"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                                <span
+                                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                />
+                                <p
+                                  class="body-1 text-center"
+                                >
+                                  There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -216,18 +257,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col"
                           tabindex="-1"
                         >
-                          <img
-                            alt="BackCard"
-                            class="m-auto"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="flex flex-col neutral container"
+                            >
+                              <div
+                                class="flex flex-col items-center  p-4 m-[65px]"
+                              >
+                                <img
+                                  alt="alert"
+                                  class="icon"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                                <span
+                                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                />
+                                <p
+                                  class="body-1 text-center"
+                                >
+                                  There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -273,35 +334,107 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
-            <section
-              class="md:flex md:flex-row"
-            >
+            <section>
               <p
-                class="body-1 title-3 pb-[5px] md:pr-[5px] md:pb-0"
+                class="body-1 title-3"
               >
-                All members of your plan use the same ID card.
+                Download ID Cards
+              </p>
+              <p
+                class="body-1 mt-4 mb-2"
+              >
+                Select the card you want to download:
               </p>
               <div
-                class="flex flex-col md:w-[405px] body-1"
+                class="flex flex-col body-1"
               >
+                <ul
+                  class="flex flex-col gap-2"
+                >
+                  <div
+                    class="flex flex-row gap-1 "
+                  >
+                    <label>
+                      <input
+                        aria-label="Get a card for the plan I have today."
+                        checked=""
+                        id=""
+                        name=""
+                        type="radio"
+                      />
+                    </label>
+                    <div
+                      class="flex-col m-1"
+                    >
+                      <p
+                        class=""
+                      >
+                        Get a card for the plan I have today.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row gap-1 "
+                  >
+                    <label>
+                      <input
+                        aria-label="Get a card for a plan starting at a later date."
+                        id=""
+                        name=""
+                        type="radio"
+                      />
+                    </label>
+                    <div
+                      class="flex-col m-1"
+                    >
+                      <p
+                        class=""
+                      >
+                        Get a card for a plan starting at a later date.
+                      </p>
+                    </div>
+                  </div>
+                </ul>
                 <button
                   aria-label="Download ID Card"
-                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[256px] mt-5"
                   type="button"
                 >
                   Download ID Card
                 </button>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                />
-                <button
-                  aria-label="Order New ID Card"
-                  class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                  type="button"
-                >
-                  Order New ID Card
-                </button>
               </div>
+            </section>
+            <div
+              class="mt-8"
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <section>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <p
+                class="body-1 title-3"
+              >
+                Order New ID Cards
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                Order a printed Member ID card(s) for your current plan.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <button
+                aria-label="Order New ID Cards"
+                class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-[50%]"
+                type="button"
+              >
+                Order New ID Cards
+              </button>
             </section>
           </div>
         </section>
@@ -333,11 +466,11 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               <div
                 class="flex flex-col ml-4"
               >
-                <p
-                  class="body-1 link-row-head"
+                <div
+                  class="link-row-head"
                 >
                   My Plan Details
-                </p>
+                </div>
                 <p
                   class="body-1 body-1"
                 >
@@ -371,11 +504,11 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               <div
                 class="flex flex-col ml-4"
               >
-                <p
-                  class="body-1 link-row-head"
+                <div
+                  class="link-row-head"
                 >
                   Benefits & Coverage
-                </p>
+                </div>
                 <p
                   class="body-1 body-1"
                 >
@@ -428,18 +561,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                     class="flex flex-col"
                     tabindex="-1"
                   >
-                    <img
-                      alt="BackCard"
-                      class="m-auto"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col neutral container"
+                      >
+                        <div
+                          class="flex flex-col items-center  p-4 m-[65px]"
+                        >
+                          <img
+                            alt="alert"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 text-center"
+                          >
+                            There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -455,18 +608,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                     class="flex flex-col slider-container carousel flex flex-col"
                     tabindex="-1"
                   >
-                    <img
-                      alt="FrontCard"
-                      class="m-auto"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col neutral container"
+                      >
+                        <div
+                          class="flex flex-col items-center  p-4 m-[65px]"
+                        >
+                          <img
+                            alt="alert"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 text-center"
+                          >
+                            There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -482,18 +655,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                     class="flex flex-col"
                     tabindex="-1"
                   >
-                    <img
-                      alt="BackCard"
-                      class="m-auto"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col neutral container"
+                      >
+                        <div
+                          class="flex flex-col items-center  p-4 m-[65px]"
+                        >
+                          <img
+                            alt="alert"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 text-center"
+                          >
+                            There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -509,18 +702,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                     class="flex flex-col slider-container carousel flex flex-col"
                     tabindex="-1"
                   >
-                    <img
-                      alt="FrontCard"
-                      class="m-auto"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col neutral container"
+                      >
+                        <div
+                          class="flex flex-col items-center  p-4 m-[65px]"
+                        >
+                          <img
+                            alt="alert"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 text-center"
+                          >
+                            There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -536,18 +749,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                     class="flex flex-col"
                     tabindex="-1"
                   >
-                    <img
-                      alt="BackCard"
-                      class="m-auto"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col neutral container"
+                      >
+                        <div
+                          class="flex flex-col items-center  p-4 m-[65px]"
+                        >
+                          <img
+                            alt="alert"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 text-center"
+                          >
+                            There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -594,7 +827,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="card-main large-section sliderdots-active sliderdots "
+      class="card-main large-section sliderdots-active sliderdots"
     >
       <section
         id="Filter"
@@ -610,50 +843,11 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
-          <div
-            class="flex flex-row"
+          <p
+            class="body-1"
           >
-            <p
-              class="body-1"
-            >
-              View ID Card for:
-            </p>
-            <span
-              style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-            />
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter default"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="body-1 link"
-                    >
-                      Current Plan
-                    </p>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            All members of your plan use the same ID card.
+          </p>
           <div
             class="flex flex-col w-[250px] md:w-[450px] lg:w-[420px] justify-center ml-[30px] mt-10 mb-10"
           >
@@ -696,18 +890,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col"
                         tabindex="-1"
                       >
-                        <img
-                          alt="BackCard"
-                          class="m-auto"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col neutral container"
+                          >
+                            <div
+                              class="flex flex-col items-center  p-4 m-[65px]"
+                            >
+                              <img
+                                alt="alert"
+                                class="icon"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <p
+                                class="body-1 text-center"
+                              >
+                                There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -723,18 +937,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col slider-container carousel flex flex-col"
                         tabindex="-1"
                       >
-                        <img
-                          alt="FrontCard"
-                          class="m-auto"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col neutral container"
+                          >
+                            <div
+                              class="flex flex-col items-center  p-4 m-[65px]"
+                            >
+                              <img
+                                alt="alert"
+                                class="icon"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <p
+                                class="body-1 text-center"
+                              >
+                                There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -750,18 +984,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col"
                         tabindex="-1"
                       >
-                        <img
-                          alt="BackCard"
-                          class="m-auto"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col neutral container"
+                          >
+                            <div
+                              class="flex flex-col items-center  p-4 m-[65px]"
+                            >
+                              <img
+                                alt="alert"
+                                class="icon"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <p
+                                class="body-1 text-center"
+                              >
+                                There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -777,18 +1031,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col slider-container carousel flex flex-col"
                         tabindex="-1"
                       >
-                        <img
-                          alt="FrontCard"
-                          class="m-auto"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col neutral container"
+                          >
+                            <div
+                              class="flex flex-col items-center  p-4 m-[65px]"
+                            >
+                              <img
+                                alt="alert"
+                                class="icon"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <p
+                                class="body-1 text-center"
+                              >
+                                There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -804,18 +1078,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col"
                         tabindex="-1"
                       >
-                        <img
-                          alt="BackCard"
-                          class="m-auto"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col neutral container"
+                          >
+                            <div
+                              class="flex flex-col items-center  p-4 m-[65px]"
+                            >
+                              <img
+                                alt="alert"
+                                class="icon"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <p
+                                class="body-1 text-center"
+                              >
+                                There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -861,35 +1155,107 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
-          <section
-            class="md:flex md:flex-row"
-          >
+          <section>
             <p
-              class="body-1 title-3 pb-[5px] md:pr-[5px] md:pb-0"
+              class="body-1 title-3"
             >
-              All members of your plan use the same ID card.
+              Download ID Cards
+            </p>
+            <p
+              class="body-1 mt-4 mb-2"
+            >
+              Select the card you want to download:
             </p>
             <div
-              class="flex flex-col md:w-[405px] body-1"
+              class="flex flex-col body-1"
             >
+              <ul
+                class="flex flex-col gap-2"
+              >
+                <div
+                  class="flex flex-row gap-1 "
+                >
+                  <label>
+                    <input
+                      aria-label="Get a card for the plan I have today."
+                      checked=""
+                      id=""
+                      name=""
+                      type="radio"
+                    />
+                  </label>
+                  <div
+                    class="flex-col m-1"
+                  >
+                    <p
+                      class=""
+                    >
+                      Get a card for the plan I have today.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-row gap-1 "
+                >
+                  <label>
+                    <input
+                      aria-label="Get a card for a plan starting at a later date."
+                      id=""
+                      name=""
+                      type="radio"
+                    />
+                  </label>
+                  <div
+                    class="flex-col m-1"
+                  >
+                    <p
+                      class=""
+                    >
+                      Get a card for a plan starting at a later date.
+                    </p>
+                  </div>
+                </div>
+              </ul>
               <button
                 aria-label="Download ID Card"
-                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[256px] mt-5"
                 type="button"
               >
                 Download ID Card
               </button>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <button
-                aria-label="Order New ID Card"
-                class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                type="button"
-              >
-                Order New ID Card
-              </button>
             </div>
+          </section>
+          <div
+            class="mt-8"
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <p
+              class="body-1 title-3"
+            >
+              Order New ID Cards
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+            >
+              Order a printed Member ID card(s) for your current plan.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <button
+              aria-label="Order New ID Cards"
+              class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-[50%]"
+              type="button"
+            >
+              Order New ID Cards
+            </button>
           </section>
         </div>
       </section>
@@ -921,11 +1287,11 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 My Plan Details
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -959,11 +1325,11 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -1016,18 +1382,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                   class="flex flex-col"
                   tabindex="-1"
                 >
-                  <img
-                    alt="BackCard"
-                    class="m-auto"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col neutral container"
+                    >
+                      <div
+                        class="flex flex-col items-center  p-4 m-[65px]"
+                      >
+                        <img
+                          alt="alert"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <p
+                          class="body-1 text-center"
+                        >
+                          There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1043,18 +1429,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                   class="flex flex-col slider-container carousel flex flex-col"
                   tabindex="-1"
                 >
-                  <img
-                    alt="FrontCard"
-                    class="m-auto"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col neutral container"
+                    >
+                      <div
+                        class="flex flex-col items-center  p-4 m-[65px]"
+                      >
+                        <img
+                          alt="alert"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <p
+                          class="body-1 text-center"
+                        >
+                          There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1070,18 +1476,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                   class="flex flex-col"
                   tabindex="-1"
                 >
-                  <img
-                    alt="BackCard"
-                    class="m-auto"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col neutral container"
+                    >
+                      <div
+                        class="flex flex-col items-center  p-4 m-[65px]"
+                      >
+                        <img
+                          alt="alert"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <p
+                          class="body-1 text-center"
+                        >
+                          There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1097,18 +1523,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                   class="flex flex-col slider-container carousel flex flex-col"
                   tabindex="-1"
                 >
-                  <img
-                    alt="FrontCard"
-                    class="m-auto"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col neutral container"
+                    >
+                      <div
+                        class="flex flex-col items-center  p-4 m-[65px]"
+                      >
+                        <img
+                          alt="alert"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <p
+                          class="body-1 text-center"
+                        >
+                          There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1124,18 +1570,38 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                   class="flex flex-col"
                   tabindex="-1"
                 >
-                  <img
-                    alt="BackCard"
-                    class="m-auto"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col neutral container"
+                    >
+                      <div
+                        class="flex flex-col items-center  p-4 m-[65px]"
+                      >
+                        <img
+                          alt="alert"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <p
+                          class="body-1 text-center"
+                        >
+                          There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

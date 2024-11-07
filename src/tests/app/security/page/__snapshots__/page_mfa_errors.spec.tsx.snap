@@ -83,7 +83,6 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
               />
               <div
-                aria-label="divider"
                 class=""
                 style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
               />
@@ -98,6 +97,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                 >
                   <p
                     class="link-row-head mr-2"
+                    tabindex="0"
                   >
                     Change My Password
                   </p>
@@ -139,7 +139,9 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <a
+                href="/benefits/identityProtectionServices"
                 style="display: block;"
+                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container pl-0"
@@ -147,7 +149,8 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                   tabindex="0"
                 >
                   <p
-                    class="link"
+                    class="link undefined"
+                    style="display: block;"
                   >
                     View Identity Protection Services
                   </p>

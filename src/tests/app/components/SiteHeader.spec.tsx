@@ -24,9 +24,9 @@ const renderUI = () => {
 describe('SiteHeader And Navigation Menu', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
-    expect(screen.getByText('Primary Profile')).toBeVisible();
+    expect(screen.getByText('My Profile')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
-    fireEvent.click(screen.getByText('Primary Profile'));
+    fireEvent.click(screen.getByText('My Profile'));
     await waitFor(() => {
       expect(screen.getByText('Signout')).toBeVisible();
     });

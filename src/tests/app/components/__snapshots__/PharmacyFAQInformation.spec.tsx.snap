@@ -17,7 +17,7 @@ exports[`PharmacyFAQInformation should render the UI correctly 1`] = `
           <label
             class="body-1"
           >
-            To see a list of all the prescription drugs your plan covers, go to the Check Drug Cost & Coverage page on your caremark.com account.
+            To see a list of all the prescription drugs your plan   covers, go to the Check Drug Cost & Coverage page on your caremark.com account.
           </label>
         </div>
         <span
@@ -51,7 +51,7 @@ exports[`PharmacyFAQInformation should render the UI correctly 1`] = `
         <label
           class="body-1"
         >
-          To see a list of all the prescription drugs your plan covers, go to the Check Drug Cost & Coverage page on your caremark.com account.
+          To see a list of all the prescription drugs your plan   covers, go to the Check Drug Cost & Coverage page on your caremark.com account.
         </label>
       </div>
       <span
