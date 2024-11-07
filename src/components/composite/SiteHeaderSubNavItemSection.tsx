@@ -85,11 +85,11 @@ export const SubNavItemSection = ({
                 item.external ? (
                   <Link
                     key={index}
-                    className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline focus:p-1 focus-visible:p-1"
+                    className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href={item.url}
                     target="_blank"
                   >
-                    <p className="pb-2 pt-2 pr-1 focus-visible:p-1 primary-color hover:text-primary-focus">
+                    <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
                       {item.title}
                     </p>
                     <Image
