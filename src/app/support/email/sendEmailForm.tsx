@@ -64,8 +64,6 @@ const SendAnEmailForm = ({
         <Spacer size={24} />
         <TextBox className="body-1" text="Who do you need to discuss?" />
         <RichDropDown
-          className="border"
-          minWidth="min-w-[280px]"
           headBuilder={(val) => <DropDownHead user={val} />}
           itemData={nameDropdown}
           itemsBuilder={(data, index) => (
@@ -77,8 +75,6 @@ const SendAnEmailForm = ({
         <Spacer size={24} />
         <TextBox className="body-1" text="What can we help you with?" />
         <RichDropDown
-          className="border"
-          minWidth="min-w-[280px]"
           headBuilder={(val) => <DropDownHead user={val} />}
           itemData={topicsDropdown}
           itemsBuilder={(data, index) => (
@@ -95,7 +91,7 @@ const SendAnEmailForm = ({
           id="example-textarea"
           value={messageValue}
           onChange={handleMessageChange}
-          className="block w-full px-4 py-2 border border-gray-300  rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none overflow-y-auto h-[240px]"
+          className="block w-full px-4 py-2 border border-[#737373]  rounded-md shadow-sm focus:ring-primary focus:border-primary-focus focus-visible:primary sm:text-sm resize-none overflow-y-scroll h-[240px]"
           placeholder="Add your message here..."
         ></textarea>
         <Spacer size={32} />

@@ -1,9 +1,8 @@
 'use client';
 
-import { Card } from '@/components/foundation/Card';
+import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
-import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -16,7 +15,6 @@ const SendAnEmail = () => {
         <Column className="md:m-2 m-4">
           <Row className="justify-between mt-2 md:mt-16 lg:mt-0">
             <Column className="max-w-2xl ">
-              <Spacer size={8} />
               <Header type="title-1" text="Send an Email" />
               <Spacer size={8} />
               <TextBox
@@ -26,7 +24,6 @@ const SendAnEmail = () => {
             </Column>
           </Row>
         </Column>
-        <Spacer size={16} />
         <section className="flex flex-row items-start app-body" id="Filter">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <SendAnEmailForm
@@ -90,7 +87,7 @@ const SendAnEmail = () => {
                   id: '1',
                 },
                 {
-                  label: '',
+                  label: 'John',
                   value: '2',
                   id: '2',
                 },
@@ -103,40 +100,11 @@ const SendAnEmail = () => {
             />
           </Column>
           <Column className=" flex-grow page-section-63_33 items-stretch ">
-            <Card className="mt-4 small-section">
-              <Column>
-                <Spacer size={16} />
-
-                <Header
-                  text="We're Here to Help"
-                  type="title-2"
-                  className="!font-light !text-[26px]/[40px] ml-4"
-                />
-                <Spacer size={16} />
-
-                <RichText
-                  className="ml-4"
-                  spans={[
-                    <span key={0}>
-                      If you need help, please reach out to us. You can{' '}
-                    </span>,
-                    <span className="link font-bold" key={1}>
-                      start a chat{' '}
-                    </span>,
-                    <span key={2}>
-                      {' '}
-                      or call us at [1-800-000-0000].
-                      <br /> <br />
-                    </span>,
-                    <span key={3}>You can also </span>,
-                    <span className="link font-bold mb-2" key={4}>
-                      <a href="/support/faq">try our FAQ</a>
-                    </span>,
-                    <span key={4}>. </span>,
-                  ]}
-                />
-              </Column>
-            </Card>
+            <GetHelpSection
+              link="/support/faq"
+              linkURL="FAQ."
+              headerText="We're Here to Help"
+            />
           </Column>
         </section>
       </Column>
