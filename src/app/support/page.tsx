@@ -68,7 +68,9 @@ const CONTACT_ITEMS = [
     body: (
       <TextBox text="If it's after hours or you'd rather send us an email, we're right here." />
     ),
-    footer: <AppLink className="!px-0" label="Send an Email" />,
+    footer: (
+      <AppLink className="!px-0" label="Send an Email" url="/support/email" />
+    ),
   },
 ];
 
