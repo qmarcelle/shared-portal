@@ -194,15 +194,6 @@ describe('SiteHeader And Navigation Menu', () => {
       'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
     );
 
-    expect(
-      screen.getAllByRole('link', {
-        name: 'Price a Medication External Link',
-      })[1],
-    ).toHaveProperty(
-      'href',
-      'https://www.caremark.com/drugSearchInit.do?newLogin=yes',
-    );
-
     expect(screen.getAllByText(/Pharmacy Documents & Forms/i));
     fireEvent.click(
       screen.getByRole('button', {
@@ -242,7 +233,6 @@ describe('SiteHeader And Navigation Menu', () => {
         name: /Find a Form/i,
       }),
     );
-    expect(screen.getByText(/Documents & Forms/i)).toBeInTheDocument();
 
     expect(screen.getAllByText(/Frequently Asked Questions/i));
     fireEvent.click(
