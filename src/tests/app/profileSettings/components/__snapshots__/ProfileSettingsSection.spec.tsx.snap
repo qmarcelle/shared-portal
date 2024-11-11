@@ -30,11 +30,11 @@ exports[`Profile Settings Card Component should render UI correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Communication Settings
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -68,11 +68,11 @@ exports[`Profile Settings Card Component should render UI correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Security Settings
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -106,11 +106,11 @@ exports[`Profile Settings Card Component should render UI correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Sharing & Permissions
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >

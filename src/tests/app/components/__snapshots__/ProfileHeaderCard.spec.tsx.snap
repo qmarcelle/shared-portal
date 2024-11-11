@@ -12,17 +12,196 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
           <div
             class="flex flex-col flex flex-col"
           >
+            <section
+              class="switchFilter"
+            >
+              <section>
+                <div
+                  class="rich-dropdown"
+                >
+                  <div
+                    class="flex flex-col switch-filter default"
+                    tabindex="1"
+                  >
+                    <div>
+                      <div
+                        class="flex flex-row px-4 py-2 items-center divider-bottom"
+                      >
+                        <div
+                          class="flex flex-col grow"
+                        >
+                          <p
+                            class="body-2"
+                          >
+                            My Profile
+                          </p>
+                          <h3
+                            class="title-3 font-bold primary-color"
+                          >
+                            Chris Hall
+                          </h3>
+                          <p
+                            class="body-1"
+                          >
+                            DOB: 11/03/2000
+                          </p>
+                        </div>
+                        <img
+                          alt="switch"
+                          class="size-5 head-icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        ,
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        All Profile Settings
+                      </p>
+                      <p
+                        class="ml-1"
+                        style="display: block;"
+                      >
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Communication Settings
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Security Settings
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Sharing & Permissions
+                      </p>
+                    </button>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
+              </section>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+            </section>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col"
+    >
+      <section>
+        <div
+          class="flex flex-col flex flex-col"
+        >
+          <section
+            class="switchFilter"
+          >
             <section>
               <div
                 class="rich-dropdown"
               >
                 <div
-                  class="flex flex-col switch-filter disabled"
+                  class="flex flex-col switch-filter default"
                   tabindex="1"
                 >
                   <div>
                     <div
-                      class="flex flex-row p-4 items-center"
+                      class="flex flex-row px-4 py-2 items-center divider-bottom"
                     >
                       <div
                         class="flex flex-col grow"
@@ -30,10 +209,10 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                         <p
                           class="body-2"
                         >
-                          Primary Profile
+                          My Profile
                         </p>
                         <h3
-                          class="title-3 font-bold"
+                          class="title-3 font-bold primary-color"
                         >
                           Chris Hall
                         </h3>
@@ -55,197 +234,122 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                         style="color: transparent;"
                         width="40"
                       />
+                      ,
                     </div>
                   </div>
                 </div>
               </div>
               <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
               />
-              <a
-                href="/profileSettings"
+              <div
+                class="flex flex-col"
               >
-                <div
-                  class="flex flex-row"
+                <a
+                  style="display: block;"
+                  tabindex="-1"
                 >
-                  <p
-                    class="!font-bold primary-color underline underline-offset-3 title-3 "
+                  <button
+                    class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
                   >
-                    All Profile Settings
-                  </p>
-                  <div
-                    class="ml-2"
-                  >
-                    <img
-                      alt="link"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </a>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-              />
-              <div
-                aria-label="divider"
-                class="w-[288px] h-[1px]"
-                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-              />
-              <p
-                class="body-1 font-bold primary-color"
-              >
-                Communication Settings
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <p
-                class="body-1 font-bold primary-color"
-              >
-                Security Settings
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <p
-                class="body-1 font-bold primary-color"
-              >
-                Sharing & Permissions
-              </p>
-            </section>
-          </div>
-        </section>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="flex flex-col"
-    >
-      <section>
-        <div
-          class="flex flex-col flex flex-col"
-        >
-          <section>
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row p-4 items-center"
-                  >
-                    <div
-                      class="flex flex-col grow"
+                    <p
+                      class="link undefined"
+                      style="display: block;"
                     >
-                      <p
-                        class="body-2"
-                      >
-                        Primary Profile
-                      </p>
-                      <h3
-                        class="title-3 font-bold"
-                      >
-                        Chris Hall
-                      </h3>
-                      <p
-                        class="body-1"
-                      >
-                        DOB: 11/03/2000
-                      </p>
-                    </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
+                      All Profile Settings
+                    </p>
+                    <p
+                      class="ml-1"
+                      style="display: block;"
+                    >
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      Communication Settings
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      Security Settings
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      Sharing & Permissions
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
               </div>
-            </div>
+            </section>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
-            <a
-              href="/profileSettings"
-            >
-              <div
-                class="flex flex-row"
-              >
-                <p
-                  class="!font-bold primary-color underline underline-offset-3 title-3 "
-                >
-                  All Profile Settings
-                </p>
-                <div
-                  class="ml-2"
-                >
-                  <img
-                    alt="link"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </div>
-              </div>
-            </a>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-            />
-            <div
-              aria-label="divider"
-              class="w-[288px] h-[1px]"
-              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-            />
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-            />
-            <p
-              class="body-1 font-bold primary-color"
-            >
-              Communication Settings
-            </p>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <p
-              class="body-1 font-bold primary-color"
-            >
-              Security Settings
-            </p>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <p
-              class="body-1 font-bold primary-color"
-            >
-              Sharing & Permissions
-            </p>
           </section>
         </div>
       </section>
@@ -315,116 +419,168 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
         <div
           class="flex flex-col flex flex-col"
         >
-          <section>
-            <div
-              class="rich-dropdown"
-            >
+          <section
+            class="switchFilter"
+          >
+            <section>
               <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
+                class="rich-dropdown"
               >
-                <div>
-                  <div
-                    class="flex flex-row p-4 items-center"
-                  >
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
                     <div
-                      class="flex flex-col grow"
+                      class="flex flex-row px-4 py-2 items-center divider-bottom"
                     >
-                      <p
-                        class="body-2"
+                      <div
+                        class="flex flex-col grow"
                       >
-                        Primary Profile
-                      </p>
-                      <h3
-                        class="title-3 font-bold"
-                      >
-                        Chris Hall
-                      </h3>
-                      <p
-                        class="body-1"
-                      >
-                        DOB: 11/03/2000
-                      </p>
+                        <p
+                          class="body-2"
+                        >
+                          My Profile
+                        </p>
+                        <h3
+                          class="title-3 font-bold primary-color"
+                        >
+                          Chris Hall
+                        </h3>
+                        <p
+                          class="body-1"
+                        >
+                          DOB: 11/03/2000
+                        </p>
+                      </div>
+                      <img
+                        alt="switch"
+                        class="size-5 head-icon"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      ,
                     </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
                   </div>
                 </div>
               </div>
-            </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      All Profile Settings
+                    </p>
+                    <p
+                      class="ml-1"
+                      style="display: block;"
+                    >
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      Communication Settings
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      Security Settings
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      Sharing & Permissions
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+              </div>
+            </section>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
-            <a
-              href="/profileSettings"
-            >
-              <div
-                class="flex flex-row"
-              >
-                <p
-                  class="!font-bold primary-color underline underline-offset-3 title-3 "
-                >
-                  All Profile Settings
-                </p>
-                <div
-                  class="ml-2"
-                >
-                  <img
-                    alt="link"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </div>
-              </div>
-            </a>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-            />
-            <div
-              aria-label="divider"
-              class="w-[288px] h-[1px]"
-              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-            />
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-            />
-            <p
-              class="body-1 font-bold primary-color"
-            >
-              Communication Settings
-            </p>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <p
-              class="body-1 font-bold primary-color"
-            >
-              Security Settings
-            </p>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <p
-              class="body-1 font-bold primary-color"
-            >
-              Sharing & Permissions
-            </p>
           </section>
         </div>
       </section>

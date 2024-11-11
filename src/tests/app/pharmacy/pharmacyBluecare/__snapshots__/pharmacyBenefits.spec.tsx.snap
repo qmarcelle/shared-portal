@@ -85,6 +85,7 @@ exports[`Pharmacy Benefits should render the UI correctly 1`] = `
                       <a
                         href="https://www.tn.gov/tenncare/members-applicants/pharmacy.html"
                         style="display: block;"
+                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container link hover:!underline !flex p-0"
@@ -92,7 +93,7 @@ exports[`Pharmacy Benefits should render the UI correctly 1`] = `
                           tabindex="0"
                         >
                           <p
-                            class="link"
+                            class="link undefined"
                             style="display: block;"
                           >
                             visit TennCare’s site for more info
@@ -209,6 +210,7 @@ exports[`Pharmacy Benefits should render the UI correctly 1`] = `
                     <a
                       href="https://www.tn.gov/tenncare/members-applicants/pharmacy.html"
                       style="display: block;"
+                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container link hover:!underline !flex p-0"
@@ -216,7 +218,7 @@ exports[`Pharmacy Benefits should render the UI correctly 1`] = `
                         tabindex="0"
                       >
                         <p
-                          class="link"
+                          class="link undefined"
                           style="display: block;"
                         >
                           visit TennCare’s site for more info
