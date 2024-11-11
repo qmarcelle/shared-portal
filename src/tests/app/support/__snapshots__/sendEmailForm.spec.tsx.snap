@@ -456,7 +456,6 @@ exports[`Send an Email should render the UI correctly 1`] = `
           />
           <textarea
             class="block w-full px-4 py-2 border border-[#737373]  rounded-md shadow-sm focus:ring-primary focus:border-primary-focus focus-visible:primary sm:text-sm resize-none overflow-y-scroll h-[240px]"
-            id="example-textarea"
             placeholder="Add your message here..."
           />
           <span
@@ -925,7 +924,6 @@ exports[`Send an Email should render the UI correctly 1`] = `
         />
         <textarea
           class="block w-full px-4 py-2 border border-[#737373]  rounded-md shadow-sm focus:ring-primary focus:border-primary-focus focus-visible:primary sm:text-sm resize-none overflow-y-scroll h-[240px]"
-          id="example-textarea"
           placeholder="Add your message here..."
         />
         <span
