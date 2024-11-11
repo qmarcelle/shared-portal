@@ -12,7 +12,7 @@ interface OtherFaqTopicsProps extends IComponent {
 }
 export const OtherFaqTopics = ({
   faqTopics,
-  goToFaqPage: GoToFaqPage,
+  goToFaqPage,
 }: OtherFaqTopicsProps) => {
   return (
     <Card className="mt-4">
@@ -35,7 +35,7 @@ export const OtherFaqTopics = ({
                         label={item}
                         linkUnderline="!no-underline"
                         callback={() => {
-                          GoToFaqPage(item);
+                          goToFaqPage(item);
                         }}
                       />
                     </Row>
