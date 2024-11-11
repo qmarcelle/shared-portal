@@ -6,27 +6,27 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
 import { ReactNode } from 'react';
 
-interface PharmacyFAQInformationProps extends IComponent {
-  answerline1: JSX.Element | string | string[];
-  answerline2: JSX.Element[] | ReactNode[];
-  answerline3: JSX.Element | string;
+interface FaqCardInformationProps extends IComponent {
+  answerLine1: JSX.Element | string | string[];
+  answerLine2: JSX.Element[] | ReactNode[];
+  answerLine3: JSX.Element | string;
 }
 
 export const FaqCardInformation = ({
-  answerline1,
-  answerline2,
-  answerline3,
-}: PharmacyFAQInformationProps) => {
+  answerLine1,
+  answerLine2,
+  answerLine3,
+}: FaqCardInformationProps) => {
   return (
     <Column className="flex flex-col">
       <Spacer size={16} />
       <Row>
-        <RichText spans={[<span key={0}>{answerline1}</span>]} />
+        <RichText spans={[<span key={0}>{answerLine1}</span>]} />
       </Row>
       <Spacer size={12} />
       <Row>
         <ul className="ml-4">
-          {answerline2.map((item: JSX.Element[] | ReactNode, index: number) => {
+          {answerLine2.map((item: JSX.Element[] | ReactNode, index: number) => {
             return (
               <Column key={index}>
                 <li>
@@ -54,7 +54,7 @@ export const FaqCardInformation = ({
         </ul>
       </Row>
       <Row>
-        <label className="body-1">{answerline3}</label>
+        <label className="body-1">{answerLine3}</label>
       </Row>
       <Spacer size={12} />
     </Column>
