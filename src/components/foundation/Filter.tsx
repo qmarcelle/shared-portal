@@ -70,6 +70,9 @@ export const Filter = ({
     const dropdDownCopiedVal = JSON.parse(JSON.stringify(filterItem));
     if (dropdDownCopiedVal[index]) {
       dropdDownCopiedVal[index].selectedValue = value;
+      // if (dropdDownCopiedVal[index].onFilterChanged) {
+      //   dropdDownCopiedVal[index].onFilterChanged(value.value);
+      // }
     }
     setFilterItem(dropdDownCopiedVal);
     resetFilter(true);
@@ -79,6 +82,9 @@ export const Filter = ({
     const filterList = JSON.parse(JSON.stringify(filterItem));
     if (filterList[index]) {
       filterList[index].value = value;
+      // if (filterList[index].onFilterChanged) {
+      //   filterList[index].onFilterChanged(value);
+      // }
     }
     setFilterItem(filterList);
     resetFilter(true);
