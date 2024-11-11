@@ -174,9 +174,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                 >
                   My Profile
                 </span>
-                <p>
-                  Chris Hall
-                </p>
+                <p />
               </div>
             </div>
           </div>
@@ -912,9 +910,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 >
                   My Profile
                 </span>
-                <p>
-                  Chris Hall
-                </p>
+                <p />
               </div>
             </div>
           </div>
@@ -1446,9 +1442,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 >
                   My Profile
                 </span>
-                <p>
-                  Chris Hall
-                </p>
+                <p />
               </div>
             </div>
           </div>
@@ -1823,7 +1817,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
           class="react-responsive-modal-modal sideBar-Container"
           data-testid="modal"
           role="dialog"
-          style="animation: react-responsive-modal-modal-in 300ms;"
+          style="animation: react-responsive-modal-modal-in 300ms; width: 320px;"
           tabindex="-1"
         >
           <div>
@@ -1834,7 +1828,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 class="sideBar-content"
               >
                 <div
-                  class="flex flex-row justify-between modal-header items-center relative"
+                  class="flex flex-row justify-between modal-header items-center relative p-4"
                 >
                   <div
                     tabindex="1"
@@ -1904,27 +1898,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                       </p>
                                       <h3
                                         class="title-3 font-bold primary-color"
-                                      >
-                                        Chris Hall
-                                      </h3>
+                                      />
                                       <p
                                         class="body-1"
                                       >
-                                        DOB: 11/03/2000
+                                        DOB: 
                                       </p>
                                     </div>
-                                    <img
-                                      alt="switch"
-                                      class="size-5 head-icon"
-                                      data-nimg="1"
-                                      decoding="async"
-                                      height="40"
-                                      loading="lazy"
-                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                      style="color: transparent;"
-                                      width="40"
-                                    />
                                     ,
                                   </div>
                                 </div>
@@ -2052,21 +2032,14 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               </div>
               <section
                 class="flex flex-row justify-center"
-                style="position: absolute; bottom: 0px; padding: 10px; overflow: hidden;"
+                style="position: absolute; bottom: 0px; overflow: hidden; width: 100%;"
               >
                 <div
-                  class="flex flex-col"
+                  class="flex flex-col w-full border-t border-gray-300 border-t-[1px]"
                 >
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                  />
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
                   <button
                     aria-label="Signout"
-                    class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null font-bold w-[288px] h-[40px] "
+                    class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null font-bold w-[90%] md:w-[288px] h-[40px] m-4"
                     id="signoutButton"
                     type="button"
                   >
@@ -2258,7 +2231,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   My Profile
                 </span>
                 <p>
-                  Chris Hall
+                  Jennie Ramage
                 </p>
               </div>
             </div>
@@ -2634,7 +2607,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
           class="react-responsive-modal-modal sideBar-Container"
           data-testid="modal"
           role="dialog"
-          style="animation: react-responsive-modal-modal-out 300ms;"
+          style="animation: react-responsive-modal-modal-out 300ms; width: 320px;"
           tabindex="-1"
         >
           <div>
@@ -2645,7 +2618,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 class="sideBar-content"
               >
                 <div
-                  class="flex flex-row justify-between modal-header items-center relative"
+                  class="flex flex-row justify-between modal-header items-center relative p-4"
                 >
                   <div
                     tabindex="1"
