@@ -33,47 +33,54 @@ export const getMemberDropdownValues = (members: Member[]) => {
 };
 
 const getBenefitTypes = (planDetails: PlanDetail[]) => {
-  const benefitTypes = new Set<string>();
-  benefitTypes.add('All Types');
   interface benefitItem {
     label: string;
     value: string;
     id: string;
   }
+
+  const sortedPlanDetails = planDetails.sort((a, b) => {
+    const order = ['M', 'D', 'V', 'S'];
+    return order.indexOf(a.productCategory) - order.indexOf(b.productCategory);
+  });
   const items: benefitItem[] = [];
-  planDetails.forEach((plan) => {
+  let id = 0;
+  items.push({ label: 'All Types', value: 'A', id: '0' });
+  sortedPlanDetails.forEach((plan) => {
+    id++;
     switch (plan.productCategory) {
       case 'M':
         items.push({
           label: 'Medical',
           value: 'M',
-          id: '0',
+          id: id.toString(),
         });
+        id++;
         items.push({
           label: 'Pharmacy',
           value: 'R',
-          id: '0',
+          id: id.toString(),
         });
         break;
       case 'D':
         items.push({
           label: 'Dental',
           value: 'D',
-          id: '0',
+          id: id.toString(),
         });
         break;
       case 'V':
         items.push({
           label: 'Vision',
           value: 'V',
-          id: '0',
+          id: id.toString(),
         });
         break;
       case 'S':
         items.push({
           label: 'Other',
           value: 'S',
-          id: '0',
+          id: id.toString(),
         });
         break;
       default:
@@ -81,27 +88,29 @@ const getBenefitTypes = (planDetails: PlanDetail[]) => {
     }
   });
 
-  const orderedBenefitTypes = [
-    'All Types',
-    'Medical',
-    'Pharmacy',
-    'Dental',
-    'Vision',
-    'Other',
-  ];
-  const sortedItems = items.sort((a, b) => a.label.localeCompare(b.label));
-  return orderedBenefitTypes
-    .filter((type) => benefitTypes.has(type))
-    .map((type, index) => {
-      const item = sortedItems.find((item) => item.label === type);
-      return {
-        label: type,
-        value: (index + 1).toString(),
-        id: item
-          ? sortedItems.indexOf(item).toString()
-          : (index + 1).toString(),
-      };
-    });
+  return items;
+
+  // const orderedBenefitTypes = [
+  //   'All Types',
+  //   'Medical',
+  //   'Pharmacy',
+  //   'Dental',
+  //   'Vision',
+  //   'Other',
+  // ];
+  // const sortedItems = items.sort((a, b) => a.label.localeCompare(b.label));
+  // return orderedBenefitTypes
+  //   .filter((type) => benefitTypes.has(type))
+  //   .map((type, index) => {
+  //     const item = sortedItems.find((item) => item.label === type);
+  //     return {
+  //       label: type,
+  //       value: (index + 1).toString(),
+  //       id: item
+  //         ? sortedItems.indexOf(item).toString()
+  //         : (index + 1).toString(),
+  //     };
+  //   });
 };
 
 const Benefits = () => {
