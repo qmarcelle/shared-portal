@@ -53,11 +53,11 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
       <section
         class="md:ml-10 p-5"
       >
-        <p
+        <h2
           class="title-2"
         >
           Program Benefits
-        </p>
+        </h2>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
@@ -347,7 +347,6 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            aria-label="divider"
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
@@ -417,7 +416,6 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            aria-label="divider"
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
@@ -471,7 +469,6 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
           />
         </div>
         <div
-          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
@@ -572,11 +569,11 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
       <section
         class="md:ml-10 p-5"
       >
-        <p
+        <h2
           class="title-2"
         >
           Program Benefits
-        </p>
+        </h2>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
@@ -866,7 +863,6 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            aria-label="divider"
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
@@ -936,7 +932,6 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            aria-label="divider"
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
@@ -990,7 +985,6 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
           />
         </div>
         <div
-          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
@@ -1091,11 +1085,11 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
       <section
         class="md:ml-10 p-5"
       >
-        <p
+        <h2
           class="title-2"
         >
           Program Benefits
-        </p>
+        </h2>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
@@ -1385,7 +1379,6 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            aria-label="divider"
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
@@ -1455,7 +1448,6 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            aria-label="divider"
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
@@ -1509,7 +1501,6 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
           />
         </div>
         <div
-          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />

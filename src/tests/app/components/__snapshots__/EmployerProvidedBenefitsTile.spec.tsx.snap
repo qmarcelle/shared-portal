@@ -279,6 +279,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
           />
           <a
             style="display: block;"
+            tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
@@ -286,7 +287,8 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
               tabindex="0"
             >
               <p
-                class="link"
+                class="link undefined"
+                style="display: block;"
               >
                 View All Employer Provided Benefits
               </p>
@@ -571,6 +573,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
         />
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -578,7 +581,8 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               View All Employer Provided Benefits
             </p>

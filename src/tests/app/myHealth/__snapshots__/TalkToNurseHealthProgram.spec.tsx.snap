@@ -53,7 +53,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                 class="flex flex-col w-fit md:w-[83%]"
               >
                 <span
-                  class="body-1 undefined"
+                  class="rich-text body-1 undefined"
                 >
                   <span>
                     Please note, nurses cannot prescribe medications. You can call anytime at
@@ -187,19 +187,26 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <p
-                    class="body-1"
+                  <div
+                    class="flex flex-col"
                   >
-                    You can expect to pay:
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                  />
-                  <p
-                    class="body-1 font-bold text-xl"
-                  >
-                    $0
-                  </p>
+                    <p
+                      class="body-1"
+                    >
+                      You can expect to pay:
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <p
+                      class="body-1 font-bold text-xl"
+                    >
+                      $0
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -388,7 +395,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
               class="flex flex-col w-fit md:w-[83%]"
             >
               <span
-                class="body-1 undefined"
+                class="rich-text body-1 undefined"
               >
                 <span>
                   Please note, nurses cannot prescribe medications. You can call anytime at
@@ -522,19 +529,26 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <p
-                  class="body-1"
+                <div
+                  class="flex flex-col"
                 >
-                  You can expect to pay:
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <p
-                  class="body-1 font-bold text-xl"
-                >
-                  $0
-                </p>
+                  <p
+                    class="body-1"
+                  >
+                    You can expect to pay:
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <p
+                    class="body-1 font-bold text-xl"
+                  >
+                    $0
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
               </div>
             </div>
           </div>

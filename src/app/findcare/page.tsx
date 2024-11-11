@@ -119,7 +119,6 @@ const FindCare = () => {
         <section className="flex flex-row items-start app-body mt-4">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <ViewCareOptions
-              className="large-section"
               options={[
                 {
                   title: 'Primary Care Options',
@@ -132,6 +131,7 @@ const FindCare = () => {
                       alt="Primary Care"
                     />
                   ),
+                  url: '/findcare/primaryCareOptions',
                 },
                 {
                   title: 'Mental Care Options',
@@ -144,6 +144,7 @@ const FindCare = () => {
                       alt="Mental Care"
                     />
                   ),
+                  url: '',
                 },
               ]}
             />

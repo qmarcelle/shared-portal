@@ -4,7 +4,7 @@ import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
 import { formatCurrency } from '@/utils/currency_formatter';
 import { Spacer } from '../../../components/foundation/Spacer';
-import { ServicesUsed } from '../models/servicesused_details';
+import { ServicesUsed } from '../../../models/app/servicesused_details';
 
 interface ServicesUsedChartProps {
   label: string;

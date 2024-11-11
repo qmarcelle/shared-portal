@@ -106,7 +106,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <div
-                        aria-label="divider"
                         class=""
                         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                       />
@@ -120,7 +119,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2 body-1"
                       >
-                        Not Covered by other health insurance.
+                        Not covered by other health insurance.
                       </p>
                     </div>
                     <span
@@ -132,7 +131,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2  body-1"
                       >
-                        Last Updated:01/16/2023
+                        Last Updated: 01/16/2023
                       </p>
                     </div>
                     <span
@@ -218,7 +217,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <div
-                        aria-label="divider"
                         class=""
                         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                       />
@@ -232,7 +230,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2 body-1"
                       >
-                        Not Covered by other health insurance.
+                        Not covered by other health insurance.
                       </p>
                     </div>
                     <span
@@ -244,7 +242,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2  body-1"
                       >
-                        Last Updated:01/16/2023
+                        Last Updated: 01/16/2023
                       </p>
                     </div>
                     <span
@@ -330,7 +328,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <div
-                        aria-label="divider"
                         class=""
                         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                       />
@@ -344,7 +341,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2 body-1"
                       >
-                        Not Covered by other health insurance.
+                        Not covered by other health insurance.
                       </p>
                     </div>
                     <span
@@ -356,7 +353,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2  body-1"
                       >
-                        Last Updated:01/16/2023
+                        Last Updated: 01/16/2023
                       </p>
                     </div>
                     <span
@@ -442,7 +439,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <div
-                        aria-label="divider"
                         class=""
                         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                       />
@@ -456,7 +452,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2 body-1"
                       >
-                        Not Covered by other health insurance.
+                        Not covered by other health insurance.
                       </p>
                     </div>
                     <span
@@ -468,7 +464,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2  body-1"
                       >
-                        Last Updated:01/16/2023
+                        Last Updated: 01/16/2023
                       </p>
                     </div>
                     <span
@@ -554,7 +550,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <div
-                        aria-label="divider"
                         class=""
                         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                       />
@@ -568,7 +563,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2 body-1"
                       >
-                        Not Covered by other health insurance.
+                        Not covered by other health insurance.
                       </p>
                     </div>
                     <span
@@ -580,7 +575,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2  body-1"
                       >
-                        Last Updated:01/16/2023
+                        Last Updated: 01/16/2023
                       </p>
                     </div>
                     <span
@@ -666,7 +661,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <div
-                        aria-label="divider"
                         class=""
                         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                       />
@@ -680,7 +674,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2 body-1"
                       >
-                        Not Covered by other health insurance.
+                        Not covered by other health insurance.
                       </p>
                     </div>
                     <span
@@ -692,7 +686,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-2  body-1"
                       >
-                        Last Updated:01/16/2023
+                        Last Updated: 01/16/2023
                       </p>
                     </div>
                     <span
@@ -847,7 +841,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -861,7 +854,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2 body-1"
                     >
-                      Not Covered by other health insurance.
+                      Not covered by other health insurance.
                     </p>
                   </div>
                   <span
@@ -873,7 +866,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2  body-1"
                     >
-                      Last Updated:01/16/2023
+                      Last Updated: 01/16/2023
                     </p>
                   </div>
                   <span
@@ -959,7 +952,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -973,7 +965,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2 body-1"
                     >
-                      Not Covered by other health insurance.
+                      Not covered by other health insurance.
                     </p>
                   </div>
                   <span
@@ -985,7 +977,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2  body-1"
                     >
-                      Last Updated:01/16/2023
+                      Last Updated: 01/16/2023
                     </p>
                   </div>
                   <span
@@ -1071,7 +1063,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -1085,7 +1076,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2 body-1"
                     >
-                      Not Covered by other health insurance.
+                      Not covered by other health insurance.
                     </p>
                   </div>
                   <span
@@ -1097,7 +1088,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2  body-1"
                     >
-                      Last Updated:01/16/2023
+                      Last Updated: 01/16/2023
                     </p>
                   </div>
                   <span
@@ -1183,7 +1174,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -1197,7 +1187,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2 body-1"
                     >
-                      Not Covered by other health insurance.
+                      Not covered by other health insurance.
                     </p>
                   </div>
                   <span
@@ -1209,7 +1199,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2  body-1"
                     >
-                      Last Updated:01/16/2023
+                      Last Updated: 01/16/2023
                     </p>
                   </div>
                   <span
@@ -1295,7 +1285,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -1309,7 +1298,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2 body-1"
                     >
-                      Not Covered by other health insurance.
+                      Not covered by other health insurance.
                     </p>
                   </div>
                   <span
@@ -1321,7 +1310,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2  body-1"
                     >
-                      Last Updated:01/16/2023
+                      Last Updated: 01/16/2023
                     </p>
                   </div>
                   <span
@@ -1407,7 +1396,6 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -1421,7 +1409,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2 body-1"
                     >
-                      Not Covered by other health insurance.
+                      Not covered by other health insurance.
                     </p>
                   </div>
                   <span
@@ -1433,7 +1421,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     <p
                       class="body-1 ml-2  body-1"
                     >
-                      Last Updated:01/16/2023
+                      Last Updated: 01/16/2023
                     </p>
                   </div>
                   <span

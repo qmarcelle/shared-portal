@@ -1,0 +1,46 @@
+import { Column } from '@/components/foundation/Column';
+import { Divider } from '@/components/foundation/Divider';
+import { Row } from '@/components/foundation/Row';
+import { TextBox } from '@/components/foundation/TextBox';
+import { ServicesUsed } from '@/models/app/servicesused_details';
+import { Spacer } from '../../../components/foundation/Spacer';
+
+interface MedicalServicesUsedChartProps {
+  medicalServiceDetails: ServicesUsed[];
+}
+export const MedicalServicesUsedChart = ({
+  medicalServiceDetails,
+}: MedicalServicesUsedChartProps) => {
+  return (
+    <div className="flex flex-col">
+      <Spacer size={32} />
+      {medicalServiceDetails &&
+        medicalServiceDetails
+          .slice(0, medicalServiceDetails.length)
+          .map((item, index) => (
+            // eslint-disable-next-line react/jsx-key
+            <div>
+              <Row key={index}>
+                <Column>
+                  <TextBox
+                    className="font-bold"
+                    text={String(item.spentAmount) ?? '--'}
+                  />
+                  <TextBox type="body-2" text="Used" />
+                </Column>
+                <TextBox
+                  className="ml-5"
+                  text={
+                    (String(item.limitAmount) ?? '--') + ' ' + item.serviceName
+                  }
+                />
+              </Row>
+              <Spacer size={16} />
+              <Divider />
+              <Spacer size={16} />
+            </div>
+          ))}
+      <Spacer size={8} />
+    </div>
+  );
+};

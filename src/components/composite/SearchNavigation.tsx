@@ -39,7 +39,9 @@ export const SearchNavigation = ({ className }: IComponent) => {
   };
 
   const SearchBar = () => (
-    <div className={`flex flex-row align-top m-2 searchBar ${className}`}>
+    <div
+      className={`flex flex-row align-top m-2 hover:bg-white searchBar ${className}`}
+    >
       <div
         className="flex flex-col flex-grow "
         style={{ height: 40 }}
@@ -82,9 +84,10 @@ export const SearchNavigation = ({ className }: IComponent) => {
     return showSearchBar ? (
       <SearchBar />
     ) : (
-      <div className="flex flex-row align-top m-4">
+      <div className="flex flex-row align-top">
         <div
-          className="flex flex-row"
+          tabIndex={0}
+          className="flex flex-row rounded-[4px] m-4 box-border items-end focus:outline-none focus:ring-2 focus:ring-primary-color"
           onClick={() => {
             setShowSearchBar(true);
           }}
@@ -93,14 +96,18 @@ export const SearchNavigation = ({ className }: IComponent) => {
             <TextBox className="link-row-head" text="Search" />
           </a>
           <Spacer size={8} />
-          <Image src={searchIcon} className="icon items-end" alt="Search" />
+          <Image
+            src={searchIcon}
+            className="icon items-end ml-1"
+            alt="Search"
+          />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col self-strectch w-full items-end">
+    <div className="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] ">
       {renderSearch()}
     </div>
   );

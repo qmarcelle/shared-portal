@@ -9,9 +9,10 @@ button.inactive {
 
 button.primary {
   padding: 8px;
-  border-radius: 2px;
+  border-radius: 0.25rem;
   background-color: var(--primary-color);
   color: white;
+  font-family: 'Univers-65';
 }
 
 button.primary:hover,
@@ -29,8 +30,10 @@ button.primary:focus {
 
 button.secondary {
   padding: 8px;
-  border-radius: 2px;
+  border-radius: 0.25rem;
   border: 1px solid var(--primary-color);
+  font-size: 1rem;
+  font-family: 'Univers-65';
 }
 
 button.secondary:disabled {
@@ -52,7 +55,7 @@ button.secondary:focus {
 }
 
 button.rounded {
-  @apply rounded-full flex flex-row p-2;
+  @apply rounded-full flex flex-row p-2 button-rounded-pill;
   background-color: var(--primary-accent-color);
   border: 1px solid var(--primary-color);
 }
@@ -72,9 +75,7 @@ button.rounded:focus {
 button.elevated {
   background-color: var(--primary-color);
   border-radius: 100%;
-  box-shadow:
-    0px 2px 0px 0px var(--secondary-color-2),
-    0px 1px 16px 0px rgba(0, 73, 126, 0.32);
+  box-shadow: 0px 1px 16px 0px rgba(0, 73, 126, 0.32);
 }
 
 button.card {
@@ -94,7 +95,7 @@ button.card-guidance {
 }
 
 button.pill {
-  @apply rounded-full flex flex-row p-2;
+  @apply rounded-full flex flex-row p-2 button-rounded-pill;
   max-width: fit-content;
   background-color: var(--primary-accent-color);
   border: 1px solid var(--primary-color);
@@ -128,4 +129,10 @@ button.ghost:focus {
   color: var(--secondary-color-2);
   outline: 2px solid var(--secondary-color-2);
   outline-offset: 2px;
+}
+
+.button-rounded-pill {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-family: 'Univers-65';
 }

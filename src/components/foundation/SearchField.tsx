@@ -39,7 +39,7 @@ const SearchField: React.FC<Props> = ({
     }
   };
 
-  const [focus, setFocus] = useState(true);
+  const [focus, setFocus] = useState(false);
   const [focusButton, setFocusButton] = useState(false);
 
   return (
@@ -61,7 +61,7 @@ const SearchField: React.FC<Props> = ({
       <div className="flex flex-col items-end">
         <button
           type="submit"
-          className={`flex flex-col ${focusButton ? 'buttonSearch-focus' : ''} `}
+          className={`flex flex-col p-[0.125rem] ${focusButton ? 'buttonSearch-focus' : ''} `}
           onClick={handleSubmit}
           onFocus={() => setFocusButton(true)}
           onBlur={() => setFocusButton(false)}
