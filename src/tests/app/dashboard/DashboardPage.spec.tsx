@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 
 const renderUI = async () => {
   const page = await DashboardPage();
-  render(page);
+  return render(page);
 };
 
 jest.mock('../../../auth', () => ({
