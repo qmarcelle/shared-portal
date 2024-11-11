@@ -205,11 +205,6 @@ export const InnerAppModal = ({
         overlay: 'sideBar-overlay',
         modal: 'sideBar-Container',
       }}
-      styles={{
-        modal: {
-          width: '320px',
-        },
-      }}
       showCloseIcon={false}
       open={showModal}
       closeOnOverlayClick={true}

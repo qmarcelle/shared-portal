@@ -25,23 +25,23 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="flex flex-row px-4 py-2 items-center divider-bottom"
+                        class="flex flex-row px-4 py-2 items-center w-auto h-[105px]"
                       >
                         <div
                           class="flex flex-col grow"
                         >
                           <p
-                            class="body-2"
+                            class="body-2 font-light"
                           >
                             My Profile
                           </p>
                           <h3
-                            class="title-3 font-bold primary-color"
+                            class="title-3 font-bold p-1"
                           >
                             JENNIE RAMAGE
                           </h3>
                           <p
-                            class="body-1"
+                            class="body-1 font-light"
                           >
                             DOB: 01/27/1931
                           </p>
@@ -394,23 +394,23 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="flex flex-row px-4 py-2 items-center divider-bottom"
+                      class="flex flex-row px-4 py-2 items-center w-auto h-[105px]"
                     >
                       <div
                         class="flex flex-col grow"
                       >
                         <p
-                          class="body-2"
+                          class="body-2 font-light"
                         >
                           My Profile
                         </p>
                         <h3
-                          class="title-3 font-bold primary-color"
+                          class="title-3 font-bold p-1"
                         >
                           JENNIE RAMAGE
                         </h3>
                         <p
-                          class="body-1"
+                          class="body-1 font-light"
                         >
                           DOB: 01/27/1931
                         </p>
@@ -818,23 +818,23 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                 >
                   <div>
                     <div
-                      class="flex flex-row px-4 py-2 items-center divider-bottom"
+                      class="flex flex-row px-4 py-2 items-center w-auto h-[105px]"
                     >
                       <div
                         class="flex flex-col grow"
                       >
                         <p
-                          class="body-2"
+                          class="body-2 font-light"
                         >
                           My Profile
                         </p>
                         <h3
-                          class="title-3 font-bold primary-color"
+                          class="title-3 font-bold p-1"
                         >
                           JENNIE RAMAGE
                         </h3>
                         <p
-                          class="body-1"
+                          class="body-1 font-light"
                         >
                           DOB: 01/27/1931
                         </p>

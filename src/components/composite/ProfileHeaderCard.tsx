@@ -24,7 +24,6 @@ export const ProfileHeaderCard = ({ icon }: ProfileHeaderCardProps) => {
     dismissModal();
     router.replace(DEFAULT_LOGOUT_REDIRECT);
   };
-  //const memberDetails = await profileData();
   const [members, setMembers] = useState<UserProfile>({
     id: '',
     name: '',
@@ -36,8 +35,12 @@ export const ProfileHeaderCard = ({ icon }: ProfileHeaderCardProps) => {
     if (initialized.current) return;
     initialized.current = true;
     (async () => {
-      const memberDetails = await profileData();
-      setMembers(memberDetails);
+      try {
+        const memberDetails = await profileData();
+        setMembers(memberDetails);
+      } catch (err) {
+        console.error('ProfileData Failure ');
+      }
     })();
   }, []);
   return (
@@ -55,18 +58,6 @@ export const ProfileHeaderCard = ({ icon }: ProfileHeaderCardProps) => {
                   name: `${toPascalCase(members.name)}`,
                   dob: members.dob,
                   type: UserType.Primary,
-                },
-                {
-                  id: '457',
-                  name: 'Robert Hall',
-                  dob: '01/01/1943',
-                  type: UserType.PersonalRepresentative,
-                },
-                {
-                  id: '458',
-                  name: 'Ellie Williams',
-                  dob: '01/01/1943',
-                  type: UserType.AuthorizedUser,
                 },
               ]}
             />
