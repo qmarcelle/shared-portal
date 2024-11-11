@@ -5,17 +5,17 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { ProgressBar } from '../../../components/foundation/ProgressBar';
 import { Spacer } from '../../../components/foundation/Spacer';
 
-interface DentalBalanceChartProps {
+interface BalanceChartProps {
   label: string;
-  spentAmount: number | null;
-  limitAmount: number | null;
+  spentAmount: number | undefined;
+  limitAmount: number | undefined;
 }
 
-export const DentalBalanceChart = ({
+export const BalanceChart = ({
   label,
   spentAmount,
   limitAmount,
-}: DentalBalanceChartProps) => {
+}: BalanceChartProps) => {
   function getNullBalanceAmount() {
     return (
       <Card backgroundColor="rgba(0,0,0,0.05)">

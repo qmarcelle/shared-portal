@@ -1,4 +1,4 @@
-import { DentalBalance } from '@/app/balances/components/DentalBalance';
+import { BalanceSection } from '@/app/balances/components/BalanceSection';
 import { SpendingAccountSection } from '@/app/balances/components/SpendingAccountsSection';
 import { MedicalBalanceSection } from '@/app/dashboard/components/MedicalBalanceSection';
 import { GetHelpSection } from '@/components/composite/GetHelpSection';
@@ -111,7 +111,7 @@ export const BenefitTypeDetails = ({
                 />
               )}
               {benefitTypeDetails?.dentalBalance && (
-                <DentalBalance
+                <BalanceSection
                   members={benefitTypeDetails?.dentalBalance?.members}
                   selectedMemberId={
                     benefitTypeDetails?.dentalBalance?.selectedMemberId
