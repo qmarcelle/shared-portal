@@ -1,9 +1,9 @@
-import SendAnEmailForm from '@/app/support/email/sendEmailForm';
+import SendEmailForm from '@/app/support/email/components/SendEmailForm';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 const renderUI = () => {
   return render(
-    <SendAnEmailForm
+    <SendEmailForm
       topicsDropdown={[
         {
           label: 'Select',
