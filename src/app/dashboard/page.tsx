@@ -9,7 +9,7 @@ import MemberDashboard from './components/MemberDashboard';
 import NonMemberDashboard from './components/NonMemberDashboard';
 const isMemberDashboardVisible = true;
 
-const Dashboard = () => {
+const DashboardPage = () => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <AlertBar
@@ -45,4 +45,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

@@ -29,8 +29,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
             class="card-main large-section"
           >
             <section
-              class="w-4/5 m-auto text-center"
-              id="stepSection"
+              class="w-4/5 m-auto text-center stepSection"
             >
               <p
                 class="body-1 stepRoundBlue"
@@ -38,7 +37,6 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                 1
               </p>
               <div
-                aria-label="divider"
                 class="stepLineBlue"
                 style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
               />
@@ -48,7 +46,6 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                 2
               </p>
               <div
-                aria-label="divider"
                 class="stepLineBlue"
                 style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
               />
@@ -98,7 +95,6 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -168,8 +164,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
           class="card-main large-section"
         >
           <section
-            class="w-4/5 m-auto text-center"
-            id="stepSection"
+            class="w-4/5 m-auto text-center stepSection"
           >
             <p
               class="body-1 stepRoundBlue"
@@ -177,7 +172,6 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
               1
             </p>
             <div
-              aria-label="divider"
               class="stepLineBlue"
               style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
             />
@@ -187,7 +181,6 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
               2
             </p>
             <div
-              aria-label="divider"
               class="stepLineBlue"
               style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
             />
@@ -237,7 +230,6 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                 />
                 <div
-                  aria-label="divider"
                   class=""
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />

@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account selection Component should render all the required details 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <article
+        id="mainSection"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <p
+          class="body-1 title-2"
+        >
+          You'll be able to access all of your plans in one place.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-row flex flex-row"
+        >
+          <p
+            class="body-1 w-72"
+          >
+            First, let's confirm the username and password you will use   from now on.
+          </p>
+          <div
+            class="flex flex-row justify-center items-end tooltip tooltipIcon relative"
+          >
+            <span
+              class="tooltiptext"
+            >
+              You have more than one account login. To make switching between your plans easier, we are going to prioritize one login over others. The username you confirm on this page will become your only username and password for all your BlueCross BlueShield of Tennessee registered accounts moving forward. Your login can be used for both the BlueCross website and mobile apps.
+            </span>
+            <img
+              alt="info"
+              class="size-[20px] mb-1"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="card-elevated cursor-pointer  mb-4"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+             
+            <p
+              class="body-1 body-1"
+            >
+              Username:
+            </p>
+            <p
+              class="body-1 body-1 font-bold"
+            >
+              chall123
+            </p>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-row gap-2 p-2  "
+        >
+          <label>
+            <input
+              id="myCheckbox"
+              name=""
+              type="checkbox"
+            />
+          </label>
+          <div
+            class="flex flex-col"
+          >
+            <label
+              for="myCheckbox"
+            >
+              <p />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <span
+                class="rich-text body-1 undefined"
+              >
+                <span
+                  class="font-bold"
+                >
+                  I understand
+                   
+                </span>
+                <span>
+                  the username listed above and its password will be the only login credentials for
+                   
+                </span>
+                <span
+                  class="font-bold"
+                >
+                  all my BlueCross BlueShield of Tennessee registered accounts
+                   
+                </span>
+                <span>
+                  moving forward. 
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-row justify-center items-center tooltip"
+        >
+          <span
+            class="tooltiptext"
+          >
+            Check the box above to continue.
+          </span>
+          <button
+            aria-label="Continue With This Username"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold body-1"
+            type="button"
+          >
+            Continue With This Username
+          </button>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <p
+          class="body-1 title-3"
+        >
+          Want to use a different username?
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="rich-text body-1 undefined"
+        >
+          <span>
+            Go 
+          </span>
+          <span
+            class="font-bold link"
+          >
+            <a>
+               back to the login page 
+            </a>
+          </span>
+          <span>
+            and sign in with the username and password you want to use.
+             
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <p
+          class="body-1 title-3"
+        >
+          Need help?
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="rich-text body-1 undefined"
+        >
+          <span>
+            Give us a call using the number listed on the back of your Member ID card or
+             
+          </span>
+          <span
+            class="font-bold link"
+          >
+            <a
+              href=""
+            >
+              contact us
+            </a>
+          </span>
+        </span>
+      </article>
+    </div>
+  </body>,
+  "container": <div>
+    <article
+      id="mainSection"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <p
+        class="body-1 title-2"
+      >
+        You'll be able to access all of your plans in one place.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-row flex flex-row"
+      >
+        <p
+          class="body-1 w-72"
+        >
+          First, let's confirm the username and password you will use   from now on.
+        </p>
+        <div
+          class="flex flex-row justify-center items-end tooltip tooltipIcon relative"
+        >
+          <span
+            class="tooltiptext"
+          >
+            You have more than one account login. To make switching between your plans easier, we are going to prioritize one login over others. The username you confirm on this page will become your only username and password for all your BlueCross BlueShield of Tennessee registered accounts moving forward. Your login can be used for both the BlueCross website and mobile apps.
+          </span>
+          <img
+            alt="info"
+            class="size-[20px] mb-1"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="card-elevated cursor-pointer  mb-4"
+      >
+        <div
+          class="flex flex-col m-4"
+        >
+           
+          <p
+            class="body-1 body-1"
+          >
+            Username:
+          </p>
+          <p
+            class="body-1 body-1 font-bold"
+          >
+            chall123
+          </p>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-row gap-2 p-2  "
+      >
+        <label>
+          <input
+            id="myCheckbox"
+            name=""
+            type="checkbox"
+          />
+        </label>
+        <div
+          class="flex flex-col"
+        >
+          <label
+            for="myCheckbox"
+          >
+            <p />
+          </label>
+          <div
+            class="flex flex-col"
+          >
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span
+                class="font-bold"
+              >
+                I understand
+                 
+              </span>
+              <span>
+                the username listed above and its password will be the only login credentials for
+                 
+              </span>
+              <span
+                class="font-bold"
+              >
+                all my BlueCross BlueShield of Tennessee registered accounts
+                 
+              </span>
+              <span>
+                moving forward. 
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-row justify-center items-center tooltip"
+      >
+        <span
+          class="tooltiptext"
+        >
+          Check the box above to continue.
+        </span>
+        <button
+          aria-label="Continue With This Username"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold body-1"
+          type="button"
+        >
+          Continue With This Username
+        </button>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class=""
+        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <p
+        class="body-1 title-3"
+      >
+        Want to use a different username?
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <span
+        class="rich-text body-1 undefined"
+      >
+        <span>
+          Go 
+        </span>
+        <span
+          class="font-bold link"
+        >
+          <a>
+             back to the login page 
+          </a>
+        </span>
+        <span>
+          and sign in with the username and password you want to use.
+           
+        </span>
+      </span>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <p
+        class="body-1 title-3"
+      >
+        Need help?
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <span
+        class="rich-text body-1 undefined"
+      >
+        <span>
+          Give us a call using the number listed on the back of your Member ID card or
+           
+        </span>
+        <span
+          class="font-bold link"
+        >
+          <a
+            href=""
+          >
+            contact us
+          </a>
+        </span>
+      </span>
+    </article>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

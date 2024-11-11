@@ -6,7 +6,7 @@ import { IComponent } from '../../../components/IComponent';
 import { Card } from '../../../components/foundation/Card';
 import { Dropdown, SelectItem } from '../../../components/foundation/Dropdown';
 import { Spacer } from '../../../components/foundation/Spacer';
-import { ServicesUsed } from '../models/servicesused_details';
+import { ServicesUsed } from '../../../models/app/servicesused_details';
 import { DentalBalanceChart } from './DentalBalanceChart';
 import { ServicesUsedChart } from './ServicesUsedChart';
 

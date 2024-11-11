@@ -7,22 +7,34 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { useRouter } from 'next/navigation';
 
 interface ViewCareOptionsProps extends IComponent {
-  options: { title: string; description: string; image: JSX.Element }[];
+  options: {
+    title: string;
+    description: string;
+    image: JSX.Element;
+    url: string;
+  }[];
 }
 
 export const ViewCareOptions = ({
   className,
   options,
 }: ViewCareOptionsProps) => {
+  const router = useRouter();
   return (
-    <Column className={className}>
+    <Column className={`${className ?? ''} cursor-pointer`}>
       <Column className="flex flex-col">
         <Title className="title-1" text="View Care Options" />
         <Spacer size={32} />
         {options.map((item, index) => (
-          <Card key={index} className="mb-4" type="elevated">
+          <Card
+            key={index}
+            className="mb-4"
+            type="elevated"
+            onClick={() => router.replace(item.url)}
+          >
             <Row className="align-top m-4 mt-8">
               <Column>{item.image}</Column>
               <Spacer size={16} axis="horizontal" />

@@ -2,8 +2,8 @@ import { ProgramBenefits } from '@/app/healthyMaternity/components/ProgramBenefi
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import healthSupport from '../../../public/assets/health-support.svg';
-import maternity from '../../../public/assets/maternity-breast-pump.svg';
+import healthSupport from '../../../public/assets/health_support.svg';
+import maternity from '../../../public/assets/maternity_breast_pump.svg';
 import primaryCare from '../../../public/assets/primary_care.svg';
 
 const renderUI = () => {

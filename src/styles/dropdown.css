@@ -1,7 +1,15 @@
-.selected-dropdown-item {
-    background-color: var(--tertiary-color-4);
+.dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.dropdown-item :hover {
-    background-color: var(--tertiary-color-5);
+.dropdown-section {
+  top: 0px;
+  height: 241;
+}
+.dropdown-item-selected {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-item:focus {
+  border: 2px solid var(--primary-color);
 }

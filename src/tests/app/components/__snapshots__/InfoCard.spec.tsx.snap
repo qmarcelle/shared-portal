@@ -6,234 +6,230 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
     <div
       class="flex flex-col"
     >
-      <div
-        class="card-elevated small-section"
+      <a
+        href="/benefits"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/benefits"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              src=""
+              style="color: transparent;"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                View what&apos;s covered under your plan.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              View what's covered under your plan.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/claims"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/claims"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Search for claims and view details or submit a claim.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Search for claims and view details or submit a claim.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/priorAuth"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/priorAuth"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorizations
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check the status of your prior authorizations.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check the status of your prior authorizations.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingAccount"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingAccount"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Accounts
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check your HSA, HRA or FSA accounts.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check your HSA, HRA or FSA accounts.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingSummary"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingSummary"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Summary
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your annual statement shows claims we received and processed.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your annual statement shows claims we received and processed.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/planDocuments"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/planDocuments"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Plan Documents
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your important plan documents.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your important plan documents.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </body>
@@ -245,234 +241,230 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
     <div
       class="flex flex-col"
     >
-      <div
-        class="card-elevated small-section"
+      <a
+        href="/benefits"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/benefits"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              src=""
+              style="color: transparent;"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                View what&apos;s covered under your plan.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              View what's covered under your plan.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/claims"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/claims"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Search for claims and view details or submit a claim.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Search for claims and view details or submit a claim.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/priorAuth"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/priorAuth"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorizations
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check the status of your prior authorizations.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check the status of your prior authorizations.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingAccount"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingAccount"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Accounts
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check your HSA, HRA or FSA accounts.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check your HSA, HRA or FSA accounts.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingSummary"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingSummary"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Summary
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your annual statement shows claims we received and processed.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your annual statement shows claims we received and processed.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/planDocuments"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/planDocuments"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Plan Documents
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your important plan documents.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your important plan documents.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </body>
@@ -484,234 +476,230 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
     <div
       class="flex flex-col"
     >
-      <div
-        class="card-elevated small-section"
+      <a
+        href="/benefits"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/benefits"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              src=""
+              style="color: transparent;"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                View what&apos;s covered under your plan.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              View what's covered under your plan.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/claims"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/claims"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Search for claims and view details or submit a claim.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Search for claims and view details or submit a claim.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/priorAuth"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/priorAuth"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorizations
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check the status of your prior authorizations.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check the status of your prior authorizations.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingAccount"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingAccount"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Accounts
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check your HSA, HRA or FSA accounts.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check your HSA, HRA or FSA accounts.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingSummary"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingSummary"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Summary
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your annual statement shows claims we received and processed.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your annual statement shows claims we received and processed.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/planDocuments"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/planDocuments"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Plan Documents
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your important plan documents.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your important plan documents.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </body>
@@ -723,234 +711,230 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
     <div
       class="flex flex-col"
     >
-      <div
-        class="card-elevated small-section"
+      <a
+        href="/benefits"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/benefits"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              src=""
+              style="color: transparent;"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                View what&apos;s covered under your plan.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              View what's covered under your plan.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/claims"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/claims"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Search for claims and view details or submit a claim.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Search for claims and view details or submit a claim.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/priorAuth"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/priorAuth"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorizations
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check the status of your prior authorizations.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check the status of your prior authorizations.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingAccount"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingAccount"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Accounts
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check your HSA, HRA or FSA accounts.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check your HSA, HRA or FSA accounts.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingSummary"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingSummary"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Summary
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your annual statement shows claims we received and processed.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your annual statement shows claims we received and processed.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/planDocuments"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/planDocuments"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Plan Documents
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your important plan documents.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your important plan documents.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </body>
@@ -962,234 +946,230 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
     <div
       class="flex flex-col"
     >
-      <div
-        class="card-elevated small-section"
+      <a
+        href="/benefits"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/benefits"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              src=""
+              style="color: transparent;"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                View what&apos;s covered under your plan.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              View what's covered under your plan.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/claims"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/claims"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Search for claims and view details or submit a claim.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Search for claims and view details or submit a claim.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/priorAuth"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/priorAuth"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorizations
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check the status of your prior authorizations.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check the status of your prior authorizations.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingAccount"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingAccount"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Accounts
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check your HSA, HRA or FSA accounts.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check your HSA, HRA or FSA accounts.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingSummary"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingSummary"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Summary
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your annual statement shows claims we received and processed.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your annual statement shows claims we received and processed.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/planDocuments"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/planDocuments"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Plan Documents
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your important plan documents.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your important plan documents.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </body>
@@ -1201,234 +1181,230 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
     <div
       class="flex flex-col"
     >
-      <div
-        class="card-elevated small-section"
+      <a
+        href="/benefits"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/benefits"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              src=""
+              style="color: transparent;"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                View what&apos;s covered under your plan.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              View what's covered under your plan.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/claims"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/claims"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Search for claims and view details or submit a claim.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Search for claims and view details or submit a claim.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/priorAuth"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/priorAuth"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorizations
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check the status of your prior authorizations.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check the status of your prior authorizations.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingAccount"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingAccount"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Accounts
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Check your HSA, HRA or FSA accounts.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Check your HSA, HRA or FSA accounts.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/spendingSummary"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/spendingSummary"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Spending Summary
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your annual statement shows claims we received and processed.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your annual statement shows claims we received and processed.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="card-elevated small-section"
+      </a>
+      <a
+        href="/planDocuments"
       >
         <div
-          class="flex flex-row"
+          class="card-elevated small-section"
         >
-          <img
-            alt="link"
-            class="size-10"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
           <div
-            class="flex flex-col ml-4"
+            class="flex flex-row"
           >
-            <a
-              href="/planDocuments"
+            <img
+              alt="link"
+              class="size-10"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <div
+              class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Plan Documents
+              </div>
+              <p
+                class="body-1 body-1"
+              >
+                Your important plan documents.
               </p>
-            </a>
-            <p
-              class="body-1 body-1"
-            >
-              Your important plan documents.
-            </p>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </body>

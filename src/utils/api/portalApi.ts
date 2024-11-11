@@ -18,6 +18,7 @@ export const portalSvcsApi = axios.create({
 portalSvcsApi.interceptors.request?.use(
   async (config) => {
     try {
+      //Get Bearer Token from PING and add it in headers for ES service request.
       const token = await getAuthToken();
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;

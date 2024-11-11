@@ -2,7 +2,7 @@
 
 import { getMemberDetails } from '@/actions/memberDetails';
 import { esApi } from '@/utils/api/esApi';
-import { portalSvcsApi } from '@/utils/api/portalSvcsApi';
+import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 
 export async function invokeEmailAction(): Promise<string> {

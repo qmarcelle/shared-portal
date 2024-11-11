@@ -30,7 +30,7 @@ export const BenefitsProviderInfoCard = ({
           <TextBox text={providedBy} className="body-1 font-bold" />
         )}
         <Spacer size={16} />
-        <TextBox text={contact} />
+        {contact && <TextBox text={contact} />}
       </a>
     </Card>
   );

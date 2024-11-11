@@ -64,6 +64,13 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               >
                 The first time using this service, you'll need to create an account.
               </p>
+              <div
+                class="flex flex-col w-fit md:w-[83%]"
+              >
+                <span
+                  class="rich-text body-1 undefined"
+                />
+              </div>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
               />
@@ -274,19 +281,26 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                 <div
                   class="flex flex-col"
                 >
-                  <p
-                    class="body-1"
+                  <div
+                    class="flex flex-col"
                   >
-                    If eligible, you can expect to pay:
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                  />
-                  <p
-                    class="body-1 font-bold text-xl"
-                  >
-                    $0
-                  </p>
+                    <p
+                      class="body-1"
+                    >
+                      If eligible, you can expect to pay:
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <p
+                      class="body-1 font-bold text-xl"
+                    >
+                      $0
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -325,8 +339,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -346,8 +364,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -367,8 +389,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -388,8 +414,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -409,8 +439,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -430,8 +464,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <div
-                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                          />
+                            class="flex flex-col no-shrink"
+                          >
+                            <div
+                              style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                            />
+                          </div>
                           <p
                             class="body-1 ml-3"
                           >
@@ -512,6 +550,13 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
             >
               The first time using this service, you'll need to create an account.
             </p>
+            <div
+              class="flex flex-col w-fit md:w-[83%]"
+            >
+              <span
+                class="rich-text body-1 undefined"
+              />
+            </div>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
             />
@@ -722,19 +767,26 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               <div
                 class="flex flex-col"
               >
-                <p
-                  class="body-1"
+                <div
+                  class="flex flex-col"
                 >
-                  If eligible, you can expect to pay:
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <p
-                  class="body-1 font-bold text-xl"
-                >
-                  $0
-                </p>
+                  <p
+                    class="body-1"
+                  >
+                    If eligible, you can expect to pay:
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <p
+                    class="body-1 font-bold text-xl"
+                  >
+                    $0
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -773,8 +825,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >
@@ -794,8 +850,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >
@@ -815,8 +875,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >
@@ -836,8 +900,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >
@@ -857,8 +925,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >
@@ -878,8 +950,12 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <div
-                          style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
-                        />
+                          class="flex flex-col no-shrink"
+                        >
+                          <div
+                            style="width: 5px; height: 5px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 7px; margin-right: 0px;"
+                          />
+                        </div>
                         <p
                           class="body-1 ml-3"
                         >

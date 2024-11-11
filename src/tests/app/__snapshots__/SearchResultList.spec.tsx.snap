@@ -1,0 +1,760 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Results List should render all the required components 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main undefined"
+      >
+        <div
+          class="flex flex-col flex flex-col searchResult"
+        >
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                508C Telehealth and Telephonic/Audio-Only Services
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Telehealth and Telephonic/Audio-Only Services
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                Mobile Apps | BlueCross BlueShield of Tennessee
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                , telehealth, and provider search with cost estimates -- all from your mobile device.
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                Use Your Health Insurance Plan | BlueCross BlueShield of Tennessee
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Manage your BCBS of Tennessee health insurance plans, login to your account and use our cost estimator tools to help you understand various health insurance coverage options.
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                Find a Doctor Near You | BlueCross BlueShield of Tennessee
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Search for a doctor, hospital, dental and vision providers or pharmacies in your area. You can search by specialty, location or network to find the healthcare provider that meets your needs. 
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                Get Healthcare Near You | BlueCross BlueShield of Tennessee
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Find a doctor, pharmacy or other healthcare and wellness providers in your area.
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                508C Frequently Asked Questions
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Frequently Asked Questions
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                508C REVISION -Update to Stand-alone Vaccine Counseling (replaces March 15, 2023 memo)
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                REVISION -Update to Stand-alone Vaccine Counseling (replaces March 15, 2023 memo)
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                Healthymom | Providers | BlueCare Tennessee
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Helpful resources to assist with language interpretation when talking to your patients. *These resources are NOT affiliated with or endorsed by BlueCare Tennessee. Fees for their services may apply.
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                Individual and Family Health Insurance Plans | BlueCross BlueShield of Tennessee
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                We have a wide range of health insurance plans for you and your family, with premiums as low as $0. Protect yourself and your family with free quotes and easy enrollment.
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                BlueCross BlueShield of Tennessee Health Insurance
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Learn more about BlueCross BlueShield of Tennessee (BCBST) health insurance and the medical, dental and vision plans we offer for employers, individuals and families.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main undefined"
+    >
+      <div
+        class="flex flex-col flex flex-col searchResult"
+      >
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              508C Telehealth and Telephonic/Audio-Only Services
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              Telehealth and Telephonic/Audio-Only Services
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              Mobile Apps | BlueCross BlueShield of Tennessee
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              , telehealth, and provider search with cost estimates -- all from your mobile device.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              Use Your Health Insurance Plan | BlueCross BlueShield of Tennessee
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              Manage your BCBS of Tennessee health insurance plans, login to your account and use our cost estimator tools to help you understand various health insurance coverage options.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              Find a Doctor Near You | BlueCross BlueShield of Tennessee
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              Search for a doctor, hospital, dental and vision providers or pharmacies in your area. You can search by specialty, location or network to find the healthcare provider that meets your needs. 
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              Get Healthcare Near You | BlueCross BlueShield of Tennessee
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              Find a doctor, pharmacy or other healthcare and wellness providers in your area.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              508C Frequently Asked Questions
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              Frequently Asked Questions
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              508C REVISION -Update to Stand-alone Vaccine Counseling (replaces March 15, 2023 memo)
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              REVISION -Update to Stand-alone Vaccine Counseling (replaces March 15, 2023 memo)
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              Healthymom | Providers | BlueCare Tennessee
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              Helpful resources to assist with language interpretation when talking to your patients. *These resources are NOT affiliated with or endorsed by BlueCare Tennessee. Fees for their services may apply.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              Individual and Family Health Insurance Plans | BlueCross BlueShield of Tennessee
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              We have a wide range of health insurance plans for you and your family, with premiums as low as $0. Protect yourself and your family with free quotes and easy enrollment.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+        >
+          <div
+            class="flex flex-row m-2"
+          >
+            <p
+              class="link-row-head mr-2"
+              tabindex="0"
+            >
+              BlueCross BlueShield of Tennessee Health Insurance
+            </p>
+            <img
+              alt="link"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <div
+            class="m-2"
+          >
+            <div
+              class="body-1 flex flex-row"
+            >
+              Learn more about BlueCross BlueShield of Tennessee (BCBST) health insurance and the medical, dental and vision plans we offer for employers, individuals and families.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

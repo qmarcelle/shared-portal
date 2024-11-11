@@ -5,8 +5,8 @@ import { Column } from '@/components/foundation/Column';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer, SpacerX } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-import EstimateCost from '../../../public/assets/Estimate-Cost.svg';
-import findCareIcon from '../../../public/assets/Find-Care.svg';
+import EstimateCost from '../../../public/assets/estimate_cost.svg';
+import findCareIcon from '../../../public/assets/find_care_search.svg';
 import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 import { FindCarePillBox } from './components/FindCarePillBox';
@@ -119,7 +119,6 @@ const FindCare = () => {
         <section className="flex flex-row items-start app-body mt-4">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <ViewCareOptions
-              className="large-section"
               options={[
                 {
                   title: 'Primary Care Options',
@@ -132,6 +131,7 @@ const FindCare = () => {
                       alt="Primary Care"
                     />
                   ),
+                  url: '/findcare/primaryCareOptions',
                 },
                 {
                   title: 'Mental Care Options',
@@ -144,6 +144,7 @@ const FindCare = () => {
                       alt="Mental Care"
                     />
                   ),
+                  url: '',
                 },
               ]}
             />
