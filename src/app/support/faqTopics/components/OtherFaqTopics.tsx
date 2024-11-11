@@ -8,11 +8,11 @@ import { IComponent } from '@/components/IComponent';
 
 interface OtherFaqTopicsProps extends IComponent {
   faqTopics: string[];
-  GoToFaqPage: (item: string) => void;
+  goToFaqPage: (item: string) => void;
 }
 export const OtherFaqTopics = ({
   faqTopics,
-  GoToFaqPage,
+  goToFaqPage: GoToFaqPage,
 }: OtherFaqTopicsProps) => {
   return (
     <Card className="mt-4">

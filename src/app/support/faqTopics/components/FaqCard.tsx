@@ -15,7 +15,7 @@ interface PharmacyFAQProps extends IComponent {
   topicType?: string;
 }
 
-export const SupportFaqCard = ({ services }: PharmacyFAQProps) => {
+export const FaqCard = ({ services }: PharmacyFAQProps) => {
   return (
     services && (
       <Card className="large-section flex flex-row items-start app-body ">
@@ -47,9 +47,9 @@ export const SupportFaqCard = ({ services }: PharmacyFAQProps) => {
                   }
                   child={
                     <FaqCardInformation
-                      answerline1={item.answerline1}
-                      answerline2={item.answerline2}
-                      answerline3={item.answerline3}
+                      answerLine1={item.answerLine1}
+                      answerLine2={item.answerLine2}
+                      answerLine3={item.answerLine3}
                     />
                   }
                 ></Accordion>

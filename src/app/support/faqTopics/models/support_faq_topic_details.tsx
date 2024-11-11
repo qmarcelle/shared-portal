@@ -20,7 +20,7 @@ export const SupportFaqTopicDetails: Map<FaqTopicType, FaqTopicDetails> =
             serviceTitle: 'Understanding Coverage',
             serviceLabel:
               'What does “premium/copay/deductible/coinsurance” mean?',
-            answerline1: (
+            answerLine1: (
               <RichText
                 spans={[
                   <span key={0}>
@@ -74,24 +74,24 @@ export const SupportFaqTopicDetails: Map<FaqTopicType, FaqTopicDetails> =
                 ]}
               />
             ),
-            answerline2: [],
-            answerline3: '',
+            answerLine2: [],
+            answerLine3: '',
           },
           {
             serviceTitle: '',
             serviceLabel:
               'What are networks, and which one am I signed up for?',
-            answerline1:
+            answerLine1:
               'A network is a group of doctors we work with to provide care to our members. Providers in our network agree to offer our members a discount. Providers who aren’t in our network don’t offer that discount, so their rates are higher.',
-            answerline2: [],
-            answerline3:
+            answerLine2: [],
+            answerLine3:
               'To find your network, look at the front of your Member ID card. It’s most likely on the bottom left corner.',
           },
           {
             serviceTitle: '',
             serviceLabel:
               'How do I find out if my provider is in network or find one who is?',
-            answerline1: (
+            answerLine1: (
               <RichText
                 spans={[
                   <span key={0}>
@@ -109,24 +109,24 @@ export const SupportFaqTopicDetails: Map<FaqTopicType, FaqTopicDetails> =
                 ]}
               />
             ),
-            answerline2: [],
-            answerline3: '',
+            answerLine2: [],
+            answerLine3: '',
           },
           {
             serviceTitle: '',
             serviceLabel:
               'What happens when I see a provider who’s not in my network?',
-            answerline1:
+            answerLine1:
               'That depends on your plan benefits. For most plans, if you see a provider who is not in your network, you will likely be paying toward your out-of-network deductible and coinsurance. In that case, we typically pay the amount that we’d pay a provider who is in your network, according to your out-of-network deductible and coinsurance. You’ll pay whatever is left on your bill. ',
-            answerline2: [],
-            answerline3:
+            answerLine2: [],
+            answerLine3:
               'Please keep in mind that some plans, like those on Healthcare.gov or through TennCare, don’t pay for providers who aren’t in your network at all.',
           },
           {
             serviceTitle: '',
             serviceLabel: 'What if I need care when I’m traveling?',
 
-            answerline1: (
+            answerLine1: (
               <RichText
                 spans={[
                   <span key={0}>
@@ -185,8 +185,8 @@ export const SupportFaqTopicDetails: Map<FaqTopicType, FaqTopicDetails> =
                 ]}
               />
             ),
-            answerline2: [],
-            answerline3: '',
+            answerLine2: [],
+            answerLine3: '',
           },
         ],
       },
