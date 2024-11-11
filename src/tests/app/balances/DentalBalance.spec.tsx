@@ -1,10 +1,10 @@
-import { DentalBalance } from '@/app/balances/components/DentalBalance';
+import { BalanceSection } from '@/app/balances/components/DentalBalance';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 const renderUI = () => {
   return render(
-    <DentalBalance
+    <BalanceSection
       className="large-section"
       members={[
         {
