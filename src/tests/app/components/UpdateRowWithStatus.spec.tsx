@@ -29,7 +29,7 @@ describe('Update Row With Status', () => {
 
     expect(screen.getByText('Authenticator App')).toBeVisible();
     expect(
-      screen.getByText('Use your authenticator app&apos;s security code'),
+      screen.getByText(/Use your authenticator app's security code/i),
     ).toBeVisible();
     expect(screen.getByText('Remove Method')).toBeVisible();
     screen.getAllByText('ON');
@@ -40,7 +40,7 @@ describe('Update Row With Status', () => {
 
     expect(screen.getByText('Authenticator App')).toBeVisible();
     expect(
-      screen.getByText('Use your authenticator app&apos;s security code'),
+      screen.getByText(/Use your authenticator app's security code/i),
     ).toBeVisible();
     expect(screen.getByText('Remove Method')).toBeVisible();
     screen.getAllByText('OFF');

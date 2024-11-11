@@ -28,7 +28,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            class="flex flex-row card-section"
+            class="flex flex-row flex-wrap"
           >
             <div
               class="card-main card-small"
@@ -182,6 +182,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
             <a
               href=""
               style="display: inline-flex;"
+              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container p-0"
@@ -189,7 +190,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
                 tabindex="0"
               >
                 <p
-                  class="link"
+                  class="link undefined"
+                  style="display: inline-flex;"
                 >
                   View All Member Discounts
                 </p>
@@ -236,7 +238,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          class="flex flex-row card-section"
+          class="flex flex-row flex-wrap"
         >
           <div
             class="card-main card-small"
@@ -390,6 +392,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
           <a
             href=""
             style="display: inline-flex;"
+            tabindex="-1"
           >
             <button
               class="flex flex-row link-container p-0"
@@ -397,7 +400,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               tabindex="0"
             >
               <p
-                class="link"
+                class="link undefined"
+                style="display: inline-flex;"
               >
                 View All Member Discounts
               </p>

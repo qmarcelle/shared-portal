@@ -25,6 +25,8 @@ export interface SiteHeaderSubNavProps extends IComponent {
   };
   shortLinks?: ShortLinkNavItem[];
   childPages: ChildPages[];
+  activeSubNavId: number | null;
+  closeSubMenu: () => void;
 }
 
 export const SiteHeaderSubNavSection = ({
@@ -35,17 +37,22 @@ export const SiteHeaderSubNavSection = ({
   template,
   shortLinks,
   childPages,
+  activeSubNavId,
+  closeSubMenu,
 }: SiteHeaderSubNavProps) => {
   return (
     <div
       id={'accordion-collapse-body-' + id}
-      className="hidden border-b grid p-5 grid-cols-4 gap-1 font-bold"
+      className={`${
+        activeSubNavId === id ? 'block' : 'hidden' // Show submenu only if activeSubNavId matches the current id
+      } border-b grid p-5 grid-cols-4 gap-1 font-bold`}
       aria-labelledby={'accordion-collapse-heading-' + id}
     >
       <button
         type="button"
         className="lg:hidden items-center p-0 mb-4"
         data-accordion-target={'#accordion-collapse-body-' + id}
+        onClick={closeSubMenu}
       >
         <svg
           data-accordion-icon
@@ -66,11 +73,16 @@ export const SiteHeaderSubNavSection = ({
         <span className="primary-color underline pl-1">Back</span>
       </button>
       <div className="pb-5 border-b col-start-1 col-end-5 ...">
-        <Link className="flex text-3xl" href={url}>
-          <span className="underline pr-2">{title}</span>
+        <Link
+          className="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
+          href={url}
+        >
+          <span className="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2">
+            {title}
+          </span>
           <Image
-            width="36"
-            height="36"
+            width="32"
+            height="32"
             src={parentPageArrowIcon}
             alt="Parent Page Arrow"
           ></Image>

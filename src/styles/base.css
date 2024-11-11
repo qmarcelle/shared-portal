@@ -250,6 +250,13 @@ body {
   color: var(--secondary-color-2);
 }
 
+.link:focus {
+  text-decoration: none;
+  color: var(--secondary-color-2);
+  outline-offset: 2px;
+  outline: 2px solid var(--secondary-color-2);
+}
+
 .link-white-text {
   @apply link;
   color: #ffffff;
@@ -365,4 +372,8 @@ body {
     font-size: 2rem;
     line-height: 3.5rem;
   }
+}
+
+.caremark button {
+  padding-top: 0;
 }
