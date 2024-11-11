@@ -4,7 +4,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
-import { FaqHeaderCardDetails } from '../models/faq_header_card_details';
+import { FaqHeaderCardDetails } from '../models/faq_details';
 
 interface FaqHeaderCardProps extends IComponent {
   faqHeaderDetails: FaqHeaderCardDetails;

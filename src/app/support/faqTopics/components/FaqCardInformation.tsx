@@ -3,13 +3,14 @@ import { Column } from '@/components/foundation/Column';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { ReactNode } from 'react';
 
 interface FaqCardInformationProps extends IComponent {
   answerLine1: JSX.Element | string | string[];
   answerLine2: JSX.Element[] | ReactNode[];
-  answerLine3: JSX.Element | string;
+  answerLine3: string;
 }
 
 export const FaqCardInformation = ({
@@ -54,7 +55,7 @@ export const FaqCardInformation = ({
         </ul>
       </Row>
       <Row>
-        <label className="body-1">{answerLine3}</label>
+        <TextBox type="body-1" text={answerLine3} />
       </Row>
       <Spacer size={12} />
     </Column>

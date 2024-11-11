@@ -3,9 +3,9 @@ import { ReactNode } from 'react';
 export interface FAQDetails {
   serviceTitle: string;
   serviceLabel: string;
-  answerLine1: JSX.Element | string | string[];
-  answerLine2: JSX.Element[] | ReactNode[];
-  answerLine3: JSX.Element | string;
+  para1: JSX.Element | string | string[];
+  bulletPoints: JSX.Element[] | ReactNode[];
+  para2: string;
 }
 
 export interface FaqHeaderCardDetails {
