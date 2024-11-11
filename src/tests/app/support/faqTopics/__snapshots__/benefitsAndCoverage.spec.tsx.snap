@@ -198,7 +198,7 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           <div
                             class="flex flex-row"
                           >
-                            <label
+                            <p
                               class="body-1"
                             />
                           </div>
@@ -824,7 +824,7 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         <div
                           class="flex flex-row"
                         >
-                          <label
+                          <p
                             class="body-1"
                           />
                         </div>

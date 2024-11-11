@@ -207,7 +207,7 @@ exports[`Support Page should render the page correctly 1`] = `
             >
               <a
                 class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                href="/faq"
+                href="/support/faq"
               >
                 <div
                   class="card-main px-4 py-3"
