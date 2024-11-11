@@ -47,9 +47,9 @@ export const FaqCard = ({ services }: FaqCardProps) => {
                   }
                   child={
                     <FaqCardInformation
-                      answerLine1={item.para1}
-                      answerLine2={item.bulletPoints}
-                      answerLine3={item.para2}
+                      para1={item.para1}
+                      bulletPoints={item.bulletPoints}
+                      para2={item.para2}
                     />
                   }
                 ></Accordion>
