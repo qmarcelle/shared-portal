@@ -206,7 +206,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
               class="flex justify-start self-start my-health-link"
             >
               <span
-                class="body-1 undefined"
+                class="rich-text body-1 undefined"
               >
                 <div
                   class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
@@ -214,6 +214,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   <a
                     href=""
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -221,12 +222,14 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         Visit Member Wellness Center
                       </p>
                       <p
                         class="ml-1"
+                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -452,7 +455,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
             class="flex justify-start self-start my-health-link"
           >
             <span
-              class="body-1 undefined"
+              class="rich-text body-1 undefined"
             >
               <div
                 class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
@@ -460,6 +463,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                 <a
                   href=""
                   style="display: block;"
+                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -467,12 +471,14 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     tabindex="0"
                   >
                     <p
-                      class="link"
+                      class="link undefined"
+                      style="display: block;"
                     >
                       Visit Member Wellness Center
                     </p>
                     <p
                       class="ml-1"
+                      style="display: block;"
                     >
                       <img
                         alt="external"

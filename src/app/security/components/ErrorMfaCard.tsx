@@ -3,7 +3,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
-import AlertIcon from '../../../../public/assets/Alert-Gray1.svg';
+import AlertIcon from '../../../../public/assets/alert_gray.svg';
 
 type ErrorMfaCardProps = {
   errorText: string;

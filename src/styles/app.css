@@ -110,20 +110,20 @@
 }
 
 #backButton::before {
-  content: url('../../public/assets/icon-link_pointer_white.png');
+  content: url('../../public/assets/icon_link_pointer_white.png');
   transform: rotate(180deg);
   display: inline-block;
   margin-right: 5px;
 }
 
 #signoutButton::after {
-  content: url('/assets/Signout.svg');
+  content: url('/assets/signout.svg');
   display: inline-block;
   margin-left: 7px;
 }
 
 #signoutButton:hover::after {
-  content: url('/assets/signout-white.svg');
+  content: url('/assets/signout_white.svg');
   display: inline-block;
   margin-left: 7px;
 }
@@ -197,10 +197,6 @@
 }
 .prior-auth-card {
   width: 39%;
-}
-.prior-auth-card .absolute {
-  right: -9px;
-  top: -4px;
 }
 .download-pdf .gap-1 div.flex-col {
   margin: 0.25rem;

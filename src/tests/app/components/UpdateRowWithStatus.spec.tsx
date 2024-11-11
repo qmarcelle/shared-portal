@@ -3,7 +3,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import editIcon from '../../../../public/edit.svg';
+import editIcon from '../../../../public/assets/edit.svg';
 
 const renderUI = (enabled: boolean) => {
   return render(
@@ -29,7 +29,7 @@ describe('Update Row With Status', () => {
 
     expect(screen.getByText('Authenticator App')).toBeVisible();
     expect(
-      screen.getByText('Use your authenticator app&apos;s security code'),
+      screen.getByText(/Use your authenticator app's security code/i),
     ).toBeVisible();
     expect(screen.getByText('Remove Method')).toBeVisible();
     screen.getAllByText('ON');
@@ -40,7 +40,7 @@ describe('Update Row With Status', () => {
 
     expect(screen.getByText('Authenticator App')).toBeVisible();
     expect(
-      screen.getByText('Use your authenticator app&apos;s security code'),
+      screen.getByText(/Use your authenticator app's security code/i),
     ).toBeVisible();
     expect(screen.getByText('Remove Method')).toBeVisible();
     screen.getAllByText('OFF');

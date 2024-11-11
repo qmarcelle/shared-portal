@@ -4,10 +4,10 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import DentalIcon from '../../../public/assets/dental_benefit.svg';
-import OtherBenefit from '../../../public/assets/other-benefit.svg';
+import OtherBenefit from '../../../public/assets/other_benefit.svg';
 import PharmacyIcon from '../../../public/assets/pharmacy_benefit.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
-import VisionIcon from '../../../public/assets/vision-benefit.svg';
+import VisionIcon from '../../../public/assets/vision_benefit.svg';
 
 import { Filter } from '@/components/foundation/Filter';
 import { externalIcon } from '@/components/foundation/Icons';
@@ -301,7 +301,7 @@ const Benefits = () => {
                   title: 'Employer Provided Benefits',
                   body: 'Your employer offers even more programs and benefits you can explore here.',
                   externalLink: false,
-                  url: 'url',
+                  url: '/benefits/employerProvidedBenefits',
                 },
               ]}
             />

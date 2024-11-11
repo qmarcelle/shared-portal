@@ -12,9 +12,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       // eslint-disable-next-line quotes
       firstParagraph: "Looking for what's covered under your plan?",
       secondParagraph: (
-        <p className="pb-1">
-          Check out your
-          <span className="font-bold">Benefits & Coverages.</span>
+        <p className="pb-1 text-base app-base-font-color ">
+          Check out your{''}
+          <span className="font-bold"> Benefits & Coverages.</span>
         </p>
       ),
       link: '/benefits',
@@ -41,7 +41,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Primary Care Options',
         category: 'Find Care',
         showOnMenu: true,
-        url: '/primarycareoptions',
+        url: '/primaryCareOptions',
         external: false,
       },
       {
@@ -50,7 +50,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Mental Health Option',
         category: 'Find Care',
         showOnMenu: true,
-        url: '/mentalhealthoptions',
+        url: '/mentalHealthOptions',
         external: false,
       },
       {
@@ -59,7 +59,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Virtual Care Options',
         category: 'Find Care',
         showOnMenu: true,
-        url: '/virtualcareoptions',
+        url: '/virtualCareOptions',
         external: false,
       },
       {
@@ -77,7 +77,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Price Dental Care',
         category: 'Estimate Costs',
         showOnMenu: true,
-        url: '/pricedentalcare',
+        url: '/priceDentalCare',
         external: false,
       },
       {
@@ -99,6 +99,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 2,
@@ -120,7 +122,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Benefits & Coverage',
         category: 'Plan Details',
         showOnMenu: true,
-        url: '/benefitscoverage',
+        url: '/benefits',
         external: false,
       },
       {
@@ -129,7 +131,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Plan Documents',
         category: 'Plan Details',
         showOnMenu: true,
-        url: '/plandocs',
+        url: '/benefits/planDocuments',
         external: false,
       },
       {
@@ -138,7 +140,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Services Used',
         category: 'Plan Details',
         showOnMenu: true,
-        url: '/servicesused',
+        url: '/servicesUsed',
         external: false,
       },
       {
@@ -147,7 +149,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is View Claims',
         category: 'Claims',
         showOnMenu: true,
-        url: '/viewclaims',
+        url: '/claimSnapshotList',
         external: false,
       },
       {
@@ -156,7 +158,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Prior Authorizations',
         category: 'Claims',
         showOnMenu: true,
-        url: '/priorauths',
+        url: '/priorAuthorization',
         external: false,
       },
       {
@@ -165,7 +167,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Submit a Claim',
         category: 'Claims',
         showOnMenu: true,
-        url: '/submitclaim',
+        url: '',
         external: false,
       },
       {
@@ -183,7 +185,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
         showOnMenu: true,
-        url: '/spendingaccounts',
+        url: '/spendingAccounts',
         external: false,
       },
       {
@@ -192,7 +194,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Spending Summary',
         category: 'Spending',
         showOnMenu: true,
-        url: '/spendingsummary',
+        url: '/spendingSummary',
         external: false,
       },
       {
@@ -219,10 +221,12 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
         showOnMenu: true,
-        url: '/reportotherhealthinsurance',
+        url: '/reportOtherHealthInsurance',
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 3,
@@ -235,11 +239,11 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       firstParagraph:
         'Looking for a virtual care provider for mental health or physical therapy?',
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           View <span className="font-bold">Virtual Care Options.</span>
         </p>
       ),
-      link: '/virtualcare',
+      link: '/virtualCareOptions',
     },
     template: {
       firstCol: 'Wellness',
@@ -290,7 +294,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
         showOnMenu: true,
-        url: '/healthprogramsresources',
+        url: '/healthProgramsResources',
         external: false,
       },
       {
@@ -321,6 +325,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 4,
@@ -332,7 +338,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           <span className="font-bold">A caremark.com</span> account will let you
           get prescriptions by mail, price a medication and more.
         </p>
@@ -392,7 +398,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Pharmacy Documents & Forms',
         category: 'Resources & Support',
         showOnMenu: true,
-        url: '/pharmacydocsforms',
+        url: '/pharmacy',
         external: false,
       },
       {
@@ -401,10 +407,12 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Pharmacy FAQ',
         category: 'Resources & Support',
         showOnMenu: true,
-        url: '/pharmacyfaq',
+        url: '/pharmacy',
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 5,
@@ -417,7 +425,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       // eslint-disable-next-line quotes
       firstParagraph: "We're here to help.",
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           <span className="font-bold">Start a chat</span> or call us at
           [1-800-000-0000].
         </p>
@@ -437,7 +445,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'Frequently Asked Questions',
         category: 'Support',
         showOnMenu: true,
-        url: '/frequentlyAskedQuestions',
+        url: '/support/faq',
         external: false,
       },
       {
@@ -468,6 +476,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
 ];
 

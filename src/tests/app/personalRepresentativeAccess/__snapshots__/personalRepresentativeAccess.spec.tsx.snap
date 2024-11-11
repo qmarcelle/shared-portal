@@ -37,7 +37,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
               class="flex flex-col flex-grow page-section-36_67 items-stretch"
             >
               <div
-                class="card-main large-section p-8"
+                class="card-main  large-section"
               >
                 <div
                   class="flex flex-col items-stretch"
@@ -48,7 +48,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                     >
                       Understanding Access
                     </h1>
-                     
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
                     />
@@ -98,7 +97,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                     />
                   </div>
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -204,7 +202,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                             <div
-                              aria-label="divider"
                               class=""
                               style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                             />
@@ -319,7 +316,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                             <div
-                              aria-label="divider"
                               class=""
                               style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                             />
@@ -381,6 +377,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                   />
                                   <a
                                     style="display: block;"
+                                    tabindex="-1"
                                   >
                                     <button
                                       class="flex flex-row link-container !flex pl-0"
@@ -388,7 +385,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                       tabindex="0"
                                     >
                                       <p
-                                        class="link"
+                                        class="link undefined"
                                         style="display: block;"
                                       >
                                         Invite to Register
@@ -450,7 +447,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                             <div
-                              aria-label="divider"
                               class=""
                               style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                             />
@@ -537,7 +533,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -589,6 +584,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                     />
                     <a
                       style="display: block;"
+                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container !flex p-0"
@@ -596,7 +592,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                         tabindex="0"
                       >
                         <p
-                          class="link"
+                          class="link undefined"
                           style="display: block;"
                         >
                           Download Authorization Form
@@ -661,7 +657,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
             class="flex flex-col flex-grow page-section-36_67 items-stretch"
           >
             <div
-              class="card-main large-section p-8"
+              class="card-main  large-section"
             >
               <div
                 class="flex flex-col items-stretch"
@@ -672,7 +668,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                   >
                     Understanding Access
                   </h1>
-                   
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
                   />
@@ -722,7 +717,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-label="divider"
                   class=""
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />
@@ -828,7 +822,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -943,7 +936,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -1005,6 +997,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                 />
                                 <a
                                   style="display: block;"
+                                  tabindex="-1"
                                 >
                                   <button
                                     class="flex flex-row link-container !flex pl-0"
@@ -1012,7 +1005,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                     tabindex="0"
                                   >
                                     <p
-                                      class="link"
+                                      class="link undefined"
                                       style="display: block;"
                                     >
                                       Invite to Register
@@ -1074,7 +1067,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -1161,7 +1153,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -1213,6 +1204,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                   />
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !flex p-0"
@@ -1220,7 +1212,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
                         style="display: block;"
                       >
                         Download Authorization Form

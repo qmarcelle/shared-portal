@@ -1,3 +1,4 @@
+import { SessionUser } from '@/userManagement/models/sessionUser';
 import { DefaultSession } from 'next-auth';
 import { AdapterUser } from 'next-auth/adapters';
 import { UserProfile } from './user_profile';
@@ -10,4 +11,4 @@ export interface User {
   profiles?: UserProfile[];
 }
 
-export type PortalUser = DefaultSession['user'] & User & AdapterUser;
+export type PortalUser = DefaultSession['user'] & SessionUser & AdapterUser;

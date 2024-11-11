@@ -10,7 +10,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import downIcon from '../../../../public/assets/down.svg';
-import DownloadIcon from '../../../../public/assets/Download.svg';
+import DownloadIcon from '../../../../public/assets/download.svg';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import SearchIcon from '../../../public/assets/Search.svg';
+import SearchIcon from '../../../public/assets/search.svg';
 
 interface Props {
   onSearch: (searchTerm: string) => void;
@@ -39,7 +39,7 @@ const SearchField: React.FC<Props> = ({
     }
   };
 
-  const [focus, setFocus] = useState(true);
+  const [focus, setFocus] = useState(false);
   const [focusButton, setFocusButton] = useState(false);
 
   return (
@@ -61,7 +61,7 @@ const SearchField: React.FC<Props> = ({
       <div className="flex flex-col items-end">
         <button
           type="submit"
-          className={`flex flex-col ${focusButton ? 'buttonSearch-focus' : ''} `}
+          className={`flex flex-col p-[0.125rem] ${focusButton ? 'buttonSearch-focus' : ''} `}
           onClick={handleSubmit}
           onFocus={() => setFocusButton(true)}
           onBlur={() => setFocusButton(false)}

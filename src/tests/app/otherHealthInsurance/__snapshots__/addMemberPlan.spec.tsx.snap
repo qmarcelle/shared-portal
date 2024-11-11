@@ -56,11 +56,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 class="cursor-pointer"
               />
             </div>
-            <div
-              class="error-container mt-1 p-1"
-            >
-              <div />
-            </div>
           </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
@@ -84,11 +79,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 class="cursor-pointer"
               />
             </div>
-            <div
-              class="error-container mt-1 p-1"
-            >
-              <div />
-            </div>
           </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
@@ -111,11 +101,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               <div
                 class="cursor-pointer"
               />
-            </div>
-            <div
-              class="error-container mt-1 p-1"
-            >
-              <div />
             </div>
           </div>
           <span
@@ -291,11 +276,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 class="cursor-pointer"
               />
             </div>
-            <div
-              class="error-container mt-1 p-1"
-            >
-              <div />
-            </div>
           </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -318,11 +298,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               <div
                 class="cursor-pointer"
               />
-            </div>
-            <div
-              class="error-container mt-1 p-1"
-            >
-              <div />
             </div>
           </div>
           <span
@@ -592,11 +567,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               class="cursor-pointer"
             />
           </div>
-          <div
-            class="error-container mt-1 p-1"
-          >
-            <div />
-          </div>
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
@@ -620,11 +590,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               class="cursor-pointer"
             />
           </div>
-          <div
-            class="error-container mt-1 p-1"
-          >
-            <div />
-          </div>
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
@@ -647,11 +612,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             <div
               class="cursor-pointer"
             />
-          </div>
-          <div
-            class="error-container mt-1 p-1"
-          >
-            <div />
           </div>
         </div>
         <span
@@ -827,11 +787,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               class="cursor-pointer"
             />
           </div>
-          <div
-            class="error-container mt-1 p-1"
-          >
-            <div />
-          </div>
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -854,11 +809,6 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             <div
               class="cursor-pointer"
             />
-          </div>
-          <div
-            class="error-container mt-1 p-1"
-          >
-            <div />
           </div>
         </div>
         <span
