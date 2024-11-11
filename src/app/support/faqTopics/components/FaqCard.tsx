@@ -10,12 +10,12 @@ import Image from 'next/image';
 import { FAQDetails } from '../models/faq_details';
 import { FaqCardInformation } from './FaqCardInformation';
 
-interface PharmacyFAQProps extends IComponent {
+interface FaqCardProps extends IComponent {
   services: FAQDetails[] | undefined;
   topicType?: string;
 }
 
-export const FaqCard = ({ services }: PharmacyFAQProps) => {
+export const FaqCard = ({ services }: FaqCardProps) => {
   return (
     services && (
       <Card className="large-section flex flex-row items-start app-body ">

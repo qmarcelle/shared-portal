@@ -2,8 +2,7 @@ import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
-import { FaqTopicDetails } from './faq_topic_details';
-import { FaqTopicType } from './faq_topic_type';
+import { FaqTopicDetails, FaqTopicType } from './faq_details';
 
 export const SupportFaqTopicDetails: Map<FaqTopicType, FaqTopicDetails> =
   new Map([

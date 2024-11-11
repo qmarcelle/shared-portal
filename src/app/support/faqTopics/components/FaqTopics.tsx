@@ -1,10 +1,12 @@
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { useEffect, useState } from 'react';
-import { FaqHeaderCardDetails } from '../models/faq_header_card_details';
-import { FaqTopicDetails } from '../models/faq_topic_details';
-import { FaqTopicType } from '../models/faq_topic_type';
-import { OtherFaqTopicDetails } from '../models/other_faq_topic_details';
+import {
+  FaqHeaderCardDetails,
+  FaqTopicDetails,
+  FaqTopicType,
+  OtherFaqTopicDetails,
+} from '../models/faq_details';
 import { SupportFaqTopicDetails } from '../models/support_faq_topic_details';
 import { FaqCard } from './FaqCard';
 import { FaqHeaderCard } from './FaqHeaderCard';
@@ -26,7 +28,6 @@ export const FaqTopics = () => {
     switch (faqType) {
       case 'Benefits':
       case 'Benefits & Coverage':
-        console.log('topics  ----' + topics);
         return setTopics(
           SupportFaqTopicDetails.get(FaqTopicType.BenefitsAndCoverage),
         );
