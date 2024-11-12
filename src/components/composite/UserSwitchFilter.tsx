@@ -128,10 +128,6 @@ export const UserSwitchFilter = ({
         label: 'Security Settings',
         className: 'font-bold primary-color body-bold body-1 manage-underline',
       },
-      {
-        label: 'Sharing & Permissions',
-        className: 'font-bold primary-color body-bold body-1 manage-underline',
-      },
     ],
     [UserType.PersonalRepresentative]: [
       {
