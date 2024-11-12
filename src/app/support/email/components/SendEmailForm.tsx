@@ -6,37 +6,42 @@ import { downIcon } from '@/components/foundation/Icons';
 import { RichDropDown } from '@/components/foundation/RichDropDown';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
+import { TextArea } from '@/components/foundation/TextArea';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { IComponent } from '@/components/IComponent';
+import { FilterDetails } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { SetStateAction, useState } from 'react';
-import { DropDownDetails } from './models/dropdown_details';
 
-interface SendAnEmailFormProps extends IComponent {
-  nameDropdown: DropDownDetails[];
-  selectedName: DropDownDetails;
-  topicsDropdown: DropDownDetails[];
-  selectedtopic: DropDownDetails;
+interface SendEmailFormProps extends IComponent {
+  nameDropdown: FilterDetails[];
+  selectedName: FilterDetails;
+  topicsDropdown: FilterDetails[];
+  selectedtopic: FilterDetails;
   onSelectedDateChange: () => unknown;
 }
 
-const SendAnEmailForm = ({
+const SendEmailForm = ({
   topicsDropdown,
   nameDropdown,
   selectedtopic,
   selectedName,
-}: SendAnEmailFormProps) => {
+}: SendEmailFormProps) => {
   const [messageValue, setMessageValue] = useState('');
   const [selectedDropDownTopic, setDropdownTopicSelected] =
     useState(selectedtopic);
+  const [selectedNameDropDown, setNameSelected] = useState(selectedName);
   const handleMessageChange = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setMessageValue(e.target.value);
   };
-  const setTopicOption = (option: DropDownDetails) => {
+  const setTopicOption = (option: FilterDetails) => {
     setDropdownTopicSelected(option);
+  };
+  const setNameOption = (option: FilterDetails) => {
+    setNameSelected(option);
   };
   return (
     <Card className="large-section flex flex-row items-start app-body ">
@@ -64,21 +69,19 @@ const SendAnEmailForm = ({
         <Spacer size={24} />
         <TextBox className="body-1" text="Who do you need to discuss?" />
         <RichDropDown
-          className="border"
-          minWidth="min-w-[280px]"
           headBuilder={(val) => <DropDownHead user={val} />}
           itemData={nameDropdown}
           itemsBuilder={(data, index) => (
             <DropDownTile user={data} key={index} />
           )}
-          selected={selectedName}
-          onSelectItem={() => {}}
+          selected={selectedNameDropDown}
+          onSelectItem={(val) => {
+            setNameOption(val);
+          }}
         />
         <Spacer size={24} />
         <TextBox className="body-1" text="What can we help you with?" />
         <RichDropDown
-          className="border"
-          minWidth="min-w-[280px]"
           headBuilder={(val) => <DropDownHead user={val} />}
           itemData={topicsDropdown}
           itemsBuilder={(data, index) => (
@@ -89,15 +92,15 @@ const SendAnEmailForm = ({
             setTopicOption(val);
           }}
         />
-
         <Spacer size={24} />
-        <textarea
-          id="example-textarea"
+
+        <TextArea
           value={messageValue}
           onChange={handleMessageChange}
-          className="block w-full px-4 py-2 border border-gray-300  rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none overflow-y-auto h-[240px]"
+          className="block w-full px-4 py-2 border border-[#737373]  rounded-md shadow-sm focus:ring-primary focus:border-primary-focus focus-visible:primary sm:text-sm resize-none overflow-y-scroll h-[240px]"
           placeholder="Add your message here..."
-        ></textarea>
+        />
+
         <Spacer size={32} />
         <Button label="Send Email" callback={() => null} />
       </Column>
@@ -105,9 +108,9 @@ const SendAnEmailForm = ({
   );
 };
 
-export default SendAnEmailForm;
+export default SendEmailForm;
 
-const DropDownTile = ({ user }: { user: DropDownDetails }) => {
+const DropDownTile = ({ user }: { user: FilterDetails }) => {
   return (
     <Column className="border-none flex-grow">
       <TextBox type="body-1" text={`${user.label}`} />
@@ -115,7 +118,7 @@ const DropDownTile = ({ user }: { user: DropDownDetails }) => {
   );
 };
 
-const DropDownHead = ({ user }: { user: DropDownDetails }) => {
+const DropDownHead = ({ user }: { user: FilterDetails }) => {
   return (
     <div className="body-1 input">
       <Row className="p-1 items-center">

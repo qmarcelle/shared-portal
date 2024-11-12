@@ -55,11 +55,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -93,11 +93,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -131,11 +131,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 ID Cards
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -169,11 +169,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 My Plan Information
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -207,11 +207,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Pharmacy
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -245,11 +245,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorization
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -283,11 +283,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Sharing, Permissions & Security
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >

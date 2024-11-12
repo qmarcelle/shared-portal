@@ -22,15 +22,14 @@ describe('WellnessRewardsSection', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getByText('My Points')).toBeVisible();
-    expect(screen.getByText('Earned')).toBeVisible();
-    expect(screen.getByText('Quarterly Max')).toBeVisible();
-    expect(screen.getByText('View Rewards FAQ')).toBeVisible();
-    expect(screen.getByText('View Ways to Earn')).toBeVisible();
-    // eslint-disable-next-line quotes
-    expect(screen.getByText("You've earned")).toBeVisible();
-    expect(screen.getByText('$100.00')).toBeVisible();
-    expect(screen.getByText('of $400.00 Yearly Max')).toBeVisible();
+    expect(screen.getAllByText('My Points').length).toBe(2);
+    expect(screen.getAllByText('Earned').length).toBe(2);
+    expect(screen.getAllByText('Quarterly Max').length).toBe(2);
+    expect(screen.getAllByText('View Rewards FAQ').length).toBe(2);
+    expect(screen.getAllByText('View Ways to Earn').length).toBe(2);
+    expect(screen.getAllByText(/You've earned/i).length).toBe(2);
+    expect(screen.getAllByText('$100.00').length).toBe(2);
+    expect(screen.getAllByText('of $400.00 Yearly Max').length).toBe(2);
 
     expect(component).toMatchSnapshot();
   });

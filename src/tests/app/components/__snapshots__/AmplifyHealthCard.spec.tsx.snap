@@ -11,11 +11,11 @@ exports[`AmplifyHealth Card should render the UI correctly 1`] = `
       <div
         class="flex flex-col p-4 sm:py-8 sm:pl-8 basis-1/2 flex-shrink-0 box-border"
       >
-        <p
+        <h2
           class="title-2"
         >
           Bring Your Advisor With You
-        </p>
+        </h2>
         <p
           class="body-1 mt-4 mb-8"
         >

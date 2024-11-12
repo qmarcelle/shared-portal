@@ -62,7 +62,7 @@ import profileWhiteSvg from '../../../public/assets/profile_white.svg';
 import questSelectSvg from '../../../public/assets/quest_select.svg';
 import envelopeSvg from '../../../public/assets/request_printed_documents.svg';
 import rightSvg from '../../../public/assets/right.svg';
-import searchSvg from '../../../public/assets/Search.svg';
+import searchSvg from '../../../public/assets/search.svg';
 import searchCareSvg from '../../../public/assets/search_care.svg';
 import searchPharmacySvg from '../../../public/assets/search_pharmacy.svg';
 import securitySvg from '../../../public/assets/security.svg';

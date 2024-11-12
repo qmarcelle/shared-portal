@@ -29,6 +29,7 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
           />
           <a
             style="display: block;"
+            tabindex="-1"
           >
             <button
               class="flex flex-row link-container !flex p-0"
@@ -36,7 +37,7 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
               tabindex="0"
             >
               <p
-                class="link"
+                class="link undefined"
                 style="display: block;"
               >
                 View Pharmacy Spending Summary
@@ -72,6 +73,7 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
         />
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container !flex p-0"
@@ -79,7 +81,7 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
               style="display: block;"
             >
               View Pharmacy Spending Summary

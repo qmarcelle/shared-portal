@@ -8,7 +8,9 @@ exports[`DentalBalance should render the UI correctly 1`] = `
       <div
         class="card-main large-section"
       >
-        <div>
+        <div
+          class="flex flex-col"
+        >
           <h2
             class="title-2"
           >
@@ -18,7 +20,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            class="flex flex-row"
+            class="flex flex-row flex flex-row"
           >
             <p>
               Member :
@@ -51,26 +53,49 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 />
               </div>
               <section
-                class="card-elevated py-2 z-20"
+                class="card-elevated z-20 dropdown-section"
                 style="display: none; position: absolute;"
               >
                 <div
-                  class="dropdown-item cursor-pointer"
+                  class="flex flex-row  dropdown-item p-2"
                 >
-                  <p
-                    class="whitespace-nowrap mx-2"
-                  >
-                    Chris Hall
-                  </p>
+                  <div
+                    class="size-5 mx-2"
+                  />
+                  <div>
+                    <p
+                      class="whitespace-nowrap mx-2"
+                    >
+                      Chris Hall
+                    </p>
+                  </div>
                 </div>
                 <div
-                  class="selected-dropdown-item cursor-pointer"
+                  class="flex flex-row dropdown-item-selected dropdown-item p-2"
                 >
-                  <p
-                    class="whitespace-nowrap mx-2"
+                  <div
+                    class="size-5 mx-2 "
                   >
-                    Megan Chaler
-                  </p>
+                    <img
+                      alt="selcted"
+                      class="size-5"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div>
+                    <p
+                      class="whitespace-nowrap mx-2"
+                    >
+                      Megan Chaler
+                    </p>
+                  </div>
                 </div>
               </section>
             </div>
@@ -176,19 +201,13 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 <p
                   class="body-1 ml-5"
                 >
-                  $2,000.00
-                </p>
-                <p
-                  class="body-1 ml-1"
-                >
-                  Annual Maximum Basic and Major Coverage
+                  $2,000.00 Annual Maximum Basic and Major Coverage
                 </p>
               </div>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
               />
               <div
-                aria-label="divider"
                 class=""
                 style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
               />
@@ -217,19 +236,13 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 <p
                   class="body-1 ml-5"
                 >
-                  $2,000.00
-                </p>
-                <p
-                  class="body-1 ml-1"
-                >
-                  Ortho Lifetime Maximum
+                  $2,000.00 Ortho Lifetime Maximum
                 </p>
               </div>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
               />
               <div
-                aria-label="divider"
                 class=""
                 style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
               />
@@ -241,31 +254,28 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
           </div>
-          <p
-            class="body-2 inline"
+          <div
+            class="flex flex-col"
           >
-            Services Used is based on your processed items. There may be a delay in the Services Used list updating. If you're if a service has been used, 
-          </p>
-          <a
-            style="display: inline;"
-          >
-            <button
-              class="flex flex-row link-container underline py-0 px-1 body-2"
-              style="max-width: max-content; height: auto; display: inline;"
-              tabindex="0"
+            <span
+              class="rich-text body-2 undefined"
             >
-              <p
+              <span>
+                Services Used is based on your processed items. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
+                 
+              </span>
+              <span
                 class="link"
               >
-                start a chat
-              </p>
-            </button>
-          </a>
-          <p
-            class="body-2 inline"
-          >
-            or call us at [1-800-000-0000].
-          </p>
+                <a>
+                   start a chat 
+                </a>
+              </span>
+              <span>
+                 or call us at [1-800-000-0000].
+              </span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -274,7 +284,9 @@ exports[`DentalBalance should render the UI correctly 1`] = `
     <div
       class="card-main large-section"
     >
-      <div>
+      <div
+        class="flex flex-col"
+      >
         <h2
           class="title-2"
         >
@@ -284,7 +296,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          class="flex flex-row"
+          class="flex flex-row flex flex-row"
         >
           <p>
             Member :
@@ -317,26 +329,49 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               />
             </div>
             <section
-              class="card-elevated py-2 z-20"
+              class="card-elevated z-20 dropdown-section"
               style="display: none; position: absolute;"
             >
               <div
-                class="dropdown-item cursor-pointer"
+                class="flex flex-row  dropdown-item p-2"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
-                >
-                  Chris Hall
-                </p>
+                <div
+                  class="size-5 mx-2"
+                />
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    Chris Hall
+                  </p>
+                </div>
               </div>
               <div
-                class="selected-dropdown-item cursor-pointer"
+                class="flex flex-row dropdown-item-selected dropdown-item p-2"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
+                <div
+                  class="size-5 mx-2 "
                 >
-                  Megan Chaler
-                </p>
+                  <img
+                    alt="selcted"
+                    class="size-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    Megan Chaler
+                  </p>
+                </div>
               </div>
             </section>
           </div>
@@ -442,19 +477,13 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               <p
                 class="body-1 ml-5"
               >
-                $2,000.00
-              </p>
-              <p
-                class="body-1 ml-1"
-              >
-                Annual Maximum Basic and Major Coverage
+                $2,000.00 Annual Maximum Basic and Major Coverage
               </p>
             </div>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              aria-label="divider"
               class=""
               style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
             />
@@ -483,19 +512,13 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               <p
                 class="body-1 ml-5"
               >
-                $2,000.00
-              </p>
-              <p
-                class="body-1 ml-1"
-              >
-                Ortho Lifetime Maximum
+                $2,000.00 Ortho Lifetime Maximum
               </p>
             </div>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              aria-label="divider"
               class=""
               style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
             />
@@ -507,31 +530,28 @@ exports[`DentalBalance should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
         </div>
-        <p
-          class="body-2 inline"
+        <div
+          class="flex flex-col"
         >
-          Services Used is based on your processed items. There may be a delay in the Services Used list updating. If you're if a service has been used, 
-        </p>
-        <a
-          style="display: inline;"
-        >
-          <button
-            class="flex flex-row link-container underline py-0 px-1 body-2"
-            style="max-width: max-content; height: auto; display: inline;"
-            tabindex="0"
+          <span
+            class="rich-text body-2 undefined"
           >
-            <p
+            <span>
+              Services Used is based on your processed items. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
+               
+            </span>
+            <span
               class="link"
             >
-              start a chat
-            </p>
-          </button>
-        </a>
-        <p
-          class="body-2 inline"
-        >
-          or call us at [1-800-000-0000].
-        </p>
+              <a>
+                 start a chat 
+              </a>
+            </span>
+            <span>
+               or call us at [1-800-000-0000].
+            </span>
+          </span>
+        </div>
       </div>
     </div>
   </div>,
