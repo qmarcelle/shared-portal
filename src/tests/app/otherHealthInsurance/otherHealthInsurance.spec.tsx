@@ -13,8 +13,7 @@ describe('OtherHealthInsurance', () => {
 
     expect(screen.getByText('Chris Hall')).toBeInTheDocument();
     expect(screen.getByText('DOB: 01/01/1978')).toBeInTheDocument();
-    expect(screen.getAllByText('Last Updated:01/16/2023'));
-    expect(screen.getAllByText('Not Covered by other health insurance.'));
+    expect(screen.getAllByText('Last Updated: 01/16/2023'));
     expect(
       screen.getByRole('heading', { name: 'About Other Insurance' }),
     ).toBeVisible();

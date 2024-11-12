@@ -332,11 +332,6 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                               class="cursor-pointer"
                             />
                           </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
-                          </div>
                         </div>
                         <a
                           style="display: block;"

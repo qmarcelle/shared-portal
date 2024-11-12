@@ -1,4 +1,4 @@
-import GlobalIDCard from '@/app/memberIDCard/page';
+import GlobalIDCard from '@/app/memberIDCard';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedDownloadJs } from '@/tests/__mocks__/downloadjs';
 import '@testing-library/jest-dom';
@@ -9,7 +9,7 @@ import {
   render,
   screen,
   waitFor,
-} from '@testing-library/react/pure';
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 URL.createObjectURL = jest.fn().mockReturnValue('somethingURL');
@@ -23,8 +23,13 @@ jest
   .setSystemTime(new Date('2024-02-01'));
 
 describe('Download Member ID Card Pdf', () => {
-  beforeAll(() => {
-    render(<GlobalIDCard />);
+  beforeEach(async () => {
+    const input = {
+      idCardSvgFrontData: null,
+      idCardSvgBackData: null,
+      memberDetails: null,
+    };
+    render(<GlobalIDCard data={input} />);
   });
 
   afterAll(() => {

@@ -28,34 +28,140 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col modal-container"
-          >
+          <div>
             <div
-              class="flex flex-row justify-between modal-header items-center relative"
+              class="flex flex-col modal-container"
             >
               <div
-                tabindex="1"
-              />
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  tabindex="1"
+                />
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <div
-                class="size-8 focus-icon"
-                tabindex="0"
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <h2
+                      class="title-2"
+                    >
+                      Stop Sharing
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 text-center"
+                    >
+                      We'll stop sharing your health plan information with:
+                    </p>
+                    <div
+                      class="flex flex-col w-[358px]"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col items-center"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Apple Health
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                        <p
+                          class="body-1 text-center"
+                        >
+                          This will mean this app or website can't see your health information. Any information you already shared may still be available to them.
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <button
+                        aria-label="Confirm"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
+                        type="button"
+                      >
+                        Confirm
+                      </button>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                      />
+                    </div>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Cancel
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="close"
-                  class="size-4"
+                  alt="bcbst logo"
+                  class="modal-icon"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -66,108 +172,6 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                   width="40"
                 />
               </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <h2
-                    class="title-2"
-                  >
-                    Stop Sharing
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <p
-                    class="body-1 body-1 text-center"
-                  >
-                    We'll stop sharing your health plan information with:
-                  </p>
-                  <div
-                    class="flex flex-col w-[358px]"
-                  >
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <div
-                      class="flex flex-col items-center"
-                    >
-                      <p
-                        class="body-1 font-bold"
-                      >
-                        Apple Health
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <p
-                        class="body-1 text-center"
-                      >
-                        This will mean this app or website can't see your health information. Any information you already shared may still be available to them.
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                    </div>
-                    <button
-                      aria-label="Confirm"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
-                      type="button"
-                    >
-                      Confirm
-                    </button>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                    />
-                  </div>
-                  <a
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
-                    >
-                      <p
-                        class="link"
-                      >
-                        Cancel
-                      </p>
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
             </div>
           </div>
         </div>
@@ -205,18 +209,142 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
           style="animation: react-responsive-modal-modal-in 300ms;"
           tabindex="-1"
         >
-          <div
-            class="flex flex-col modal-container"
-          >
+          <div>
             <div
-              class="flex flex-row justify-between modal-header items-center relative"
+              class="flex flex-col modal-container"
             >
               <div
-                class="flex flex-row items-center focus-icon"
-                tabindex="1"
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  class="flex flex-row items-center focus-icon"
+                  tabindex="1"
+                >
+                  <img
+                    alt="back"
+                    class="modal-icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="body-1 primary-color underline"
+                  >
+                    Back
+                  </p>
+                </div>
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <div
+                    class="flex flex-col items-center"
+                  >
+                    <img
+                      alt="success"
+                      class="size-[80px]"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                    />
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Sharing Stopped
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col w-[358px]"
+                    >
+                      <div
+                        class="flex flex-col items-center"
+                      >
+                        <p
+                          class="body-1 text-center"
+                        >
+                          You are no longer sharing with:
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Apple Health
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <button
+                        aria-label="Done"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Done
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="back"
+                  alt="bcbst logo"
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -227,129 +355,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                   style="color: transparent;"
                   width="40"
                 />
-                <p
-                  class="body-1 primary-color underline"
-                >
-                  Back
-                </p>
               </div>
-              <img
-                alt="bcbst logo"
-                class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <div
-                class="size-8 focus-icon"
-                tabindex="0"
-              >
-                <img
-                  alt="close"
-                  class="size-4"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row flex-grow justify-center"
-            >
-              <div
-                class="flex flex-row justify-center modal-content"
-              >
-                <div
-                  class="flex flex-col items-center"
-                >
-                  <img
-                    alt="success"
-                    class="size-[80px]"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                  />
-                  <h1
-                    class="title-1 title-2"
-                  >
-                    Sharing Stopped
-                  </h1>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class="flex flex-col w-[358px]"
-                  >
-                    <div
-                      class="flex flex-col items-center"
-                    >
-                      <p
-                        class="body-1 text-center"
-                      >
-                        You are no longer sharing with:
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <p
-                        class="body-1 font-bold"
-                      >
-                        Apple Health
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                    <button
-                      aria-label="Done"
-                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                      type="button"
-                    >
-                      Done
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div
-              class="flex flex-row justify-center modal-footer"
-            >
-              <img
-                alt="bcbst logo"
-                class="modal-icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
             </div>
           </div>
         </div>

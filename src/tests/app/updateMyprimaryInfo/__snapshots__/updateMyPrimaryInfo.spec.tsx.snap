@@ -1,0 +1,1825 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color mt-20"
+      >
+        <h1
+          class="title-1 m-4 mb-0 !font-light !text-[32px]/[40px]"
+        >
+          Update My Primary Care Provider
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <p
+          class="body-1 md:w-2/3 m-4"
+        >
+          Choose one option below and follow the instructions to add or update your primary care provider.
+        </p>
+        <section
+          class="updateMyPrimaryCareW"
+          id="Filter"
+        >
+          <div
+            class="flex flex-col justify-center items-center page"
+          >
+            <div
+              class="flex flex-col app-content app-base-font-color"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <div
+                  class="card-main m-4 p-8"
+                >
+                  <div
+                    class="flex flex-row md:!flex !block"
+                  >
+                    <div
+                      class="flex flex-col md:w-10/12"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Option 1: Find & Select a Provider From a Directory
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <a
+                        href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container !flex pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Go to Directory to Find a Doctor
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: block;"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row flex flex-row"
+                      >
+                        <img
+                          alt="SelectPCPImage"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-row md:!flex !block"
+              >
+                <div
+                  class="flex flex-col md:w-1/2 w-auto"
+                >
+                  <div
+                    class="card-main large-section"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Option 2: Send an Email Request
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div
+                        class="card-main px-0 m-0 !border-none"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <h1
+                            class="title-1 title-2"
+                          >
+                            Member Information
+                          </h1>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="body-1"
+                            >
+                              Member Name
+                               
+                            </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                            />
+                            <div>
+                              <div
+                                class="rich-dropdown"
+                              >
+                                <div
+                                  class="flex flex-col switch-filter default"
+                                  tabindex="1"
+                                >
+                                  <div>
+                                    <div
+                                      class="body-1 input"
+                                    >
+                                      <div
+                                        class="flex flex-row p-1 items-center"
+                                      >
+                                        <div
+                                          class="flex flex-col border-none flex-grow"
+                                        >
+                                          <p
+                                            class="body-1"
+                                          >
+                                            Chris Hall
+                                          </p>
+                                        </div>
+                                        <img
+                                          alt=""
+                                          class="w-[20px] h-[20px] ml-2 items-end"
+                                          data-nimg="1"
+                                          decoding="async"
+                                          height="40"
+                                          loading="lazy"
+                                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                          style="color: transparent;"
+                                          width="40"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                        </div>
+                      </div>
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Provider Information
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Name of Provider (First & Last Name)
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Name of Provider (First & Last Name)"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Street Address
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Street Address"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            State
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="State"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            ZIP Code
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="ZIP Code"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Country
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Country"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Phone Number
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Phone Number"
+                              class=""
+                              placeholder="( ___ ) ___ - ___ "
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <button
+                          aria-label="Submit Request"
+                          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                          type="button"
+                        >
+                          Submit Request
+                        </button>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col md:w-1/2 w-auto"
+                >
+                  <div
+                    class="card-main m-4 p-8"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Option 3: Complete & Mail a Printed Request Form
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container !flex pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Primary Care Provider Change Form
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: block;"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    ,
+    <div
+      class="card-main m-4 p-8"
+    >
+      <div
+        class="flex flex-row md:!flex !block"
+      >
+        <div
+          class="flex flex-col md:w-10/12"
+        >
+          <h1
+            class="title-1 title-2"
+          >
+            Option 1: Find & Select a Provider From a Directory
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <a
+            href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
+            style="display: block;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container !flex pl-0"
+              style="max-width: max-content; height: auto; display: block;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: block;"
+              >
+                Go to Directory to Find a Doctor
+              </p>
+              <p
+                class="ml-1"
+                style="display: block;"
+              >
+                <img
+                  alt="link"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </p>
+            </button>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+          />
+        </div>
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row flex flex-row"
+          >
+            <img
+              alt="SelectPCPImage"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    ,
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="title-1 title-2"
+        >
+          Option 2: Send an Email Request
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1"
+        >
+          Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="card-main px-0 m-0 !border-none"
+        >
+          <div
+            class="flex flex-col"
+          >
+            <h1
+              class="title-1 title-2"
+            >
+              Member Information
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="body-1"
+              >
+                Member Name
+                 
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+              />
+              <div>
+                <div
+                  class="rich-dropdown"
+                >
+                  <div
+                    class="flex flex-col switch-filter default"
+                    tabindex="1"
+                  >
+                    <div>
+                      <div
+                        class="body-1 input"
+                      >
+                        <div
+                          class="flex flex-row p-1 items-center"
+                        >
+                          <div
+                            class="flex flex-col border-none flex-grow"
+                          >
+                            <p
+                              class="body-1"
+                            >
+                              Chris Hall
+                            </p>
+                          </div>
+                          <img
+                            alt=""
+                            class="w-[20px] h-[20px] ml-2 items-end"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+          </div>
+        </div>
+        <h1
+          class="title-1 title-2"
+        >
+          Provider Information
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Name of Provider (First & Last Name)
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Name of Provider (First & Last Name)"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Street Address
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Street Address"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              State
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="State"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              ZIP Code
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="ZIP Code"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Country
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Country"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Phone Number
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Phone Number"
+                class=""
+                placeholder="( ___ ) ___ - ___ "
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <button
+            aria-label="Submit Request"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+            type="button"
+          >
+            Submit Request
+          </button>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+      </div>
+    </div>
+    ,
+    <div
+      class="card-main m-4 p-8"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="title-1 title-2"
+        >
+          Option 3: Complete & Mail a Printed Request Form
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1"
+        >
+          You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <a
+          style="display: block;"
+          tabindex="-1"
+        >
+          <button
+            class="flex flex-row link-container !flex pl-0"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link undefined"
+              style="display: block;"
+            >
+              Primary Care Provider Change Form
+            </p>
+            <p
+              class="ml-1"
+              style="display: block;"
+            >
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+    ,
+  </div>
+  <div>
+    <img
+      alt="SelectPCPImage"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+  </div>
+</body>
+`;
+
+exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color mt-20"
+      >
+        <h1
+          class="title-1 m-4 mb-0 !font-light !text-[32px]/[40px]"
+        >
+          Update My Primary Care Provider
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <p
+          class="body-1 md:w-2/3 m-4"
+        >
+          Choose one option below and follow the instructions to add or update your primary care provider.
+        </p>
+        <section
+          class="updateMyPrimaryCareW"
+          id="Filter"
+        >
+          <div
+            class="flex flex-col justify-center items-center page"
+          >
+            <div
+              class="flex flex-col app-content app-base-font-color"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <div
+                  class="card-main m-4 p-8"
+                >
+                  <div
+                    class="flex flex-row md:!flex !block"
+                  >
+                    <div
+                      class="flex flex-col md:w-10/12"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Option 1: Find & Select a Provider From a Directory
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <a
+                        href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container !flex pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Go to Directory to Find a Doctor
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: block;"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row flex flex-row"
+                      >
+                        <img
+                          alt="SelectPCPImage"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-row md:!flex !block"
+              >
+                <div
+                  class="flex flex-col md:w-1/2 w-auto"
+                >
+                  <div
+                    class="card-main large-section"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Option 2: Send an Email Request
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div
+                        class="card-main px-0 m-0 !border-none"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <h1
+                            class="title-1 title-2"
+                          >
+                            Member Information
+                          </h1>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="body-1"
+                            >
+                              Member Name
+                               
+                            </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                            />
+                            <div>
+                              <div
+                                class="rich-dropdown"
+                              >
+                                <div
+                                  class="flex flex-col switch-filter default"
+                                  tabindex="1"
+                                >
+                                  <div>
+                                    <div
+                                      class="body-1 input"
+                                    >
+                                      <div
+                                        class="flex flex-row p-1 items-center"
+                                      >
+                                        <div
+                                          class="flex flex-col border-none flex-grow"
+                                        >
+                                          <p
+                                            class="body-1"
+                                          >
+                                            Chris Hall
+                                          </p>
+                                        </div>
+                                        <img
+                                          alt=""
+                                          class="w-[20px] h-[20px] ml-2 items-end"
+                                          data-nimg="1"
+                                          decoding="async"
+                                          height="40"
+                                          loading="lazy"
+                                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                          style="color: transparent;"
+                                          width="40"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                        </div>
+                      </div>
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Provider Information
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Name of Provider (First & Last Name)
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Name of Provider (First & Last Name)"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Street Address
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Street Address"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            State
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="State"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            ZIP Code
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="ZIP Code"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Country
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Country"
+                              class=""
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <div
+                          class="flex flex-col w-full text-field"
+                        >
+                          <p>
+                            Phone Number
+                          </p>
+                          <div
+                            class="flex flex-row items-center input   "
+                          >
+                            <input
+                              aria-label="Phone Number"
+                              class=""
+                              placeholder="( ___ ) ___ - ___ "
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                      <div>
+                        <button
+                          aria-label="Submit Request"
+                          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                          type="button"
+                        >
+                          Submit Request
+                        </button>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col md:w-1/2 w-auto"
+                >
+                  <div
+                    class="card-main m-4 p-8"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <h1
+                        class="title-1 title-2"
+                      >
+                        Option 3: Complete & Mail a Printed Request Form
+                      </h1>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container !flex pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Primary Care Provider Change Form
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: block;"
+                          >
+                            <img
+                              alt="link"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    ,
+    <div
+      class="card-main m-4 p-8"
+    >
+      <div
+        class="flex flex-row md:!flex !block"
+      >
+        <div
+          class="flex flex-col md:w-10/12"
+        >
+          <h1
+            class="title-1 title-2"
+          >
+            Option 1: Find & Select a Provider From a Directory
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <a
+            href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
+            style="display: block;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container !flex pl-0"
+              style="max-width: max-content; height: auto; display: block;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: block;"
+              >
+                Go to Directory to Find a Doctor
+              </p>
+              <p
+                class="ml-1"
+                style="display: block;"
+              >
+                <img
+                  alt="link"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </p>
+            </button>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+          />
+        </div>
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row flex flex-row"
+          >
+            <img
+              alt="SelectPCPImage"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    ,
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="title-1 title-2"
+        >
+          Option 2: Send an Email Request
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1"
+        >
+          Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="card-main px-0 m-0 !border-none"
+        >
+          <div
+            class="flex flex-col"
+          >
+            <h1
+              class="title-1 title-2"
+            >
+              Member Information
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="body-1"
+              >
+                Member Name
+                 
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+              />
+              <div>
+                <div
+                  class="rich-dropdown"
+                >
+                  <div
+                    class="flex flex-col switch-filter default"
+                    tabindex="1"
+                  >
+                    <div>
+                      <div
+                        class="body-1 input"
+                      >
+                        <div
+                          class="flex flex-row p-1 items-center"
+                        >
+                          <div
+                            class="flex flex-col border-none flex-grow"
+                          >
+                            <p
+                              class="body-1"
+                            >
+                              Chris Hall
+                            </p>
+                          </div>
+                          <img
+                            alt=""
+                            class="w-[20px] h-[20px] ml-2 items-end"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+          </div>
+        </div>
+        <h1
+          class="title-1 title-2"
+        >
+          Provider Information
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Name of Provider (First & Last Name)
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Name of Provider (First & Last Name)"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Street Address
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Street Address"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              State
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="State"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              ZIP Code
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="ZIP Code"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Country
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Country"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Phone Number
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Phone Number"
+                class=""
+                placeholder="( ___ ) ___ - ___ "
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div>
+          <button
+            aria-label="Submit Request"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+            type="button"
+          >
+            Submit Request
+          </button>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+      </div>
+    </div>
+    ,
+    <div
+      class="card-main m-4 p-8"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="title-1 title-2"
+        >
+          Option 3: Complete & Mail a Printed Request Form
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-1"
+        >
+          You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <a
+          style="display: block;"
+          tabindex="-1"
+        >
+          <button
+            class="flex flex-row link-container !flex pl-0"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="0"
+          >
+            <p
+              class="link undefined"
+              style="display: block;"
+            >
+              Primary Care Provider Change Form
+            </p>
+            <p
+              class="ml-1"
+              style="display: block;"
+            >
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+    ,
+  </div>
+  <div>
+    <img
+      alt="SelectPCPImage"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+  </div>
+</body>
+`;
