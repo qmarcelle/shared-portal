@@ -91,11 +91,15 @@ export const BalanceSection = ({
         />
         <Spacer size={32} />
 
-        {disclaimerText && (
+        {!balanceDetailLink && balanceNetworks && (
           <>
             <Divider />
             <Spacer size={32} />
-            <TextBox type="body-2" text={disclaimerText} />
+            <TextBox
+              type="body-2"
+              text="Your policy has separate limits for in- and out-of-network charges. Charges incurred with an in- network provider will apply to your in-network limit; charges incurred with an out-of-network provider will apply toward your out-of-network limit. Please note that individual out of pocket limits only apply if the family limit has not yet been satisfied."
+            />
+            <Spacer size={16} />
           </>
         )}
 
@@ -168,7 +172,7 @@ export const BalanceSectionWrapper = ({
         network == '0' ? selectedUser.inNetDedMet : selectedUser.outOfNetDedMet
       }
       outOfPocketLimit={
-        network == '0' ? selectedUser.inNetOOPMax : selectedUser.outOfNetDedMax
+        network == '0' ? selectedUser.inNetOOPMax : selectedUser.outOfNetOOPMax
       }
       outOfPocketSpent={
         network == '0' ? selectedUser.inNetOOPMet : selectedUser.outOfNetOOPMet

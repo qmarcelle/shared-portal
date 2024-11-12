@@ -1,4 +1,4 @@
-export const dedAndOOPBalanceMock = {
+export const dedAndOOPMedBalanceMock = {
   accumulatorsDetails: [
     {
       productType: 'M',
@@ -66,6 +66,43 @@ export const dedAndOOPBalanceMock = {
             {
               accumNum: 550,
               metAmount: 0,
+            },
+          ],
+        },
+        {
+          memberCK: 91722402,
+          inNetOOPMax: 3000,
+          inNetOOPMet: 2000,
+          inNetDedMax: 760,
+          inNetDedMet: 198,
+          outOfNetOOPMax: 4000,
+          outOfNetOOPMet: 0,
+          outOfNetDedMax: 1750,
+          outOfNetDedMet: 1700,
+          listofSerLimitMetDetails: [
+            {
+              accumNum: 1,
+              usedVisits: 0,
+            },
+            {
+              accumNum: 2,
+              usedVisits: 0,
+            },
+            {
+              accumNum: 25,
+              usedVisits: 0,
+            },
+            {
+              accumNum: 32,
+              usedVisits: 0,
+            },
+            {
+              accumNum: 38,
+              usedVisits: 0,
+            },
+            {
+              accumNum: 300,
+              usedVisits: 0,
             },
           ],
         },
@@ -148,6 +185,54 @@ export const dedAndOOPBalanceMock = {
           isDollarLimit: true,
           isDays: false,
           maxAllowedAmount: 10000,
+        },
+      ],
+    },
+  ],
+};
+
+export const dedAndOOPDentalBalanceMock = {
+  accumulatorsDetails: [
+    {
+      productType: 'D',
+      members: [
+        {
+          memberCK: 54363201,
+          listofSerLimitMetDetails: [
+            {
+              accumNum: 819,
+              metAmount: 0.0,
+            },
+            {
+              accumNum: 827,
+              metAmount: 0.0,
+            },
+          ],
+        },
+        {
+          memberCK: 91722407,
+          listofSerLimitMetDetails: [
+            {
+              accumNum: 819,
+              metAmount: 0.0,
+            },
+          ],
+        },
+      ],
+      serviceLimitDetails: [
+        {
+          accumNum: 819,
+          serviceDesc: '$3000 Annual Maximum Basic and Major',
+          isDollarLimit: true,
+          isDays: false,
+          maxAllowedAmount: 3000.0,
+        },
+        {
+          accumNum: 827,
+          serviceDesc: '$3000 Ortho Lifetime Maximum',
+          isDollarLimit: true,
+          isDays: false,
+          maxAllowedAmount: 3000.0,
         },
       ],
     },

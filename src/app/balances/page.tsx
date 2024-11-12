@@ -1,9 +1,10 @@
-import { auth } from '@/auth';
 import { BalancesPage } from '.';
+import { getDedAndOOPBalanceForSubscriberAndDep } from './actions/getDedAndOOPBalance';
 
 const Page = async () => {
-  const session = await auth();
-  return <BalancesPage />;
+  const balanceData = await getDedAndOOPBalanceForSubscriberAndDep();
+  console.log(balanceData.data?.medical);
+  return <BalancesPage data={balanceData.data!} />;
 };
 
 export default Page;
