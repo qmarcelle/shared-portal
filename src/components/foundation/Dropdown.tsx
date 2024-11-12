@@ -51,7 +51,7 @@ export const Dropdown = ({
         className="flex flex-row link"
         onClick={() => setShowDrop(!showDrop)}
       >
-        <p>{mappedItems.get(selectedVal)}</p>
+        <p className="font-app-bold">{mappedItems.get(selectedVal)}</p>
         <Spacer axis="horizontal" size={8} />
         {icon}
       </div>
@@ -65,7 +65,7 @@ export const Dropdown = ({
           return (
             <Row
               key={item.label}
-              className={`${isSelcted ? 'dropdown-item-selected' : ''} dropdown-item p-2`}
+              className={`${isSelcted ? 'dropdown-item-selected' : ''} dropdown-item p-2 cursor-pointer`}
             >
               {isSelcted ? (
                 <div className="size-5 mx-2 ">

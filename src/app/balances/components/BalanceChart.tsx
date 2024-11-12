@@ -33,7 +33,7 @@ export const BalanceChart = ({
   function getBalanceAmount() {
     return (
       <div>
-        {spentAmount && limitAmount && (
+        {spentAmount !== undefined && limitAmount && (
           <ProgressBar
             height={10}
             completePercent={(spentAmount / limitAmount) * 100}
@@ -56,9 +56,15 @@ export const BalanceChart = ({
 
   return (
     <div className="flex flex-col">
-      <p className="app-underline body-1">{label}</p>
+      <p
+        className={`${spentAmount !== undefined ? 'underline decoration-dashed underline-offset-4' : ''} app-underline body-1`}
+      >
+        {label}
+      </p>
       <Spacer size={16} />
-      {spentAmount && limitAmount ? getBalanceAmount() : getNullBalanceAmount()}
+      {spentAmount !== undefined && limitAmount
+        ? getBalanceAmount()
+        : getNullBalanceAmount()}
     </div>
   );
 };

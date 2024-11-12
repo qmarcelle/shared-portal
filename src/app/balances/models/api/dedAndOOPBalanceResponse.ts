@@ -4,15 +4,15 @@ export type DedAndOOPBalanceResponse = {
 
 export type AccumulatorsDetail = {
   productType: string;
-  inNetFamilyOOPMax: number;
-  outOfNetFamilyOOPMax: number;
-  inNetFamilyOOPMet: number;
-  outOfNetFamilyOOPMet: number;
-  inNetFamilyDedMax: number;
-  outOfNetFamilyDedMax: number;
-  inNetFamilyDedMet: number;
-  outOfNetFamilyDedMet: number;
-  isOOPCombined: boolean;
+  inNetFamilyOOPMax?: number;
+  outOfNetFamilyOOPMax?: number;
+  inNetFamilyOOPMet?: number;
+  outOfNetFamilyOOPMet?: number;
+  inNetFamilyDedMax?: number;
+  outOfNetFamilyDedMax?: number;
+  inNetFamilyDedMet?: number;
+  outOfNetFamilyDedMet?: number;
+  isOOPCombined?: boolean;
   members: DedAndOOPMember[];
   serviceLimitDetails: ServiceLimitDetail[];
 };

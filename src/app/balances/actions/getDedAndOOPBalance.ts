@@ -1,6 +1,9 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
-import { dedAndOOPBalanceMock } from '@/mock/dedAndOOPBalanceMock';
+import {
+  dedAndOOPDentalBalanceMock,
+  dedAndOOPMedBalanceMock,
+} from '@/mock/dedAndOOPBalanceMock';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { portalSvcsApi } from '@/utils/api/portalApi';
@@ -39,25 +42,28 @@ export async function callGetDedAndOOPBalance({
 
     return resp.data;
   } catch (err) {
-    logger.error('GetDedAndOOPBalance Api call failed');
-    return dedAndOOPBalanceMock;
+    logger.error('GetDedAndOOPBalance Api call failed', err);
+    if (productType == 'D') {
+      return dedAndOOPDentalBalanceMock;
+    }
+    return dedAndOOPMedBalanceMock;
   }
 }
 
-export async function getDedAndOOPBalanceForSubscriberAndDep(
-  subCk: string,
-): Promise<ActionResponse<number, BalanceData>> {
+export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
+  ActionResponse<number, BalanceData>
+> {
   try {
     const session = await auth();
     // Get medical balance
     const respForMedical = await callGetDedAndOOPBalance({
-      memberId: subCk,
+      memberId: session!.user.currUsr!.plan.sbsbCk,
       productType: 'M',
     });
 
     // Get dental balance
     const respForDental = await callGetDedAndOOPBalance({
-      memberId: subCk,
+      memberId: session!.user.currUsr!.plan.sbsbCk,
       productType: 'D',
     });
 
@@ -130,6 +136,7 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(
       };
     }
   } catch (err) {
+    console.error(err);
     logger.error('DedAndOOPBalance Retrieval failed', err);
     return {
       status: 400,
@@ -141,24 +148,27 @@ function mapDedAndOOPData(
   data: DedAndOOPMember[],
   loggedInUser: LoggedInUserInfo,
 ): BalancePerUser[] {
-  return data.map((item) => ({
-    id: item.memberCK.toString().slice(-2),
-    name: loggedInUser.members.find(
+  return data.map((item) => {
+    const member = loggedInUser.members.find(
       (member) => member.memberCk == item.memberCK,
-    )!.firstName,
-    inNetDedMax: item.inNetDedMax,
-    inNetDedMet: item.inNetDedMet,
-    inNetOOPMax: item.inNetOOPMax,
-    inNetOOPMet: item.inNetOOPMet,
-    outOfNetDedMax: item.outOfNetDedMax,
-    outOfNetDedMet: item.outOfNetDedMet,
-    outOfNetOOPMax: item.outOfNetOOPMax,
-    outOfNetOOPMet: item.outOfNetOOPMet,
-    serviceLimits: item.listofSerLimitMetDetails.map((service) => ({
-      accumCode: service.accumNum,
-      value: service.metAmount ?? service.usedVisits ?? 0,
-    })),
-  }));
+    );
+    return {
+      id: item.memberCK.toString().slice(-2),
+      name: member!.firstName + ' ' + member!.lastName,
+      inNetDedMax: item.inNetDedMax,
+      inNetDedMet: item.inNetDedMet,
+      inNetOOPMax: item.inNetOOPMax,
+      inNetOOPMet: item.inNetOOPMet,
+      outOfNetDedMax: item.outOfNetDedMax,
+      outOfNetDedMet: item.outOfNetDedMet,
+      outOfNetOOPMax: item.outOfNetOOPMax,
+      outOfNetOOPMet: item.outOfNetOOPMet,
+      serviceLimits: item.listofSerLimitMetDetails.map((service) => ({
+        accumCode: service.accumNum,
+        value: service.metAmount ?? service.usedVisits ?? 0,
+      })),
+    };
+  });
 }
 
 function mapServiceLimitDetails(
