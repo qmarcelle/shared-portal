@@ -196,26 +196,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <span
         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
       />
-      <a
-        style="display: block;"
-        tabindex="-1"
-      >
-        <button
-          class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
-          style="max-width: max-content; height: auto; display: block;"
-          tabindex="0"
-        >
-          <p
-            class="link undefined"
-            style="display: block;"
-          >
-            Sharing & Permissions
-          </p>
-        </button>
-      </a>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-      />
     </div>
   </section>
 </div>
@@ -544,26 +524,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             style="display: block;"
           >
             Security Settings
-          </p>
-        </button>
-      </a>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-      />
-      <a
-        style="display: block;"
-        tabindex="-1"
-      >
-        <button
-          class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
-          style="max-width: max-content; height: auto; display: block;"
-          tabindex="0"
-        >
-          <p
-            class="link undefined"
-            style="display: block;"
-          >
-            Sharing & Permissions
           </p>
         </button>
       </a>
