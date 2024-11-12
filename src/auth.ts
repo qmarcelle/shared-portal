@@ -11,6 +11,10 @@ declare module 'next-auth' {
   }
 }
 
+const JWT_EXPIRY: number = parseInt(
+  process.env.JWT_SESSION_EXPIRY_SECONDS || '1800',
+);
+
 export const {
   handlers: { GET, POST },
   auth,
@@ -32,7 +36,10 @@ export const {
   },
   session: {
     strategy: 'jwt',
-    maxAge: parseInt(process.env.JWT_SESSION_EXPIRY_SECONDS || '1800'),
+    maxAge: JWT_EXPIRY,
+  },
+  jwt: {
+    maxAge: JWT_EXPIRY,
   },
   ...authConfig,
 });
