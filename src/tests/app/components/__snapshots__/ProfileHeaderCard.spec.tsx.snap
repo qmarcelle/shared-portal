@@ -342,26 +342,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                   />
-                  <a
-                    style="display: block;"
-                    tabindex="-1"
-                  >
-                    <button
-                      class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
-                    >
-                      <p
-                        class="link undefined"
-                        style="display: block;"
-                      >
-                        Sharing & Permissions
-                      </p>
-                    </button>
-                  </a>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                  />
                 </div>
               </section>
               <span
@@ -705,26 +685,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                       style="display: block;"
                     >
                       Security Settings
-                    </p>
-                  </button>
-                </a>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <a
-                  style="display: block;"
-                  tabindex="-1"
-                >
-                  <button
-                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
-                  >
-                    <p
-                      class="link undefined"
-                      style="display: block;"
-                    >
-                      Sharing & Permissions
                     </p>
                   </button>
                 </a>
@@ -1129,26 +1089,6 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                       style="display: block;"
                     >
                       Security Settings
-                    </p>
-                  </button>
-                </a>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <a
-                  style="display: block;"
-                  tabindex="-1"
-                >
-                  <button
-                    class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
-                  >
-                    <p
-                      class="link undefined"
-                      style="display: block;"
-                    >
-                      Sharing & Permissions
                     </p>
                   </button>
                 </a>

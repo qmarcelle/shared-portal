@@ -50,7 +50,6 @@ describe('ProfileHeaderCard', () => {
     screen.getByText('All Profile Settings');
     screen.getByText('Communication Settings');
     screen.getByText('Security Settings');
-    screen.getByText('Sharing & Permissions');
     expect(component.baseElement).toMatchSnapshot();
   });
 });
