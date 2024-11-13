@@ -1,6 +1,6 @@
 export type BalanceData = {
-  medical: ProductBalance | null;
-  dental: ProductBalance | null;
+  medical: ProductBalance | undefined;
+  dental: ProductBalance | undefined;
 };
 
 export type ProductBalance = {

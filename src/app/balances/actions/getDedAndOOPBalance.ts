@@ -1,9 +1,5 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
-import {
-  dedAndOOPDentalBalanceMock,
-  dedAndOOPMedBalanceMock,
-} from '@/mock/dedAndOOPBalanceMock';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { portalSvcsApi } from '@/utils/api/portalApi';
@@ -43,10 +39,7 @@ export async function callGetDedAndOOPBalance({
     return resp.data;
   } catch (err) {
     logger.error('GetDedAndOOPBalance Api call failed', err);
-    if (productType == 'D') {
-      return dedAndOOPDentalBalanceMock;
-    }
-    return dedAndOOPMedBalanceMock;
+    throw err;
   }
 }
 
@@ -55,16 +48,17 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
 > {
   try {
     const session = await auth();
-    // Get medical balance
-    const respForMedical = await callGetDedAndOOPBalance({
-      memberId: session!.user.currUsr!.plan.sbsbCk,
-      productType: 'M',
-    });
 
     // Get dental balance
-    const respForDental = await callGetDedAndOOPBalance({
+    const respForDental = callGetDedAndOOPBalance({
       memberId: session!.user.currUsr!.plan.sbsbCk,
       productType: 'D',
+    });
+
+    // Get medical balance
+    const respForMedical = callGetDedAndOOPBalance({
+      memberId: session!.user.currUsr!.plan.sbsbCk,
+      productType: 'M',
     });
 
     // Get all dependents
@@ -119,7 +113,7 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
                     result[0].value.accumulatorsDetails[0].serviceLimitDetails,
                   ),
                 }
-              : null,
+              : undefined,
           medical:
             result[1].status == 'fulfilled'
               ? {
@@ -131,7 +125,7 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
                     result[1].value.accumulatorsDetails[0].serviceLimitDetails,
                   ),
                 }
-              : null,
+              : undefined,
         },
       };
     }

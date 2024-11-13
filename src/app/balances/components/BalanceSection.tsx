@@ -1,3 +1,4 @@
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
@@ -119,7 +120,7 @@ export const BalanceSection = ({
 };
 
 type BalanceSectionWrapperProps = {
-  product: ProductBalance;
+  product: ProductBalance | undefined;
   title: string;
   balanceDetailLink?: boolean;
 };
@@ -129,19 +130,33 @@ export const BalanceSectionWrapper = ({
   product,
   balanceDetailLink,
 }: BalanceSectionWrapperProps) => {
-  const [selectedUser, setSelectedUser] = useState(product.balances[0]);
+  const [selectedUser, setSelectedUser] = useState(product?.balances[0]);
 
   // 0 - In Network, 1- Out Network
   const [network, setNetwork] = useState(
-    product.balances[0].inNetDedMax ? '0' : undefined,
+    product?.balances[0].inNetDedMax ? '0' : undefined,
   );
 
   function changeUser(id: string) {
-    setSelectedUser(product.balances.find((item) => item.id == id)!);
+    if (product) {
+      setSelectedUser(product.balances.find((item) => item.id == id)!);
+    }
   }
 
   function changeNetwork(id: string) {
     setNetwork(id);
+  }
+
+  if (product == null) {
+    return (
+      <Card className="large-section">
+        <Column>
+          <TextBox type="title-2" text={title} />
+          <Spacer size={32} />
+          <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+        </Column>
+      </Card>
+    );
   }
 
   return (
@@ -152,7 +167,7 @@ export const BalanceSectionWrapper = ({
         label: item.name,
         value: item.id,
       }))}
-      selectedMemberId={selectedUser.id}
+      selectedMemberId={selectedUser!.id}
       onSelectedMemberChange={changeUser}
       balanceNetworks={
         network
@@ -166,18 +181,26 @@ export const BalanceSectionWrapper = ({
       onSelectedNetworkChange={changeNetwork}
       balanceDetailLink={balanceDetailLink}
       deductibleLimit={
-        network == '0' ? selectedUser.inNetDedMax : selectedUser.outOfNetDedMax
+        network == '0'
+          ? selectedUser!.inNetDedMax
+          : selectedUser!.outOfNetDedMax
       }
       deductibleSpent={
-        network == '0' ? selectedUser.inNetDedMet : selectedUser.outOfNetDedMet
+        network == '0'
+          ? selectedUser!.inNetDedMet
+          : selectedUser!.outOfNetDedMet
       }
       outOfPocketLimit={
-        network == '0' ? selectedUser.inNetOOPMax : selectedUser.outOfNetOOPMax
+        network == '0'
+          ? selectedUser!.inNetOOPMax
+          : selectedUser!.outOfNetOOPMax
       }
       outOfPocketSpent={
-        network == '0' ? selectedUser.inNetOOPMet : selectedUser.outOfNetOOPMet
+        network == '0'
+          ? selectedUser!.inNetOOPMet
+          : selectedUser!.outOfNetOOPMet
       }
-      serviceDetailsUsed={selectedUser.serviceLimits
+      serviceDetailsUsed={selectedUser!.serviceLimits
         .map((item) => {
           const service = product.serviceLimitDetails.find(
             (service) => service.code == item.accumCode,
