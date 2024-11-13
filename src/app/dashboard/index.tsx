@@ -26,38 +26,34 @@ const Dashboard = ({ data }: DashboardProps) => {
       <WelcomeBanner
         className="px-4"
         titleText="Welcome, "
-        name={toPascalCase(data.currentUser.currUsr?.firstName ?? '')}
+        name={toPascalCase(data.memberDetails?.firstName ?? '')}
         minHeight="min-h-[250px]"
         body={
           <>
-            {data.currentUser.currUsr?.plan?.planName && (
+            {data.memberDetails?.planName && (
+              <>
+                <TextBox text={`Plan: ${data.memberDetails?.planName}`} />
+                <Spacer size={8} />
+              </>
+            )}
+            {data.memberDetails?.subscriberId && (
               <>
                 <TextBox
-                  text={`Plan: ${data.currentUser.currUsr?.plan?.planName}`}
+                  text={`Subscriber ID: ${data.memberDetails?.subscriberId}`}
                 />
                 <Spacer size={8} />
               </>
             )}
-            {data.currentUser.currUsr?.plan?.subId && (
+            {data.memberDetails?.groupId && (
               <>
-                <TextBox
-                  text={`Subscriber ID: ${data.currentUser.currUsr?.plan?.subId}`}
-                />
+                <TextBox text={`Group ID: ${data.memberDetails?.groupId}`} />
                 <Spacer size={8} />
               </>
             )}
-            {data.currentUser.currUsr?.plan?.grpId && (
+            {data.memberDetails?.coverageType?.length && (
               <>
                 <TextBox
-                  text={`Group ID: ${data.currentUser.currUsr?.plan?.grpId}`}
-                />
-                <Spacer size={8} />
-              </>
-            )}
-            {data.currentUser.currUsr?.plan?.coverageType?.length && (
-              <>
-                <TextBox
-                  text={`Policies: ${data.currentUser.currUsr?.plan?.coverageType?.join(', ')}`}
+                  text={`Policies: ${data.memberDetails?.coverageType?.join(', ')}`}
                 />
                 <Spacer size={16} />
               </>
@@ -69,8 +65,8 @@ const Dashboard = ({ data }: DashboardProps) => {
         }
       />
       <Spacer size={32}></Spacer>
-      {!data.currentUser.vRules?.nonMemberDashboard ? (
-        <MemberDashboard visibilityRules={data.currentUser.vRules} />
+      {!data.visibilityRules?.nonMemberDashboard ? (
+        <MemberDashboard visibilityRules={data.visibilityRules} />
       ) : (
         <NonMemberDashboard />
       )}

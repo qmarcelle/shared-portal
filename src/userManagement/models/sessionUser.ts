@@ -5,8 +5,6 @@ export type SessionUser = {
   currUsr?: {
     umpi: string;
     fhirId: string;
-    firstName: string;
-    lastName: string;
     plan: {
       memCk: string;
       sbsbCk: string;
@@ -14,8 +12,6 @@ export type SessionUser = {
       grpId: string;
       subId: string;
       fhirId: string;
-      coverageType: Array<string>;
-      planName: string;
     };
   };
   rules?: string;

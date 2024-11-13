@@ -1,9 +1,7 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
-import { CoverageType } from '@/models/member/api/loggedInUserInfo';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { logger } from '@/utils/logger';
 import { computeVisibilityRules } from '@/visibilityEngine/computeVisibilityRules';
-import { CoverageTypes } from './models/coverageType';
 import { SessionUser } from './models/sessionUser';
 
 export async function computeSessionUser(
@@ -30,8 +28,6 @@ export async function computeSessionUser(
       currUsr: {
         fhirId: currentUser.personFHIRID,
         umpi: currentUser.umpid,
-        firstName: loggedUserInfo.subscriberFirstName,
-        lastName: loggedUserInfo.subscriberLastName,
         plan: {
           fhirId: plan.patientFHIRID,
           grgrCk: loggedUserInfo.groupData.groupCK,
@@ -39,8 +35,6 @@ export async function computeSessionUser(
           memCk: plan.memeCk,
           sbsbCk: loggedUserInfo.subscriberCK,
           subId: loggedUserInfo.subscriberID,
-          planName: loggedUserInfo.groupData.groupName,
-          coverageType: computeCoverageType(loggedUserInfo.coverageTypes),
         },
       },
       rules: await computeVisibilityRules(),
@@ -50,12 +44,3 @@ export async function computeSessionUser(
     throw 'User Not Found';
   }
 }
-const computeCoverageType = (coverageTypes: CoverageType[]): string[] => {
-  const policies: string[] = [];
-  coverageTypes.map((coverage) => {
-    if (CoverageTypes.get(coverage.productType)) {
-      policies.push(CoverageTypes.get(coverage.productType)!);
-    }
-  });
-  return policies;
-};

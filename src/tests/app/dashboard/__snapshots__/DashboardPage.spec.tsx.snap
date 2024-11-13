@@ -121,7 +121,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             <p
               class="body-1"
             >
-              Subscriber ID: 123456
+              Subscriber ID: 902218823
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -1972,7 +1972,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           <p
             class="body-1"
           >
-            Subscriber ID: 123456
+            Subscriber ID: 902218823
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
