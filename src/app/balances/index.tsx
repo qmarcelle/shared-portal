@@ -10,10 +10,10 @@ import { VisionBalance } from './components/VisionBalance';
 import { BalanceData } from './models/app/balancesData';
 
 type BalancePageProps = {
-  data: BalanceData;
+  data: BalanceData | undefined;
 };
 
-export const BalancesPage = ({ data }: BalancePageProps) => {
+export const Balances = ({ data }: BalancePageProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
@@ -29,12 +29,12 @@ export const BalancesPage = ({ data }: BalancePageProps) => {
             <BalanceSectionWrapper
               key="Medical"
               title="Medical & Pharmacy Balance"
-              product={data.medical!}
+              product={data?.medical}
             />
             <BalanceSectionWrapper
               key="Dental"
               title="Dental Balance"
-              product={data.dental!}
+              product={data?.dental}
             />
             <VisionBalance className="large-section" linkURL="" />
           </Column>
