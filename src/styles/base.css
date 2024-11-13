@@ -29,6 +29,7 @@
 @import './spending_Summary.css';
 @import './loader.css';
 @import './calendar.css';
+@import './plan_selector.css';
 
 :root {
   --primary-color: #005eb9;
@@ -372,4 +373,8 @@ body {
     font-size: 2rem;
     line-height: 3.5rem;
   }
+}
+
+.caremark button {
+  padding-top: 0;
 }

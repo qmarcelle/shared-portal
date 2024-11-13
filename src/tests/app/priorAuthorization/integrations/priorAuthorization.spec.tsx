@@ -150,6 +150,11 @@ describe('Prior Authorization', () => {
         `/memberPriorAuthDetails?memberKey=${memberDetails.member_ck}&fromDate=12/06/2022&toDate=08/06/2023`,
       );
       expect(response).toBeNull;
+      expect(
+        screen.getAllByText(
+          'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
+        ).length,
+      ).toBe(1);
     });
   });
 
@@ -169,8 +174,32 @@ describe('Prior Authorization', () => {
         `/memberPriorAuthDetails?memberKey=${memberDetails.member_ck}&fromDate=12/06/2022&toDate=08/06/2023`,
       );
       expect(
-        screen.getAllByText('There was a problem loading prior auth details')
-          .length,
+        screen.getAllByText(
+          'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
+        ).length,
+      ).toBe(1);
+    });
+  });
+
+  test('prior Authorization api integration 500 bad request scenario', async () => {
+    const memberDetails = memberMockResponse;
+    mockedAxios.get.mockRejectedValue(
+      createAxiosErrorForTest({
+        errorObject: {},
+        status: 500,
+      }),
+    );
+
+    await setupUI();
+
+    await waitFor(() => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        `/memberPriorAuthDetails?memberKey=${memberDetails.member_ck}&fromDate=12/06/2022&toDate=08/06/2023`,
+      );
+      expect(
+        screen.getAllByText(
+          'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
+        ).length,
       ).toBe(1);
     });
   });

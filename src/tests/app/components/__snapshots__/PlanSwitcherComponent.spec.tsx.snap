@@ -202,7 +202,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
             </div>
           </div>
           <div
-            class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+            class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
           >
             <div>
               <div>
@@ -231,7 +231,9 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
               <ul
                 class="max-h-[420px] min-w-[100%] overflow-auto"
               >
-                <li>
+                <li
+                  class=""
+                >
                   <div
                     class="flex flex-row p-4   item"
                     tabindex="1"
@@ -240,7 +242,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       class=""
                     />
                     <div
-                      class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                      class="card-elevated px-4 pt-4  selected app-base-font-color min-w-[100%]"
                     >
                       <div
                         class="flex flex-col"
@@ -289,7 +291,9 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  class=""
+                >
                   <div
                     class="flex flex-row p-4   item"
                     tabindex="1"
@@ -298,7 +302,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       class=""
                     />
                     <div
-                      class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                      class="card-elevated px-4 pt-4   app-base-font-color min-w-[100%]"
                     >
                       <div
                         class="flex flex-col"
@@ -350,7 +354,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
               </ul>
               <div>
                 <div
-                  class="flex flex-row p-4 items-center"
+                  class="flex flex-row items-center p-4"
                 >
                   <img
                     alt="Maximize"
@@ -421,7 +425,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
           </div>
         </div>
         <div
-          class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+          class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
         >
           <div>
             <div>
@@ -450,7 +454,9 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
             <ul
               class="max-h-[420px] min-w-[100%] overflow-auto"
             >
-              <li>
+              <li
+                class=""
+              >
                 <div
                   class="flex flex-row p-4   item"
                   tabindex="1"
@@ -459,7 +465,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                     class=""
                   />
                   <div
-                    class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                    class="card-elevated px-4 pt-4  selected app-base-font-color min-w-[100%]"
                   >
                     <div
                       class="flex flex-col"
@@ -508,7 +514,9 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                   </div>
                 </div>
               </li>
-              <li>
+              <li
+                class=""
+              >
                 <div
                   class="flex flex-row p-4   item"
                   tabindex="1"
@@ -517,7 +525,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                     class=""
                   />
                   <div
-                    class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                    class="card-elevated px-4 pt-4   app-base-font-color min-w-[100%]"
                   >
                     <div
                       class="flex flex-col"
@@ -569,7 +577,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
             </ul>
             <div>
               <div
-                class="flex flex-row p-4 items-center"
+                class="flex flex-row items-center p-4"
               >
                 <img
                   alt="Maximize"
@@ -697,7 +705,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
             </div>
           </div>
           <div
-            class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+            class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
           >
             <div>
               <div>
@@ -726,7 +734,9 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
               <ul
                 class="max-h-[420px] min-w-[100%] overflow-auto"
               >
-                <li>
+                <li
+                  class=""
+                >
                   <div
                     class="flex flex-row p-4   item"
                     tabindex="1"
@@ -735,7 +745,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       class=""
                     />
                     <div
-                      class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                      class="card-elevated px-4 pt-4  selected app-base-font-color min-w-[100%]"
                     >
                       <div
                         class="flex flex-col"
@@ -784,7 +794,9 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  class=""
+                >
                   <div
                     class="flex flex-row p-4   item"
                     tabindex="1"
@@ -793,7 +805,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       class=""
                     />
                     <div
-                      class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                      class="card-elevated px-4 pt-4   app-base-font-color min-w-[100%]"
                     >
                       <div
                         class="flex flex-col"
@@ -842,7 +854,9 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                     </div>
                   </div>
                 </li>
-                <li>
+                <li
+                  class=""
+                >
                   <div
                     class="flex flex-row p-4   item"
                     tabindex="1"
@@ -851,7 +865,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       class=""
                     />
                     <div
-                      class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                      class="card-elevated px-4 pt-4   app-base-font-color min-w-[100%]"
                     >
                       <div
                         class="flex flex-col"
@@ -912,7 +926,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
               </ul>
               <div>
                 <div
-                  class="flex flex-row p-4 items-center"
+                  class="flex flex-row items-center p-4"
                 >
                   <img
                     alt="Minimize"
@@ -983,7 +997,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
           </div>
         </div>
         <div
-          class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+          class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
         >
           <div>
             <div>
@@ -1012,7 +1026,9 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
             <ul
               class="max-h-[420px] min-w-[100%] overflow-auto"
             >
-              <li>
+              <li
+                class=""
+              >
                 <div
                   class="flex flex-row p-4   item"
                   tabindex="1"
@@ -1021,7 +1037,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                     class=""
                   />
                   <div
-                    class="card-elevated px-4 pt-4 selected app-base-font-color min-w-[100%]"
+                    class="card-elevated px-4 pt-4  selected app-base-font-color min-w-[100%]"
                   >
                     <div
                       class="flex flex-col"
@@ -1070,7 +1086,9 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                   </div>
                 </div>
               </li>
-              <li>
+              <li
+                class=""
+              >
                 <div
                   class="flex flex-row p-4   item"
                   tabindex="1"
@@ -1079,7 +1097,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                     class=""
                   />
                   <div
-                    class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                    class="card-elevated px-4 pt-4   app-base-font-color min-w-[100%]"
                   >
                     <div
                       class="flex flex-col"
@@ -1128,7 +1146,9 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                   </div>
                 </div>
               </li>
-              <li>
+              <li
+                class=""
+              >
                 <div
                   class="flex flex-row p-4   item"
                   tabindex="1"
@@ -1137,7 +1157,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                     class=""
                   />
                   <div
-                    class="card-elevated px-4 pt-4  app-base-font-color min-w-[100%]"
+                    class="card-elevated px-4 pt-4   app-base-font-color min-w-[100%]"
                   >
                     <div
                       class="flex flex-col"
@@ -1198,7 +1218,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
             </ul>
             <div>
               <div
-                class="flex flex-row p-4 items-center"
+                class="flex flex-row items-center p-4"
               >
                 <img
                   alt="Minimize"

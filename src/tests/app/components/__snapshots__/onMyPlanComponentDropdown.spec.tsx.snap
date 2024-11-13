@@ -16,6 +16,7 @@ exports[`OnMyPlanComponent should render the UI correctly for more that one opti
     />
     <a
       style="display: block;"
+      tabindex="-1"
     >
       <button
         class="flex flex-row link-container undefined"
@@ -23,7 +24,8 @@ exports[`OnMyPlanComponent should render the UI correctly for more that one opti
         tabindex="0"
       >
         <p
-          class="link"
+          class="link undefined"
+          style="display: block;"
         >
           View Benefits & Coverage
         </p>
@@ -49,6 +51,7 @@ exports[`OnMyPlanComponent should render the UI correctly for more that one opti
     />
     <a
       style="display: block;"
+      tabindex="-1"
     >
       <button
         class="flex flex-row link-container undefined"
@@ -56,7 +59,8 @@ exports[`OnMyPlanComponent should render the UI correctly for more that one opti
         tabindex="0"
       >
         <p
-          class="link"
+          class="link undefined"
+          style="display: block;"
         >
           View Benefits & Coverage
         </p>
