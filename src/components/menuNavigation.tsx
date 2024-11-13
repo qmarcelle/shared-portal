@@ -167,7 +167,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Submit a Claim',
         category: 'Claims',
         showOnMenu: true,
-        url: '/claim',
+        url: '',
         external: false,
       },
       {
