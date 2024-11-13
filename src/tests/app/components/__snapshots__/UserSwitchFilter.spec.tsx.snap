@@ -271,7 +271,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
         </div>
       </div>
       <div
-        class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+        class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
       >
         <div>
           <div>
@@ -300,7 +300,9 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
           <ul
             class="max-h-[420px] min-w-[100%] overflow-auto"
           >
-            <li>
+            <li
+              class=""
+            >
               <div
                 class="flex flex-row p-4   item"
                 tabindex="1"
@@ -353,7 +355,9 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                 </div>
               </div>
             </li>
-            <li>
+            <li
+              class=""
+            >
               <div
                 class="flex flex-row p-4   item"
                 tabindex="1"
@@ -406,7 +410,9 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                 </div>
               </div>
             </li>
-            <li>
+            <li
+              class=""
+            >
               <div
                 class="flex flex-row p-4   item"
                 tabindex="1"
