@@ -6,10 +6,10 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col self-strectch w-full items-end"
+        class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
       >
         <div
-          class="flex flex-row align-top m-2 searchBar undefined"
+          class="flex flex-row align-top m-2 hover:bg-white searchBar undefined"
         >
           <div
             class="flex flex-col flex-grow "
@@ -29,7 +29,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 class="flex flex-col items-end"
               >
                 <button
-                  class="flex flex-col  "
+                  class="flex flex-col p-[0.125rem]  "
                   type="submit"
                 >
                   <img
@@ -75,7 +75,6 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                     teladoc
                   </p>
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -122,10 +121,10 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex flex-col self-strectch w-full items-end"
+      class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
     >
       <div
-        class="flex flex-row align-top m-2 searchBar undefined"
+        class="flex flex-row align-top m-2 hover:bg-white searchBar undefined"
       >
         <div
           class="flex flex-col flex-grow "
@@ -145,7 +144,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               class="flex flex-col items-end"
             >
               <button
-                class="flex flex-col  "
+                class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
@@ -191,7 +190,6 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                   teladoc
                 </p>
                 <div
-                  aria-label="divider"
                   class=""
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />
@@ -295,13 +293,14 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col self-strectch w-full items-end"
+        class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
       >
         <div
-          class="flex flex-row align-top m-4"
+          class="flex flex-row align-top"
         >
           <div
-            class="flex flex-row"
+            class="flex flex-row rounded-[4px] m-4 box-border items-end focus:outline-none focus:ring-2 focus:ring-primary-color"
+            tabindex="0"
           >
             <a>
               <p
@@ -315,7 +314,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
             />
             <img
               alt="Search"
-              class="icon items-end"
+              class="icon items-end ml-1"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -332,13 +331,14 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="flex flex-col self-strectch w-full items-end"
+      class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
     >
       <div
-        class="flex flex-row align-top m-4"
+        class="flex flex-row align-top"
       >
         <div
-          class="flex flex-row"
+          class="flex flex-row rounded-[4px] m-4 box-border items-end focus:outline-none focus:ring-2 focus:ring-primary-color"
+          tabindex="0"
         >
           <a>
             <p
@@ -352,7 +352,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
           />
           <img
             alt="Search"
-            class="icon items-end"
+            class="icon items-end ml-1"
             data-nimg="1"
             decoding="async"
             height="40"

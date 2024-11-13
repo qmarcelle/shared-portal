@@ -37,9 +37,7 @@ describe('UpdateSocialSecurityNumber Journey', () => {
         }),
       ).toBeVisible();
       expect(
-        screen.getByRole('heading', {
-          name: 'Enter the social security number for:',
-        }),
+        screen.getByText('Enter the social security number for:'),
       ).toBeVisible();
     });
     const phoneEntryInput = screen.getByLabelText(/Social Security Number/i);

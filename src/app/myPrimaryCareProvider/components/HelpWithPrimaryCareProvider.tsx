@@ -1,0 +1,30 @@
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { Header } from '@/components/foundation/Header';
+import { RichText } from '@/components/foundation/RichText';
+import { Spacer } from '@/components/foundation/Spacer';
+
+export const HelpWithPrimaryCareProvider = () => {
+  return (
+    <Card className="mt-4 md:ml-8 m-4 p-8">
+      <Column className="flex flex-col">
+        <Header
+          type="title-2"
+          text="Help with My Primary Care Provider"
+        ></Header>
+        <Spacer size={16} />
+        <RichText
+          spans={[
+            <span key={0}>
+              if you need help, please help reach out to us.You can{' '}
+            </span>,
+            <span className="link" key={1}>
+              <a>start a chat </a>
+            </span>,
+            <span key={2}>or call us at [1-800-000-000]</span>,
+          ]}
+        />
+      </Column>
+    </Card>
+  );
+};

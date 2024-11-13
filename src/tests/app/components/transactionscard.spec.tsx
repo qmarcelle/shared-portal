@@ -2,6 +2,14 @@ import { TransactionCard } from '@/app/transactions/components/TransactionCard';
 import { Filter } from '@/components/foundation/Filter';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
 
 const renderUI = () => {
   return render(
@@ -29,7 +37,7 @@ const renderUI = () => {
           },
           {
             type: 'dropdown',
-            label: 'Account Type',
+            label: 'Date Range',
             value: [
               {
                 label: 'Last 30 days',
@@ -101,7 +109,7 @@ describe('TransactionCardSection', () => {
 
   it('should render UI correctly', () => {
     const component = renderUI();
-    screen.getByRole('heading', { name: 'Transactions' });
+    screen.getByRole('heading', { name: 'Filter Transactions' });
     screen.getByText('Sort by:');
     screen.getAllByText('Date (Most Recent)');
     expect(screen.getByText('Account Type')).toBeVisible();

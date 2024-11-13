@@ -9,11 +9,11 @@ exports[`PayProvider should render the UI correctly 1`] = `
         class="card-main undefined"
       >
         <div>
-          <p
+          <h2
             class="title-2"
           >
             Pay This Provider
-          </p>
+          </h2>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
           />
@@ -90,11 +90,11 @@ exports[`PayProvider should render the UI correctly 1`] = `
       class="card-main undefined"
     >
       <div>
-        <p
+        <h2
           class="title-2"
         >
           Pay This Provider
-        </p>
+        </h2>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
         />

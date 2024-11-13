@@ -48,9 +48,9 @@ describe('DentalBalance', () => {
     expect(screen.getByText('Services Used')).toBeVisible();
     expect(screen.getByText('$90.00')).toBeVisible();
     expect(
-      screen.getByText('Annual Maximum Basic and Major Coverage'),
+      screen.getByText('$2,000.00 Annual Maximum Basic and Major Coverage'),
     ).toBeVisible();
-    expect(screen.getByText('Ortho Lifetime Maximum')).toBeVisible();
+    expect(screen.getByText('$2,000.00 Ortho Lifetime Maximum')).toBeVisible();
 
     expect(component).toMatchSnapshot();
   });

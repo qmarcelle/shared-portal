@@ -1,7 +1,15 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { PriorAuthorizationCardSection } from '../../../app/priorAuthorization/components/PriorAuthorizationCardSection';
-
+// Mock useRouter:
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
 const renderUI = () => {
   return render(
     <PriorAuthorizationCardSection
@@ -23,56 +31,54 @@ const renderUI = () => {
         value: '43',
         id: '1',
       }}
-      claims={{
-        data: [
-          {
-            referenceId: 'ref123',
-            memberName: 'Chris Hall',
-            lastName: 'Stark',
-            memberId: 'mem123',
-            claimType: 'Medical',
-            authorizationIndicator: 'AuthIndicator',
-            referenceIndicator: 'RefIndicator',
-            statusCode: 'StatusCode',
-            claimStatus: 'Approved',
-            issuer: 'Service Group Description',
-            serviceGroupId: 'grp123',
-            fromDate: '04/06/2022',
-            toDate: '04/06/2022',
-            priorAuthFlag: 'flase',
-            getProviderReferredTo: {
-              providerId: 'prv123',
-              name: 'Anand Patel',
-              city: 'Nashville',
-              postalCode: '90265',
-              state: 'Tennessee',
-              streetAddress1: '10880',
-              streetAddress2: 'Malibu Point',
-              phoneNumber: '1234567890',
-            },
-            getProviderReferredBy: {
-              providerId: 'prv123',
-              name: 'Anand Patel',
-              city: 'Nashville',
-              postalCode: '90265',
-              state: 'Tennessee',
-              streetAddress1: '10880',
-              streetAddress2: 'Malibu Point',
-              phoneNumber: '1234567890',
-            },
-            getProviderFacilityId: {
-              providerId: 'prv123',
-              name: 'Ironman',
-              city: 'Nashville',
-              postalCode: '90265',
-              state: 'Tennessee',
-              streetAddress1: '10880',
-              streetAddress2: 'Malibu Point',
-              phoneNumber: '1234567890',
-            },
+      claims={[
+        {
+          referenceId: 'ref123',
+          memberName: 'Chris Hall',
+          lastName: 'Stark',
+          memberId: 'mem123',
+          claimType: 'Medical',
+          authorizationIndicator: 'AuthIndicator',
+          referenceIndicator: 'RefIndicator',
+          statusCode: 'StatusCode',
+          claimStatus: 'Approved',
+          issuer: 'Service Group Description',
+          serviceGroupId: 'grp123',
+          fromDate: '04/06/2022',
+          toDate: '04/06/2022',
+          priorAuthFlag: 'flase',
+          getProviderReferredTo: {
+            providerId: 'prv123',
+            name: 'Anand Patel',
+            city: 'Nashville',
+            postalCode: '90265',
+            state: 'Tennessee',
+            streetAddress1: '10880',
+            streetAddress2: 'Malibu Point',
+            phoneNumber: '1234567890',
           },
-        ],
-      }}
+          getProviderReferredBy: {
+            providerId: 'prv123',
+            name: 'Anand Patel',
+            city: 'Nashville',
+            postalCode: '90265',
+            state: 'Tennessee',
+            streetAddress1: '10880',
+            streetAddress2: 'Malibu Point',
+            phoneNumber: '1234567890',
+          },
+          getProviderFacilityId: {
+            providerId: 'prv123',
+            name: 'Ironman',
+            city: 'Nashville',
+            postalCode: '90265',
+            state: 'Tennessee',
+            streetAddress1: '10880',
+            streetAddress2: 'Malibu Point',
+            phoneNumber: '1234567890',
+          },
+        },
+      ]}
     />,
   );
 };
