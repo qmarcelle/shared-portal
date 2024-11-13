@@ -1,6 +1,15 @@
 import { PlanSwitcher } from '@/components/composite/PlanSwitcherComponent';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, within } from '@testing-library/react';
+// Mock useRouter:
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
 
 const renderUI = () => {
   return render(
