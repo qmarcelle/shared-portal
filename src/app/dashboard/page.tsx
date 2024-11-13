@@ -1,14 +1,14 @@
-import { auth } from '@/auth';
 import { Metadata } from 'next';
 import Dashboard from '.';
+import { getDashboardData } from './actions/getDashboardData';
 
 export const metadata: Metadata = {
   title: 'Dashboard',
 };
 
 const DashboardPage = async () => {
-  const session = await auth();
-  return session?.user && <Dashboard data={{ currentUser: session?.user }} />;
+  const result = await getDashboardData();
+  return <Dashboard data={result.data!} />;
 };
 
 export default DashboardPage;

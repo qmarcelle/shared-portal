@@ -1,5 +1,15 @@
-import { PortalUser } from '@/models/auth/user';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 
 export type DashboardData = {
-  currentUser: PortalUser;
+  memberDetails: DashboardMemberDetails | null;
+  visibilityRules?: VisibilityRules;
 };
+
+export interface DashboardMemberDetails {
+  firstName: string;
+  lastName: string;
+  planName: string;
+  coverageType: string[];
+  subscriberId: string;
+  groupId: string;
+}
