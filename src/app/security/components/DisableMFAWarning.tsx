@@ -1,3 +1,4 @@
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
@@ -7,7 +8,6 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import { useState } from 'react';
 import { useSecuritySettingsStore } from '../stores/security_settings_store';
-import { ErrorMfaCard } from './ErrorMfaCard';
 
 type DisableMFAWarningProps = {
   enabled: boolean;
@@ -66,7 +66,7 @@ export const DisableMFAWarning = ({ enabled }: DisableMFAWarningProps) => {
           </p>
         )}
         {toggleError && (
-          <ErrorMfaCard
+          <ErrorInfoCard
             className="mt-4"
             errorText="We're sorry. We weren't able to update your MFA settings. Please try again later."
           />
