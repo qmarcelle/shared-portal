@@ -2,6 +2,14 @@ import { TransactionCard } from '@/app/transactions/components/TransactionCard';
 import { Filter } from '@/components/foundation/Filter';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
 
 const renderUI = () => {
   return render(
