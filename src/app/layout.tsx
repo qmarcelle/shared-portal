@@ -2,6 +2,7 @@
 'use client';
 
 import '@/app/globals.css';
+import { AppLink } from '@/components/foundation/AppLink';
 import { AppModal } from '@/components/foundation/AppModal';
 import { SideBarModal } from '@/components/foundation/SideBarModal';
 import SiteHeader from '@/components/foundation/SiteHeader';
@@ -43,6 +44,13 @@ export default function RootLayout({
       <body>
         {showHeader && (
           <>
+            <AppLink
+              label="SKIP TO CONTENT."
+              className="!no-underline skipButton"
+              linkUnderline="!no-underline"
+              url="#main"
+              type="link"
+            />
             <SideBarModal />
             <SiteHeader />
           </>

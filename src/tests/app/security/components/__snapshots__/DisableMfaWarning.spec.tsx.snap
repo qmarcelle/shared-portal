@@ -20,6 +20,7 @@ exports[`DisableMFAWarning should render ui correctly for disabled mfa 1`] = `
         <label
           aria-label="toggle mfa"
           class="switch"
+          tabindex="0"
         >
           <input
             type="checkbox"
@@ -70,6 +71,7 @@ exports[`DisableMFAWarning should render ui correctly for enabled mfa 1`] = `
         <label
           aria-label="toggle mfa"
           class="switch"
+          tabindex="0"
         >
           <input
             checked=""

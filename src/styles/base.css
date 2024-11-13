@@ -316,3 +316,54 @@ input::-ms-clear {
   padding: 0px !important;
   margin: 0px !important;
 }
+
+.skipButton {
+  border: 1px solid;
+  background-color: #fff;
+}
+
+.skipButton p {
+  color: #000;
+}
+
+.skipButton {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+  font-family: anaheim, sans-serif;
+  letter-spacing: 0.15ch;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.skipButton:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  outline: none;
+  position: relative;
+  top: 0rem;
+  left: 0rem;
+  z-index: 10;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .skipButton {
+    transition: none;
+  }
+}

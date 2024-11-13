@@ -155,6 +155,7 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
             label="Choose a Different Method"
             callback={chooseDifferentMfaMethod}
             className="m-auto"
+            type="button"
           />
         )}
         <Spacer size={32} />
