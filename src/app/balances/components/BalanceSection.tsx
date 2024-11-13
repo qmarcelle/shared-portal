@@ -3,6 +3,7 @@ import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
 import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
+import { ServicesUsed } from '@/models/app/servicesused_details';
 import { formatCurrency } from '@/utils/currency_formatter';
 import { useState } from 'react';
 import { IComponent } from '../../../components/IComponent';
@@ -10,7 +11,6 @@ import { Card } from '../../../components/foundation/Card';
 import { Dropdown, SelectItem } from '../../../components/foundation/Dropdown';
 import { Spacer } from '../../../components/foundation/Spacer';
 import { ProductBalance } from '../models/app/balancesData';
-import { ServicesUsed } from '../models/servicesused_details';
 import { BalanceChart } from './BalanceChart';
 import { ServicesUsedChart } from './ServicesUsedChart';
 
