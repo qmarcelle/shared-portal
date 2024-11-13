@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { BalancesPage } from '.';
 import { getDedAndOOPBalanceForSubscriberAndDep } from './actions/getDedAndOOPBalance';
 
