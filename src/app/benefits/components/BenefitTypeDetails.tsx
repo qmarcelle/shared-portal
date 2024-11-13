@@ -112,6 +112,7 @@ export const BenefitTypeDetails = ({
               )}
               {benefitTypeDetails?.dentalBalance && (
                 <BalanceSection
+                  title="Dental Balance"
                   members={benefitTypeDetails?.dentalBalance?.members}
                   selectedMemberId={
                     benefitTypeDetails?.dentalBalance?.selectedMemberId

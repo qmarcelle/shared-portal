@@ -1,4 +1,4 @@
-import { BalanceSectionProps } from '@/app/balances/components/DentalBalance';
+import { BalanceSectionProps } from '@/app/balances/components/BalanceSection';
 import { SpendingAccountSectionProps } from '@/app/balances/components/SpendingAccountsSection';
 import { MedicalBalanceSectionProps } from '@/app/dashboard/components/MedicalBalanceSection';
 import { GetHelpProps } from '@/components/composite/GetHelpSection';
