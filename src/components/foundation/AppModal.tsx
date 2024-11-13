@@ -91,11 +91,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
     }
   };
 
-  const handleKeyDown = (e: {
-    preventDefault: () => void;
-    keyCode: number;
-  }) => {
-    e.preventDefault();
+  const handleKeyDown = (e: { keyCode: number }) => {
     if (e.keyCode === 13) {
       onClose();
     }
