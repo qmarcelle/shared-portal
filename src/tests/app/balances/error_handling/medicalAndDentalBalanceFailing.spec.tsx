@@ -7,7 +7,11 @@ import { render, screen, within } from '@testing-library/react';
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
-      user: { currUsr: { plan: { memCk: '123456789', grpId: '87898' } } },
+      user: {
+        currUsr: {
+          plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
+        },
+      },
     }),
   ),
 }));
@@ -715,10 +719,10 @@ describe('Medical and Dental Balances API Failing', () => {
 
     // Medical, Dental Balance, LoggedInUserInfo Api calls were called
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/undefined/balances/deductibleAndOOP/D',
+      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/D',
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/undefined/balances/deductibleAndOOP/M',
+      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
       '/api/member/v1/members/byMemberCk/123456789',

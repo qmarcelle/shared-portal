@@ -134,7 +134,7 @@ export const BalanceSectionWrapper = ({
 
   // 0 - In Network, 1- Out Network
   const [network, setNetwork] = useState(
-    product?.balances[0].inNetDedMax ? '0' : undefined,
+    product?.balances[0]?.inNetDedMax ? '0' : undefined,
   );
 
   function changeUser(id: string) {
@@ -157,6 +157,10 @@ export const BalanceSectionWrapper = ({
         </Column>
       </Card>
     );
+  }
+
+  if (product!.balances.length == 0) {
+    return null;
   }
 
   return (

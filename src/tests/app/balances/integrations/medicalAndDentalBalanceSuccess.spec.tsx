@@ -7,7 +7,11 @@ import userEvent from '@testing-library/user-event';
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
-      user: { currUsr: { plan: { memCk: '123456789', grpId: '87898' } } },
+      user: {
+        currUsr: {
+          plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
+        },
+      },
     }),
   ),
 }));
@@ -943,7 +947,7 @@ describe('Medical and Dental Balances API Integration', () => {
     expect(container).toMatchSnapshot();
 
     // Change the user for Medical balance to KRISTY HALL
-    await userEvent.click(screen.getAllByText('CHRIS HALL')[0]);
+    await userEvent.click(screen.getAllByText('CHRIS HALL')[0]!);
     await userEvent.click(screen.getByText('KRISTY HALL'));
     expect(screen.queryByText('$750')).toBeNull();
     // KRISTY HALL is selected
@@ -964,10 +968,10 @@ describe('Medical and Dental Balances API Integration', () => {
 
     // Medical, Dental Balance, LoggedInUserInfo Api calls were called
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/undefined/balances/deductibleAndOOP/D',
+      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/D',
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/undefined/balances/deductibleAndOOP/M',
+      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
       '/api/member/v1/members/byMemberCk/123456789',

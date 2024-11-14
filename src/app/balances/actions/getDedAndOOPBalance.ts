@@ -80,20 +80,20 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
         data: {
           dental: {
             balances: mapDedAndOOPData(
-              result[0].value.accumulatorsDetails[0].members,
+              result[0].value.accumulatorsDetails[0]?.members,
               result[2].value,
             ),
             serviceLimitDetails: mapServiceLimitDetails(
-              result[0].value.accumulatorsDetails[0].serviceLimitDetails,
+              result[0].value.accumulatorsDetails[0]?.serviceLimitDetails,
             ),
           },
           medical: {
             balances: mapDedAndOOPData(
-              result[1].value.accumulatorsDetails[0].members,
+              result[1].value.accumulatorsDetails[0]?.members,
               result[2].value,
             ),
             serviceLimitDetails: mapServiceLimitDetails(
-              result[1].value.accumulatorsDetails[0].serviceLimitDetails,
+              result[1].value.accumulatorsDetails[0]?.serviceLimitDetails,
             ),
           },
         },
@@ -106,11 +106,11 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
             result[0].status == 'fulfilled'
               ? {
                   balances: mapDedAndOOPData(
-                    result[0].value.accumulatorsDetails[0].members,
+                    result[0].value.accumulatorsDetails[0]?.members,
                     result[2].value,
                   ),
                   serviceLimitDetails: mapServiceLimitDetails(
-                    result[0].value.accumulatorsDetails[0].serviceLimitDetails,
+                    result[0].value.accumulatorsDetails[0]?.serviceLimitDetails,
                   ),
                 }
               : undefined,
@@ -118,11 +118,11 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
             result[1].status == 'fulfilled'
               ? {
                   balances: mapDedAndOOPData(
-                    result[1].value.accumulatorsDetails[0].members,
+                    result[1].value.accumulatorsDetails[0]?.members,
                     result[2].value,
                   ),
                   serviceLimitDetails: mapServiceLimitDetails(
-                    result[1].value.accumulatorsDetails[0].serviceLimitDetails,
+                    result[1].value.accumulatorsDetails[0]?.serviceLimitDetails,
                   ),
                 }
               : undefined,
@@ -139,9 +139,12 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
 }
 
 function mapDedAndOOPData(
-  data: DedAndOOPMember[],
+  data: DedAndOOPMember[] | undefined,
   loggedInUser: LoggedInUserInfo,
 ): BalancePerUser[] {
+  if (!data) {
+    return [];
+  }
   return data.map((item) => {
     const member = loggedInUser.members.find(
       (member) => member.memberCk == item.memberCK,
@@ -166,8 +169,11 @@ function mapDedAndOOPData(
 }
 
 function mapServiceLimitDetails(
-  services: ServiceLimitDetail[],
+  services: ServiceLimitDetail[] | undefined,
 ): ServiceLimitDetailInfo[] {
+  if (!services) {
+    return [];
+  }
   return services.map((item) => ({
     code: item.accumNum,
     desc: item.serviceDesc,
