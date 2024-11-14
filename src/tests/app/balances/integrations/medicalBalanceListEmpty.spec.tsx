@@ -1,8 +1,7 @@
 import BalancesPage from '@/app/balances/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
@@ -16,7 +15,7 @@ jest.mock('src/auth', () => ({
   ),
 }));
 
-describe('Medical Balances Error Handling with Dental working', () => {
+describe('Medical and Dental Balances API Integration with Medical not active', () => {
   console.log(process.env.ES_PORTAL_SVCS_API_URL);
   mockedAxios.get
     // dental
@@ -70,7 +69,11 @@ describe('Medical Balances Error Handling with Dental working', () => {
       },
     })
     // medical
-    .mockRejectedValueOnce(createAxiosErrorForTest({ status: 400 }))
+    .mockResolvedValueOnce({
+      data: {
+        accumulatorsDetails: [],
+      },
+    })
     // loggedIn userInfo for member names
     .mockResolvedValueOnce({
       data: {
@@ -733,26 +736,13 @@ describe('Medical Balances Error Handling with Dental working', () => {
       },
     });
 
-  it('should call Balances api and render error for Medical Balance, success for Dental', async () => {
+  it('should call Balances api and render only Dental Balance without Medical', async () => {
     const { container } = render(await BalancesPage());
 
     // Container Headers need to be visible
-    expect(screen.getByText('Medical & Pharmacy Balance')).toBeVisible();
+    // Medical Balance is not present
+    expect(screen.queryByText('Medical & Pharmacy Balance')).toBeNull();
     expect(screen.getByText('Dental Balance')).toBeVisible();
-
-    // Medical Balance
-    // Show the user names
-    // 1 for dropdown selected, 1 for dropdown option
-    const medicalSec = screen.getByText(
-      'Medical & Pharmacy Balance',
-    ).parentElement;
-    expect(screen.queryAllByText('Chris HALL').length).toBe(0);
-    // Error Screen to be shown
-    expect(
-      within(medicalSec).getByText(
-        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
-      ),
-    ).toBeVisible();
 
     // Initial render
     expect(container).toMatchSnapshot();
