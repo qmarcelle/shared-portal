@@ -26,32 +26,32 @@ const SubmitClaim = () => {
                   title: 'Medical Claim Form',
                   description:
                     'If you paid out of pocket for a medical provider who isn’t in your network, you may be able to get some of your money back.',
-                  url: 'https://www.bcbst.com/docs/manage-my-plan/get-a-form/subscriber-claim-form.pdf',
+                  url: process.env.NEXT_PUBLIC_MEDICAL_CLAIM_FORM ?? '',
                 },
                 {
                   title: 'Prescription Claim Form',
                   description:
                     'Use this form if you paid out of pocket for a prescription drug.',
-                  url: 'https://www.bcbst.com/docs/prescription-claim-form.pdf',
+                  url: process.env.NEXT_PUBLIC_PRESCRIPTION_CLAIM_FORM ?? '',
                 },
                 {
                   title: 'Dental Claim Form',
                   description:
                     'Use this form if you paid out of pocket for care from a dental provider who isn’t in your network.',
-                  url: 'https://www.bcbst.com/members/dental/dentalclaimform.pdf',
+                  url: process.env.NEXT_PUBLIC_DENTAL_CLAIM_FORM ?? '',
                 },
                 {
                   title: 'Vision Claim Form',
                   description:
                     'Use this form if you paid out of pocket for care from a vision provider who isn’t in your network.',
 
-                  url: 'https://www.bcbst.com/members/vision/vision-claim-form.pdf',
+                  url: process.env.NEXT_PUBLIC_VISION_CLAIM_FORM ?? '',
                 },
                 {
                   title: 'Breast Pump Claim Form',
                   description:
                     'If you paid out of pocket for a breast pump, you may be able to get some of your money back.',
-                  url: 'https://www.bcbst.com/members/breast-pump-claim-form.pdf',
+                  url: process.env.NEXT_PUBLIC_BREAST_PUMP_CLAIM_FORM ?? '',
                 },
               ]}
             />
