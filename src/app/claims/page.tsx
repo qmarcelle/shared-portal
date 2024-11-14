@@ -1,16 +1,12 @@
-import { Column } from '@/components/foundation/Column';
-import { Spacer } from '@/components/foundation/Spacer';
-import { Title } from '@/components/foundation/Title';
+import { Metadata } from 'next';
+import SubmitClaim from '.';
 
-const Claims = () => {
-  return (
-    <main className="flex flex-col justify-center items-center page">
-      <Column className="app-content">
-        <Spacer size={32} />
-        <Title className="title-1" text="Claims Dummy Page" />
-      </Column>
-    </main>
-  );
+export const metadata: Metadata = {
+  title: 'Submit a claim',
 };
 
-export default Claims;
+const SubmitClaimPage = async () => {
+  return <SubmitClaim />;
+};
+
+export default SubmitClaimPage;
