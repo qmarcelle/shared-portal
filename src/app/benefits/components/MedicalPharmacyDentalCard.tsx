@@ -12,7 +12,7 @@ export interface MedicalPharmacyDentalCardProps extends IComponent {
   cardIcon: JSX.Element;
 }
 
-interface ManageBenefitsItems {
+export interface ManageBenefitsItems {
   title: string;
   body: string;
   externalLink: boolean;
