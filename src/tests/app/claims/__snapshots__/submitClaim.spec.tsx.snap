@@ -1,0 +1,842 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Submit a claim Page should render UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 font-bold"
+          >
+            Submit a Claim
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            Fill out the appropriate form to ask us to reimburse or pay your claim.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow  page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main undefined"
+              >
+                <div
+                  class="flex flex-col m-8"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Claim Forms
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Select the type of claim you need to submit.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <a
+                          href="https://www.bcbst.com/docs/manage-my-plan/get-a-form/subscriber-claim-form.pdf"
+                          style="display: block;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container pl-0"
+                            style="max-width: max-content; height: auto; display: block;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: block;"
+                            >
+                              Medical Claim Form
+                            </p>
+                          </button>
+                        </a>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        If you paid out of pocket for a medical provider who isn’t in your network, you may be able to get some of your money back.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <a
+                          href="https://www.bcbst.com/docs/prescription-claim-form.pdf"
+                          style="display: block;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container pl-0"
+                            style="max-width: max-content; height: auto; display: block;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: block;"
+                            >
+                              Prescription Claim Form
+                            </p>
+                          </button>
+                        </a>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        Use this form if you paid out of pocket for a prescription drug.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <a
+                          href="https://www.bcbst.com/members/dental/dentalclaimform.pdf"
+                          style="display: block;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container pl-0"
+                            style="max-width: max-content; height: auto; display: block;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: block;"
+                            >
+                              Dental Claim Form
+                            </p>
+                          </button>
+                        </a>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        Use this form if you paid out of pocket for care from a dental provider who isn’t in your network.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <a
+                          href="https://www.bcbst.com/members/vision/vision-claim-form.pdf"
+                          style="display: block;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container pl-0"
+                            style="max-width: max-content; height: auto; display: block;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: block;"
+                            >
+                              Vision Claim Form
+                            </p>
+                          </button>
+                        </a>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        Use this form if you paid out of pocket for care from a vision provider who isn’t in your network.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <a
+                          href="https://www.bcbst.com/members/breast-pump-claim-form.pdf"
+                          style="display: block;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container pl-0"
+                            style="max-width: max-content; height: auto; display: block;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: block;"
+                            >
+                              Breast Pump Claim Form
+                            </p>
+                          </button>
+                        </a>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        If you paid out of pocket for a breast pump, you may be able to get some of your money back.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main undefined"
+              >
+                <div
+                  class="flex flex-col m-8"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Understanding Claims Reimbursement
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Follow the instructions included on the claim form. In most cases, you'll need to print the form, fill it out and then mail it to the address listed on the form.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <span>
+                      If you need help, 
+                    </span>
+                    <span
+                      class="link"
+                    >
+                      <a>
+                         start a chat 
+                      </a>
+                    </span>
+                    <span>
+                       or call us at [1-800-000-0000].
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 font-bold"
+        >
+          Submit a Claim
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
+        >
+          Fill out the appropriate form to ask us to reimburse or pay your claim.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow  page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main undefined"
+            >
+              <div
+                class="flex flex-col m-8"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  Claim Forms
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1"
+                >
+                  Select the type of claim you need to submit.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        href="https://www.bcbst.com/docs/manage-my-plan/get-a-form/subscriber-claim-form.pdf"
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Medical Claim Form
+                          </p>
+                        </button>
+                      </a>
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      If you paid out of pocket for a medical provider who isn’t in your network, you may be able to get some of your money back.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        href="https://www.bcbst.com/docs/prescription-claim-form.pdf"
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Prescription Claim Form
+                          </p>
+                        </button>
+                      </a>
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Use this form if you paid out of pocket for a prescription drug.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        href="https://www.bcbst.com/members/dental/dentalclaimform.pdf"
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Dental Claim Form
+                          </p>
+                        </button>
+                      </a>
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Use this form if you paid out of pocket for care from a dental provider who isn’t in your network.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        href="https://www.bcbst.com/members/vision/vision-claim-form.pdf"
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Vision Claim Form
+                          </p>
+                        </button>
+                      </a>
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      Use this form if you paid out of pocket for care from a vision provider who isn’t in your network.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        href="https://www.bcbst.com/members/breast-pump-claim-form.pdf"
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Breast Pump Claim Form
+                          </p>
+                        </button>
+                      </a>
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                    >
+                      If you paid out of pocket for a breast pump, you may be able to get some of your money back.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main undefined"
+            >
+              <div
+                class="flex flex-col m-8"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  Understanding Claims Reimbursement
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1"
+                >
+                  Follow the instructions included on the claim form. In most cases, you'll need to print the form, fill it out and then mail it to the address listed on the form.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span>
+                    If you need help, 
+                  </span>
+                  <span
+                    class="link"
+                  >
+                    <a>
+                       start a chat 
+                    </a>
+                  </span>
+                  <span>
+                     or call us at [1-800-000-0000].
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
