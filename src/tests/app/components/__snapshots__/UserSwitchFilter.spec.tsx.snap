@@ -12,23 +12,23 @@ exports[`UserSwitchFilter should render UI correctly when click on personal repr
       >
         <div>
           <div
-            class="flex flex-row px-4 py-2 items-center divider-bottom"
+            class="flex flex-row px-4 py-2 items-center w-auto h-[105px]"
           >
             <div
               class="flex flex-col grow"
             >
               <p
-                class="body-2"
+                class="body-2 font-light"
               >
                 viewing as Authorized User
               </p>
               <h3
-                class="title-3 font-bold primary-color"
+                class="title-3 font-bold p-1"
               >
                 Ellie Williams
               </h3>
               <p
-                class="body-1"
+                class="body-1 font-light"
               >
                 DOB: 01/01/1943
               </p>
@@ -72,23 +72,23 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       >
         <div>
           <div
-            class="flex flex-row px-4 py-2 items-center divider-bottom"
+            class="flex flex-row px-4 py-2 items-center w-auto h-[105px]"
           >
             <div
               class="flex flex-col grow"
             >
               <p
-                class="body-2"
+                class="body-2 font-light"
               >
                 My Profile
               </p>
               <h3
-                class="title-3 font-bold primary-color"
+                class="title-3 font-bold p-1"
               >
                 Chris Hall
               </h3>
               <p
-                class="body-1"
+                class="body-1 font-light"
               >
                 DOB: 11/03/2000
               </p>
@@ -196,26 +196,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <span
         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
       />
-      <a
-        style="display: block;"
-        tabindex="-1"
-      >
-        <button
-          class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
-          style="max-width: max-content; height: auto; display: block;"
-          tabindex="0"
-        >
-          <p
-            class="link undefined"
-            style="display: block;"
-          >
-            Sharing & Permissions
-          </p>
-        </button>
-      </a>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-      />
     </div>
   </section>
 </div>
@@ -233,23 +213,23 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       >
         <div>
           <div
-            class="flex flex-row px-4 py-2 items-center divider-bottom"
+            class="flex flex-row px-4 py-2 items-center w-auto h-[105px]"
           >
             <div
               class="flex flex-col grow"
             >
               <p
-                class="body-2"
+                class="body-2 font-light"
               >
                 My Profile
               </p>
               <h3
-                class="title-3 font-bold primary-color"
+                class="title-3 font-bold p-1"
               >
                 Chris Hall
               </h3>
               <p
-                class="body-1"
+                class="body-1 font-light"
               >
                 DOB: 11/03/2000
               </p>
@@ -550,26 +530,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             style="display: block;"
           >
             Security Settings
-          </p>
-        </button>
-      </a>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-      />
-      <a
-        style="display: block;"
-        tabindex="-1"
-      >
-        <button
-          class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
-          style="max-width: max-content; height: auto; display: block;"
-          tabindex="0"
-        >
-          <p
-            class="link undefined"
-            style="display: block;"
-          >
-            Sharing & Permissions
           </p>
         </button>
       </a>
