@@ -188,7 +188,9 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           <div
                             class="flex flex-row link"
                           >
-                            <p>
+                            <p
+                              class="font-app-bold"
+                            >
                               Subscriber ID ABC000000000
                             </p>
                             <span
@@ -211,7 +213,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             style="display: none; position: absolute;"
                           >
                             <div
-                              class="flex flex-row  dropdown-item p-2"
+                              class="flex flex-row  dropdown-item p-2 cursor-pointer"
                             >
                               <div
                                 class="size-5 mx-2"
@@ -225,7 +227,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                               </div>
                             </div>
                             <div
-                              class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                              class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                             >
                               <div
                                 class="size-5 mx-2 "
@@ -938,7 +940,9 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         <div
                           class="flex flex-row link"
                         >
-                          <p>
+                          <p
+                            class="font-app-bold"
+                          >
                             Subscriber ID ABC000000000
                           </p>
                           <span
@@ -961,7 +965,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           style="display: none; position: absolute;"
                         >
                           <div
-                            class="flex flex-row  dropdown-item p-2"
+                            class="flex flex-row  dropdown-item p-2 cursor-pointer"
                           >
                             <div
                               class="size-5 mx-2"
@@ -975,7 +979,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             </div>
                           </div>
                           <div
-                            class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                            class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                           >
                             <div
                               class="size-5 mx-2 "
