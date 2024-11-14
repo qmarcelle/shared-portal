@@ -42,7 +42,9 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
             <div
               class="flex flex-row link"
             >
-              <p>
+              <p
+                class="font-app-bold"
+              >
                 Subscriber ID ABC123456789
               </p>
               <span
@@ -65,7 +67,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
               style="display: none; position: absolute;"
             >
               <div
-                class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
               >
                 <div
                   class="size-5 mx-2 "
@@ -92,7 +94,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="flex flex-row  dropdown-item p-2"
+                class="flex flex-row  dropdown-item p-2 cursor-pointer"
               >
                 <div
                   class="size-5 mx-2"
