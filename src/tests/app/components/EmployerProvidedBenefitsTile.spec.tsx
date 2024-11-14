@@ -1,3 +1,4 @@
+import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { EmployeeProvidedBenefitsTile } from '../../../app/dashboard/components/EmployeeProvidedBenefitsTile';
@@ -31,6 +32,7 @@ const renderUI = () => {
           contact: '1-800-834-3465',
         },
       ]}
+      employerLogo={bcbstBlueLogo}
     />,
   );
 };

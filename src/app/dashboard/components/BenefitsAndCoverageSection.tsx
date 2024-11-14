@@ -48,20 +48,20 @@ export const BenefitsAndCoverageSection = ({
             <Spacer size={16} />
             <a
               href={item.benefitURL}
-              className="flex flex-row"
+              className="flex flex-row w-fit"
               key={item.benefitName}
             >
-              <div className="flex flex-col flex-grow">
+              <div className="flex flex-col">
                 <button
-                  className="font-bold"
+                  className="body-bold"
                   style={{ color: 'var(--primary-color)' }}
                 >
                   {item.benefitName}
                 </button>
                 <Spacer axis="horizontal" size={8} />
               </div>
-              <div className="flex flex-col items-end">
-                <Image src={RightIcon} className="icon items-end" alt="Next" />
+              <div className="flex flex-col ">
+                <Image src={RightIcon} className="icon mt-2" alt="Next" />
               </div>
             </a>
             <Spacer size={16} />
