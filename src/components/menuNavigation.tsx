@@ -14,7 +14,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       secondParagraph: (
         <p className="pb-1">
           Check out your
-          <span className="font-bold">Benefits & Coverages.</span>
+          <span className="font-bold"> Benefits & Coverages.</span>
         </p>
       ),
       link: '/benefits',

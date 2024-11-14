@@ -12,149 +12,112 @@ import Image from 'next/image';
 import { Filter } from '@/components/foundation/Filter';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
-import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
-import {
-  LoggedInUserInfo,
-  Member,
-  PlanDetail,
-} from '@/models/member/api/loggedInUserInfo';
-import { capitalizeName } from '@/utils/capitalizeName';
+
 import { useEffect, useState } from 'react';
+import {
+  BenefitDropdownItem,
+  getBenefitTypes,
+  getMemberDropdownValues,
+} from './actions/benefitsUtils';
 import { getBenefitsData } from './actions/getBenefits';
-import { MedicalPharmacyDentalCard } from './components/MedicalPharmacyDentalCard';
-import { MemberBenefitsBean } from './models/member_benefits_bean';
-
-export const getMemberDropdownValues = (members: Member[]) => {
-  return members.map((member) => ({
-    label: `${capitalizeName(member.firstName)} ${capitalizeName(member.lastName)}`,
-    value: member.memberCk.toString(),
-    id: member.memberCk.toString(),
-  }));
-};
-
-const getBenefitTypes = (planDetails: PlanDetail[]) => {
-  interface benefitItem {
-    label: string;
-    value: string;
-    id: string;
-  }
-
-  const sortedPlanDetails = planDetails.sort((a, b) => {
-    const order = ['M', 'D', 'V', 'S'];
-    return order.indexOf(a.productCategory) - order.indexOf(b.productCategory);
-  });
-  const items: benefitItem[] = [];
-  let id = 0;
-  items.push({ label: 'All Types', value: 'A', id: '0' });
-  sortedPlanDetails.forEach((plan) => {
-    id++;
-    switch (plan.productCategory) {
-      case 'M':
-        items.push({
-          label: 'Medical',
-          value: 'M',
-          id: id.toString(),
-        });
-        id++;
-        items.push({
-          label: 'Pharmacy',
-          value: 'R',
-          id: id.toString(),
-        });
-        break;
-      case 'D':
-        items.push({
-          label: 'Dental',
-          value: 'D',
-          id: id.toString(),
-        });
-        break;
-      case 'V':
-        items.push({
-          label: 'Vision',
-          value: 'V',
-          id: id.toString(),
-        });
-        break;
-      case 'S':
-        items.push({
-          label: 'Other',
-          value: 'S',
-          id: id.toString(),
-        });
-        break;
-      default:
-        break;
-    }
-  });
-
-  return items;
-
-  // const orderedBenefitTypes = [
-  //   'All Types',
-  //   'Medical',
-  //   'Pharmacy',
-  //   'Dental',
-  //   'Vision',
-  //   'Other',
-  // ];
-  // const sortedItems = items.sort((a, b) => a.label.localeCompare(b.label));
-  // return orderedBenefitTypes
-  //   .filter((type) => benefitTypes.has(type))
-  //   .map((type, index) => {
-  //     const item = sortedItems.find((item) => item.label === type);
-  //     return {
-  //       label: type,
-  //       value: (index + 1).toString(),
-  //       id: item
-  //         ? sortedItems.indexOf(item).toString()
-  //         : (index + 1).toString(),
-  //     };
-  //   });
-};
+import getUserInfo from './actions/getUserInfo';
+import {
+  ManageBenefitsItems,
+  MedicalPharmacyDentalCard,
+} from './components/MedicalPharmacyDentalCard';
+import { useBenefitsStore } from './stores/benefitsStore';
 
 const Benefits = () => {
-  // const [selectedBenefitType, setSelectedBenefitType] = useState<string>('');
-  // const [selectedMember, setSelectedMember] = useState<string>('1');
+  const {
+    currentUserBenefitData,
+    setCurrentUserBenefitData,
+    userInfo,
+    setUserInfo,
+    memberIndex,
+    setMemberIndex,
+  } = useBenefitsStore();
 
+  // const [selectedBenefitType, setSelectedBenefitType] = useState<string>('M');
+  const [selectedMember, setSelectedMember] = useState<string>('0');
   const selectedBenefitType = 'M';
-  const selectedMember = '1';
-  const [benefitsData, setBenefitsData] = useState<MemberBenefitsBean>({
-    memberCk: 0,
-  });
 
-  let memberDropdownValues: { label: string; value: string; id: string }[] =
-    getMemberDropdownValues(loggedInUserInfoMockResp.members);
+  const [memberDropdownValues, setMemberDropDownValues] = useState<
+    { label: string; value: string; id: string }[]
+  >([]);
 
-  const selectedMemberIndex = parseInt(selectedMember);
-  const selectedMemberPlanDetails =
-    loggedInUserInfoMockResp.members[selectedMemberIndex].planDetails;
-  const benefitTypes = getBenefitTypes(selectedMemberPlanDetails);
+  const [benefitTypes, setBenefitTypes] = useState<BenefitDropdownItem[]>([]);
+  const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
+    ManageBenefitsItems[]
+  >([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const onMemberSelectionChange = (selectedMember: string) => {
+    setSelectedMember(selectedMember);
+    setMemberIndex(parseInt(selectedMember));
+    const selectedMemberPlanDetails =
+      userInfo.members[parseInt(selectedMember)].planDetails;
+
+    setBenefitTypes(getBenefitTypes(selectedMemberPlanDetails));
+  };
+
+  //load initial member and screen
   useEffect(() => {
-    const fetchBenefitsData = async () => {
-      const loggedInUserInfo: LoggedInUserInfo = loggedInUserInfoMockResp;
-      memberDropdownValues = getMemberDropdownValues(
-        loggedInUserInfoMockResp.members,
-      );
+    const fetchInitialData = async () => {
+      // load userInfo from service
+      const userInfoData = await getUserInfo();
+      setUserInfo(userInfoData);
+      const memberDropdowns = getMemberDropdownValues(userInfoData.members);
+      console.log(memberDropdowns);
+      setMemberDropDownValues(memberDropdowns);
+      onMemberSelectionChange(selectedMember);
       const response = await getBenefitsData(
-        loggedInUserInfo.members[selectedMemberIndex],
+        userInfoData.members[0],
         selectedBenefitType,
       );
       if (response.status === 200) {
         console.log('Successful response from service');
         if (response.data && response.data.memberCk > 0) {
-          setBenefitsData(response.data);
+          setCurrentUserBenefitData(response.data);
+          const medicalBenefitsItems: ManageBenefitsItems[] = [];
+          if (response.data.medicalBenefits) {
+            response.data.medicalBenefits.serviceCategories.forEach((item) => {
+              medicalBenefitsItems.push({
+                title: item.category,
+                body: '',
+                externalLink: false,
+                url: `/benefits/details?serviceType=Medical&serviceCategory=${item.id}`,
+              });
+            });
+            console.log(JSON.stringify(medicalBenefitsItems));
+            setMedicalBenefitsItems(medicalBenefitsItems);
+          } else {
+            console.log('No data received from service');
+            setMedicalBenefitsItems([]);
+          }
         } else {
-          console.log('No data received from service');
+          console.log('Error response from service');
         }
-      } else {
-        console.log('Error response from service');
       }
-    };
 
-    fetchBenefitsData();
-  }, [selectedMember, selectedBenefitType]);
+      setIsLoading(false);
+    };
+    fetchInitialData();
+  }); // Add empty dependency array to run only once
+
+  useEffect(() => {
+    const selectedMemberPlanDetails =
+      userInfo.members[parseInt(selectedMember)].planDetails;
+    setBenefitTypes(getBenefitTypes(selectedMemberPlanDetails));
+  }, [selectedMember, userInfo]); // Add dependencies to avoid unnecessary re-renders
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(memberIndex);
+  const currentBenefitsData = currentUserBenefitData;
+  console.log(currentUserBenefitData);
+  console.log(currentBenefitsData);
 
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -200,70 +163,15 @@ const Benefits = () => {
             />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {benefitsData.medicalBenefits && (
+            {currentBenefitsData.medicalBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] benefitsLink"
                 heading="Medical"
                 cardIcon={<Image src={PrimaryCareIcon} alt="link" />}
-                manageBenefitItems={[
-                  {
-                    title: 'Preventive Care',
-                    body: '',
-                    externalLink: false,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Office Visits',
-                    body: '',
-                    externalLink: false,
-                    url: 'benefits/officeVisits',
-                  },
-                  {
-                    title: 'Allergy',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Emergency',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Inpatient Services',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Outpatient Services',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Medical Equipment / Prosthetics / Orthotics',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Behavioral Health',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Other Services',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                ]}
+                manageBenefitItems={medicalBenefitsItems}
               />
             )}
-            {benefitsData.medicalBenefits && (
+            {currentBenefitsData.medicalBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Pharmacy"
@@ -278,7 +186,7 @@ const Benefits = () => {
                 ]}
               />
             )}
-            {benefitsData.dentalBenefits && (
+            {currentBenefitsData.dentalBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Dental"
@@ -347,7 +255,7 @@ const Benefits = () => {
                 ]}
               />
             )}
-            {benefitsData.visionBenefits && (
+            {currentBenefitsData.visionBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Vision"
