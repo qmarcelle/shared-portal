@@ -15,19 +15,21 @@ import { BenefitsProviderInfoCard } from './BenefitsProviderInfoCard';
 interface EmployeeProvidedBenefitsProps extends IComponent {
   employer: string;
   benefits: BenefitsProviderInfo[];
+  employerLogo: string;
 }
 
 export const EmployeeProvidedBenefitsTile = ({
   employer,
   benefits,
   className,
+  employerLogo,
 }: EmployeeProvidedBenefitsProps) => {
   return (
     <Card className={className}>
       <Column>
         <Image
           className="block mb-6 mt-3 sm:hidden"
-          src={bcbstBlueLogo}
+          src={employerLogo}
           alt="Provider logo"
           width={170}
           height={55}
@@ -60,7 +62,10 @@ export const EmployeeProvidedBenefitsTile = ({
           ))}
         </SlidingCarousel>
         <Spacer size={32} />
-        <AppLink label="View All Employer Provided Benefits" />
+        <AppLink
+          label="View All Employer Provided Benefits"
+          className="body-bold p-0 sm:p-2"
+        />
       </Column>
     </Card>
   );
