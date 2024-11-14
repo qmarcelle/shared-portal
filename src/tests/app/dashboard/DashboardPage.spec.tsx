@@ -74,6 +74,9 @@ describe('Dashboard Page', () => {
       },
     });
     const component = await renderUI();
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      '/api/member/v1/members/byMemberCk/123456789',
+    );
     expect(
       screen.getByText('Plan: BlueCross BlueShield of Tennessee'),
     ).toBeVisible();
