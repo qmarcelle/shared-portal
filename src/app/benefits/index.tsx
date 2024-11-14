@@ -102,7 +102,7 @@ const Benefits = () => {
       setIsLoading(false);
     };
     fetchInitialData();
-  }); // Add empty dependency array to run only once
+  }, []); // Add empty dependency array to run only once
 
   useEffect(() => {
     const selectedMemberPlanDetails =
