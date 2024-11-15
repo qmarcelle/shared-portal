@@ -1,0 +1,42 @@
+.modal-overlay.plan-selector-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 105px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.plan-selector-modal {
+  .modal-content {
+    border-radius: 5px;
+    min-height: 488px !important;
+    max-height: 650px !important;
+    .switch-filter.default {
+      border: none;
+      &:hover {
+        border: none;
+      }
+    }
+    .switch-filter .item:focus {
+      border: none;
+    }
+
+    .card-elevated {
+      ul {
+        max-height: 500px !important;
+      }
+    }
+  }
+  .modal-content h2 {
+    margin-top: 0;
+  }
+
+  .modal-content button {
+    margin-top: 20px;
+  }
+}

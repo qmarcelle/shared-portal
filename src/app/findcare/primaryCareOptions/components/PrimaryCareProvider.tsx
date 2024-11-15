@@ -1,5 +1,5 @@
-import { ErrorMfaCard } from '@/app/security/components/ErrorMfaCard';
 import { IComponent } from '@/components/IComponent';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Header } from '@/components/foundation/Header';
@@ -68,7 +68,7 @@ export const PrimaryCareProvider = ({
             </>
           </Card>
         ) : (
-          <ErrorMfaCard
+          <ErrorInfoCard
             className="mt-4"
             errorText="Oops, it looks like something went wrong. Try again later."
           />

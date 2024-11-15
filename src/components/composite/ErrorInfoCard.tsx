@@ -1,15 +1,16 @@
-import { Card } from '@/components/foundation/Card';
-import { Row } from '@/components/foundation/Row';
-import { Spacer } from '@/components/foundation/Spacer';
-import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
-import AlertIcon from '../../../../public/assets/alert_gray.svg';
+import AlertIcon from '../../../public/assets/alert_gray.svg';
+import { Row } from '../foundation/Row';
+import { Spacer } from '../foundation/Spacer';
+import { IComponent } from '../IComponent';
 
-type ErrorMfaCardProps = {
+import { Card } from '@/components/foundation/Card';
+
+type ErrorInfoCardProps = {
   errorText: string;
 } & IComponent;
 
-export const ErrorMfaCard: React.FC<ErrorMfaCardProps> = ({
+export const ErrorInfoCard: React.FC<ErrorInfoCardProps> = ({
   errorText,
   className,
 }) => {
