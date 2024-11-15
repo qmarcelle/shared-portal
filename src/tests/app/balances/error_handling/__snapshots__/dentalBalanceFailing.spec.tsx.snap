@@ -60,7 +60,7 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       CHRIS HALL
                     </p>
@@ -146,7 +146,7 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       In-Network
                     </p>

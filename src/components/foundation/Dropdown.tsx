@@ -51,7 +51,7 @@ export const Dropdown = ({
         className="flex flex-row link"
         onClick={() => setShowDrop(!showDrop)}
       >
-        <p className="font-app-bold">{mappedItems.get(selectedVal)}</p>
+        <p className="body-bold">{mappedItems.get(selectedVal)}</p>
         <Spacer axis="horizontal" size={8} />
         {icon}
       </div>

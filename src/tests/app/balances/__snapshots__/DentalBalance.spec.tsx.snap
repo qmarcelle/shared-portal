@@ -35,7 +35,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 class="flex flex-row link"
               >
                 <p
-                  class="font-app-bold"
+                  class="body-bold"
                 >
                   Megan Chaler
                 </p>
@@ -313,7 +313,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               class="flex flex-row link"
             >
               <p
-                class="font-app-bold"
+                class="body-bold"
               >
                 Megan Chaler
               </p>

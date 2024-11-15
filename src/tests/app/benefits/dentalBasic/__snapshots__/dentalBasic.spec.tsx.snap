@@ -626,7 +626,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       class="flex flex-row link"
                     >
                       <p
-                        class="font-app-bold"
+                        class="body-bold"
                       >
                         Chris Hall
                       </p>

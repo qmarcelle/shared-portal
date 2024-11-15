@@ -108,7 +108,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       ChrisBalance HALL
                     </p>

@@ -43,7 +43,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 class="flex flex-row link"
               >
                 <p
-                  class="font-app-bold"
+                  class="body-bold"
                 >
                   Date(Most Recent)
                 </p>
@@ -207,7 +207,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
               class="flex flex-row link"
             >
               <p
-                class="font-app-bold"
+                class="body-bold"
               >
                 Date(Most Recent)
               </p>

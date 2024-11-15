@@ -69,7 +69,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                   class="flex flex-row link"
                 >
                   <p
-                    class="font-app-bold"
+                    class="body-bold"
                   >
                     Most Relevant
                   </p>
@@ -634,7 +634,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                 class="flex flex-row link"
               >
                 <p
-                  class="font-app-bold"
+                  class="body-bold"
                 >
                   Most Relevant
                 </p>

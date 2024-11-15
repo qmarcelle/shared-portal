@@ -566,7 +566,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-row link"
                       >
                         <p
-                          class="font-app-bold"
+                          class="body-bold"
                         >
                           Megan Chaler
                         </p>
@@ -652,7 +652,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-row link"
                       >
                         <p
-                          class="font-app-bold"
+                          class="body-bold"
                         >
                           Out-of-Network
                         </p>

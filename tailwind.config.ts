@@ -46,7 +46,6 @@ const config: Config = {
       },
       fontFamily: {
         base: ['Univers-45', 'sans-serif'],
-        'app-bold': ['Univers-65', 'sans-serif'],
       },
       borderRadius: {
         none: '0',
