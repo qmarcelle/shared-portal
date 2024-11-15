@@ -13,6 +13,7 @@ import { Filter } from '@/components/foundation/Filter';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
   BenefitDropdownItem,
@@ -35,6 +36,8 @@ const Benefits = () => {
     setUserInfo,
     memberIndex,
     setMemberIndex,
+    setSelectedBenefitCategory,
+    setSelectedBenefitsBean,
   } = useBenefitsStore();
 
   // const [selectedBenefitType, setSelectedBenefitType] = useState<string>('M');
@@ -50,6 +53,7 @@ const Benefits = () => {
     ManageBenefitsItems[]
   >([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const router = useRouter();
 
   const onMemberSelectionChange = (selectedMember: string) => {
     setSelectedMember(selectedMember);
@@ -85,7 +89,8 @@ const Benefits = () => {
                 title: item.category,
                 body: '',
                 externalLink: false,
-                url: `/benefits/details?serviceType=Medical&serviceCategory=${item.id}`,
+                onClick: () =>
+                  onBenefitSelected(item, response.data?.medicalBenefits),
               });
             });
             console.log(JSON.stringify(medicalBenefitsItems));
@@ -104,11 +109,26 @@ const Benefits = () => {
     fetchInitialData();
   }, []); // Add empty dependency array to run only once
 
+  function onBenefitSelected(
+    serviceCategory: ServiceCategory,
+    benefitsBean: BenefitDetailsBean | undefined,
+  ) {
+    if (benefitsBean === undefined || serviceCategory === undefined) {
+      console.log('Selected benefit missing benefits bean or service category');
+      return;
+    }
+    setSelectedBenefitCategory(serviceCategory);
+    setSelectedBenefitsBean(benefitsBean);
+    console.log(serviceCategory);
+    console.log(benefitsBean);
+    router.push('/benefits/details');
+  }
+
   useEffect(() => {
     const selectedMemberPlanDetails =
       userInfo.members[parseInt(selectedMember)].planDetails;
     setBenefitTypes(getBenefitTypes(selectedMemberPlanDetails));
-  }, [selectedMember, userInfo]); // Add dependencies to avoid unnecessary re-renders
+  }, [selectedMember]); // Add dependencies to avoid unnecessary re-renders
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -316,5 +336,4 @@ const Benefits = () => {
     </main>
   );
 };
-
 export default Benefits;

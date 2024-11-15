@@ -5,6 +5,7 @@ import { Divider } from '@/components/foundation/Divider';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
+import router from 'next/router';
 
 export interface MedicalPharmacyDentalCardProps extends IComponent {
   manageBenefitItems: ManageBenefitsItems[];
@@ -16,8 +17,10 @@ export interface ManageBenefitsItems {
   title: string;
   body: string;
   externalLink: boolean;
-  url: string;
+  onClick?: (serviceCategory: ServiceCategory | undefined) => void;
+  url?: string;
   icon?: JSX.Element;
+  serviceCategory?: ServiceCategory; // Add this line
 }
 
 export const MedicalPharmacyDentalCard = ({
@@ -45,7 +48,13 @@ export const MedicalPharmacyDentalCard = ({
                 divider={false}
                 icon={items.icon}
                 onClick={() => {
-                  window.location.href = items.url;
+                  if (items.onClick !== undefined) {
+                    // Add this line
+                    items.onClick(items.serviceCategory);
+                  } // Modify this line
+                  else {
+                    router.push(items.url || '/'); // Modify this line
+                  }
                 }}
               />
               {index !== managePlanItems.length - 1 && <Divider />}
