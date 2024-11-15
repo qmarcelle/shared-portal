@@ -2,7 +2,7 @@ import { IComponent } from '../IComponent';
 
 interface CardProps extends IComponent {
   backgroundColor?: string;
-  type?: 'main' | 'highlight' | 'neutral' | 'elevated' | 'info';
+  type?: 'main' | 'highlight' | 'neutral' | 'elevated' | 'info' | 'button';
   children: JSX.Element;
 }
 

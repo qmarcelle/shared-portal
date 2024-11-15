@@ -21,7 +21,7 @@ export const WelcomeBanner = ({
     >
       <div className="flex flex-col items-start w-full app-content px-4">
         <Spacer size={32}></Spacer>
-        <h1 className="title-1">
+        <h1 className="title-1 font-thin">
           {titleText} {name}
         </h1>
         <Spacer size={16} />
