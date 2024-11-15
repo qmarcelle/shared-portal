@@ -1,5 +1,6 @@
 import { PlanDetails } from '@/models/plan_details';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
@@ -20,19 +21,24 @@ export interface PlanSwitcherProps extends IComponent {
   plans: PlanDetails[];
   selectedPlan: PlanDetails;
   onSelectionChange: (val: PlanDetails) => void;
+  isModal?: boolean;
+  onSelectItemCallBack?: () => void | Promise<void> | null;
 }
 
 const PlanDetailTile = ({
   plan,
   isSelected,
+  className = 'px-4 pt-4',
 }: {
   plan: PlanDetails;
   isSelected: boolean;
+  isModalView: boolean | undefined;
+  className?: string;
 }) => {
   return (
     <Card
       type="elevated"
-      className={`px-4 pt-4 ${isSelected ? 'selected' : ''} app-base-font-color min-w-[100%]`}
+      className={`${className}  ${isSelected ? 'selected' : ''} app-base-font-color min-w-[100%]`}
     >
       <Column>
         <Row className="justify-between">
@@ -84,8 +90,16 @@ const SelectedPlan = ({ plan }: { plan: PlanDetails }) => {
   );
 };
 
-const PlanDropDownHead = () => {
-  return (
+const PlanDropDownHead = ({
+  isModalView,
+}: {
+  isModalView: boolean | undefined;
+}) => {
+  return isModalView ? (
+    <Row className="items-center">
+      <Header type="title-2" text="Which Plan do you want to view today?" />
+    </Row>
+  ) : (
     <Row className="px-4 py-2 items-center divider-bottom">
       <Header
         className="grow font-bold app-base-font-color"
@@ -97,9 +111,15 @@ const PlanDropDownHead = () => {
   );
 };
 
-const PlanDropDownFooter = ({ isCurrentPlan }: { isCurrentPlan: boolean }) => {
+const PlanDropDownFooter = ({
+  isCurrentPlan,
+  isModalView,
+}: {
+  isCurrentPlan: boolean;
+  isModalView: boolean | undefined;
+}) => {
   return (
-    <Row className="p-4 items-center">
+    <Row className={`items-center ${isModalView ? 'py-4' : 'p-4'}`}>
       {isCurrentPlan ? (
         <>
           <Image src={viewMoreIcon} alt="Maximize" />
@@ -118,7 +138,9 @@ export const PlanSwitcher = ({
   plans,
   selectedPlan,
   className,
+  isModal,
 }: PlanSwitcherProps) => {
+  const router = useRouter();
   const [selected, setSelected] = useState(selectedPlan);
   const [plansToShow, setPlanToShow] = useState(
     plans.filter((x) => !x.endedOn),
@@ -133,20 +155,34 @@ export const PlanSwitcher = ({
       setIsCurrentPlan(true);
     }
   };
+  const selectItem = () => {
+    router.replace('/dashboard');
+  };
   return (
     <div className={`${className}`}>
       <RichDropDown<PlanDetails>
-        headBuilder={(val) => <SelectedPlan plan={val} />}
+        headBuilder={
+          !isModal ? (val) => <SelectedPlan plan={val} /> : undefined
+        }
         itemData={plansToShow}
         itemsBuilder={(data, index, selected) => (
-          <PlanDetailTile plan={data} isSelected={selected.id === data.id} />
+          <PlanDetailTile
+            plan={data}
+            isSelected={selected.id === data.id}
+            isModalView={isModal}
+          />
         )}
         selected={selected}
-        onSelectItem={(val) => setSelected(val)}
+        onSelectItem={!isModal ? (val) => setSelected(val) : selectItem}
         showSelected={false}
         divider={false}
-        dropdownHeader={<PlanDropDownHead />}
-        dropdownFooter={<PlanDropDownFooter isCurrentPlan={isCurrentPlan} />}
+        dropdownHeader={<PlanDropDownHead isModalView={isModal} />}
+        dropdownFooter={
+          <PlanDropDownFooter
+            isCurrentPlan={isCurrentPlan}
+            isModalView={isModal}
+          />
+        }
         onClickFooter={() => showPastPlans()}
       />
     </div>

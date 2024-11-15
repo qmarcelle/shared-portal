@@ -1,6 +1,6 @@
 import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
 import Image from 'next/image';
-import { ReactElement, ReactNode, useRef, useState } from 'react';
+import { ReactElement, ReactNode, useEffect, useRef, useState } from 'react';
 import { IComponent } from '../IComponent';
 import { Card } from './Card';
 import { Column } from './Column';
@@ -9,7 +9,7 @@ import { checkBlueIcon, switchFilterIcon } from './Icons';
 import { Row } from './Row';
 
 interface RichDropDownProps<T> extends IComponent {
-  headBuilder: (val: T) => ReactNode;
+  headBuilder?: (val: T) => ReactNode;
   dropdownHeader?: ReactElement | null;
   dropdownFooter?: ReactElement;
   itemData: T[];
@@ -56,7 +56,9 @@ export const RichDropDown = <T extends { id: string }>({
   };
 
   const closeDropdown = () => {
-    setIsOpen(false);
+    if (headBuilder) {
+      setIsOpen(false);
+    }
   };
 
   const selectItem = (val: T) => {
@@ -65,23 +67,34 @@ export const RichDropDown = <T extends { id: string }>({
   };
 
   useOutsideClickListener(listRef, () => {
-    closeDropdown();
+    if (selected.id !== '') {
+      closeDropdown();
+    }
   });
+
+  useEffect(() => {
+    if (!headBuilder) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, []);
 
   return (
     <div className="rich-dropdown">
-      <Column
-        tabIndex={1}
-        className={`switch-filter ${itemData.length > 1 ? 'default' : 'disabled'}`}
-      >
-        <div onClick={openDropDown}>{headBuilder(selected)}</div>
-      </Column>
-
+      {headBuilder && (
+        <Column
+          tabIndex={1}
+          className={`switch-filter ${itemData.length > 1 ? 'default' : 'disabled'}`}
+        >
+          <div onClick={openDropDown}>{headBuilder(selected)}</div>
+        </Column>
+      )}
       {isOpen && (
         <Card
           type="elevated"
           tabIndex={1}
-          className={`switch-filter absolute-dropdown ${minWidth ?? 'min-w-[100%]'} ${itemData.length > 1 ? 'default' : 'disabled'}`}
+          className={`switch-filter absolute-dropdown ${minWidth ?? 'min-w-[100%]'} ${selected.id == '' ? 'p-8' : ''} ${itemData.length > 1 ? 'default' : 'disabled'}`}
         >
           <div ref={listRef}>
             <div onClick={closeDropdown}>{dropdownHeader}</div>
@@ -90,11 +103,12 @@ export const RichDropDown = <T extends { id: string }>({
             >
               {itemData.map((item, index) => {
                 const isSelcted = selected.id == item.id && showSelected;
+                const isSelectedId = selected.id == '';
                 return (
-                  <li key={item.id}>
+                  <li key={item.id} className={`${isSelectedId ? 'mt-4' : ''}`}>
                     <Row
                       tabIndex={1}
-                      className={`p-4 ${divider ? 'divider-bottom' : ''} ${isSelcted ? 'selected' : ''} item`}
+                      className={`${isSelectedId ? '' : 'p-4'} ${divider ? 'divider-bottom' : ''} ${isSelcted ? 'selected' : ''} item`}
                       key={item.id}
                       onClick={() => selectItem(item)}
                     >
