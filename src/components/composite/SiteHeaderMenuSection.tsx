@@ -9,7 +9,7 @@ export interface SiteHeaderMenuProps extends IComponent {
 }
 
 export const SiteHeaderMenuSection = ({
-  user,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   icon,
   items,
 }: SiteHeaderMenuProps) => {
@@ -25,7 +25,7 @@ export const SiteHeaderMenuSection = ({
           <span className="hidden lg:inline px-2 pt-2">{item.title}</span>
         </a>
       ))}
-      <ProfileHeaderCard user={user} icon={icon} />
+      <ProfileHeaderCard icon={icon} />
     </div>
   );
 };
