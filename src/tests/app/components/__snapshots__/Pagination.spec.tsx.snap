@@ -106,7 +106,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
               class="flex flex-row link"
             >
               <p
-                class="font-app-bold"
+                class="body-bold"
               >
                 1
               </p>

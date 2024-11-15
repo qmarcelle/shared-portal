@@ -189,7 +189,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             class="flex flex-row link"
                           >
                             <p
-                              class="font-app-bold"
+                              class="body-bold"
                             >
                               Subscriber ID ABC000000000
                             </p>
@@ -941,7 +941,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           class="flex flex-row link"
                         >
                           <p
-                            class="font-app-bold"
+                            class="body-bold"
                           >
                             Subscriber ID ABC000000000
                           </p>

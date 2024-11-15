@@ -124,7 +124,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                         class="flex flex-row link"
                       >
                         <p
-                          class="font-app-bold"
+                          class="body-bold"
                         >
                           2023
                         </p>
@@ -340,7 +340,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                         class="flex flex-row link"
                       >
                         <p
-                          class="font-app-bold"
+                          class="body-bold"
                         >
                           2023
                         </p>
@@ -713,7 +713,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
               class="flex flex-row link"
             >
               <p
-                class="font-app-bold"
+                class="body-bold"
               >
                 2023
               </p>
@@ -1115,7 +1115,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                         class="flex flex-row link"
                       >
                         <p
-                          class="font-app-bold"
+                          class="body-bold"
                         >
                           2023
                         </p>
@@ -1331,7 +1331,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                         class="flex flex-row link"
                       >
                         <p
-                          class="font-app-bold"
+                          class="body-bold"
                         >
                           2023
                         </p>
@@ -1704,7 +1704,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
               class="flex flex-row link"
             >
               <p
-                class="font-app-bold"
+                class="body-bold"
               >
                 2023
               </p>

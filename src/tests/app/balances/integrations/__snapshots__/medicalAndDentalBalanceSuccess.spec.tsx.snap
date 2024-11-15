@@ -60,7 +60,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       CHRIS HALL
                     </p>
@@ -146,7 +146,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       In-Network
                     </p>
@@ -793,7 +793,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       ChrisBalance HALL
                     </p>
@@ -1415,7 +1415,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       KRISTY HALL
                     </p>
@@ -1501,7 +1501,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       In-Network
                     </p>
@@ -1973,7 +1973,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     class="flex flex-row link"
                   >
                     <p
-                      class="font-app-bold"
+                      class="body-bold"
                     >
                       ChrisBalance HALL
                     </p>
