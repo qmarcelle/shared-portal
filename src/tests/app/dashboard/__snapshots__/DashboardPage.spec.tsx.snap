@@ -99,7 +99,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <h1
-            class="title-1"
+            class="title-1 font-thin"
           >
             Welcome, 
              
@@ -108,35 +108,63 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
-          <p
-            class="body-1"
+          <span
+            class="rich-text body-1 undefined"
           >
-            Plan: BlueCross BlueShield of Tennessee
-          </p>
+            <span>
+              Plan: 
+            </span>
+            <span
+              class="body-bold"
+            >
+              BlueCross BlueShield of Tennessee
+            </span>
+          </span>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
-          <p
-            class="body-1"
+          <span
+            class="rich-text body-1 undefined"
           >
-            Subscriber ID: ABC123456789
-          </p>
+            <span>
+              Subscriber ID: 
+            </span>
+            <span
+              class="body-bold"
+            >
+              ABC123456789
+            </span>
+          </span>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
-          <p
-            class="body-1"
+          <span
+            class="rich-text body-1 undefined"
           >
-            Group ID: 123456
-          </p>
+            <span>
+              Group ID: 
+            </span>
+            <span
+              class="body-bold"
+            >
+              B123456
+            </span>
+          </span>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
-          <p
-            class="body-1"
+          <span
+            class="rich-text body-1 undefined"
           >
-            Policies: Medical, Dental, Vision
-          </p>
+            <span>
+              Policies: 
+            </span>
+            <span
+              class="body-bold"
+            >
+              Medical, Dental, Vision
+            </span>
+          </span>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
@@ -145,7 +173,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             href="/myPlan"
           >
             <p
-              class="pb-2 pt-2"
+              class="pb-2 pt-2 body-bold"
             >
               View Plan Details
             </p>
@@ -228,10 +256,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    class="card-elevated cursor-pointer mb-4"
+                    class="card-button cursor-pointer mb-4"
                   >
                     <section
-                      class="md:flex md:flex-row align-top m-4 mt-8"
+                      class="md:flex md:flex-row align-top m-4"
                     >
                       <img
                         alt="Medical"
@@ -269,11 +297,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                               style="color: transparent;"
                               width="40"
                             />
-                            <p
-                              class="body-1 font-bold primary-color max-md:ml-[5px]"
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
                               John Doe
-                            </p>
+                            </h3>
                           </section>
                           <section
                             class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
@@ -327,10 +355,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     </section>
                   </div>
                   <div
-                    class="card-elevated cursor-pointer mb-4"
+                    class="card-button cursor-pointer mb-4"
                   >
                     <section
-                      class="md:flex md:flex-row align-top m-4 mt-8"
+                      class="md:flex md:flex-row align-top m-4"
                     >
                       <img
                         alt="Pharmacy"
@@ -368,11 +396,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                               style="color: transparent;"
                               width="40"
                             />
-                            <p
-                              class="body-1 font-bold primary-color max-md:ml-[5px]"
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
                               John Doe
-                            </p>
+                            </h3>
                           </section>
                           <section
                             class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
@@ -394,7 +422,9 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
-                              />
+                              >
+                                $30.24
+                              </p>
                             </div>
                           </section>
                         </section>
@@ -415,17 +445,19 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
-                            />
+                            >
+                              $30.24
+                            </p>
                           </div>
                         </div>
                       </div>
                     </section>
                   </div>
                   <div
-                    class="card-elevated cursor-pointer mb-4"
+                    class="card-button cursor-pointer mb-4"
                   >
                     <section
-                      class="md:flex md:flex-row align-top m-4 mt-8"
+                      class="md:flex md:flex-row align-top m-4"
                     >
                       <img
                         alt="Dental"
@@ -463,11 +495,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                               style="color: transparent;"
                               width="40"
                             />
-                            <p
-                              class="body-1 font-bold primary-color max-md:ml-[5px]"
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
                               John Doe
-                            </p>
+                            </h3>
                           </section>
                           <section
                             class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
@@ -489,7 +521,9 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
-                              />
+                              >
+                                $65.61
+                              </p>
                             </div>
                           </section>
                         </section>
@@ -510,7 +544,9 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
-                            />
+                            >
+                              $65.61
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -532,7 +568,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Claims
+                        View Claims
                       </p>
                     </button>
                   </a>
@@ -836,7 +872,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Balances
+                        View Balances
                       </p>
                     </button>
                   </a>
@@ -866,11 +902,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       Payment Due Date
                     </p>
-                    <span
-                      style="display: block; width: 40px; min-width: 40px; height: 1px; min-height: 1px;"
-                    />
                     <p
-                      class="font-bold"
+                      class="body-bold ml-auto"
                     >
                       08/10/2023
                     </p>
@@ -886,11 +919,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       Amount Due
                     </p>
-                    <span
-                      style="display: block; width: 80px; min-width: 80px; height: 1px; min-height: 1px;"
-                    />
                     <p
-                      class="font-bold"
+                      class="body-bold ml-auto"
                     >
                       $
                       1000.46
@@ -954,63 +984,64 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                   />
                   <div
-                    class="flex flex-col chartSection"
+                    class="flex flex-col"
                   >
                     <div
-                      class="text-center absolute doughnutText pl-3 w-36"
+                      class="flex flex-col doughnut-img mx-auto"
                     >
-                      <div
-                        class="flex flex-col justify-between pl-3 chartText"
-                      >
-                        <p>
-                          Your plan paid
-                        </p>
-                        <p
-                          class="font-bold"
-                        >
-                          89
-                          %
-                        </p>
-                        <p>
-                          of your costs
-                        </p>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      <canvas
+                        class="spendingSummaryChart"
+                        height="150"
+                        role="img"
+                        width="300"
                       />
                       <div
-                        class="chartTextDivider"
+                        class="doughnut-middle-text"
                       >
                         <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                      />
-                      <div
-                        class="flex flex-col justify-between pl-3 chartText"
-                      >
-                        <p>
-                          Total Billed
-                        </p>
-                        <p
-                          class="font-bold"
+                          class="flex flex-col justify-between pl-3 chartText "
                         >
-                          $9,804.31
-                        </p>
+                          <p>
+                            Your plan paid
+                          </p>
+                          <p
+                            class="title-2-bold"
+                          >
+                            89
+                            %
+                          </p>
+                          <p>
+                            of your costs
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <div
+                          class="chartTextDivider"
+                        >
+                          <div
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <div
+                          class="flex flex-col justify-between pl-3 chartText"
+                        >
+                          <p>
+                            Total Billed
+                          </p>
+                          <p
+                            class="title-2-bold"
+                          >
+                            $9,804.31
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                    />
-                    <canvas
-                      class="spendingSummaryChart"
-                      height="150"
-                      role="img"
-                      width="300"
-                    />
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
@@ -1030,7 +1061,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         You Paid
                       </p>
                       <p
-                        class="font-bold ml-auto"
+                        class="body-bold ml-auto"
                       >
                         $1,199.19
                       </p>
@@ -1050,7 +1081,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         You Saved
                       </p>
                       <p
-                        class="font-bold ml-auto"
+                        class="body-bold ml-auto"
                       >
                         $8,605.12
                       </p>
@@ -1171,7 +1202,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Prior Authorization
+                        View Prior Authorizations
                       </p>
                     </button>
                   </a>
@@ -1254,14 +1285,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <a
-                      class="flex flex-row"
+                      class="flex flex-row w-fit"
                       href="#"
                     >
                       <div
-                        class="flex flex-col flex-grow"
+                        class="flex flex-col"
                       >
                         <button
-                          class="font-bold"
+                          class="body-bold"
                         >
                           Medical Benefits
                         </button>
@@ -1270,11 +1301,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         />
                       </div>
                       <div
-                        class="flex flex-col items-end"
+                        class="flex flex-col "
                       >
                         <img
                           alt="Next"
-                          class="icon items-end"
+                          class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -1299,14 +1330,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <a
-                      class="flex flex-row"
+                      class="flex flex-row w-fit"
                       href="#"
                     >
                       <div
-                        class="flex flex-col flex-grow"
+                        class="flex flex-col"
                       >
                         <button
-                          class="font-bold"
+                          class="body-bold"
                         >
                           Pharmacy Benefits
                         </button>
@@ -1315,11 +1346,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         />
                       </div>
                       <div
-                        class="flex flex-col items-end"
+                        class="flex flex-col "
                       >
                         <img
                           alt="Next"
-                          class="icon items-end"
+                          class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -1344,14 +1375,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <a
-                      class="flex flex-row"
+                      class="flex flex-row w-fit"
                       href="#"
                     >
                       <div
-                        class="flex flex-col flex-grow"
+                        class="flex flex-col"
                       >
                         <button
-                          class="font-bold"
+                          class="body-bold"
                         >
                           Dental Benefits
                         </button>
@@ -1360,11 +1391,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         />
                       </div>
                       <div
-                        class="flex flex-col items-end"
+                        class="flex flex-col "
                       >
                         <img
                           alt="Next"
-                          class="icon items-end"
+                          class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -1389,14 +1420,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <a
-                      class="flex flex-row"
+                      class="flex flex-row w-fit"
                       href="#"
                     >
                       <div
-                        class="flex flex-col flex-grow"
+                        class="flex flex-col"
                       >
                         <button
-                          class="font-bold"
+                          class="body-bold"
                         >
                           Vision Benefits
                         </button>
@@ -1405,11 +1436,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         />
                       </div>
                       <div
-                        class="flex flex-col items-end"
+                        class="flex flex-col "
                       >
                         <img
                           alt="Next"
-                          class="icon items-end"
+                          class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -1434,14 +1465,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <a
-                      class="flex flex-row"
+                      class="flex flex-row w-fit"
                       href="#"
                     >
                       <div
-                        class="flex flex-col flex-grow"
+                        class="flex flex-col"
                       >
                         <button
-                          class="font-bold"
+                          class="body-bold"
                         >
                           Other Benefits
                         </button>
@@ -1450,11 +1481,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         />
                       </div>
                       <div
-                        class="flex flex-col items-end"
+                        class="flex flex-col "
                       >
                         <img
                           alt="Next"
-                          class="icon items-end"
+                          class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -1490,7 +1521,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Benefits & Coverage
+                        View Benefits & Coverage
                       </p>
                     </button>
                   </a>
@@ -1932,7 +1963,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                                   class="flex flex-row"
                                 >
                                   <p
-                                    class="font-bold primary-color"
+                                    class="body-bold primary-color"
                                   >
                                     Davis Vision
                                   </p>
@@ -1983,7 +2014,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                                   class="flex flex-row"
                                 >
                                   <p
-                                    class="font-bold primary-color"
+                                    class="body-bold primary-color"
                                   >
                                     Nirmal Dental
                                   </p>
@@ -2030,7 +2061,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                                 class="p-4 block"
                               >
                                 <p
-                                  class="body-1 body-1 font-bold"
+                                  class="body-1 body-1 body-bold"
                                 >
                                   Low Pharm
                                 </p>
@@ -2061,7 +2092,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                                 class="p-4 block"
                               >
                                 <p
-                                  class="body-1 body-1 font-bold"
+                                  class="body-1 body-1 body-bold"
                                 >
                                   Quant Labs
                                 </p>
@@ -2122,7 +2153,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   tabindex="-1"
                 >
                   <button
-                    class="flex flex-row link-container undefined"
+                    class="flex flex-row link-container body-bold p-0 sm:p-2"
                     style="max-width: max-content; height: auto; display: block;"
                     tabindex="0"
                   >
@@ -2130,7 +2161,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       class="link undefined"
                       style="display: block;"
                     >
-                      View All Employer Provided Benefits
+                      View Employer Provided Benefits
                     </p>
                   </button>
                 </a>

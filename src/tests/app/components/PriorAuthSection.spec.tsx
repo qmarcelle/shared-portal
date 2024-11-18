@@ -24,7 +24,7 @@ describe('PriorAuthSection', () => {
     screen.getByRole('heading', { name: 'Prior Authorization' });
     screen.getByText('Processed');
     screen.getByText('Visited on 02/06/2024, For Chris Hall');
-    screen.getByText('View All Prior Authorization');
+    screen.getByText('View Prior Authorizations');
 
     expect(component).toMatchSnapshot();
   });
