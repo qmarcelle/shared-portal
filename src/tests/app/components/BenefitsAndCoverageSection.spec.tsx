@@ -32,7 +32,7 @@ describe('BenefitsAndCoverageSection', () => {
     screen.getByText('Dental Benefits');
     screen.getByText('Vision Benefits');
     screen.getByText('Other Benefits');
-    screen.getByText('View All Benefits & Coverage');
+    screen.getByText('View Benefits & Coverage');
 
     expect(component).toMatchSnapshot();
   });
