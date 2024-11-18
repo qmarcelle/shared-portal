@@ -47,7 +47,7 @@ describe('MedicalBalanceSection', () => {
     screen.getAllByLabelText('bar chart');
     screen.getAllByText('Spent');
     screen.getAllByText('Limit');
-    screen.getByText('View All Balances');
+    screen.getByText('View Balances');
 
     expect(component).toMatchSnapshot();
   });
