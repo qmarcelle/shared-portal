@@ -2,8 +2,8 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
-import { ProgressBar } from '../../../components/foundation/ProgressBar';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { ProgressBar } from '../../../../components/foundation/ProgressBar';
+import { Spacer } from '../../../../components/foundation/Spacer';
 
 interface BalanceChartProps {
   label: string;

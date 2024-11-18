@@ -1,8 +1,7 @@
-import BalancesPage from '@/app/balances/page';
+import BalancesPage from '@/app/benefits/balances/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
@@ -16,13 +15,65 @@ jest.mock('src/auth', () => ({
   ),
 }));
 
-describe('Medical and Dental Balances API Failing', () => {
+describe('Medical and Dental Balances API Integration with Medical not active', () => {
   console.log(process.env.ES_PORTAL_SVCS_API_URL);
   mockedAxios.get
     // dental
-    .mockRejectedValueOnce(createAxiosErrorForTest({ status: 400 }))
+    .mockResolvedValueOnce({
+      data: {
+        accumulatorsDetails: [
+          {
+            productType: 'D',
+            members: [
+              {
+                memberCK: 54363201,
+                listofSerLimitMetDetails: [
+                  {
+                    accumNum: 819,
+                    metAmount: 0.0,
+                  },
+                  {
+                    accumNum: 827,
+                    metAmount: 0.0,
+                  },
+                ],
+              },
+              {
+                memberCK: 91722407,
+                listofSerLimitMetDetails: [
+                  {
+                    accumNum: 819,
+                    metAmount: 0.0,
+                  },
+                ],
+              },
+            ],
+            serviceLimitDetails: [
+              {
+                accumNum: 819,
+                serviceDesc: '$3000 Annual Maximum Basic and Major',
+                isDollarLimit: true,
+                isDays: false,
+                maxAllowedAmount: 3000.0,
+              },
+              {
+                accumNum: 827,
+                serviceDesc: '$3000 Ortho Lifetime Maximum',
+                isDollarLimit: true,
+                isDays: false,
+                maxAllowedAmount: 3000.0,
+              },
+            ],
+          },
+        ],
+      },
+    })
     // medical
-    .mockRejectedValueOnce(createAxiosErrorForTest({ status: 400 }))
+    .mockResolvedValueOnce({
+      data: {
+        accumulatorsDetails: [],
+      },
+    })
     // loggedIn userInfo for member names
     .mockResolvedValueOnce({
       data: {
@@ -685,37 +736,25 @@ describe('Medical and Dental Balances API Failing', () => {
       },
     });
 
-  it('should call Balances api and render error for Medical, Dental Balances', async () => {
+  it('should call Balances api and render only Dental Balance without Medical', async () => {
     const { container } = render(await BalancesPage());
 
     // Container Headers need to be visible
-    expect(screen.getByText('Medical & Pharmacy Balance')).toBeVisible();
+    // Medical Balance is not present
+    expect(screen.queryByText('Medical & Pharmacy Balance')).toBeNull();
     expect(screen.getByText('Dental Balance')).toBeVisible();
-
-    // Dental Balance
-    const dentalBalSec = screen.getByText('Dental Balance').parentElement;
-    expect(screen.queryAllByText('ChrisBalance HALL').length).toBe(0);
-    // Error Screen to be shown
-    expect(
-      within(dentalBalSec).getByText(
-        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
-      ),
-    ).toBeVisible();
-
-    // Medical Balance
-    const medicalSec = screen.getByText(
-      'Medical & Pharmacy Balance',
-    ).parentElement;
-    expect(screen.queryAllByText('Chris HALL').length).toBe(0);
-    // Error Screen to be shown
-    expect(
-      within(medicalSec).getByText(
-        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
-      ),
-    ).toBeVisible();
 
     // Initial render
     expect(container).toMatchSnapshot();
+
+    // Dental Balance Section
+    expect(screen.getAllByText('ChrisBalance HALL').length).toBe(2);
+    expect(
+      screen.getAllByText('You do not have any Deductible amounts.').length,
+    ).toBe(1);
+    expect(
+      screen.getAllByText('You do not have any Out-of-Pocket amounts.').length,
+    ).toBe(1);
 
     // Medical, Dental Balance, LoggedInUserInfo Api calls were called
     expect(mockedAxios.get).toHaveBeenCalledWith(

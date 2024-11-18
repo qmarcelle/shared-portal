@@ -1,5 +1,5 @@
-import { BalanceSection } from '@/app/balances/components/BalanceSection';
-import { SpendingAccountSection } from '@/app/balances/components/SpendingAccountsSection';
+import { BalanceSection } from '@/app/benefits/balances/components/BalanceSection';
+import { SpendingAccountSection } from '@/app/benefits/balances/components/SpendingAccountsSection';
 import { MedicalBalanceSection } from '@/app/dashboard/components/MedicalBalanceSection';
 import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { InfoCard } from '@/components/composite/InfoCard';

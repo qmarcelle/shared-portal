@@ -3,7 +3,7 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
+import { SpendingAccountSummary } from '../../dashboard/components/SpendingAccountSummary';
 import { BalanceSectionWrapper } from './components/BalanceSection';
 import { SpendingAccountSection } from './components/SpendingAccountsSection';
 import { VisionBalance } from './components/VisionBalance';

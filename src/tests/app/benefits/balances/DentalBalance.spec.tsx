@@ -1,4 +1,4 @@
-import { BalanceSection } from '@/app/balances/components/BalanceSection';
+import { BalanceSection } from '@/app/benefits/balances/components/BalanceSection';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

@@ -7,10 +7,13 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { ServicesUsed } from '@/models/app/servicesused_details';
 import { formatCurrency } from '@/utils/currency_formatter';
 import { useState } from 'react';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Dropdown, SelectItem } from '../../../components/foundation/Dropdown';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { IComponent } from '../../../../components/IComponent';
+import { Card } from '../../../../components/foundation/Card';
+import {
+  Dropdown,
+  SelectItem,
+} from '../../../../components/foundation/Dropdown';
+import { Spacer } from '../../../../components/foundation/Spacer';
 import { ProductBalance } from '../models/app/balancesData';
 import { BalanceChart } from './BalanceChart';
 import { ServicesUsedChart } from './ServicesUsedChart';
