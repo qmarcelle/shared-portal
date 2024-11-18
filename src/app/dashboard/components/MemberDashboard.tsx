@@ -10,6 +10,7 @@ import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccou
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
@@ -53,7 +54,7 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
                   id: 'Claim76',
                   claimStatus: 'Pending',
                   claimType: 'Pharmacy',
-                  claimTotal: null,
+                  claimTotal: '30.24',
                   issuer: 'John Doe',
                   memberName: 'Aly Jame',
                   serviceDate: '01/06/2024',
@@ -64,7 +65,7 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
                   id: 'Claim54',
                   claimStatus: 'Denied',
                   claimType: 'Dental',
-                  claimTotal: null,
+                  claimTotal: '65.61',
                   issuer: 'John Doe',
                   memberName: 'Aly Jame',
                   serviceDate: '01/16/2024',
@@ -260,6 +261,7 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
             <EmployeeProvidedBenefitsTile
               className="large-section"
               employer="Ben Cole Co"
+              employerLogo={bcbstBlueLogo}
               benefits={[
                 {
                   id: '45',
