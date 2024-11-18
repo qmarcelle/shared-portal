@@ -568,7 +568,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Claims
+                        View Claims
                       </p>
                     </button>
                   </a>
@@ -872,7 +872,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Balances
+                        View Balances
                       </p>
                     </button>
                   </a>
@@ -1202,7 +1202,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Prior Authorization
+                        View Prior Authorizations
                       </p>
                     </button>
                   </a>
@@ -1521,7 +1521,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Benefits & Coverage
+                        View Benefits & Coverage
                       </p>
                     </button>
                   </a>
@@ -2161,7 +2161,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       class="link undefined"
                       style="display: block;"
                     >
-                      View All Employer Provided Benefits
+                      View Employer Provided Benefits
                     </p>
                   </button>
                 </a>
