@@ -38,7 +38,7 @@ export const PriorAuthSection = ({
           }
         })()}
         <Spacer size={32} />
-        <AppLink label="View All Prior Authorization" />
+        <AppLink label="View Prior Authorizations" />
       </div>
     </Card>
   );

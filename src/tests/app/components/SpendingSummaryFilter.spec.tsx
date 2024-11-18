@@ -1,6 +1,14 @@
 import { Filter } from '@/components/foundation/Filter';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react'; // Mock useRouter:
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
 
 const renderUI = () => {
   return render(
