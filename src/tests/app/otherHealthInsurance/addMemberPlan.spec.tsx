@@ -2,8 +2,17 @@ import AddMemberPlan from '@/app/reportOtherHealthInsurance/components/AddMember
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 
+const mockMemberDetails = {
+  id: 1,
+  dob: '01/27/1931',
+};
 const renderUI = () => {
-  return render(<AddMemberPlan selectedCheckbox={['medicarePlan']} />);
+  return render(
+    <AddMemberPlan
+      selectedCheckbox={['medicarePlan']}
+      memberDetails={mockMemberDetails}
+    />,
+  );
 };
 
 describe('AddMemberPlan', () => {
@@ -29,7 +38,12 @@ describe('AddMemberPlan', () => {
 
   test('displays error if entered date match service-provided date', async () => {
     await act(async () => {
-      render(<AddMemberPlan selectedCheckbox={['medicarePlan']} />);
+      render(
+        <AddMemberPlan
+          selectedCheckbox={['medicarePlan']}
+          memberDetails={mockMemberDetails}
+        />,
+      );
     });
     // Get input field and enter a mismatched date
     const input = screen.getByLabelText('Policyholder Birth Date (MM/DD/YYYY)');
@@ -49,7 +63,12 @@ describe('AddMemberPlan', () => {
 
   test('displays error if entered date does not match service-provided date', async () => {
     await act(async () => {
-      render(<AddMemberPlan selectedCheckbox={['medicarePlan']} />);
+      render(
+        <AddMemberPlan
+          selectedCheckbox={['medicarePlan']}
+          memberDetails={mockMemberDetails}
+        />,
+      );
     });
     // Get input field and enter a mismatched date
     const input = screen.getByLabelText('Policyholder Birth Date (MM/DD/YYYY)');
@@ -69,7 +88,12 @@ describe('AddMemberPlan', () => {
 
   test('removes error when the date is cleared', async () => {
     await act(async () => {
-      render(<AddMemberPlan selectedCheckbox={['medicarePlan']} />);
+      render(
+        <AddMemberPlan
+          selectedCheckbox={['medicarePlan']}
+          memberDetails={mockMemberDetails}
+        />,
+      );
     });
     const input = screen.getByLabelText('Policyholder Birth Date (MM/DD/YYYY)');
     fireEvent.change(input, { target: { value: '10/23/2000' } });

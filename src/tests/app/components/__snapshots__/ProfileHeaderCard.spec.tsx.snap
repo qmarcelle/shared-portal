@@ -63,7 +63,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+                    class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
                   >
                     <div>
                       <div>
@@ -92,7 +92,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                       <ul
                         class="max-h-[420px] min-w-[100%] overflow-auto"
                       >
-                        <li>
+                        <li
+                          class=""
+                        >
                           <div
                             class="flex flex-row p-4   item"
                             tabindex="1"
@@ -145,7 +147,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                             </div>
                           </div>
                         </li>
-                        <li>
+                        <li
+                          class=""
+                        >
                           <div
                             class="flex flex-row p-4   item"
                             tabindex="1"
@@ -198,7 +202,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                             </div>
                           </div>
                         </li>
-                        <li>
+                        <li
+                          class=""
+                        >
                           <div
                             class="flex flex-row p-4   item"
                             tabindex="1"
@@ -412,7 +418,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+                  class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
                 >
                   <div>
                     <div>
@@ -441,7 +447,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                     <ul
                       class="max-h-[420px] min-w-[100%] overflow-auto"
                     >
-                      <li>
+                      <li
+                        class=""
+                      >
                         <div
                           class="flex flex-row p-4   item"
                           tabindex="1"
@@ -494,7 +502,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                           </div>
                         </div>
                       </li>
-                      <li>
+                      <li
+                        class=""
+                      >
                         <div
                           class="flex flex-row p-4   item"
                           tabindex="1"
@@ -547,7 +557,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                           </div>
                         </div>
                       </li>
-                      <li>
+                      <li
+                        class=""
+                      >
                         <div
                           class="flex flex-row p-4   item"
                           tabindex="1"
@@ -816,7 +828,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                   </div>
                 </div>
                 <div
-                  class="card-elevated switch-filter absolute-dropdown min-w-[100%] default"
+                  class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
                 >
                   <div>
                     <div>
@@ -845,7 +857,9 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                     <ul
                       class="max-h-[420px] min-w-[100%] overflow-auto"
                     >
-                      <li>
+                      <li
+                        class=""
+                      >
                         <div
                           class="flex flex-row p-4   item"
                           tabindex="1"
@@ -898,7 +912,9 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                           </div>
                         </div>
                       </li>
-                      <li>
+                      <li
+                        class=""
+                      >
                         <div
                           class="flex flex-row p-4   item"
                           tabindex="1"
@@ -951,7 +967,9 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                           </div>
                         </div>
                       </li>
-                      <li>
+                      <li
+                        class=""
+                      >
                         <div
                           class="flex flex-row p-4   item"
                           tabindex="1"

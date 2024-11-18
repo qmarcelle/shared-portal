@@ -1,15 +1,29 @@
-trigger:
-- dev
+trigger: none
 
-pool:
-  name: Self hosted pool
+pool: Self hosted pool
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: "Consumer_Portals/DevOps-Repo"
+      ref: refs/heads/dev
 
 steps:
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'dir $(System.DefaultWorkingDirectory)'
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)'
-    artifact: 'MemberPortal'
+  - template: jobs/next-pipeline.yml@templates
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: 'npm run test'
+    displayName: Run Tests From App Config
+
+  - task: PowerShell@2
+    inputs:
+      targetType: "inline"
+      script: "dir $(System.DefaultWorkingDirectory)"
+    displayName: Output Src Dir
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "$(System.DefaultWorkingDirectory)"
+      artifact: "MemberPortal"
+    displayName: Publish Code Snapshot
