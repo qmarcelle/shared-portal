@@ -307,7 +307,7 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
                 class="link undefined"
                 style="display: block;"
               >
-                View All Balances
+                View Balances
               </p>
             </button>
           </a>
@@ -618,7 +618,7 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
               class="link undefined"
               style="display: block;"
             >
-              View All Balances
+              View Balances
             </p>
           </button>
         </a>
