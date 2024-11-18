@@ -15,19 +15,18 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 
 const FrequentlyAskedQuestions = () => {
-  const baseUrl = window.location.origin;
   const faqInformationDetails = [
     {
       label: 'Benefits & Coverage',
       description: 'Learn more about service limits, deductibles and more.',
       iconName: benefits,
-      link: `${baseUrl}/support/faqTopics?faqtype=Benefits&Coverage`,
+      link: '/support/faqTopics?faqtype=Benefits&Coverage',
     },
     {
       label: 'Claims',
       description: 'Learn more about claims or how to file a dispute.',
       iconName: claimsBenefitsCoverage,
-      link: `${baseUrl}/support/faqTopics?faqtype=Claims`,
+      link: '/support/faqTopics?faqtype=Claims',
     },
     {
       label: 'ID Cards',
@@ -35,34 +34,34 @@ const FrequentlyAskedQuestions = () => {
         // eslint-disable-next-line quotes
         "Do you have questions about your ID cards? We're here to help.",
       iconName: idCardPrimaryIconSvg,
-      link: `${baseUrl}/support/faqTopics?faqtype=IDCards`,
+      link: '/support/faqTopics?faqtype=IDCards',
     },
     {
       label: 'My Plan Information',
       description: 'How to update your address, dependents, and more.',
       iconName: enrollment,
-      link: `${baseUrl}/support/faqTopics?faqtype=MyPlanInformation`,
+      link: '/support/faqTopics?faqtype=MyPlanInformation',
     },
     {
       label: 'Pharmacy',
       description:
         'How to find pharmacies, find prescription drug coverage and more.',
       iconName: prescription,
-      link: `${baseUrl}/support/faqTopics?faqtype=Pharmacy`,
+      link: '/support/faqTopics?faqtype=Pharmacy',
     },
     {
       label: 'Prior Authorization',
       description:
         'Learn more about prior authorizations, statuses and how to make appeals.',
       iconName: priorAuthorizations,
-      link: `${baseUrl}/support/faqTopics?faqtype=PriorAuthorization`,
+      link: '/support/faqTopics?faqtype=PriorAuthorization',
     },
     {
       label: 'Sharing, Permissions & Security',
       description:
         'How to share your health insurance information, represent a dependent individual and more.',
       iconName: keyIcon,
-      link: `${baseUrl}/support/faqTopics?faqtype=SharingPermissions&Security`,
+      link: '/support/faqTopics?faqtype=SharingPermissions&Security',
     },
   ];
 
