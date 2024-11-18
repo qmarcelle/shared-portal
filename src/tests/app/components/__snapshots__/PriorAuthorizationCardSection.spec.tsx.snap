@@ -82,10 +82,10 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          class="card-elevated cursor-pointer mb-4"
+          class="card-button cursor-pointer mb-4"
         >
           <section
-            class="md:flex md:flex-row align-top m-4 mt-8"
+            class="md:flex md:flex-row align-top m-4"
           >
             <img
               alt="Medical"
@@ -123,11 +123,11 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 font-bold primary-color max-md:ml-[5px]"
+                  <h3
+                    class="title-3 body-bold primary-color max-md:ml-[5px]"
                   >
                     Service Group Description
-                  </p>
+                  </h3>
                 </section>
                 <section
                   class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
