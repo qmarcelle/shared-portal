@@ -19,7 +19,7 @@ interface OtherHealthInsuranceCardItemProps extends IComponent {
   icon?: JSX.Element;
   icon1?: JSX.Element;
   updatedDate: string;
-  memberDetails: AddMemberDetails;
+  memberDetails: AddMemberDetails[];
 }
 
 export const OtherHealthInsuranceCardItem = ({

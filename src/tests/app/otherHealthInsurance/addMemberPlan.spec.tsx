@@ -3,14 +3,18 @@ import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 
 const mockMemberDetails = {
-  id: 1,
-  dob: '01/27/1931',
+  member: [
+    {
+      id: 1,
+      dob: '08/06/1959',
+    },
+  ],
 };
 const renderUI = () => {
   return render(
     <AddMemberPlan
       selectedCheckbox={['medicarePlan']}
-      memberDetails={mockMemberDetails}
+      memberDetails={mockMemberDetails.member}
     />,
   );
 };
@@ -41,14 +45,14 @@ describe('AddMemberPlan', () => {
       render(
         <AddMemberPlan
           selectedCheckbox={['medicarePlan']}
-          memberDetails={mockMemberDetails}
+          memberDetails={mockMemberDetails.member}
         />,
       );
     });
     // Get input field and enter a mismatched date
     const input = screen.getByLabelText('Policyholder Birth Date (MM/DD/YYYY)');
     await act(async () => {
-      fireEvent.change(input, { target: { value: '01/27/1931' } });
+      fireEvent.change(input, { target: { value: '08/06/1959' } });
     });
 
     fireEvent.blur(input);
@@ -66,7 +70,7 @@ describe('AddMemberPlan', () => {
       render(
         <AddMemberPlan
           selectedCheckbox={['medicarePlan']}
-          memberDetails={mockMemberDetails}
+          memberDetails={mockMemberDetails.member}
         />,
       );
     });
@@ -91,7 +95,7 @@ describe('AddMemberPlan', () => {
       render(
         <AddMemberPlan
           selectedCheckbox={['medicarePlan']}
-          memberDetails={mockMemberDetails}
+          memberDetails={mockMemberDetails.member}
         />,
       );
     });

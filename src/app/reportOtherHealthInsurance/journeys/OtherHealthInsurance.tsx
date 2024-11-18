@@ -16,7 +16,7 @@ import AddMemberPlan from '../components/AddMemberPlan';
 import OtherHealthInsurancePlan from '../components/OtherHealthInsurancePlan';
 import SelectMemberPlan from '../components/SelectMemberPlan';
 export type OtherHealthInsuranceProps = {
-  memberDetails: AddMemberDetails;
+  memberDetails: AddMemberDetails[];
 };
 export const OtherHealthInsurance = ({
   changePage,

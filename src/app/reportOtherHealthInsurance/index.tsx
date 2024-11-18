@@ -8,7 +8,7 @@ import { AddMemberDetails } from '@/models/add_member_details';
 import { AboutOtherInsurance } from './components/AboutOtherInsurance';
 import { OtherHealthInsuranceCard } from './components/OtherHealthInsuranceCard';
 export type ReportOtherHealthInsuranceProps = {
-  data: AddMemberDetails;
+  data: AddMemberDetails[];
 };
 
 const ReportOtherHealthInsurance = ({
