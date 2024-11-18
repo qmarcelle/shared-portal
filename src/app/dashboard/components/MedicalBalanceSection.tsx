@@ -75,7 +75,7 @@ export const MedicalBalanceSection = ({
         />
         <Spacer size={32} />
         {!displayDisclaimerText && (
-          <AppLink label="View All Balances" url="/balances" />
+          <AppLink label="View Balances" url="/balances" />
         )}
         {displayDisclaimerText && disclaimerText && (
           <>
