@@ -272,7 +272,7 @@ describe('Medical and Dental Balances API Failing Error Handling', () => {
       createAxiosErrorForTest({
         status: 400,
         errorObject: {
-          desc: 'Mocked error',
+          desc: 'Mocked Error',
         },
       }),
     );
