@@ -53,6 +53,7 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
           >
             <input
               aria-label="Enter Security Code"
+              class=""
               type="text"
               value=""
             />

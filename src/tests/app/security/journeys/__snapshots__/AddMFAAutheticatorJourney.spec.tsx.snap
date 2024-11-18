@@ -153,6 +153,7 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                           >
                             <input
                               aria-label="Enter Security Code"
+                              class=""
                               type="text"
                               value=""
                             />
@@ -542,6 +543,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                           >
                             <input
                               aria-label="Enter Security Code"
+                              class=""
                               type="text"
                               value=""
                             />
@@ -771,6 +773,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                           >
                             <input
                               aria-label="Enter Security Code"
+                              class=""
                               type="text"
                               value=""
                             />

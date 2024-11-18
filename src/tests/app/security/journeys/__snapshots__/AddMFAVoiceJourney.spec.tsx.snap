@@ -110,6 +110,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 1`] = `
                         >
                           <input
                             aria-label="Phone Number"
+                            class=""
                             type="text"
                             value=""
                           />
@@ -323,6 +324,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                           >
                             <input
                               aria-label="Enter Security Code"
+                              class=""
                               type="text"
                               value=""
                             />

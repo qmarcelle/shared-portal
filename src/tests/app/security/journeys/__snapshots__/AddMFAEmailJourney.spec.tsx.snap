@@ -110,6 +110,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                         >
                           <input
                             aria-label="Email Address"
+                            class=""
                             type="email"
                             value=""
                           />
@@ -318,6 +319,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                           >
                             <input
                               aria-label="Enter Security Code"
+                              class=""
                               type="text"
                               value=""
                             />
@@ -689,6 +691,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                         >
                           <input
                             aria-label="Email Address"
+                            class=""
                             type="email"
                             value=""
                           />
@@ -864,6 +867,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                         >
                           <input
                             aria-label="Email Address"
+                            class=""
                             type="email"
                             value="chall123gmail.com"
                           />

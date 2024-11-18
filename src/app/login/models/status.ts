@@ -7,6 +7,7 @@ export enum LoginStatus {
   VALIDATION_FAILURE,
   ERROR,
   MULTIPLE_LOGIN_ATTEMPTS,
+  PASSWORD_RESET_REQUIRED,
 }
 
 export enum SelectMFAStatus {
