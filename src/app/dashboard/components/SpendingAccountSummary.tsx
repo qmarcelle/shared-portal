@@ -69,7 +69,7 @@ export const SpendingAccountSummary = ({
               right={0}
             />
             <TextBox text="You Paid" className="ml-2" />
-            <p className="font-bold ml-auto">
+            <p className="body-bold ml-auto">
               {formatCurrency(amountPaid) ?? '--'}
             </p>
           </Row>
@@ -84,7 +84,7 @@ export const SpendingAccountSummary = ({
               right={0}
             />
             <TextBox text="You Saved" className="ml-2" />
-            <p className="font-bold ml-auto">
+            <p className="body-bold ml-auto">
               {formatCurrency(amountSaved) ?? '--'}
             </p>
           </Row>

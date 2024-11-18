@@ -69,14 +69,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
-              class="flex flex-row"
+              class="flex flex-row w-fit"
               href="#"
             >
               <div
-                class="flex flex-col flex-grow"
+                class="flex flex-col"
               >
                 <button
-                  class="font-bold"
+                  class="body-bold"
                 >
                   Medical Benefits
                 </button>
@@ -85,11 +85,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 />
               </div>
               <div
-                class="flex flex-col items-end"
+                class="flex flex-col "
               >
                 <img
                   alt="Next"
-                  class="icon items-end"
+                  class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -114,14 +114,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
-              class="flex flex-row"
+              class="flex flex-row w-fit"
               href="#"
             >
               <div
-                class="flex flex-col flex-grow"
+                class="flex flex-col"
               >
                 <button
-                  class="font-bold"
+                  class="body-bold"
                 >
                   Pharmacy Benefits
                 </button>
@@ -130,11 +130,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 />
               </div>
               <div
-                class="flex flex-col items-end"
+                class="flex flex-col "
               >
                 <img
                   alt="Next"
-                  class="icon items-end"
+                  class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -159,14 +159,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
-              class="flex flex-row"
+              class="flex flex-row w-fit"
               href="#"
             >
               <div
-                class="flex flex-col flex-grow"
+                class="flex flex-col"
               >
                 <button
-                  class="font-bold"
+                  class="body-bold"
                 >
                   Dental Benefits
                 </button>
@@ -175,11 +175,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 />
               </div>
               <div
-                class="flex flex-col items-end"
+                class="flex flex-col "
               >
                 <img
                   alt="Next"
-                  class="icon items-end"
+                  class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -204,14 +204,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
-              class="flex flex-row"
+              class="flex flex-row w-fit"
               href="#"
             >
               <div
-                class="flex flex-col flex-grow"
+                class="flex flex-col"
               >
                 <button
-                  class="font-bold"
+                  class="body-bold"
                 >
                   Vision Benefits
                 </button>
@@ -220,11 +220,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 />
               </div>
               <div
-                class="flex flex-col items-end"
+                class="flex flex-col "
               >
                 <img
                   alt="Next"
-                  class="icon items-end"
+                  class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -249,14 +249,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
-              class="flex flex-row"
+              class="flex flex-row w-fit"
               href="#"
             >
               <div
-                class="flex flex-col flex-grow"
+                class="flex flex-col"
               >
                 <button
-                  class="font-bold"
+                  class="body-bold"
                 >
                   Other Benefits
                 </button>
@@ -265,11 +265,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 />
               </div>
               <div
-                class="flex flex-col items-end"
+                class="flex flex-col "
               >
                 <img
                   alt="Next"
-                  class="icon items-end"
+                  class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -378,14 +378,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
-            class="flex flex-row"
+            class="flex flex-row w-fit"
             href="#"
           >
             <div
-              class="flex flex-col flex-grow"
+              class="flex flex-col"
             >
               <button
-                class="font-bold"
+                class="body-bold"
               >
                 Medical Benefits
               </button>
@@ -394,11 +394,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               />
             </div>
             <div
-              class="flex flex-col items-end"
+              class="flex flex-col "
             >
               <img
                 alt="Next"
-                class="icon items-end"
+                class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -423,14 +423,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
-            class="flex flex-row"
+            class="flex flex-row w-fit"
             href="#"
           >
             <div
-              class="flex flex-col flex-grow"
+              class="flex flex-col"
             >
               <button
-                class="font-bold"
+                class="body-bold"
               >
                 Pharmacy Benefits
               </button>
@@ -439,11 +439,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               />
             </div>
             <div
-              class="flex flex-col items-end"
+              class="flex flex-col "
             >
               <img
                 alt="Next"
-                class="icon items-end"
+                class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -468,14 +468,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
-            class="flex flex-row"
+            class="flex flex-row w-fit"
             href="#"
           >
             <div
-              class="flex flex-col flex-grow"
+              class="flex flex-col"
             >
               <button
-                class="font-bold"
+                class="body-bold"
               >
                 Dental Benefits
               </button>
@@ -484,11 +484,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               />
             </div>
             <div
-              class="flex flex-col items-end"
+              class="flex flex-col "
             >
               <img
                 alt="Next"
-                class="icon items-end"
+                class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -513,14 +513,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
-            class="flex flex-row"
+            class="flex flex-row w-fit"
             href="#"
           >
             <div
-              class="flex flex-col flex-grow"
+              class="flex flex-col"
             >
               <button
-                class="font-bold"
+                class="body-bold"
               >
                 Vision Benefits
               </button>
@@ -529,11 +529,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               />
             </div>
             <div
-              class="flex flex-col items-end"
+              class="flex flex-col "
             >
               <img
                 alt="Next"
-                class="icon items-end"
+                class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -558,14 +558,14 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
-            class="flex flex-row"
+            class="flex flex-row w-fit"
             href="#"
           >
             <div
-              class="flex flex-col flex-grow"
+              class="flex flex-col"
             >
               <button
-                class="font-bold"
+                class="body-bold"
               >
                 Other Benefits
               </button>
@@ -574,11 +574,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               />
             </div>
             <div
-              class="flex flex-col items-end"
+              class="flex flex-col "
             >
               <img
                 alt="Next"
-                class="icon items-end"
+                class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
                 height="40"
