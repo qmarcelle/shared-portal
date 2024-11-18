@@ -3,10 +3,10 @@ import { Header } from '@/components/foundation/Header';
 import { externalIcon } from '@/components/foundation/Icons';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import { IComponent } from '../../../../components/IComponent';
+import { Card } from '../../../../components/foundation/Card';
+import { Spacer } from '../../../../components/foundation/Spacer';
+import { TextBox } from '../../../../components/foundation/TextBox';
 
 interface VisionBalanceProps extends IComponent {
   linkURL: string;

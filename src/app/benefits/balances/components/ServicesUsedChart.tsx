@@ -3,8 +3,8 @@ import { Divider } from '@/components/foundation/Divider';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { ServicesUsed } from '../../../models/app/servicesused_details';
+import { Spacer } from '../../../../components/foundation/Spacer';
+import { ServicesUsed } from '../../../../models/app/servicesused_details';
 
 interface ServicesUsedChartProps {
   label: string;
