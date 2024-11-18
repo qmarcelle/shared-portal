@@ -1,0 +1,1470 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddMemberPlan should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main>
+        <div
+          class="flex flex-col items-center"
+        >
+          <h2
+            class="title-2"
+          >
+            Add Medicare Plan
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <p
+            class="body-1 body-1 w-[130%] text-center"
+          >
+            Tell us about your other insurance. All fields are required unless   noted as optional.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+        <div
+          class="flex flex-col items-left"
+        >
+          <p
+            class="body-1 title-3 !items-left"
+          >
+            Insurance Company
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Company Name
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Company Name"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Policy Identification Number
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Policy Identification Number"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Company Phone Number
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Company Phone Number"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            Is this coverage part of a court order? (if applicable, optional)
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="Yes"
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                Yes
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="No"
+                checked=""
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                No
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-col"
+          >
+            <p
+              class="body-1 body-1"
+            >
+              Policy type (check all that apply):
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  checkbox-disabled"
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p
+                    class="!p-0"
+                  >
+                    Medicare Part A
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  checkbox-disabled"
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Medicare Part B
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  checkbox-disabled"
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    Medicare Part D
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-col relative inline-block w-full text-field "
+            >
+              <p
+                class="mb-2 mt-3"
+              >
+                Policy Effective Date (MM/DD/YYYY)
+              </p>
+              <div
+                class="flex flex-row items-center input relative w-full left-0 top-full   "
+              >
+                <input
+                  aria-label="Policy Effective Date (MM/DD/YYYY)"
+                  class=""
+                  maxlength="10"
+                  placeholder="__  / __  /  ____"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="cursor-pointer"
+                >
+                  <div
+                    class="flex flex-row items-center relative inline-block"
+                  >
+                    <div
+                      class="separator"
+                    />
+                    <div>
+                      <img
+                        alt="calenderIcon"
+                        class="icon"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-full"
+              >
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="hidden"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col relative inline-block w-full text-field "
+            >
+              <p
+                class="mb-2 mt-3"
+              >
+                Policy End Date (MM/DD/YYYY) (optional)
+              </p>
+              <div
+                class="flex flex-row items-center input relative w-full left-0 top-full   "
+              >
+                <input
+                  aria-label="Policy End Date (MM/DD/YYYY) (optional)"
+                  class=""
+                  maxlength="10"
+                  placeholder="__  / __  /  ____"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="cursor-pointer"
+                >
+                  <div
+                    class="flex flex-row items-center relative inline-block"
+                  >
+                    <div
+                      class="separator"
+                    />
+                    <div>
+                      <img
+                        alt="calenderIcon"
+                        class="icon"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-full"
+              >
+                <div
+                  class="react-datepicker-wrapper"
+                >
+                  <div
+                    class="react-datepicker__input-container"
+                  >
+                    <input
+                      class="hidden"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 title-3"
+          >
+            Policyholder Information
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Policyholder First Name
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Policyholder First Name"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Policyholder Last Name
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Policyholder Last Name"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col relative inline-block w-full text-field "
+          >
+            <p
+              class="mb-2 mt-3"
+            >
+              Policyholder Birth Date (MM/DD/YYYY)
+            </p>
+            <div
+              class="flex flex-row items-center input relative w-full left-0 top-full   "
+            >
+              <input
+                aria-label="Policyholder Birth Date (MM/DD/YYYY)"
+                class=""
+                maxlength="10"
+                placeholder="__  / __  /  ____"
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              >
+                <div
+                  class="flex flex-row items-center relative inline-block"
+                >
+                  <div
+                    class="separator"
+                  />
+                  <div>
+                    <img
+                      alt="calenderIcon"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-full"
+            >
+              <div
+                class="react-datepicker-wrapper"
+              >
+                <div
+                  class="react-datepicker__input-container"
+                >
+                  <input
+                    class="hidden"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col"
+          >
+            <p
+              class="body-1 body-1"
+            >
+              Is this member eligible for Medicare due to disability?
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="Yes"
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class=""
+                >
+                  Yes
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="No"
+                  checked=""
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class=""
+                >
+                  No
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              Is this member eligible for Medicare due to End Stage Renal   Disease?
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="Yes"
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class=""
+                >
+                  Yes
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="No"
+                  checked=""
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class=""
+                >
+                  No
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              Is this member still employed?
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="Yes"
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class=""
+                >
+                  Yes
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="No"
+                  checked=""
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class=""
+                >
+                  No
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              Check the box if this statement applies:
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2  checkbox-disabled"
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    This member is over 65.
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main>
+      <div
+        class="flex flex-col items-center"
+      >
+        <h2
+          class="title-2"
+        >
+          Add Medicare Plan
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <p
+          class="body-1 body-1 w-[130%] text-center"
+        >
+          Tell us about your other insurance. All fields are required unless   noted as optional.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </div>
+      <div
+        class="flex flex-col items-left"
+      >
+        <p
+          class="body-1 title-3 !items-left"
+        >
+          Insurance Company
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
+        >
+          <p>
+            Company Name
+          </p>
+          <div
+            class="flex flex-row items-center input   "
+          >
+            <input
+              aria-label="Company Name"
+              class=""
+              type="text"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
+        >
+          <p>
+            Policy Identification Number
+          </p>
+          <div
+            class="flex flex-row items-center input   "
+          >
+            <input
+              aria-label="Policy Identification Number"
+              class=""
+              type="text"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
+        >
+          <p>
+            Company Phone Number
+          </p>
+          <div
+            class="flex flex-row items-center input   "
+          >
+            <input
+              aria-label="Company Phone Number"
+              class=""
+              type="text"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <p
+          class="body-1 body-1"
+        >
+          Is this coverage part of a court order? (if applicable, optional)
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-row gap-1 "
+        >
+          <label>
+            <input
+              aria-label="Yes"
+              id=""
+              name=""
+              type="radio"
+            />
+          </label>
+          <div
+            class="flex-col m-1"
+          >
+            <p
+              class=""
+            >
+              Yes
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex flex-row gap-1 "
+        >
+          <label>
+            <input
+              aria-label="No"
+              checked=""
+              id=""
+              name=""
+              type="radio"
+            />
+          </label>
+          <div
+            class="flex-col m-1"
+          >
+            <p
+              class=""
+            >
+              No
+            </p>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+        />
+        <div
+          class="flex flex-col"
+        >
+          <p
+            class="body-1 body-1"
+          >
+            Policy type (check all that apply):
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  checkbox-disabled"
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p
+                  class="!p-0"
+                >
+                  Medicare Part A
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  checkbox-disabled"
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Medicare Part B
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  checkbox-disabled"
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  Medicare Part D
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col relative inline-block w-full text-field "
+          >
+            <p
+              class="mb-2 mt-3"
+            >
+              Policy Effective Date (MM/DD/YYYY)
+            </p>
+            <div
+              class="flex flex-row items-center input relative w-full left-0 top-full   "
+            >
+              <input
+                aria-label="Policy Effective Date (MM/DD/YYYY)"
+                class=""
+                maxlength="10"
+                placeholder="__  / __  /  ____"
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              >
+                <div
+                  class="flex flex-row items-center relative inline-block"
+                >
+                  <div
+                    class="separator"
+                  />
+                  <div>
+                    <img
+                      alt="calenderIcon"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-full"
+            >
+              <div
+                class="react-datepicker-wrapper"
+              >
+                <div
+                  class="react-datepicker__input-container"
+                >
+                  <input
+                    class="hidden"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col relative inline-block w-full text-field "
+          >
+            <p
+              class="mb-2 mt-3"
+            >
+              Policy End Date (MM/DD/YYYY) (optional)
+            </p>
+            <div
+              class="flex flex-row items-center input relative w-full left-0 top-full   "
+            >
+              <input
+                aria-label="Policy End Date (MM/DD/YYYY) (optional)"
+                class=""
+                maxlength="10"
+                placeholder="__  / __  /  ____"
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              >
+                <div
+                  class="flex flex-row items-center relative inline-block"
+                >
+                  <div
+                    class="separator"
+                  />
+                  <div>
+                    <img
+                      alt="calenderIcon"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-full"
+            >
+              <div
+                class="react-datepicker-wrapper"
+              >
+                <div
+                  class="react-datepicker__input-container"
+                >
+                  <input
+                    class="hidden"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 title-3"
+        >
+          Policyholder Information
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
+        >
+          <p>
+            Policyholder First Name
+          </p>
+          <div
+            class="flex flex-row items-center input   "
+          >
+            <input
+              aria-label="Policyholder First Name"
+              class=""
+              type="text"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
+        >
+          <p>
+            Policyholder Last Name
+          </p>
+          <div
+            class="flex flex-row items-center input   "
+          >
+            <input
+              aria-label="Policyholder Last Name"
+              class=""
+              type="text"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col relative inline-block w-full text-field "
+        >
+          <p
+            class="mb-2 mt-3"
+          >
+            Policyholder Birth Date (MM/DD/YYYY)
+          </p>
+          <div
+            class="flex flex-row items-center input relative w-full left-0 top-full   "
+          >
+            <input
+              aria-label="Policyholder Birth Date (MM/DD/YYYY)"
+              class=""
+              maxlength="10"
+              placeholder="__  / __  /  ____"
+              type="text"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            >
+              <div
+                class="flex flex-row items-center relative inline-block"
+              >
+                <div
+                  class="separator"
+                />
+                <div>
+                  <img
+                    alt="calenderIcon"
+                    class="icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full"
+          >
+            <div
+              class="react-datepicker-wrapper"
+            >
+              <div
+                class="react-datepicker__input-container"
+              >
+                <input
+                  class="hidden"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col"
+        >
+          <p
+            class="body-1 body-1"
+          >
+            Is this member eligible for Medicare due to disability?
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="Yes"
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                Yes
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="No"
+                checked=""
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                No
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            Is this member eligible for Medicare due to End Stage Renal   Disease?
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="Yes"
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                Yes
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="No"
+                checked=""
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                No
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            Is this member still employed?
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="Yes"
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                Yes
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-1 "
+          >
+            <label>
+              <input
+                aria-label="No"
+                checked=""
+                id=""
+                name=""
+                type="radio"
+              />
+            </label>
+            <div
+              class="flex-col m-1"
+            >
+              <p
+                class=""
+              >
+                No
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            Check the box if this statement applies:
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <div
+            class="flex flex-row gap-2 p-2  checkbox-disabled"
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p>
+                  This member is over 65.
+                </p>
+              </label>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
