@@ -117,7 +117,12 @@ const Support = ({ data }: SupportProps) => {
     qualtricsWindow = window.open(
       qualtricsUrl,
       '_blank',
-      'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=400',
+      'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=' +
+        window.innerWidth * 0.25 +
+        ',width=' +
+        window.innerWidth * 0.5 +
+        ',height=' +
+        window.innerHeight,
     );
     if (qualtricsWindow) {
       qualtricsWindow.focus();
@@ -139,7 +144,7 @@ const Support = ({ data }: SupportProps) => {
 
         {/* Main */}
         <main>
-          <Column className="app-content app-base-font-color px-4 my-8 gap-8">
+          <Column className="app-content app-base-font-color px-4 mt-8 gap-8">
             {/* Contact Us UI */}
             <section className="self-stretch px-8">
               <TextBox type="title-2" text="Contact Us" />
@@ -160,7 +165,7 @@ const Support = ({ data }: SupportProps) => {
         </main>
         {/* Resources */}
         <section className="flex flex-col w-full">
-          <div className="app-content self-center relative top-8">
+          <div className="self-center relative top-8">
             <Card className="p-4 mx-4 sm:p-8">
               <Column>
                 <TextBox type="title-2" text="Resources" />
