@@ -732,6 +732,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     </div>
                   </div>
                 </div>
+                ,
               </div>
             </div>
           </section>
@@ -1467,6 +1468,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   </div>
                 </div>
               </div>
+              ,
             </div>
           </div>
         </section>

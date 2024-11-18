@@ -3,16 +3,11 @@ import { IComponent } from '../IComponent';
 import ProfileHeaderCard from './ProfileHeaderCard';
 
 export interface SiteHeaderMenuProps extends IComponent {
-  user: string;
   icon: JSX.Element;
   items: SectionHeaderMenuItem[];
 }
 
-export const SiteHeaderMenuSection = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  icon,
-  items,
-}: SiteHeaderMenuProps) => {
+export const SiteHeaderMenuSection = ({ icon, items }: SiteHeaderMenuProps) => {
   return (
     <div className="flex items-center">
       {items.map((item, index) => (

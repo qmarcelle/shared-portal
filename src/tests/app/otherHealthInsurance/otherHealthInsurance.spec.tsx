@@ -1,9 +1,16 @@
-import ReportOtherHealthInsurance from '@/app/reportOtherHealthInsurance/page';
+import ReportOtherHealthInsurance from '@/app/reportOtherHealthInsurance';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-
+const mockMemberDetails = {
+  id: 1,
+  dob: '01/27/1931',
+};
 const renderUI = () => {
-  return render(<ReportOtherHealthInsurance />);
+  return render(
+    <>
+      <ReportOtherHealthInsurance data={mockMemberDetails} />
+    </>,
+  );
 };
 
 describe('OtherHealthInsurance', () => {

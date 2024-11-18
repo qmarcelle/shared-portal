@@ -1,4 +1,4 @@
 export interface AddMemberDetails {
-  id: string;
+  id: number;
   dob: string;
 }

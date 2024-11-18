@@ -1,4 +1,4 @@
-import { memberData } from '@/actions/AddMemberDetails';
+'use client';
 import { CalendarField } from '@/components/foundation/CalendarField';
 import { Checkbox } from '@/components/foundation/Checkbox';
 import { Column } from '@/components/foundation/Column';
@@ -11,46 +11,31 @@ import { TextField } from '@/components/foundation/TextField';
 import { AddMemberDetails } from '@/models/add_member_details';
 import alertErrorSvg from '@/public/assets/alert_error_red.svg';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 interface AddMemberPlanProps {
   selectedCheckbox: string[] | null;
+  memberDetails: AddMemberDetails;
 }
-const AddMemberPlan: React.FC<AddMemberPlanProps> = ({ selectedCheckbox }) => {
+const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
+  memberDetails,
+  selectedCheckbox,
+}) => {
   const [selectedMemberData, setSelectedMemberData] = useState(false);
   const [error, setError] = useState('');
-  const [addMemberDetails, setAddMembersDetails] = useState<AddMemberDetails>({
-    id: '',
-    dob: '',
-  });
 
   function handleClick() {
     setSelectedMemberData(true);
     setSelectedMemberData(!selectedMemberData);
   }
 
-  const initialized = useRef(false);
-
-  useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-    (async () => {
-      try {
-        const memberDetails = await memberData();
-        setAddMembersDetails(memberDetails);
-      } catch (err) {
-        console.error('MemberData Failure ');
-      }
-    })();
-  }, []);
-
   const handleDateSelection = (enterDOB: string) => {
     if (!enterDOB) {
       setError('');
       return;
     }
-    if (enterDOB && addMemberDetails.dob) {
-      if (enterDOB === addMemberDetails.dob) {
+    if (enterDOB && memberDetails.dob) {
+      if (enterDOB === memberDetails.dob) {
         setError('');
       } else {
         setError(

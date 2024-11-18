@@ -1,5 +1,6 @@
 import { useAppModalStore } from '@/components/foundation/AppModal';
 import { ChildAppModalBody } from '@/components/foundation/ChildAppModalBody';
+import { AddMemberDetails } from '@/models/add_member_details';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { IComponent } from '../../../components/IComponent';
@@ -18,6 +19,7 @@ interface OtherHealthInsuranceCardItemProps extends IComponent {
   icon?: JSX.Element;
   icon1?: JSX.Element;
   updatedDate: string;
+  memberDetails: AddMemberDetails;
 }
 
 export const OtherHealthInsuranceCardItem = ({
@@ -27,6 +29,7 @@ export const OtherHealthInsuranceCardItem = ({
   onClick,
   className,
   icon = <Image src={editIcon} alt="link" />,
+  memberDetails,
 }: OtherHealthInsuranceCardItemProps) => {
   const { showAppModal, dismissModal, dismissChildModal } = useAppModalStore();
   function getHealthInsuranceContent() {
@@ -40,7 +43,7 @@ export const OtherHealthInsuranceCardItem = ({
             suffix={icon}
             callback={() =>
               showAppModal({
-                content: <OtherHealthInsurance />,
+                content: <OtherHealthInsurance memberDetails={memberDetails} />,
                 isChildActionAppModal: true,
                 childModalContent: (
                   <ChildAppModalBody
