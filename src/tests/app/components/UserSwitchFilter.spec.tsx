@@ -2,6 +2,15 @@ import { UserSwitchFilter } from '@/components/composite/UserSwitchFilter';
 import { UserProfile, UserType } from '@/models/user_profile';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+// Mock useRouter:
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const renderUI = (profiles: UserProfile[], selectedProfile: UserProfile) => {

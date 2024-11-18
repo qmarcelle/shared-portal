@@ -67,22 +67,23 @@ const UserProfileTile = ({
 
 const UserSwitchHead = ({ user }: { user: UserProfile }) => {
   return (
-    <Row className="px-4 py-2 items-center divider-bottom">
+    <Row className="px-4 py-2 items-center w-auto h-[105px]">
       <Column className="grow">
         <TextBox
           type="body-2"
+          className="font-light"
           text={
             user.type === UserType.Primary
               ? 'My Profile'
               : `viewing as ${user.type || ''}`
           }
         />
-        <Header
-          text={user.name}
-          type="title-3"
-          className="font-bold primary-color"
+        <Header text={user.name} type="title-3" className="font-bold p-1" />
+        <TextBox
+          type="body-1"
+          text={`DOB: ${user.dob}`}
+          className="font-light"
         />
-        <TextBox type="body-1" text={`DOB: ${user.dob}`} />
       </Column>
       {user.id.length > 1 && (
         <Image
@@ -125,10 +126,6 @@ export const UserSwitchFilter = ({
       },
       {
         label: 'Security Settings',
-        className: 'font-bold primary-color body-bold body-1 manage-underline',
-      },
-      {
-        label: 'Sharing & Permissions',
         className: 'font-bold primary-color body-bold body-1 manage-underline',
       },
     ],

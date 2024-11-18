@@ -128,7 +128,6 @@ export default function SiteHeader() {
             />
           </div>
           <SiteHeaderMenuSection
-            user={'Chris Hall'}
             icon={<Image src={profileWhiteIcon} alt="Profile Icon"></Image>}
             items={[
               {

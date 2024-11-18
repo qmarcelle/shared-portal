@@ -12,6 +12,13 @@ export const ProfileHeaderCardItem = ({
   onClick,
   profiles,
 }: ProfileHeaderCardItemProps) => {
+  const selectedUser = {
+    id: profiles[0]?.id || '',
+    name: profiles[0]?.name || '',
+    dob: profiles[0]?.dob || '',
+    type: UserType.Primary,
+  };
+
   return (
     <Column>
       <section>
@@ -19,12 +26,7 @@ export const ProfileHeaderCardItem = ({
           <section className="switchFilter">
             <UserSwitchFilter
               userProfiles={profiles}
-              selectedUser={{
-                id: '456',
-                name: 'Chris Hall',
-                dob: '11/03/2000',
-                type: UserType.Primary,
-              }}
+              selectedUser={selectedUser}
               onSelectionChange={() => {}}
             />
             <Spacer size={32} />
