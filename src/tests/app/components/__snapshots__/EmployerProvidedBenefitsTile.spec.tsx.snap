@@ -92,7 +92,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                             class="flex flex-row"
                           >
                             <p
-                              class="font-bold primary-color"
+                              class="body-bold primary-color"
                             >
                               Davis Vision
                             </p>
@@ -143,7 +143,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                             class="flex flex-row"
                           >
                             <p
-                              class="font-bold primary-color"
+                              class="body-bold primary-color"
                             >
                               Nirmal Dental
                             </p>
@@ -190,7 +190,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           class="p-4 block"
                         >
                           <p
-                            class="body-1 body-1 font-bold"
+                            class="body-1 body-1 body-bold"
                           >
                             Low Pharm
                           </p>
@@ -221,7 +221,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           class="p-4 block"
                         >
                           <p
-                            class="body-1 body-1 font-bold"
+                            class="body-1 body-1 body-bold"
                           >
                             Quant Labs
                           </p>
@@ -282,7 +282,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             tabindex="-1"
           >
             <button
-              class="flex flex-row link-container undefined"
+              class="flex flex-row link-container body-bold p-0 sm:p-2"
               style="max-width: max-content; height: auto; display: block;"
               tabindex="0"
             >
@@ -386,7 +386,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Davis Vision
                           </p>
@@ -437,7 +437,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <p
-                            class="font-bold primary-color"
+                            class="body-bold primary-color"
                           >
                             Nirmal Dental
                           </p>
@@ -484,7 +484,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         class="p-4 block"
                       >
                         <p
-                          class="body-1 body-1 font-bold"
+                          class="body-1 body-1 body-bold"
                         >
                           Low Pharm
                         </p>
@@ -515,7 +515,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         class="p-4 block"
                       >
                         <p
-                          class="body-1 body-1 font-bold"
+                          class="body-1 body-1 body-bold"
                         >
                           Quant Labs
                         </p>
@@ -576,7 +576,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
           tabindex="-1"
         >
           <button
-            class="flex flex-row link-container undefined"
+            class="flex flex-row link-container body-bold p-0 sm:p-2"
             style="max-width: max-content; height: auto; display: block;"
             tabindex="0"
           >

@@ -30,6 +30,7 @@ const renderUI = () => {
       outOfPocketSpent={1500}
       selectedMemberId="43"
       selectedNetworkId="1"
+      displayDisclaimerText={false}
     />,
   );
 };
