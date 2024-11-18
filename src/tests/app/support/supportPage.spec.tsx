@@ -36,6 +36,16 @@ describe('Support Page', () => {
         },
       },
     });
+    // Mock the window properties
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      value: 1024,
+    });
+
+    Object.defineProperty(window, 'innerHeight', {
+      writable: true,
+      value: 768,
+    });
   });
   it('should render the page correctly', async () => {
     const component = await setupUI();
@@ -63,7 +73,7 @@ describe('Support Page', () => {
     expect(global.open).toHaveBeenCalledWith(
       'https://test-bcbst.qualtrics.com/jfe/form/SV_6rHlwsGRs79CO33?Q_CHL=si&grpnbr=100000&qs_digid=xyz',
       '_blank',
-      'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=400',
+      'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=256,width=512,height=768',
     );
   });
 });
