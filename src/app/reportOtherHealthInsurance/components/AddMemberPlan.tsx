@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 interface AddMemberPlanProps {
   selectedCheckbox: string[] | null;
-  memberDetails: AddMemberDetails;
+  memberDetails: AddMemberDetails[];
 }
 const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
   memberDetails,
@@ -34,8 +34,9 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
       setError('');
       return;
     }
-    if (enterDOB && memberDetails.dob) {
-      if (enterDOB === memberDetails.dob) {
+
+    if (enterDOB && memberDetails[0].dob) {
+      if (enterDOB === memberDetails[0].dob) {
         setError('');
       } else {
         setError(

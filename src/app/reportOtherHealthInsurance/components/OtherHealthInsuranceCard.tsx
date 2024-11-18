@@ -6,7 +6,7 @@ import { OtherHealthInsuranceCardItem } from './OtherHealthInsuranceCardItem';
 
 interface OtherHealthInsuranceCardProps extends IComponent {
   otherHealthInsuranceDetails: OtherHealthInsuranceDetails[];
-  memberDetails: AddMemberDetails;
+  memberDetails: AddMemberDetails[];
 }
 
 export const OtherHealthInsuranceCard = ({
