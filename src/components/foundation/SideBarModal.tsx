@@ -117,7 +117,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
   };
 
   return (
-    <Row className="justify-between modal-header items-center relative">
+    <Row className="justify-between modal-header items-center relative p-4">
       {showBack ? (
         <Row
           tabIndex={1}
