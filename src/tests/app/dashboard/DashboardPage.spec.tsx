@@ -83,5 +83,10 @@ describe('Dashboard Page', () => {
     expect(screen.getByText('Policies: Medical, Dental, Vision')).toBeVisible();
     expect(screen.getByText('View Plan Details')).toBeVisible();
     expect(component).toMatchSnapshot();
+    expect(screen.getByText('View Claims')).toBeVisible();
+    expect(screen.getByText('View Prior Authorizations')).toBeVisible();
+    expect(screen.getByText('View Balances')).toBeVisible();
+    expect(screen.getByText('View Benefits & Coverage')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
   });
 });
