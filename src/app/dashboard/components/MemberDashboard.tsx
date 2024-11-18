@@ -32,7 +32,7 @@ const MemberDashboard = () => {
             <RecentClaimSection
               className="large-section"
               title="Recent Claims"
-              linkText="View All Claims"
+              linkText="View Claims"
               claims={[
                 {
                   id: 'Claim98',
