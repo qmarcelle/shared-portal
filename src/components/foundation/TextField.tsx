@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { IComponent } from '../IComponent';
 import {
   alertErrorIcon,
   showPasswordIcon,
@@ -7,7 +8,7 @@ import {
 } from './Icons';
 import { Row } from './Row';
 
-export interface TextFieldProps {
+export interface TextFieldProps extends IComponent {
   label: string;
   type?: 'text' | 'password' | 'email';
   errors?: string[] | null;
@@ -21,6 +22,9 @@ export interface TextFieldProps {
   isSuffixNeeded?: boolean;
   highlightError?: boolean;
   onFocusCallback?: () => void;
+  minValue?: number;
+  maxValue?: number;
+  maxLength?: number;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -118,6 +122,10 @@ export const TextField = ({
   onKeydownCallback,
   maxWidth,
   isSuffixNeeded = false,
+  minValue,
+  maxValue,
+  maxLength,
+  className = '',
   highlightError = true,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
@@ -163,6 +171,10 @@ export const TextField = ({
           value={value}
           placeholder={hint}
           type={computeType()}
+          min={minValue}
+          max={maxValue}
+          className={className}
+          maxLength={maxLength}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
           {isSuffixNeeded && (

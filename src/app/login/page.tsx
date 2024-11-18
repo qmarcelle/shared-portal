@@ -12,6 +12,7 @@ import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcompon
 import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
+import { ResetPasswordComponent } from './components/ResetPasswordComponent';
 import { useLoginStore } from './stores/loginStore';
 import { useMfaStore } from './stores/mfaStore';
 
@@ -24,6 +25,7 @@ export default function LogIn() {
     isRiskScoreHigh,
     riskLevelNotDetermined,
     verifyEmail,
+    forcedPasswordReset,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
@@ -32,6 +34,7 @@ export default function LogIn() {
     state.isRiskScoreHigh,
     state.riskLevelNotDetermined,
     state.verifyEmail,
+    state.forcedPasswordReset,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
@@ -62,9 +65,11 @@ export default function LogIn() {
     if (mfaNeeded == false) {
       if (verifyEmail == true) {
         return <LoginEmailVerification />;
-      } else {
-        return <LoginComponent />;
       }
+      if (forcedPasswordReset == true) {
+        return <ResetPasswordComponent />;
+      }
+      return <LoginComponent />;
     } else {
       return <MfaComponent />;
     }
