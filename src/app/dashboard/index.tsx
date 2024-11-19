@@ -2,22 +2,19 @@
 
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { AlertBar } from '@/components/foundation/AlertBar';
-import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
-import { VisibilityRules } from '@/visibilityEngine/rules';
+import { TextBox } from '@/components/foundation/TextBox';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Link from 'next/link';
 import MemberDashboard from './components/MemberDashboard';
 import NonMemberDashboard from './components/NonMemberDashboard';
 import { DashboardData } from './models/dashboardData';
-const isMemberDashboardVisible = true;
 
 export type DashboardProps = {
-  visibilityRules?: VisibilityRules;
   data: DashboardData;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Dashboard = ({ data, visibilityRules }: DashboardProps) => {
+const Dashboard = ({ data }: DashboardProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <AlertBar
@@ -29,54 +26,50 @@ const Dashboard = ({ data, visibilityRules }: DashboardProps) => {
       <WelcomeBanner
         className="px-4"
         titleText="Welcome, "
-        name={data.username}
+        name={toPascalCase(data.memberDetails?.firstName ?? '')}
         minHeight="min-h-[250px]"
         body={
           <>
-            <RichText
-              spans={[
-                <span key={0}>Plan: </span>,
-                <span key={1} className="body-bold">
-                  BlueCross BlueShield of Tennessee
-                </span>,
-              ]}
-            />
-            <Spacer size={8} />
-            <RichText
-              spans={[
-                <span key={0}>Subscriber ID: </span>,
-                <span key={1} className="body-bold">
-                  ABC123456789
-                </span>,
-              ]}
-            />
-            <Spacer size={8} />
-            <RichText
-              spans={[
-                <span key={0}>Group ID: </span>,
-                <span key={1} className="body-bold">
-                  B123456
-                </span>,
-              ]}
-            />
-            <Spacer size={8} />
-            <RichText
-              spans={[
-                <span key={0}>Policies: </span>,
-                <span key={1} className="body-bold">
-                  Medical, Dental, Vision
-                </span>,
-              ]}
-            />
-            <Spacer size={16} />
+            {data.memberDetails?.planName && (
+              <>
+                <TextBox text={`Plan: ${data.memberDetails?.planName}`} />
+                <Spacer size={8} />
+              </>
+            )}
+            {data.memberDetails?.subscriberId && (
+              <>
+                <TextBox
+                  text={`Subscriber ID: ${data.memberDetails?.subscriberId}`}
+                />
+                <Spacer size={8} />
+              </>
+            )}
+            {data.memberDetails?.groupId && (
+              <>
+                <TextBox text={`Group ID: ${data.memberDetails?.groupId}`} />
+                <Spacer size={8} />
+              </>
+            )}
+            {data.memberDetails?.coverageType?.length && (
+              <>
+                <TextBox
+                  text={`Policies: ${data.memberDetails?.coverageType?.join(', ')}`}
+                />
+                <Spacer size={16} />
+              </>
+            )}
             <Link href="/myPlan" className="link-white-text">
-              <p className="pb-2 pt-2 body-bold">View Plan Details</p>
+              <p className="pb-2 pt-2">View Plan Details</p>
             </Link>
           </>
         }
       />
       <Spacer size={32}></Spacer>
-      {isMemberDashboardVisible ? <MemberDashboard /> : <NonMemberDashboard />}
+      {!data.visibilityRules?.nonMemberDashboard ? (
+        <MemberDashboard visibilityRules={data.visibilityRules} />
+      ) : (
+        <NonMemberDashboard />
+      )}
     </div>
   );
 };
