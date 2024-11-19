@@ -11,6 +11,7 @@ import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
 import PharmacyIcon from '../../../public/assets/pharmacy.svg';
 import VisionIcon from '../../../public/assets/vision.svg';
+import { Header } from '../foundation/Header';
 
 interface ClaimItemProps extends IComponent {
   // TODO: Update the model and type while integrating the api.
@@ -55,7 +56,7 @@ export const ClaimItem = ({
 
   function getClaimItem() {
     return (
-      <section className="md:flex md:flex-row align-top m-4 mt-8">
+      <section className="md:flex md:flex-row align-top m-4">
         <Image
           src={getClaimIcon()}
           className="icon max-md:hidden"
@@ -70,9 +71,10 @@ export const ClaimItem = ({
                 className="icon md:hidden"
                 alt={claimInfo.claimType}
               />
-              <TextBox
-                className="font-bold primary-color max-md:ml-[5px]"
+              <Header
                 text={claimInfo.issuer}
+                type="title-3"
+                className="body-bold primary-color max-md:ml-[5px]"
               />
             </section>
             <section className="flex flex-row justify-between md:flex-col max-lg:mr-[5px]">
@@ -159,7 +161,7 @@ export const ClaimItem = ({
   return (
     <Card
       className={`cursor-pointer ${className}`}
-      type="elevated"
+      type="button"
       onClick={() => callBack?.(claimInfo.id)}
     >
       {getClaimItem()}
