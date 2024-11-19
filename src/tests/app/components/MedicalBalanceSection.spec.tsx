@@ -30,6 +30,7 @@ const renderUI = () => {
       outOfPocketSpent={1500}
       selectedMemberId="43"
       selectedNetworkId="1"
+      displayDisclaimerText={false}
     />,
   );
 };
@@ -46,7 +47,7 @@ describe('MedicalBalanceSection', () => {
     screen.getAllByLabelText('bar chart');
     screen.getAllByText('Spent');
     screen.getAllByText('Limit');
-    screen.getByText('View All Balances');
+    screen.getByText('View Balances');
 
     expect(component).toMatchSnapshot();
   });

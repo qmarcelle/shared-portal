@@ -20,7 +20,7 @@ jest
   .useFakeTimers({
     doNotFake: ['nextTick', 'setImmediate'],
   })
-  .setSystemTime(new Date('2024-02-01'));
+  .setSystemTime(new Date('2024-02-01T00:00:00.000'));
 
 describe('Download Member ID Card Pdf', () => {
   beforeEach(async () => {
