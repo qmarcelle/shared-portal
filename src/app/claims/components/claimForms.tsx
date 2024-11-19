@@ -1,3 +1,4 @@
+import { ClaimFormsItemCard } from '@/app/claims/components/ClaimFormsItemCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
@@ -6,7 +7,6 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { ClaimFormsDetails } from '../models/claim_form_list_details';
-import { ClaimFormsItemCard } from './ClaimFormsItemCard';
 interface ClaimFormsCardProps extends IComponent {
   claimFormsDetails: ClaimFormsDetails[];
 }
