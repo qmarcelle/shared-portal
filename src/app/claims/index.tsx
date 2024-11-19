@@ -9,7 +9,7 @@ import { UnderstandingClaimsReimbursementCard } from './components/understanding
 
 const SubmitClaim = () => {
   return (
-    <div className="flex flex-col justify-center items-center page">
+    <section className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
         <Header className="font-bold" text="Submit a Claim" />
         <Spacer size={16} />
@@ -61,7 +61,7 @@ const SubmitClaim = () => {
           </Column>
         </section>
       </Column>
-    </div>
+    </section>
   );
 };
 

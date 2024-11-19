@@ -5,7 +5,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
+      <section
         class="flex flex-col justify-center items-center page"
       >
         <div
@@ -65,7 +65,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
-                          href="https://www.bcbst.com/docs/manage-my-plan/get-a-form/subscriber-claim-form.pdf"
+                          href=""
                           style="display: block;"
                           tabindex="-1"
                         >
@@ -124,7 +124,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
-                          href="https://www.bcbst.com/docs/prescription-claim-form.pdf"
+                          href=""
                           style="display: block;"
                           tabindex="-1"
                         >
@@ -183,7 +183,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
-                          href="https://www.bcbst.com/members/dental/dentalclaimform.pdf"
+                          href=""
                           style="display: block;"
                           tabindex="-1"
                         >
@@ -242,7 +242,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
-                          href="https://www.bcbst.com/members/vision/vision-claim-form.pdf"
+                          href=""
                           style="display: block;"
                           tabindex="-1"
                         >
@@ -301,7 +301,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
-                          href="https://www.bcbst.com/members/breast-pump-claim-form.pdf"
+                          href=""
                           style="display: block;"
                           tabindex="-1"
                         >
@@ -393,11 +393,11 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
             </div>
           </section>
         </div>
-      </div>
+      </section>
     </div>
   </body>,
   "container": <div>
-    <div
+    <section
       class="flex flex-col justify-center items-center page"
     >
       <div
@@ -457,7 +457,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
-                        href="https://www.bcbst.com/docs/manage-my-plan/get-a-form/subscriber-claim-form.pdf"
+                        href=""
                         style="display: block;"
                         tabindex="-1"
                       >
@@ -516,7 +516,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
-                        href="https://www.bcbst.com/docs/prescription-claim-form.pdf"
+                        href=""
                         style="display: block;"
                         tabindex="-1"
                       >
@@ -575,7 +575,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
-                        href="https://www.bcbst.com/members/dental/dentalclaimform.pdf"
+                        href=""
                         style="display: block;"
                         tabindex="-1"
                       >
@@ -634,7 +634,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
-                        href="https://www.bcbst.com/members/vision/vision-claim-form.pdf"
+                        href=""
                         style="display: block;"
                         tabindex="-1"
                       >
@@ -693,7 +693,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
-                        href="https://www.bcbst.com/members/breast-pump-claim-form.pdf"
+                        href=""
                         style="display: block;"
                         tabindex="-1"
                       >
@@ -785,7 +785,7 @@ exports[`Submit a claim Page should render UI correctly 1`] = `
           </div>
         </section>
       </div>
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
