@@ -11,6 +11,7 @@ export async function computeVisibilityRules(): Promise<string> {
   vRules['pharmacy'] = true;
   vRules['amplifyHealth'] = false;
   vRules['teladoc'] = true;
+  vRules['nonMemberDashboard'] = false;
   return encodeVisibilityRules(vRules);
 }
 
