@@ -6,7 +6,8 @@ const renderUI = () => {
   return render(<SubmitClaim />);
 };
 
-describe('Submit a claim Page', () => {
+// snapshot testing for subitclaim
+describe('Submit a claim Page UI', () => {
   it('should render UI correctly', async () => {
     const component = renderUI();
 
