@@ -29,6 +29,22 @@
   cursor: pointer;
 }
 
+.doughnut-img {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  height: 260px;
+}
+
+.doughnut-middle-text {
+  position: absolute;
+  top: 53%;
+  left: 47%;
+  text-align: center;
+  white-space: nowrap;
+  transform: translate(-47%, -50%);
+}
+
 @media (width>=768px) {
   .statementSummary .chartSection {
     float: left;
