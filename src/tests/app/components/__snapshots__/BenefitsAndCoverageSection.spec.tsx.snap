@@ -305,7 +305,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 class="link undefined"
                 style="display: block;"
               >
-                View All Benefits & Coverage
+                View Benefits & Coverage
               </p>
             </button>
           </a>
@@ -614,7 +614,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="link undefined"
               style="display: block;"
             >
-              View All Benefits & Coverage
+              View Benefits & Coverage
             </p>
           </button>
         </a>

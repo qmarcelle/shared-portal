@@ -69,7 +69,7 @@ export const BenefitsAndCoverageSection = ({
           </div>
         ))}
         <Spacer size={32} />
-        <AppLink label="View All Benefits & Coverage" />
+        <AppLink label="View Benefits & Coverage" />
       </div>
     </Card>
   );

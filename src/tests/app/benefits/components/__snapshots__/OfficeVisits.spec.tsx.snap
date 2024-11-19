@@ -1349,7 +1349,7 @@ exports[`Office Visits Detail should render UI correctly 1`] = `
                       class="link undefined"
                       style="display: block;"
                     >
-                      View All Balances
+                      View Balances
                     </p>
                   </button>
                 </a>
