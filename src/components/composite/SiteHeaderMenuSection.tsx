@@ -3,16 +3,11 @@ import { IComponent } from '../IComponent';
 import ProfileHeaderCard from './ProfileHeaderCard';
 
 export interface SiteHeaderMenuProps extends IComponent {
-  user: string;
   icon: JSX.Element;
   items: SectionHeaderMenuItem[];
 }
 
-export const SiteHeaderMenuSection = ({
-  user,
-  icon,
-  items,
-}: SiteHeaderMenuProps) => {
+export const SiteHeaderMenuSection = ({ icon, items }: SiteHeaderMenuProps) => {
   return (
     <div className="flex items-center">
       {items.map((item, index) => (
@@ -25,7 +20,7 @@ export const SiteHeaderMenuSection = ({
           <span className="hidden lg:inline px-2 pt-2">{item.title}</span>
         </a>
       ))}
-      <ProfileHeaderCard user={user} icon={icon} />
+      <ProfileHeaderCard icon={icon} />
     </div>
   );
 };
