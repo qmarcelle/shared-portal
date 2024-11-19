@@ -58,9 +58,7 @@ describe('EmployeeProvidedBenefitsTile', () => {
         'Your employer offers even more programs and benefits you can explore here',
       ),
     ).toBeVisible();
-    expect(
-      screen.getByText('View All Employer Provided Benefits'),
-    ).toBeVisible();
+    expect(screen.getByText('View Employer Provided Benefits')).toBeVisible();
 
     expect(component).toMatchSnapshot();
   });
