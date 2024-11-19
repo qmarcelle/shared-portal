@@ -7,6 +7,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import downloadIcon from '@/public/assets/download.svg';
 import Image from 'next/image';
 
+// ClaimFormsItemCard Props
 interface ClaimFormsItemCardProps extends IComponent {
   title: string;
   description: string;

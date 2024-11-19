@@ -28,7 +28,6 @@ export const ClaimFormsCard = ({ claimFormsDetails }: ClaimFormsCardProps) => {
           <Column key={index}>
             <ClaimFormsItemCard
               key={index}
-              //className="mb-4"
               title={item.title}
               description={item.description}
               url={item.url}

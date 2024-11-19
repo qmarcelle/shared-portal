@@ -5,6 +5,8 @@ import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 
+// UnderstandingClaimsReimbursementCard component
+
 export const UnderstandingClaimsReimbursementCard = () => {
   return (
     <Card>
