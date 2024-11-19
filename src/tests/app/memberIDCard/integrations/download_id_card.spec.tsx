@@ -102,6 +102,9 @@ describe('Download Member ID Card Pdf', () => {
       name: /When does this plan begin?/i,
     });
     await user.type(futureCardDateField, '12/05/2025');
+    await waitFor(() => {
+      expect(downloadIDCardButton).not.toBeDisabled();
+    });
     fireEvent.click(downloadIDCardButton);
 
     // Api is called with required values for selected date

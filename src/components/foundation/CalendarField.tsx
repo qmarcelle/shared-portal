@@ -126,10 +126,7 @@ export const CalendarField = ({
           `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}T00:00:00`,
         );
 
-        if (
-          isNaN(newDate.getTime()) ||
-          newDate.getDate() !== parseInt(day, 10)
-        ) {
+        if (Number.isNaN(newDate.getMonth())) {
           setError('Invalid Date');
           return;
         }
@@ -216,7 +213,6 @@ export const CalendarField = ({
           </Row>
         </div>
       )}
-
       <div className="w-full">
         <DatePicker
           selected={selectedDate}
