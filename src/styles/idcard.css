@@ -9,3 +9,9 @@
 .numberOfCards input {
   text-align: center;
 }
+
+.downloadErrorMsg {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
