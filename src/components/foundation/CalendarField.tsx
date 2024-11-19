@@ -123,7 +123,7 @@ export const CalendarField = ({
         const [month, day, year] = formattedValue.split('/');
 
         const newDate = new Date(
-          `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`,
+          `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}T00:00:00`,
         );
 
         if (
