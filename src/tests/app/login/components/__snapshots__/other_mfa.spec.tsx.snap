@@ -83,6 +83,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       <button
         aria-label="Confirm"
         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+        disabled=""
         type="button"
       >
         Confirm

@@ -169,6 +169,7 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                       <button
                         aria-label="Confirm"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                        disabled=""
                         type="button"
                       >
                         Confirm
@@ -559,6 +560,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                       <button
                         aria-label="Confirm"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                        disabled=""
                         type="button"
                       >
                         Confirm
@@ -789,6 +791,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                       <button
                         aria-label="Confirm"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                        disabled=""
                         type="button"
                       >
                         Confirm
