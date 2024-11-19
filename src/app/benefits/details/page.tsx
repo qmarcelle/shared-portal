@@ -27,7 +27,7 @@ const Details = () => {
   };
   console.log(benefitLevelDetails);
   const listCoveredServices: CoveredService[] | undefined =
-    selectedBenefitsBean.coveredServices.filter((service) => {
+    selectedBenefitsBean.coveredServices.filter((service: CoveredService) => {
       return service.categoryId === selectedBenefitCategory.id;
     });
   if (listCoveredServices) {
@@ -35,7 +35,7 @@ const Details = () => {
       listBenefitDetails: [
         {
           benefitTitle: service.description,
-          copayOrCoinsurance: service.copay.toString(),
+          copayOrCoinsurance: `$${service.copay} copay`,
         },
       ],
     }));

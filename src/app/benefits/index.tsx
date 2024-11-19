@@ -26,6 +26,7 @@ import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
 } from './components/MedicalPharmacyDentalCard';
+import { MemberBenefitsBean } from './models/member_benefits_bean';
 import { useBenefitsStore } from './stores/benefitsStore';
 
 const Benefits = () => {
@@ -52,6 +53,9 @@ const Benefits = () => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
   >([]);
+  const [rxBenefitsItems, setRXBenefitsItems] = useState<ManageBenefitsItems[]>(
+    [],
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
 
@@ -82,23 +86,7 @@ const Benefits = () => {
         console.log('Successful response from service');
         if (response.data && response.data.memberCk > 0) {
           setCurrentUserBenefitData(response.data);
-          const medicalBenefitsItems: ManageBenefitsItems[] = [];
-          if (response.data.medicalBenefits) {
-            response.data.medicalBenefits.serviceCategories.forEach((item) => {
-              medicalBenefitsItems.push({
-                title: item.category,
-                body: '',
-                externalLink: false,
-                onClick: () =>
-                  onBenefitSelected(item, response.data?.medicalBenefits),
-              });
-            });
-            console.log(JSON.stringify(medicalBenefitsItems));
-            setMedicalBenefitsItems(medicalBenefitsItems);
-          } else {
-            console.log('No data received from service');
-            setMedicalBenefitsItems([]);
-          }
+          setMedicalBenefitsFromResponse(response.data);
         } else {
           console.log('Error response from service');
         }
@@ -132,6 +120,46 @@ const Benefits = () => {
 
   if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  function setMedicalBenefitsFromResponse(benefitsBean: MemberBenefitsBean) {
+    if (benefitsBean.medicalBenefits) {
+      const medBenefits: ManageBenefitsItems[] = [];
+      benefitsBean.medicalBenefits.serviceCategories.forEach((item) => {
+        medBenefits.push({
+          title: item.category,
+          body: '',
+          externalLink: false,
+          onClick: () => onBenefitSelected(item, benefitsBean.medicalBenefits),
+        });
+        benefitsBean.medicalBenefits?.coveredServices;
+      });
+      console.log(JSON.stringify(medBenefits));
+      setMedicalBenefitsItems(medBenefits);
+      //Pharmacy
+      const rxItems: ManageBenefitsItems[] = [
+        {
+          title: 'Prescription Drugs',
+          body: '',
+          externalLink: false,
+          onClick: () =>
+            onBenefitSelected(
+              {
+                id: 107,
+                category: 'Prescription Drugs',
+                comments: '',
+                displaySortOrder: 0,
+              },
+              benefitsBean.medicalBenefits,
+            ),
+        },
+      ];
+      setRXBenefitsItems(rxItems);
+    } else {
+      console.log('No data received from service');
+      setRXBenefitsItems([]);
+      setMedicalBenefitsItems([]);
+    }
   }
 
   console.log(memberIndex);
@@ -196,14 +224,7 @@ const Benefits = () => {
                 className="small-section w-[672px] "
                 heading="Pharmacy"
                 cardIcon={<Image src={PharmacyIcon} alt="link" />}
-                manageBenefitItems={[
-                  {
-                    title: 'Prescription Drugs',
-                    body: '',
-                    externalLink: false,
-                    url: '/benefits/prescriptionDrugs',
-                  },
-                ]}
+                manageBenefitItems={rxBenefitsItems}
               />
             )}
             {currentBenefitsData.dentalBenefits && (
