@@ -4,8 +4,8 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { ClaimFormsCard } from './components/claimForms';
-import { UnderstandingClaimsReimbursementCard } from './components/understandingClaimsReimbursementCard';
+import { ClaimFormsCard } from './components/ClaimForms';
+import { UnderstandingClaimsReimbursementCard } from './components/UnderstandingClaimsReimbursementCard';
 
 const SubmitClaim = () => {
   return (

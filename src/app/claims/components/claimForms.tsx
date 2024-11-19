@@ -6,7 +6,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { ClaimFormsDetails } from '../models/claim_form_list_details';
-import { ClaimFormsItemCard } from './claimFormsItemCard';
+import { ClaimFormsItemCard } from './ClaimFormsItemCard';
 interface ClaimFormsCardProps extends IComponent {
   claimFormsDetails: ClaimFormsDetails[];
 }
