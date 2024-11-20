@@ -1,4 +1,4 @@
-export const DEHCNY02Benefits = {
+export const DentalBenefitsStub = {
   planId: 'DEHCNY02',
   productType: 'D',
   productPrefix: '0002',

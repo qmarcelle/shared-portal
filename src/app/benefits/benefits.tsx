@@ -1,4 +1,5 @@
 'use client';
+
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
@@ -15,13 +16,7 @@ import { RichText } from '@/components/foundation/RichText';
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import {
-  BenefitDropdownItem,
-  getBenefitTypes,
-  getMemberDropdownValues,
-} from './actions/benefitsUtils';
-import { getBenefitsData } from './actions/getBenefits';
-import getUserInfo from './actions/getUserInfo';
+import { BenefitDropdownItem } from './actions/benefitsUtils';
 import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
@@ -29,100 +24,32 @@ import {
 import { MemberBenefitsBean } from './models/member_benefits_bean';
 import { useBenefitsStore } from './stores/benefitsStore';
 
-const Benefits = () => {
-  const {
-    currentUserBenefitData,
-    setCurrentUserBenefitData,
-    userInfo,
-    setUserInfo,
-    memberIndex,
-    setMemberIndex,
-    setSelectedBenefitCategory,
-    setSelectedBenefitsBean,
-  } = useBenefitsStore();
+interface BenefitsProps {
+  benefitsBean: MemberBenefitsBean;
+  benefitsTypes: BenefitDropdownItem[];
+  memberDropdownValues: { label: string; value: string; id: string }[];
+}
 
-  // const [selectedBenefitType, setSelectedBenefitType] = useState<string>('M');
-  const [selectedMember, setSelectedMember] = useState<string>('0');
-  const selectedBenefitType = 'M';
-
-  const [memberDropdownValues, setMemberDropDownValues] = useState<
-    { label: string; value: string; id: string }[]
-  >([]);
-
-  const [benefitTypes, setBenefitTypes] = useState<BenefitDropdownItem[]>([]);
+const Benefits = ({
+  benefitsBean,
+  benefitsTypes,
+  memberDropdownValues,
+}: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
   >([]);
   const [rxBenefitsItems, setRXBenefitsItems] = useState<ManageBenefitsItems[]>(
     [],
   );
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [dentalBenefitsItems, setDentalBenefitsItems] = useState<
+    ManageBenefitsItems[]
+  >([]);
   const router = useRouter();
 
-  const onMemberSelectionChange = (selectedMember: string) => {
-    setSelectedMember(selectedMember);
-    setMemberIndex(parseInt(selectedMember));
-    const selectedMemberPlanDetails =
-      userInfo.members[parseInt(selectedMember)].planDetails;
-
-    setBenefitTypes(getBenefitTypes(selectedMemberPlanDetails));
-  };
-
-  //load initial member and screen
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      // load userInfo from service
-      const userInfoData = await getUserInfo();
-      setUserInfo(userInfoData);
-      const memberDropdowns = getMemberDropdownValues(userInfoData.members);
-      console.log(memberDropdowns);
-      setMemberDropDownValues(memberDropdowns);
-      onMemberSelectionChange(selectedMember);
-      const response = await getBenefitsData(
-        userInfoData.members[0],
-        selectedBenefitType,
-      );
-      if (response.status === 200) {
-        console.log('Successful response from service');
-        if (response.data && response.data.memberCk > 0) {
-          setCurrentUserBenefitData(response.data);
-          setMedicalBenefitsFromResponse(response.data);
-        } else {
-          console.log('Error response from service');
-        }
-      }
-
-      setIsLoading(false);
-    };
-    fetchInitialData();
-  }, []); // Add empty dependency array to run only once
-
-  function onBenefitSelected(
-    serviceCategory: ServiceCategory,
-    benefitsBean: BenefitDetailsBean | undefined,
-  ) {
-    if (benefitsBean === undefined || serviceCategory === undefined) {
-      console.log('Selected benefit missing benefits bean or service category');
-      return;
-    }
-    setSelectedBenefitCategory(serviceCategory);
-    setSelectedBenefitsBean(benefitsBean);
-    console.log(serviceCategory);
-    console.log(benefitsBean);
-    router.push('/benefits/details');
-  }
+  const { setSelectedBenefitCategory, setSelectedBenefitsBean } =
+    useBenefitsStore();
 
   useEffect(() => {
-    const selectedMemberPlanDetails =
-      userInfo.members[parseInt(selectedMember)].planDetails;
-    setBenefitTypes(getBenefitTypes(selectedMemberPlanDetails));
-  }, [selectedMember]); // Add dependencies to avoid unnecessary re-renders
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  function setMedicalBenefitsFromResponse(benefitsBean: MemberBenefitsBean) {
     if (benefitsBean.medicalBenefits) {
       const medBenefits: ManageBenefitsItems[] = [];
       benefitsBean.medicalBenefits.serviceCategories.forEach((item) => {
@@ -132,11 +59,9 @@ const Benefits = () => {
           externalLink: false,
           onClick: () => onBenefitSelected(item, benefitsBean.medicalBenefits),
         });
-        benefitsBean.medicalBenefits?.coveredServices;
       });
-      console.log(JSON.stringify(medBenefits));
       setMedicalBenefitsItems(medBenefits);
-      //Pharmacy
+
       const rxItems: ManageBenefitsItems[] = [
         {
           title: 'Prescription Drugs',
@@ -156,16 +81,37 @@ const Benefits = () => {
       ];
       setRXBenefitsItems(rxItems);
     } else {
-      console.log('No data received from service');
       setRXBenefitsItems([]);
       setMedicalBenefitsItems([]);
     }
-  }
+    if (benefitsBean.dentalBenefits) {
+      const denBenefits: ManageBenefitsItems[] = [];
+      benefitsBean.dentalBenefits.serviceCategories.forEach((item) => {
+        denBenefits.push({
+          title: item.category,
+          body: '',
+          externalLink: false,
+          onClick: () => onBenefitSelected(item, benefitsBean.dentalBenefits),
+        });
+      });
+      setDentalBenefitsItems(denBenefits);
+    }
+  }, [benefitsBean]);
 
-  console.log(memberIndex);
-  const currentBenefitsData = currentUserBenefitData;
-  console.log(currentUserBenefitData);
-  console.log(currentBenefitsData);
+  function onBenefitSelected(
+    serviceCategory: ServiceCategory,
+    benefitsBean: BenefitDetailsBean | undefined,
+  ) {
+    if (benefitsBean === undefined || serviceCategory === undefined) {
+      console.log('Selected benefit missing benefits bean or service category');
+      return;
+    }
+    setSelectedBenefitCategory(serviceCategory);
+    setSelectedBenefitsBean(benefitsBean);
+    console.log(serviceCategory);
+    console.log(benefitsBean);
+    router.push('/benefits/details');
+  }
 
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -201,8 +147,8 @@ const Benefits = () => {
                 {
                   type: 'dropdown',
                   label: 'Benefit Type',
-                  value: benefitTypes,
-                  selectedValue: benefitTypes[0],
+                  value: benefitsTypes,
+                  selectedValue: benefitsTypes[0],
                   // onFilterChanged: (selectedValue) => {
                   //   setSelectedBenefitType(selectedValue);
                   // },
@@ -211,7 +157,7 @@ const Benefits = () => {
             />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {currentBenefitsData.medicalBenefits && (
+            {benefitsBean.medicalBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] benefitsLink"
                 heading="Medical"
@@ -219,7 +165,7 @@ const Benefits = () => {
                 manageBenefitItems={medicalBenefitsItems}
               />
             )}
-            {currentBenefitsData.medicalBenefits && (
+            {benefitsBean.medicalBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Pharmacy"
@@ -227,76 +173,15 @@ const Benefits = () => {
                 manageBenefitItems={rxBenefitsItems}
               />
             )}
-            {currentBenefitsData.dentalBenefits && (
+            {benefitsBean.dentalBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Dental"
                 cardIcon={<Image src={DentalIcon} alt="link" />}
-                manageBenefitItems={[
-                  {
-                    title: 'Anesthesia',
-                    body: '',
-                    externalLink: false,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Basic',
-                    body: '',
-                    externalLink: false,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Diagnostic & Preventive',
-                    body: '',
-                    externalLink: false,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Endodontics',
-                    body: '',
-                    externalLink: false,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Major',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Occlusal Guard',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Oral Surgery',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Orthodontic Treatment',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Periodontics',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                  {
-                    title: 'TMJ Services',
-                    body: '',
-                    externalLink: true,
-                    url: 'url',
-                  },
-                ]}
+                manageBenefitItems={dentalBenefitsItems}
               />
             )}
-            {currentBenefitsData.visionBenefits && (
+            {benefitsBean.visionBenefits && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Vision"

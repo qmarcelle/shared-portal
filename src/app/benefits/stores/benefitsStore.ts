@@ -14,6 +14,9 @@ interface BenefitsState {
   setSelectedBenefitCategory: (category: ServiceCategory) => void;
   selectedBenefitsBean: BenefitDetailsBean;
   setSelectedBenefitsBean: (benefits: BenefitDetailsBean) => void;
+  memberBenefits: Record<number, MemberBenefitsBean>;
+  setMemberBenefits: (memberCk: number, benefits: MemberBenefitsBean) => void;
+  getMemberBenefits: (memberCk: number) => MemberBenefitsBean | undefined;
 }
 
 export const useBenefitsStore = create<BenefitsState>((set) => ({
@@ -42,4 +45,34 @@ export const useBenefitsStore = create<BenefitsState>((set) => ({
   },
   setSelectedBenefitsBean: (benefits) =>
     set({ selectedBenefitsBean: benefits }),
+  memberBenefits: {},
+  setMemberBenefits: (memberCk, benefits) =>
+    set((state) => ({
+      memberBenefits: {
+        ...state.memberBenefits,
+        [memberCk]: benefits,
+      },
+    })),
+  getMemberBenefits: (memberCk): MemberBenefitsBean =>
+    useBenefitsStore.getState().memberBenefits[memberCk],
 }));
+
+export const getBenefitsForMember = (memberCk: number, benefitType: string) => {
+  const memberBenefits = useBenefitsStore
+    .getState()
+    .getMemberBenefits(memberCk);
+  switch (benefitType) {
+    case 'M':
+      return memberBenefits?.medicalBenefits;
+    case 'D':
+      return memberBenefits?.dentalBenefits;
+    case 'V':
+      return memberBenefits?.visionBenefits;
+    case 'O':
+      return memberBenefits?.otherBenefits;
+    case 'R':
+      return memberBenefits?.medicalBenefits;
+    default:
+      return undefined;
+  }
+};
