@@ -100,7 +100,12 @@ describe('OrderId Card', () => {
     //After Address confirmation, Proceed with Complete Order Button.
     fireEvent.click(screen.getByRole('button', { name: /Complete Order/i }));
     await waitFor(() => {
-      expect(screen.getByText('Try Again Later')).toBeVisible();
+      expect(screen.getByText('Order Incomplete')).toBeVisible();
+      expect(
+        screen.getByText(
+          'Something went wrong while processing your ID card order. Please try again later.',
+        ),
+      ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
         `/IDCardService/Order?subscriberCk=${memberDetails.subscriber_ck}&groupId=${memberDetails.groupID}&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
@@ -140,7 +145,12 @@ describe('OrderId Card', () => {
     //After Address confirmation, Proceed with Complete Order Button.
     fireEvent.click(screen.getByRole('button', { name: /Complete Order/i }));
     await waitFor(() => {
-      expect(screen.getByText('Try Again Later')).toBeVisible();
+      expect(screen.getByText('Something went wrong.')).toBeVisible();
+      expect(
+        screen.getByText(
+          'We’re unable to take orders for printed ID cards at this time. Please try again later.',
+        ),
+      ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
         `/IDCardService/Order?subscriberCk=${memberDetails.subscriber_ck}&groupId=${memberDetails.groupID}&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
@@ -180,7 +190,12 @@ describe('OrderId Card', () => {
     //After Address confirmation, Proceed with Complete Order Button.
     fireEvent.click(screen.getByRole('button', { name: /Complete Order/i }));
     await waitFor(() => {
-      expect(screen.getByText('Try Again Later')).toBeVisible();
+      expect(screen.getByText('Something went wrong.')).toBeVisible();
+      expect(
+        screen.getByText(
+          'We’re unable to take orders for printed ID cards at this time. Please try again later.',
+        ),
+      ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
         `/IDCardService/Order?subscriberCk=${memberDetails.subscriber_ck}&groupId=${memberDetails.groupID}&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );

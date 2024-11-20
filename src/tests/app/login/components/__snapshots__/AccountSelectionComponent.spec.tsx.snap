@@ -135,6 +135,7 @@ exports[`Account selection Component should render all the required details 1`] 
           <button
             aria-label="Continue With This Username"
             class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold body-1"
+            disabled=""
             type="button"
           >
             Continue With This Username
@@ -338,6 +339,7 @@ exports[`Account selection Component should render all the required details 1`] 
         <button
           aria-label="Continue With This Username"
           class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold body-1"
+          disabled=""
           type="button"
         >
           Continue With This Username
