@@ -14,7 +14,7 @@ import { FilterDetails } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { SetStateAction, useState } from 'react';
 import { invokeSendEmailAction } from '../actions/sendEmailAction';
-import { EmailRequest } from '../models/emalAppData';
+import { EmailRequest } from '../models/email_app_data';
 
 interface SendEmailFormProps extends IComponent {
   email: string;

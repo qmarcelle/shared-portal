@@ -8,7 +8,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { FilterDetails } from '@/models/filter_dropdown_details';
 import SendEmailForm from './components/SendEmailForm';
-import { EmailAppData } from './models/emalAppData';
+import { EmailAppData } from './models/email_app_data';
 
 export type SendAnEmailProps = {
   data: EmailAppData;

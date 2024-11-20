@@ -4,7 +4,7 @@ import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
-import { EmailRequest, MemberDetails } from '../models/emalAppData';
+import { EmailRequest, MemberDetails } from '../models/email_app_data';
 
 export async function invokeFamilyMemberDetailsAction(
   memberCk: string,
