@@ -4,9 +4,11 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import alertErrorSvg from '../../../public/assets/alert_error_red.svg';
 import { IComponent } from '../IComponent';
 import { calenderIcon } from './Icons';
-
+import { Row } from './Row';
+import { TextBox } from './TextBox';
 export interface CalendarFieldProps extends IComponent {
   type?: 'date';
   label: string;
@@ -20,6 +22,7 @@ export interface CalendarFieldProps extends IComponent {
   minDate?: Date;
   maxDate?: Date;
   disabled?: boolean;
+  minDateErrMsg: string;
 }
 export const CalendarField = ({
   label,
@@ -32,6 +35,7 @@ export const CalendarField = ({
   maxDate,
   valueCallback,
   disabled,
+  minDateErrMsg,
 }: CalendarFieldProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const datePickerRef = useRef<DatePicker>(null);
@@ -102,13 +106,17 @@ export const CalendarField = ({
       if (formattedValue.length === 10) {
         const [month, day, year] = formattedValue.split('/');
         const newDate = new Date(`${year}-${month}-${day}`);
-        if (!newDate.getMonth()) {
+        if (Number.isNaN(newDate.getMonth())) {
           throw 'Invalid Date';
         }
+
+        minDate?.setHours(0, 0, 0, 0);
+        maxDate?.setHours(0, 0, 0, 0);
         // Checks whether date is in given ranges
         if (minDate) {
           if (newDate < minDate) {
-            setError('Date is out of allowed range');
+            valueCallback?.call(this, '');
+            setError(minDateErrMsg);
             return;
           }
         }
@@ -146,7 +154,7 @@ export const CalendarField = ({
       ref={inputRef}
       className={`flex flex-col relative inline-block w-full text-field ${error ? 'border-red-500' : ''}`}
     >
-      <p className="mb-1">{label}</p>
+      <p className="mb-2 mt-3">{label}</p>
 
       <div
         className={`flex flex-row items-center input relative w-full left-0 top-full ${className} ${
@@ -173,7 +181,14 @@ export const CalendarField = ({
         </div>
       </div>
 
-      {error && <div className="text-red-500 mt-1">{error}</div>}
+      {error && (
+        <div className="text-red-500 mt-1">
+          <Row>
+            <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+            <TextBox className="body-1 pt-1.5 ml-2" text={error} />
+          </Row>
+        </div>
+      )}
 
       <div className="w-full">
         <DatePicker

@@ -80,6 +80,7 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
         <button
           aria-label="Confirm Code"
           class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          disabled=""
           type="button"
         >
           Confirm Code
