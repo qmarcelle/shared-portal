@@ -5,7 +5,7 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import EstimateCost from '../../../public/assets/estimate_cost.svg';
+import EstimateCost from '@/public/assets/estimate_cost.svg';
 import { SpendingAccountSection } from '../benefits/balances/components/SpendingAccountsSection';
 import { MedicalBalanceSection } from '../dashboard/components/MedicalBalanceSection';
 import { BenefitDetailSection } from './components/BenefitDetailSection';
