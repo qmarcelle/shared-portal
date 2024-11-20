@@ -1,12 +1,12 @@
 'use server';
 
 import { ActionResponse } from '@/models/app/actionResponse';
-import { EmailAppData } from '../models/emalAppData';
 
 import {
   invokeEmailAction,
   invokePhoneNumberAction,
 } from '@/app/profileSettings/actions/profileSettingsAction';
+import { EmailAppData } from '../models/email_app_data';
 import { invokeFamilyMemberDetailsAction } from './sendEmailAction';
 
 export const getEmailData = async (): Promise<
