@@ -150,7 +150,7 @@ function mapDedAndOOPData(
       (member) => member.memberCk == item.memberCK,
     );
     return {
-      id: item.memberCK.toString().slice(-2),
+      id: member!.firstName + item.memberCK.toString().slice(-2), // This is done to prevent memberCK exposure
       name: member!.firstName + ' ' + member!.lastName,
       inNetDedMax: item.inNetDedMax,
       inNetDedMet: item.inNetDedMet,

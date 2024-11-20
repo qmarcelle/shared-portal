@@ -5,7 +5,7 @@ import { getDedAndOOPBalanceForSubscriberAndDep } from './actions/getDedAndOOPBa
 
 const BalancesPage = async () => {
   const balanceData = await getDedAndOOPBalanceForSubscriberAndDep();
-  console.log(balanceData.data?.medical);
+
   return <Balances data={balanceData.data} />;
 };
 
