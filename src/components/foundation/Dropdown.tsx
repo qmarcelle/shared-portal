@@ -1,7 +1,7 @@
+import downIcon from '@/public/assets/down.svg';
 import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import downIcon from '../../../public/assets/down.svg';
 import { checkBlueIcon } from './Icons';
 import { Row } from './Row';
 import { Spacer } from './Spacer';

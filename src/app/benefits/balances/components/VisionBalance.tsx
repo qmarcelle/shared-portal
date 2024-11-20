@@ -1,12 +1,12 @@
+import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
 import { Header } from '@/components/foundation/Header';
 import { externalIcon } from '@/components/foundation/Icons';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import { IComponent } from '../../../../components/IComponent';
-import { Card } from '../../../../components/foundation/Card';
-import { Spacer } from '../../../../components/foundation/Spacer';
-import { TextBox } from '../../../../components/foundation/TextBox';
 
 interface VisionBalanceProps extends IComponent {
   linkURL: string;
