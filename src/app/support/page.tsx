@@ -21,7 +21,7 @@ import { ContactUsItemTile } from './components/ContactUsItemTile';
 import { ResourceMiniCard } from './components/ResourceMiniCard';
 
 function openSurvey() {
-  window.open(
+  window?.open(
     'https://bcbst.qualtrics.com/jfe/form/SV_6rHlwsGRs79CO33?Q_CHL=si',
     '_blank',
     'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=400',
@@ -76,7 +76,7 @@ const RESOURCES = [
   {
     icon: <Image src={questionsIcon} alt="questions icon" />,
     label: 'Frequently Asked Questions',
-    link: '/faq',
+    link: '/support/faq',
     external: false,
   },
   {
