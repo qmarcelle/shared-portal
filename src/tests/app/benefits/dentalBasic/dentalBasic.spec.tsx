@@ -41,7 +41,7 @@ describe('DentalBasic', () => {
     expect(screen.getByText('Deductible')).toBeVisible();
     expect(screen.getByText('Out-of-Pocket')).toBeVisible();
     expect(screen.getByText('Services Used')).toBeVisible();
-    expect(screen.getByText('$90.00')).toBeVisible();
+    expect(screen.getByText('90.0')).toBeVisible();
     screen.getByText('Member :');
     screen.getAllByText('Chris Hall');
     const baseUrl = window.location.origin;

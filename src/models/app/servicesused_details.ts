@@ -1,5 +1,5 @@
 export interface ServicesUsed {
-  spentAmount: number;
-  limitAmount: number;
+  spentAmount: string;
+  limitAmount: string;
   serviceName: string;
 }

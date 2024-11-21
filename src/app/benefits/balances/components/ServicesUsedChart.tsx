@@ -1,10 +1,10 @@
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
+import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { formatCurrency } from '@/utils/currency_formatter';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { ServicesUsed } from '../../../models/app/servicesused_details';
+import { ServicesUsed } from '@/models/app/servicesused_details';
 
 interface ServicesUsedChartProps {
   label: string;
@@ -27,20 +27,10 @@ export const ServicesUsedChart = ({
           <div>
             <Row key={index}>
               <Column>
-                <TextBox
-                  className="font-bold"
-                  text={formatCurrency(item.spentAmount) ?? '--'}
-                />
+                <TextBox className="font-bold" text={item.spentAmount} />
                 <TextBox type="body-2" text="Used" />
               </Column>
-              <TextBox
-                className="ml-5"
-                text={
-                  (formatCurrency(item.limitAmount) ?? '--') +
-                  ' ' +
-                  item.serviceName
-                }
-              />
+              <TextBox className="ml-5" text={item.serviceName} />
             </Row>
             <Spacer size={16} />
             <Divider />
@@ -48,6 +38,22 @@ export const ServicesUsedChart = ({
           </div>
         ))}
       <Spacer size={8} />
+      <Column>
+        <RichText
+          type="body-2"
+          spans={[
+            <span key={0}>
+              Services Used is based on your processed items. There may be a
+              delay in the Services Used list updating. If you&apos;re unsure if
+              a service has been used,{' '}
+            </span>,
+            <span className="link" key={1}>
+              <a> start a chat </a>
+            </span>,
+            <span key={3}> or call us at [1-800-000-0000].</span>,
+          ]}
+        />
+      </Column>
     </div>
   );
 };
