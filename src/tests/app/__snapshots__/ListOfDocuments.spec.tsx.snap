@@ -42,7 +42,9 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
               <div
                 class="flex flex-row link"
               >
-                <p>
+                <p
+                  class="body-bold"
+                >
                   Date(Most Recent)
                 </p>
                 <span
@@ -65,7 +67,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 style="display: none; position: absolute;"
               >
                 <div
-                  class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                  class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                 >
                   <div
                     class="size-5 mx-2 "
@@ -204,7 +206,9 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
             <div
               class="flex flex-row link"
             >
-              <p>
+              <p
+                class="body-bold"
+              >
                 Date(Most Recent)
               </p>
               <span
@@ -227,7 +231,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
               style="display: none; position: absolute;"
             >
               <div
-                class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
               >
                 <div
                   class="size-5 mx-2 "

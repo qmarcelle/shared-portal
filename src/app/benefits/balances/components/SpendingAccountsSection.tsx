@@ -1,12 +1,12 @@
+import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { formatCurrency } from '@/utils/currency_formatter';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { Spacer } from '../../../components/foundation/Spacer';
 
 export interface SpendingAccountSectionProps extends IComponent {
   linkURL: string;

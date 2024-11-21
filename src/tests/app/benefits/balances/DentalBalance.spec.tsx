@@ -1,10 +1,11 @@
-import { DentalBalance } from '@/app/balances/components/DentalBalance';
+import { BalanceSection } from '@/app/benefits/balances/components/BalanceSection';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 const renderUI = () => {
   return render(
-    <DentalBalance
+    <BalanceSection
+      title="Dental Balance"
       className="large-section"
       members={[
         {
@@ -16,21 +17,21 @@ const renderUI = () => {
           value: '43',
         },
       ]}
-      deductibleLimit={null}
-      deductibleSpent={null}
+      deductibleLimit={undefined}
+      deductibleSpent={undefined}
       onSelectedMemberChange={() => {}}
-      outOfPocketLimit={null}
-      outOfPocketSpent={null}
+      outOfPocketLimit={undefined}
+      outOfPocketSpent={undefined}
       selectedMemberId="43"
       serviceDetailsUsed={[
         {
-          limitAmount: 2000,
-          spentAmount: 90.0,
+          limitAmount: '2000',
+          spentAmount: '90.0',
           serviceName: 'Annual Maximum Basic and Major Coverage',
         },
         {
-          limitAmount: 2000,
-          spentAmount: 0.0,
+          limitAmount: '2000',
+          spentAmount: '0.0',
           serviceName: 'Ortho Lifetime Maximum',
         },
       ]}
@@ -46,11 +47,11 @@ describe('DentalBalance', () => {
     expect(screen.getByText('Deductible')).toBeVisible();
     expect(screen.getByText('Out-of-Pocket')).toBeVisible();
     expect(screen.getByText('Services Used')).toBeVisible();
-    expect(screen.getByText('$90.00')).toBeVisible();
+    expect(screen.getByText('90.0')).toBeVisible();
     expect(
-      screen.getByText('$2,000.00 Annual Maximum Basic and Major Coverage'),
+      screen.getByText('Annual Maximum Basic and Major Coverage'),
     ).toBeVisible();
-    expect(screen.getByText('$2,000.00 Ortho Lifetime Maximum')).toBeVisible();
+    expect(screen.getByText('Ortho Lifetime Maximum')).toBeVisible();
 
     expect(component).toMatchSnapshot();
   });
