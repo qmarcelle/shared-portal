@@ -41,6 +41,7 @@ const BenefitsAndCoveragePage = async () => {
   }
   return (
     <Benefits
+      planDetails={firstMember.planDetails}
       benefitsBean={loadBenefitsData.data}
       benefitsTypes={getBenefitTypes(firstMember.planDetails)}
       memberDropdownValues={getMemberDropdownValues(userInfoData.data?.members)}

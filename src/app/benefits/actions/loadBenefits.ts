@@ -3,7 +3,7 @@ import { ActionResponse } from '@/models/app/actionResponse';
 import { Member } from '@/models/member/api/loggedInUserInfo';
 import { logger } from '@/utils/logger';
 import { MemberBenefitsBean } from '../models/member_benefits_bean';
-import getStubbedBenefits from './benefitServiceStub';
+import callBenefitService from './callBenefitService';
 
 export interface PlanDetailsInfo {
   productCategory: string;
@@ -25,7 +25,7 @@ export default async function loadBenefits(
     logger.info(
       `Returning cached benefits data from server for member: ${member.memberCk}`,
     );
-    return { status: 200, data: serverCache.get(member.memberCk)! };
+    return { status: 200, data: serverCache.get(member.memberCk) };
   }
 
   // Call the API to get benefits data based on member and benefitType
@@ -34,12 +34,16 @@ export default async function loadBenefits(
   const listOfPlansToQuery: PlanDetailsInfo[] = [];
   logger.info(`Benefit type: ${benefitType}`);
   if (benefitType == 'A') {
-    member.planDetails.flatMap((item) => {
-      listOfPlansToQuery.push({
-        productCategory: item.productCategory,
-        planID: item.planID,
+    member.planDetails
+      .filter(
+        (item) => item.productCategory == 'M' || item.productCategory == 'D',
+      )
+      .flatMap((item) => {
+        listOfPlansToQuery.push({
+          productCategory: item.productCategory,
+          planID: item.planID,
+        });
       });
-    });
   } else {
     const searchBenefitType = benefitType == 'R' ? 'M' : benefitType; //RX info is under Medical
     const planInfo = member.planDetails.find(
@@ -60,7 +64,7 @@ export default async function loadBenefits(
   logger.info(
     `List of plans to query: ${listOfPlansToQuery.flatMap((item) => item.planID)}`,
   );
-  const benefitsInfo = await getStubbedBenefits(
+  const benefitsInfo = await callBenefitService(
     member.memberCk,
     listOfPlansToQuery,
   );

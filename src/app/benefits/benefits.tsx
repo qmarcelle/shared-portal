@@ -14,6 +14,7 @@ import { Filter } from '@/components/foundation/Filter';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 
+import { PlanDetail } from '@/models/member/api/loggedInUserInfo';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { BenefitDropdownItem } from './actions/benefitsUtils';
@@ -28,9 +29,11 @@ interface BenefitsProps {
   benefitsBean: MemberBenefitsBean;
   benefitsTypes: BenefitDropdownItem[];
   memberDropdownValues: { label: string; value: string; id: string }[];
+  planDetails: PlanDetail[];
 }
 
 const Benefits = ({
+  planDetails,
   benefitsBean,
   benefitsTypes,
   memberDropdownValues,
@@ -46,8 +49,25 @@ const Benefits = ({
   >([]);
   const router = useRouter();
 
-  const { setSelectedBenefitCategory, setSelectedBenefitsBean } =
-    useBenefitsStore();
+  const { setSelectedBenefitDetails } = useBenefitsStore();
+
+  function filterAndGroupByCategoryId(
+    data: CoveredService[] | undefined,
+    categoryId: number,
+  ) {
+    if (data === undefined) {
+      return [];
+    }
+    return data
+      .map((item) => {
+        return {
+          serviceDetails: item.serviceDetails.filter(
+            (detail) => detail.categoryId === categoryId,
+          ),
+        };
+      })
+      .filter((item) => item.serviceDetails.length > 0);
+  }
 
   useEffect(() => {
     if (benefitsBean.medicalBenefits) {
@@ -57,7 +77,15 @@ const Benefits = ({
           title: item.category,
           body: '',
           externalLink: false,
-          onClick: () => onBenefitSelected(item, benefitsBean.medicalBenefits),
+          onClick: () =>
+            onBenefitSelected(
+              benefitsBean.medicalBenefits?.networkTiers,
+              filterAndGroupByCategoryId(
+                benefitsBean.medicalBenefits?.coveredServices,
+                item.id,
+              ),
+              { category: item.category, id: item.id },
+            ),
         });
       });
       setMedicalBenefitsItems(medBenefits);
@@ -69,13 +97,12 @@ const Benefits = ({
           externalLink: false,
           onClick: () =>
             onBenefitSelected(
-              {
-                id: 107,
-                category: 'Prescription Drugs',
-                comments: '',
-                displaySortOrder: 0,
-              },
-              benefitsBean.medicalBenefits,
+              benefitsBean.medicalBenefits?.networkTiers,
+              filterAndGroupByCategoryId(
+                benefitsBean.medicalBenefits?.coveredServices,
+                107,
+              ),
+              { category: 'Prescription Drugs', id: 107 },
             ),
         },
       ];
@@ -91,27 +118,39 @@ const Benefits = ({
           title: item.category,
           body: '',
           externalLink: false,
-          onClick: () => onBenefitSelected(item, benefitsBean.dentalBenefits),
+          onClick: () =>
+            onBenefitSelected(
+              benefitsBean.dentalBenefits?.networkTiers,
+              filterAndGroupByCategoryId(
+                benefitsBean.dentalBenefits?.coveredServices,
+                item.id,
+              ),
+              { category: item.category, id: item.id },
+            ),
         });
       });
       setDentalBenefitsItems(denBenefits);
     }
-  }, [benefitsBean]);
 
-  function onBenefitSelected(
-    serviceCategory: ServiceCategory,
-    benefitsBean: BenefitDetailsBean | undefined,
-  ) {
-    if (benefitsBean === undefined || serviceCategory === undefined) {
-      console.log('Selected benefit missing benefits bean or service category');
-      return;
+    function onBenefitSelected(
+      networkTiers: NetWorksAndTierInfo[] | undefined,
+      serviceCategory: { serviceDetails: ServiceDetails[] }[],
+      category: { category: string; id: number },
+    ) {
+      if (networkTiers === undefined || serviceCategory === undefined) {
+        console.log(
+          'Selected benefit missing benefits bean or service category',
+        );
+        return;
+      }
+      setSelectedBenefitDetails({
+        networkTiers: networkTiers,
+        coveredServices: serviceCategory,
+        serviceCategory: category,
+      });
+      router.push('/benefits/details');
     }
-    setSelectedBenefitCategory(serviceCategory);
-    setSelectedBenefitsBean(benefitsBean);
-    console.log(serviceCategory);
-    console.log(benefitsBean);
-    router.push('/benefits/details');
-  }
+  }, [benefitsBean]);
 
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -157,7 +196,7 @@ const Benefits = ({
             />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {benefitsBean.medicalBenefits && (
+            {planDetails.find((item) => item.productCategory === 'M') && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] benefitsLink"
                 heading="Medical"
@@ -165,7 +204,7 @@ const Benefits = ({
                 manageBenefitItems={medicalBenefitsItems}
               />
             )}
-            {benefitsBean.medicalBenefits && (
+            {planDetails.find((item) => item.productCategory === 'M') && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Pharmacy"
@@ -173,7 +212,7 @@ const Benefits = ({
                 manageBenefitItems={rxBenefitsItems}
               />
             )}
-            {benefitsBean.dentalBenefits && (
+            {planDetails.find((item) => item.productCategory === 'D') && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Dental"
@@ -181,7 +220,8 @@ const Benefits = ({
                 manageBenefitItems={dentalBenefitsItems}
               />
             )}
-            {benefitsBean.visionBenefits && (
+            {planDetails.find((item) => item.productCategory === 'V') !==
+              undefined && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Vision"
