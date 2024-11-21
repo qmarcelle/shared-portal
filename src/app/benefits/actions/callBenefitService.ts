@@ -11,7 +11,7 @@ export default async function callBenefitService(
   const benefitsData: MemberBenefitsBean = { memberCk: memberCk };
   for (const plan of listOfPlansToQuery) {
     const resp = await memberService.get<BenefitDetailsBean>(
-      `/api/member/v1/members/byMemberCk/${memberCk}/benefits/planDetails/${plan.productCategory}/${plan.planID}`,
+      `/api/member/v1/members/byMemberCk/${memberCk}/benefits/planDetails/${plan.productCategory}/${plan.planID}?displayMode=6&indicator=W`,
     );
 
     if (resp.status !== 200) {
@@ -21,8 +21,6 @@ export default async function callBenefitService(
 
     if (plan.productCategory == 'M') benefitsData.medicalBenefits = resp.data;
     if (plan.productCategory == 'D') benefitsData.dentalBenefits = resp.data;
-    if (plan.productCategory == 'V') benefitsData.visionBenefits = resp.data;
-    if (plan.productCategory == 'O') benefitsData.otherBenefits = resp.data;
   }
   logger.info(`Benefits for member: ${memberCk} loaded successfully`);
   logger.info(JSON.stringify(benefitsData));

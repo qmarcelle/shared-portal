@@ -5,42 +5,49 @@ import { BenefitLevelDetails } from '../models/benefit_type_header_details';
 import { useBenefitsStore } from '../stores/benefitsStore';
 
 const Details = () => {
-  const { selectedBenefitsBean, selectedBenefitCategory } = useBenefitsStore();
+  const { selectedBenefitDetails } = useBenefitsStore();
 
   // Check if benefitsData is populated
-  if (!selectedBenefitsBean || !selectedBenefitCategory) {
+  if (!selectedBenefitDetails) {
     return 'No benefits data available.';
   }
 
   const benefitTypeDetails: BenefitTypeDetail = { benefitDetails: [] };
-  console.log(selectedBenefitsBean);
   const benefitLevelDetails: BenefitLevelDetails[] =
-    selectedBenefitsBean.networkTiers.map((tier: NetWorksAndTierInfo) => {
+    selectedBenefitDetails.networkTiers.map((tier: NetWorksAndTierInfo) => {
       return {
         benefitLevel: tier.tierDesc,
         benefitValue: tier.tierExplanation,
       };
     });
   benefitTypeDetails.benefitTypeHeaderDetails = {
-    title: selectedBenefitCategory.category,
+    title: selectedBenefitDetails.serviceCategory.category,
     benefitLevelDetails: benefitLevelDetails,
   };
   console.log(benefitLevelDetails);
-  const listCoveredServices: CoveredService[] | undefined =
-    selectedBenefitsBean.coveredServices.filter((service: CoveredService) => {
-      return service.categoryId === selectedBenefitCategory.id;
-    });
-  if (listCoveredServices) {
-    benefitTypeDetails.benefitDetails = listCoveredServices.map((service) => ({
-      listBenefitDetails: [
-        {
-          benefitTitle: service.description,
-          copayOrCoinsurance: `$${service.copay} copay`,
-        },
-      ],
-    }));
-    console.log(benefitTypeDetails.benefitDetails);
-  }
+  const listCoveredServices = selectedBenefitDetails.coveredServices.map(
+    (service) => {
+      return {
+        listBenefitDetails: service.serviceDetails.map((detail) => {
+          const copayInsurance = detail.copay
+            ? `$${detail.copay} copay`
+            : detail.memberPays
+              ? `${detail.memberPays}% coinsurance after you pay the deductible`
+              : '';
+          return {
+            benefitTitle: detail.description,
+            copayOrCoinsurance: copayInsurance,
+          };
+        }),
+        note: service.serviceDetails[0].comment
+          ? service.serviceDetails[0].comment
+          : '',
+      };
+    },
+  );
+
+  benefitTypeDetails.benefitDetails = listCoveredServices;
+  console.log(benefitTypeDetails.benefitDetails);
   console.log(`List of covered services: ${listCoveredServices}`);
   console.log(`BenefitTypeDetails: ${benefitTypeDetails}`);
 

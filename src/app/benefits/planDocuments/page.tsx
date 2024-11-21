@@ -20,7 +20,7 @@ const PlanDocuments = () => {
           <Spacer size={16} />
           <TextBox
             className="max-w-[650px]"
-            text="We’ve put together quick-reference guides that explain your plan
+            text="We've put together quick-reference guides that explain your plan
             details and help you get the most from your benefits."
           />
         </section>

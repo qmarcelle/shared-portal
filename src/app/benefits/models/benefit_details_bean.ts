@@ -2,6 +2,13 @@
 interface BenefitDetailsBean {
   planId: string;
   productType: string;
+  productPrefix?: string;
+  planType?: string;
+  planStartDate?: string;
+  planEffectiveDate?: string;
+  planTermDate?: string;
+  coverageLevelCode?: string;
+  coverageLevelDescription?: string;
   carveOutInfo: CarveOutInfo[];
   rateSchedule: RateSchedule[];
   networkTiers: NetWorksAndTierInfo[];
@@ -39,11 +46,14 @@ interface ServiceCategory {
   category: string;
   comments: string;
   sortOrder?: number;
-  displaySortOrder: number | null;
-  services?: CoveredService[];
+  displaySortOrder?: number | null;
 }
 
 interface CoveredService {
+  serviceDetails: ServiceDetails[];
+}
+
+interface ServiceDetails {
   categoryId: number;
   description: string;
   tierCode: string;
@@ -52,5 +62,4 @@ interface CoveredService {
   deductible: number;
   memberPays: number;
   comment?: string;
-  displaySortOrder: number;
 }
