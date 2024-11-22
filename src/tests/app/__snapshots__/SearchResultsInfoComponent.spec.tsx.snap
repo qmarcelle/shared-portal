@@ -68,7 +68,9 @@ exports[`Search Results Page should render all the required components 1`] = `
                 <div
                   class="flex flex-row link"
                 >
-                  <p>
+                  <p
+                    class="body-bold"
+                  >
                     Most Relevant
                   </p>
                   <span
@@ -91,7 +93,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                   style="display: none; position: absolute;"
                 >
                   <div
-                    class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                    class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                   >
                     <div
                       class="size-5 mx-2 "
@@ -118,7 +120,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                     </div>
                   </div>
                   <div
-                    class="flex flex-row  dropdown-item p-2"
+                    class="flex flex-row  dropdown-item p-2 cursor-pointer"
                   >
                     <div
                       class="size-5 mx-2"
@@ -132,7 +134,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                     </div>
                   </div>
                   <div
-                    class="flex flex-row  dropdown-item p-2"
+                    class="flex flex-row  dropdown-item p-2 cursor-pointer"
                   >
                     <div
                       class="size-5 mx-2"
@@ -631,7 +633,9 @@ exports[`Search Results Page should render all the required components 1`] = `
               <div
                 class="flex flex-row link"
               >
-                <p>
+                <p
+                  class="body-bold"
+                >
                   Most Relevant
                 </p>
                 <span
@@ -654,7 +658,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                 style="display: none; position: absolute;"
               >
                 <div
-                  class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                  class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                 >
                   <div
                     class="size-5 mx-2 "
@@ -681,7 +685,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                   </div>
                 </div>
                 <div
-                  class="flex flex-row  dropdown-item p-2"
+                  class="flex flex-row  dropdown-item p-2 cursor-pointer"
                 >
                   <div
                     class="size-5 mx-2"
@@ -695,7 +699,7 @@ exports[`Search Results Page should render all the required components 1`] = `
                   </div>
                 </div>
                 <div
-                  class="flex flex-row  dropdown-item p-2"
+                  class="flex flex-row  dropdown-item p-2 cursor-pointer"
                 >
                   <div
                     class="size-5 mx-2"

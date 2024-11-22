@@ -74,7 +74,7 @@ const RESOURCES = [
   {
     icon: <Image src={questionsIcon} alt="questions icon" />,
     label: 'Frequently Asked Questions',
-    link: '/faq',
+    link: '/support/faq',
     external: false,
   },
   {

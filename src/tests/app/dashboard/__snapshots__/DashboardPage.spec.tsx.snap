@@ -1,8 +1,1868 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
-<body>
-  <div>
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col self-stretch"
+        >
+          <div>
+            <div
+              class="flex flex-row py-1 px-2 w-full alert-tile"
+            >
+              <div>
+                <img
+                  alt="AlertIcon"
+                  class="icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+              <p
+                class="mx-1 grow"
+              >
+                There is a planned system outage on July 23-25
+              </p>
+              <div>
+                <img
+                  alt="CloseIcon"
+                  class="icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+            <div
+              class="divider"
+            />
+          </div>
+          <div
+            class="flex flex-row py-1 px-2 w-full alert-tile"
+          >
+            <div>
+              <img
+                alt="AlertIcon"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <p
+              class="mx-1 grow"
+            >
+              Another type of message that effects
+            </p>
+            <div>
+              <img
+                alt="CloseIcon"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
+        >
+          <div
+            class="flex flex-col items-start w-full app-content px-4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <h1
+              class="title-1 font-thin"
+            >
+              Welcome, 
+               
+              Chris
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+            >
+              Plan: BlueCross BlueShield of Tennessee
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <p
+              class="body-1"
+            >
+              Subscriber ID: 902218823
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <p
+              class="body-1"
+            >
+              Group ID: 100000
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <p
+              class="body-1"
+            >
+              Policies: Medical, Dental, Vision
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <a
+              class="link-white-text"
+              href="/myPlan"
+            >
+              <p
+                class="pb-2 pt-2"
+              >
+                View Plan Details
+              </p>
+            </a>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col w-full justify-center items-center page"
+        >
+          <div
+            class="flex flex-col app-content app-base-font-color"
+          >
+            <section
+              class="sm:flex sm:flex-row items-start"
+            >
+              <div
+                class="card-elevated health-advisor-card basis-0 px-3 pt-3 sm:shrink-1 sm:basis-[96.7%] sm:ml-4 sm:pr-0 sm:mt-4 sm:pl-8 sm:pt-8"
+              >
+                <section
+                  class="sm:flex sm:flex-row"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <h2
+                      class="title-2 !font-light !text-[32px]/[40px]"
+                    >
+                      My AmplifyHealth Advisor
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p>
+                      Have a question or need advice? Your AmplifyHealth Advisor is here for you 24/7. You can start a chat or call us at [1-800-000-0000].
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <a
+                      class="link link-hover"
+                      href="/amplifyHealthSupport"
+                    >
+                      <p
+                        class="pb-2 pt-2"
+                      >
+                        Learn More About My AmplifyHealth Advisor
+                      </p>
+                    </a>
+                  </div>
+                  <section
+                    class="health-advisor-image max-md:w-full"
+                  />
+                </section>
+              </div>
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <section
+              class="flex flex-row items-start app-body"
+            >
+              <div
+                class="flex flex-col flex-grow page-section-63_33 items-stretch"
+              >
+                <div
+                  class="card-main large-section"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Recent Claims
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="card-button cursor-pointer mb-4"
+                    >
+                      <section
+                        class="md:flex md:flex-row align-top m-4"
+                      >
+                        <img
+                          alt="Medical"
+                          class="icon max-md:hidden"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class="flex flex-col min-w-[95%]"
+                        >
+                          <section
+                            class="md:flex md:flex-row md:justify-between"
+                          >
+                            <section
+                              class="flex flex-row mb-[10px] md:flex-col"
+                            >
+                              <img
+                                alt="Medical"
+                                class="icon md:hidden"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <h3
+                                class="title-3 body-bold primary-color max-md:ml-[5px]"
+                              >
+                                John Doe
+                              </h3>
+                            </section>
+                            <section
+                              class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                            >
+                              <div
+                                class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                              >
+                                <div
+                                  class="circle rounded-full w-3 h-3 aspect-square"
+                                />
+                                <p
+                                  class="font-bold ml-2 body-2"
+                                >
+                                  Processed
+                                </p>
+                              </div>
+                              <div
+                                class="flex flex-col md:hidden"
+                              >
+                                <p
+                                  class="body-1 body-1 font-bold mt-2"
+                                >
+                                  $67
+                                </p>
+                              </div>
+                            </section>
+                          </section>
+                          <div
+                            class="flex flex-row justify-between"
+                          >
+                            <div
+                              class="flex flex-col"
+                            >
+                              <p
+                                class="body-1 body-1 mt-2"
+                              >
+                                Visited on 02/06/2024, For Chris James
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col max-md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $67
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                    <div
+                      class="card-button cursor-pointer mb-4"
+                    >
+                      <section
+                        class="md:flex md:flex-row align-top m-4"
+                      >
+                        <img
+                          alt="Pharmacy"
+                          class="icon max-md:hidden"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class="flex flex-col min-w-[95%]"
+                        >
+                          <section
+                            class="md:flex md:flex-row md:justify-between"
+                          >
+                            <section
+                              class="flex flex-row mb-[10px] md:flex-col"
+                            >
+                              <img
+                                alt="Pharmacy"
+                                class="icon md:hidden"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <h3
+                                class="title-3 body-bold primary-color max-md:ml-[5px]"
+                              >
+                                John Doe
+                              </h3>
+                            </section>
+                            <section
+                              class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                            >
+                              <div
+                                class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
+                              >
+                                <div
+                                  class="circle rounded-full w-3 h-3 aspect-square"
+                                />
+                                <p
+                                  class="font-bold ml-2 body-2"
+                                >
+                                  Pending
+                                </p>
+                              </div>
+                              <div
+                                class="flex flex-col md:hidden"
+                              >
+                                <p
+                                  class="body-1 body-1 font-bold mt-2"
+                                >
+                                  $30.24
+                                </p>
+                              </div>
+                            </section>
+                          </section>
+                          <div
+                            class="flex flex-row justify-between"
+                          >
+                            <div
+                              class="flex flex-col"
+                            >
+                              <p
+                                class="body-1 body-1 mt-2"
+                              >
+                                Visited on 01/06/2024, For Aly Jame
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col max-md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $30.24
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                    <div
+                      class="card-button cursor-pointer mb-4"
+                    >
+                      <section
+                        class="md:flex md:flex-row align-top m-4"
+                      >
+                        <img
+                          alt="Dental"
+                          class="icon max-md:hidden"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class="flex flex-col min-w-[95%]"
+                        >
+                          <section
+                            class="md:flex md:flex-row md:justify-between"
+                          >
+                            <section
+                              class="flex flex-row mb-[10px] md:flex-col"
+                            >
+                              <img
+                                alt="Dental"
+                                class="icon md:hidden"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                              <h3
+                                class="title-3 body-bold primary-color max-md:ml-[5px]"
+                              >
+                                John Doe
+                              </h3>
+                            </section>
+                            <section
+                              class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                            >
+                              <div
+                                class="error flex flex-row justify-center items-center px-2 py-1 rounded"
+                              >
+                                <div
+                                  class="circle rounded-full w-3 h-3 aspect-square"
+                                />
+                                <p
+                                  class="font-bold ml-2 body-2"
+                                >
+                                  Denied
+                                </p>
+                              </div>
+                              <div
+                                class="flex flex-col md:hidden"
+                              >
+                                <p
+                                  class="body-1 body-1 font-bold mt-2"
+                                >
+                                  $65.61
+                                </p>
+                              </div>
+                            </section>
+                          </section>
+                          <div
+                            class="flex flex-row justify-between"
+                          >
+                            <div
+                              class="flex flex-col"
+                            >
+                              <p
+                                class="body-1 body-1 mt-2"
+                              >
+                                Visited on 01/16/2024, For Aly Jame
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col max-md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $65.61
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          View Claims
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="card-main large-section"
+                >
+                  <div>
+                    <h2
+                      class="title-2"
+                    >
+                      Medical & Pharmacy Balance
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p>
+                        Member :
+                      </p>
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="relative"
+                      >
+                        <div
+                          class="flex flex-row link"
+                        >
+                          <p
+                            class="body-bold"
+                          >
+                            Megan Chaler
+                          </p>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <img
+                            alt="down icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <section
+                          class="card-elevated z-20 dropdown-section"
+                          style="display: none; position: absolute;"
+                        >
+                          <div
+                            class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                          >
+                            <div
+                              class="size-5 mx-2"
+                            />
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                Chris Hall
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                          >
+                            <div
+                              class="size-5 mx-2 "
+                            >
+                              <img
+                                alt="selcted"
+                                class="size-5"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                Megan Chaler
+                              </p>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p>
+                        Network Status :
+                      </p>
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="relative"
+                      >
+                        <div
+                          class="flex flex-row link"
+                        >
+                          <p
+                            class="body-bold"
+                          >
+                            Out-of-Network
+                          </p>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <img
+                            alt="down icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <section
+                          class="card-elevated z-20 dropdown-section"
+                          style="display: none; position: absolute;"
+                        >
+                          <div
+                            class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                          >
+                            <div
+                              class="size-5 mx-2"
+                            />
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                In-Network
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                          >
+                            <div
+                              class="size-5 mx-2 "
+                            >
+                              <img
+                                alt="selcted"
+                                class="size-5"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                Out-of-Network
+                              </p>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <p
+                        class="underline decoration-dashed underline-offset-4 app-underline body-1"
+                      >
+                        Deductible
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div>
+                        <div
+                          aria-label="bar chart"
+                          style="height: 10px; width: 90%;"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="font-bold"
+                          >
+                            $
+                            1800
+                          </p>
+                          <p>
+                            Spent
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p>
+                            $
+                            2000
+                          </p>
+                          <p>
+                            Limit
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <p
+                        class="underline decoration-dashed underline-offset-4 app-underline body-1"
+                      >
+                        Out-of-Pocket
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div>
+                        <div
+                          aria-label="bar chart"
+                          style="height: 10px; width: 50%;"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="font-bold"
+                          >
+                            $
+                            1500
+                          </p>
+                          <p>
+                            Spent
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p>
+                            $
+                            3000
+                          </p>
+                          <p>
+                            Limit
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <a
+                      href="/balances"
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          View Balances
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+              >
+                <div
+                  class="card-main large-section"
+                >
+                  <div>
+                    <h2
+                      class="title-2"
+                    >
+                      Pay Premium
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="body-1"
+                      >
+                        Payment Due Date
+                      </p>
+                      <p
+                        class="body-bold ml-auto"
+                      >
+                        08/10/2023
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="body-1"
+                      >
+                        Amount Due
+                      </p>
+                      <p
+                        class="body-bold ml-auto"
+                      >
+                        $
+                        1000.46
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <button
+                      aria-label="View or Pay Premium"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      View or Pay Premium
+                      <p
+                        class="ml-2"
+                      >
+                        <img
+                          alt="external icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card-main large-section"
+                >
+                  <div>
+                    <h2
+                      class="title-2"
+                    >
+                      Spending Summary
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <p
+                        class="body-1"
+                      >
+                        As of
+                      </p>
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <p>
+                        October 12, 2023
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col doughnut-img mx-auto"
+                      >
+                        <canvas
+                          class="spendingSummaryChart"
+                          height="150"
+                          role="img"
+                          width="300"
+                        />
+                        <div
+                          class="doughnut-middle-text"
+                        >
+                          <div
+                            class="flex flex-col justify-between pl-3 chartText "
+                          >
+                            <p>
+                              Your plan paid
+                            </p>
+                            <p
+                              class="title-2-bold"
+                            >
+                              89
+                              %
+                            </p>
+                            <p>
+                              of your costs
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                          <div
+                            class="chartTextDivider"
+                          >
+                            <div
+                              class=""
+                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                            />
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                          <div
+                            class="flex flex-col justify-between pl-3 chartText"
+                          >
+                            <p>
+                              Total Billed
+                            </p>
+                            <p
+                              class="title-2-bold"
+                            >
+                              $9,804.31
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <div
+                      class="sectionAlignment"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
+                        />
+                        <p
+                          class="body-1 ml-2"
+                        >
+                          You Paid
+                        </p>
+                        <p
+                          class="body-bold ml-auto"
+                        >
+                          $1,199.19
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
+                        />
+                        <p
+                          class="body-1 ml-2"
+                        >
+                          You Saved
+                        </p>
+                        <p
+                          class="body-bold ml-auto"
+                        >
+                          $8,605.12
+                        </p>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          View Spending Summary
+                        </p>
+                      </button>
+                    </a>
+                    <div
+                      class="flex flex-col clear-left"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="card-main large-section"
+                >
+                  <div>
+                    <h2
+                      class="title-2"
+                    >
+                      Prior Authorization
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="card-elevated cursor-pointer"
+                    >
+                      <div
+                        class=" flex-row align-top m-4"
+                      >
+                        <div
+                          class="flex"
+                        >
+                          <img
+                            alt="Medical"
+                            class="icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <span
+                            class="font-bold"
+                          >
+                            Magnetic Resonance Images(MRI)
+                          </span>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col items-start"
+                        >
+                          <div
+                            class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                          >
+                            <div
+                              class="circle rounded-full w-3 h-3 aspect-square"
+                            />
+                            <p
+                              class="font-bold ml-2 body-2"
+                            >
+                              Approved
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                          <span
+                            class="body-1"
+                          >
+                            Visited on 
+                            01/23/23
+                            , For 
+                            Chris Hall
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          View Prior Authorizations
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <h2
+              class="title-2 !font-light !text-[32px]/[40px]"
+            >
+              Find Care & Costs
+            </h2>
+            <section
+              class="flex flex-row items-start app-body"
+            >
+              <div
+                class="flex flex-col flex-grow page-section-63_33 items-stretch"
+              >
+                <div
+                  class="card-main large-section"
+                >
+                  <div>
+                    <h2
+                      class="title-2"
+                    >
+                      Benefits & Coverage
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        class="body-1 search-textfield"
+                        name="search-Field"
+                        placeholder="Search Benefits"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="flex flex-col items-end"
+                      >
+                        <button
+                          class="flex flex-col p-[0.125rem]  "
+                          type="submit"
+                        >
+                          <img
+                            alt="Search"
+                            class="icon searchhover "
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex"
+                    >
+                      <label
+                        class="body-1"
+                      >
+                        Browse your benefits by category:
+                      </label>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                    </div>
+                    <div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <a
+                        class="flex flex-row w-fit"
+                        href="#"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <button
+                            class="body-bold"
+                          >
+                            Medical Benefits
+                          </button>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col "
+                        >
+                          <img
+                            alt="Next"
+                            class="icon mt-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <a
+                        class="flex flex-row w-fit"
+                        href="#"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <button
+                            class="body-bold"
+                          >
+                            Pharmacy Benefits
+                          </button>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col "
+                        >
+                          <img
+                            alt="Next"
+                            class="icon mt-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <a
+                        class="flex flex-row w-fit"
+                        href="#"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <button
+                            class="body-bold"
+                          >
+                            Dental Benefits
+                          </button>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col "
+                        >
+                          <img
+                            alt="Next"
+                            class="icon mt-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <a
+                        class="flex flex-row w-fit"
+                        href="#"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <button
+                            class="body-bold"
+                          >
+                            Vision Benefits
+                          </button>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col "
+                        >
+                          <img
+                            alt="Next"
+                            class="icon mt-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <a
+                        class="flex flex-row w-fit"
+                        href="#"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <button
+                            class="body-bold"
+                          >
+                            Other Benefits
+                          </button>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col "
+                        >
+                          <img
+                            alt="Next"
+                            class="icon mt-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          View Benefits & Coverage
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col page-section-36_67 items-stretch"
+              >
+                <div
+                  class="card-main large-section !mx-3"
+                >
+                  <section
+                    class="gap-8"
+                  >
+                    <div
+                      class="flex flex-row align-top items-center"
+                    >
+                      <img
+                        alt=""
+                        class="w-[40px] h-[40px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <h3
+                        class="title-3 !font-bold"
+                      >
+                        Find Medical Providers
+                      </h3>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <span
+                      class="rich-text body-1 undefined"
+                    >
+                      <span>
+                        Use the employer-provided Embold Health search tool to
+                         
+                      </span>
+                      <span
+                        class="font-bold"
+                      >
+                        find medical providers.
+                         
+                      </span>
+                      <span>
+                        If you need to 
+                      </span>
+                      <span
+                        class="font-bold"
+                      >
+                        find other care
+                      </span>
+                      <span>
+                        , like dental or vision, use our find care search tool.
+                      </span>
+                    </span>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <button
+                      aria-label="Find Medical Providers"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Find Medical Providers
+                      <p
+                        class="ml-2"
+                      >
+                        <img
+                          alt="external icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <button
+                      aria-label="Find Other Care"
+                      class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null relative group"
+                      type="button"
+                    >
+                      Find Other Care
+                      <p
+                        class="ml-2"
+                      >
+                        <img
+                          alt="external icon"
+                          class="group-hover:hidden"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <img
+                          alt="external icon"
+                          class="hidden group-hover:block absolute top-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </p>
+                    </button>
+                  </section>
+                </div>
+                <div
+                  class="card-main large-section"
+                >
+                  <section
+                    class="gap-8"
+                  >
+                    <div
+                      class="flex flex-row align-top items-center"
+                    >
+                      <img
+                        alt=""
+                        class="w-[50px] h-[50px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <h3
+                        class="title-3 !font-bold"
+                      >
+                        Looking for Care? Find A:
+                      </h3>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row flex-wrap gap-x-2 gap-y-4"
+                    >
+                      <button
+                        aria-label="Primary Care Provider"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Primary Care Provider
+                      </button>
+                      <button
+                        aria-label="Dentist"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Dentist
+                      </button>
+                      <button
+                        aria-label="Mental Health Provider"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Mental Health Provider
+                      </button>
+                      <button
+                        aria-label="Eye Doctor"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Eye Doctor
+                      </button>
+                      <button
+                        aria-label="Pharmacy"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Pharmacy
+                      </button>
+                      <button
+                        aria-label="Virtual Care"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Virtual Care
+                      </button>
+                    </div>
+                  </section>
+                </div>
+                <div
+                  class="card-main large-section"
+                >
+                  <section
+                    class="gap-8"
+                  >
+                    <div
+                      class="flex flex-row align-top items-center"
+                    >
+                      <img
+                        alt=""
+                        class="w-[50px] h-[50px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <h3
+                        class="title-3 !font-bold"
+                      >
+                        Planning for a procedure? You can estimate costs for:
+                      </h3>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row flex-wrap gap-x-2 gap-y-4"
+                    >
+                      <button
+                        aria-label="Medical"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Medical
+                      </button>
+                      <button
+                        aria-label="Dental"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Dental
+                      </button>
+                      <button
+                        aria-label="Prescription Drugs"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Prescription Drugs
+                      </button>
+                      <button
+                        aria-label="Vision"
+                        class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Vision
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div
+                class="card-main !bg-secondary-focus !p-0 large-section relative"
+              >
+                <div
+                  class="flex flex-col sm:flex-row"
+                >
+                  <div
+                    class="flex flex-col p-4 sm:py-8 sm:pl-8 basis-1/2 flex-shrink-0 box-border"
+                  >
+                    <h2
+                      class="title-2"
+                    >
+                      Bring Your Advisor With You
+                    </h2>
+                    <p
+                      class="body-1 mt-4 mb-8"
+                    >
+                      Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
+                    </p>
+                    <div
+                      class="flex flex-col sm:flex-row"
+                    >
+                      <a
+                        href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                      >
+                        <img
+                          alt="Download Amplify App from AppStore"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </a>
+                      <a
+                        class="mt-4 sm:ml-4 sm:mt-0"
+                        href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                      >
+                        <img
+                          alt="Download Amplify App from PlayStore"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <img
+                    alt="Amplify Health App"
+                    class="min-h-[280px] self-end object-cover sm:self-auto basis-1/2 min-w-0"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+            </section>
+            <section />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
     <div
       class="flex flex-col justify-center items-center page"
     >
@@ -103,68 +1963,40 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           >
             Welcome, 
              
-            James Kilney
+            Chris
           </h1>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
-          <span
-            class="rich-text body-1 undefined"
+          <p
+            class="body-1"
           >
-            <span>
-              Plan: 
-            </span>
-            <span
-              class="body-bold"
-            >
-              BlueCross BlueShield of Tennessee
-            </span>
-          </span>
+            Plan: BlueCross BlueShield of Tennessee
+          </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
-          <span
-            class="rich-text body-1 undefined"
+          <p
+            class="body-1"
           >
-            <span>
-              Subscriber ID: 
-            </span>
-            <span
-              class="body-bold"
-            >
-              ABC123456789
-            </span>
-          </span>
+            Subscriber ID: 902218823
+          </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
-          <span
-            class="rich-text body-1 undefined"
+          <p
+            class="body-1"
           >
-            <span>
-              Group ID: 
-            </span>
-            <span
-              class="body-bold"
-            >
-              B123456
-            </span>
-          </span>
+            Group ID: 100000
+          </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
-          <span
-            class="rich-text body-1 undefined"
+          <p
+            class="body-1"
           >
-            <span>
-              Policies: 
-            </span>
-            <span
-              class="body-bold"
-            >
-              Medical, Dental, Vision
-            </span>
-          </span>
+            Policies: Medical, Dental, Vision
+          </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
@@ -173,7 +2005,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             href="/myPlan"
           >
             <p
-              class="pb-2 pt-2 body-bold"
+              class="pb-2 pt-2"
             >
               View Plan Details
             </p>
@@ -568,7 +2400,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Claims
+                        View Claims
                       </p>
                     </button>
                   </a>
@@ -601,7 +2433,9 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       <div
                         class="flex flex-row link"
                       >
-                        <p>
+                        <p
+                          class="body-bold"
+                        >
                           Megan Chaler
                         </p>
                         <span
@@ -624,7 +2458,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         style="display: none; position: absolute;"
                       >
                         <div
-                          class="flex flex-row  dropdown-item p-2"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
                           <div
                             class="size-5 mx-2"
@@ -638,7 +2472,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           </div>
                         </div>
                         <div
-                          class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                         >
                           <div
                             class="size-5 mx-2 "
@@ -685,7 +2519,9 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       <div
                         class="flex flex-row link"
                       >
-                        <p>
+                        <p
+                          class="body-bold"
+                        >
                           Out-of-Network
                         </p>
                         <span
@@ -708,7 +2544,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         style="display: none; position: absolute;"
                       >
                         <div
-                          class="flex flex-row  dropdown-item p-2"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
                           <div
                             class="size-5 mx-2"
@@ -722,7 +2558,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           </div>
                         </div>
                         <div
-                          class="flex flex-row dropdown-item-selected dropdown-item p-2"
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                         >
                           <div
                             class="size-5 mx-2 "
@@ -872,7 +2708,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Balances
+                        View Balances
                       </p>
                     </button>
                   </a>
@@ -1202,7 +3038,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Prior Authorization
+                        View Prior Authorizations
                       </p>
                     </button>
                   </a>
@@ -1521,7 +3357,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="link undefined"
                         style="display: block;"
                       >
-                        View All Benefits & Coverage
+                        View Benefits & Coverage
                       </p>
                     </button>
                   </a>
@@ -1875,251 +3711,1297 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
               </div>
             </div>
           </section>
-          <section>
+          <section />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col self-stretch"
+      >
+        <div>
+          <div
+            class="flex flex-row py-1 px-2 w-full alert-tile"
+          >
+            <div>
+              <img
+                alt="AlertIcon"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <p
+              class="mx-1 grow"
+            >
+              There is a planned system outage on July 23-25
+            </p>
+            <div>
+              <img
+                alt="CloseIcon"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </div>
+          <div
+            class="divider"
+          />
+        </div>
+        <div
+          class="flex flex-row py-1 px-2 w-full alert-tile"
+        >
+          <div>
+            <img
+              alt="AlertIcon"
+              class="icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <p
+            class="mx-1 grow"
+          >
+            Another type of message that effects
+          </p>
+          <div>
+            <img
+              alt="CloseIcon"
+              class="icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+            Welcome, 
+             
+            Chris
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            Plan: BlueCross BlueShield of Tennessee
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1"
+          >
+            Subscriber ID: 902218823
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1"
+          >
+            Group ID: 100000
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1"
+          >
+            Policies: Medical, Dental, Vision
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="link-white-text"
+            href="/myPlan"
+          >
+            <p
+              class="pb-2 pt-2"
+            >
+              View Plan Details
+            </p>
+          </a>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-full justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <section
+            class="sm:flex sm:flex-row items-start"
+          >
             <div
-              class="card-main large-section"
+              class="card-elevated health-advisor-card basis-0 px-3 pt-3 sm:shrink-1 sm:basis-[96.7%] sm:ml-4 sm:pr-0 sm:mt-4 sm:pl-8 sm:pt-8"
+            >
+              <section
+                class="sm:flex sm:flex-row"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2 !font-light !text-[32px]/[40px]"
+                  >
+                    My AmplifyHealth Advisor
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p>
+                    Have a question or need advice? Your AmplifyHealth Advisor is here for you 24/7. You can start a chat or call us at [1-800-000-0000].
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    class="link link-hover"
+                    href="/amplifyHealthSupport"
+                  >
+                    <p
+                      class="pb-2 pt-2"
+                    >
+                      Learn More About My AmplifyHealth Advisor
+                    </p>
+                  </a>
+                </div>
+                <section
+                  class="health-advisor-image max-md:w-full"
+                />
+              </section>
+            </div>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="flex flex-col"
+                class="card-main large-section"
               >
-                <img
-                  alt="Provider logo"
-                  class="block mb-6 mt-3 sm:hidden"
-                  data-nimg="1"
-                  decoding="async"
-                  height="55"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
-                  style="color: transparent;"
-                  width="170"
-                />
                 <div
-                  class="flex flex-row justify-between"
+                  class="flex flex-col"
                 >
-                  <div
-                    class="flex flex-col"
+                  <h1
+                    class="title-1 title-2"
                   >
-                    <h2
-                      class="title-2"
-                    >
-                      Provided By Ben Cole Co
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <p
-                      class="body-1"
-                    >
-                      Your employer offers even more programs and benefits you can explore here
-                    </p>
-                  </div>
-                  <img
-                    alt="Provider logo"
-                    class="hidden sm:block"
-                    data-nimg="1"
-                    decoding="async"
-                    height="55"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
-                    style="color: transparent;"
-                    width="170"
+                    Recent Claims
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="slider-container carousel flex flex-col"
-                >
                   <div
-                    class="slick-slider slick-initialized"
-                    dir="ltr"
+                    class="card-button cursor-pointer mb-4"
                   >
-                    <div
-                      class="slick-list"
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
                     >
+                      <img
+                        alt="Medical"
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
                       <div
-                        class="slick-track"
-                        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                        class="flex flex-col min-w-[95%]"
                       >
-                        <div
-                          aria-hidden="false"
-                          class="slick-slide slick-active slick-current"
-                          data-index="0"
-                          style="outline: none; width: 0px;"
-                          tabindex="-1"
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
                         >
-                          <div>
-                            <div
-                              class="card-main mr-4 shrink-0"
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt="Medical"
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
-                              <a
-                                class="p-4 block"
-                                href="https://davis-vision.com"
+                              John Doe
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
                               >
-                                <div
-                                  class="flex flex-row"
-                                >
-                                  <p
-                                    class="body-bold primary-color"
-                                  >
-                                    Davis Vision
-                                  </p>
-                                  <div
-                                    class="ml-2"
-                                  >
-                                    <img
-                                      alt="external"
-                                      data-nimg="1"
-                                      decoding="async"
-                                      height="40"
-                                      loading="lazy"
-                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                      style="color: transparent;"
-                                      width="40"
-                                    />
-                                  </div>
-                                </div>
-                                <span
-                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                                />
-                                <p
-                                  class="body-1"
-                                >
-                                  1-800-456-9876
-                                </p>
-                              </a>
+                                Processed
+                              </p>
                             </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $67
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                            >
+                              Visited on 02/06/2024, For Chris James
+                            </p>
                           </div>
-                        </div>
-                        <div
-                          aria-hidden="false"
-                          class="slick-slide slick-active"
-                          data-index="1"
-                          style="outline: none; width: 0px;"
-                          tabindex="-1"
-                        >
-                          <div>
-                            <div
-                              class="card-main mr-4 shrink-0"
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
                             >
-                              <a
-                                class="p-4 block"
-                                href="https://nirmaldental.com"
-                              >
-                                <div
-                                  class="flex flex-row"
-                                >
-                                  <p
-                                    class="body-bold primary-color"
-                                  >
-                                    Nirmal Dental
-                                  </p>
-                                  <div
-                                    class="ml-2"
-                                  >
-                                    <img
-                                      alt="external"
-                                      data-nimg="1"
-                                      decoding="async"
-                                      height="40"
-                                      loading="lazy"
-                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                      style="color: transparent;"
-                                      width="40"
-                                    />
-                                  </div>
-                                </div>
-                                <span
-                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                                />
-                                <p
-                                  class="body-1"
-                                >
-                                  1-800-367-9676
-                                </p>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          aria-hidden="false"
-                          class="slick-slide slick-active"
-                          data-index="2"
-                          style="outline: none; width: 0px;"
-                          tabindex="-1"
-                        >
-                          <div>
-                            <div
-                              class="card-main mr-4 shrink-0"
-                            >
-                              <a
-                                class="p-4 block"
-                              >
-                                <p
-                                  class="body-1 body-1 body-bold"
-                                >
-                                  Low Pharm
-                                </p>
-                                <span
-                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                                />
-                                <p
-                                  class="body-1"
-                                >
-                                  1-800-834-2465
-                                </p>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          aria-hidden="true"
-                          class="slick-slide"
-                          data-index="3"
-                          style="outline: none; width: 0px;"
-                          tabindex="-1"
-                        >
-                          <div>
-                            <div
-                              class="card-main mr-4 shrink-0"
-                            >
-                              <a
-                                class="p-4 block"
-                              >
-                                <p
-                                  class="body-1 body-1 body-bold"
-                                >
-                                  Quant Labs
-                                </p>
-                                <span
-                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                                />
-                                <p
-                                  class="body-1"
-                                >
-                                  1-800-834-3465
-                                </p>
-                              </a>
-                            </div>
+                              $67
+                            </p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      class="slick-arrow slick-next"
+                    </section>
+                  </div>
+                  <div
+                    class="card-button cursor-pointer mb-4"
+                  >
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
                     >
-                      <button
-                        class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
-                        type="button"
+                      <img
+                        alt="Pharmacy"
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col min-w-[95%]"
+                      >
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
+                        >
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt="Pharmacy"
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
+                            >
+                              John Doe
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
+                              >
+                                Pending
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $30.24
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                            >
+                              Visited on 01/06/2024, For Aly Jame
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $30.24
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div
+                    class="card-button cursor-pointer mb-4"
+                  >
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
+                    >
+                      <img
+                        alt="Dental"
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col min-w-[95%]"
+                      >
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
+                        >
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt="Dental"
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
+                            >
+                              John Doe
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="error flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
+                              >
+                                Denied
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $65.61
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                            >
+                              Visited on 01/16/2024, For Aly Jame
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $65.61
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View Claims
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <div>
+                  <h2
+                    class="title-2"
+                  >
+                    Medical & Pharmacy Balance
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p>
+                      Member :
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="relative"
+                    >
+                      <div
+                        class="flex flex-row link"
+                      >
+                        <p
+                          class="body-bold"
+                        >
+                          Megan Chaler
+                        </p>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <img
+                          alt="down icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <section
+                        class="card-elevated z-20 dropdown-section"
+                        style="display: none; position: absolute;"
+                      >
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              Chris Hall
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2 "
+                          >
+                            <img
+                              alt="selcted"
+                              class="size-5"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              Megan Chaler
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p>
+                      Network Status :
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="relative"
+                    >
+                      <div
+                        class="flex flex-row link"
+                      >
+                        <p
+                          class="body-bold"
+                        >
+                          Out-of-Network
+                        </p>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <img
+                          alt="down icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <section
+                        class="card-elevated z-20 dropdown-section"
+                        style="display: none; position: absolute;"
+                      >
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              In-Network
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2 "
+                          >
+                            <img
+                              alt="selcted"
+                              class="size-5"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              Out-of-Network
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="underline decoration-dashed underline-offset-4 app-underline body-1"
+                    >
+                      Deductible
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div>
+                      <div
+                        aria-label="bar chart"
+                        style="height: 10px; width: 90%;"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="font-bold"
+                        >
+                          $
+                          1800
+                        </p>
+                        <p>
+                          Spent
+                        </p>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p>
+                          $
+                          2000
+                        </p>
+                        <p>
+                          Limit
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="underline decoration-dashed underline-offset-4 app-underline body-1"
+                    >
+                      Out-of-Pocket
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div>
+                      <div
+                        aria-label="bar chart"
+                        style="height: 10px; width: 50%;"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="font-bold"
+                        >
+                          $
+                          1500
+                        </p>
+                        <p>
+                          Spent
+                        </p>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p>
+                          $
+                          3000
+                        </p>
+                        <p>
+                          Limit
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    href="/balances"
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View Balances
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <div>
+                  <h2
+                    class="title-2"
+                  >
+                    Pay Premium
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      Payment Due Date
+                    </p>
+                    <p
+                      class="body-bold ml-auto"
+                    >
+                      08/10/2023
+                    </p>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      Amount Due
+                    </p>
+                    <p
+                      class="body-bold ml-auto"
+                    >
+                      $
+                      1000.46
+                    </p>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <button
+                    aria-label="View or Pay Premium"
+                    class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                    type="button"
+                  >
+                    View or Pay Premium
+                    <p
+                      class="ml-2"
+                    >
+                      <img
+                        alt="external icon"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <div>
+                  <h2
+                    class="title-2"
+                  >
+                    Spending Summary
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                  />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      As of
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <p>
+                      October 12, 2023
+                    </p>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col doughnut-img mx-auto"
+                    >
+                      <canvas
+                        class="spendingSummaryChart"
+                        height="150"
+                        role="img"
+                        width="300"
+                      />
+                      <div
+                        class="doughnut-middle-text"
+                      >
+                        <div
+                          class="flex flex-col justify-between pl-3 chartText "
+                        >
+                          <p>
+                            Your plan paid
+                          </p>
+                          <p
+                            class="title-2-bold"
+                          >
+                            89
+                            %
+                          </p>
+                          <p>
+                            of your costs
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <div
+                          class="chartTextDivider"
+                        >
+                          <div
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <div
+                          class="flex flex-col justify-between pl-3 chartText"
+                        >
+                          <p>
+                            Total Billed
+                          </p>
+                          <p
+                            class="title-2-bold"
+                          >
+                            $9,804.31
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                  <div
+                    class="sectionAlignment"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
+                      />
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        You Paid
+                      </p>
+                      <p
+                        class="body-bold ml-auto"
+                      >
+                        $1,199.19
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
+                      />
+                      <p
+                        class="body-1 ml-2"
+                      >
+                        You Saved
+                      </p>
+                      <p
+                        class="body-bold ml-auto"
+                      >
+                        $8,605.12
+                      </p>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View Spending Summary
+                      </p>
+                    </button>
+                  </a>
+                  <div
+                    class="flex flex-col clear-left"
+                  />
+                </div>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <div>
+                  <h2
+                    class="title-2"
+                  >
+                    Prior Authorization
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="card-elevated cursor-pointer"
+                  >
+                    <div
+                      class=" flex-row align-top m-4"
+                    >
+                      <div
+                        class="flex"
                       >
                         <img
-                          alt="scroll right"
-                          class="icon-sm"
+                          alt="Medical"
+                          class="icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <span
+                          class="font-bold"
+                        >
+                          Magnetic Resonance Images(MRI)
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col items-start"
+                      >
+                        <div
+                          class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                        >
+                          <div
+                            class="circle rounded-full w-3 h-3 aspect-square"
+                          />
+                          <p
+                            class="font-bold ml-2 body-2"
+                          >
+                            Approved
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <span
+                          class="body-1"
+                        >
+                          Visited on 
+                          01/23/23
+                          , For 
+                          Chris Hall
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View Prior Authorizations
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <h2
+            class="title-2 !font-light !text-[32px]/[40px]"
+          >
+            Find Care & Costs
+          </h2>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <div>
+                  <h2
+                    class="title-2"
+                  >
+                    Benefits & Coverage
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-row items-center input   "
+                  >
+                    <input
+                      class="body-1 search-textfield"
+                      name="search-Field"
+                      placeholder="Search Benefits"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      class="flex flex-col items-end"
+                    >
+                      <button
+                        class="flex flex-col p-[0.125rem]  "
+                        type="submit"
+                      >
+                        <img
+                          alt="Search"
+                          class="icon searchhover "
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -2130,44 +5012,619 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           width="40"
                         />
                       </button>
-                      ,
                     </div>
                   </div>
                   <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
+                    class="flex"
                   >
-                    <div
-                      class="primary-bg-color h-1.5 rounded-full"
-                      style="width: 75%;"
+                    <label
+                      class="body-1"
+                    >
+                      Browse your benefits by category:
+                    </label>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                   </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <a
-                  style="display: block;"
-                  tabindex="-1"
-                >
-                  <button
-                    class="flex flex-row link-container body-bold p-0 sm:p-2"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
-                  >
-                    <p
-                      class="link undefined"
-                      style="display: block;"
+                  <div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <a
+                      class="flex flex-row w-fit"
+                      href="#"
                     >
-                      View All Employer Provided Benefits
+                      <div
+                        class="flex flex-col"
+                      >
+                        <button
+                          class="body-bold"
+                        >
+                          Medical Benefits
+                        </button>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col "
+                      >
+                        <img
+                          alt="Next"
+                          class="icon mt-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </a>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <a
+                      class="flex flex-row w-fit"
+                      href="#"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <button
+                          class="body-bold"
+                        >
+                          Pharmacy Benefits
+                        </button>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col "
+                      >
+                        <img
+                          alt="Next"
+                          class="icon mt-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </a>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <a
+                      class="flex flex-row w-fit"
+                      href="#"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <button
+                          class="body-bold"
+                        >
+                          Dental Benefits
+                        </button>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col "
+                      >
+                        <img
+                          alt="Next"
+                          class="icon mt-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </a>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <a
+                      class="flex flex-row w-fit"
+                      href="#"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <button
+                          class="body-bold"
+                        >
+                          Vision Benefits
+                        </button>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col "
+                      >
+                        <img
+                          alt="Next"
+                          class="icon mt-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </a>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <a
+                      class="flex flex-row w-fit"
+                      href="#"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <button
+                          class="body-bold"
+                        >
+                          Other Benefits
+                        </button>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col "
+                      >
+                        <img
+                          alt="Next"
+                          class="icon mt-2"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </a>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View Benefits & Coverage
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main large-section !mx-3"
+              >
+                <section
+                  class="gap-8"
+                >
+                  <div
+                    class="flex flex-row align-top items-center"
+                  >
+                    <img
+                      alt=""
+                      class="w-[40px] h-[40px]"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                    <h3
+                      class="title-3 !font-bold"
+                    >
+                      Find Medical Providers
+                    </h3>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <span>
+                      Use the employer-provided Embold Health search tool to
+                       
+                    </span>
+                    <span
+                      class="font-bold"
+                    >
+                      find medical providers.
+                       
+                    </span>
+                    <span>
+                      If you need to 
+                    </span>
+                    <span
+                      class="font-bold"
+                    >
+                      find other care
+                    </span>
+                    <span>
+                      , like dental or vision, use our find care search tool.
+                    </span>
+                  </span>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <button
+                    aria-label="Find Medical Providers"
+                    class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                    type="button"
+                  >
+                    Find Medical Providers
+                    <p
+                      class="ml-2"
+                    >
+                      <img
+                        alt="external icon"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
                     </p>
                   </button>
-                </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <button
+                    aria-label="Find Other Care"
+                    class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null relative group"
+                    type="button"
+                  >
+                    Find Other Care
+                    <p
+                      class="ml-2"
+                    >
+                      <img
+                        alt="external icon"
+                        class="group-hover:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <img
+                        alt="external icon"
+                        class="hidden group-hover:block absolute top-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </section>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <section
+                  class="gap-8"
+                >
+                  <div
+                    class="flex flex-row align-top items-center"
+                  >
+                    <img
+                      alt=""
+                      class="w-[50px] h-[50px]"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                    <h3
+                      class="title-3 !font-bold"
+                    >
+                      Looking for Care? Find A:
+                    </h3>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-row flex-wrap gap-x-2 gap-y-4"
+                  >
+                    <button
+                      aria-label="Primary Care Provider"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Primary Care Provider
+                    </button>
+                    <button
+                      aria-label="Dentist"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Dentist
+                    </button>
+                    <button
+                      aria-label="Mental Health Provider"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Mental Health Provider
+                    </button>
+                    <button
+                      aria-label="Eye Doctor"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Eye Doctor
+                    </button>
+                    <button
+                      aria-label="Pharmacy"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Pharmacy
+                    </button>
+                    <button
+                      aria-label="Virtual Care"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Virtual Care
+                    </button>
+                  </div>
+                </section>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <section
+                  class="gap-8"
+                >
+                  <div
+                    class="flex flex-row align-top items-center"
+                  >
+                    <img
+                      alt=""
+                      class="w-[50px] h-[50px]"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                    <h3
+                      class="title-3 !font-bold"
+                    >
+                      Planning for a procedure? You can estimate costs for:
+                    </h3>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-row flex-wrap gap-x-2 gap-y-4"
+                  >
+                    <button
+                      aria-label="Medical"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Medical
+                    </button>
+                    <button
+                      aria-label="Dental"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Dental
+                    </button>
+                    <button
+                      aria-label="Prescription Drugs"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Prescription Drugs
+                    </button>
+                    <button
+                      aria-label="Vision"
+                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Vision
+                    </button>
+                  </div>
+                </section>
               </div>
             </div>
           </section>
+          <section>
+            <div
+              class="card-main !bg-secondary-focus !p-0 large-section relative"
+            >
+              <div
+                class="flex flex-col sm:flex-row"
+              >
+                <div
+                  class="flex flex-col p-4 sm:py-8 sm:pl-8 basis-1/2 flex-shrink-0 box-border"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Bring Your Advisor With You
+                  </h2>
+                  <p
+                    class="body-1 mt-4 mb-8"
+                  >
+                    Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
+                  </p>
+                  <div
+                    class="flex flex-col sm:flex-row"
+                  >
+                    <a
+                      href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                    >
+                      <img
+                        alt="Download Amplify App from AppStore"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="mt-4 sm:ml-4 sm:mt-0"
+                      href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                    >
+                      <img
+                        alt="Download Amplify App from PlayStore"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <img
+                  alt="Amplify Health App"
+                  class="min-h-[280px] self-end object-cover sm:self-auto basis-1/2 min-w-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </section>
+          <section />
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
