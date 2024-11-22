@@ -10,14 +10,17 @@ import PrimaryCareIcon from '@/public/assets/primary_care.svg';
 import VisionIcon from '@/public/assets/vision_benefit.svg';
 import Image from 'next/image';
 
-import { Filter } from '@/components/foundation/Filter';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 
-import { PlanDetail } from '@/models/member/api/loggedInUserInfo';
+import { Dropdown } from '@/components/foundation/Dropdown';
+import { Member } from '@/models/member/api/loggedInUserInfo';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { BenefitDropdownItem } from './actions/benefitsUtils';
+import {
+  getBenefitTypes,
+  getMemberDropdownValues,
+} from './actions/benefitsUtils';
 import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
@@ -26,18 +29,11 @@ import { MemberBenefitsBean } from './models/member_benefits_bean';
 import { useBenefitsStore } from './stores/benefitsStore';
 
 interface BenefitsProps {
+  memberInfo: Member[];
   benefitsBean: MemberBenefitsBean;
-  benefitsTypes: BenefitDropdownItem[];
-  memberDropdownValues: { label: string; value: string; id: string }[];
-  planDetails: PlanDetail[];
 }
 
-const Benefits = ({
-  planDetails,
-  benefitsBean,
-  benefitsTypes,
-  memberDropdownValues,
-}: BenefitsProps) => {
+const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
   >([]);
@@ -49,7 +45,15 @@ const Benefits = ({
   >([]);
   const router = useRouter();
 
-  const { setSelectedBenefitDetails } = useBenefitsStore();
+  const {
+    setSelectedBenefitDetails,
+    currentUserBenefitData,
+    setCurrentUserBenefitData,
+    currentSelectedMember,
+    setCurrentSelectedMember,
+    currentSelectedBenefitType,
+    setCurrentSelectedBenefitType,
+  } = useBenefitsStore();
 
   function filterAndGroupByCategoryId(
     data: CoveredService[] | undefined,
@@ -70,24 +74,31 @@ const Benefits = ({
   }
 
   useEffect(() => {
-    if (benefitsBean.medicalBenefits) {
+    setCurrentUserBenefitData(benefitsBean);
+    setCurrentSelectedMember(memberInfo[0]);
+  }, [benefitsBean, memberInfo]);
+
+  useEffect(() => {
+    if (currentUserBenefitData.medicalBenefits) {
       const medBenefits: ManageBenefitsItems[] = [];
-      benefitsBean.medicalBenefits.serviceCategories.forEach((item) => {
-        medBenefits.push({
-          title: item.category,
-          body: '',
-          externalLink: false,
-          onClick: () =>
-            onBenefitSelected(
-              benefitsBean.medicalBenefits?.networkTiers,
-              filterAndGroupByCategoryId(
-                benefitsBean.medicalBenefits?.coveredServices,
-                item.id,
+      currentUserBenefitData.medicalBenefits.serviceCategories.forEach(
+        (item) => {
+          medBenefits.push({
+            title: item.category,
+            body: '',
+            externalLink: false,
+            onClick: () =>
+              onBenefitSelected(
+                currentUserBenefitData.medicalBenefits?.networkTiers,
+                filterAndGroupByCategoryId(
+                  currentUserBenefitData.medicalBenefits?.coveredServices,
+                  item.id,
+                ),
+                { category: item.category, id: item.id },
               ),
-              { category: item.category, id: item.id },
-            ),
-        });
-      });
+          });
+        },
+      );
       setMedicalBenefitsItems(medBenefits);
 
       const rxItems: ManageBenefitsItems[] = [
@@ -97,9 +108,9 @@ const Benefits = ({
           externalLink: false,
           onClick: () =>
             onBenefitSelected(
-              benefitsBean.medicalBenefits?.networkTiers,
+              currentUserBenefitData.medicalBenefits?.networkTiers,
               filterAndGroupByCategoryId(
-                benefitsBean.medicalBenefits?.coveredServices,
+                currentUserBenefitData.medicalBenefits?.coveredServices,
                 107,
               ),
               { category: 'Prescription Drugs', id: 107 },
@@ -111,24 +122,26 @@ const Benefits = ({
       setRXBenefitsItems([]);
       setMedicalBenefitsItems([]);
     }
-    if (benefitsBean.dentalBenefits) {
+    if (currentUserBenefitData.dentalBenefits) {
       const denBenefits: ManageBenefitsItems[] = [];
-      benefitsBean.dentalBenefits.serviceCategories.forEach((item) => {
-        denBenefits.push({
-          title: item.category,
-          body: '',
-          externalLink: false,
-          onClick: () =>
-            onBenefitSelected(
-              benefitsBean.dentalBenefits?.networkTiers,
-              filterAndGroupByCategoryId(
-                benefitsBean.dentalBenefits?.coveredServices,
-                item.id,
+      currentUserBenefitData.dentalBenefits.serviceCategories.forEach(
+        (item) => {
+          denBenefits.push({
+            title: item.category,
+            body: '',
+            externalLink: false,
+            onClick: () =>
+              onBenefitSelected(
+                currentUserBenefitData.dentalBenefits?.networkTiers,
+                filterAndGroupByCategoryId(
+                  currentUserBenefitData.dentalBenefits?.coveredServices,
+                  item.id,
+                ),
+                { category: item.category, id: item.id },
               ),
-              { category: item.category, id: item.id },
-            ),
-        });
-      });
+          });
+        },
+      );
       setDentalBenefitsItems(denBenefits);
     }
 
@@ -150,7 +163,24 @@ const Benefits = ({
       });
       router.push('/benefits/details');
     }
-  }, [benefitsBean]);
+  }, [currentUserBenefitData]);
+
+  const onMemberSelectionChange = (selectedMember: string) => {
+    console.log(`Selected Member: ${selectedMember}`);
+    const member = memberInfo.find(
+      (item) => item.memberCk === parseInt(selectedMember),
+    );
+    if (member === undefined) {
+      console.log('Selected member not found');
+      return;
+    }
+    setCurrentSelectedMember(member);
+  };
+
+  function onBenefitTypeSelectChange(val: string): void {
+    console.log(`Selected Benefit Type: ${val}`);
+    setCurrentSelectedBenefitType(val);
+  }
 
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -170,112 +200,120 @@ const Benefits = ({
         <Spacer size={16} />
         <section className="flex flex-row items-start app-body" id="Filter">
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <Filter
-              className="large-section px-0 m-0"
-              filterHeading="Filter Benefits"
-              filterItems={[
-                {
-                  type: 'dropdown',
-                  label: 'Member',
-                  value: memberDropdownValues,
-                  selectedValue: memberDropdownValues[0],
-                  // onFilterChanged: (selectedValue) => {
-                  //   setSelectedMember(selectedValue);
-                  // },
-                },
-                {
-                  type: 'dropdown',
-                  label: 'Benefit Type',
-                  value: benefitsTypes,
-                  selectedValue: benefitsTypes[0],
-                  // onFilterChanged: (selectedValue) => {
-                  //   setSelectedBenefitType(selectedValue);
-                  // },
-                },
-              ]}
+            <Dropdown
+              items={getMemberDropdownValues(memberInfo)}
+              onSelectCallback={(memberCk) => onMemberSelectionChange(memberCk)}
+              initialSelectedValue={memberInfo[0].memberCk.toString()}
+              showSelected={true}
+            />
+            <Dropdown
+              items={getBenefitTypes(currentSelectedMember.planDetails)}
+              onSelectCallback={(selectedBenefit) =>
+                onBenefitTypeSelectChange(selectedBenefit)
+              }
+              initialSelectedValue={'A'}
+              showSelected={true}
             />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {planDetails.find((item) => item.productCategory === 'M') && (
-              <MedicalPharmacyDentalCard
-                className="small-section w-[672px] benefitsLink"
-                heading="Medical"
-                cardIcon={<Image src={PrimaryCareIcon} alt="link" />}
-                manageBenefitItems={medicalBenefitsItems}
-              />
-            )}
-            {planDetails.find((item) => item.productCategory === 'M') && (
+            {currentSelectedMember.planDetails.find(
+              (item) => item.productCategory === 'M',
+            ) &&
+              (currentSelectedBenefitType === 'M' ||
+                currentSelectedBenefitType === 'A') && (
+                <MedicalPharmacyDentalCard
+                  className="small-section w-[672px] benefitsLink"
+                  heading="Medical"
+                  cardIcon={<Image src={PrimaryCareIcon} alt="link" />}
+                  manageBenefitItems={medicalBenefitsItems}
+                />
+              )}
+            {currentSelectedMember.planDetails.find(
+              (item) => item.productCategory === 'M',
+            ) &&
+              (currentSelectedBenefitType === 'R' ||
+                currentSelectedBenefitType === 'A') && (
+                <MedicalPharmacyDentalCard
+                  className="small-section w-[672px] "
+                  heading="Pharmacy"
+                  cardIcon={<Image src={PharmacyIcon} alt="link" />}
+                  manageBenefitItems={rxBenefitsItems}
+                />
+              )}
+            {currentSelectedMember.planDetails.find(
+              (item) => item.productCategory === 'D',
+            ) &&
+              (currentSelectedBenefitType === 'D' ||
+                currentSelectedBenefitType === 'A') && (
+                <MedicalPharmacyDentalCard
+                  className="small-section w-[672px] "
+                  heading="Dental"
+                  cardIcon={<Image src={DentalIcon} alt="link" />}
+                  manageBenefitItems={dentalBenefitsItems}
+                />
+              )}
+            {currentSelectedMember.planDetails.find(
+              (item) => item.productCategory === 'V',
+            ) &&
+              (currentSelectedBenefitType === 'V' ||
+                currentSelectedBenefitType === 'A') && (
+                <MedicalPharmacyDentalCard
+                  className="small-section w-[672px] "
+                  heading="Vision"
+                  cardIcon={<Image src={VisionIcon} alt="link" />}
+                  manageBenefitItems={[
+                    {
+                      title: 'Visit EyeMed',
+                      body: 'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
+                      externalLink: false,
+                      url: 'url',
+                      icon: <Image src={externalIcon} alt="link" />,
+                    },
+                  ]}
+                />
+              )}
+            {(currentSelectedBenefitType === 'S' ||
+              currentSelectedBenefitType === 'A') && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
-                heading="Pharmacy"
-                cardIcon={<Image src={PharmacyIcon} alt="link" />}
-                manageBenefitItems={rxBenefitsItems}
-              />
-            )}
-            {planDetails.find((item) => item.productCategory === 'D') && (
-              <MedicalPharmacyDentalCard
-                className="small-section w-[672px] "
-                heading="Dental"
-                cardIcon={<Image src={DentalIcon} alt="link" />}
-                manageBenefitItems={dentalBenefitsItems}
-              />
-            )}
-            {planDetails.find((item) => item.productCategory === 'V') !==
-              undefined && (
-              <MedicalPharmacyDentalCard
-                className="small-section w-[672px] "
-                heading="Vision"
-                cardIcon={<Image src={VisionIcon} alt="link" />}
+                heading="Other Benefits"
+                cardIcon={<Image src={OtherBenefit} alt="link" />}
                 manageBenefitItems={[
                   {
-                    title: 'Visit EyeMed',
-                    body: 'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
+                    title: 'Identity Protection Services',
+                    body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
+                    externalLink: false,
+                    url: '/benefits/identityProtectionServices',
+                  },
+                  {
+                    title: 'Health Programs & Resources',
+                    body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+                    externalLink: false,
+                    url: 'url',
+                  },
+                  {
+                    title: 'Shop Over-the-Counter Items',
+                    body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
+                    externalLink: false,
+                    url: 'https://www.cvs.com/benefits/account/create-account/email',
+                    icon: <Image src={externalIcon} alt="link" />,
+                  },
+                  {
+                    title: 'Member Discounts',
+                    body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
                     externalLink: false,
                     url: 'url',
                     icon: <Image src={externalIcon} alt="link" />,
                   },
+                  {
+                    title: 'Employer Provided Benefits',
+                    body: 'Your employer offers even more programs and benefits you can explore here.',
+                    externalLink: false,
+                    url: '/benefits/employerProvidedBenefits',
+                  },
                 ]}
               />
             )}
-            <MedicalPharmacyDentalCard
-              className="small-section w-[672px] "
-              heading="Other Benefits"
-              cardIcon={<Image src={OtherBenefit} alt="link" />}
-              manageBenefitItems={[
-                {
-                  title: 'Identity Protection Services',
-                  body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
-                  externalLink: false,
-                  url: '/benefits/identityProtectionServices',
-                },
-                {
-                  title: 'Health Programs & Resources',
-                  body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-                  externalLink: false,
-                  url: 'url',
-                },
-                {
-                  title: 'Shop Over-the-Counter Items',
-                  body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
-                  externalLink: false,
-                  url: 'https://www.cvs.com/benefits/account/create-account/email',
-                  icon: <Image src={externalIcon} alt="link" />,
-                },
-                {
-                  title: 'Member Discounts',
-                  body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-                  externalLink: false,
-                  url: 'url',
-                  icon: <Image src={externalIcon} alt="link" />,
-                },
-                {
-                  title: 'Employer Provided Benefits',
-                  body: 'Your employer offers even more programs and benefits you can explore here.',
-                  externalLink: false,
-                  url: '/benefits/employerProvidedBenefits',
-                },
-              ]}
-            />
           </Column>
         </section>
       </Column>
@@ -283,3 +321,6 @@ const Benefits = ({
   );
 };
 export default Benefits;
+function setCurrentSelectedBenefitType(val: string) {
+  throw new Error('Function not implemented.');
+}
