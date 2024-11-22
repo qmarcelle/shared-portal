@@ -6,9 +6,35 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { FilterDetails } from '@/models/filter_dropdown_details';
 import SendEmailForm from './components/SendEmailForm';
+import { EmailAppData } from './models/email_app_data';
 
-const SendAnEmail = () => {
+export type SendAnEmailProps = {
+  data: EmailAppData;
+};
+
+const SendAnEmail = ({ data }: SendAnEmailProps) => {
+  const selectedUsers: FilterDetails[] = data.memberDetails.map(
+    (item, index) => ({
+      label: item.fullName,
+      value: item.memberCK,
+      id: '' + index,
+    }),
+  );
+
+  const selectedData: FilterDetails[] = [];
+  data.memberDetails.forEach((member, index) => {
+    if (member.fullName === 'Me') {
+      selectedData.push({
+        ...member,
+        label: member.fullName,
+        value: member.memberCK,
+        id: '' + index,
+      });
+    }
+  });
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -27,6 +53,9 @@ const SendAnEmail = () => {
         <section className="flex flex-row items-start app-body" id="Filter">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <SendEmailForm
+              email={data.email}
+              phone=""
+              nameDropdown={selectedUsers}
               topicsDropdown={[
                 {
                   label: 'Select',
@@ -35,37 +64,37 @@ const SendAnEmail = () => {
                 },
                 {
                   label: 'Benefits & Coverage',
-                  value: '2',
+                  value: 'CoverageAndBenefits',
                   id: '2',
                 },
                 {
                   label: 'New or Existing Claims',
-                  value: '3',
+                  value: 'NewOrExistingClaims',
                   id: '3',
                 },
                 {
                   label: 'Deductibles',
-                  value: '4',
+                  value: 'Deductibles',
                   id: '4',
                 },
                 {
                   label: 'Pharmacy & Prescriptions',
-                  value: '5',
+                  value: 'PharmacyAndPrescriptions',
                   id: '5',
                 },
                 {
                   label: 'Find Care',
-                  value: '6',
+                  value: 'FindCare',
                   id: '6',
                 },
                 {
                   label: 'Dental',
-                  value: '7',
+                  value: 'Dental',
                   id: '7',
                 },
                 {
                   label: 'Membership & Billing Questions',
-                  value: '8',
+                  value: 'MembershipAndBillingQuestions',
                   id: '8',
                 },
                 {
@@ -80,23 +109,7 @@ const SendAnEmail = () => {
                 value: '43',
                 id: '1',
               }}
-              nameDropdown={[
-                {
-                  label: 'Chris Hall',
-                  value: '43',
-                  id: '1',
-                },
-                {
-                  label: 'John',
-                  value: '2',
-                  id: '2',
-                },
-              ]}
-              selectedName={{
-                label: 'Chris Hall',
-                value: '43',
-                id: '1',
-              }}
+              selectedName={selectedData[0]}
             />
           </Column>
           <Column className=" flex-grow page-section-63_33 items-stretch ">
