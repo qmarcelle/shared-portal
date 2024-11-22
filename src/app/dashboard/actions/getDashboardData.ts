@@ -27,6 +27,7 @@ export const getDashboardData = async (): Promise<
           subscriberId: loggedUserInfo.subscriberID,
           groupId: loggedUserInfo.groupData.groupID,
         },
+        role: session?.user.currUsr?.role,
         visibilityRules: session?.user.vRules,
       },
     };

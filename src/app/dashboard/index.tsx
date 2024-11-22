@@ -4,6 +4,7 @@ import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { AlertBar } from '@/components/foundation/AlertBar';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Link from 'next/link';
 import MemberDashboard from './components/MemberDashboard';
@@ -65,7 +66,7 @@ const Dashboard = ({ data }: DashboardProps) => {
         }
       />
       <Spacer size={32}></Spacer>
-      {!data.visibilityRules?.nonMemberDashboard ? (
+      {data.role == UserRole.MEMBER ? (
         <MemberDashboard visibilityRules={data.visibilityRules} />
       ) : (
         <NonMemberDashboard />
