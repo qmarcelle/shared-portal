@@ -20,11 +20,12 @@ import { RichDropDown } from '@/components/foundation/RichDropDown';
 import { FilterDetails } from '@/models/filter_dropdown_details';
 import { Member } from '@/models/member/api/loggedInUserInfo';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   getBenefitTypes,
   getMemberDropdownValues,
 } from './actions/benefitsUtils';
+import loadBenefits from './actions/loadBenefits';
 import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
@@ -59,28 +60,55 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
     setCurrentSelectedBenefitType,
   } = useBenefitsStore();
 
-  function filterAndGroupByCategoryId(
-    data: CoveredService[] | undefined,
-    categoryId: number,
-  ) {
-    if (data === undefined) {
-      return [];
-    }
-    return data
-      .map((item) => {
-        return {
-          serviceDetails: item.serviceDetails.filter(
-            (detail) => detail.categoryId === categoryId,
-          ),
-        };
-      })
-      .filter((item) => item.serviceDetails.length > 0);
-  }
+  const filterAndGroupByCategoryId = useCallback(
+    (data: CoveredService[] | undefined, categoryId: number) => {
+      if (data === undefined) {
+        return [];
+      }
+      return data
+        .map((item) => {
+          return {
+            serviceDetails: item.serviceDetails.filter(
+              (detail) => detail.categoryId === categoryId,
+            ),
+          };
+        })
+        .filter((item) => item.serviceDetails.length > 0);
+    },
+    [],
+  );
 
   useEffect(() => {
     setCurrentUserBenefitData(benefitsBean);
     setCurrentSelectedMember(memberInfo[0]);
-  }, [benefitsBean, memberInfo]);
+  }, [
+    benefitsBean,
+    memberInfo,
+    setCurrentSelectedMember,
+    setCurrentUserBenefitData,
+  ]);
+
+  const onBenefitSelected = useCallback(
+    (
+      networkTiers: NetWorksAndTierInfo[] | undefined,
+      serviceCategory: { serviceDetails: ServiceDetails[] }[],
+      category: { category: string; id: number },
+    ) => {
+      if (networkTiers === undefined || serviceCategory === undefined) {
+        console.log(
+          'Selected benefit missing benefits bean or service category',
+        );
+        return;
+      }
+      setSelectedBenefitDetails({
+        networkTiers: networkTiers,
+        coveredServices: serviceCategory,
+        serviceCategory: category,
+      });
+      router.push('/benefits/details');
+    },
+    [router, setSelectedBenefitDetails],
+  );
 
   useEffect(() => {
     if (currentUserBenefitData.medicalBenefits) {
@@ -148,43 +176,54 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
       );
       setDentalBenefitsItems(denBenefits);
     }
+  }, [currentUserBenefitData, onBenefitSelected, filterAndGroupByCategoryId]);
 
-    function onBenefitSelected(
-      networkTiers: NetWorksAndTierInfo[] | undefined,
-      serviceCategory: { serviceDetails: ServiceDetails[] }[],
-      category: { category: string; id: number },
-    ) {
-      if (networkTiers === undefined || serviceCategory === undefined) {
-        console.log(
-          'Selected benefit missing benefits bean or service category',
-        );
+  const onMemberSelectionChange = useCallback(
+    (selectedMember: string) => {
+      console.log(`Selected Member: ${selectedMember}`);
+      const member = memberInfo.find(
+        (item) => item.memberCk === parseInt(selectedMember),
+      );
+      if (member === undefined) {
+        console.log('Selected member not found');
         return;
       }
-      setSelectedBenefitDetails({
-        networkTiers: networkTiers,
-        coveredServices: serviceCategory,
-        serviceCategory: category,
-      });
-      router.push('/benefits/details');
-    }
-  }, [currentUserBenefitData]);
+      setCurrentSelectedMember(member);
+    },
+    [memberInfo, setCurrentSelectedMember],
+  );
 
-  const onMemberSelectionChange = (selectedMember: string) => {
-    console.log(`Selected Member: ${selectedMember}`);
-    const member = memberInfo.find(
-      (item) => item.memberCk === parseInt(selectedMember),
-    );
-    if (member === undefined) {
-      console.log('Selected member not found');
-      return;
-    }
-    setCurrentSelectedMember(member);
-  };
+  const onBenefitTypeSelectChange = useCallback(
+    (val: string): void => {
+      console.log(`Selected Benefit Type: ${val}`);
+      setCurrentSelectedBenefitType(val);
+    },
+    [setCurrentSelectedBenefitType],
+  );
 
-  function onBenefitTypeSelectChange(val: string): void {
-    console.log(`Selected Benefit Type: ${val}`);
-    setCurrentSelectedBenefitType(val);
-  }
+  useEffect(() => {
+    // Fetch and update benefits data for the selected member
+    if (currentSelectedMember) {
+      // Assuming fetchMemberBenefits is a function that fetches benefits data for a member
+      loadBenefits(currentSelectedMember)
+        .then((data) => {
+          if (data.status === 200 && data.data)
+            setCurrentUserBenefitData(data.data);
+        })
+        .catch((error) => {
+          console.error('Error fetching benefits data:', error);
+        });
+    }
+  }, [currentSelectedMember, setCurrentUserBenefitData]);
+
+  const memberDropdownValues = useMemo(
+    () => getMemberDropdownValues(memberInfo),
+    [memberInfo],
+  );
+  const benefitTypes = useMemo(
+    () => getBenefitTypes(currentSelectedMember.planDetails),
+    [currentSelectedMember.planDetails],
+  );
 
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -211,15 +250,11 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                 <div className="body-1">Member</div>
                 <RichDropDown<FilterDetails>
                   headBuilder={(val) => <FilterHead user={val} />}
-                  itemData={
-                    getMemberDropdownValues(memberInfo) as FilterDetails[]
-                  }
+                  itemData={memberDropdownValues as FilterDetails[]}
                   itemsBuilder={(data, index) => (
                     <FilterTile user={data} key={index} />
                   )}
-                  selected={
-                    getMemberDropdownValues(memberInfo)[0] as FilterDetails
-                  }
+                  selected={memberDropdownValues[0] as FilterDetails}
                   onSelectItem={(val) => {
                     onMemberSelectionChange(val.value);
                   }}
@@ -228,19 +263,11 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                 <div className="body-1">Benefit Type</div>
                 <RichDropDown<FilterDetails>
                   headBuilder={(val) => <FilterHead user={val} />}
-                  itemData={
-                    getBenefitTypes(
-                      currentSelectedMember.planDetails,
-                    ) as FilterDetails[]
-                  }
+                  itemData={benefitTypes as FilterDetails[]}
                   itemsBuilder={(data, index) => (
                     <FilterTile user={data} key={index} />
                   )}
-                  selected={
-                    getBenefitTypes(
-                      currentSelectedMember.planDetails,
-                    )[0] as FilterDetails
-                  }
+                  selected={benefitTypes[0] as FilterDetails}
                   onSelectItem={(val) => {
                     onBenefitTypeSelectChange(val.value);
                   }}

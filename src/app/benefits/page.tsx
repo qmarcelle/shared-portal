@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getBenefitsData } from './actions/getBenefitsForMember';
+import loadBenefits from './actions/loadBenefits';
 import { loadUserData } from './actions/loadUserData';
 import Benefits from './benefits';
 import { BenefitsError } from './components/BenefitsError';
@@ -14,7 +14,7 @@ const BenefitsAndCoveragePage = async () => {
     return <BenefitsError />;
   }
   const firstMember = userInfoData.data?.members[0];
-  const loadBenefitsData = await getBenefitsData(firstMember, 'A');
+  const loadBenefitsData = await loadBenefits(firstMember);
   if (loadBenefitsData.status !== 200 || loadBenefitsData.data === undefined) {
     return <BenefitsError />;
   }
