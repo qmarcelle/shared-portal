@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CareTN Access Code Computation should render AccessCode correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col"
+    >
+      <div
+        class="access-code "
+      >
+        <p
+          class="body-1 ml-6 mt-3 text-[10px]"
+        >
+          Access Code
+        </p>
+        <p
+          class="body-1 ml-3  font-bold text-[15px]"
+        >
+          btnbluechat
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CareTN Access Code Computation should render Error Scenario correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col"
+    >
+      <div
+        class="flex flex-row card-neutral h-[44px]"
+      >
+        <img
+          alt="alert"
+          class="h-[19px] w-[19px] mt-3 ml-3"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+        <p
+          class="body-1 mt-3 ml-2"
+        >
+          Access code could not load.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
