@@ -29,11 +29,9 @@ const Details = () => {
     (service) => {
       return {
         listBenefitDetails: service.serviceDetails.map((detail) => {
-          const copayInsurance = detail.copay
-            ? `$${detail.copay} copay`
-            : detail.memberPays
-              ? `${detail.memberPays}% coinsurance after you pay the deductible`
-              : '';
+          const copayInsurance = detail.memberPays
+            ? `${detail.memberPays}% coinsurance after you pay the deductible`
+            : `$${detail.copay} copay`;
           return {
             benefitTitle: detail.description,
             copayOrCoinsurance: copayInsurance,

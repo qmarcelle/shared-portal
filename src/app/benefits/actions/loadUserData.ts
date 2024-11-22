@@ -1,7 +1,7 @@
 import { auth } from '@/auth';
-import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { Session } from 'next-auth';
 
@@ -14,6 +14,12 @@ export const loadUserData = async (): Promise<
     : '0';
   logger.info(`Getting LoggedInUserInfo for memberCk: ${memberCk}`);
   //get LoggedInUserData based on MemberCk
-  const loggedInUserInfo = loggedInUserInfoMockResp;
-  return { status: 200, data: loggedInUserInfo };
+  const dataURL = `/api/member/v1/members/byMemberCk/${memberCk}`;
+  const eligibilityForMember =
+    await memberService.get<LoggedInUserInfo>(dataURL);
+  if (eligibilityForMember.status !== 200) {
+    logger.info(`Error fetching eligibility data for memberCk: ${memberCk}`);
+    throw new Error('Error fetching eligibility data');
+  }
+  return { status: 200, data: eligibilityForMember.data };
 };

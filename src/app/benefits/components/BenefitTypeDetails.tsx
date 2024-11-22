@@ -19,6 +19,7 @@ export const BenefitTypeDetails = ({
 }: BenefitTypeDetailsProps) => {
   return (
     <Column className="app-content app-base-font-color">
+      <button onClick={() => window.history.back()}>Go Back</button>
       {benefitTypeDetails?.benefitTypeHeaderDetails && (
         <>
           <section className="flex flex-row items-start app-body">
