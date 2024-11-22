@@ -14,7 +14,6 @@ const serverCache = new Map<number, MemberBenefitsBean>();
 
 export default async function loadBenefits(
   member: Member,
-  benefitType: string,
 ): Promise<ActionResponse<number, MemberBenefitsBean>> {
   if (!member) {
     return { status: 400, data: { memberCk: 0 } };
@@ -31,44 +30,15 @@ export default async function loadBenefits(
   // Call the API to get benefits data based on member and benefitType
 
   logger.info(`Loading benefits data for member: ${member.memberCk}`);
-  const listOfPlansToQuery: PlanDetailsInfo[] = [];
-  logger.info(`Benefit type: ${benefitType}`);
-  if (benefitType == 'A') {
-    member.planDetails
-      .filter(
-        (item) => item.productCategory == 'M' || item.productCategory == 'D',
-      )
-      .flatMap((item) => {
-        listOfPlansToQuery.push({
-          productCategory: item.productCategory,
-          planID: item.planID,
-        });
-      });
-  } else {
-    const searchBenefitType = benefitType == 'R' ? 'M' : benefitType; //RX info is under Medical
-    const planInfo = member.planDetails.find(
-      (item) => item.productCategory == searchBenefitType,
-    );
-    if (planInfo) {
-      listOfPlansToQuery.push({
-        productCategory: planInfo.productCategory,
-        planID: planInfo.planID,
-      });
-    } else {
-      logger.info(
-        `No plan found for the given benefit type: ${searchBenefitType}`,
-      );
-    }
-  }
-
   logger.info(
-    `List of plans to query: ${listOfPlansToQuery.flatMap((item) => item.planID)}`,
+    `List of plans to query: ${member.planDetails.flatMap((item) => item.planID)}`,
   );
   try {
     const benefitsInfo = await callBenefitService(
       member.memberCk,
-      listOfPlansToQuery,
+      member.planDetails,
     );
+
     // Cache the benefits data on the server
     serverCache.set(member.memberCk, benefitsInfo);
     return { status: 200, data: benefitsInfo };
