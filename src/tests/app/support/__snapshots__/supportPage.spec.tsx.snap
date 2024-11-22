@@ -156,6 +156,7 @@ exports[`Support Page should render the page correctly 1`] = `
                     If it's after hours or you'd rather send us an email, we're right here.
                   </p>
                   <a
+                    href="/support/email"
                     style="display: block;"
                     tabindex="-1"
                   >
@@ -519,6 +520,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   If it's after hours or you'd rather send us an email, we're right here.
                 </p>
                 <a
+                  href="/support/email"
                   style="display: block;"
                   tabindex="-1"
                 >
