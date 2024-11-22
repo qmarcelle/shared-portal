@@ -12,7 +12,12 @@ import { CareTNHeaderCard } from './CareTNHeaderCard';
 import CareTNProcessCard from './CareTNProcessCard';
 import CareTNProgramBenefits from './CareTNProgramBenefits';
 
-const CareTNProgramLanding = () => {
+export type CareTNProgramLandingProps = {
+  accessCodeData: string;
+};
+const CareTNProgramLanding = ({
+  accessCodeData,
+}: CareTNProgramLandingProps) => {
   return (
     <Column className="app-content app-base-font-color md:pr-0 md:pl-0 pl-7 pr-7">
       <Spacer size={64} />
@@ -49,7 +54,7 @@ const CareTNProgramLanding = () => {
         </section>
       </Card>
       <Spacer size={32} />
-      <CareTNProcessCard />
+      <CareTNProcessCard accessCodeData={accessCodeData} />
     </Column>
   );
 };

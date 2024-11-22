@@ -1,7 +1,9 @@
+import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 
 export type DashboardData = {
   memberDetails: DashboardMemberDetails | null;
+  role?: UserRole;
   visibilityRules?: VisibilityRules;
 };
 
