@@ -64,15 +64,18 @@ export default async function loadBenefits(
   logger.info(
     `List of plans to query: ${listOfPlansToQuery.flatMap((item) => item.planID)}`,
   );
-  const benefitsInfo = await callBenefitService(
-    member.memberCk,
-    listOfPlansToQuery,
-  );
-
-  // Cache the benefits data on the server
-  serverCache.set(member.memberCk, benefitsInfo);
-
-  return { status: 200, data: benefitsInfo };
+  try {
+    const benefitsInfo = await callBenefitService(
+      member.memberCk,
+      listOfPlansToQuery,
+    );
+    // Cache the benefits data on the server
+    serverCache.set(member.memberCk, benefitsInfo);
+    return { status: 200, data: benefitsInfo };
+  } catch (error) {
+    logger.error(`Error fetching benefits data: ${error}`);
+    return { status: 400, data: { memberCk: 0 } };
+  }
 }
 
 // function mapResponseToBenefitsDetailsBean(data: any): BenefitDetailsBean {
