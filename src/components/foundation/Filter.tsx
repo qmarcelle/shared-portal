@@ -28,7 +28,7 @@ interface FilterProps extends IComponent {
   };
 }
 
-const FilterTile = ({ user }: { user: FilterDetails }) => {
+export const FilterTile = ({ user }: { user: FilterDetails }) => {
   return (
     <Column className="border-none flex-grow">
       <TextBox type="body-1" text={`${user.label}`} />
@@ -36,7 +36,7 @@ const FilterTile = ({ user }: { user: FilterDetails }) => {
   );
 };
 
-const FilterHead = ({ user }: { user: FilterDetails }) => {
+export const FilterHead = ({ user }: { user: FilterDetails }) => {
   return (
     <div className="body-1 input">
       <Row className="p-1 items-center">
