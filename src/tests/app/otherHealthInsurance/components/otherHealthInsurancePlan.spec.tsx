@@ -5,6 +5,14 @@ import { useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import { render, RenderResult, screen } from '@testing-library/react';
 
+const mockMemberDetails = {
+  member: [
+    {
+      id: 1,
+      dob: '08/06/1959',
+    },
+  ],
+};
 const renderUI = () => {
   return render(
     <OtherHealthInsurancePlan
@@ -29,7 +37,11 @@ describe('otherPlan', () => {
   let component: RenderResult;
   beforeAll(() => {
     component = renderUI();
-    showAppModal({ content: <OtherHealthInsurance /> });
+    showAppModal({
+      content: (
+        <OtherHealthInsurance memberDetails={mockMemberDetails.member} />
+      ),
+    });
   });
   it('should render the UI correctly', async () => {
     expect(
