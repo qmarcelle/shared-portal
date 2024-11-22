@@ -1,277 +1,588 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Support Page should render the page correctly 1`] = `
-<div>
-  <title>
-    Support
-  </title>
-  <div
-    class="flex flex-col justify-center items-center page"
-  >
-    <header
-      class="flex flex-col h-[175px] w-full text-white justify-center items-center brand-gradient"
-    >
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <title>
+        Support
+      </title>
       <div
-        class="flex flex-col items-start w-full app-content px-4"
+        class="flex flex-col justify-center items-center page"
       >
-        <h1
-          class="title-1"
-        >
-          Support
-        </h1>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <p
-          class="body-1"
-        >
-          We're here to help answer your questions
-        </p>
-      </div>
-    </header>
-    <main>
-      <div
-        class="flex flex-col app-content app-base-font-color px-4 my-8 gap-8"
-      >
-        <section
-          class="self-stretch px-8"
-        >
-          <h2
-            class="title-2"
-          >
-            Contact Us
-          </h2>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <div
-            class="flex flex-row justify-stretch gap-8 flex-wrap"
-          >
-            <div
-              class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
-            >
-              <img
-                alt="call icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <h3
-                class="title-3 !font-bold"
-              >
-                Call
-              </h3>
-              <p
-                class="body-1"
-              >
-                8 a.m. - 6 p.m. ET,
-              </p>
-              <p
-                class="body-1"
-              >
-                Mon - Fri
-              </p>
-              <span
-                class="rich-text body-1 undefined"
-              >
-                <p
-                  class="body-1"
-                >
-                  Call 
-                </p>
-                <p
-                  class="body-1 font-bold"
-                >
-                  1-800-000-0000, TTY 711
-                </p>
-              </span>
-            </div>
-            <div
-              class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
-            >
-              <img
-                alt="chat icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <h3
-                class="title-3 !font-bold"
-              >
-                Chat
-              </h3>
-              <p
-                class="body-1"
-              >
-                8 a.m. - 5:15 p.m. ET,
-              </p>
-              <p
-                class="body-1"
-              >
-                Mon - Fri
-              </p>
-              <button
-                aria-label="Start a Chat"
-                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                type="button"
-              >
-                Start a Chat
-              </button>
-            </div>
-            <div
-              class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
-            >
-              <img
-                alt="email icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <h3
-                class="title-3 !font-bold"
-              >
-                Email
-              </h3>
-              <p
-                class="body-1"
-              >
-                If it's after hours or you'd rather send us an email, we're right here.
-              </p>
-              <a
-                style="display: block;"
-                tabindex="-1"
-              >
-                <button
-                  class="flex flex-row link-container !px-0"
-                  style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
-                >
-                  <p
-                    class="link undefined"
-                    style="display: block;"
-                  >
-                    Send an Email
-                  </p>
-                </button>
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-    <section
-      class="flex flex-col w-full"
-    >
-      <div
-        class="app-content self-center relative top-8"
-      >
-        <div
-          class="card-main p-4 mx-4 sm:p-8"
+        <header
+          class="flex flex-col h-[175px] w-full text-white justify-center items-center brand-gradient"
         >
           <div
-            class="flex flex-col"
+            class="flex flex-col items-start w-full app-content px-4"
           >
-            <h2
-              class="title-2"
+            <h1
+              class="title-1"
             >
-              Resources
-            </h2>
+              Support
+            </h1>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <p
               class="body-1"
             >
-              Find answers to your health insurance questions or find a form.
+              We're here to help answer your questions
             </p>
+          </div>
+        </header>
+        <main>
+          <div
+            class="flex flex-col app-content app-base-font-color px-4 mt-8 gap-8"
+          >
+            <section
+              class="self-stretch px-8"
+            >
+              <h2
+                class="title-2"
+              >
+                Contact Us
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-stretch gap-8 flex-wrap"
+              >
+                <div
+                  class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
+                >
+                  <img
+                    alt="call icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <h3
+                    class="title-3 !font-bold"
+                  >
+                    Call
+                  </h3>
+                  <p
+                    class="body-1"
+                  >
+                    8 a.m. - 6 p.m. ET,
+                  </p>
+                  <p
+                    class="body-1"
+                  >
+                    Mon - Fri
+                  </p>
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      Call 
+                    </p>
+                    <p
+                      class="body-1 font-bold"
+                    >
+                      1-800-000-0000, TTY 711
+                    </p>
+                  </span>
+                </div>
+                <div
+                  class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
+                >
+                  <img
+                    alt="chat icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <h3
+                    class="title-3 !font-bold"
+                  >
+                    Chat
+                  </h3>
+                  <p
+                    class="body-1"
+                  >
+                    8 a.m. - 5:15 p.m. ET,
+                  </p>
+                  <p
+                    class="body-1"
+                  >
+                    Mon - Fri
+                  </p>
+                  <button
+                    aria-label="Start a Chat"
+                    class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                    type="button"
+                  >
+                    Start a Chat
+                  </button>
+                </div>
+                <div
+                  class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
+                >
+                  <img
+                    alt="email icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <h3
+                    class="title-3 !font-bold"
+                  >
+                    Email
+                  </h3>
+                  <p
+                    class="body-1"
+                  >
+                    If it's after hours or you'd rather send us an email, we're right here.
+                  </p>
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container !px-0"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Send an Email
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+        <section
+          class="flex flex-col w-full"
+        >
+          <div
+            class="self-center relative top-8"
+          >
+            <div
+              class="card-main p-4 mx-4 sm:p-8"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Resources
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  Find answers to your health insurance questions or find a form.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-row gap-4 flex-wrap"
+                >
+                  <a
+                    class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                    href="/support/faq"
+                  >
+                    <div
+                      class="card-main px-4 py-3"
+                    >
+                      <div
+                        class="flex flex-row items-center"
+                      >
+                        <img
+                          alt="questions icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                        />
+                        <div>
+                          <p
+                            class="link inline !no-underline"
+                          >
+                            Frequently Asked Questions
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                    href="https://www.healthcare.gov/glossary"
+                  >
+                    <div
+                      class="card-main px-4 py-3"
+                    >
+                      <div
+                        class="flex flex-row items-center"
+                      >
+                        <img
+                          alt="glossary icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                        />
+                        <div>
+                          <p
+                            class="link inline !no-underline"
+                          >
+                            Health Insurance Glossary
+                          </p>
+                          <img
+                            alt="external"
+                            class="inline"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                    href="https://www.bcbst.com/use-insurance/documents-forms"
+                  >
+                    <div
+                      class="card-main px-4 py-3"
+                    >
+                      <div
+                        class="flex flex-row items-center"
+                      >
+                        <img
+                          alt="find form icon"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                        <span
+                          style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                        />
+                        <div>
+                          <p
+                            class="link inline !no-underline"
+                          >
+                            Find a Form
+                          </p>
+                          <img
+                            alt="external"
+                            class="inline"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full surface-gradient-flipped"
+          >
+            <div
+              class="flex flex-col mt-16 text-white items-center px-4 gap-4"
+            >
+              <h2
+                class="title-2 text-center"
+              >
+                Have feedback about our website?
+              </h2>
+              <p
+                class="body-1 text-center"
+              >
+                We want to hear from you. Share your feedback about your experience using our website.
+              </p>
+              <button
+                aria-label="Share Your Feedback"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+                type="button"
+              >
+                Share Your Feedback
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <title>
+      Support
+    </title>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <header
+        class="flex flex-col h-[175px] w-full text-white justify-center items-center brand-gradient"
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <h1
+            class="title-1"
+          >
+            Support
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            We're here to help answer your questions
+          </p>
+        </div>
+      </header>
+      <main>
+        <div
+          class="flex flex-col app-content app-base-font-color px-4 mt-8 gap-8"
+        >
+          <section
+            class="self-stretch px-8"
+          >
+            <h2
+              class="title-2"
+            >
+              Contact Us
+            </h2>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
             <div
-              class="flex flex-row gap-4 flex-wrap"
+              class="flex flex-row justify-stretch gap-8 flex-wrap"
             >
-              <a
-                class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                href="/support/faq"
+              <div
+                class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
               >
-                <div
-                  class="card-main px-4 py-3"
+                <img
+                  alt="call icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <h3
+                  class="title-3 !font-bold"
+                >
+                  Call
+                </h3>
+                <p
+                  class="body-1"
+                >
+                  8 a.m. - 6 p.m. ET,
+                </p>
+                <p
+                  class="body-1"
+                >
+                  Mon - Fri
+                </p>
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <p
+                    class="body-1"
+                  >
+                    Call 
+                  </p>
+                  <p
+                    class="body-1 font-bold"
+                  >
+                    1-800-000-0000, TTY 711
+                  </p>
+                </span>
+              </div>
+              <div
+                class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
+              >
+                <img
+                  alt="chat icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <h3
+                  class="title-3 !font-bold"
+                >
+                  Chat
+                </h3>
+                <p
+                  class="body-1"
+                >
+                  8 a.m. - 5:15 p.m. ET,
+                </p>
+                <p
+                  class="body-1"
+                >
+                  Mon - Fri
+                </p>
+                <button
+                  aria-label="Start a Chat"
+                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                  type="button"
+                >
+                  Start a Chat
+                </button>
+              </div>
+              <div
+                class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
+              >
+                <img
+                  alt="email icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <h3
+                  class="title-3 !font-bold"
+                >
+                  Email
+                </h3>
+                <p
+                  class="body-1"
+                >
+                  If it's after hours or you'd rather send us an email, we're right here.
+                </p>
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container !px-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      Send an Email
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <section
+        class="flex flex-col w-full"
+      >
+        <div
+          class="self-center relative top-8"
+        >
+          <div
+            class="card-main p-4 mx-4 sm:p-8"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Resources
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                Find answers to your health insurance questions or find a form.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row gap-4 flex-wrap"
+              >
+                <a
+                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  href="/support/faq"
                 >
                   <div
-                    class="flex flex-row items-center"
+                    class="card-main px-4 py-3"
                   >
-                    <img
-                      alt="questions icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                    />
-                    <div>
-                      <p
-                        class="link inline !no-underline"
-                      >
-                        Frequently Asked Questions
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                href="https://www.healthcare.gov/glossary"
-              >
-                <div
-                  class="card-main px-4 py-3"
-                >
-                  <div
-                    class="flex flex-row items-center"
-                  >
-                    <img
-                      alt="glossary icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                    />
-                    <div>
-                      <p
-                        class="link inline !no-underline"
-                      >
-                        Health Insurance Glossary
-                      </p>
+                    <div
+                      class="flex flex-row items-center"
+                    >
                       <img
-                        alt="external"
-                        class="inline"
+                        alt="questions icon"
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -281,43 +592,31 @@ exports[`Support Page should render the page correctly 1`] = `
                         style="color: transparent;"
                         width="40"
                       />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div>
+                        <p
+                          class="link inline !no-underline"
+                        >
+                          Frequently Asked Questions
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-              <a
-                class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                href="https://www.bcbst.com/use-insurance/documents-forms"
-              >
-                <div
-                  class="card-main px-4 py-3"
+                </a>
+                <a
+                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  href="https://www.healthcare.gov/glossary"
                 >
                   <div
-                    class="flex flex-row items-center"
+                    class="card-main px-4 py-3"
                   >
-                    <img
-                      alt="find form icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                    />
-                    <div>
-                      <p
-                        class="link inline !no-underline"
-                      >
-                        Find a Form
-                      </p>
+                    <div
+                      class="flex flex-row items-center"
+                    >
                       <img
-                        alt="external"
-                        class="inline"
+                        alt="glossary icon"
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -327,40 +626,159 @@ exports[`Support Page should render the page correctly 1`] = `
                         style="color: transparent;"
                         width="40"
                       />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div>
+                        <p
+                          class="link inline !no-underline"
+                        >
+                          Health Insurance Glossary
+                        </p>
+                        <img
+                          alt="external"
+                          class="inline"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                </a>
+                <a
+                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  href="https://www.bcbst.com/use-insurance/documents-forms"
+                >
+                  <div
+                    class="card-main px-4 py-3"
+                  >
+                    <div
+                      class="flex flex-row items-center"
+                    >
+                      <img
+                        alt="find form icon"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                      <div>
+                        <p
+                          class="link inline !no-underline"
+                        >
+                          Find a Form
+                        </p>
+                        <img
+                          alt="external"
+                          class="inline"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="w-full surface-gradient-flipped"
-      >
         <div
-          class="flex flex-col mt-16 text-white items-center px-4 gap-4"
+          class="w-full surface-gradient-flipped"
         >
-          <h2
-            class="title-2 text-center"
+          <div
+            class="flex flex-col mt-16 text-white items-center px-4 gap-4"
           >
-            Have feedback about our website?
-          </h2>
-          <p
-            class="body-1 text-center"
-          >
-            We want to hear from you. Share your feedback about your experience using our website.
-          </p>
-          <button
-            aria-label="Share Your Feedback"
-            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
-            type="button"
-          >
-            Share Your Feedback
-          </button>
+            <h2
+              class="title-2 text-center"
+            >
+              Have feedback about our website?
+            </h2>
+            <p
+              class="body-1 text-center"
+            >
+              We want to hear from you. Share your feedback about your experience using our website.
+            </p>
+            <button
+              aria-label="Share Your Feedback"
+              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+              type="button"
+            >
+              Share Your Feedback
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-</div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
