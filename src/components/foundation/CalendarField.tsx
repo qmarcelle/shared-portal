@@ -1,4 +1,3 @@
-import { formatDateToLocale } from '@/utils/date_formatter';
 import { enUS } from 'date-fns/locale';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -22,7 +21,8 @@ export interface CalendarFieldProps extends IComponent {
   minDate?: Date;
   maxDate?: Date;
   disabled?: boolean;
-  minDateErrMsg: string;
+  minDateErrMsg?: string;
+  maxDateErrMsg?: string;
 }
 export const CalendarField = ({
   label,
@@ -36,15 +36,19 @@ export const CalendarField = ({
   valueCallback,
   disabled,
   minDateErrMsg,
+  maxDateErrMsg,
 }: CalendarFieldProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const datePickerRef = useRef<DatePicker>(null);
   const [focus, setFocus] = useState(false);
   const inputRef = useRef<HTMLDivElement | null>(null);
   const [inputValue, setInputValue] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | undefined>('');
 
-  const focusCalender = () => {
+  const focusCalender = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     if (datePickerRef.current) {
       datePickerRef.current.setOpen(true);
     }
@@ -79,35 +83,52 @@ export const CalendarField = ({
 
   // Function to format the input as MM/DD/YYYY
   const formatInputValue = (value: string) => {
-    value = value.replace(/\D/g, ''); // Remove non-numeric characters
-    if (value.length > 8) value = value.slice(0, 8); // Limit to 8 digits
+    // Remove all non-numeric characters first
+    value = value.replace(/\D/g, '');
 
-    // Add slashes for MM/DD/YYYY
-    if (value.length >= 5) {
-      return `${value.slice(0, 2)}/${value.slice(2, 4)}/${value.slice(4)}`;
-    } else if (value.length >= 3) {
-      return `${value.slice(0, 2)}/${value.slice(2)}`;
-    } else if (value.length >= 1) {
-      return `${value.slice(0, 2)}`;
+    // Add slashes after 2 digits for month and day
+    if (value.length >= 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2); // MM/
     }
+    if (value.length >= 5) {
+      value = value.slice(0, 5) + '/' + value.slice(5, 9); // MM/DD/YYYY
+    }
+
     return value;
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
-      const formattedValue = formatInputValue(e.target.value);
+      let rawValue = e.target.value;
+
+      if (rawValue.length < inputValue.length && inputValue.endsWith('/')) {
+        rawValue = rawValue.slice(0, -1);
+      }
+      // Remove non-numeric characters and ensure leading zeros are not stripped
+      const formattedValue = formatInputValue(rawValue);
       setInputValue(formattedValue);
 
-      if (formattedValue.length == 0) {
+      if (formattedValue === '') {
         setError('');
       }
 
-      // Set date when the input is fully filled
+      if (!formattedValue) {
+        setSelectedDate(null);
+        valueCallback?.('');
+        return;
+      }
+
+      // Check for errors if the date is fully filled out (MM/DD/YYYY)
       if (formattedValue.length === 10) {
         const [month, day, year] = formattedValue.split('/');
-        const newDate = new Date(`${year}-${month}-${day}`);
+
+        const newDate = new Date(
+          `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}T00:00:00`,
+        );
+
         if (Number.isNaN(newDate.getMonth())) {
-          throw 'Invalid Date';
+          setError('Invalid Date');
+          return;
         }
 
         minDate?.setHours(0, 0, 0, 0);
@@ -123,7 +144,8 @@ export const CalendarField = ({
 
         if (maxDate) {
           if (newDate > maxDate) {
-            setError('Date is out of allowed range');
+            valueCallback?.call(this, '');
+            setError(maxDateErrMsg);
             return;
           }
         }
@@ -145,10 +167,12 @@ export const CalendarField = ({
   // Sync inputValue with selectedDate
   useEffect(() => {
     if (selectedDate) {
-      setInputValue(formatDateToLocale(selectedDate));
+      const formattedDate = selectedDate
+        ? `${String(selectedDate.getMonth() + 1).padStart(2, '0')}/${String(selectedDate.getDate()).padStart(2, '0')}/${selectedDate.getFullYear()}`
+        : '';
+      setInputValue(formattedDate);
     }
   }, [selectedDate]);
-
   return (
     <div
       ref={inputRef}
@@ -166,7 +190,7 @@ export const CalendarField = ({
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          className={`mt-2 ${error ? 'border-red-500' : ''}`}
+          className={`${error ? 'border-red-500' : ''}`}
           placeholder="__  / __  /  ____"
           maxLength={10} // Max length for MM/DD/YYYY
           onFocus={() => {
@@ -189,17 +213,17 @@ export const CalendarField = ({
           </Row>
         </div>
       )}
-
       <div className="w-full">
         <DatePicker
           selected={selectedDate}
           onChange={(date: Date | null) => {
             if (date) {
-              valueCallback?.call(this, formatDateToLocale(date));
+              const formattedDate = `${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}/${date.getFullYear()}`;
+              setInputValue(formattedDate);
+              valueCallback?.(formattedDate);
+              setError('');
             }
             setSelectedDate(date);
-            setInputValue(date ? formatDateToLocale(date) : ''); // Sync input with date picker
-            setError('');
           }}
           locale="customLocale"
           ref={datePickerRef}

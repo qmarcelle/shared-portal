@@ -10,6 +10,14 @@ import {
   waitFor,
 } from '@testing-library/react';
 
+const mockMemberDetails = {
+  member: [
+    {
+      id: 1,
+      dob: '08/06/1959',
+    },
+  ],
+};
 const renderUI = () => {
   return render(<AppModal />);
 };
@@ -23,7 +31,9 @@ describe('Exit Modal Journey', () => {
     dismissModal();
     component = renderUI();
     showAppModal({
-      content: <OtherHealthInsurance />,
+      content: (
+        <OtherHealthInsurance memberDetails={mockMemberDetails.member} />
+      ),
       isChildActionAppModal: true,
       childModalContent: (
         <ChildAppModalBody
