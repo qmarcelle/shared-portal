@@ -41,96 +41,14 @@ const ServicesUsed = () => {
               selectedMemberId="43"
               medicalServiceDetailsUsed={[
                 {
-                  limitAmount: 1,
-                  spentAmount: 0,
+                  limitAmount: '1',
+                  spentAmount: '0',
                   serviceName: 'Visit Benefit Period - Mammogram',
                 },
                 {
-                  limitAmount: 1,
-                  spentAmount: 0,
+                  limitAmount: '1',
+                  spentAmount: '0',
                   serviceName: 'Annual OB-Gyn Exam Per Calendar Year',
-                },
-                {
-                  limitAmount: 32,
-                  spentAmount: 60,
-                  serviceName:
-                    'Visits Per Benefit Period -- Chiropractic Services',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 260,
-                  serviceName:
-                    'Visits Per Calendar Year -Outpatient/In Home Private Duty Nursing',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 60,
-                  serviceName:
-                    'Days Per Calendar Year - Skilled Nursing Facility & Rehabilitation',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 4,
-                  serviceName: 'Injections Per Year -- Trigger Point Injection',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 60,
-                  serviceName: 'Visits Per Benefit Period -- Acupuncture',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 60,
-                  serviceName:
-                    'Visits per Benefit Period -- Occupational Therapy',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 60,
-                  serviceName: 'Visits per Benefit Period -- Speech Therapy',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 60,
-                  serviceName: 'Visits per Benefit Period -- Pulmonary Therapy',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 60,
-                  serviceName: 'Visits per Benefit Period -- Cardiac Rehab',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 1,
-                  serviceName:
-                    ' Exam Per Calendar Year - Wellcare Age 6 and Above',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 8,
-                  serviceName: 'Visits Per Year - Tobacco Cessation Counseling',
-                },
-                {
-                  limitAmount: 0.0,
-                  spentAmount: 10000,
-                  serviceName:
-                    'Per Benefit Period - Organ Transplant -Travel, Meals & Lodging',
-                },
-                {
-                  limitAmount: 0.0,
-                  spentAmount: 10000,
-                  serviceName: 'Lifetime Maximum - Infertility Treatment',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 75000,
-                  serviceName:
-                    'Lifetime Limit - Services for Gender Transformations',
-                },
-                {
-                  limitAmount: 0,
-                  spentAmount: 10000,
-                  serviceName: 'Lifetime Maximum -- Excess Skin Removal',
                 },
               ]}
             />

@@ -36,27 +36,8 @@ exports[`OrderId Card should render the screens correctly 1`] = `
                 class="flex flex-row justify-between modal-header items-center relative"
               >
                 <div
-                  class="flex flex-row items-center focus-icon"
                   tabindex="1"
-                >
-                  <img
-                    alt="back"
-                    class="modal-icon"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <p
-                    class="body-1 primary-color underline"
-                  >
-                    Back
-                  </p>
-                </div>
+                />
                 <img
                   alt="bcbst logo"
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"

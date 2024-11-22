@@ -2,7 +2,7 @@ import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { logger } from '@/utils/logger';
 import { computeVisibilityRules } from '@/visibilityEngine/computeVisibilityRules';
-import { SessionUser } from './models/sessionUser';
+import { SessionUser, UserRole } from './models/sessionUser';
 
 export async function computeSessionUser(
   userId: string,
@@ -28,6 +28,7 @@ export async function computeSessionUser(
       currUsr: {
         fhirId: currentUser.personFHIRID,
         umpi: currentUser.umpid,
+        role: UserRole.MEMBER,
         plan: {
           fhirId: plan.patientFHIRID,
           grgrCk: loggedUserInfo.groupData.groupCK,
@@ -37,7 +38,7 @@ export async function computeSessionUser(
           subId: loggedUserInfo.subscriberID,
         },
       },
-      rules: await computeVisibilityRules(),
+      rules: computeVisibilityRules(loggedUserInfo),
     };
   } else {
     logger.error('User of given id not found');

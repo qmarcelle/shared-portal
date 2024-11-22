@@ -257,7 +257,7 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
           <AmplifyHealthCard />
         </section>
         <section>
-          {visibilityRules?.employerBenefits && (
+          {visibilityRules?.employerProvidedBenefits && (
             <EmployeeProvidedBenefitsTile
               className="large-section"
               employer="Ben Cole Co"
