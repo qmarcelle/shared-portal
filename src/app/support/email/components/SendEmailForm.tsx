@@ -13,8 +13,12 @@ import { IComponent } from '@/components/IComponent';
 import { FilterDetails } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { SetStateAction, useState } from 'react';
+import { invokeSendEmailAction } from '../actions/sendEmailAction';
+import { EmailRequest } from '../models/email_app_data';
 
 interface SendEmailFormProps extends IComponent {
+  email: string;
+  phone: string;
   nameDropdown: FilterDetails[];
   selectedName: FilterDetails;
   topicsDropdown: FilterDetails[];
@@ -23,6 +27,8 @@ interface SendEmailFormProps extends IComponent {
 }
 
 const SendEmailForm = ({
+  email,
+  phone,
   topicsDropdown,
   nameDropdown,
   selectedtopic,
@@ -43,6 +49,18 @@ const SendEmailForm = ({
   const setNameOption = (option: FilterDetails) => {
     setNameSelected(option);
   };
+
+  function createEmaiRequest(): EmailRequest {
+    const emailRequest: EmailRequest = {
+      memberEmail: email,
+      contactNumber: phone,
+      message: messageValue,
+      categoryValue: selectedDropDownTopic.value,
+      dependentName: selectedNameDropDown.label,
+    };
+    return emailRequest;
+  }
+
   return (
     <Card className="large-section flex flex-row items-start app-body ">
       <Column className="w-[100%]">
@@ -57,10 +75,10 @@ const SendEmailForm = ({
           text="Fill out the form below to send us your message."
         />
         <Spacer size={32} />
-
         <TextField
           type="text"
           label="We'll send an email reply to:"
+          value={email}
         ></TextField>
         <TextBox
           className="body-2 mt-2"
@@ -93,16 +111,18 @@ const SendEmailForm = ({
           }}
         />
         <Spacer size={24} />
-
         <TextArea
           value={messageValue}
           onChange={handleMessageChange}
           className="block w-full px-4 py-2 border border-[#737373]  rounded-md shadow-sm focus:ring-primary focus:border-primary-focus focus-visible:primary sm:text-sm resize-none overflow-y-scroll h-[240px]"
           placeholder="Add your message here..."
         />
-
         <Spacer size={32} />
-        <Button label="Send Email" callback={() => null} />
+
+        <Button
+          label="Send Email"
+          callback={() => invokeSendEmailAction(createEmaiRequest())}
+        />
       </Column>
     </Card>
   );
@@ -113,7 +133,7 @@ export default SendEmailForm;
 const DropDownTile = ({ user }: { user: FilterDetails }) => {
   return (
     <Column className="border-none flex-grow">
-      <TextBox type="body-1" text={`${user.label}`} />
+      {user && <TextBox type="body-1" text={user.label} />}
     </Column>
   );
 };
