@@ -140,7 +140,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Services Used',
         category: 'Plan Details',
         showOnMenu: true,
-        url: '/servicesUsed',
+        url: '/benefits/servicesUsed',
         external: false,
       },
       {

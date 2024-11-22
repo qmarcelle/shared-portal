@@ -18,7 +18,7 @@ export const FaqTopics = () => {
   const [topics, setTopics] = useState<FaqTopicDetails>();
   let faqType: string | null;
   useEffect(() => {
-    const urlSearchString = window.location.search;
+    const urlSearchString = window?.location?.search;
     const params = new URLSearchParams(urlSearchString);
     faqType = params.get('faqtype');
     activeFaqTopic(faqType);

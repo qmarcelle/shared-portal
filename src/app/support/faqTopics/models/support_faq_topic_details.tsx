@@ -1,8 +1,14 @@
+import { ContactUs } from '@/components/composite/ContactUs';
+import { AppLink } from '@/components/foundation/AppLink';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
 import { FaqTopicDetails, FaqTopicType } from './faq_details';
+
+function openBankDocument() {
+  window?.open(process.env.NEXT_PUBLIC_PORTAL_BANK_DRAFT_FORM);
+}
 
 export const SupportFaqTopicDetails: Map<FaqTopicType, FaqTopicDetails> =
   new Map([
@@ -183,6 +189,84 @@ export const SupportFaqTopicDetails: Map<FaqTopicType, FaqTopicDetails> =
                   </span>,
                 ]}
               />
+            ),
+            bulletPoints: [],
+            para2: '',
+          },
+        ],
+      },
+    ],
+    [
+      FaqTopicType.MyPlanInformation,
+      {
+        topicType: FaqTopicType.MyPlanInformation,
+        faqTopicHeaderDetails: {
+          title: 'My Plan Information FAQ',
+          description: 'How to update your address, dependents, and more.',
+        },
+        faqTopCardDetails: [
+          {
+            serviceTitle: 'Updating Plan Information',
+            serviceLabel:
+              'How do I update personal info like my address, last name or payment information?',
+            para1: (
+              <p className="body-1">
+                <ContactUs label="Contact us" />, and we’ll get your account
+                updated.
+              </p>
+            ),
+            bulletPoints: [],
+            para2: '',
+          },
+          {
+            serviceTitle: '',
+            serviceLabel: 'How do I add or remove a dependent?',
+            para1: (
+              <p className="body-1">
+                <ContactUs label="Contact us" />, and we’ll get your account
+                updated.
+              </p>
+            ),
+            bulletPoints: [],
+            para2: '',
+          },
+          {
+            serviceTitle: '',
+            serviceLabel:
+              'How do I pay my premium or change my payment information?',
+            para1: (
+              <p className="body-1">
+                This depends on your plan. For most plans, you can do a bank
+                draft, check by phone, or mail in payment.{' '}
+                <ContactUs label="Contact us" />, and we’ll talk you through it
+                or you can{' '}
+                <AppLink
+                  className="p-0"
+                  callback={openBankDocument}
+                  label="download the bank draft form."
+                  displayStyle="inline"
+                />
+              </p>
+            ),
+            bulletPoints: [],
+            para2: '',
+          },
+          {
+            serviceTitle: '',
+            serviceLabel:
+              'I’m a Medicaid or Medicare with Medicaid member. How do I switch my primary care provider? ',
+            para1: (
+              <p className="body-1">
+                If you want to see a different doctor than the one you were
+                assigned, you can <ContactUs label=" contact us" /> for help, or
+                you can
+                <AppLink
+                  className="p-0"
+                  url="/updateMyPrimaryCareProvider"
+                  label="update your primary care provider here."
+                  displayStyle="inline"
+                />
+              </p>
             ),
             bulletPoints: [],
             para2: '',

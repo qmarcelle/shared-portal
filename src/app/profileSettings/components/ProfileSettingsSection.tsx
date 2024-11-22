@@ -3,7 +3,6 @@ import { Column } from '@/components/foundation/Column';
 import {
   communicationSettingsIcon,
   securityIcon,
-  sharePermissionsIcon,
 } from '@/components/foundation/Icons';
 
 export const ProfileSettingsSection = () => {
@@ -20,12 +19,13 @@ export const ProfileSettingsSection = () => {
       iconName: securityIcon,
       link: '/security',
     },
-    {
-      label: 'Sharing & Permissions',
-      description: 'View or edit access to plan information.',
-      iconName: sharePermissionsIcon,
-      link: '/sharingPermissions',
-    },
+    // US-34084 Hide Sharing & Permissions page and component
+    // {
+    //   label: 'Sharing & Permissions',
+    //   description: 'View or edit access to plan information.',
+    //   iconName: sharePermissionsIcon,
+    //   link: '/sharingPermissions',
+    // },
   ];
 
   return (
