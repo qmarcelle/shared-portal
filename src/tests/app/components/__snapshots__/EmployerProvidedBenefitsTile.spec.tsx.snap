@@ -290,7 +290,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                 class="link undefined"
                 style="display: block;"
               >
-                View All Employer Provided Benefits
+                View Employer Provided Benefits
               </p>
             </button>
           </a>
@@ -584,7 +584,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
               class="link undefined"
               style="display: block;"
             >
-              View All Employer Provided Benefits
+              View Employer Provided Benefits
             </p>
           </button>
         </a>

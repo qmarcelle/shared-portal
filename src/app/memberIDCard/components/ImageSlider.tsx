@@ -97,10 +97,10 @@ export const ImageSlider = ({
 
   function idCardErrorMessage() {
     return (
-      <Column className="neutral container">
+      <Column className="neutral container rounded-[0.5rem]">
         <Column className="items-center  p-4 m-[65px]">
-          <Image src={AlertIcon} className="icon" alt="alert" />
-          <Spacer axis="horizontal" size={8} />
+          <Image src={AlertIcon} className="w-[33px] h-[33px]" alt="alert" />
+          <Spacer size={16} />
           <TextBox
             className="text-center"
             text="There was a problem loading your ID Card. Try refreshing the page or returning to this page later."

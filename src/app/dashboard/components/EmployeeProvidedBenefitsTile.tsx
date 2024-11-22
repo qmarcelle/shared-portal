@@ -63,7 +63,7 @@ export const EmployeeProvidedBenefitsTile = ({
         </SlidingCarousel>
         <Spacer size={32} />
         <AppLink
-          label="View All Employer Provided Benefits"
+          label="View Employer Provided Benefits"
           className="body-bold p-0 sm:p-2"
         />
       </Column>

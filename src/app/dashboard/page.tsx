@@ -1,19 +1,14 @@
 import { Metadata } from 'next';
 import Dashboard from '.';
+import { getDashboardData } from './actions/getDashboardData';
 
 export const metadata: Metadata = {
-  title: 'DashBoard Page',
+  title: 'Dashboard',
 };
 
 const DashboardPage = async () => {
-  return (
-    <Dashboard
-      visibilityRules={undefined}
-      data={{
-        username: 'James Kilney',
-      }}
-    />
-  );
+  const result = await getDashboardData();
+  return <Dashboard data={result.data!} />;
 };
 
 export default DashboardPage;

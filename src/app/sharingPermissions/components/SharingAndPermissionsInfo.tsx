@@ -44,9 +44,10 @@ export const SharingAndPermissionsInfo = () => {
               information with.
             </div>
           }
-          divider={true}
+          divider={false}
         />
-        <LinkRow
+        {/* US-33923 Removing Health Info Transfer Request */}
+        {/* <LinkRow
           label="Health Information Transfer Request"
           description={
             <div className="body-1 flex flex-row">
@@ -55,7 +56,7 @@ export const SharingAndPermissionsInfo = () => {
             </div>
           }
           divider={false}
-        />
+        /> */}
       </Column>
     </Card>
   );
