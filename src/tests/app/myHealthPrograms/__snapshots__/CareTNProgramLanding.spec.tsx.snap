@@ -397,18 +397,29 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
               />
               <div
-                class="access-code "
+                class="flex flex-col"
               >
-                <p
-                  class="body-1 ml-6 mt-3 text-[10px]"
+                <div
+                  class="flex flex-row card-neutral h-[44px]"
                 >
-                  Access Code
-                </p>
-                <p
-                  class="body-1 ml-3  font-bold text-[15px]"
-                >
-                  BlueAccess
-                </p>
+                  <img
+                    alt="alert"
+                    class="h-[19px] w-[19px] mt-3 ml-3"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="body-1 mt-3 ml-2"
+                  >
+                    Access code could not load.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -913,18 +924,29 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
               />
               <div
-                class="access-code "
+                class="flex flex-col"
               >
-                <p
-                  class="body-1 ml-6 mt-3 text-[10px]"
+                <div
+                  class="flex flex-row card-neutral h-[44px]"
                 >
-                  Access Code
-                </p>
-                <p
-                  class="body-1 ml-3  font-bold text-[15px]"
-                >
-                  BlueAccess
-                </p>
+                  <img
+                    alt="alert"
+                    class="h-[19px] w-[19px] mt-3 ml-3"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="body-1 mt-3 ml-2"
+                  >
+                    Access code could not load.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -1429,18 +1451,29 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
               />
               <div
-                class="access-code "
+                class="flex flex-col"
               >
-                <p
-                  class="body-1 ml-6 mt-3 text-[10px]"
+                <div
+                  class="flex flex-row card-neutral h-[44px]"
                 >
-                  Access Code
-                </p>
-                <p
-                  class="body-1 ml-3  font-bold text-[15px]"
-                >
-                  BlueAccess
-                </p>
+                  <img
+                    alt="alert"
+                    class="h-[19px] w-[19px] mt-3 ml-3"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="body-1 mt-3 ml-2"
+                  >
+                    Access code could not load.
+                  </p>
+                </div>
               </div>
             </div>
           </section>

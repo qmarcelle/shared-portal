@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 const renderUI = () => {
   return render(
     <>
-      <CareTNProgramLanding />
+      <CareTNProgramLanding accessCodeData={''} />
     </>,
   );
 };

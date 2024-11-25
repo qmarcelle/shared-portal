@@ -13,7 +13,11 @@ import numberStepThree from '../../../../public/assets/number_step_three.svg';
 import numberStepTwo from '../../../../public/assets/number_step_two.svg';
 import wellframeLogo from '../../../../public/assets/wellframe.svg';
 
-const CareTNProcessCard = () => {
+export type CareTNProcessCardProps = {
+  accessCodeData: string;
+};
+
+const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
   return (
     <section>
       <Column className="md:ml-10 p-5">
@@ -61,7 +65,7 @@ const CareTNProcessCard = () => {
             <Spacer size={8} />
             <TextBox text="Open the app on your device, tap “Sign-up” and enter your access code." />
             <Spacer size={8} />
-            <AccessCode />
+            <AccessCode accessCodeData={accessCodeData} />
           </Column>
         </section>
         <Spacer size={32} />
