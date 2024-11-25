@@ -89,4 +89,15 @@ describe('Dashboard Page', () => {
     expect(screen.getByText('View Benefits & Coverage')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
+
+  it('should render Estimate Costs UI correctly', async () => {
+    const component = await renderUI();
+    expect(screen.getByText('Estimate Costs')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Plan your upcoming care costs before you make an appointment.',
+      ),
+    ).toBeInTheDocument();
+    expect(component.baseElement).toMatchSnapshot();
+  });
 });
