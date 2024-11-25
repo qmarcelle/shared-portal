@@ -32,7 +32,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         />
       </section>
       <a
-        href="/benefits"
+        href="/support/faqTopics?faqtype=Benefits&Coverage"
       >
         <div
           class="card-elevated small-section"
@@ -55,11 +55,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Benefits & Coverage
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -70,7 +70,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/claims"
+        href="/support/faqTopics?faqtype=Claims"
       >
         <div
           class="card-elevated small-section"
@@ -93,11 +93,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Claims
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -108,7 +108,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/memberIDCard"
+        href="/support/faqTopics?faqtype=IDCards"
       >
         <div
           class="card-elevated small-section"
@@ -131,11 +131,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 ID Cards
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -146,7 +146,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/spendingAccount"
+        href="/support/faqTopics?faqtype=MyPlanInformation"
       >
         <div
           class="card-elevated small-section"
@@ -169,11 +169,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 My Plan Information
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -184,7 +184,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/spendingSummary"
+        href="/support/faqTopics?faqtype=Pharmacy"
       >
         <div
           class="card-elevated small-section"
@@ -207,11 +207,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Pharmacy
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -222,7 +222,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/priorAuth"
+        href="/support/faqTopics?faqtype=PriorAuthorization"
       >
         <div
           class="card-elevated small-section"
@@ -245,11 +245,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Prior Authorization
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >
@@ -260,7 +260,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/planDocuments"
+        href="/support/faqTopics?faqtype=SharingPermissions&Security"
       >
         <div
           class="card-elevated small-section"
@@ -283,11 +283,11 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
             <div
               class="flex flex-col ml-4"
             >
-              <p
-                class="body-1 link-row-head"
+              <div
+                class="link-row-head"
               >
                 Sharing, Permissions & Security
-              </p>
+              </div>
               <p
                 class="body-1 body-1"
               >

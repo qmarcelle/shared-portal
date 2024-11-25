@@ -29,6 +29,7 @@
 @import './spending_Summary.css';
 @import './loader.css';
 @import './calendar.css';
+@import './plan_selector.css';
 
 :root {
   --primary-color: #005eb9;
@@ -212,6 +213,12 @@ body {
   font-family: 'Univers-55';
 }
 
+.title-2-bold {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-family: 'Univers-65';
+}
+
 .find-care-costs-title {
   height: 40px;
   color: #333333;
@@ -370,6 +377,10 @@ body {
 
   .title-1 {
     font-size: 2rem;
-    line-height: 3.5rem;
+    line-height: 2.5rem;
   }
+}
+
+.caremark button {
+  padding-top: 0;
 }

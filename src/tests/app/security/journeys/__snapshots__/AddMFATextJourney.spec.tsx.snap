@@ -135,6 +135,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 1`] = `
                       <button
                         aria-label="Next"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                        disabled=""
                         type="button"
                       >
                         Next
@@ -332,11 +333,6 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                               class="cursor-pointer"
                             />
                           </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
-                          </div>
                         </div>
                         <a
                           style="display: block;"
@@ -362,6 +358,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                       <button
                         aria-label="Confirm"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
+                        disabled=""
                         type="button"
                       >
                         Confirm

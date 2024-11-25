@@ -19,12 +19,32 @@ import {
 
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
+
+  const toggleMenu = () => {
+    if (!isOpen) {
+      closeSubMenu();
+    } else {
+      setIsOpen(true);
+      setActiveSubNavId(null); // Reset submenu on open
+    }
+  };
+
+  const openSubMenu = (itemId: number) => {
+    setIsOpen(true);
+    setActiveSubNavId((prevId) => (prevId === itemId ? null : itemId));
+  };
+
+  const closeSubMenu = () => {
+    setIsOpen(false);
+    setActiveSubNavId(null);
+  };
 
   return (
     <>
-      <nav className="primary-color">
+      <nav className="primary-color sm:pt-[74px] lg:pt-[134px]">
         {/* Header Top Bar */}
-        <div className="h-18 w-full lg:static flex justify-between border-b bg-white z-30">
+        <div className="h-18 w-full fixed top-0 left-0 right-0 flex justify-between border-b bg-white z-50">
           <div className="flex items-center">
             <div className="flex lg:hidden h-18 w-18 items-center justify-center border-r">
               <button
@@ -33,9 +53,7 @@ export default function SiteHeader() {
                 className="p-0 justify-center"
                 aria-controls="menu-bar"
                 aria-expanded="false"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
+                onClick={toggleMenu}
               >
                 {isOpen ? (
                   <>
@@ -110,7 +128,6 @@ export default function SiteHeader() {
             />
           </div>
           <SiteHeaderMenuSection
-            user={'Chris Hall'}
             icon={<Image src={profileWhiteIcon} alt="Profile Icon"></Image>}
             items={[
               {
@@ -129,29 +146,49 @@ export default function SiteHeader() {
           />
         </div>
         {/* Header Nav Bar */}
+
+        {/* Overlay */}
+        {isOpen && (
+          <div
+            className="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
+            onClick={closeSubMenu} // Close on overlay click
+          />
+        )}
+
         <div
           id="menu-bar"
-          className="hidden absolute top-[72px] lg:static lg:block w-full md:w-1/2 lg:w-full bg-white z-40"
+          className={`fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto ${activeSubNavId !== null ? 'block' : 'hidden'}`}
           data-accordion="collapse"
         >
           <div className="flex font-bold">
-            <SiteHeaderNavSection parentPages={menuNavigation} />
+            <SiteHeaderNavSection
+              parentPages={menuNavigation}
+              onOpenOverlay={openSubMenu}
+              activeSubNavId={activeSubNavId}
+              closeMenuAndSubMenu={closeSubMenu}
+            />
           </div>
           <div className="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0">
             {menuNavigation.map((page, index) => (
-              <SiteHeaderSubNavSection
-                key={index}
-                id={page.id}
-                title={page.title}
-                description={page.description}
-                category={page.category}
-                showOnMenu={page.showOnMenu}
-                url={page.url}
-                qt={page.qt}
-                childPages={page.childPages}
-                template={page.template}
-                shortLinks={page.shortLinks}
-              />
+              <div key={page.id}>
+                {activeSubNavId === page.id && (
+                  <SiteHeaderSubNavSection
+                    key={index}
+                    id={page.id}
+                    title={page.title}
+                    description={page.description}
+                    category={page.category}
+                    showOnMenu={page.showOnMenu}
+                    url={page.url}
+                    qt={page.qt}
+                    childPages={page.childPages}
+                    template={page.template}
+                    shortLinks={page.shortLinks}
+                    activeSubNavId={activeSubNavId}
+                    closeSubMenu={closeSubMenu}
+                  />
+                )}
+              </div>
             ))}
           </div>
         </div>

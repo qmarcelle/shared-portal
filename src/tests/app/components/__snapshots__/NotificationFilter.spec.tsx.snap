@@ -47,49 +47,61 @@ exports[`Display Notification Filter should render UI correctly 1`] = `
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
                   />
-                  <div
-                    class="body-1 input"
-                  >
+                  <div>
                     <div
-                      class="flex flex-col switch-filter default"
-                      tabindex="1"
+                      class="rich-dropdown"
                     >
-                      <div>
-                        <div
-                          class="flex flex-row h-[72px] p-4 items-center divider-bottom"
-                        >
-                          <h3
-                            class="title-3 grow"
-                          >
-                            Switch to...
-                          </h3>
-                          <img
-                            alt="switch"
-                            class="size-5"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </div>
-                      </div>
-                      <ul
-                        class="max-h-[420px] overflow-y-scroll"
+                      <div
+                        class="flex flex-col switch-filter default"
+                        tabindex="1"
                       >
-                        <li>
+                        <div>
                           <div
-                            class="flex flex-row p-4 divider-bottom selected item"
-                            tabindex="1"
+                            class="body-1 input"
                           >
                             <div
-                              class="size-5 mr-2"
+                              class="flex flex-row p-1 items-center"
                             >
+                              <div
+                                class="flex flex-col border-none flex-grow"
+                              >
+                                <p
+                                  class="body-1"
+                                >
+                                  Read & Unread
+                                </p>
+                              </div>
                               <img
-                                alt="selcted"
+                                alt=""
+                                class="w-[20px] h-[20px] ml-2 items-end"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+                      >
+                        <div>
+                          <div>
+                            <div
+                              class="flex flex-row h-[72px] p-4 items-center divider-bottom"
+                            >
+                              <h3
+                                class="title-3 grow"
+                              >
+                                Switch to...
+                              </h3>
+                              <img
+                                alt="switch"
                                 class="size-5"
                                 data-nimg="1"
                                 decoding="async"
@@ -101,40 +113,75 @@ exports[`Display Notification Filter should render UI correctly 1`] = `
                                 width="40"
                               />
                             </div>
-                            <div
-                              class="flex flex-col border-none flex-grow"
-                            >
-                              <p
-                                class="body-1"
-                              >
-                                Read & Unread
-                              </p>
-                            </div>
                           </div>
-                        </li>
-                        <li>
-                          <div
-                            class="flex flex-row p-4 divider-bottom  item"
-                            tabindex="1"
+                          <ul
+                            class="max-h-[420px] min-w-[100%] overflow-auto"
                           >
-                            <div
-                              class="size-5 mr-2"
-                            />
-                            <div
-                              class="flex flex-col border-none flex-grow"
+                            <li
+                              class=""
                             >
-                              <p
-                                class="body-1"
+                              <div
+                                class="flex flex-row p-4 divider-bottom selected item"
+                                tabindex="1"
                               >
-                                Plans
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
+                                <div
+                                  class="size-5 mr-2"
+                                >
+                                  <img
+                                    alt="selcted"
+                                    class="size-5"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                                <div
+                                  class="flex flex-col border-none flex-grow"
+                                >
+                                  <p
+                                    class="body-1"
+                                  >
+                                    Read & Unread
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                            <li
+                              class=""
+                            >
+                              <div
+                                class="flex flex-row p-4 divider-bottom  item"
+                                tabindex="1"
+                              >
+                                <div
+                                  class="size-5 mr-2"
+                                />
+                                <div
+                                  class="flex flex-col border-none flex-grow"
+                                >
+                                  <p
+                                    class="body-1"
+                                  >
+                                    Read Status
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <div />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />

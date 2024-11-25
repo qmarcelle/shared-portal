@@ -18,10 +18,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            class="flex flex-row items-center input  "
+            class="flex flex-row items-center input   "
           >
             <input
               class="body-1 search-textfield"
+              name="search-Field"
               placeholder="Search Benefits"
               type="text"
               value=""
@@ -30,7 +31,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="flex flex-col items-end"
             >
               <button
-                class="flex flex-col  "
+                class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
@@ -63,241 +64,248 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
           </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <a
-            class="flex flex-row"
-            href="#"
-          >
-            <div
-              class="flex flex-col flex-grow"
+          <div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <a
+              class="flex flex-row w-fit"
+              href="#"
             >
-              <button
-                class="font-bold"
+              <div
+                class="flex flex-col"
               >
-                Medical Benefits
-              </button>
-              <span
-                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-              />
-            </div>
-            <div
-              class="flex flex-col items-end"
-            >
-              <img
-                alt="Next"
-                class="icon items-end"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </a>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            aria-label="divider"
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <a
-            class="flex flex-row"
-            href="#"
-          >
-            <div
-              class="flex flex-col flex-grow"
-            >
-              <button
-                class="font-bold"
+                <button
+                  class="body-bold"
+                >
+                  Medical Benefits
+                </button>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+              </div>
+              <div
+                class="flex flex-col "
               >
-                Pharmacy Benefits
-              </button>
-              <span
-                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-              />
-            </div>
+                <img
+                  alt="Next"
+                  class="icon mt-2"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </a>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
             <div
-              class="flex flex-col items-end"
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+          </div>
+          <div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <a
+              class="flex flex-row w-fit"
+              href="#"
             >
-              <img
-                alt="Next"
-                class="icon items-end"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </a>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            aria-label="divider"
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <a
-            class="flex flex-row"
-            href="#"
-          >
-            <div
-              class="flex flex-col flex-grow"
-            >
-              <button
-                class="font-bold"
+              <div
+                class="flex flex-col"
               >
-                Dental Benefits
-              </button>
-              <span
-                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-              />
-            </div>
-            <div
-              class="flex flex-col items-end"
-            >
-              <img
-                alt="Next"
-                class="icon items-end"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </a>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            aria-label="divider"
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <a
-            class="flex flex-row"
-            href="#"
-          >
-            <div
-              class="flex flex-col flex-grow"
-            >
-              <button
-                class="font-bold"
+                <button
+                  class="body-bold"
+                >
+                  Pharmacy Benefits
+                </button>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+              </div>
+              <div
+                class="flex flex-col "
               >
-                Vision Benefits
-              </button>
-              <span
-                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-              />
-            </div>
+                <img
+                  alt="Next"
+                  class="icon mt-2"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </a>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
             <div
-              class="flex flex-col items-end"
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+          </div>
+          <div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <a
+              class="flex flex-row w-fit"
+              href="#"
             >
-              <img
-                alt="Next"
-                class="icon items-end"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </a>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            aria-label="divider"
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <a
-            class="flex flex-row"
-            href="#"
-          >
-            <div
-              class="flex flex-col flex-grow"
-            >
-              <button
-                class="font-bold"
+              <div
+                class="flex flex-col"
               >
-                Other Benefits
-              </button>
-              <span
-                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-              />
-            </div>
+                <button
+                  class="body-bold"
+                >
+                  Dental Benefits
+                </button>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+              </div>
+              <div
+                class="flex flex-col "
+              >
+                <img
+                  alt="Next"
+                  class="icon mt-2"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </a>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
             <div
-              class="flex flex-col items-end"
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+          </div>
+          <div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <a
+              class="flex flex-row w-fit"
+              href="#"
             >
-              <img
-                alt="Next"
-                class="icon items-end"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </a>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            aria-label="divider"
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
+              <div
+                class="flex flex-col"
+              >
+                <button
+                  class="body-bold"
+                >
+                  Vision Benefits
+                </button>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+              </div>
+              <div
+                class="flex flex-col "
+              >
+                <img
+                  alt="Next"
+                  class="icon mt-2"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </a>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+          </div>
+          <div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <a
+              class="flex flex-row w-fit"
+              href="#"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <button
+                  class="body-bold"
+                >
+                  Other Benefits
+                </button>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+              </div>
+              <div
+                class="flex flex-col "
+              >
+                <img
+                  alt="Next"
+                  class="icon mt-2"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </a>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+          </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
-            class="block undefined"
+            style="display: block;"
+            tabindex="-1"
           >
             <button
-              class="flex flex-row link-container"
-              style="max-width: max-content; height: auto;"
+              class="flex flex-row link-container undefined"
+              style="max-width: max-content; height: auto; display: block;"
               tabindex="0"
             >
               <p
-                class="link"
+                class="link undefined"
+                style="display: block;"
               >
-                View All Benefits & Coverage
+                View Benefits & Coverage
               </p>
             </button>
           </a>
@@ -319,10 +327,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          class="flex flex-row items-center input  "
+          class="flex flex-row items-center input   "
         >
           <input
             class="body-1 search-textfield"
+            name="search-Field"
             placeholder="Search Benefits"
             type="text"
             value=""
@@ -331,7 +340,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             class="flex flex-col items-end"
           >
             <button
-              class="flex flex-col  "
+              class="flex flex-col p-[0.125rem]  "
               type="submit"
             >
               <img
@@ -364,241 +373,248 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
         </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <a
-          class="flex flex-row"
-          href="#"
-        >
-          <div
-            class="flex flex-col flex-grow"
+        <div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row w-fit"
+            href="#"
           >
-            <button
-              class="font-bold"
+            <div
+              class="flex flex-col"
             >
-              Medical Benefits
-            </button>
-            <span
-              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-            />
-          </div>
-          <div
-            class="flex flex-col items-end"
-          >
-            <img
-              alt="Next"
-              class="icon items-end"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
-          </div>
-        </a>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <div
-          aria-label="divider"
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-        />
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <a
-          class="flex flex-row"
-          href="#"
-        >
-          <div
-            class="flex flex-col flex-grow"
-          >
-            <button
-              class="font-bold"
+              <button
+                class="body-bold"
+              >
+                Medical Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col "
             >
-              Pharmacy Benefits
-            </button>
-            <span
-              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-            />
-          </div>
+              <img
+                alt="Next"
+                class="icon mt-2"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
           <div
-            class="flex flex-col items-end"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+        </div>
+        <div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row w-fit"
+            href="#"
           >
-            <img
-              alt="Next"
-              class="icon items-end"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
-          </div>
-        </a>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <div
-          aria-label="divider"
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-        />
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <a
-          class="flex flex-row"
-          href="#"
-        >
-          <div
-            class="flex flex-col flex-grow"
-          >
-            <button
-              class="font-bold"
+            <div
+              class="flex flex-col"
             >
-              Dental Benefits
-            </button>
-            <span
-              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-            />
-          </div>
-          <div
-            class="flex flex-col items-end"
-          >
-            <img
-              alt="Next"
-              class="icon items-end"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
-          </div>
-        </a>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <div
-          aria-label="divider"
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-        />
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <a
-          class="flex flex-row"
-          href="#"
-        >
-          <div
-            class="flex flex-col flex-grow"
-          >
-            <button
-              class="font-bold"
+              <button
+                class="body-bold"
+              >
+                Pharmacy Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col "
             >
-              Vision Benefits
-            </button>
-            <span
-              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-            />
-          </div>
+              <img
+                alt="Next"
+                class="icon mt-2"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
           <div
-            class="flex flex-col items-end"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+        </div>
+        <div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row w-fit"
+            href="#"
           >
-            <img
-              alt="Next"
-              class="icon items-end"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
-          </div>
-        </a>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <div
-          aria-label="divider"
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-        />
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <a
-          class="flex flex-row"
-          href="#"
-        >
-          <div
-            class="flex flex-col flex-grow"
-          >
-            <button
-              class="font-bold"
+            <div
+              class="flex flex-col"
             >
-              Other Benefits
-            </button>
-            <span
-              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-            />
-          </div>
+              <button
+                class="body-bold"
+              >
+                Dental Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col "
+            >
+              <img
+                alt="Next"
+                class="icon mt-2"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
           <div
-            class="flex flex-col items-end"
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+        </div>
+        <div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row w-fit"
+            href="#"
           >
-            <img
-              alt="Next"
-              class="icon items-end"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
-          </div>
-        </a>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <div
-          aria-label="divider"
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-        />
+            <div
+              class="flex flex-col"
+            >
+              <button
+                class="body-bold"
+              >
+                Vision Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col "
+            >
+              <img
+                alt="Next"
+                class="icon mt-2"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+        </div>
+        <div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="flex flex-row w-fit"
+            href="#"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <button
+                class="body-bold"
+              >
+                Other Benefits
+              </button>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+            </div>
+            <div
+              class="flex flex-col "
+            >
+              <img
+                alt="Next"
+                class="icon mt-2"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+          </a>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+        </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <a
-          class="block undefined"
+          style="display: block;"
+          tabindex="-1"
         >
           <button
-            class="flex flex-row link-container"
-            style="max-width: max-content; height: auto;"
+            class="flex flex-row link-container undefined"
+            style="max-width: max-content; height: auto; display: block;"
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
-              View All Benefits & Coverage
+              View Benefits & Coverage
             </p>
           </button>
         </a>

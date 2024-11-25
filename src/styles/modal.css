@@ -105,3 +105,18 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-50 {
+  z-index: 50;
+}

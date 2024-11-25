@@ -218,11 +218,6 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                   class="cursor-pointer"
                 />
               </div>
-              <div
-                class="error-container mt-1 p-1"
-              >
-                <div />
-              </div>
             </div>
           </div>
           <span
@@ -458,11 +453,6 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
               <div
                 class="cursor-pointer"
               />
-            </div>
-            <div
-              class="error-container mt-1 p-1"
-            >
-              <div />
             </div>
           </div>
         </div>

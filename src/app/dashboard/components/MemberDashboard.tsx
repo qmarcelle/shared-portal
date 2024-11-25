@@ -7,10 +7,13 @@ import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
+import { InfoCard } from '@/components/composite/InfoCard';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import EstimateCost from '../../../../public/assets/estimate_cost.svg';
 import FindCare from '../../../../public/assets/find_care_search.svg';
@@ -18,7 +21,11 @@ import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBa
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
 import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
 
-const MemberDashboard = () => {
+export type DashboardProps = {
+  visibilityRules?: VisibilityRules;
+};
+
+const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -31,7 +38,7 @@ const MemberDashboard = () => {
             <RecentClaimSection
               className="large-section"
               title="Recent Claims"
-              linkText="View All Claims"
+              linkText="View Claims"
               claims={[
                 {
                   id: 'Claim98',
@@ -48,7 +55,7 @@ const MemberDashboard = () => {
                   id: 'Claim76',
                   claimStatus: 'Pending',
                   claimType: 'Pharmacy',
-                  claimTotal: null,
+                  claimTotal: '30.24',
                   issuer: 'John Doe',
                   memberName: 'Aly Jame',
                   serviceDate: '01/06/2024',
@@ -59,7 +66,7 @@ const MemberDashboard = () => {
                   id: 'Claim54',
                   claimStatus: 'Denied',
                   claimType: 'Dental',
-                  claimTotal: null,
+                  claimTotal: '65.61',
                   issuer: 'John Doe',
                   memberName: 'Aly Jame',
                   serviceDate: '01/16/2024',
@@ -209,6 +216,11 @@ const MemberDashboard = () => {
                 },
               ]}
             ></PillBox>
+            <InfoCard
+              label="Estimate Costs"
+              body="Plan your upcoming care costs before you make an appointment."
+              icon={EstimateCost}
+            ></InfoCard>
             <PillBox
               title="Planning for a procedure? You can estimate costs for:"
               icon={
@@ -251,34 +263,37 @@ const MemberDashboard = () => {
           <AmplifyHealthCard />
         </section>
         <section>
-          <EmployeeProvidedBenefitsTile
-            className="large-section"
-            employer="Ben Cole Co"
-            benefits={[
-              {
-                id: '45',
-                providedBy: 'Davis Vision',
-                contact: '1-800-456-9876',
-                url: 'https://davis-vision.com',
-              },
-              {
-                id: '87',
-                providedBy: 'Nirmal Dental',
-                contact: '1-800-367-9676',
-                url: 'https://nirmaldental.com',
-              },
-              {
-                id: '25',
-                providedBy: 'Low Pharm',
-                contact: '1-800-834-2465',
-              },
-              {
-                id: '289',
-                providedBy: 'Quant Labs',
-                contact: '1-800-834-3465',
-              },
-            ]}
-          />
+          {visibilityRules?.employerProvidedBenefits && (
+            <EmployeeProvidedBenefitsTile
+              className="large-section"
+              employer="Ben Cole Co"
+              employerLogo={bcbstBlueLogo}
+              benefits={[
+                {
+                  id: '45',
+                  providedBy: 'Davis Vision',
+                  contact: '1-800-456-9876',
+                  url: 'https://davis-vision.com',
+                },
+                {
+                  id: '87',
+                  providedBy: 'Nirmal Dental',
+                  contact: '1-800-367-9676',
+                  url: 'https://nirmaldental.com',
+                },
+                {
+                  id: '25',
+                  providedBy: 'Low Pharm',
+                  contact: '1-800-834-2465',
+                },
+                {
+                  id: '289',
+                  providedBy: 'Quant Labs',
+                  contact: '1-800-834-3465',
+                },
+              ]}
+            />
+          )}
         </section>
         <Spacer size={32}></Spacer>
       </Column>
