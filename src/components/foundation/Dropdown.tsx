@@ -1,7 +1,7 @@
+import downIcon from '@/public/assets/down.svg';
 import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import downIcon from '../../../public/assets/down.svg';
 import { checkBlueIcon } from './Icons';
 import { Row } from './Row';
 import { Spacer } from './Spacer';
@@ -51,7 +51,7 @@ export const Dropdown = ({
         className="flex flex-row link"
         onClick={() => setShowDrop(!showDrop)}
       >
-        <p>{mappedItems.get(selectedVal)}</p>
+        <p className="body-bold">{mappedItems.get(selectedVal)}</p>
         <Spacer axis="horizontal" size={8} />
         {icon}
       </div>
@@ -65,7 +65,7 @@ export const Dropdown = ({
           return (
             <Row
               key={item.label}
-              className={`${isSelcted ? 'dropdown-item-selected' : ''} dropdown-item p-2`}
+              className={`${isSelcted ? 'dropdown-item-selected' : ''} dropdown-item p-2 cursor-pointer`}
             >
               {isSelcted ? (
                 <div className="size-5 mx-2 ">

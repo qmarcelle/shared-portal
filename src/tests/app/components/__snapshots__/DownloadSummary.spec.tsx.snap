@@ -26,7 +26,7 @@ exports[`Download Summary Card Download Summary Card 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
               />
               <span
-                class="body-1 undefined"
+                class="rich-text body-1 undefined"
               >
                 <span>
                   You can print your claim summary from the downloaded pdf.
@@ -38,6 +38,7 @@ exports[`Download Summary Card Download Summary Card 1`] = `
               <button
                 aria-label="Claim Summary"
                 class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                disabled=""
                 type="button"
               >
                 Claim Summary
@@ -86,7 +87,7 @@ exports[`Download Summary Card Download Summary Card 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <span
-              class="body-1 undefined"
+              class="rich-text body-1 undefined"
             >
               <span>
                 You can print your claim summary from the downloaded pdf.
@@ -98,6 +99,7 @@ exports[`Download Summary Card Download Summary Card 1`] = `
             <button
               aria-label="Claim Summary"
               class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+              disabled=""
               type="button"
             >
               Claim Summary

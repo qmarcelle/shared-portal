@@ -1,21 +1,51 @@
+'use client';
+import { CalendarField } from '@/components/foundation/CalendarField';
 import { Checkbox } from '@/components/foundation/Checkbox';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Radio } from '@/components/foundation/Radio';
+import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { AddMemberDetails } from '@/models/add_member_details';
+import alertErrorSvg from '@/public/assets/alert_error_red.svg';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface AddMemberPlanProps {
   selectedCheckbox: string[] | null;
+  memberDetails: AddMemberDetails[];
 }
-const AddMemberPlan: React.FC<AddMemberPlanProps> = ({ selectedCheckbox }) => {
+const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
+  memberDetails,
+  selectedCheckbox,
+}) => {
   const [selectedMemberData, setSelectedMemberData] = useState(false);
+  const [error, setError] = useState('');
+
   function handleClick() {
     setSelectedMemberData(true);
     setSelectedMemberData(!selectedMemberData);
   }
+
+  const handleDateSelection = (enterDOB: string) => {
+    if (!enterDOB) {
+      setError('');
+      return;
+    }
+
+    if (enterDOB && memberDetails[0].dob) {
+      if (enterDOB === memberDetails[0].dob) {
+        setError('');
+      } else {
+        setError(
+          'Your date of birth does not match the information in our system. Please update and try again.',
+        );
+      }
+    }
+  };
+
   return (
     <main>
       <Column className="items-center">
@@ -80,6 +110,15 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({ selectedCheckbox }) => {
             <Checkbox label={'Medicare Part B'}></Checkbox>
             <Spacer size={8} />
             <Checkbox label={'Medicare Part D'}></Checkbox>
+            <Spacer size={16} />
+            <CalendarField
+              isSuffixNeeded={true}
+              label={'Policy Effective Date (MM/DD/YYYY)'}
+            />
+            <CalendarField
+              isSuffixNeeded={true}
+              label={'Policy End Date (MM/DD/YYYY) (optional)'}
+            />
           </Column>
         )}
         <Spacer size={16} />
@@ -88,6 +127,16 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({ selectedCheckbox }) => {
         <TextField label="Policyholder First Name" />
         <Spacer size={8} />
         <TextField label="Policyholder Last Name" />
+        <Spacer size={16} />
+        <CalendarField
+          isSuffixNeeded={true}
+          label={'Policyholder Birth Date (MM/DD/YYYY)'}
+          valueCallback={(val) => {
+            handleDateSelection(val);
+          }}
+          maxDate={new Date()}
+          maxDateErrMsg="Invalid birth date."
+        />
         <Spacer size={16} />
         {selectedCheckbox && selectedCheckbox.includes('medicarePlan') && (
           <Column>
@@ -147,6 +196,19 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({ selectedCheckbox }) => {
             <Spacer size={8} />
             <Checkbox label={'This member is over 65.'}></Checkbox>
             <Spacer size={32} />
+            {error && (
+              <div className="text-red-500 mt-1">
+                <Row>
+                  <Image
+                    src={alertErrorSvg}
+                    className="icon mt-1"
+                    alt="alert"
+                  />
+                  <TextBox className="body-1 pt-1.5 ml-2" text={error} />
+                </Row>
+                <Spacer size={32} />
+              </div>
+            )}
           </Column>
         )}
       </Column>

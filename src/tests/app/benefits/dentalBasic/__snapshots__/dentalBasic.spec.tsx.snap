@@ -9,9 +9,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
       <div
         class="flex flex-col app-content app-base-font-color"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
         <section
           class="flex flex-row items-start app-body"
         >
@@ -21,11 +18,8 @@ exports[`DentalBasic should render UI correctly 1`] = `
             <div
               class="flex flex-col app-content app-base-font-color"
             >
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
               <div
-                class="flex flex-col"
+                class="flex flex-col ml-2"
               >
                 <div
                   class="flex flex-col title-1"
@@ -49,7 +43,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
               class="flex flex-col"
             >
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -100,7 +94,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -116,7 +109,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -167,7 +160,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -183,7 +175,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -234,7 +226,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -250,7 +241,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -299,7 +290,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -350,7 +341,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -366,7 +356,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -417,7 +407,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -433,7 +422,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -484,7 +473,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -500,7 +488,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="card-main benefit-type-card"
+                class="card-main m-2 mt-4 p-8"
               >
                 <div>
                   <div
@@ -551,7 +539,6 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -595,11 +582,11 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   <div
                     class="flex flex-col ml-4"
                   >
-                    <p
-                      class="body-1 link-row-head"
+                    <div
+                      class="link-row-head"
                     >
                       Estimate Costs
-                    </p>
+                    </div>
                     <p
                       class="body-1 body-1"
                     >
@@ -610,7 +597,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
               </div>
             </a>
             <div
-              class="card-main large-section benefit-type-card"
+              class="card-main large-section"
             >
               <div
                 class="flex flex-col"
@@ -638,7 +625,9 @@ exports[`DentalBasic should render UI correctly 1`] = `
                     <div
                       class="flex flex-row link"
                     >
-                      <p>
+                      <p
+                        class="body-bold"
+                      >
                         Chris Hall
                       </p>
                       <span
@@ -657,26 +646,49 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       />
                     </div>
                     <section
-                      class="card-elevated py-2 z-20"
+                      class="card-elevated z-20 dropdown-section"
                       style="display: none; position: absolute;"
                     >
                       <div
-                        class="selected-dropdown-item cursor-pointer"
+                        class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                       >
-                        <p
-                          class="whitespace-nowrap mx-2"
+                        <div
+                          class="size-5 mx-2 "
                         >
-                          Chris Hall
-                        </p>
+                          <img
+                            alt="selcted"
+                            class="size-5"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            Chris Hall
+                          </p>
+                        </div>
                       </div>
                       <div
-                        class="dropdown-item cursor-pointer"
+                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
                       >
-                        <p
-                          class="whitespace-nowrap mx-2"
-                        >
-                          Megan Chaler
-                        </p>
+                        <div
+                          class="size-5 mx-2"
+                        />
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            Megan Chaler
+                          </p>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -688,7 +700,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   class="flex flex-col"
                 >
                   <p
-                    class="app-underline body-1"
+                    class=" app-underline body-1"
                   >
                     Deductible
                   </p>
@@ -721,7 +733,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   class="flex flex-col"
                 >
                   <p
-                    class="app-underline body-1"
+                    class=" app-underline body-1"
                   >
                     Out-of-Pocket
                   </p>
@@ -771,7 +783,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                         <p
                           class="body-1 font-bold"
                         >
-                          $90.00
+                          90.0
                         </p>
                         <p
                           class="body-2"
@@ -782,14 +794,13 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       <p
                         class="body-1 ml-5"
                       >
-                        $2,000.00 Annual Maximum Basic and Major Coverage
+                        Annual Maximum Basic and Major Coverage
                       </p>
                     </div>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -807,7 +818,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                         <p
                           class="body-1 font-bold"
                         >
-                          $0.00
+                          0.0
                         </p>
                         <p
                           class="body-2"
@@ -818,14 +829,13 @@ exports[`DentalBasic should render UI correctly 1`] = `
                       <p
                         class="body-1 ml-5"
                       >
-                        $2,000.00 Ortho Lifetime Maximum
+                        Ortho Lifetime Maximum
                       </p>
                     </div>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <div
-                      aria-label="divider"
                       class=""
                       style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                     />
@@ -836,18 +846,41 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                   />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <span
+                      class="rich-text body-2 undefined"
+                    >
+                      <span>
+                        Services Used is based on your processed items. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
+                         
+                      </span>
+                      <span
+                        class="link"
+                      >
+                        <a>
+                           start a chat 
+                        </a>
+                      </span>
+                      <span>
+                         or call us at [1-800-000-0000].
+                      </span>
+                    </span>
+                  </div>
                 </div>
                 <a
                   href="/balances"
                   style="display: block;"
+                  tabindex="-1"
                 >
                   <button
-                    class="flex flex-row link-container undefined"
+                    class="flex flex-row link-container pl-0"
                     style="max-width: max-content; height: auto; display: block;"
                     tabindex="0"
                   >
                     <p
-                      class="link"
+                      class="link undefined"
                       style="display: block;"
                     >
                       View Balances
@@ -857,7 +890,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
               </div>
             </div>
             <div
-              class="card-main benefit-type-card"
+              class="card-main large-section"
             >
               <div>
                 <h1
@@ -933,6 +966,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                 <a
                   href="/spendingAccounts"
                   style="display: block;"
+                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
@@ -940,7 +974,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                     tabindex="0"
                   >
                     <p
-                      class="link"
+                      class="link undefined"
                       style="display: block;"
                     >
                       View Spending Accounts
@@ -982,7 +1016,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   </span>
                 </span>
                 <span
-                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <span
                   class="rich-text body-1 undefined"

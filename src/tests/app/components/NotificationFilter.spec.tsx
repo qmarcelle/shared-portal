@@ -12,7 +12,7 @@ describe('Display Notification Filter', () => {
     screen.getByRole('heading', { name: 'Inbox' });
     fireEvent.click(screen.getByText(/Read & Unread/i));
     await waitFor(() => {
-      expect(screen.getByText('Read & Unread')).toBeVisible();
+      expect(screen.getAllByText('Read & Unread').length).toBe(2);
     });
     expect(component.baseElement).toMatchSnapshot();
   });

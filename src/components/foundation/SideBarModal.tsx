@@ -117,7 +117,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
   };
 
   return (
-    <Row className="justify-between modal-header items-center relative">
+    <Row className="justify-between modal-header items-center relative p-4">
       {showBack ? (
         <Row
           tabIndex={1}
@@ -215,7 +215,6 @@ export const InnerAppModal = ({
           <Column>
             <div className="sideBar-content">
               <ModalHeader onClose={closeModal} />
-              <Spacer size={32} />
               <Column className="items-stretch p-4">
                 {modalBody ? (
                   React.cloneElement(modalBody, {

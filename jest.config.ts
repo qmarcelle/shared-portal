@@ -10,6 +10,7 @@ const customJestConfig = {
     'next-auth/providers/credentials':
       '<rootDir>/src/tests/__mocks__/next-auth-providers-credentials.ts',
   },
+  moduleDirectories: ['node_modules', '<rootDir>'],
   setupFilesAfterEnv: [
     '<rootDir>/src/tests/__mocks__/ping-jest-mock-data-setup.ts',
   ],

@@ -12,8 +12,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       // eslint-disable-next-line quotes
       firstParagraph: "Looking for what's covered under your plan?",
       secondParagraph: (
-        <p className="pb-1">
-          Check out your
+        <p className="pb-1 text-base app-base-font-color ">
+          Check out your{''}
           <span className="font-bold"> Benefits & Coverages.</span>
         </p>
       ),
@@ -26,6 +26,15 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       fourthCol: '',
     },
     childPages: [
+      {
+        id: 94,
+        title: 'Find a Medical Provider',
+        description: 'This is Find a Provider',
+        category: 'Find Care',
+        showOnMenu: true,
+        url: '/findprovider',
+        external: true,
+      },
       {
         id: 93,
         title: 'Find a Provider',
@@ -99,6 +108,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 2,
@@ -138,7 +149,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Services Used',
         category: 'Plan Details',
         showOnMenu: true,
-        url: '/servicesUsed',
+        url: '/benefits/servicesUsed',
         external: false,
       },
       {
@@ -223,6 +234,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 3,
@@ -235,7 +248,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       firstParagraph:
         'Looking for a virtual care provider for mental health or physical therapy?',
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           View <span className="font-bold">Virtual Care Options.</span>
         </p>
       ),
@@ -321,6 +334,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 4,
@@ -332,7 +347,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           <span className="font-bold">A caremark.com</span> account will let you
           get prescriptions by mail, price a medication and more.
         </p>
@@ -405,6 +420,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
   {
     id: 5,
@@ -417,7 +434,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
       // eslint-disable-next-line quotes
       firstParagraph: "We're here to help.",
       secondParagraph: (
-        <p className="pb-1">
+        <p className="pb-1 text-base app-base-font-color ">
           <span className="font-bold">Start a chat</span> or call us at
           [1-800-000-0000].
         </p>
@@ -468,6 +485,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: false,
       },
     ],
+    activeSubNavId: null,
+    closeSubMenu: () => {},
   },
 ];
 

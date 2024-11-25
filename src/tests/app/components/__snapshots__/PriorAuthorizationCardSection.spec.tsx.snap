@@ -4,10 +4,10 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
 <body>
   <div>
     <div
-      class="flex flex-col mt-8"
+      class="flex flex-col mt-2"
     >
       <div
-        class="xs:block md:inline-flex max-sm:my-4 md:my-2 relative"
+        class="xs:block md:inline-flex max-sm:m-4 md:my-2 relative"
       >
         <div
           class="flex flex-row body-1 align-top mb-0 flex-grow"
@@ -21,54 +21,53 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
           </p>
         </div>
         <div
-          class="flex flex-row body-1 items-end prior-auth-card"
+          class="flex flex-row body-1 items-end"
         >
           <div
-            class="body-1"
+            class="body-1 mb-1"
           >
             Sort by:
           </div>
-          <div
-            class="body-1 link absolute"
-          >
+          <div>
             <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
+              class="rich-dropdown"
             >
-              <div>
-                <div
-                  class="border-none"
-                >
+              <div
+                class="flex flex-col switch-filter default"
+                tabindex="1"
+              >
+                <div>
                   <div
-                    class="flex flex-row p-1 items-center"
+                    class="body-1 link"
                   >
                     <div
-                      class="flex flex-col border-none flex-grow"
+                      class="flex flex-row p-1 items-center"
                     >
-                      <p
-                        class="body-1"
+                      <div
+                        class="flex flex-col border-none flex-grow"
                       >
-                        Status (Denied First)
-                      </p>
+                        <p
+                          class="body-1"
+                        >
+                          Status (Denied First)
+                        </p>
+                      </div>
+                      <img
+                        alt=""
+                        class="w-[20px] h-[20px] ml-2 items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
                     </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
                   </div>
                 </div>
               </div>
-              <ul
-                class="max-h-[420px] overflow-y-scroll"
-              />
             </div>
           </div>
         </div>
@@ -83,10 +82,10 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          class="card-elevated cursor-pointer mb-4"
+          class="card-button cursor-pointer mb-4"
         >
           <section
-            class="md:flex md:flex-row align-top m-4 mt-8"
+            class="md:flex md:flex-row align-top m-4"
           >
             <img
               alt="Medical"
@@ -124,11 +123,11 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 font-bold primary-color max-md:ml-[5px]"
+                  <h3
+                    class="title-3 body-bold primary-color max-md:ml-[5px]"
                   >
                     Service Group Description
-                  </p>
+                  </h3>
                 </section>
                 <section
                   class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"

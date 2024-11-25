@@ -35,11 +35,13 @@
   transform: translate(-4px, 85px) !important;
   right: 0px !important;
   left: unset !important;
+  width: 100%;
 }
 .react-datepicker-custom-popper[data-placement='top'] {
   transform: translate(0px, -324px) !important;
   right: 0px !important;
   left: unset !important;
+  width: 100%;
 }
 .react-datepicker__day-name,
 .react-datepicker__day,

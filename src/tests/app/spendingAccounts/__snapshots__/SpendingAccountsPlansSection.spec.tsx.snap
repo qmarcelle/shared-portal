@@ -18,14 +18,15 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
           class="flex justify-start self-start"
         >
           <span
-            class="body-1 undefined"
+            class="rich-text body-1 undefined"
           >
             <div
-              class="flex flex-row m-4 mb-0"
+              class="flex flex-col m-4 mb-0 md:flex-row block"
             >
               To manage your health spending account details
               <a
                 style="display: block;"
+                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container link !flex caremark pt-0"
@@ -33,12 +34,14 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   tabindex="0"
                 >
                   <p
-                    class="link"
+                    class="link undefined"
+                    style="display: block;"
                   >
                     visit Health Equity
                   </p>
                   <p
                     class="ml-1"
+                    style="display: block;"
                   >
                     <img
                       alt="external"
@@ -120,7 +123,9 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       <div
                         class="flex flex-row link"
                       >
-                        <p>
+                        <p
+                          class="body-bold"
+                        >
                           2023
                         </p>
                         <span
@@ -139,35 +144,63 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                         />
                       </div>
                       <section
-                        class="card-elevated py-2 z-20"
+                        class="card-elevated z-20 dropdown-section"
                         style="display: none; position: absolute;"
                       >
                         <div
-                          class="selected-dropdown-item cursor-pointer"
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
+                          <div
+                            class="size-5 mx-2 "
                           >
-                            2023
-                          </p>
+                            <img
+                              alt="selcted"
+                              class="size-5"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2023
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2022
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2022
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2021
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2021
+                            </p>
+                          </div>
                         </div>
                       </section>
                     </div>
@@ -211,7 +244,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -236,6 +268,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   </div>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -243,7 +276,8 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         View HSA Transactions
                       </p>
@@ -305,7 +339,9 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       <div
                         class="flex flex-row link"
                       >
-                        <p>
+                        <p
+                          class="body-bold"
+                        >
                           2023
                         </p>
                         <span
@@ -324,35 +360,63 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                         />
                       </div>
                       <section
-                        class="card-elevated py-2 z-20"
+                        class="card-elevated z-20 dropdown-section"
                         style="display: none; position: absolute;"
                       >
                         <div
-                          class="selected-dropdown-item cursor-pointer"
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
+                          <div
+                            class="size-5 mx-2 "
                           >
-                            2023
-                          </p>
+                            <img
+                              alt="selcted"
+                              class="size-5"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2023
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2022
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2022
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2021
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2021
+                            </p>
+                          </div>
                         </div>
                       </section>
                     </div>
@@ -396,7 +460,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -421,6 +484,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   </div>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -428,7 +492,8 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         View FSA Transactions
                       </p>
@@ -459,6 +524,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   />
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link no-underline !flex caremark"
@@ -466,12 +532,14 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         Direct Deposit Form  
                       </p>
                       <p
                         class="ml-1"
+                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -499,7 +567,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -508,6 +575,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   />
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link n0-underline !flex caremark"
@@ -515,12 +583,14 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         Eligible Expenses 
                       </p>
                       <p
                         class="ml-1"
+                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -564,7 +634,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
                   <span
-                    class="body-1 undefined"
+                    class="rich-text body-1 undefined"
                   >
                     <span>
                       if you need help, please reach out to us.You can
@@ -578,7 +648,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       </a>
                     </span>
                     <span>
-                      or call us at [1-800-000-000] or email consumercoach @bcbst.com
+                      or call us at [1-800-000-000].
                     </span>
                   </span>
                   <span
@@ -642,7 +712,9 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
             <div
               class="flex flex-row link"
             >
-              <p>
+              <p
+                class="body-bold"
+              >
                 2023
               </p>
               <span
@@ -661,35 +733,63 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
               />
             </div>
             <section
-              class="card-elevated py-2 z-20"
+              class="card-elevated z-20 dropdown-section"
               style="display: none; position: absolute;"
             >
               <div
-                class="selected-dropdown-item cursor-pointer"
+                class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
+                <div
+                  class="size-5 mx-2 "
                 >
-                  2023
-                </p>
+                  <img
+                    alt="selcted"
+                    class="size-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    2023
+                  </p>
+                </div>
               </div>
               <div
-                class="dropdown-item cursor-pointer"
+                class="flex flex-row  dropdown-item p-2 cursor-pointer"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
-                >
-                  2022
-                </p>
+                <div
+                  class="size-5 mx-2"
+                />
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    2022
+                  </p>
+                </div>
               </div>
               <div
-                class="dropdown-item cursor-pointer"
+                class="flex flex-row  dropdown-item p-2 cursor-pointer"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
-                >
-                  2021
-                </p>
+                <div
+                  class="size-5 mx-2"
+                />
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    2021
+                  </p>
+                </div>
               </div>
             </section>
           </div>
@@ -733,7 +833,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
@@ -758,6 +857,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
         </div>
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -765,7 +865,8 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               View FSA Transactions
             </p>
@@ -793,6 +894,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
         />
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link no-underline !flex caremark"
@@ -800,12 +902,14 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               Direct Deposit Form  
             </p>
             <p
               class="ml-1"
+              style="display: block;"
             >
               <img
                 alt="external"
@@ -833,7 +937,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
         />
         <div
-          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
@@ -842,6 +945,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
         />
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link n0-underline !flex caremark"
@@ -849,12 +953,14 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               Eligible Expenses 
             </p>
             <p
               class="ml-1"
+              style="display: block;"
             >
               <img
                 alt="external"
@@ -903,14 +1009,15 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
           class="flex justify-start self-start"
         >
           <span
-            class="body-1 undefined"
+            class="rich-text body-1 undefined"
           >
             <div
-              class="flex flex-row m-4 mb-0"
+              class="flex flex-col m-4 mb-0 md:flex-row block"
             >
               To manage your health spending account details
               <a
                 style="display: block;"
+                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container link !flex caremark pt-0"
@@ -918,12 +1025,14 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   tabindex="0"
                 >
                   <p
-                    class="link"
+                    class="link undefined"
+                    style="display: block;"
                   >
                     visit Health Equity
                   </p>
                   <p
                     class="ml-1"
+                    style="display: block;"
                   >
                     <img
                       alt="external"
@@ -1005,7 +1114,9 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       <div
                         class="flex flex-row link"
                       >
-                        <p>
+                        <p
+                          class="body-bold"
+                        >
                           2023
                         </p>
                         <span
@@ -1024,35 +1135,63 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                         />
                       </div>
                       <section
-                        class="card-elevated py-2 z-20"
+                        class="card-elevated z-20 dropdown-section"
                         style="display: none; position: absolute;"
                       >
                         <div
-                          class="selected-dropdown-item cursor-pointer"
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
+                          <div
+                            class="size-5 mx-2 "
                           >
-                            2023
-                          </p>
+                            <img
+                              alt="selcted"
+                              class="size-5"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2023
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2022
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2022
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2021
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2021
+                            </p>
+                          </div>
                         </div>
                       </section>
                     </div>
@@ -1096,7 +1235,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -1121,6 +1259,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   </div>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -1128,7 +1267,8 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         View HSA Transactions
                       </p>
@@ -1190,7 +1330,9 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       <div
                         class="flex flex-row link"
                       >
-                        <p>
+                        <p
+                          class="body-bold"
+                        >
                           2023
                         </p>
                         <span
@@ -1209,35 +1351,63 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                         />
                       </div>
                       <section
-                        class="card-elevated py-2 z-20"
+                        class="card-elevated z-20 dropdown-section"
                         style="display: none; position: absolute;"
                       >
                         <div
-                          class="selected-dropdown-item cursor-pointer"
+                          class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
+                          <div
+                            class="size-5 mx-2 "
                           >
-                            2023
-                          </p>
+                            <img
+                              alt="selcted"
+                              class="size-5"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2023
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2022
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2022
+                            </p>
+                          </div>
                         </div>
                         <div
-                          class="dropdown-item cursor-pointer"
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
                         >
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            2021
-                          </p>
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              2021
+                            </p>
+                          </div>
                         </div>
                       </section>
                     </div>
@@ -1281,7 +1451,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -1306,6 +1475,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   </div>
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -1313,7 +1483,8 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         View FSA Transactions
                       </p>
@@ -1344,6 +1515,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   />
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link no-underline !flex caremark"
@@ -1351,12 +1523,14 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         Direct Deposit Form  
                       </p>
                       <p
                         class="ml-1"
+                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -1384,7 +1558,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                   />
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
@@ -1393,6 +1566,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   />
                   <a
                     style="display: block;"
+                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link n0-underline !flex caremark"
@@ -1400,12 +1574,14 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         Eligible Expenses 
                       </p>
                       <p
                         class="ml-1"
+                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -1449,7 +1625,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
                   <span
-                    class="body-1 undefined"
+                    class="rich-text body-1 undefined"
                   >
                     <span>
                       if you need help, please reach out to us.You can
@@ -1463,7 +1639,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       </a>
                     </span>
                     <span>
-                      or call us at [1-800-000-000] or email consumercoach @bcbst.com
+                      or call us at [1-800-000-000].
                     </span>
                   </span>
                   <span
@@ -1527,7 +1703,9 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
             <div
               class="flex flex-row link"
             >
-              <p>
+              <p
+                class="body-bold"
+              >
                 2023
               </p>
               <span
@@ -1546,35 +1724,63 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
               />
             </div>
             <section
-              class="card-elevated py-2 z-20"
+              class="card-elevated z-20 dropdown-section"
               style="display: none; position: absolute;"
             >
               <div
-                class="selected-dropdown-item cursor-pointer"
+                class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
+                <div
+                  class="size-5 mx-2 "
                 >
-                  2023
-                </p>
+                  <img
+                    alt="selcted"
+                    class="size-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    2023
+                  </p>
+                </div>
               </div>
               <div
-                class="dropdown-item cursor-pointer"
+                class="flex flex-row  dropdown-item p-2 cursor-pointer"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
-                >
-                  2022
-                </p>
+                <div
+                  class="size-5 mx-2"
+                />
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    2022
+                  </p>
+                </div>
               </div>
               <div
-                class="dropdown-item cursor-pointer"
+                class="flex flex-row  dropdown-item p-2 cursor-pointer"
               >
-                <p
-                  class="whitespace-nowrap mx-2"
-                >
-                  2021
-                </p>
+                <div
+                  class="size-5 mx-2"
+                />
+                <div>
+                  <p
+                    class="whitespace-nowrap mx-2"
+                  >
+                    2021
+                  </p>
+                </div>
               </div>
             </section>
           </div>
@@ -1618,7 +1824,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
@@ -1643,6 +1848,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
         </div>
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -1650,7 +1856,8 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               View FSA Transactions
             </p>
@@ -1678,6 +1885,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
         />
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link no-underline !flex caremark"
@@ -1685,12 +1893,14 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               Direct Deposit Form  
             </p>
             <p
               class="ml-1"
+              style="display: block;"
             >
               <img
                 alt="external"
@@ -1718,7 +1928,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
         />
         <div
-          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
@@ -1727,6 +1936,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
         />
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link n0-underline !flex caremark"
@@ -1734,12 +1944,14 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               Eligible Expenses 
             </p>
             <p
               class="ml-1"
+              style="display: block;"
             >
               <img
                 alt="external"

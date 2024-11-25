@@ -18,7 +18,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
               class="flex flex-col flex-grow page-section-36_67 items-stretch"
             >
               <div
-                class="card-main large-section p-8"
+                class="card-main  large-section"
               >
                 <div
                   class="flex flex-col items-stretch"
@@ -29,13 +29,12 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     >
                       Understanding Sharing My Information
                     </h1>
-                     
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
                     />
                   </div>
                   <div
-                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
                   >
                     <div
                       class="flex flex-row m-1 accordion-head"
@@ -63,12 +62,11 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     />
                   </div>
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
                   <div
-                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
                   >
                     <div
                       class="flex flex-row m-1 accordion-head"
@@ -96,12 +94,11 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     />
                   </div>
                   <div
-                    aria-label="divider"
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
                   <div
-                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
                   >
                     <div
                       class="flex flex-row m-1 accordion-head"
@@ -191,7 +188,9 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           <div
                             class="flex flex-row link"
                           >
-                            <p>
+                            <p
+                              class="body-bold"
+                            >
                               Subscriber ID ABC000000000
                             </p>
                             <span
@@ -210,26 +209,49 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                           </div>
                           <section
-                            class="card-elevated py-2 z-20"
+                            class="card-elevated z-20 dropdown-section"
                             style="display: none; position: absolute;"
                           >
                             <div
-                              class="dropdown-item cursor-pointer"
+                              class="flex flex-row  dropdown-item p-2 cursor-pointer"
                             >
-                              <p
-                                class="whitespace-nowrap mx-2"
-                              >
-                                Subscriber ID ABC123456789
-                              </p>
+                              <div
+                                class="size-5 mx-2"
+                              />
+                              <div>
+                                <p
+                                  class="whitespace-nowrap mx-2"
+                                >
+                                  Subscriber ID ABC123456789
+                                </p>
+                              </div>
                             </div>
                             <div
-                              class="selected-dropdown-item cursor-pointer"
+                              class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                             >
-                              <p
-                                class="whitespace-nowrap mx-2"
+                              <div
+                                class="size-5 mx-2 "
                               >
-                                Subscriber ID ABC000000000
-                              </p>
+                                <img
+                                  alt="selcted"
+                                  class="size-5"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div>
+                                <p
+                                  class="whitespace-nowrap mx-2"
+                                >
+                                  Subscriber ID ABC000000000
+                                </p>
+                              </div>
                             </div>
                           </section>
                         </div>
@@ -275,7 +297,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -374,7 +395,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -473,7 +493,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -572,7 +591,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -671,7 +689,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
-                            aria-label="divider"
                             class=""
                             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
@@ -715,15 +732,17 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
-                    class="block undefined"
+                    style="display: block;"
+                    tabindex="-1"
                   >
                     <button
-                      class="flex flex-row link-container"
-                      style="max-width: max-content; height: auto;"
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
                       tabindex="0"
                     >
                       <p
-                        class="link"
+                        class="link undefined"
+                        style="display: block;"
                       >
                         View Benefits & Coverage
                       </p>
@@ -751,7 +770,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
             class="flex flex-col flex-grow page-section-36_67 items-stretch"
           >
             <div
-              class="card-main large-section p-8"
+              class="card-main  large-section"
             >
               <div
                 class="flex flex-col items-stretch"
@@ -762,13 +781,12 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   >
                     Understanding Sharing My Information
                   </h1>
-                   
                   <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
                   />
                 </div>
                 <div
-                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
                 >
                   <div
                     class="flex flex-row m-1 accordion-head"
@@ -796,12 +814,11 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-label="divider"
                   class=""
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />
                 <div
-                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
                 >
                   <div
                     class="flex flex-row m-1 accordion-head"
@@ -829,12 +846,11 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-label="divider"
                   class=""
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />
                 <div
-                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
                 >
                   <div
                     class="flex flex-row m-1 accordion-head"
@@ -924,7 +940,9 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         <div
                           class="flex flex-row link"
                         >
-                          <p>
+                          <p
+                            class="body-bold"
+                          >
                             Subscriber ID ABC000000000
                           </p>
                           <span
@@ -943,26 +961,49 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                         </div>
                         <section
-                          class="card-elevated py-2 z-20"
+                          class="card-elevated z-20 dropdown-section"
                           style="display: none; position: absolute;"
                         >
                           <div
-                            class="dropdown-item cursor-pointer"
+                            class="flex flex-row  dropdown-item p-2 cursor-pointer"
                           >
-                            <p
-                              class="whitespace-nowrap mx-2"
-                            >
-                              Subscriber ID ABC123456789
-                            </p>
+                            <div
+                              class="size-5 mx-2"
+                            />
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                Subscriber ID ABC123456789
+                              </p>
+                            </div>
                           </div>
                           <div
-                            class="selected-dropdown-item cursor-pointer"
+                            class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
                           >
-                            <p
-                              class="whitespace-nowrap mx-2"
+                            <div
+                              class="size-5 mx-2 "
                             >
-                              Subscriber ID ABC000000000
-                            </p>
+                              <img
+                                alt="selcted"
+                                class="size-5"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                Subscriber ID ABC000000000
+                              </p>
+                            </div>
                           </div>
                         </section>
                       </div>
@@ -1008,7 +1049,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                         />
                         <div
-                          aria-label="divider"
                           class=""
                           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                         />
@@ -1107,7 +1147,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                         />
                         <div
-                          aria-label="divider"
                           class=""
                           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                         />
@@ -1206,7 +1245,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                         />
                         <div
-                          aria-label="divider"
                           class=""
                           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                         />
@@ -1305,7 +1343,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                         />
                         <div
-                          aria-label="divider"
                           class=""
                           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                         />
@@ -1404,7 +1441,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                         />
                         <div
-                          aria-label="divider"
                           class=""
                           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                         />
@@ -1448,15 +1484,17 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <a
-                  class="block undefined"
+                  style="display: block;"
+                  tabindex="-1"
                 >
                   <button
-                    class="flex flex-row link-container"
-                    style="max-width: max-content; height: auto;"
+                    class="flex flex-row link-container undefined"
+                    style="max-width: max-content; height: auto; display: block;"
                     tabindex="0"
                   >
                     <p
-                      class="link"
+                      class="link undefined"
+                      style="display: block;"
                     >
                       View Benefits & Coverage
                     </p>

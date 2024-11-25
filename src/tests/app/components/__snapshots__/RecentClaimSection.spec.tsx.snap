@@ -18,10 +18,10 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          class="card-elevated cursor-pointer mb-4"
+          class="card-button cursor-pointer mb-4"
         >
           <section
-            class="md:flex md:flex-row align-top m-4 mt-8"
+            class="md:flex md:flex-row align-top m-4"
           >
             <img
               alt="Medical"
@@ -59,11 +59,11 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 font-bold primary-color max-md:ml-[5px]"
+                  <h3
+                    class="title-3 body-bold primary-color max-md:ml-[5px]"
                   >
                     John Doe
-                  </p>
+                  </h3>
                 </section>
                 <section
                   class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
@@ -117,10 +117,10 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           </section>
         </div>
         <div
-          class="card-elevated cursor-pointer mb-4"
+          class="card-button cursor-pointer mb-4"
         >
           <section
-            class="md:flex md:flex-row align-top m-4 mt-8"
+            class="md:flex md:flex-row align-top m-4"
           >
             <img
               alt="Pharmacy"
@@ -158,11 +158,11 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 font-bold primary-color max-md:ml-[5px]"
+                  <h3
+                    class="title-3 body-bold primary-color max-md:ml-[5px]"
                   >
                     John Does
-                  </p>
+                  </h3>
                 </section>
                 <section
                   class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
@@ -212,10 +212,10 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           </section>
         </div>
         <div
-          class="card-elevated cursor-pointer mb-4"
+          class="card-button cursor-pointer mb-4"
         >
           <section
-            class="md:flex md:flex-row align-top m-4 mt-8"
+            class="md:flex md:flex-row align-top m-4"
           >
             <img
               alt="Dental"
@@ -253,11 +253,11 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 font-bold primary-color max-md:ml-[5px]"
+                  <h3
+                    class="title-3 body-bold primary-color max-md:ml-[5px]"
                   >
                     John Doea
-                  </p>
+                  </h3>
                 </section>
                 <section
                   class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
@@ -311,6 +311,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
         />
         <a
           style="display: block;"
+          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -318,7 +319,8 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
             tabindex="0"
           >
             <p
-              class="link"
+              class="link undefined"
+              style="display: block;"
             >
               View All Claims
             </p>

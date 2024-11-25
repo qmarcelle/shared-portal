@@ -24,9 +24,9 @@ const renderUI = () => {
 describe('SiteHeader And Navigation Menu', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
-    expect(screen.getByText('Primary Profile')).toBeVisible();
+    expect(screen.getByText('My Profile')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
-    fireEvent.click(screen.getByText('Primary Profile'));
+    fireEvent.click(screen.getByText('My Profile'));
     await waitFor(() => {
       expect(screen.getByText('Signout')).toBeVisible();
     });
@@ -53,6 +53,8 @@ describe('SiteHeader And Navigation Menu', () => {
       }),
     );
     expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
+
+    expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
 
     expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
     fireEvent.click(
@@ -129,6 +131,14 @@ describe('SiteHeader And Navigation Menu', () => {
     );
     expect(screen.getByText('Balances')).toBeInTheDocument();
 
+    expect(screen.getByText(/Services Used/i)).toBeVisible();
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /Services Used/i,
+      }),
+    );
+    expect(screen.getByText('Services Used')).toBeInTheDocument();
+
     expect(screen.getByText(/Spending Accounts \(HSA, FSA\)/i));
     fireEvent.click(
       screen.getByRole('button', {
@@ -194,15 +204,6 @@ describe('SiteHeader And Navigation Menu', () => {
       'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
     );
 
-    expect(
-      screen.getAllByRole('link', {
-        name: 'Price a Medication External Link',
-      })[1],
-    ).toHaveProperty(
-      'href',
-      'https://www.caremark.com/drugSearchInit.do?newLogin=yes',
-    );
-
     expect(screen.getAllByText(/Pharmacy Documents & Forms/i));
     fireEvent.click(
       screen.getByRole('button', {
@@ -242,7 +243,6 @@ describe('SiteHeader And Navigation Menu', () => {
         name: /Find a Form/i,
       }),
     );
-    expect(screen.getByText(/Documents & Forms/i)).toBeInTheDocument();
 
     expect(screen.getAllByText(/Frequently Asked Questions/i));
     fireEvent.click(

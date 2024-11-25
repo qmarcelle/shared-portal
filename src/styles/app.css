@@ -179,6 +179,9 @@
 .priorAuthDetail .statusDetail {
   margin-left: 70px;
 }
+.errorCard {
+  background-color: rgba(0, 0, 0, 0.05);
+}
 
 .sliderdots-active .slick-dots li.slick-active button:before {
   color: #005eb9;
@@ -282,4 +285,7 @@
 .disabled-checkbox {
   opacity: 0.5;
   pointer-events: none; /* Disables interactions with the checkbox */
+}
+.manage-link {
+  display: ruby;
 }
