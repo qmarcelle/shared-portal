@@ -1,5 +1,6 @@
 export type DedAndOOPBalanceResponse = {
   accumulatorsDetails: AccumulatorsDetail[];
+  serviceError?: { desc: string; id: string };
 };
 
 export type AccumulatorsDetail = {

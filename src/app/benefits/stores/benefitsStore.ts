@@ -6,6 +6,7 @@ interface BenefitsDetails {
   networkTiers: NetWorksAndTierInfo[];
   coveredServices: { serviceDetails: ServiceDetails[] }[];
   serviceCategory: { category: string; id: number };
+  benefitType: string;
 }
 
 interface BenefitsState {
@@ -26,6 +27,7 @@ export const useBenefitsStore = create<BenefitsState>((set) => ({
     networkTiers: [],
     coveredServices: [],
     serviceCategory: { category: '', id: 0 },
+    benefitType: 'M',
   },
   setSelectedBenefitDetails: (details) =>
     set({ selectedBenefitDetails: details }),

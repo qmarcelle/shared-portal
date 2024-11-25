@@ -93,6 +93,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
       networkTiers: NetWorksAndTierInfo[] | undefined,
       serviceCategory: { serviceDetails: ServiceDetails[] }[],
       category: { category: string; id: number },
+      benefitType: string,
     ) => {
       if (networkTiers === undefined || serviceCategory === undefined) {
         console.log(
@@ -104,6 +105,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
         networkTiers: networkTiers,
         coveredServices: serviceCategory,
         serviceCategory: category,
+        benefitType: benefitType,
       });
       router.push('/benefits/details');
     },
@@ -127,6 +129,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                   item.id,
                 ),
                 { category: item.category, id: item.id },
+                'M',
               ),
           });
         },
@@ -146,6 +149,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                 107,
               ),
               { category: 'Prescription Drugs', id: 107 },
+              'M',
             ),
         },
       ];
@@ -170,6 +174,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                   item.id,
                 ),
                 { category: item.category, id: item.id },
+                'D',
               ),
           });
         },

@@ -1,6 +1,3 @@
-import { BalanceSectionProps } from '@/app/benefits/balances/components/BalanceSection';
-import { SpendingAccountSectionProps } from '@/app/benefits/balances/components/SpendingAccountsSection';
-import { MedicalBalanceSectionProps } from '@/app/dashboard/components/MedicalBalanceSection';
 import { GetHelpProps } from '@/components/composite/GetHelpSection';
 import { InfoCardProps } from '@/components/composite/InfoCard';
 import { BenefitTypeHeaderDetails } from './benefit_type_header_details';
@@ -24,9 +21,6 @@ export interface BenefitTypeDetail {
   benefitDetails: ListBenefitDetails[];
   estimateCosts?: InfoCardProps;
   servicesUsed?: InfoCardProps;
-  dentalBalance?: BalanceSectionProps;
   findDrugsCostAndCoverage?: InfoCardProps;
-  medicalAndPharmacyBalance?: MedicalBalanceSectionProps;
-  spendingAccounts?: SpendingAccountSectionProps;
   getHelpWithBenefits?: GetHelpProps;
 }
