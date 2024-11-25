@@ -1,5 +1,6 @@
 import DashboardPage from '@/app/dashboard/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -14,6 +15,7 @@ jest.mock('../../../auth', () => ({
       user: {
         currUsr: {
           firstName: 'Chris',
+          role: UserRole.MEMBER,
           plan: {
             planName: 'BlueCross BlueShield of Tennessee',
             subId: '123456',
@@ -87,6 +89,17 @@ describe('Dashboard Page', () => {
     expect(screen.getByText('View Prior Authorizations')).toBeVisible();
     expect(screen.getByText('View Balances')).toBeVisible();
     expect(screen.getByText('View Benefits & Coverage')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should render Estimate Costs UI correctly', async () => {
+    const component = await renderUI();
+    expect(screen.getByText('Estimate Costs')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Plan your upcoming care costs before you make an appointment.',
+      ),
+    ).toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

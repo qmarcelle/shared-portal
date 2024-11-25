@@ -28,3 +28,5 @@ window._pingOneSignals = {
   initSilent: jest.fn<() => Promise<void>>(() => Promise.resolve()),
 };
 window._pingOneSignalsReady = true;
+
+process.env.ES_PORTAL_SVCS_API_URL = 'ES_PORTAL_SVCS_API_URL';

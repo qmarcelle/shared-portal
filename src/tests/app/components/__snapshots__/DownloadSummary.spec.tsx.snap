@@ -38,6 +38,7 @@ exports[`Download Summary Card Download Summary Card 1`] = `
               <button
                 aria-label="Claim Summary"
                 class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                disabled=""
                 type="button"
               >
                 Claim Summary
@@ -98,6 +99,7 @@ exports[`Download Summary Card Download Summary Card 1`] = `
             <button
               aria-label="Claim Summary"
               class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+              disabled=""
               type="button"
             >
               Claim Summary

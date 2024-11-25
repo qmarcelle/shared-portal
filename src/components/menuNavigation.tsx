@@ -27,6 +27,15 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     },
     childPages: [
       {
+        id: 94,
+        title: 'Find a Medical Provider',
+        description: 'This is Find a Provider',
+        category: 'Find Care',
+        showOnMenu: true,
+        url: '/findprovider',
+        external: true,
+      },
+      {
         id: 93,
         title: 'Find a Provider',
         description: 'This is Find a Provider',
@@ -140,7 +149,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         description: 'This is Services Used',
         category: 'Plan Details',
         showOnMenu: true,
-        url: '/servicesUsed',
+        url: '/benefits/servicesUsed',
         external: false,
       },
       {

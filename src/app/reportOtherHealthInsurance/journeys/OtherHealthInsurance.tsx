@@ -11,14 +11,18 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { useRef, useState } from 'react';
 
+import { AddMemberDetails } from '@/models/add_member_details';
 import AddMemberPlan from '../components/AddMemberPlan';
 import OtherHealthInsurancePlan from '../components/OtherHealthInsurancePlan';
 import SelectMemberPlan from '../components/SelectMemberPlan';
-
+export type OtherHealthInsuranceProps = {
+  memberDetails: AddMemberDetails[];
+};
 export const OtherHealthInsurance = ({
   changePage,
   pageIndex,
-}: ModalChildProps) => {
+  memberDetails,
+}: ModalChildProps & OtherHealthInsuranceProps) => {
   const [selectedData, setSelectedData] = useState(false);
   const [selectedCheckbox, setSelectedCheckbox] = useState<string[] | null>([]);
   const checkCountRef = useRef<number>(0);
@@ -141,7 +145,12 @@ export const OtherHealthInsurance = ({
       key="third"
       label=""
       subLabel=""
-      actionArea={<AddMemberPlan selectedCheckbox={selectedCheckbox} />}
+      actionArea={
+        <AddMemberPlan
+          selectedCheckbox={selectedCheckbox}
+          memberDetails={memberDetails}
+        />
+      }
       buttonLabel="Next"
       nextCallback={() => changePage?.(3, true)}
       cancelCallback={() => dismissModal()}
