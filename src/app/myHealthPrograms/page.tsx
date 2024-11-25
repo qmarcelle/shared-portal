@@ -1,18 +1,14 @@
-'use client';
-import { HealthProgramsResources } from './components/HealthProgramsResources';
-import { HealthProgramType } from './models/health_program_type';
-import { healthProgramsandResourcesDetails } from './models/health_programs_resources';
+import { Metadata } from 'next';
+import MyHealthPrograms from '.';
+import { getAccessCodeDetails } from './actions/getCareTNAccessCode';
 
-const MyHealthPrograms = () => {
-  return (
-    <main className="flex flex-col justify-center items-center page">
-      <HealthProgramsResources
-        healthProgramDetails={healthProgramsandResourcesDetails.get(
-          HealthProgramType.TeladocHealthDiabetesPrevention,
-        )}
-      />
-    </main>
-  );
+export const metadata: Metadata = {
+  title: 'My Health Programs',
 };
 
-export default MyHealthPrograms;
+const MyHealthProgramsPage = async () => {
+  const result = await getAccessCodeDetails();
+  return <MyHealthPrograms data={result} />;
+};
+
+export default MyHealthProgramsPage;

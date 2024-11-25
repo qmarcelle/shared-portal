@@ -1,5 +1,6 @@
 import DashboardPage from '@/app/dashboard/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -14,6 +15,7 @@ jest.mock('../../../auth', () => ({
       user: {
         currUsr: {
           firstName: 'Chris',
+          role: UserRole.MEMBER,
           plan: {
             planName: 'BlueCross BlueShield of Tennessee',
             subId: '123456',
