@@ -1,10 +1,29 @@
 'use client';
-import { BenefitTypeDetails } from '../components/BenefitTypeDetails';
+import { GetHelpSection } from '@/components/composite/GetHelpSection';
+import { InfoCard } from '@/components/composite/InfoCard';
+import { Column } from '@/components/foundation/Column';
+import { Spacer } from '@/components/foundation/Spacer';
+import estimateCost from '@/public/assets/estimate_cost.svg';
+import servicesUsed from '@/public/assets/services_used.svg';
+import { BalanceSectionWrapper } from '../balances/components/BalanceSection';
+import {
+  SpendingAccountSection,
+  SpendingAccountSectionProps,
+} from '../balances/components/SpendingAccountsSection';
+import { BalanceData } from '../balances/models/app/balancesData';
+import { BenefitDetailSection } from '../components/BenefitDetailSection';
+import { BenefitTypeHeaderSection } from '../components/BenefitTypeHeaderSection';
 import { BenefitTypeDetail } from '../models/benefit_details';
 import { BenefitLevelDetails } from '../models/benefit_type_header_details';
 import { useBenefitsStore } from '../stores/benefitsStore';
 
-export const Details = () => {
+export const Details = ({
+  balanceData,
+  spendingAccountInfo,
+}: {
+  balanceData: BalanceData | undefined;
+  spendingAccountInfo: SpendingAccountSectionProps;
+}) => {
   const { selectedBenefitDetails } = useBenefitsStore();
 
   // Check if benefitsData is populated
@@ -51,7 +70,77 @@ export const Details = () => {
 
   return (
     <main className="flex flex-col justify-center items-center page">
-      <BenefitTypeDetails benefitTypeDetails={benefitTypeDetails} />
+      <Column className="app-content app-base-font-color">
+        <button onClick={() => window.history.back()}>Go Back</button>
+        {benefitTypeDetails?.benefitTypeHeaderDetails && (
+          <>
+            <section className="flex flex-row items-start app-body">
+              <Column className="flex-grow page-section-63_33 items-stretch">
+                <Column className="app-content app-base-font-color">
+                  <BenefitTypeHeaderSection
+                    benefitTypeHeaderDetails={
+                      benefitTypeDetails?.benefitTypeHeaderDetails
+                    }
+                  />
+                  <Spacer size={16} />
+                </Column>
+              </Column>
+            </section>
+          </>
+        )}
+        <section className="flex flex-row items-start app-body">
+          <Column className="flex-grow page-section-63_33 items-stretch">
+            <BenefitDetailSection
+              benefitDetail={benefitTypeDetails?.benefitDetails ?? []}
+            />
+          </Column>
+          <Column className=" flex-grow page-section-36_67 items-stretch md:ml-4">
+            <>
+              <InfoCard
+                label="Estimate Costs"
+                body="Plan your upcoming care costs before you make an appointment."
+                icon={estimateCost}
+                link="findcare"
+              />
+              <InfoCard
+                label="Services Used"
+                body="View a list of common services, the maximum amount covered by your plan and how many you've used."
+                icon={servicesUsed}
+                link="servicesused"
+              />
+              {/* Add Medical Balances Card */}
+              {balanceData?.medical && (
+                <BalanceSectionWrapper
+                  key="Medical"
+                  title="Medical & Pharmacy Balance"
+                  product={balanceData?.medical}
+                />
+              )}
+              {balanceData?.dental && (
+                <BalanceSectionWrapper
+                  key="Dental"
+                  title="Dental Balance"
+                  product={balanceData?.dental}
+                />
+              )}
+
+              {spendingAccountInfo && (
+                <SpendingAccountSection
+                  fsaBalance={spendingAccountInfo.fsaBalance}
+                  hsaBalance={spendingAccountInfo.hsaBalance}
+                  linkURL={spendingAccountInfo.linkURL}
+                  className={spendingAccountInfo.className}
+                />
+              )}
+              <GetHelpSection
+                link="/benefits/faq"
+                linkURL="Benefits & Coverage FAQ"
+                headerText="Get Help with Benefits"
+              />
+            </>
+          </Column>
+        </section>
+      </Column>
     </main>
   );
 };

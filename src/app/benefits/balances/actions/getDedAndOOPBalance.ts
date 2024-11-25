@@ -32,10 +32,11 @@ export async function callGetDedAndOOPBalance({
   productType = 'M',
 }: DedAndOOPBalanceApiParams): Promise<DedAndOOPBalanceResponse> {
   try {
-    const resp = await portalSvcsApi.get<DedAndOOPBalanceResponse>(
-      `/memberlimitservice/api/member/v1/members/${lookup}/${memberId}/balances/deductibleAndOOP/${productType}`,
-    );
+    const serviceURL = `/memberlimitservice/api/member/v1/members/${lookup}/${memberId}/balances/deductibleAndOOP/${productType}`;
+    logger.info(`GetDedAndOOPBalance Api call started: ${serviceURL}`);
+    const resp = await portalSvcsApi.get<DedAndOOPBalanceResponse>(serviceURL);
 
+    logger.info(`Response: ${JSON.stringify(resp)}`);
     return resp.data;
   } catch (err) {
     logger.error('GetDedAndOOPBalance Api call failed', err);
@@ -74,7 +75,19 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
       throw new Error('LoggedInUser info call Failed');
     }
 
-    if (result[0].status == 'fulfilled' && result[1].status == 'fulfilled') {
+    logger.info(
+      `Status- Dental: ${result[0].status}, Medical: ${result[1].status}`,
+    );
+
+    if (
+      result[0].status == 'fulfilled' &&
+      result[0].value.serviceError === undefined &&
+      result[1].status == 'fulfilled' &&
+      result[1].value.serviceError === undefined
+    ) {
+      logger.info(
+        `Status- Dental: ${result[0].value}, Medical: ${result[1].value}`,
+      );
       return {
         status: 200,
         data: {
@@ -103,7 +116,8 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
         status: 206,
         data: {
           dental:
-            result[0].status == 'fulfilled'
+            result[0].status == 'fulfilled' &&
+            result[0].value.serviceError === undefined
               ? {
                   balances: mapDedAndOOPData(
                     result[0].value.accumulatorsDetails[0]?.members,
@@ -115,7 +129,8 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
                 }
               : undefined,
           medical:
-            result[1].status == 'fulfilled'
+            result[1].status == 'fulfilled' &&
+            result[1].value.serviceError === undefined
               ? {
                   balances: mapDedAndOOPData(
                     result[1].value.accumulatorsDetails[0]?.members,
