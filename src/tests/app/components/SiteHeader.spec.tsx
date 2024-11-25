@@ -54,6 +54,8 @@ describe('SiteHeader And Navigation Menu', () => {
     );
     expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
 
+    expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
+
     expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
     fireEvent.click(
       screen.getByRole('button', {
