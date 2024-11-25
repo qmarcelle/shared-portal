@@ -54,6 +54,8 @@ describe('SiteHeader And Navigation Menu', () => {
     );
     expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
 
+    expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
+
     expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
     fireEvent.click(
       screen.getByRole('button', {
@@ -128,6 +130,14 @@ describe('SiteHeader And Navigation Menu', () => {
       }),
     );
     expect(screen.getByText('Balances')).toBeInTheDocument();
+
+    expect(screen.getByText(/Services Used/i)).toBeVisible();
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /Services Used/i,
+      }),
+    );
+    expect(screen.getByText('Services Used')).toBeInTheDocument();
 
     expect(screen.getByText(/Spending Accounts \(HSA, FSA\)/i));
     fireEvent.click(

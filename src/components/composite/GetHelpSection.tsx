@@ -5,11 +5,12 @@ import { Header } from '../foundation/Header';
 import { RichText } from '../foundation/RichText';
 import { Spacer } from '../foundation/Spacer';
 export interface GetHelpProps extends IComponent {
+  link?: string;
   linkURL: string;
   headerText: string;
 }
 
-export const GetHelpSection = ({ linkURL, headerText }: GetHelpProps) => {
+export const GetHelpSection = ({ link, linkURL, headerText }: GetHelpProps) => {
   return (
     <Card className="large-section">
       <Column className="flex flex-col">
@@ -32,7 +33,7 @@ export const GetHelpSection = ({ linkURL, headerText }: GetHelpProps) => {
           spans={[
             <span key={0}>You can also try our </span>,
             <span className="link" key={1}>
-              <a>{linkURL}</a>
+              <a href={link}>{linkURL}</a>
             </span>,
           ]}
         />

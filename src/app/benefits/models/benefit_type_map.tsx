@@ -1,8 +1,8 @@
+import estimateCost from '@/public/assets/estimate_cost.svg';
+import estimatePharmacyCost from '@/public/assets/estimate_pharmacy_cost.svg';
+import externalIcon from '@/public/assets/external.svg';
+import servicesUsed from '@/public/assets/services_used.svg';
 import Image from 'next/image';
-import estimateCost from '../../../../public/assets/estimate_cost.svg';
-import estimatePharmacyCost from '../../../../public/assets/estimate_pharmacy_cost.svg';
-import externalIcon from '../../../../public/assets/external.svg';
-import servicesUsed from '../../../../public/assets/services_used.svg';
 import { BenefitTypeDetail } from './benefit_details';
 import { BenefitType } from './benefit_type';
 
@@ -576,6 +576,7 @@ export const BenefitTypeMap: Map<BenefitType, BenefitTypeDetail> = new Map([
         link: '/findcare',
       },
       dentalBalance: {
+        title: 'Dental Balance',
         className: 'large-section',
         members: [
           {
@@ -587,21 +588,21 @@ export const BenefitTypeMap: Map<BenefitType, BenefitTypeDetail> = new Map([
             value: '43',
           },
         ],
-        deductibleLimit: null,
-        deductibleSpent: null,
+        deductibleLimit: undefined,
+        deductibleSpent: undefined,
         onSelectedMemberChange: () => {},
-        outOfPocketLimit: null,
-        outOfPocketSpent: null,
+        outOfPocketLimit: undefined,
+        outOfPocketSpent: undefined,
         selectedMemberId: '0',
         serviceDetailsUsed: [
           {
-            limitAmount: 2000,
-            spentAmount: 90.0,
+            limitAmount: '2000',
+            spentAmount: '90.0',
             serviceName: 'Annual Maximum Basic and Major Coverage',
           },
           {
-            limitAmount: 2000,
-            spentAmount: 0.0,
+            limitAmount: '2000',
+            spentAmount: '0.0',
             serviceName: 'Ortho Lifetime Maximum',
           },
         ],

@@ -41,11 +41,12 @@ export const OrderIdCard = ({
     try {
       const response = await orderIdCard(count);
       if (response.retcode != 0) {
-        throw new Error('Return code is not 0');
+        changePage?.(4, false);
+      } else {
+        changePage?.(2, false);
       }
-      changePage?.(2, true);
     } catch (error) {
-      changePage?.(3, true);
+      changePage?.(3, false);
     }
   };
 
@@ -108,12 +109,26 @@ export const OrderIdCard = ({
     />,
     <ErrorDisplaySlide
       key={3}
-      label="Try Again Later"
+      label="Something went wrong."
       body={
         <Column className="items-center">
           <TextBox
             className="text-center"
-            text="Oops! We're sorry. Something went wrong. Please try again."
+            text="We’re unable to take orders for printed ID cards at this time. Please try again later."
+          />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+
+    <ErrorDisplaySlide
+      key={4}
+      label="Order Incomplete"
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="Something went wrong while processing your ID card order. Please try again later."
           />
         </Column>
       }
