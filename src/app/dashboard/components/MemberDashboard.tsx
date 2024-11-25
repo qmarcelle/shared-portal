@@ -7,6 +7,7 @@ import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
+import { InfoCard } from '@/components/composite/InfoCard';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -215,6 +216,11 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
                 },
               ]}
             ></PillBox>
+            <InfoCard
+              label="Estimate Costs"
+              body="Plan your upcoming care costs before you make an appointment."
+              icon={EstimateCost}
+            ></InfoCard>
             <PillBox
               title="Planning for a procedure? You can estimate costs for:"
               icon={
