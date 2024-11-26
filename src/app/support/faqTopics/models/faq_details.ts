@@ -5,7 +5,7 @@ export interface FAQDetails {
   serviceLabel: string;
   para1: JSX.Element | string | string[];
   bulletPoints: JSX.Element[] | ReactNode[];
-  para2: string;
+  para2: JSX.Element | string;
 }
 
 export interface FaqHeaderCardDetails {
@@ -22,21 +22,11 @@ export interface FaqTopicDetails {
 }
 
 export enum FaqTopicType {
-  BenefitsAndCoverage = 'BenefitsAndCoverage',
+  BenefitsAndCoverage = 'Benefits & Coverage',
   Claims = 'Claims',
-  IdCards = 'IdCards',
-  MyPlanInformation = 'MyPlanInformation',
+  IdCards = 'ID Cards',
+  MyPlanInformation = 'My Plan Information',
   Pharmacy = 'Pharmacy',
-  PriorAuthorization = 'PriorAuthorization',
-  SharingPermisionsSecurity = 'SharingPermisionsSecurity',
+  PriorAuthorization = 'Prior Authorization',
+  SharingPermisionsSecurity = 'Sharing, Permissions & Security',
 }
-
-export const OtherFaqTopicDetails = [
-  'Benefits & Coverage',
-  'Claims',
-  'ID Cards',
-  'My Plan Information',
-  'Pharmacy',
-  'Prior Authorization',
-  'Sharing, Permissions & Security',
-];

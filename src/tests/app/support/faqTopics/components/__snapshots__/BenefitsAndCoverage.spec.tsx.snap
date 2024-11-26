@@ -36,9 +36,6 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
             </div>
           </div>
         </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
         <section
           class="flex flex-row items-start app-body"
         >
@@ -198,9 +195,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           <div
                             class="flex flex-row"
                           >
-                            <p
-                              class="body-1"
-                            />
+                            <span
+                              class="rich-text body-1 undefined"
+                            >
+                              <span />
+                            </span>
                           </div>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -409,10 +408,10 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                   class="flex flex-row"
                 >
                   <ul
-                    class="ml-4"
+                    class="ml-4 !font-thin"
                   >
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col !font-thin"
                     >
                       <li>
                         <div
@@ -423,12 +422,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container undefined"
+                              class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
                               <p
-                                class="link !no-underline"
+                                class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
                                 Benefits & Coverage
@@ -438,11 +437,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         </div>
                       </li>
                       <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                       />
                     </div>
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col !font-thin"
                     >
                       <li>
                         <div
@@ -453,12 +452,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container undefined"
+                              class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
                               <p
-                                class="link !no-underline"
+                                class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
                                 Claims
@@ -468,11 +467,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         </div>
                       </li>
                       <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                       />
                     </div>
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col !font-thin"
                     >
                       <li>
                         <div
@@ -483,12 +482,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container undefined"
+                              class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
                               <p
-                                class="link !no-underline"
+                                class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
                                 ID Cards
@@ -498,11 +497,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         </div>
                       </li>
                       <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                       />
                     </div>
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col !font-thin"
                     >
                       <li>
                         <div
@@ -513,12 +512,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container undefined"
+                              class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
                               <p
-                                class="link !no-underline"
+                                class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
                                 My Plan Information
@@ -528,11 +527,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         </div>
                       </li>
                       <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                       />
                     </div>
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col !font-thin"
                     >
                       <li>
                         <div
@@ -543,12 +542,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container undefined"
+                              class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
                               <p
-                                class="link !no-underline"
+                                class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
                                 Pharmacy
@@ -558,11 +557,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         </div>
                       </li>
                       <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                       />
                     </div>
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col !font-thin"
                     >
                       <li>
                         <div
@@ -573,12 +572,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container undefined"
+                              class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
                               <p
-                                class="link !no-underline"
+                                class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
                                 Prior Authorization
@@ -588,11 +587,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         </div>
                       </li>
                       <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                       />
                     </div>
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col !font-thin"
                     >
                       <li>
                         <div
@@ -603,12 +602,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container undefined"
+                              class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
                               <p
-                                class="link !no-underline"
+                                class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
                                 Sharing, Permissions & Security
@@ -618,7 +617,7 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         </div>
                       </li>
                       <span
-                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                       />
                     </div>
                   </ul>
@@ -662,9 +661,6 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
           </div>
         </div>
       </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
       <section
         class="flex flex-row items-start app-body"
       >
@@ -824,9 +820,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                         <div
                           class="flex flex-row"
                         >
-                          <p
-                            class="body-1"
-                          />
+                          <span
+                            class="rich-text body-1 undefined"
+                          >
+                            <span />
+                          </span>
                         </div>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -1035,10 +1033,10 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                 class="flex flex-row"
               >
                 <ul
-                  class="ml-4"
+                  class="ml-4 !font-thin"
                 >
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col !font-thin"
                   >
                     <li>
                       <div
@@ -1049,12 +1047,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container undefined"
+                            class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
                             <p
-                              class="link !no-underline"
+                              class="link !no-underline manage-faq"
                               style="display: block;"
                             >
                               Benefits & Coverage
@@ -1064,11 +1062,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                       </div>
                     </li>
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                   </div>
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col !font-thin"
                   >
                     <li>
                       <div
@@ -1079,12 +1077,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container undefined"
+                            class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
                             <p
-                              class="link !no-underline"
+                              class="link !no-underline manage-faq"
                               style="display: block;"
                             >
                               Claims
@@ -1094,11 +1092,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                       </div>
                     </li>
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                   </div>
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col !font-thin"
                   >
                     <li>
                       <div
@@ -1109,12 +1107,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container undefined"
+                            class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
                             <p
-                              class="link !no-underline"
+                              class="link !no-underline manage-faq"
                               style="display: block;"
                             >
                               ID Cards
@@ -1124,11 +1122,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                       </div>
                     </li>
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                   </div>
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col !font-thin"
                   >
                     <li>
                       <div
@@ -1139,12 +1137,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container undefined"
+                            class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
                             <p
-                              class="link !no-underline"
+                              class="link !no-underline manage-faq"
                               style="display: block;"
                             >
                               My Plan Information
@@ -1154,11 +1152,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                       </div>
                     </li>
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                   </div>
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col !font-thin"
                   >
                     <li>
                       <div
@@ -1169,12 +1167,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container undefined"
+                            class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
                             <p
-                              class="link !no-underline"
+                              class="link !no-underline manage-faq"
                               style="display: block;"
                             >
                               Pharmacy
@@ -1184,11 +1182,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                       </div>
                     </li>
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                   </div>
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col !font-thin"
                   >
                     <li>
                       <div
@@ -1199,12 +1197,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container undefined"
+                            class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
                             <p
-                              class="link !no-underline"
+                              class="link !no-underline manage-faq"
                               style="display: block;"
                             >
                               Prior Authorization
@@ -1214,11 +1212,11 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                       </div>
                     </li>
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                   </div>
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col !font-thin"
                   >
                     <li>
                       <div
@@ -1229,12 +1227,12 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container undefined"
+                            class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
                             <p
-                              class="link !no-underline"
+                              class="link !no-underline manage-faq"
                               style="display: block;"
                             >
                               Sharing, Permissions & Security
@@ -1244,7 +1242,7 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                       </div>
                     </li>
                     <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                   </div>
                 </ul>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`My Plan Information FAQ should render the UI correctly 1`] = `
+exports[`Claims FAQ should render the UI correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -23,7 +23,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
               <h1
                 class="title-1"
               >
-                My Plan Information FAQ
+                Claims FAQ
               </h1>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -31,7 +31,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
               <p
                 class="body-1 body-1"
               >
-                How to update your address, dependents, and more.
+                Learn more about claims or how to file a dispute.
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                   <h2
                     class="title-2"
                   >
-                    Updating Plan Information
+                    Understanding Claims
                   </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -72,7 +72,228 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                         <p
                           class="mr-2 flex-grow"
                         >
-                          How do I update personal info like my address, last name or payment information?
+                          What is a claim?
+                        </p>
+                        <img
+                          alt="Up Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-1"
+                      >
+                        <div
+                          class="flex flex-col flex flex-col"
+                        >
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              class="rich-text body-1 undefined"
+                            >
+                              <span>
+                                When you get care from a doctor or other health care provider, they send us a bill called a claim. Your claim summary helps you see what the provider billed, what we paid, and what your share of the cost is.
+                              </span>
+                            </span>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <ul
+                              class="ml-4"
+                            />
+                          </div>
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              class="rich-text body-1 undefined"
+                            >
+                              <span />
+                            </span>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  />
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          Need help reading your claim summary?
+                        </p>
+                        <img
+                          alt="Down Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="mr-2 flex-grow"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main large-section flex flex-row items-start app-body "
+            >
+              <div
+                class="flex flex-col w-[100%]"
+              >
+                 
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Disputing Claims
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          Do you think we made a mistake?
+                        </p>
+                        <img
+                          alt="Up Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-1"
+                      >
+                        <div
+                          class="flex flex-col flex flex-col"
+                        >
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              class="rich-text body-1 undefined"
+                            >
+                              <span>
+                                We do everything we can to make sure we’ve paid your claim the right way, based on your benefits. If you don’t agree with the decision we made, you have a right to tell us why and ask us to reconsider. This is called an appeal (sometimes we call it a grievance). Everyone has the right to an appeal, but the type of plan you have makes a difference in how those rights work.
+                              </span>
+                            </span>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <ul
+                              class="ml-4"
+                            />
+                          </div>
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              class="rich-text body-1 undefined"
+                            >
+                              <span />
+                            </span>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  />
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          How do I file an appeal?
                         </p>
                         <img
                           alt="Down Chevron"
@@ -115,93 +336,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                         <p
                           class="mr-2 flex-grow"
                         >
-                          How do I add or remove a dependent?
-                        </p>
-                        <img
-                          alt="Down Chevron"
-                          class="pl-2 w-6"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                      <div
-                        class="mr-2 flex-grow"
-                      />
-                    </div>
-                    <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex flex-col"
-                >
-                  <h2
-                    class="title-2"
-                  />
-                  <div
-                    class="flex flex-col items-stretch"
-                  >
-                    <div
-                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
-                    >
-                      <div
-                        class="flex flex-row m-1 accordion-head"
-                      >
-                        <p
-                          class="mr-2 flex-grow"
-                        >
-                          How do I pay my premium or change my payment information?
-                        </p>
-                        <img
-                          alt="Down Chevron"
-                          class="pl-2 w-6"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                      <div
-                        class="mr-2 flex-grow"
-                      />
-                    </div>
-                    <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex flex-col"
-                >
-                  <h2
-                    class="title-2"
-                  />
-                  <div
-                    class="flex flex-col items-stretch"
-                  >
-                    <div
-                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
-                    >
-                      <div
-                        class="flex flex-row m-1 accordion-head"
-                      >
-                        <p
-                          class="mr-2 flex-grow"
-                        >
-                          I’m a Medicaid or Medicare with Medicaid member. How do I switch my primary care provider? 
+                          Do you need extra help?
                         </p>
                         <img
                           alt="Down Chevron"
@@ -293,7 +428,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container p-0 "
+                              class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
@@ -353,7 +488,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                             tabindex="-1"
                           >
                             <button
-                              class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
+                              class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
                               tabindex="0"
                             >
@@ -489,7 +624,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
             <h1
               class="title-1"
             >
-              My Plan Information FAQ
+              Claims FAQ
             </h1>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -497,7 +632,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
             <p
               class="body-1 body-1"
             >
-              How to update your address, dependents, and more.
+              Learn more about claims or how to file a dispute.
             </p>
           </div>
         </div>
@@ -521,7 +656,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                 <h2
                   class="title-2"
                 >
-                  Updating Plan Information
+                  Understanding Claims
                 </h2>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -538,7 +673,228 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                       <p
                         class="mr-2 flex-grow"
                       >
-                        How do I update personal info like my address, last name or payment information?
+                        What is a claim?
+                      </p>
+                      <img
+                        alt="Up Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="m-1"
+                    >
+                      <div
+                        class="flex flex-col flex flex-col"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            class="rich-text body-1 undefined"
+                          >
+                            <span>
+                              When you get care from a doctor or other health care provider, they send us a bill called a claim. Your claim summary helps you see what the provider billed, what we paid, and what your share of the cost is.
+                            </span>
+                          </span>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <ul
+                            class="ml-4"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            class="rich-text body-1 undefined"
+                          >
+                            <span />
+                          </span>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                </div>
+              </div>
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                />
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Need help reading your claim summary?
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-main large-section flex flex-row items-start app-body "
+          >
+            <div
+              class="flex flex-col w-[100%]"
+            >
+               
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Disputing Claims
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Do you think we made a mistake?
+                      </p>
+                      <img
+                        alt="Up Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="m-1"
+                    >
+                      <div
+                        class="flex flex-col flex flex-col"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            class="rich-text body-1 undefined"
+                          >
+                            <span>
+                              We do everything we can to make sure we’ve paid your claim the right way, based on your benefits. If you don’t agree with the decision we made, you have a right to tell us why and ask us to reconsider. This is called an appeal (sometimes we call it a grievance). Everyone has the right to an appeal, but the type of plan you have makes a difference in how those rights work.
+                            </span>
+                          </span>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <ul
+                            class="ml-4"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            class="rich-text body-1 undefined"
+                          >
+                            <span />
+                          </span>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                </div>
+              </div>
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                />
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        How do I file an appeal?
                       </p>
                       <img
                         alt="Down Chevron"
@@ -581,93 +937,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                       <p
                         class="mr-2 flex-grow"
                       >
-                        How do I add or remove a dependent?
-                      </p>
-                      <img
-                        alt="Down Chevron"
-                        class="pl-2 w-6"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <div
-                      class="mr-2 flex-grow"
-                    />
-                  </div>
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                  />
-                </div>
-              </div>
-              <div
-                class="flex flex-col"
-              >
-                <h2
-                  class="title-2"
-                />
-                <div
-                  class="flex flex-col items-stretch"
-                >
-                  <div
-                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
-                  >
-                    <div
-                      class="flex flex-row m-1 accordion-head"
-                    >
-                      <p
-                        class="mr-2 flex-grow"
-                      >
-                        How do I pay my premium or change my payment information?
-                      </p>
-                      <img
-                        alt="Down Chevron"
-                        class="pl-2 w-6"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <div
-                      class="mr-2 flex-grow"
-                    />
-                  </div>
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                  />
-                </div>
-              </div>
-              <div
-                class="flex flex-col"
-              >
-                <h2
-                  class="title-2"
-                />
-                <div
-                  class="flex flex-col items-stretch"
-                >
-                  <div
-                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
-                  >
-                    <div
-                      class="flex flex-row m-1 accordion-head"
-                    >
-                      <p
-                        class="mr-2 flex-grow"
-                      >
-                        I’m a Medicaid or Medicare with Medicaid member. How do I switch my primary care provider? 
+                        Do you need extra help?
                       </p>
                       <img
                         alt="Down Chevron"
@@ -759,7 +1029,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container p-0 "
+                            class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
@@ -819,7 +1089,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                           tabindex="-1"
                         >
                           <button
-                            class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
+                            class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
                             tabindex="0"
                           >
