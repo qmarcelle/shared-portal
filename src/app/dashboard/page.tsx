@@ -1,4 +1,3 @@
-'use server';
 import { Metadata } from 'next';
 import Dashboard from '.';
 import { getDashboardData } from './actions/getDashboardData';
