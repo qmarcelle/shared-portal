@@ -7,12 +7,18 @@ import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
+import { PrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/PrimaryCareProvider';
+import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
+import {
+  isBlueCareEligible,
+  isPrimaryCarePhysicianEligible,
+} from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import EstimateCost from '../../../../public/assets/estimate_cost.svg';
@@ -23,14 +29,20 @@ import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
 
 export type DashboardProps = {
   visibilityRules?: VisibilityRules;
+  primaryCareProviderData: PrimaryCareProviderDetails | null;
 };
 
-const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
+const MemberDashboard = ({
+  visibilityRules,
+  primaryCareProviderData,
+}: DashboardProps) => {
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
         <section className="sm:flex sm:flex-row items-start">
-          <AmplifyHealthAdvisorBanner />
+          {!isBlueCareEligible(visibilityRules) && (
+            <AmplifyHealthAdvisorBanner />
+          )}
         </section>
         <Spacer size={32}></Spacer>
         <section className="flex flex-row items-start app-body">
@@ -75,54 +87,72 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
                 },
               ]}
             />
-            <MedicalBalanceSection
-              className="large-section"
-              members={[
-                {
-                  label: 'Chris Hall',
-                  value: '0',
-                },
-                {
-                  label: 'Megan Chaler',
-                  value: '43',
-                },
-              ]}
-              balanceNetworks={[
-                {
-                  label: 'In-Network',
-                  value: '0',
-                },
-                { label: 'Out-of-Network', value: '1' },
-              ]}
-              deductibleLimit={2000}
-              deductibleSpent={1800}
-              onSelectedMemberChange={() => {}}
-              onSelectedNetworkChange={() => {}}
-              outOfPocketLimit={3000}
-              outOfPocketSpent={1500}
-              selectedMemberId="43"
-              selectedNetworkId="1"
-              displayDisclaimerText={false}
-            />
+
+            {isBlueCareEligible(visibilityRules) &&
+              isPrimaryCarePhysicianEligible(visibilityRules) && (
+                <PrimaryCareProvider
+                  className="large-section"
+                  providerDetails={primaryCareProviderData}
+                  label="Primary Care Provider"
+                  linkLabel="View or Update Primary Care Provider"
+                  title="My Primary Care Provider"
+                />
+              )}
+            {!isBlueCareEligible(visibilityRules) && (
+              <MedicalBalanceSection
+                className="large-section"
+                members={[
+                  {
+                    label: 'Chris Hall',
+                    value: '0',
+                  },
+                  {
+                    label: 'Megan Chaler',
+                    value: '43',
+                  },
+                ]}
+                balanceNetworks={[
+                  {
+                    label: 'In-Network',
+                    value: '0',
+                  },
+                  { label: 'Out-of-Network', value: '1' },
+                ]}
+                deductibleLimit={2000}
+                deductibleSpent={1800}
+                onSelectedMemberChange={() => {}}
+                onSelectedNetworkChange={() => {}}
+                outOfPocketLimit={3000}
+                outOfPocketSpent={1500}
+                selectedMemberId="43"
+                selectedNetworkId="1"
+                displayDisclaimerText={false}
+              />
+            )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <PayPremiumSection
-              className="large-section"
-              dueDate="08/10/2023"
-              amountDue={1000.46}
-            />
-            <SpendingAccountSummary
-              className="large-section"
-              title="Spending Summary"
-              linkLabel="View Spending Summary"
-              subTitle={'October 12, 2023'}
-              amountPaid={1199.19}
-              totalBilledAmount={9804.31}
-              amountSaved={8605.12}
-              amountSavedPercentage={89}
-              color1={'#005EB9'}
-              color2={'#5DC1FD'}
-            />
+            {!isBlueCareEligible(visibilityRules) && (
+              <PayPremiumSection
+                className="large-section"
+                dueDate="08/10/2023"
+                amountDue={1000.46}
+              />
+            )}
+
+            {!isBlueCareEligible(visibilityRules) && (
+              <SpendingAccountSummary
+                className="large-section"
+                title="Spending Summary"
+                linkLabel="View Spending Summary"
+                subTitle={'October 12, 2023'}
+                amountPaid={1199.19}
+                totalBilledAmount={9804.31}
+                amountSaved={8605.12}
+                amountSavedPercentage={89}
+                color1={'#005EB9'}
+                color2={'#5DC1FD'}
+              />
+            )}
             <PriorAuthSection
               className="large-section"
               priorauth={[
@@ -171,7 +201,9 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
             />
           </Column>
           <Column className="page-section-36_67 items-stretch">
-            <FindMedicalProvidersComponent />
+            {!isBlueCareEligible(visibilityRules) && (
+              <FindMedicalProvidersComponent />
+            )}
             <PillBox
               title="Looking for Care? Find A:"
               icon={
@@ -216,51 +248,55 @@ const MemberDashboard = ({ visibilityRules }: DashboardProps) => {
                 },
               ]}
             ></PillBox>
-            <InfoCard
-              label="Estimate Costs"
-              body="Plan your upcoming care costs before you make an appointment."
-              icon={EstimateCost}
-            ></InfoCard>
-            <PillBox
-              title="Planning for a procedure? You can estimate costs for:"
-              icon={
-                <Image
-                  src={EstimateCost}
-                  className="w-[50px] h-[50px]"
-                  alt=""
-                />
-              }
-              pillObjects={[
-                {
-                  label: 'Medical',
-                  callback: () => {
-                    console.log('Clicked Pill Medical');
+            {isBlueCareEligible(visibilityRules) && (
+              <InfoCard
+                label="Estimate Costs"
+                body="Plan your upcoming care costs before you make an appointment."
+                icon={EstimateCost}
+              ></InfoCard>
+            )}
+            {!isBlueCareEligible(visibilityRules) && (
+              <PillBox
+                title="Planning for a procedure? You can estimate costs for:"
+                icon={
+                  <Image
+                    src={EstimateCost}
+                    className="w-[50px] h-[50px]"
+                    alt=""
+                  />
+                }
+                pillObjects={[
+                  {
+                    label: 'Medical',
+                    callback: () => {
+                      console.log('Clicked Pill Medical');
+                    },
                   },
-                },
-                {
-                  label: 'Dental',
-                  callback: () => {
-                    console.log('Clicked Pill Dental');
+                  {
+                    label: 'Dental',
+                    callback: () => {
+                      console.log('Clicked Pill Dental');
+                    },
                   },
-                },
-                {
-                  label: 'Prescription Drugs',
-                  callback: () => {
-                    console.log('Clicked Pill Prescription Drugs');
+                  {
+                    label: 'Prescription Drugs',
+                    callback: () => {
+                      console.log('Clicked Pill Prescription Drugs');
+                    },
                   },
-                },
-                {
-                  label: 'Vision',
-                  callback: () => {
-                    console.log('Clicked Pill Vision');
+                  {
+                    label: 'Vision',
+                    callback: () => {
+                      console.log('Clicked Pill Vision');
+                    },
                   },
-                },
-              ]}
-            ></PillBox>
+                ]}
+              ></PillBox>
+            )}
           </Column>
         </section>
         <section>
-          <AmplifyHealthCard />
+          {!isBlueCareEligible(visibilityRules) && <AmplifyHealthCard />}
         </section>
         <section>
           {visibilityRules?.employerProvidedBenefits && (

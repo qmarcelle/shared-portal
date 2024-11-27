@@ -67,7 +67,10 @@ const Dashboard = ({ data }: DashboardProps) => {
       />
       <Spacer size={32}></Spacer>
       {data.role == UserRole.MEMBER ? (
-        <MemberDashboard visibilityRules={data.visibilityRules} />
+        <MemberDashboard
+          visibilityRules={data.visibilityRules}
+          primaryCareProviderData={data.primaryCareProvider}
+        />
       ) : (
         <NonMemberDashboard />
       )}

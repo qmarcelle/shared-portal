@@ -1,10 +1,12 @@
 'use server';
 
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/getPCPInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { CoverageType } from '@/models/member/api/loggedInUserInfo';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
+import { error } from 'console';
 import { DashboardData } from '../models/dashboardData';
 
 export const getDashboardData = async (): Promise<
@@ -12,10 +14,16 @@ export const getDashboardData = async (): Promise<
 > => {
   try {
     const session = await auth();
-    const loggedUserInfo = await getLoggedInUserInfo(
-      session?.user.currUsr?.plan.memCk ?? '',
-    );
+    const [loggedUserDetails, primaryCareProviderData] =
+      await Promise.allSettled([
+        getLoggedInUserInfo(session?.user.currUsr?.plan.memCk ?? ''),
+        getPCPInfo(session),
+      ]);
 
+    let loggedUserInfo;
+    if (loggedUserDetails.status === 'fulfilled')
+      loggedUserInfo = loggedUserDetails.value;
+    else throw error;
     return {
       status: 200,
       data: {
@@ -27,6 +35,10 @@ export const getDashboardData = async (): Promise<
           subscriberId: loggedUserInfo.subscriberID,
           groupId: loggedUserInfo.groupData.groupID,
         },
+        primaryCareProvider:
+          primaryCareProviderData.status === 'fulfilled'
+            ? primaryCareProviderData.value
+            : null,
         role: session?.user.currUsr?.role,
         visibilityRules: session?.user.vRules,
       },
@@ -36,6 +48,7 @@ export const getDashboardData = async (): Promise<
       status: 400,
       data: {
         memberDetails: null,
+        primaryCareProvider: null,
       },
     };
   }
