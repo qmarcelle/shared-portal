@@ -28,6 +28,9 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'katieBeckNoBenefitsElig',
   'blueCare',
   'myPCPElig',
+  'identityProtectionServices',
+  'otcEnable',
+  'bluePerksEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

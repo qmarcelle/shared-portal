@@ -19,6 +19,7 @@ import { Header } from '@/components/foundation/Header';
 import { RichDropDown } from '@/components/foundation/RichDropDown';
 import { FilterDetails } from '@/models/filter_dropdown_details';
 import { Member } from '@/models/member/api/loggedInUserInfo';
+import { SessionUser } from '@/userManagement/models/sessionUser';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
@@ -42,11 +43,12 @@ import { MemberBenefitsBean } from './models/member_benefits_bean';
 import { useBenefitsStore } from './stores/benefitsStore';
 
 interface BenefitsProps {
+  user: SessionUser | undefined;
   memberInfo: Member[];
   benefitsBean: MemberBenefitsBean;
 }
 
-const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
+const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
   >([]);
@@ -57,6 +59,57 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
     ManageBenefitsItems[]
   >([]);
   const router = useRouter();
+
+  const createOtherBenefits = (): ManageBenefitsItems[] => {
+    const otherBenefitItems: ManageBenefitsItems[] = [];
+    if (user === undefined || user.vRules === undefined) {
+      return otherBenefitItems;
+    }
+    if (user.vRules.identityProtectionServices) {
+      otherBenefitItems.push({
+        title: 'Identity Protection Services',
+        body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
+        externalLink: false,
+        url: '/benefits/identityProtectionServices',
+      });
+    }
+    otherBenefitItems.push({
+      title: 'Health Programs & Resources',
+      body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+      externalLink: false,
+      url: 'url',
+    });
+    if (user.vRules.active && user.vRules.otcEnable) {
+      otherBenefitItems.push({
+        title: 'Shop Over-the-Counter Items',
+        body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
+        externalLink: false,
+        url: 'https://www.cvs.com/benefits/account/create-account/email',
+        icon: <Image src={externalIcon} alt="link" />,
+      });
+    }
+    if (user.vRules.commercial && user.vRules.bluePerksEligible) {
+      otherBenefitItems.push({
+        title: 'Member Discounts',
+        body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+        externalLink: false,
+        url: 'url',
+        icon: <Image src={externalIcon} alt="link" />,
+      });
+    }
+
+    if (user.vRules.employerProvidedBenefits) {
+      otherBenefitItems.push({
+        title: 'Employer Provided Benefits',
+        body: 'Your employer offers even more programs and benefits you can explore here.',
+        externalLink: false,
+        url: '/benefits/employerProvidedBenefits',
+      });
+    }
+    return otherBenefitItems;
+  };
+
+  const otherBenefitItems = createOtherBenefits();
 
   const {
     setSelectedBenefitDetails,
@@ -355,40 +408,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                 className="small-section w-[672px] "
                 heading="Other Benefits"
                 cardIcon={<Image src={OtherBenefit} alt="link" />}
-                manageBenefitItems={[
-                  {
-                    title: 'Identity Protection Services',
-                    body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
-                    externalLink: false,
-                    url: '/benefits/identityProtectionServices',
-                  },
-                  {
-                    title: 'Health Programs & Resources',
-                    body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-                    externalLink: false,
-                    url: 'url',
-                  },
-                  {
-                    title: 'Shop Over-the-Counter Items',
-                    body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
-                    externalLink: false,
-                    url: 'https://www.cvs.com/benefits/account/create-account/email',
-                    icon: <Image src={externalIcon} alt="link" />,
-                  },
-                  {
-                    title: 'Member Discounts',
-                    body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-                    externalLink: false,
-                    url: 'url',
-                    icon: <Image src={externalIcon} alt="link" />,
-                  },
-                  {
-                    title: 'Employer Provided Benefits',
-                    body: 'Your employer offers even more programs and benefits you can explore here.',
-                    externalLink: false,
-                    url: '/benefits/employerProvidedBenefits',
-                  },
-                ]}
+                manageBenefitItems={otherBenefitItems}
               />
             )}
           </Column>
