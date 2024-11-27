@@ -30,7 +30,7 @@ export const OtherFaqTopics = ({
   }, []);
   return (
     <Card className="mt-4">
-      <Column>
+      <Column className="ml-6">
         <Spacer size={16} />
         <Header
           text="Other FAQ Topics"
@@ -39,7 +39,7 @@ export const OtherFaqTopics = ({
         />
         <Spacer size={16} />
         <Row>
-          <ul className="ml-4 !font-thin">
+          <ul className="ml-6 !font-thin">
             {faqTopicsList.map((item, index) => {
               return (
                 <Column key={index} className="!font-thin">
