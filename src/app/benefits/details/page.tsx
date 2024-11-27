@@ -6,6 +6,7 @@ const BenefitDetailsPage = async () => {
     linkURL: '/spending-accounts',
     hsaBalance: 1000,
     fsaBalance: 500,
+    className: 'm-2 mt-4 p-8',
   };
   const balanceData = await getDedAndOOPBalanceForSubscriberAndDep();
   return (
