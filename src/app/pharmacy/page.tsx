@@ -24,6 +24,7 @@ import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation'
 import { PharmacyDocuments } from './components/PharmacyDocuments';
 import { PharmacyFAQ } from './components/PharmacyFAQ';
 import { PharmacySpendingSummary } from './components/PharmacySpendingSummary';
+import { PrescriptionPaymentsOptions } from './components/PrescriptionPaymentOptions';
 import { ShopOverCounterItemsCard } from './components/ShopOverCounterItems';
 
 const Pharmacy = () => {
@@ -404,6 +405,20 @@ const Pharmacy = () => {
                             'After creating their caremark.com account, they can grant you access by going to their Profile on caremark.com, then choosing Family Access. This change may take around 4 hours to update.',
                         },
                       ]}
+                    />
+                  </Column>
+                </section>
+              </Column>
+            </Card>
+            <Card className="large-section flex flex-row items-start app-body ">
+              <Column>
+                <TextBox type="title-2" text="Prescription Payment Options" />
+                <Spacer size={32} />
+                <section className="flex flex-row items-start app-body">
+                  <Column className="flex-grow">
+                    <PrescriptionPaymentsOptions
+                      isMedicare={true}
+                      isBlueCarePlus={false}
                     />
                   </Column>
                 </section>
