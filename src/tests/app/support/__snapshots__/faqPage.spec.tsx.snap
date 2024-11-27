@@ -32,7 +32,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         />
       </section>
       <a
-        href="/support/faqTopics?faqtype=Benefits&Coverage"
+        href="/support/faqTopics?faqtype=Benefits%20%26%20Coverage"
       >
         <div
           class="card-elevated small-section"
@@ -108,7 +108,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=IDCards"
+        href="/support/faqTopics?faqtype=ID Cards"
       >
         <div
           class="card-elevated small-section"

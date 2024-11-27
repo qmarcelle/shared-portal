@@ -30,15 +30,15 @@ jest.mock('../../../auth', () => ({
           wellnessOnly: false,
           terminated: false,
           katieBeckNoBenefitsElig: false,
-          blueCare: false,
-          myPCPElig: false,
+          blueCare: true,
+          myPCPElig: true,
         },
       },
     }),
   ),
 }));
 
-describe('Dashboard Page', () => {
+describe('Dashboard Page for BlueCare', () => {
   it('should render Welcome Banner UI correctly', async () => {
     mockedAxios.get.mockResolvedValueOnce({
       data: {
@@ -91,13 +91,15 @@ describe('Dashboard Page', () => {
     expect(
       screen.getByText('Plan: BlueCross BlueShield of Tennessee'),
     ).toBeVisible();
-    expect(screen.getByText('Policies: Medical, Dental, Vision')).toBeVisible();
-    expect(screen.getByText('View Plan Details')).toBeVisible();
-    expect(component).toMatchSnapshot();
-    expect(screen.getByText('View Claims')).toBeVisible();
-    expect(screen.getByText('View Prior Authorizations')).toBeVisible();
-    expect(screen.getByText('View Balances')).toBeVisible();
-    expect(screen.getByText('View Benefits & Coverage')).toBeVisible();
+    expect(screen.getByText('Estimate Costs')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Plan your upcoming care costs before you make an appointment.',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('View or Update Primary Care Provider'),
+    ).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

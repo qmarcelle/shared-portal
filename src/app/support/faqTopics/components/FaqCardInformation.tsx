@@ -3,14 +3,13 @@ import { Column } from '@/components/foundation/Column';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { ReactNode } from 'react';
 
 interface FaqCardInformationProps extends IComponent {
   para1: JSX.Element | string | string[];
   bulletPoints: JSX.Element[] | ReactNode[];
-  para2: string;
+  para2: JSX.Element | string;
 }
 
 export const FaqCardInformation = ({
@@ -57,7 +56,7 @@ export const FaqCardInformation = ({
         </ul>
       </Row>
       <Row>
-        <TextBox type="body-1" text={para2} />
+        <RichText spans={[<span key={0}>{para2}</span>]} />
       </Row>
       <Spacer size={12} />
     </Column>

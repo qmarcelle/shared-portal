@@ -5,15 +5,29 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
+import { useEffect, useState } from 'react';
+import { FaqTopicType } from '../models/faq_details';
 
 interface OtherFaqTopicsProps extends IComponent {
-  faqTopics: string[];
+  faqTopics: typeof FaqTopicType;
   goToFaqPage: (item: string) => void;
 }
 export const OtherFaqTopics = ({
   faqTopics,
   goToFaqPage,
 }: OtherFaqTopicsProps) => {
+  const faqTopicsList = Object.keys(faqTopics).map(
+    (key) => faqTopics[key as keyof typeof faqTopics],
+  );
+  const [currentPageId, setCurrentPageId] = useState<string | null>('');
+  let faqType: string | null;
+  useEffect(() => {
+    const urlSearchString = window.location.search;
+    const params = new URLSearchParams(urlSearchString);
+    faqType = params.get('faqtype');
+    console.log('other faq ---- ' + faqType);
+    setCurrentPageId(faqType);
+  }, []);
   return (
     <Card className="mt-4">
       <Column>
@@ -25,22 +39,24 @@ export const OtherFaqTopics = ({
         />
         <Spacer size={16} />
         <Row>
-          <ul className="ml-4">
-            {faqTopics.map((item, index) => {
+          <ul className="ml-4 !font-thin">
+            {faqTopicsList.map((item, index) => {
               return (
-                <Column key={index}>
+                <Column key={index} className="!font-thin">
                   <li>
                     <Row>
                       <AppLink
                         label={item}
-                        linkUnderline="!no-underline"
+                        linkUnderline="!no-underline manage-faq"
+                        className={`${currentPageId === item ? 'border-l-4  focus:outline-none border-primary font-bold p-0 pl-1' : 'p-0 '}`}
                         callback={() => {
                           goToFaqPage(item);
+                          setCurrentPageId(item);
                         }}
                       />
                     </Row>
                   </li>
-                  <Spacer size={8} />
+                  <Spacer size={24} />
                 </Column>
               );
             })}

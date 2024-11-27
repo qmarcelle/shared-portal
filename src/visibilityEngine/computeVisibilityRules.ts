@@ -1,9 +1,12 @@
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { encodeVisibilityRules } from './converters';
 import { VisibilityRules } from './rules';
+import { computeAuthFunctions } from './computeAuthFunctions';
+import { computeCoverageTypes } from './computeCoverageType';
 
 const COMMERCIAL_LOB = ['REGL'];
 const INDIVIDUAL_LOB = ['INDV'];
+const MEDICAID_LOB = ['MEDA'];
 
 const PTYP_SELF_FUNDED: string[] = ['ASO', 'CLIN', 'COST'];
 const PTYP_LEVEL_FUNDED: string[] = ['LVLF'];
@@ -26,8 +29,10 @@ export function computeVisibilityRules(
 
   rules.active = loggedUserInfo.isActive;
   rules.subscriber = loggedUserInfo.subscriberLoggedIn;
+  rules.externalSpendingAcct = loggedUserInfo.healthCareAccounts?.length > 0;
   rules.commercial = COMMERCIAL_LOB.includes(loggedUserInfo.lob);
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
+  rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -38,17 +43,16 @@ export function computeVisibilityRules(
     loggedUserInfo.groupData.policyType,
   );
 
-  rules.delinquent = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'CLAIMSHOLD',
-  )?.available;
+  computeAuthFunctions(loggedUserInfo, rules);
 
-  loggedUserInfo.members.forEach((member) => {
-    //Logic for subscriber
+  for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
       rules.futureEffective = member.futureEffective;
+      rules.terminated = !member.isActive;
+      computeCoverageTypes(member, rules);
+      break;
     }
-    rules.externalSpendingAcct = loggedUserInfo.healthCareAccounts?.length > 0;
-  });
+  }
 
   rules['employerProvidedBenefits'] = false;
   rules['premiumHealth'] = true;
@@ -63,3 +67,23 @@ async function getRoles() {}
 async function getPermissions() {}
 
 async function getFunctionsAvailability() {}
+
+function activeAndHealthPlanMember(rules: VisibilityRules | undefined) {
+  return (
+    !rules?.futureEffective &&
+    !rules?.fsaOnly &&
+    !rules?.wellnessOnly &&
+    !rules?.terminated &&
+    !rules?.katieBeckNoBenefitsElig
+  );
+}
+
+export function isBlueCareEligible(rules: VisibilityRules | undefined) {
+  return activeAndHealthPlanMember(rules) && rules?.blueCare;
+}
+
+export function isPrimaryCarePhysicianEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return activeAndHealthPlanMember(rules) && rules?.myPCPElig;
+}
