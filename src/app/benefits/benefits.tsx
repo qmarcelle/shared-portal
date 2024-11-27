@@ -30,6 +30,14 @@ import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
 } from './components/MedicalPharmacyDentalCard';
+import {
+  ALL_BENEFIT_TYPE,
+  DENTAL_BENEFIT_TYPE,
+  MEDICAL_BENEFIT_TYPE,
+  OTHER_BENEFIT_TYPE,
+  RX_BENEFIT_TYPE,
+  VISION_BENEFIT_TYPE,
+} from './models/benefitConsts';
 import { MemberBenefitsBean } from './models/member_benefits_bean';
 import { useBenefitsStore } from './stores/benefitsStore';
 
@@ -129,7 +137,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                   item.id,
                 ),
                 { category: item.category, id: item.id },
-                'M',
+                MEDICAL_BENEFIT_TYPE,
               ),
           });
         },
@@ -149,7 +157,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                 107,
               ),
               { category: 'Prescription Drugs', id: 107 },
-              'M',
+              MEDICAL_BENEFIT_TYPE,
             ),
         },
       ];
@@ -174,7 +182,7 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                   item.id,
                 ),
                 { category: item.category, id: item.id },
-                'D',
+                DENTAL_BENEFIT_TYPE,
               ),
           });
         },
@@ -294,10 +302,11 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                 />
               )}
             {currentSelectedMember.planDetails.find(
-              (item) => item.productCategory === 'M',
+              (item) => item.productCategory === MEDICAL_BENEFIT_TYPE,
             ) &&
-              (currentSelectedBenefitType === 'R' ||
-                currentSelectedBenefitType === 'A') && (
+              [RX_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
+                currentSelectedBenefitType,
+              ) && (
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Pharmacy"
@@ -308,8 +317,9 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
             {currentSelectedMember.planDetails.find(
               (item) => item.productCategory === 'D',
             ) &&
-              (currentSelectedBenefitType === 'D' ||
-                currentSelectedBenefitType === 'A') && (
+              [DENTAL_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
+                currentSelectedBenefitType,
+              ) && (
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Dental"
@@ -320,8 +330,9 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
             {currentSelectedMember.planDetails.find(
               (item) => item.productCategory === 'V',
             ) &&
-              (currentSelectedBenefitType === 'V' ||
-                currentSelectedBenefitType === 'A') && (
+              [VISION_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
+                currentSelectedBenefitType,
+              ) && (
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Vision"
@@ -337,8 +348,9 @@ const Benefits = ({ memberInfo, benefitsBean }: BenefitsProps) => {
                   ]}
                 />
               )}
-            {(currentSelectedBenefitType === 'S' ||
-              currentSelectedBenefitType === 'A') && (
+            {[OTHER_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
+              currentSelectedBenefitType,
+            ) && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Other Benefits"
