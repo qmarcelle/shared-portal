@@ -17,4 +17,20 @@ export function computeAuthFunctions(
   rules.myPCPElig = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'MYPCPELIGIBLE',
   )?.available;
+
+  rules.identityProtectionServices = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'IDPROTECTELIGIBLE',
+  )?.available;
+
+  rules.otcEnable = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'OTCEnable',
+  )?.available;
+
+  rules.otcEnable = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'ENABLE_PHAR_TAB',
+  )?.available;
+
+  rules.bluePerksEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'BLUEPRKS',
+  )?.available;
 }

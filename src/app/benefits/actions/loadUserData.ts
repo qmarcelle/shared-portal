@@ -1,15 +1,13 @@
-import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { Session } from 'next-auth';
 
-export const loadUserData = async (): Promise<
-  ActionResponse<number, LoggedInUserInfo>
-> => {
+export const loadUserData = async (
+  session: Session | null,
+): Promise<ActionResponse<number, LoggedInUserInfo>> => {
   try {
-    const session: Session | null = await auth();
     const memberCk = session?.user.currUsr?.plan.memCk
       ? session?.user.currUsr?.plan.memCk
       : '0';
