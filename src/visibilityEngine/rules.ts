@@ -23,6 +23,11 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'amplifyHealth',
   'premiumHealth',
   'employerProvidedBenefits',
+  'fsaOnly',
+  'terminated',
+  'katieBeckNoBenefitsElig',
+  'blueCare',
+  'myPCPElig',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

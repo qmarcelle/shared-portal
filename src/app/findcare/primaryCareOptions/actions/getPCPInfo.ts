@@ -3,11 +3,14 @@
 import { auth } from '@/auth';
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
+import { Session } from 'next-auth';
 import { PrimaryCareProviderDetails } from '../model/api/primary_care_provider';
 
-export async function getPCPInfo(): Promise<PrimaryCareProviderDetails> {
+export async function getPCPInfo(
+  session?: Session | null,
+): Promise<PrimaryCareProviderDetails> {
   try {
-    const memberDetails = await auth();
+    const memberDetails = session ?? (await auth());
     const response = await portalSvcsApi.get(
       `/memberservice/PCPhysicianService/pcPhysician/${memberDetails?.user.currUsr?.plan.memCk}`,
     );
