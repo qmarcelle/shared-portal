@@ -10,21 +10,11 @@ export interface PlanDetailsInfo {
   planID: string;
 }
 
-const serverCache = new Map<number, MemberBenefitsBean>();
-
 export default async function loadBenefits(
   member: Member,
 ): Promise<ActionResponse<number, MemberBenefitsBean>> {
   if (!member) {
     return { status: 400, data: { memberCk: 0 } };
-  }
-
-  // Check server cache first
-  if (serverCache.has(member.memberCk)) {
-    logger.info(
-      `Returning cached benefits data from server for member: ${member.memberCk}`,
-    );
-    return { status: 200, data: serverCache.get(member.memberCk) };
   }
 
   // Call the API to get benefits data based on member and benefitType
@@ -40,7 +30,6 @@ export default async function loadBenefits(
     );
 
     // Cache the benefits data on the server
-    serverCache.set(member.memberCk, benefitsInfo);
     return { status: 200, data: benefitsInfo };
   } catch (error) {
     logger.error(`Error fetching benefits data: ${error}`);
