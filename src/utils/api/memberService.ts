@@ -2,8 +2,10 @@ import axios from 'axios';
 import { logger } from '../logger';
 import { getAuthToken } from './getToken';
 
+const memSvcURL = `${process.env.PORTAL_SERVICES_URL}/${process.env.MEMBERSERVICE_CONTEXT_ROOT}`;
+
 export const memberService = axios.create({
-  baseURL: `${process.env.PORTAL_SERVICES_URL}/${process.env.MEMBERSERVICE_CONTEXT_ROOT}`,
+  baseURL: memSvcURL,
   proxy:
     process.env.NEXT_PUBLIC_PROXY?.toLocaleLowerCase() === 'false'
       ? false
@@ -16,6 +18,7 @@ export const memberService = axios.create({
 memberService.interceptors.request?.use(
   async (config) => {
     try {
+      logger.info(`Request URL: ${memSvcURL}${config.url}`);
       //Client ID & Client Secret are encrypted and added as credentials to request body
       if (config.data) {
         config.data.credentials = process.env.ES_API_PING_CREDENTIALS
