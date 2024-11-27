@@ -17,7 +17,8 @@ export interface FaqTopicDetails {
   topicType: FaqTopicType;
   faqTopicHeaderDetails: FaqHeaderCardDetails;
   faqTopCardDetails: FAQDetails[];
-  faqBottomCardDetails?: FAQDetails[];
+  faqSecondCardDetails?: FAQDetails[];
+  faqThirdCardDetails?: FAQDetails[];
   faqType?: string;
 }
 
