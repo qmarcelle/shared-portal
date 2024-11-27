@@ -1,6 +1,14 @@
 import { Member, PlanDetail } from '@/models/member/api/loggedInUserInfo';
 import { capitalizeName } from '@/utils/capitalizeName';
 import { logger } from '@/utils/logger';
+import {
+  ALL_BENEFIT_TYPE,
+  DENTAL_BENEFIT_TYPE,
+  MEDICAL_BENEFIT_TYPE,
+  OTHER_BENEFIT_TYPE,
+  RX_BENEFIT_TYPE,
+  VISION_BENEFIT_TYPE,
+} from '../models/benefitConsts';
 
 export const getMemberDropdownValues = (members: Member[]) => {
   logger.info('Mapping members to dropdown values');
@@ -20,52 +28,55 @@ export interface BenefitDropdownItem {
 
 export const getBenefitTypes = (planDetails: PlanDetail[]) => {
   const sortedPlanDetails = planDetails.sort((a, b) => {
-    const order = ['M', 'D', 'V', 'S'];
+    const order = [
+      MEDICAL_BENEFIT_TYPE,
+      DENTAL_BENEFIT_TYPE,
+      VISION_BENEFIT_TYPE,
+      OTHER_BENEFIT_TYPE,
+    ];
     return order.indexOf(a.productCategory) - order.indexOf(b.productCategory);
   });
   const items: BenefitDropdownItem[] = [];
   let id = 0;
-  items.push({ label: 'All Types', value: 'A', id: '0' });
+  items.push({ label: 'All Types', value: ALL_BENEFIT_TYPE, id: '0' });
   sortedPlanDetails.forEach((plan) => {
     id++;
     switch (plan.productCategory) {
-      case 'M':
+      case MEDICAL_BENEFIT_TYPE:
         items.push({
           label: 'Medical',
-          value: 'M',
+          value: MEDICAL_BENEFIT_TYPE,
           id: id.toString(),
         });
         id++;
         items.push({
           label: 'Pharmacy',
-          value: 'R',
+          value: RX_BENEFIT_TYPE,
           id: id.toString(),
         });
         break;
-      case 'D':
+      case DENTAL_BENEFIT_TYPE:
         items.push({
           label: 'Dental',
-          value: 'D',
+          value: DENTAL_BENEFIT_TYPE,
           id: id.toString(),
         });
         break;
-      case 'V':
+      case VISION_BENEFIT_TYPE:
         items.push({
           label: 'Vision',
-          value: 'V',
-          id: id.toString(),
-        });
-        break;
-      case 'S':
-        items.push({
-          label: 'Other',
-          value: 'S',
+          value: VISION_BENEFIT_TYPE,
           id: id.toString(),
         });
         break;
       default:
         break;
     }
+  });
+  items.push({
+    label: 'Other',
+    value: OTHER_BENEFIT_TYPE,
+    id: id.toString(),
   });
 
   return items;
