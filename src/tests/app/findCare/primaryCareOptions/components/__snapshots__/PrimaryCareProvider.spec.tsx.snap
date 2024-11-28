@@ -58,7 +58,7 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
             tabindex="-1"
           >
             <button
-              class="flex flex-row link-container undefined"
+              class="flex flex-row link-container !text-left"
               style="max-width: max-content; height: auto; display: block;"
               tabindex="0"
             >
@@ -128,7 +128,7 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
           tabindex="-1"
         >
           <button
-            class="flex flex-row link-container undefined"
+            class="flex flex-row link-container !text-left"
             style="max-width: max-content; height: auto; display: block;"
             tabindex="0"
           >
@@ -268,7 +268,7 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             tabindex="-1"
           >
             <button
-              class="flex flex-row link-container undefined"
+              class="flex flex-row link-container !text-left"
               style="max-width: max-content; height: auto; display: block;"
               tabindex="0"
             >
@@ -351,7 +351,7 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
           tabindex="-1"
         >
           <button
-            class="flex flex-row link-container undefined"
+            class="flex flex-row link-container !text-left"
             style="max-width: max-content; height: auto; display: block;"
             tabindex="0"
           >
