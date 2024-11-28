@@ -12,6 +12,33 @@ const setupUI = async () => {
   render(Result);
 };
 
+jest.mock('../../../../auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          firstName: 'Chris',
+          plan: {
+            planName: 'BlueCross BlueShield of Tennessee',
+            subId: '123456',
+            grpId: '100000',
+            memCk: '123456789',
+            coverageType: ['Medical', 'Dental', 'Vision'],
+          },
+        },
+        vRules: {
+          futureEffective: false,
+          fsaOnly: false,
+          wellnessOnly: false,
+          terminated: false,
+          katieBeckNoBenefitsElig: false,
+          blueCare: false,
+        },
+      },
+    }),
+  ),
+}));
+
 describe('ID Card SVG Image Front', () => {
   test('ID Card SVG Image Front for Member Relation - M', async () => {
     const memberDetails = memberMockResponse;
