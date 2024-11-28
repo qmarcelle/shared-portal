@@ -1,8 +1,8 @@
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { encodeVisibilityRules } from './converters';
-import { VisibilityRules } from './rules';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
+import { encodeVisibilityRules } from './converters';
+import { VisibilityRules } from './rules';
 
 const COMMERCIAL_LOB = ['REGL'];
 const INDIVIDUAL_LOB = ['INDV'];

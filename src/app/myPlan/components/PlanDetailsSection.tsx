@@ -12,14 +12,18 @@ import Image from 'next/image';
 import Down from '../../../../public/assets/down.svg';
 import Up from '../../../../public/assets/up.svg';
 import { PlanContactInformationSection } from './PlanContactInformationSection';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 
 export type PlanDeatilsSectionProps = {
   svgData: string | null;
+  visibilityRules?: VisibilityRules;
 } & IComponent;
 
 export const PlanDetailsSection = ({
   className,
   svgData,
+  visibilityRules,
 }: PlanDeatilsSectionProps) => {
   function IDCardFront() {
     return (
@@ -51,19 +55,31 @@ export const PlanDetailsSection = ({
         <Spacer size={32} />
         <Row>
           <TextBox className="planType" text="Plan Type:"></TextBox>
-          <TextBox
-            text="High Deductible Health Plan with Health Savings Account (HDHP-HSA)"
-            className="font-bold"
-          ></TextBox>
+          {!isBlueCareEligible(visibilityRules) ? (
+            <TextBox
+              text="High Deductible Health Plan with Health Savings Account (HDHP-HSA)"
+              className="font-bold"
+            ></TextBox>
+          ) : (
+            <TextBox text="BlueCare Medicaid" className="font-bold"></TextBox>
+          )}
         </Row>
         <Spacer size={32} />
         {IDCardFront()}
 
-        <Spacer size={16} />
-        <TextBox text="All members of your plan use the same ID card."></TextBox>
+        {!isBlueCareEligible(visibilityRules) && (
+          <Column>
+            <Spacer size={16} />
+            <TextBox text="All members of your plan use the same ID card."></TextBox>
+          </Column>
+        )}
         <Spacer size={32} />
-        <AppLink label="View More ID Card Options" url="/memberIDCard" />
-        <Spacer size={32} />
+        <AppLink
+          className="p-0"
+          label="View More ID Card Options"
+          url="/memberIDCard"
+        />
+        <Spacer size={24} />
         <Divider />
         <Spacer size={32} />
         <Card>

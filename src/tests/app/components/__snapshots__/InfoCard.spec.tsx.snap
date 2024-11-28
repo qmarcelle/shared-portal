@@ -27,9 +27,12 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Benefits & Coverage
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -65,9 +68,12 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Claims
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -103,9 +109,12 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Prior Authorizations
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -141,9 +150,12 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Accounts
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -179,9 +191,12 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Summary
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -217,9 +232,12 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Plan Documents
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -262,9 +280,12 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Benefits & Coverage
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -300,9 +321,12 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Claims
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -338,9 +362,12 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Prior Authorizations
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -376,9 +403,12 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Accounts
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -414,9 +444,12 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Summary
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -452,9 +485,12 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Plan Documents
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -497,9 +533,12 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Benefits & Coverage
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -535,9 +574,12 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Claims
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -573,9 +615,12 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Prior Authorizations
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -611,9 +656,12 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Accounts
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -649,9 +697,12 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Summary
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -687,9 +738,12 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Plan Documents
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -732,9 +786,12 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Benefits & Coverage
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -770,9 +827,12 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Claims
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -808,9 +868,12 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Prior Authorizations
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -846,9 +909,12 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Accounts
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -884,9 +950,12 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Summary
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -922,9 +991,12 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Plan Documents
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -967,9 +1039,12 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Benefits & Coverage
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1005,9 +1080,12 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Claims
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1043,9 +1121,12 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Prior Authorizations
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1081,9 +1162,12 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Accounts
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1119,9 +1203,12 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Summary
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1157,9 +1244,12 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Plan Documents
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1202,9 +1292,12 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Benefits & Coverage
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1240,9 +1333,12 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Claims
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1278,9 +1374,12 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Prior Authorizations
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1316,9 +1415,12 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Accounts
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1354,9 +1456,12 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Spending Summary
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -1392,9 +1497,12 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Plan Documents
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"

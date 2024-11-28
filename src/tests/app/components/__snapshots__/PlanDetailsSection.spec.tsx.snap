@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlanDetailsSection should render the UI correctly 1`] = `undefined`;
+exports[`PlanDetailsSection should render the UI correctly for Blue Care groups 1`] = `undefined`;
+
+exports[`PlanDetailsSection should render the UI correctly for other groups 1`] = `undefined`;

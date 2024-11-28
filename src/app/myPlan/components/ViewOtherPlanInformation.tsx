@@ -1,59 +1,28 @@
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
-import {
-  benefits,
-  claimsBenefitsCoverage,
-  planDocuments,
-  priorAuthorizations,
-  spendingAccounts,
-  spendingSummary,
-} from '@/components/foundation/Icons';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import { OtherPlanInformation } from '../model/app/otherPlanInformation';
+import { BlueCarePlanInformation } from '../model/app/blueCarePlanInformation';
+import { externalIcon } from '@/components/foundation/Icons';
+import Image from 'next/image';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 
-export const ViewOtherPlanInformation = () => {
-  const ViewOtherPlanInformationDetails = [
-    {
-      label: 'Benefits & Coverage',
-      // eslint-disable-next-line quotes
-      description: "View what's covered under your plan.",
-      iconName: benefits,
-      link: '/benefits',
-    },
-    {
-      label: 'Claims',
-      description: 'Search for claims and view details or submit a claim.',
-      iconName: claimsBenefitsCoverage,
-      link: '/claims',
-    },
-    {
-      label: 'Prior Authorizations',
-      description: 'Check the status of your prior authorizations.',
-      iconName: priorAuthorizations,
-      link: '/priorAuth',
-    },
-    {
-      label: 'Spending Accounts',
-      description: 'Check your HSA, HRA or FSA accounts.',
-      iconName: spendingAccounts,
-      link: '/spendingAccount',
-    },
-    {
-      label: 'Spending Summary',
-      description:
-        'Your annual statement shows claims we received and processed.',
-      iconName: spendingSummary,
-      link: '/spendingSummary',
-    },
-    {
-      label: 'Plan Documents',
-      description: 'Your important plan documents.',
-      iconName: planDocuments,
-      link: '/planDocuments',
-    },
-  ];
+export type ViewOtherPlanInformationProps = {
+  visibilityRules?: VisibilityRules;
+};
+
+export const ViewOtherPlanInformation = ({
+  visibilityRules,
+}: ViewOtherPlanInformationProps) => {
+  let viewOtherPlanInformationDetails;
+
+  if (isBlueCareEligible(visibilityRules))
+    viewOtherPlanInformationDetails = BlueCarePlanInformation;
+  else viewOtherPlanInformationDetails = OtherPlanInformation;
 
   return (
     <Column>
-      {ViewOtherPlanInformationDetails.map((item) => {
+      {viewOtherPlanInformationDetails.map((item) => {
         return (
           <InfoCard
             key={item.label}
@@ -61,6 +30,11 @@ export const ViewOtherPlanInformation = () => {
             icon={item.iconName}
             body={item.description}
             link={item.link}
+            suffix={
+              item.label == 'Member Handbook' ? (
+                <Image src={externalIcon} alt="external" />
+              ) : undefined
+            }
           />
         );
       })}
