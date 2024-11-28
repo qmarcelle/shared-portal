@@ -1,11 +1,11 @@
 'use server';
 
+import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/getPCPInfo';
 import { ActionResponse } from '@/models/app/actionResponse';
-import { PrimaryCareOptionsData } from '../model/app/primary_care_options_data';
-import { getPCPInfo } from './getPCPInfo';
+import { MyHealthData } from '../models/app/my_health_data';
 
-export const getPrimaryCareOptionsData = async (): Promise<
-  ActionResponse<number, PrimaryCareOptionsData>
+export const getMyHealthData = async (): Promise<
+  ActionResponse<number, MyHealthData>
 > => {
   try {
     const pcpPhysician = await getPCPInfo();
