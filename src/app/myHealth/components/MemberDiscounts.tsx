@@ -1,14 +1,14 @@
+import { AppLink } from '@/components/foundation/AppLink';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
+import offsiteIcon from '@/public/assets/external.svg';
 import Image from 'next/image';
-import offsiteIcon from '../../../../public/assets/external.svg';
-import { IComponent } from '../../../components/IComponent';
-import { AppLink } from '../../../components/foundation/AppLink';
-import { Card } from '../../../components/foundation/Card';
-import { Column } from '../../../components/foundation/Column';
-import { Header } from '../../../components/foundation/Header';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
-import { DiscountCardsInfo } from '../models/DiscountCards_Info';
+import { DiscountCardsInfo } from '../models/app/discount_cards_info';
 import { DiscountInfoCard } from './DiscountInfoCard';
 
 interface MemberDiscountsProps extends IComponent {

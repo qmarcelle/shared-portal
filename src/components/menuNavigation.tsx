@@ -252,7 +252,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     description: 'This is My Health',
     category: '',
     showOnMenu: true,
-    url: '/myhealth',
+    url: '/myHealth',
     qt: {
       firstParagraph:
         'Looking for a virtual care provider for mental health or physical therapy?',

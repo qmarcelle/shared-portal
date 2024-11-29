@@ -62,6 +62,32 @@ export function computeVisibilityRules(
   return encodeVisibilityRules(rules);
 }
 
+const isSelfCommercial = (rules: VisibilityRules | undefined) => {
+  return rules?.commercial && rules?.selfFunded;
+};
+
+const isLobCommercial = (rules: VisibilityRules | undefined) => {
+  return rules?.commercial || rules?.individual;
+};
+
+const isActiveAndNotFSAOnly = (rules: VisibilityRules | undefined) => {
+  return (
+    !rules?.futureEffective &&
+    !rules?.fsaOnly &&
+    !rules?.terminated &&
+    !rules?.katieBeckNoBenefitsElig
+  );
+};
+
+export const isChipRewardsEligible = (rules: VisibilityRules | undefined) => {
+  return (
+    (isSelfCommercial(rules) || !isLobCommercial(rules) || rules?.individual) &&
+    isActiveAndNotFSAOnly(rules) &&
+    rules?.chipRewardsEligible &&
+    rules?.blueHealthRewardsEligible
+  );
+};
+
 async function getRoles() {}
 
 async function getPermissions() {}

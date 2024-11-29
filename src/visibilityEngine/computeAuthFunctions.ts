@@ -17,4 +17,12 @@ export function computeAuthFunctions(
   rules.myPCPElig = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'MYPCPELIGIBLE',
   )?.available;
+
+  rules.chipRewardsEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'CHIPELIGIBLE',
+  )?.available;
+
+  rules.blueHealthRewardsEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'BLUEHEALTHREWARDS',
+  )?.available;
 }
