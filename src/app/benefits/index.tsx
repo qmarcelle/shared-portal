@@ -36,6 +36,9 @@ const Benefits = () => {
             <Filter
               className="large-section px-0 m-0"
               filterHeading="Filter Benefits"
+              onReset={() => {}}
+              showReset={true}
+              onSelectCallback={() => {}}
               filterItems={[
                 {
                   type: 'dropdown',

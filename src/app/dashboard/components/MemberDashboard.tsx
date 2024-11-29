@@ -62,6 +62,8 @@ const MemberDashboard = ({
                   serviceDate: '02/06/2024',
                   isMiniCard: true,
                   claimInfo: {},
+                  memberId: '04',
+                  claimStatusCode: 2,
                 },
                 {
                   id: 'Claim76',
@@ -73,6 +75,8 @@ const MemberDashboard = ({
                   serviceDate: '01/06/2024',
                   claimInfo: {},
                   isMiniCard: true,
+                  memberId: '03',
+                  claimStatusCode: 2,
                 },
                 {
                   id: 'Claim54',
@@ -84,6 +88,8 @@ const MemberDashboard = ({
                   serviceDate: '01/16/2024',
                   claimInfo: {},
                   isMiniCard: true,
+                  memberId: '08',
+                  claimStatusCode: 4,
                 },
               ]}
             />

@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Claims SnapshotList Error Handling should show the error message when api fails 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <h2
+        class="title-2 mb-0 !font-light !text-[32px]/[40px]"
+      >
+        Claims
+      </h2>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="flex justify-start self-start"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <span
+            class="rich-text body-1 mb-4"
+          >
+            <span>
+              If you need more than two years of claims,
+               
+            </span>
+            <span
+              class="link font-bold"
+            >
+              start a chat
+            </span>
+            <span>
+               or call us at [1-800-000-000].
+            </span>
+          </span>
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Need to submit a claim? 
+            </span>
+            <span
+              class="link font-bold"
+            >
+              Get the form you need
+            </span>
+            <span>
+              .
+            </span>
+          </span>
+        </div>
+      </section>
+      <div
+        class="card-main neutral container mt-4"
+      >
+        <div
+          class="flex flex-row flex flex-row align-top m-4"
+        >
+          <img
+            alt="alert"
+            class="icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="flex flex-row flex flex-col flex-grow"
+          >
+            <p
+              class="body-1"
+            >
+              There was a problem loading your information. Please try refreshing the page or returning to this page later.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;

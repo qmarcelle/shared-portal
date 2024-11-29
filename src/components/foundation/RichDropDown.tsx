@@ -8,6 +8,12 @@ import { Header } from './Header';
 import { checkBlueIcon, switchFilterIcon } from './Icons';
 import { Row } from './Row';
 
+export type RichSelectItem = {
+  id: string;
+  label: string;
+  value: string;
+};
+
 interface RichDropDownProps<T> extends IComponent {
   headBuilder?: (val: T) => ReactNode;
   dropdownHeader?: ReactElement | null;

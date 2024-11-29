@@ -18,6 +18,9 @@ const ProfileSettings = () => {
             <Filter
               className="large-section px-0 m-0"
               filterHeading="Filter Notifications"
+              onReset={() => {}}
+              showReset={false}
+              onSelectCallback={() => {}}
               filterItems={[
                 {
                   type: 'dropdown',
