@@ -28,7 +28,7 @@ const AmplifyHealthSupport = () => {
           <TextBox
             className="max-w-[400px]"
             text="Your advisors are here to answer your questions. Chat online or call
-            1-800-000-0000, anytime 24/7."
+            1-866-258-3267, anytime 24/7."
           />
           <Spacer size={32}></Spacer>
           <section className="md:flex md:flex-row">

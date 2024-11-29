@@ -9,6 +9,12 @@ describe('Amplify Health Support Page', () => {
     // Header Section should be present
     expect(screen.getByRole('heading', { name: 'Support' })).toBeVisible();
 
+    expect(
+      screen.getByText(
+        'Your advisors are here to answer your questions. Chat online or call 1-866-258-3267, anytime 24/7.',
+      ),
+    ).toBeInTheDocument();
+
     // Advisors Section should be present
     expect(
       screen.getByRole('heading', { name: 'Your AmplifyHealth Advisors can:' }),
