@@ -1,3 +1,4 @@
+'use client';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
