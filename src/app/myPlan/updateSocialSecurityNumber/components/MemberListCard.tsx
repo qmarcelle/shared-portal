@@ -1,13 +1,17 @@
 import { Column } from '@/components/foundation/Column';
 import { IComponent } from '@/components/IComponent';
-import { MemberListDetails } from '../models/app/member_list_detail';
+import { Member } from '../models/app/memberList';
 import { MemberListItemCard } from './MemberListItemCard';
 
 interface MemberListCardProps extends IComponent {
-  memberListDetails: MemberListDetails[];
+  memberListDetails: Member[];
+  successCallback: () => void;
 }
 
-export const MemberListCard = ({ memberListDetails }: MemberListCardProps) => {
+export const MemberListCard = ({
+  memberListDetails,
+  successCallback,
+}: MemberListCardProps) => {
   return (
     <Column className="flex flex-col mt-4">
       <Column className="flex flex-col">
@@ -15,9 +19,10 @@ export const MemberListCard = ({ memberListDetails }: MemberListCardProps) => {
           <MemberListItemCard
             key={index}
             className="mb-4"
-            memberName={item.memberName}
-            dateOfBirth={item.dateOfBirth}
-            isSSN={item.isSSN}
+            memberName={item.firstName + ' ' + item.lastName}
+            dateOfBirth={item.birthDate}
+            isSSN={item.hasSocial}
+            successCallback={() => successCallback()}
           />
         ))}
       </Column>

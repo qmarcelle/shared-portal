@@ -10,9 +10,12 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { useState } from 'react';
+import { updateSSNData } from '../../actions/updateSSNData';
+import { UpdateSSNRequest } from '../../models/app/updateSSNRequest';
 
 interface UpdateSocialSecurityNumberJourneyProps {
   memberName: string;
+  successCallback: () => void;
 }
 const headerText = 'Update or Add a Social Security Number';
 
@@ -20,21 +23,31 @@ export const UpdateSocialSecurityNumberJourney = ({
   changePage,
   pageIndex,
   memberName,
+  successCallback,
 }: ModalChildProps & UpdateSocialSecurityNumberJourneyProps) => {
   const { dismissModal } = useAppModalStore();
   const [securityNumber, setSecurityNumber] = useState('***-**-****');
 
   const addSecurityNumber = (value: string) => {
-    setSecurityNumber(value);
+    if (!isNaN(Number(value))) {
+      setSecurityNumber(value);
+    }
   };
 
   function changePageIndex(index: number, showback = true) {
     changePage?.(index, showback);
   }
-  const submitCode = async () => {
-    // Do API call for submit code
+
+  const submitSSNCode = async () => {
     try {
-      changePageIndex?.(1, false);
+      const request: UpdateSSNRequest = {
+        ssn: securityNumber,
+      };
+      const response = await updateSSNData(request);
+      if (response.data?.message === 'Updated SSN') {
+        successCallback();
+        changePageIndex?.(1, false);
+      }
     } catch (errorMessage: unknown) {
       changePageIndex?.(2, false);
     }
@@ -50,16 +63,18 @@ export const UpdateSocialSecurityNumberJourney = ({
           <TextBox className="font-bold text-center" text={memberName} />
           <Spacer size={32} />
           <TextField
-            value={securityNumber}
+            hint="***-**-****"
             valueCallback={(val) => addSecurityNumber(val)}
-            maxLength={11}
+            maxLength={9}
             label="Social Security Number"
           />
 
           <Spacer size={32} />
         </Column>
       }
-      nextCallback={securityNumber.length > 5 ? () => submitCode() : undefined}
+      nextCallback={
+        securityNumber.length > 5 ? () => submitSSNCode() : undefined
+      }
       cancelCallback={() => dismissModal()}
       buttonLabel="Save Changes"
     />,
@@ -80,13 +95,13 @@ export const UpdateSocialSecurityNumberJourney = ({
     />,
     <ErrorDisplaySlide
       key={2}
-      label="Try Again Later"
+      label="Something went wrong."
       body={
         <Column className="items-center">
           <TextBox
+            className="text-center"
             text={
-              // eslint-disable-next-line quotes
-              "Oops! We're sorry. Something went wrong. Please try again."
+              'We’re unable to update your information at this time. Please try again later.'
             }
           />
         </Column>
