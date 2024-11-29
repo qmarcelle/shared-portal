@@ -225,6 +225,15 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
       {
+        id: 101,
+        title: 'Manage My Policy',
+        description: 'This is Manage My Policy',
+        category: 'Manage My Plan',
+        showOnMenu: true,
+        url: '',
+        external: false,
+      },
+      {
         id: 73,
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
