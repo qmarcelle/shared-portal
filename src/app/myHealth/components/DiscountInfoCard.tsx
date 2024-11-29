@@ -1,8 +1,8 @@
+import { IComponent } from '@/components/IComponent';
+import { Card } from '@/components/foundation/Card';
 import { Row } from '@/components/foundation/Row';
-import { IComponent } from '../../../components/IComponent';
-import { Card } from '../../../components/foundation/Card';
-import { TextBox } from '../../../components/foundation/TextBox';
-import { DiscountCardsInfo } from '../models/DiscountCards_Info';
+import { TextBox } from '@/components/foundation/TextBox';
+import { DiscountCardsInfo } from '../models/app/discount_cards_info';
 
 interface DiscountInfoCardProps extends IComponent, DiscountCardsInfo {}
 

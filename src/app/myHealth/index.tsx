@@ -12,10 +12,12 @@ import {
 import { Spacer } from '@/components/foundation/Spacer';
 import healthSupportIcon from '@/public/assets/health_support.svg';
 import healthSurveyIcon from '@/public/assets/health_survey.svg';
+import { isChipRewardsEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
 import { HealthLibraryOptions } from './components/HealthLibraryOptions';
 import { MemberWellnessCenterOptions } from './components/MemberWellnessCenterOptions';
 import { MyHealthOffsiteLinkCard } from './components/MyHealthOffsiteLinkCard';
+import { WellnessRewards } from './components/WellnessRewards';
 import { MyHealthData } from './models/app/my_health_data';
 
 export type MyHealthProps = {
@@ -101,6 +103,21 @@ const MyHealth = ({ data }: MyHealthProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
+        {isChipRewardsEligible(data.visibilityRules) && (
+          <section>
+            <WellnessRewards
+              className="section"
+              quarter="Q2"
+              quarterlyPointsEarned={50}
+              quarterlyMaxPoints={100}
+              color2="#5DC1FD"
+              color1="#f2f2f2"
+              totalAmount={400}
+              totalAmountEarned={100}
+              linkText="View Ways to Earn"
+            />
+          </section>
+        )}
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
             <PrimaryCareProvider
@@ -163,7 +180,6 @@ const MyHealth = ({ data }: MyHealthProps) => {
             options={MemberWellnessCenterDetails}
           />
         </section>
-
         <section>
           <MyHealthOffsiteLinkCard
             icon={dentalHealthLibraryIcon}
