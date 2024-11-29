@@ -38,6 +38,9 @@ const PriceDentalCare = () => {
             <Filter
               className="small-section px-0 m-0  md:w-[288px] w-auto"
               filterHeading="Filter Dental Costs"
+              onReset={() => {}}
+              showReset={false}
+              onSelectCallback={() => {}}
               buttons={{
                 className: 'font-bold',
                 type: 'primary',

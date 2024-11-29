@@ -1,68 +1,190 @@
 'use client';
 
+import { ClaimsSnapshotCardSection } from '@/app/claims/components/ClaimsSnapshotCardSection';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Column } from '@/components/foundation/Column';
+import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
+import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
-import { TextBox } from '@/components/foundation/TextBox';
-import { ClaimFormsCard } from './components/ClaimForms';
-import { UnderstandingClaimsReimbursementCard } from './components/UnderstandingClaimsReimbursementCard';
+import { ClaimDetails } from '@/models/claim_details';
+import { FilterItem } from '@/models/filter_dropdown_details';
+import { getDifferenceInDays } from '@/utils/date_formatter';
+import { useMemo, useState } from 'react';
 
-const SubmitClaim = () => {
+/* eslint-disable */
+type ClaimsPageProps = {
+  filters: FilterItem[];
+  claimsList: ClaimDetails[] | undefined;
+};
+
+const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
+  const initialFilter = useMemo(() => {
+    return filters;
+  }, []);
+  const initialClaims = useMemo(() => claimsList ?? [], []);
+  const [filter, setFilter] = useState(filters);
+  const [claims, setClaims] = useState(filterClaims(filter));
+
+  function onFilterSelect(index: number, filter: FilterItem[]) {
+    setFilter(filter);
+    const filteredClaims = filterClaims(filter);
+    setClaims(filteredClaims);
+  }
+
+  function filterClaims(selectedFilter: FilterItem[]) {
+    return initialClaims.filter((item) => {
+      // Member Filter
+      if (selectedFilter[0].selectedValue?.value != '0') {
+        if (selectedFilter[0].selectedValue?.value != item.memberId) {
+          return false;
+        }
+      }
+
+      // Claim Type Filter
+      if (selectedFilter[1].selectedValue?.value != '0') {
+        if (selectedFilter[1].selectedValue?.value !== item.claimType) {
+          return false;
+        }
+      }
+
+      // Date Filter
+      const currentDate = new Date();
+      const claimDate = new Date(item.serviceDate);
+      const diffInDays = getDifferenceInDays(currentDate, claimDate);
+      if (selectedFilter[2].selectedValue?.label == 'Last 30 Days') {
+        // Check for within 30 days
+        if (diffInDays >= 30) {
+          return false;
+        }
+      }
+
+      if (selectedFilter[2].selectedValue?.label == 'Last 60 Days') {
+        // Check for within 60 days
+        if (diffInDays >= 60) {
+          return false;
+        }
+      }
+
+      if (selectedFilter[2].selectedValue?.label == 'Last 90 Days') {
+        // Check for within 90 days
+        if (diffInDays >= 60) {
+          return false;
+        }
+      }
+
+      if (selectedFilter[2].selectedValue?.label == 'Last 120 Days') {
+        // Check for within 120 days
+        if (diffInDays >= 120) {
+          return false;
+        }
+      }
+
+      if (selectedFilter[2].selectedValue?.label == 'Last Calendar Year') {
+        // Check for within 365 days
+        if (diffInDays >= 365) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  }
+
+  function resetFilter() {
+    setFilter(initialFilter);
+    setClaims(initialClaims);
+  }
+
   return (
-    <section className="flex flex-col justify-center items-center page">
+    <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Header className="font-bold" text="Submit a Claim" />
+        <Header
+          text="Claims"
+          type="title-2"
+          className="mb-0 !font-light !text-[32px]/[40px]"
+        />
         <Spacer size={16} />
-        <TextBox
-          text="Fill out the appropriate form to ask us to reimburse or pay your claim."
-          ariaLabel="You can update the Social Security Number (SSN) we have on file here."
-        ></TextBox>
-        <Spacer size={32} />
-        <section className="flex flex-row items-start app-body">
-          <Column className="flex-grow  page-section-63_33 items-stretch">
-            <ClaimFormsCard
-              claimFormsDetails={[
-                {
-                  title: 'Medical Claim Form',
-                  description:
-                    'If you paid out of pocket for a medical provider who isn’t in your network, you may be able to get some of your money back.',
-                  url: process.env.NEXT_PUBLIC_MEDICAL_CLAIM_FORM ?? '',
-                },
-                {
-                  title: 'Prescription Claim Form',
-                  description:
-                    'Use this form if you paid out of pocket for a prescription drug.',
-                  url: process.env.NEXT_PUBLIC_PRESCRIPTION_CLAIM_FORM ?? '',
-                },
-                {
-                  title: 'Dental Claim Form',
-                  description:
-                    'Use this form if you paid out of pocket for care from a dental provider who isn’t in your network.',
-                  url: process.env.NEXT_PUBLIC_DENTAL_CLAIM_FORM ?? '',
-                },
-                {
-                  title: 'Vision Claim Form',
-                  description:
-                    'Use this form if you paid out of pocket for care from a vision provider who isn’t in your network.',
+        <section className="flex justify-start self-start">
+          <Column>
+            <RichText
+              className="mb-4"
+              spans={[
+                <span key={0}>
+                  If you need more than two years of claims,{' '}
+                </span>,
+                <span className="link font-bold" key={1}>
+                  start a chat
+                </span>,
+                <span key={2}> or call us at [1-800-000-000].</span>,
+              ]}
+            />
 
-                  url: process.env.NEXT_PUBLIC_VISION_CLAIM_FORM ?? '',
-                },
-                {
-                  title: 'Breast Pump Claim Form',
-                  description:
-                    'If you paid out of pocket for a breast pump, you may be able to get some of your money back.',
-                  url: process.env.NEXT_PUBLIC_BREAST_PUMP_CLAIM_FORM ?? '',
-                },
+            <RichText
+              spans={[
+                <span key={0}>Need to submit a claim? </span>,
+                <span className="link font-bold" key={1}>
+                  Get the form you need
+                </span>,
+                <span key={2}>.</span>,
               ]}
             />
           </Column>
-          <Column className="flex-grow page-section-36_67 items-stretch">
-            <UnderstandingClaimsReimbursementCard />
-          </Column>
         </section>
+
+        {claimsList ? (
+          <section className="flex flex-row items-start app-body" id="Filter">
+            <Column className=" flex-grow page-section-36_67 items-stretch">
+              <Spacer size={16} />
+              <Filter
+                className="large-section px-0 m-0"
+                filterHeading="Filter Claims"
+                onSelectCallback={(index, data) => onFilterSelect(index, data)}
+                filterItems={filter}
+                onReset={resetFilter}
+                showReset={filter != initialFilter}
+              />
+            </Column>
+
+            <Column className="flex-grow page-section-63_33 items-stretch">
+              <ClaimsSnapshotCardSection
+                filter={filter}
+                sortby={[
+                  {
+                    id: '1',
+                    label: 'Date (Most Recent)',
+                    value: '1',
+                  },
+                  {
+                    id: '2',
+                    label: 'Status (Denied First)',
+                    value: '2',
+                  },
+                  {
+                    id: '3',
+                    label: 'MyShare (High to Low)',
+                    value: '3',
+                  },
+                  {
+                    id: '0',
+                    label: 'MyShare (Low to High)',
+                    value: '0',
+                  },
+                ]}
+                onSelectedDateChange={() => {}}
+                claims={claims}
+              />
+            </Column>
+          </section>
+        ) : (
+          <ErrorInfoCard
+            className="mt-4"
+            errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
+          />
+        )}
       </Column>
-    </section>
+    </main>
   );
 };
 
-export default SubmitClaim;
+export default ClaimsSnapshot;

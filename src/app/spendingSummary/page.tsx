@@ -55,6 +55,9 @@ const SpendingSummary = () => {
             <Filter
               className="large-section px-0 m-0 w-11/12"
               filterHeading="Filter Summary"
+              onReset={() => {}}
+              showReset={true}
+              onSelectCallback={() => {}}
               filterItems={[
                 {
                   type: 'dropdown',
@@ -91,7 +94,11 @@ const SpendingSummary = () => {
                       id: '6',
                     },
                   ],
-                  selectedValue: { label: 'All Members', value: '1', id: '1' },
+                  selectedValue: {
+                    label: 'All Members',
+                    value: '1',
+                    id: '1',
+                  },
                 },
                 {
                   type: 'dropdown',

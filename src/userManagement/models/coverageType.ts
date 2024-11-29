@@ -1,4 +1,6 @@
-export const CoverageTypes = new Map<string, string>([
+import { PlanType } from '@/models/plan_type';
+
+export const CoverageTypes = new Map<string, PlanType>([
   ['M', 'Medical'],
   ['D', 'Dental'],
   ['V', 'Vision'],

@@ -101,6 +101,8 @@ const Pharmacy = () => {
                   callBack: (claimId: string) => {
                     redirectToPharmacyClaims(claimId);
                   },
+                  memberId: '23',
+                  claimStatusCode: 2,
                 },
                 {
                   id: 'Claim02',
@@ -115,6 +117,8 @@ const Pharmacy = () => {
                   callBack: (claimId: string) => {
                     redirectToPharmacyClaims(claimId);
                   },
+                  memberId: '2',
+                  claimStatusCode: 3,
                 },
                 {
                   id: 'Claim03',
@@ -129,6 +133,8 @@ const Pharmacy = () => {
                   callBack: (claimId: string) => {
                     redirectToPharmacyClaims(claimId);
                   },
+                  memberId: '23',
+                  claimStatusCode: 1,
                 },
               ]}
             />

@@ -4,6 +4,12 @@ import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { memberService } from '@/utils/api/memberService';
 
+export type MemberData = {
+  id: string;
+  name: string;
+  memberCK: number;
+};
+
 export async function getLoggedInUserInfo(
   memberCk: string,
 ): Promise<LoggedInUserInfo> {

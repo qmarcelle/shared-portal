@@ -1,4 +1,4 @@
-import { ClaimFormsItemCard } from '@/app/claims/components/ClaimFormsItemCard';
+import { ClaimFormsItemCard } from '@/app/claims/submitAClaim/components/ClaimFormsItemCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';

@@ -27,6 +27,9 @@ export const SendEmailRequest = ({}: SendEmailRequestProps) => {
         <Filter
           className="px-0 m-0 !border-none"
           filterHeading="Member Information"
+          onReset={() => {}}
+          showReset={false}
+          onSelectCallback={() => {}}
           filterItems={[
             {
               type: 'dropdown',

@@ -10,6 +10,8 @@ export const priorAuthorizationData: ClaimDetails[] = [
     memberName: 'Chris Hall',
     serviceDate: '04/06/23',
     claimInfo: {},
+    memberId: '23',
+    claimStatusCode: 1,
     columns: [
       { label: 'Referred by', value: 'Anand Patel', defaultValue: 'N/A' },
       { label: 'Referred to', value: 'Anand Patel', defaultValue: 'N/A' },
@@ -24,6 +26,8 @@ export const priorAuthorizationData: ClaimDetails[] = [
     memberName: 'Chris Hall',
     serviceDate: '01/23/23',
     claimInfo: {},
+    memberId: '23',
+    claimStatusCode: 2,
     columns: [
       { label: 'Referred by', value: null, defaultValue: 'N/A' },
       { label: 'Referred to', value: null, defaultValue: 'N/A' },
@@ -38,6 +42,8 @@ export const priorAuthorizationData: ClaimDetails[] = [
     memberName: 'Chris Hall',
     serviceDate: '08/10/23',
     claimInfo: {},
+    memberId: '23',
+    claimStatusCode: 3,
     columns: [
       { label: 'Referred by', value: null, defaultValue: 'N/A' },
       { label: 'Referred to', value: 'Anand Patel', defaultValue: 'N/A' },
@@ -52,6 +58,8 @@ export const priorAuthorizationData: ClaimDetails[] = [
     memberName: 'Chris Hall',
     serviceDate: '07/05/23',
     claimInfo: {},
+    memberId: '23',
+    claimStatusCode: 4,
     columns: [
       {
         label: 'Referred by',
@@ -70,6 +78,8 @@ export const priorAuthorizationData: ClaimDetails[] = [
     memberName: 'Chris Hall',
     serviceDate: '07/04/23',
     claimInfo: {},
+    memberId: '23',
+    claimStatusCode: 2,
     columns: [
       { label: 'Referred by', value: null, defaultValue: 'N/A' },
       { label: 'Referred to', value: null, defaultValue: 'N/A' },
