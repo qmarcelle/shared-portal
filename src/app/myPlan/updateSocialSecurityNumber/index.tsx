@@ -4,10 +4,24 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { useState } from 'react';
+import { getMemberSSNData } from './actions/getMemberSSNData';
 import { AboutSocialSecurityNumberCard } from './components/AboutSocialSecurityNumberCard';
 import { MemberListCard } from './components/MemberListCard';
+import { MemberList } from './models/app/memberList';
+export type UpdateSocialSecurityNumberProps = {
+  data: MemberList;
+};
 
-const UpdateSocialSecurityNumber = () => {
+const UpdateSocialSecurityNumber = ({
+  data,
+}: UpdateSocialSecurityNumberProps) => {
+  const [sSNMemberData, setStateSSNMemberData] = useState<MemberList>(data);
+  async function updateMemberList() {
+    const result = await getMemberSSNData();
+    setStateSSNMemberData(result.data!);
+  }
+
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -26,42 +40,14 @@ const UpdateSocialSecurityNumber = () => {
           <Column className="flex-grow page-section-36_67 items-stretch">
             <AboutSocialSecurityNumberCard />
           </Column>
-          <Column className="flex-grow page-section-63_33 items-stretch">
-            <MemberListCard
-              memberListDetails={[
-                {
-                  memberName: 'Chris Hall',
-                  dateOfBirth: '01/01/1978',
-                  isSSN: true,
-                },
-                {
-                  memberName: 'Maddison Hall',
-                  dateOfBirth: '01/01/1979',
-                  isSSN: true,
-                },
-                {
-                  memberName: 'Forest Hall',
-                  dateOfBirth: '01/01/2001',
-                  isSSN: true,
-                },
-                {
-                  memberName: 'Corey Hall',
-                  dateOfBirth: '01/01/2002',
-                  isSSN: false,
-                },
-                {
-                  memberName: 'Telly Hall',
-                  dateOfBirth: '01/01/2005',
-                  isSSN: true,
-                },
-                {
-                  memberName: 'Janie Hall',
-                  dateOfBirth: '01/01/2015',
-                  isSSN: false,
-                },
-              ]}
-            />
-          </Column>
+          {data?.members && sSNMemberData.members && (
+            <Column className="flex-grow page-section-63_33 items-stretch">
+              <MemberListCard
+                memberListDetails={sSNMemberData.members}
+                successCallback={updateMemberList}
+              />
+            </Column>
+          )}
         </section>
       </Column>
     </div>

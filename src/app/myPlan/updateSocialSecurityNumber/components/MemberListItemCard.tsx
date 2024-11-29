@@ -8,8 +8,8 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import editIcon from '@/public/assets/edit.svg';
 import Image from 'next/image';
-import editIcon from '../../../../public/assets/edit.svg';
 import { UpdateSocialSecurityNumberJourney } from './journeys/UpdateSocialSecurityNumber';
 
 interface MemberListItemCardProps extends IComponent {
@@ -17,6 +17,7 @@ interface MemberListItemCardProps extends IComponent {
   dateOfBirth: string;
   isSSN: boolean;
   icon?: JSX.Element;
+  successCallback: () => void;
 }
 
 export const MemberListItemCard = ({
@@ -25,6 +26,7 @@ export const MemberListItemCard = ({
   className,
   isSSN,
   icon = <Image src={editIcon} alt="link" />,
+  successCallback,
 }: MemberListItemCardProps) => {
   const { showAppModal } = useAppModalStore();
   return (
@@ -58,7 +60,10 @@ export const MemberListItemCard = ({
           callback={() =>
             showAppModal({
               content: (
-                <UpdateSocialSecurityNumberJourney memberName={memberName} />
+                <UpdateSocialSecurityNumberJourney
+                  memberName={memberName}
+                  successCallback={() => successCallback()}
+                />
               ),
             })
           }
