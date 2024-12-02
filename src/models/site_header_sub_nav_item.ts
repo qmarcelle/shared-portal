@@ -1,3 +1,5 @@
+import { VisibilityRules } from '@/visibilityEngine/rules';
+
 export interface SiteHeaderSubNavItem {
   title?: string;
   label?: string;
@@ -10,7 +12,7 @@ export interface ChildPages {
   title: string;
   description: string;
   category: string;
-  showOnMenu: boolean;
+  showOnMenu: (rules: VisibilityRules | undefined) => boolean | undefined;
   url: string;
   external: boolean;
   childPages?: ChildPages[];

@@ -1,3 +1,4 @@
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -27,6 +28,7 @@ export interface SiteHeaderSubNavProps extends IComponent {
   childPages: ChildPages[];
   activeSubNavId: number | null;
   closeSubMenu: () => void;
+  visibilityRules?: VisibilityRules;
 }
 
 export const SiteHeaderSubNavSection = ({
@@ -39,6 +41,7 @@ export const SiteHeaderSubNavSection = ({
   childPages,
   activeSubNavId,
   closeSubMenu,
+  visibilityRules,
 }: SiteHeaderSubNavProps) => {
   return (
     <div
@@ -96,6 +99,7 @@ export const SiteHeaderSubNavSection = ({
           qt={qt}
           shortLinks={shortLinks}
           childPages={childPages}
+          visibilityRules={visibilityRules}
         />
       </div>
       <div className="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0">
@@ -105,6 +109,7 @@ export const SiteHeaderSubNavSection = ({
           qt={qt}
           shortLinks={shortLinks}
           childPages={childPages}
+          visibilityRules={visibilityRules}
         />
       </div>
       <div className="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0">
