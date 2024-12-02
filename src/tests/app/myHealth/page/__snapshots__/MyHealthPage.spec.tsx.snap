@@ -673,6 +673,7 @@ exports[`My Health Page should render page correctly when we have valid session 
               </div>
             </div>
           </section>
+          <section />
           <section>
             <div
               class="card-main large-section"
@@ -2035,6 +2036,7 @@ exports[`My Health Page should render page correctly when we have valid session 
             </div>
           </div>
         </section>
+        <section />
         <section>
           <div
             class="card-main large-section"

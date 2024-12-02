@@ -4,102 +4,160 @@ import { Header } from '@/components/foundation/Header';
 import {
   biometricScreeningIcon,
   dentalHealthLibraryIcon,
+  fitLogo,
+  fitnessLogo,
   healthAssessmentIcon,
   interactiveProgramsIcon,
+  nutritionLogo,
+  personalCareLogo,
+  primaryVisionLogo,
+  transportationLogo,
   wellnessPointsIcon,
   wellTunedBlogIcon,
 } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import healthSupportIcon from '@/public/assets/health_support.svg';
 import healthSurveyIcon from '@/public/assets/health_survey.svg';
-import { isChipRewardsEligible } from '@/visibilityEngine/computeVisibilityRules';
+import {
+  isBlue365FitnessYourWayEligible,
+  isChipRewardsEligible,
+} from '@/visibilityEngine/computeVisibilityRules';
+import Image from 'next/image';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
 import { HealthLibraryOptions } from './components/HealthLibraryOptions';
+import { MemberDiscounts } from './components/MemberDiscounts';
 import { MemberWellnessCenterOptions } from './components/MemberWellnessCenterOptions';
 import { MyHealthOffsiteLinkCard } from './components/MyHealthOffsiteLinkCard';
 import { WellnessRewards } from './components/WellnessRewards';
 import { MyHealthData } from './models/app/my_health_data';
 
+const memberWellnessCenterDetails = [
+  {
+    id: '1',
+    title: 'Your Health Assessment',
+    description:
+      'Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.',
+    url: '#path-1',
+    icon: healthAssessmentIcon,
+  },
+  {
+    id: '2',
+    title: 'Earn Wellness Points',
+    description:
+      'Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.',
+    url: '#path-1',
+    icon: wellnessPointsIcon,
+  },
+  {
+    id: '3',
+    title: 'Interactive Programs',
+    description:
+      'Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!',
+    url: '#path-1',
+    icon: interactiveProgramsIcon,
+  },
+];
+
+const healthLibraryDetails = [
+  {
+    id: '1',
+    title: 'Learning Center',
+    description:
+      'Get more information about specific health terms, topics and conditions to better manage your health.',
+    url: '#path-1',
+    icon: null,
+  },
+  {
+    id: '2',
+    title: 'Interactive Tools',
+    description:
+      'Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.',
+    url: '#path-1',
+    icon: null,
+  },
+  {
+    id: '3',
+    title: 'Health Videos',
+    description:
+      'Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.',
+    url: '#path-1',
+    icon: null,
+  },
+  {
+    id: '4',
+    title: 'Symptom Checker',
+    description:
+      'Get more reliable information about the symptom you’re experiencing to help find the care you need.',
+    url: '#path-1',
+    icon: null,
+  },
+  {
+    id: '5',
+    title: 'Manage Your Diabetes',
+    description:
+      'Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.',
+    url: '#path-1',
+    icon: null,
+  },
+  {
+    id: '6',
+    title: 'Decision Support',
+    description:
+      'We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.',
+    url: '#path-1',
+    icon: null,
+  },
+];
+
+const discountCardDetails = [
+  {
+    id: '1',
+    icon: <Image src={fitnessLogo} alt="Footwear Icon" className="inline" />,
+    cardLink: 'Apparel & Footwear',
+    url: '',
+  },
+  {
+    id: '2',
+    icon: <Image src={fitLogo} alt="Fitness Icon" className="inline" />,
+    cardLink: 'Fitness',
+    url: '',
+  },
+  {
+    id: '3',
+    icon: (
+      <Image src={primaryVisionLogo} alt="Vision Icon" className="inline" />
+    ),
+    cardLink: 'Hearing & Vision',
+    url: '',
+  },
+  {
+    id: '4',
+    icon: <Image src={nutritionLogo} alt="Nutrition Icon" className="inline" />,
+    cardLink: 'Nutrition',
+    url: '',
+  },
+  {
+    id: '5',
+    icon: (
+      <Image src={transportationLogo} alt="Travel Icon" className="inline" />
+    ),
+    cardLink: 'Travel',
+    url: '',
+  },
+  {
+    id: '6',
+    icon: (
+      <Image src={personalCareLogo} alt="Personal Icon" className="inline" />
+    ),
+    cardLink: 'Personal Care',
+    url: '',
+  },
+];
+
 export type MyHealthProps = {
   data: MyHealthData;
 };
 const MyHealth = ({ data }: MyHealthProps) => {
-  const MemberWellnessCenterDetails = [
-    {
-      id: '1',
-      title: 'Your Health Assessment',
-      description:
-        'Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.',
-      url: '#path-1',
-      icon: healthAssessmentIcon,
-    },
-    {
-      id: '2',
-      title: 'Earn Wellness Points',
-      description:
-        'Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.',
-      url: '#path-1',
-      icon: wellnessPointsIcon,
-    },
-    {
-      id: '3',
-      title: 'Interactive Programs',
-      description:
-        'Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!',
-      url: '#path-1',
-      icon: interactiveProgramsIcon,
-    },
-  ];
-  const HealthLibraryDetails = [
-    {
-      id: '1',
-      title: 'Learning Center',
-      description:
-        'Get more information about specific health terms, topics and conditions to better manage your health.',
-      url: '#path-1',
-      icon: null,
-    },
-    {
-      id: '2',
-      title: 'Interactive Tools',
-      description:
-        'Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.',
-      url: '#path-1',
-      icon: null,
-    },
-    {
-      id: '3',
-      title: 'Health Videos',
-      description:
-        'Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.',
-      url: '#path-1',
-      icon: null,
-    },
-    {
-      id: '4',
-      title: 'Symptom Checker',
-      description:
-        'Get more reliable information about the symptom you’re experiencing to help find the care you need.',
-      url: '#path-1',
-      icon: null,
-    },
-    {
-      id: '5',
-      title: 'Manage Your Diabetes',
-      description:
-        'Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.',
-      url: '#path-1',
-      icon: null,
-    },
-    {
-      id: '6',
-      title: 'Decision Support',
-      description:
-        'We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.',
-      url: '#path-1',
-      icon: null,
-    },
-  ];
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -154,9 +212,22 @@ const MyHealth = ({ data }: MyHealthProps) => {
           />
         </section>
         <section>
+          {isBlue365FitnessYourWayEligible(data.visibilityRules) && (
+            <MemberDiscounts
+              linkTitle={'View All Member Discounts'}
+              showOffsiteIcon={true}
+              title={'Member Discounts'}
+              copy={
+                'Want access to new healthy living discounts every week? Find savings on nutrition programs, fitness accessories, medical supplies and services like hearing aids and LASIK eye surgey.'
+              }
+              discountCards={discountCardDetails}
+            />
+          )}
+        </section>
+        <section>
           <HealthLibraryOptions
             className="large-section"
-            options={HealthLibraryDetails}
+            options={healthLibraryDetails}
           />
         </section>
         <section>
@@ -170,7 +241,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
         <section>
           <MemberWellnessCenterOptions
             className="large-section"
-            options={MemberWellnessCenterDetails}
+            options={memberWellnessCenterDetails}
           />
         </section>
         <section>

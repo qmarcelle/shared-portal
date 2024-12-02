@@ -31,6 +31,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'myPCPElig',
   'chipRewardsEligible',
   'blueHealthRewardsEligible',
+  'bluePerksElig',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];
