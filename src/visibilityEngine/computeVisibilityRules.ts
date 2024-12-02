@@ -55,6 +55,7 @@ export function computeVisibilityRules(
   }
 
   rules['employerProvidedBenefits'] = false;
+  rules['benefitBooklet'] = false;
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
   rules['amplifyHealth'] = false;

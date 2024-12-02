@@ -1,10 +1,10 @@
 import {
   benefits,
   claimsBenefitsCoverage,
+  planDocuments,
   priorAuthorizations,
   spendingAccounts,
   spendingSummary,
-  planDocuments,
 } from '@/components/foundation/Icons';
 
 export const OtherPlanInformation = [
@@ -44,6 +44,6 @@ export const OtherPlanInformation = [
     label: 'Plan Documents',
     description: 'Your important plan documents.',
     iconName: planDocuments,
-    link: '/planDocuments',
+    link: '/benefits/planDocuments',
   },
 ];
