@@ -1,4 +1,6 @@
 import MyHealthPage from '@/app/myHealth/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
+import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -19,6 +21,8 @@ jest.mock('src/auth', () => ({
           katieBeckNoBenefitsElig: false,
           chipRewardsEligible: true,
           blueHealthRewardsEligible: true,
+          fullyInsured: true,
+          levelFunded: true,
         },
       },
     }),
@@ -26,9 +30,30 @@ jest.mock('src/auth', () => ({
 }));
 
 describe('My Health Page', () => {
+  beforeEach(() => {
+    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+  });
   it('should render page correctly when we have valid session', async () => {
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          accounts: {
+            balance: [
+              { rewardType: 'Fully Insured - Points', balance: '70' },
+              { rewardType: 'Fully Insured - Dollars', balance: '60.00' },
+            ],
+          },
+        },
+      },
+    });
     const component = await setupUI();
+    expect(mockedAxios.post).toHaveBeenCalledWith(
+      '/memberRewards/member/getMbrWellness',
+      { memberId: '90221882300', accounts: { isBalance: true } },
+    );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('70 pts').length).toBe(2);
+    expect(screen.getAllByText('$0.00').length).toBe(2);
     expect(component).toMatchSnapshot();
   });
 });
