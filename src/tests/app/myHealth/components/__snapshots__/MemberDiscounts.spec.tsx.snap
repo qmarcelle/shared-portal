@@ -9,7 +9,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
         class="card-main section"
       >
         <div
-          class="flex flex-col"
+          class="flex flex-col large-section"
         >
           <h2
             class="title-2"
@@ -37,7 +37,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
                 class="flex flex-row"
               >
                 <img
-                  alt="Apparel Icon"
+                  alt="Footwear Icon"
+                  class="inline"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -62,6 +63,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               >
                 <img
                   alt="Fitness Icon"
+                  class="inline"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -86,6 +88,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               >
                 <img
                   alt="Vision Icon"
+                  class="inline"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -110,6 +113,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               >
                 <img
                   alt="Nutrition Icon"
+                  class="inline"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -134,6 +138,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               >
                 <img
                   alt="Travel Icon"
+                  class="inline"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -157,7 +162,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
                 class="flex flex-row"
               >
                 <img
-                  alt="Personal Care Icon"
+                  alt="Personal Icon"
+                  class="inline"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -219,7 +225,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
       class="card-main section"
     >
       <div
-        class="flex flex-col"
+        class="flex flex-col large-section"
       >
         <h2
           class="title-2"
@@ -247,7 +253,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               class="flex flex-row"
             >
               <img
-                alt="Apparel Icon"
+                alt="Footwear Icon"
+                class="inline"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -272,6 +279,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
             >
               <img
                 alt="Fitness Icon"
+                class="inline"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -296,6 +304,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
             >
               <img
                 alt="Vision Icon"
+                class="inline"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -320,6 +329,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
             >
               <img
                 alt="Nutrition Icon"
+                class="inline"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -344,6 +354,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
             >
               <img
                 alt="Travel Icon"
+                class="inline"
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -367,7 +378,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               class="flex flex-row"
             >
               <img
-                alt="Personal Care Icon"
+                alt="Personal Icon"
+                class="inline"
                 data-nimg="1"
                 decoding="async"
                 height="40"

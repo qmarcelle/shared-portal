@@ -114,3 +114,9 @@ export function isPrimaryCarePhysicianEligible(
 ) {
   return activeAndHealthPlanMember(rules) && rules?.myPCPElig;
 }
+
+export function isBlue365FitnessYourWayEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
+}

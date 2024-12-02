@@ -1,13 +1,15 @@
 import { MemberDiscounts } from '@/app/myHealth/components/MemberDiscounts';
+import {
+  fitLogo,
+  fitnessLogo,
+  nutritionLogo,
+  personalCareLogo,
+  primaryVisionLogo,
+  transportationLogo,
+} from '@/components/foundation/Icons';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import apparelIcon from '../../../public/assets/apparel_footwear.svg';
-import fitnessIcon from '../../../public/assets/fitness.svg';
-import nutritionIcon from '../../../public/assets/nutrition.svg';
-import personalCareIcon from '../../../public/assets/personal_care.svg';
-import travelIcon from '../../../public/assets/travel.svg';
-import visionWhiteIcon from '../../../public/assets/vision_white.svg';
 
 const renderUI = () => {
   return render(
@@ -20,67 +22,62 @@ const renderUI = () => {
       linkURL=""
       discountCards={[
         {
+          id: '1',
           icon: (
-            <Image
-              alt="Apparel Icon"
-              src={apparelIcon}
-              width={40}
-              height={40}
-            />
+            <Image src={fitnessLogo} alt="Footwear Icon" className="inline" />
           ),
           cardLink: 'Apparel & Footwear',
           url: '',
         },
         {
-          icon: (
-            <Image
-              alt="Fitness Icon"
-              src={fitnessIcon}
-              width={40}
-              height={40}
-            />
-          ),
+          id: '2',
+          icon: <Image src={fitLogo} alt="Fitness Icon" className="inline" />,
           cardLink: 'Fitness',
           url: '',
         },
         {
+          id: '3',
           icon: (
             <Image
+              src={primaryVisionLogo}
               alt="Vision Icon"
-              src={visionWhiteIcon}
-              width={40}
-              height={40}
+              className="inline"
             />
           ),
           cardLink: 'Hearing & Vision',
           url: '',
         },
         {
+          id: '4',
           icon: (
             <Image
+              src={nutritionLogo}
               alt="Nutrition Icon"
-              src={nutritionIcon}
-              width={40}
-              height={40}
+              className="inline"
             />
           ),
           cardLink: 'Nutrition',
           url: '',
         },
         {
+          id: '5',
           icon: (
-            <Image alt="Travel Icon" src={travelIcon} width={40} height={40} />
+            <Image
+              src={transportationLogo}
+              alt="Travel Icon"
+              className="inline"
+            />
           ),
           cardLink: 'Travel',
           url: '',
         },
         {
+          id: '6',
           icon: (
             <Image
-              alt="Personal Care Icon"
-              src={personalCareIcon}
-              width={40}
-              height={40}
+              src={personalCareLogo}
+              alt="Personal Icon"
+              className="inline"
             />
           ),
           cardLink: 'Personal Care',
@@ -102,10 +99,10 @@ describe('MemberDiscountsSection', () => {
     expect(screen.getByText('Nutrition')).toBeVisible();
     expect(screen.getByText('Travel')).toBeVisible();
     expect(screen.getByText('Personal Care')).toBeVisible();
-    expect(screen.getByAltText('Apparel Icon')).toBeInTheDocument();
+    expect(screen.getByAltText('Footwear Icon')).toBeInTheDocument();
     expect(screen.getByAltText('Fitness Icon')).toBeInTheDocument();
     expect(screen.getByAltText('Travel Icon')).toBeInTheDocument();
-    expect(screen.getByAltText('Personal Care Icon')).toBeInTheDocument();
+    expect(screen.getByAltText('Personal Icon')).toBeInTheDocument();
     expect(screen.getByAltText('Nutrition Icon')).toBeInTheDocument();
     expect(screen.getByAltText('Vision Icon')).toBeInTheDocument();
 

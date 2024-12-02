@@ -31,7 +31,7 @@ export const MemberDiscounts = ({
 }: MemberDiscountsProps) => {
   return (
     <Card className={className}>
-      <Column>
+      <Column className="large-section">
         <Header type="title-2" text={title} />
         <Spacer size={16} />
         <TextBox text={copy} />
@@ -44,6 +44,8 @@ export const MemberDiscounts = ({
               icon={item.icon}
               cardLink={item.cardLink}
               url={item.url}
+              key={item.id}
+              id={item.id}
             />
           ))}
         </Row>
