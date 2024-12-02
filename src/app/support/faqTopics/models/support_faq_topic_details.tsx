@@ -793,6 +793,177 @@ export const SupportFaqTopicDetails: Map<
       ],
     },
   ],
+  [
+    FaqTopicType.Pharmacy,
+    {
+      topicType: FaqTopicType.Pharmacy,
+      faqTopicHeaderDetails: {
+        title: 'Pharmacy FAQ',
+        description:
+          'How to find pharmacies, find prescription drug coverage and more',
+      },
+      faqTopCardDetails: [
+        {
+          serviceTitle: 'Help with Prescription Drugs',
+          serviceLabel: 'How can I find out which drugs my plan covers?',
+          para1: (
+            <p className="body-1">
+              To see a list of all the prescription drugs your plan covers, go
+              to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Check Drug Cost & Coverage page"
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account.
+            </p>
+          ),
+          bulletPoints: [],
+          para2: (
+            <p className="body-1">
+              You can also{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="view or download a pdf formulary. "
+                displayStyle="inline"
+              />
+            </p>
+          ),
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I get a prior authorization?',
+          para1:
+            'If your doctor prescribes a drug that needs a prior authorization, they’ll ask us for one when they write your prescription. We’ll review the case, make sure the drug is appropriate and safe, and make a decision. If it’s approved, we’ll send you a letter to let you know. Then you’ll be able to get your drugs from the pharmacy.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'What is a specialty medication?',
+          para1:
+            'Specialty medications are expensive drugs that usually treat complex conditions. Some specialty drugs can be delivered to your home, but some of them have to be taken at the doctor’s office.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I know if a drug is a specialty drug?',
+          para1:
+            'Specialty drugs are typically on higher tiers like 4 or 5 and usually need prior authorizations. They can also have special handing requirements, like temperature control, too. Some specialty drugs are only available at certain pharmacies. Many specialty drugs have coupons that can help you save money on your copay or coinsurance.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How can I save money on my prescriptions?',
+          para1: (
+            <p className="body-1">
+              One way you could save is to use the drug price comparison tool.
+              You can compare the prices of the drugs you’re currently taking
+              with other drugs that may work as well, including generic drugs,
+              which can cost much less than brand-name drugs. Go to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Check Drug Cost & Coverage page"
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account.
+            </p>
+          ),
+          bulletPoints: [],
+          para2: (
+            <p className="body-1">
+              You can also sign up for 90-day fills of some drugs via mail,
+              which can save you time and money compared to picking up smaller
+              amounts every month. To start getting your prescriptions by mail,
+              go to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Start Rx Delivery by Mail page "
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account. CVS Caremark Mail Service Pharmacy
+              will fill your order and let you know when it will arrive.
+            </p>
+          ),
+        },
+      ],
+      faqSecondCardDetails: [
+        {
+          serviceTitle: 'Help with Pharmacies & Mail Order',
+          serviceLabel: 'Do I have to use a CVS pharmacy?',
+          para1:
+            'CVS Caremark helps BlueCross manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'Why should I use a mail order pharmacy for any of my prescriptions?',
+          para1:
+            'Getting the drugs you take every day to manage your health from a mail order pharmacy can save you time and money. You won’t have to make trips to the pharmacy, and you can get 90-day fills of many drugs. That can lower your cost and make it easier to avoid running out of your medications, which can keep you healthier.',
+          bulletPoints: [],
+          para2: (
+            <p className="body-1">
+              To start getting your prescriptions by mail, go to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Start Rx Delivery by Mail page"
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account. CVS Caremark Mail Service Pharmacy
+              will fill your order and let you know when it will arrive.
+            </p>
+          ),
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?',
+          para1:
+            'To view and manage prescription information for dependents age 13-18, they’ll need to create their own caremark.com account. After doing so, they can then grant you to access to manage their mail order prescriptions and see claims history.',
+          bulletPoints: [],
+          para2:
+            'After creating their caremark.com account, they can grant you access by going to their Profile on caremark.com, then choosing Family Access. This change may take around 4 hours to update.',
+        },
+      ],
+    },
+  ],
 ]);
 function openBankDocument() {
   window?.open(process.env.NEXT_PUBLIC_PORTAL_BANK_DRAFT_FORM);
