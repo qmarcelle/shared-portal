@@ -177,7 +177,7 @@ body {
 }
 
 .section {
-  margin: 16px;
+  margin: 16px 0px;
   padding: 32px;
 }
 
@@ -311,7 +311,7 @@ body {
 
   .section {
     flex-shrink: 1;
-    margin: 16px;
+    margin: 16px 0px;
     padding: 32px;
   }
 

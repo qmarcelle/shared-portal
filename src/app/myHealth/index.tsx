@@ -106,15 +106,8 @@ const MyHealth = ({ data }: MyHealthProps) => {
         {isChipRewardsEligible(data.visibilityRules) && (
           <section>
             <WellnessRewards
+              memberRewards={data.memberRewards}
               className="section"
-              quarter="Q2"
-              quarterlyPointsEarned={50}
-              quarterlyMaxPoints={100}
-              color2="#5DC1FD"
-              color1="#f2f2f2"
-              totalAmount={400}
-              totalAmountEarned={100}
-              linkText="View Ways to Earn"
             />
           </section>
         )}
