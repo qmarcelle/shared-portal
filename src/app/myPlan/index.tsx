@@ -2,16 +2,16 @@
 
 import { PlanDetailsSection } from '@/app/myPlan/components/PlanDetailsSection';
 import { ViewOtherPlanInformation } from '@/app/myPlan/components/ViewOtherPlanInformation';
+import { InfoCard } from '@/components/composite/InfoCard';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Column } from '@/components/foundation/Column';
+import { securityIcon } from '@/components/foundation/Icons';
+import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { ManageMyPlan } from './components/ManageMyPlan';
 import { MyPlanData } from './model/app/myPlanData';
-import { RichText } from '@/components/foundation/RichText';
-import { InfoCard } from '@/components/composite/InfoCard';
-import { securityIcon } from '@/components/foundation/Icons';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 
 export type MyPlanProps = {
   data: MyPlanData;
@@ -42,6 +42,7 @@ const MyPlan = ({ data }: MyPlanProps) => {
             <PlanDetailsSection
               className="large-section"
               svgData={data.idCardSvgFrontData}
+              planType={data.planType}
               visibilityRules={data.visibilityRules}
             />
           </Column>
