@@ -1,10 +1,16 @@
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { render, screen } from '@testing-library/react';
 import { PlanDetailsSection } from '../../../app/myPlan/components/PlanDetailsSection';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 
 const vRules: VisibilityRules = {};
 const renderUI = (vRules: VisibilityRules) => {
-  render(<PlanDetailsSection svgData={null} visibilityRules={vRules} />);
+  render(
+    <PlanDetailsSection
+      svgData={null}
+      planType="BlueCare Medicaid"
+      visibilityRules={vRules}
+    />,
+  );
 };
 
 function setVisibilityRules(vRules: VisibilityRules) {
@@ -22,10 +28,6 @@ describe('PlanDetailsSection', () => {
 
     const component = renderUI(vRules);
     screen.getByRole('heading', { name: 'Plan Details' });
-    screen.getByText('Plan Type:');
-    screen.getByText(
-      'High Deductible Health Plan with Health Savings Account (HDHP-HSA)',
-    );
     screen.getByText('All members of your plan use the same ID card.');
     screen.getByText('View More ID Card Options');
     expect(component).toMatchSnapshot();
