@@ -18,7 +18,7 @@ import { FilterHead, FilterTile } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
 import { RichDropDown } from '@/components/foundation/RichDropDown';
 import { FilterDetails } from '@/models/filter_dropdown_details';
-import { Member } from '@/models/member/api/loggedInUserInfo';
+import { Member, PlanDetail } from '@/models/member/api/loggedInUserInfo';
 import { SessionUser } from '@/userManagement/models/sessionUser';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -27,6 +27,7 @@ import {
   getMemberDropdownValues,
 } from './actions/benefitsUtils';
 import loadBenefits from './actions/loadBenefits';
+import { Delinquent } from './components/Delinquent';
 import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
@@ -59,6 +60,12 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
     ManageBenefitsItems[]
   >([]);
   const router = useRouter();
+
+  const isDelinquent =
+    user?.currUsr?.plan.grpId == '127600' && user?.vRules?.delinquent;
+  if (isDelinquent) {
+    return <Delinquent />;
+  }
 
   const createOtherBenefits = (): ManageBenefitsItems[] => {
     const otherBenefitItems: ManageBenefitsItems[] = [];
@@ -196,25 +203,31 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
         },
       );
       setMedicalBenefitsItems(medBenefits);
-
-      const rxItems: ManageBenefitsItems[] = [
-        {
-          title: 'Prescription Drugs',
-          body: '',
-          externalLink: false,
-          onClick: () =>
-            onBenefitSelected(
-              currentUserBenefitData.medicalBenefits?.networkTiers,
-              filterAndGroupByCategoryId(
-                currentUserBenefitData.medicalBenefits?.coveredServices,
-                107,
+      if (
+        !hidePharmacyOptions(
+          user?.currUsr?.plan.grpId,
+          currentSelectedMember.planDetails,
+        )
+      ) {
+        const rxItems: ManageBenefitsItems[] = [
+          {
+            title: 'Prescription Drugs',
+            body: '',
+            externalLink: false,
+            onClick: () =>
+              onBenefitSelected(
+                currentUserBenefitData.medicalBenefits?.networkTiers,
+                filterAndGroupByCategoryId(
+                  currentUserBenefitData.medicalBenefits?.coveredServices,
+                  107,
+                ),
+                { category: 'Prescription Drugs', id: 107 },
+                MEDICAL_BENEFIT_TYPE,
               ),
-              { category: 'Prescription Drugs', id: 107 },
-              MEDICAL_BENEFIT_TYPE,
-            ),
-        },
-      ];
-      setRXBenefitsItems(rxItems);
+          },
+        ];
+        setRXBenefitsItems(rxItems);
+      }
     } else {
       setRXBenefitsItems([]);
       setMedicalBenefitsItems([]);
@@ -418,3 +431,21 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
   );
 };
 export default Benefits;
+
+function hidePharmacyOptions(
+  grpId: string | undefined,
+  planDetails: PlanDetail[],
+) {
+  //hide if grpId is in hidden groups
+  if (grpId === undefined) {
+    return true;
+  }
+  const hideGroups: string[] = process.env.HIDE_RX_GROUP_IDS?.split(',') || [];
+  if (hideGroups.includes(grpId)) {
+    return true;
+  }
+  const hidePlans: string[] = process.env.HIDE_RX_PLAN_IDS?.split(',') || [];
+  if (planDetails.find((plan) => hidePlans.includes(plan.planID))) {
+    return true;
+  }
+}

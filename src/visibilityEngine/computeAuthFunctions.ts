@@ -6,6 +6,9 @@ export function computeAuthFunctions(
   loggedUserInfo: LoggedInUserInfo,
   rules: VisibilityRules,
 ): void {
+  console.log(
+    `Auth Functions: ${JSON.stringify(loggedUserInfo.authFunctions)}`,
+  );
   rules.delinquent = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'CLAIMSHOLD',
   )?.available;
@@ -26,7 +29,7 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'OTCEnable',
   )?.available;
 
-  rules.otcEnable = loggedUserInfo.authFunctions.find(
+  rules.showPharmacyTab = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'ENABLE_PHAR_TAB',
   )?.available;
 
