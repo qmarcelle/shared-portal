@@ -1,0 +1,199 @@
+body {
+  color: #4d4d4d;
+  font:
+    62.5%/1 Arial,
+    Helvetica,
+    sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  width: 720px;
+}
+
+h1,
+h2,
+h3 {
+  color: #00356b;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.4em;
+  line-height: 2;
+  color: #fff;
+  background: transparent url(/assets/search_portlet_hdr_span.png) repeat-x left
+    top;
+  text-align: left;
+  width: auto;
+  margin-right: 4px;
+  margin-left: 3px;
+  margin-bottom: 0.5px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+h3 {
+  font-size: 1.2em;
+  padding-bottom: 5px;
+}
+
+p {
+  color: #4d4d4d;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding-right: 100px;
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  border: none;
+}
+
+/*************************************************
+ * Headers
+ *************************************************/
+
+.headerleft,
+.headerright {
+  display: block;
+  font:
+    14px Arial,
+    Helvetica,
+    sans-serif;
+  height: 15px;
+  padding-top: 7px;
+  padding-bottom: 6px;
+  width: 4px;
+}
+
+.headerleft {
+  background: transparent url(/assets/search_portlet_hdr_left.png) no-repeat
+    left top;
+  float: left;
+}
+
+.headerright {
+  background: transparent url(/assets/search_portlet_hdr_right.png) no-repeat
+    left top;
+  float: right;
+}
+
+/*************************************************
+ * Links
+ *************************************************/
+
+a {
+  color: #0098e1;
+  text-align: left;
+  text-decoration: none;
+}
+
+a:link {
+  color: #0098e1;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #0098e1;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #f97d02;
+  text-decoration: none;
+}
+
+a:active {
+  color: #0098e1;
+  text-decoration: underline;
+}
+
+.required,
+.ErrorMsg {
+  color: #f97d02;
+}
+
+/*************************************************
+ * Layout
+ *************************************************/
+
+#medical,
+#dental,
+#vision,
+#approvalLetter {
+  background: url(/assets/portlet_bg_gradient.png) repeat-x 100% 100%;
+  border: 1px solid #e6e6e6;
+  float: left;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 12px 0 12px 12px;
+  width: 98%;
+}
+
+.container {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  float: left;
+  margin: 0 12px 12px 0;
+  min-height: 125px;
+  padding: 11.5px;
+  width: 315px;
+}
+
+.container h2 {
+  background: none;
+  font-size: 1.4em;
+  margin: 0 0 5px;
+  padding: 0;
+}
+
+.container p {
+  margin: 0;
+  padding-right: 12px;
+}
+
+.yearSelect {
+  float: right;
+  margin-right: 14px;
+}
+
+.clear {
+  visibility: hidden;
+}
+
+.clearFix {
+  clear: both;
+}
+
+.spinnerDiv {
+  position: relative;
+}
+
+.spinnerImg {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  margin-left: -22.5px;
+  margin-top: 75px;
+  display: block;
+}
+
+ul.member {
+  width: 100%;
+  margin: 0.3em;
+  padding-left: 2em;
+}
+ul.member li {
+  float: left;
+  width: 49%;
+  font-size: 1.2em;
+  margin: 0.2em 0;
+  line-height: 120%;
+}

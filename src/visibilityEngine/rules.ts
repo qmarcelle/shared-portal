@@ -22,6 +22,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'pharmacy',
   'amplifyHealth',
   'premiumHealth',
+  'benefitBooklet',
   'employerProvidedBenefits',
   'fsaOnly',
   'terminated',

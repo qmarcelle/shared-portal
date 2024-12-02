@@ -398,7 +398,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
         </div>
       </a>
       <a
-        href="/planDocuments"
+        href="/benefits/planDocuments"
       >
         <div
           class="card-elevated small-section"

@@ -1,11 +1,11 @@
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
-import { VisibilityRules } from '@/visibilityEngine/rules';
-import { OtherPlanInformation } from '../model/app/otherPlanInformation';
-import { BlueCarePlanInformation } from '../model/app/blueCarePlanInformation';
 import { externalIcon } from '@/components/foundation/Icons';
-import Image from 'next/image';
 import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import Image from 'next/image';
+import { BlueCarePlanInformation } from '../model/app/blueCarePlanInformation';
+import { OtherPlanInformation } from '../model/app/otherPlanInformation';
 
 export type ViewOtherPlanInformationProps = {
   visibilityRules?: VisibilityRules;
