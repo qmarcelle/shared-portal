@@ -1,3 +1,4 @@
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
 const menuNavigation: SiteHeaderSubNavProps[] = [
@@ -31,7 +32,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Find a Medical Provider',
         description: 'This is Find a Provider',
         category: 'Find Care',
-        showOnMenu: true,
+        showOnMenu: isBlueCareEligible,
         url: '/findprovider',
         external: true,
       },
@@ -40,7 +41,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Find a Provider',
         description: 'This is Find a Provider',
         category: 'Find Care',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/findprovider',
         external: true,
       },
@@ -49,7 +52,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Primary Care Options',
         description: 'This is Primary Care Options',
         category: 'Find Care',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/primaryCareOptions',
         external: false,
       },
@@ -58,7 +63,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Mental Health Options',
         description: 'This is Mental Health Option',
         category: 'Find Care',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/mentalHealthOptions',
         external: false,
       },
@@ -67,7 +74,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Virtual Care Options',
         description: 'This is Virtual Care Options',
         category: 'Find Care',
-        showOnMenu: true,
+        showOnMenu: isBlueCareEligible,
         url: '/virtualCareOptions',
         external: false,
       },
@@ -76,7 +83,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Medical Care',
         description: 'This is Price Medical Care',
         category: 'Estimate Costs',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/pricemedicalcare',
         external: true,
       },
@@ -85,7 +94,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Dental Care',
         description: 'This is Price Dental Care',
         category: 'Estimate Costs',
-        showOnMenu: true,
+        showOnMenu: isBlueCareEligible,
         url: '/priceDentalCare',
         external: false,
       },
@@ -94,7 +103,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Vision Care',
         description: 'This is Price Vision Care',
         category: 'Estimate Costs',
-        showOnMenu: true,
+        showOnMenu: isBlueCareEligible,
         url: '/pricevisioncare',
         external: true,
       },
@@ -103,7 +112,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price a Medication',
         description: 'This is Price a Medication',
         category: 'Estimate Costs',
-        showOnMenu: true,
+        showOnMenu: isBlueCareEligible,
         url: '/pricemedication',
         external: true,
       },
@@ -130,7 +139,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Benefits & Coverage',
         description: 'This is Benefits & Coverage',
         category: 'Plan Details',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/benefits',
         external: false,
       },
@@ -139,7 +150,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Plan Documents',
         description: 'This is Plan Documents',
         category: 'Plan Details',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/benefits/planDocuments',
         external: false,
       },
@@ -148,7 +161,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Services Used',
         description: 'This is Services Used',
         category: 'Plan Details',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/benefits/servicesUsed',
         external: false,
       },
@@ -157,7 +172,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'View Claims',
         description: 'This is View Claims',
         category: 'Claims',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/claimSnapshotList',
         external: false,
       },
@@ -166,7 +183,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Prior Authorizations',
         description: 'This is Prior Authorizations',
         category: 'Claims',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/priorAuthorization',
         external: false,
       },
@@ -175,7 +194,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Submit a Claim',
         description: 'This is Submit a Claim',
         category: 'Claims',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '',
         external: false,
       },
@@ -184,7 +205,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Balances',
         description: 'This is Balances',
         category: 'Spending',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/balances',
         external: false,
       },
@@ -193,7 +216,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Accounts (HSA, FSA)',
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/spendingAccounts',
         external: false,
       },
@@ -202,7 +227,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Summary',
         description: 'This is Spending Summary',
         category: 'Spending',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/spendingSummary',
         external: false,
       },
@@ -211,7 +238,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'View or Pay Premium',
         description: 'This is View or Pay Premium',
         category: 'Manage My Plan',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/balances',
         external: true,
       },
@@ -220,7 +249,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Enroll in a Health Plan',
         description: 'This is Enroll in a Health Plan',
         category: 'Manage My Plan',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/enrollhealthplan',
         external: true,
       },
@@ -229,7 +260,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Manage My Policy',
         description: 'This is Manage My Policy',
         category: 'Manage My Plan',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '',
         external: false,
       },
@@ -238,7 +271,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/reportOtherHealthInsurance',
         external: false,
       },
@@ -275,7 +310,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Wellness Rewards',
         description: 'This is Wellness Rewards',
         category: 'Wellness',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/wellnessrewards',
         external: true,
       },
@@ -284,7 +321,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Member Wellness Canter',
         description: 'This is Member Wellness Canter',
         category: 'Wellness',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/memberwellnesscenter',
         external: true,
       },
@@ -293,7 +332,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'My Primary Care Provider',
         description: 'This is My Primary Care Provider',
         category: 'Wellness',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/myprimarycareprov',
         external: false,
       },
@@ -302,7 +343,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Member Discounts',
         description: 'This is Member Discounts',
         category: 'Wellness',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/memberdiscounts',
         external: true,
       },
@@ -311,7 +354,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Health Programs & Resources',
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/healthProgramsResources',
         external: false,
       },
@@ -320,7 +365,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Dental Health Library',
         description: 'This is Dental Health Library',
         category: 'Advice & Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://bcbstwelltuned.com/',
         external: true,
       },
@@ -329,7 +376,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Health Library',
         description: 'This is Health Library',
         category: 'Advice & Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78',
         external: true,
       },
@@ -338,7 +387,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'WellTuned Blog',
         description: 'This is WellTuned Blog',
         category: 'Advice & Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://bcbstwelltuned.com/',
         external: true,
       },
@@ -379,7 +430,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'My Prescriptions',
         description: 'This is My Prescriptions',
         category: 'Manage My Prescriptions',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://www.caremark.com/refillRx?newLogin=yes',
         external: true,
       },
@@ -388,7 +441,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price a Medication',
         description: 'This is Price a Medication',
         category: 'Manage My Prescriptions',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://www.caremark.com/drugSearchInit.do?newLogin=yes',
         external: true,
       },
@@ -397,7 +452,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Mail Order',
         description: 'This is Mail Order',
         category: 'Manage My Prescriptions',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://www.caremark.com/refillRx?newLogin=yes',
         external: true,
       },
@@ -406,7 +463,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Find a Pharmacy',
         description: 'This is Find a Pharmacy',
         category: 'Manage My Prescriptions',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
         external: true,
       },
@@ -415,7 +474,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Pharmacy Documents & Forms',
         description: 'This is Pharmacy Documents & Forms',
         category: 'Resources & Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/pharmacy',
         external: false,
       },
@@ -424,7 +485,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Pharmacy FAQ',
         description: 'This is Pharmacy FAQ',
         category: 'Resources & Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/pharmacy',
         external: false,
       },
@@ -462,7 +525,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Frequently Asked Questions',
         description: 'Frequently Asked Questions',
         category: 'Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/support/faq',
         external: false,
       },
@@ -471,7 +536,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Health Insurance Glossary',
         description: 'Health Insurance Glossary',
         category: 'Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://www.healthcare.gov/glossary/',
         external: true,
       },
@@ -480,7 +547,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Find a Form',
         description: 'Find a Form',
         category: 'Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: 'https://www.bcbst.com/use-insurance/documents-forms/',
         external: false,
       },
@@ -489,7 +558,9 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Share Website Feedback',
         description: 'Share Website Feedback',
         category: 'Support',
-        showOnMenu: true,
+        showOnMenu: () => {
+          return false;
+        },
         url: '/shareWebsiteFeedback',
         external: false,
       },

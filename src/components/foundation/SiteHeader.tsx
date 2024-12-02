@@ -1,3 +1,5 @@
+'use client';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -17,7 +19,9 @@ import {
   profileWhiteIcon,
 } from './Icons';
 
-export default function SiteHeader() {
+type SiteHeaderProps = { visibilityRules: VisibilityRules };
+
+export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
 
@@ -186,6 +190,7 @@ export default function SiteHeader() {
                     shortLinks={page.shortLinks}
                     activeSubNavId={activeSubNavId}
                     closeSubMenu={closeSubMenu}
+                    visibilityRules={visibilityRules}
                   />
                 )}
               </div>

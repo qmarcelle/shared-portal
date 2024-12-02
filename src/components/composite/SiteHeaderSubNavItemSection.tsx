@@ -1,3 +1,4 @@
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -17,6 +18,7 @@ export interface SiteHeaderSubNavItemProps extends IComponent {
   qt?: QuickTipNavItem;
   shortLinks?: ShortLinkNavItem[];
   childPages: ChildPages[];
+  visibilityRules?: VisibilityRules;
 }
 
 export const SubNavItemSection = ({
@@ -26,6 +28,7 @@ export const SubNavItemSection = ({
   qt,
   shortLinks,
   childPages,
+  visibilityRules,
 }: SiteHeaderSubNavItemProps) => {
   const tempChildPages: ChildPages[] = [];
   const router = useRouter();
@@ -81,31 +84,33 @@ export const SubNavItemSection = ({
                   className="py-2 tertiary-color font-thin !text-2xl"
                 />
               )}
-              {tempChildPages.map((item, index) =>
-                item.external ? (
-                  <Link
-                    key={index}
-                    className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href={item.url}
-                    target="_blank"
-                  >
-                    <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
-                      {item.title}
-                    </p>
-                    <Image
-                      className="pb-2"
-                      src={externalIcon}
-                      alt="External Link"
+              {tempChildPages.map(
+                (item, index) =>
+                  !item.showOnMenu(visibilityRules) &&
+                  (item.external ? (
+                    <Link
+                      key={index}
+                      className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href={item.url}
+                      target="_blank"
+                    >
+                      <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
+                        {item.title}
+                      </p>
+                      <Image
+                        className="pb-2"
+                        src={externalIcon}
+                        alt="External Link"
+                      />
+                    </Link>
+                  ) : (
+                    <AppLink
+                      key={index}
+                      label={item.title}
+                      callback={() => ChangeUrl(item.url)}
+                      className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
                     />
-                  </Link>
-                ) : (
-                  <AppLink
-                    key={index}
-                    label={item.title}
-                    callback={() => ChangeUrl(item.url)}
-                    className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                  />
-                ),
+                  )),
               )}
             </>
           );
