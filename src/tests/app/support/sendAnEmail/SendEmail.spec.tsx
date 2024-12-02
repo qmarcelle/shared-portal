@@ -1,4 +1,4 @@
-import SendEmailForm from '@/app/support/email/components/SendEmailForm';
+import SendEmailForm from '@/app/support/sendAnEmail/components/SendEmailForm';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 const renderUI = () => {
@@ -74,6 +74,8 @@ const renderUI = () => {
         value: '43',
         id: '1',
       }}
+      email={''}
+      phone={''}
     />,
   );
 };

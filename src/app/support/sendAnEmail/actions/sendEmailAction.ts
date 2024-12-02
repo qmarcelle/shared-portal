@@ -2,6 +2,7 @@
 
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
+import { ActionResponse } from '@/models/app/actionResponse';
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 import { EmailRequest, MemberDetails } from '../models/email_app_data';
@@ -30,7 +31,7 @@ export async function invokeFamilyMemberDetailsAction(
 
 export async function invokeSendEmailAction(
   emailRequest: EmailRequest,
-): Promise<void> {
+): Promise<ActionResponse<number, string>> {
   try {
     const loggedUserInfo = await getLoggedInUserInfo('memberCk');
     emailRequest.category = emailRequest.categoryValue == 'Dental' ? 'D' : 'M';
@@ -62,7 +63,16 @@ export async function invokeSendEmailAction(
       emailRequest,
     );
     logger.info('EmailResponse - ' + JSON.stringify(resp.data));
+    const emailMessage = JSON.stringify(resp.data);
+    return {
+      status: 200,
+      data: emailMessage,
+    };
   } catch (error) {
-    throw error;
+    logger.error('Send Email service error', error);
+    return {
+      status: 500,
+      error: { message: 'Failure' },
+    };
   }
 }

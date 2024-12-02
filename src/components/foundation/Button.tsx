@@ -14,7 +14,7 @@ interface ButtonProps extends IComponent {
   id?: string;
   label?: string;
   icon?: ReactNode;
-  callback?: () => void | Promise<void> | null;
+  callback?: () => void | Promise<void> | null | Promise<string>;
 }
 
 export const Button = ({
