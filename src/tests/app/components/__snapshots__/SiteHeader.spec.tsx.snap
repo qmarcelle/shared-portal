@@ -131,7 +131,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="idcard"
+              href="/memberIDCard"
             >
               <img
                 alt="ID Card"
@@ -869,7 +869,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="idcard"
+              href="/memberIDCard"
             >
               <img
                 alt="ID Card"
@@ -1622,7 +1622,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="idcard"
+              href="/memberIDCard"
             >
               <img
                 alt="ID Card"
@@ -2154,7 +2154,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="idcard"
+              href="/memberIDCard"
             >
               <img
                 alt="ID Card"
@@ -2922,7 +2922,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="idcard"
+              href="/memberIDCard"
             >
               <img
                 alt="ID Card"

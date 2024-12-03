@@ -1,5 +1,6 @@
 'use server';
 
+import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { CardType } from '../model/api/card_type';
@@ -13,8 +14,14 @@ export const getMyPlanData = async (): Promise<
 > => {
   const session = await auth();
   try {
+    const memberDetails = await getLoggedInMember(session);
     const [idCardSvgFrontData, planType] = await Promise.allSettled([
-      invokeIDCardData(CardType.CardTypeFront, ExtensionType.Svg),
+      invokeIDCardData(
+        CardType.CardTypeFront,
+        ExtensionType.Svg,
+        memberDetails,
+        session,
+      ),
       getPlanTypeData(),
     ]);
     return {

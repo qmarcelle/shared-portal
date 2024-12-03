@@ -144,7 +144,7 @@ export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
                 title: 'ID Card',
                 label: 'id card',
                 icon: <Image src={globalIdCardIcon} alt="ID Card" />,
-                url: 'idcard',
+                url: '/memberIDCard',
               },
             ]}
           />

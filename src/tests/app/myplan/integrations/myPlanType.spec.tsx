@@ -1,7 +1,7 @@
 import { CardType } from '@/app/myPlan/model/api/card_type';
 import { ExtensionType } from '@/app/myPlan/model/api/extension_type';
 import MyPlanPage from '@/app/myPlan/page';
-import { memberMockResponse } from '@/mock/memberMockResponse';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
@@ -12,15 +12,29 @@ const setupUI = async () => {
   render(page);
 };
 
-jest.mock('../../../../auth', () => ({
+jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
-    Promise.resolve({ user: { currUsr: { plan: { memCk: '846239401' } } } }),
+    Promise.resolve({
+      user: {
+        currUsr: {
+          plan: {
+            memCk: '91722407',
+            grpId: '100000',
+            sbsbCk: '91722400',
+          },
+        },
+      },
+    }),
   ),
 }));
 
 describe('Plan Type Details', () => {
   afterEach(() => {
     jest.clearAllMocks();
+  });
+
+  beforeEach(() => {
+    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
   });
 
   const planDetails = [
@@ -38,7 +52,6 @@ describe('Plan Type Details', () => {
   ];
 
   it('Should test failure flow of get Plan Type - 400 status', async () => {
-    const memberDetails = memberMockResponse;
     mockedAxios.get.mockResolvedValueOnce({
       data: `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'
@@ -53,12 +66,12 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=${memberDetails.subscriber_ck}&cardType=${CardType.CardTypeFront}&groupId=${memberDetails.groupID}&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/846239401/eligibility',
+        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText(
         'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
@@ -67,7 +80,6 @@ describe('Plan Type Details', () => {
   });
 
   it('Should test failure flow of get Plan Type - 500 status', async () => {
-    const memberDetails = memberMockResponse;
     mockedAxios.get.mockResolvedValueOnce({
       data: `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'
@@ -82,12 +94,12 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=${memberDetails.subscriber_ck}&cardType=${CardType.CardTypeFront}&groupId=${memberDetails.groupID}&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/846239401/eligibility',
+        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText(
         'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
@@ -105,7 +117,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/846239401/eligibility',
+        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical HDHP plan with EPO');
     });
@@ -122,7 +134,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/846239401/eligibility',
+        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical HDHP plan');
     });
@@ -138,7 +150,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/846239401/eligibility',
+        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical PPO plan with EPO');
     });
@@ -154,7 +166,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/846239401/eligibility',
+        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical PPO plan');
     });
@@ -171,7 +183,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/846239401/eligibility',
+        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       expect(screen.queryByText('Plan Type:')).not.toBeInTheDocument();
     });

@@ -16,6 +16,21 @@ URL.createObjectURL = jest.fn().mockReturnValue('somethingURL');
 global.atob = jest.fn().mockReturnValue('somethingRandom');
 global.open = jest.fn();
 
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          plan: {
+            grpId: '100000',
+            sbsbCk: '91722400',
+          },
+        },
+      },
+    }),
+  ),
+}));
+
 jest
   .useFakeTimers({
     doNotFake: ['nextTick', 'setImmediate'],
@@ -38,6 +53,7 @@ describe('Download Member ID Card Pdf', () => {
 
   it('should download id card successfully for current date', async () => {
     // Setup Mocks
+
     mockedAxios.get.mockResolvedValue({
       data: 'SomeRandomPDFBinaryDataWhichisanything',
     });
@@ -48,15 +64,14 @@ describe('Download Member ID Card Pdf', () => {
 
     fireEvent.click(downloadIDCardButton);
 
-    // Api is called with required values
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      'IDCardService/PDF?subscriberCk=949881000&groupId=119002&effectiveDate=02/01/2024',
-      {
-        headers: { consumer: 'member', portaluser: 'm905699955' },
-        responseType: 'arraybuffer',
-      },
-    );
     await waitFor(() => {
+      // Api is called with required values
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        'IDCardService/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=02/01/2024',
+        {
+          responseType: 'arraybuffer',
+        },
+      );
       // Pdf is viewed
       expect(global.open).toHaveBeenCalled();
       // Pdf is downloaded
@@ -107,15 +122,14 @@ describe('Download Member ID Card Pdf', () => {
     });
     fireEvent.click(downloadIDCardButton);
 
-    // Api is called with required values for selected date
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      'IDCardService/PDF?subscriberCk=949881000&groupId=119002&effectiveDate=12/05/2025',
-      {
-        headers: { consumer: 'member', portaluser: 'm905699955' },
-        responseType: 'arraybuffer',
-      },
-    );
     await waitFor(() => {
+      // Api is called with required values for selected date
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        'IDCardService/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=12/05/2025',
+        {
+          responseType: 'arraybuffer',
+        },
+      );
       // Pdf is viewed
       expect(global.open).toHaveBeenCalled();
       // Pdf is downloaded
