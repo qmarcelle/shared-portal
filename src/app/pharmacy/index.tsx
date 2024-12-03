@@ -145,7 +145,7 @@ const Pharmacy = () => {
               title="My Pharmacy Spending Summary"
               description="View your annual statement for your pharmacy claims."
               linkLabel="View Pharmacy Spending Summary"
-              url="/spendingSummary"
+              url="/spendingSummary?type=Pharmacy"
             />
           </Column>
         </section>
