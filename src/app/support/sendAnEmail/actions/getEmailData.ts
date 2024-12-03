@@ -6,6 +6,7 @@ import {
   invokeEmailAction,
   invokePhoneNumberAction,
 } from '@/app/profileSettings/actions/profileSettingsAction';
+import { auth } from '@/auth';
 import { EmailAppData } from '../models/email_app_data';
 import { invokeFamilyMemberDetailsAction } from './sendEmailAction';
 
@@ -13,7 +14,10 @@ export const getEmailData = async (): Promise<
   ActionResponse<number, EmailAppData>
 > => {
   try {
-    const famillyMembers = await invokeFamilyMemberDetailsAction('640334551');
+    const session = await auth();
+    const famillyMembers = await invokeFamilyMemberDetailsAction(
+      `${session?.user.currUsr?.plan.memCk}`,
+    );
     const emailData = await invokeEmailAction();
     const phoneData = await invokePhoneNumberAction();
     return {
