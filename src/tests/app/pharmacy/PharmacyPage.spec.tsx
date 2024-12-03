@@ -1,6 +1,7 @@
 import PharmacyPage from '@/app/pharmacy/page';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER = 'https://www.shopbcbstotc.com';
 
 // Mock useRouter:
 const mockPush = jest.fn();
