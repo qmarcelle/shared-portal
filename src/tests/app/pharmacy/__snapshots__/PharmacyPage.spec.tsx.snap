@@ -594,7 +594,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <a
-                href="/spendingSummary"
+                href="/spendingSummary?type=Pharmacy"
                 style="display: block;"
                 tabindex="-1"
               >

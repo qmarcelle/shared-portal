@@ -1,4 +1,4 @@
-import SpendingSummary from '@/app/spendingSummary/page';
+import SpendingSummaryPage from '@/app/spendingSummary/page';
 import {
   dentalIcon,
   medicalIcon,
@@ -116,12 +116,19 @@ describe('SpendingAccountSummary', () => {
   });
 
   it('should render the UI correctly', async () => {
-    render(<SpendingSummary />);
+    const Result = await SpendingSummaryPage({
+      searchParams: new Promise((resolve) => {
+        resolve({ type: 'Pharmacy' });
+      }),
+    });
+    const component = render(Result);
     screen.getByRole('heading', {
       name: 'Spending Summary',
     });
     screen.getByRole('button', {
       name: /Download a PDF Statement/i,
     });
+    screen.getAllByText('Pharmacy');
+    expect(component).toMatchSnapshot();
   });
 });
