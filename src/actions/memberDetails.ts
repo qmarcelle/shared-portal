@@ -22,11 +22,42 @@ export async function getLoggedInMember(
       session?.user.currUsr?.plan.memCk ?? '',
     );
     member.subscriberId = loggedUserInfo.subscriberID;
+    member.noOfDependents = loggedUserInfo.members.length;
     const loggedMember = loggedUserInfo.members.find(
       (x) => x.memRelation == 'M',
     );
     if (loggedMember) {
+      member.firstName = loggedMember?.firstName ?? '';
+      member.lastName = loggedMember?.lastName ?? '';
       member.suffix = loggedMember?.memberSuffix ?? 0;
+      member.memRelation = loggedMember?.memRelation ?? '';
+      const mailAddressType = loggedMember?.mailAddressType ?? '';
+      if (mailAddressType) {
+        for (const contact of loggedUserInfo.addresses) {
+          if (mailAddressType == contact.type) {
+            member.contact = contact;
+          }
+          if (contact.type == 'H') {
+            member.homeAddress = contact;
+          }
+        }
+      }
+      member.planDetails = loggedMember?.planDetails ?? undefined;
+      const todayInMillisec = new Date().getTime();
+      if (member.planDetails != undefined) {
+        member.futureEffective = false;
+        for (const planDetails of member.planDetails) {
+          if (planDetails.effectiveDate > todayInMillisec) {
+            member.futureEffective = true;
+            if (planDetails.productCategory == 'M')
+              member.effectiveStartDate = new Date(
+                planDetails.effectiveDate,
+              ).toLocaleDateString();
+            if (member.futureEffective && member.effectiveStartDate != null)
+              break;
+          }
+        }
+      }
     }
     return member;
   } catch (error) {
