@@ -159,7 +159,7 @@ const Pharmacy = () => {
               icon={shoppingCreditIcon}
               title="Shop Over-the-Counter Items"
               description="You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door."
-              url="https://www.cvs.com/benefits/account/create-account/email"
+              url={process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER ?? ''}
             />{' '}
           </Column>
         </section>
