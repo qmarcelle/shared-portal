@@ -74,7 +74,11 @@ export const PrimaryCareProvider = ({
           />
         )}
         <Spacer size={16} />
-        <AppLink label={linkLabel} url="/myPrimaryCareProvider" />
+        <AppLink
+          className="!text-left"
+          label={linkLabel}
+          url="/myPrimaryCareProvider"
+        />
       </div>
     </Card>
   );

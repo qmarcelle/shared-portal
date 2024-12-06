@@ -1,6 +1,5 @@
 import { OrderIdCard } from '@/app/memberIDCard/journeys/OrderIdCard';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
-import { memberMockResponse } from '@/mock/memberMockResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import {
@@ -20,6 +19,25 @@ jest.mock('../../../../utils/server_session', () => ({
   getServerSideUserId: jest.fn(() => Promise.resolve('test1234')),
 }));
 
+const IdCardMemberDetailsMockResponse = {
+  first_name: 'JENNIE',
+  last_name: 'RAMAGE',
+  contact: {
+    type: 'H',
+    address1: 'PO BOX 102',
+    address2: '',
+    address3: '',
+    city: 'BURLINGTON',
+    state: 'PA',
+    zipcode: '188140102',
+    county: 'BRADFORD',
+    email: '',
+    phone: '9738278333',
+  },
+  memberRelation: 'M',
+  noOfDependents: 4,
+};
+
 describe('OrderId Card', () => {
   let component: RenderResult;
   const showAppModal = useAppModalStore.getState().showAppModal;
@@ -27,10 +45,9 @@ describe('OrderId Card', () => {
   beforeEach(() => {
     dismissAppModal();
     component = renderUI();
-    const memberDetails = memberMockResponse;
-    memberDetails.noOfDependents = 4;
+
     showAppModal({
-      content: <OrderIdCard memberDetails={memberDetails} />,
+      content: <OrderIdCard memberDetails={IdCardMemberDetailsMockResponse} />,
     });
   });
 

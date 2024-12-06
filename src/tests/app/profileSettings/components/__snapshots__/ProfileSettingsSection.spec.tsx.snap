@@ -31,9 +31,12 @@ exports[`Profile Settings Card Component should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Communication Settings
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -69,9 +72,12 @@ exports[`Profile Settings Card Component should render UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Security Settings
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"

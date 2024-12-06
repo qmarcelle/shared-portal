@@ -1,4 +1,4 @@
-import SubmitClaim from '@/app/claims';
+import SubmitClaim from '@/app/claims/submitAClaim/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

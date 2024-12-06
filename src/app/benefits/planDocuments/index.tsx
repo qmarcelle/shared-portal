@@ -1,0 +1,127 @@
+'use client';
+
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
+import { InfoCard } from '@/components/composite/InfoCard';
+import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
+import {
+  downloadIcon,
+  envelopeIcon,
+  externalIcon,
+  prescriptionIcon,
+  searchCareLogo,
+  searchPharmacyIcon,
+} from '@/components/foundation/Icons';
+import Iframe from '@/components/foundation/Iframe';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
+import { Title } from '@/components/foundation/Title';
+import Image from 'next/image';
+import { PlanDocumentsData } from './models/app/plan_documents_data';
+
+type PlanDocumentsProps = {
+  data: PlanDocumentsData;
+};
+const PlanDocuments = ({ data }: PlanDocumentsProps) => {
+  return (
+    <main className="flex flex-col justify-center items-center page">
+      <Column className="app-content app-base-font-color">
+        <Spacer size={32} />
+        <section>
+          <Title
+            className="title-1"
+            aria-label="Plan Documents"
+            text="Plan Documents"
+          />
+          <Spacer size={16} />
+          <TextBox
+            className="max-w-[650px]"
+            text="We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits."
+          />
+        </section>
+        <Spacer size={16} />
+        {!data?.visibilityRules?.benefitBooklet ? (
+          <InfoCard
+            icon={envelopeIcon}
+            label={'Request Printed Material'}
+            body={'Ask us to mail your plan documents to you.'}
+            link={''}
+          />
+        ) : (
+          <section>
+            <TextBox text="To request a printed version of any of these materials, please contact us." />
+            <Spacer size={32} />
+            <Row className="justify-between">
+              <Column className="w-[50%]">
+                <Card className="py-3 px-4" onClick={() => {}}>
+                  <Row>
+                    <Image
+                      className="size-10"
+                      src={searchCareLogo}
+                      alt="link"
+                    />
+                    <TextBox
+                      text="Provider Directory"
+                      className="inline my-auto body-bold primary-color mx-2"
+                    />
+                    <Image
+                      src={externalIcon}
+                      className="-mt-[4px]"
+                      alt="link"
+                    />
+                  </Row>
+                </Card>
+                <Card className="py-3 px-4 my-4" onClick={() => {}}>
+                  <Row>
+                    <Image src={prescriptionIcon} alt="link" />
+                    <TextBox
+                      text="Medication List (Formulary) 2025"
+                      className="inline my-auto body-bold primary-color mx-2"
+                    />
+                    <Image
+                      src={downloadIcon}
+                      className="-mt-[4px]"
+                      alt="link"
+                    />
+                  </Row>
+                </Card>
+              </Column>
+              <Column className="w-[50%] ml-4">
+                <Card className="py-3 px-4" onClick={() => {}}>
+                  <Row>
+                    <Image src={searchPharmacyIcon} alt="link" />
+                    <TextBox
+                      text="Pharmacy Directory"
+                      className="inline my-auto body-bold primary-color mx-2"
+                    />
+                    <Image
+                      src={externalIcon}
+                      className="-mt-[4px]"
+                      alt="link"
+                    />
+                  </Row>
+                </Card>
+              </Column>
+            </Row>
+            {data?.iframeContent ? (
+              <Iframe
+                id="eoc_portal"
+                title="Benefit Booklet"
+                srcdoc={data?.iframeContent}
+              />
+            ) : (
+              <ErrorInfoCard
+                className="mt-4"
+                errorText="We're not able to load Benefit Booklet right now. Please try again later."
+              />
+            )}
+          </section>
+        )}
+        <Spacer size={32} />
+      </Column>
+    </main>
+  );
+};
+
+export default PlanDocuments;

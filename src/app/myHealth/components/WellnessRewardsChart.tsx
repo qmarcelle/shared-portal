@@ -41,7 +41,7 @@ export const WellnessRewardsChart = ({
         <div className="flex flex-col justify-between pl-3 chartText">
           <p>You&apos;ve earned</p>
           <p className="font-bold">{formatCurrency(earnedAmount) ?? '--'}</p>
-          <p>of {formatCurrency(maxAmount) ?? '--'} Yearly Max</p>
+          <p>of {formatCurrency(maxAmount) ?? '--'} Quarterly Max</p>
         </div>
       </div>
       <Spacer size={8} />

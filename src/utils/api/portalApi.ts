@@ -22,6 +22,10 @@ portalSvcsApi.interceptors.request?.use(
     try {
       logger.info(`Request URL: ${baseURL}${config.url}`);
       //Get Bearer Token from PING and add it in headers for ES service request.
+      logger.info(
+        `Portal Service API Endpoint:
+        ${process.env.ES_PORTAL_SVCS_API_URL}`,
+      );
       const token = await getAuthToken();
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;

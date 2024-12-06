@@ -594,7 +594,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <a
-                href="/spendingSummary"
+                href="/spendingSummary?type=Pharmacy"
                 style="display: block;"
                 tabindex="-1"
               >
@@ -674,7 +674,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     >
                       <a
                         class="!flex pt-0 pl-0 ml-2"
-                        href="https://www.cvs.com/benefits/account/create-account/email"
+                        href="https://www.shopbcbstotc.com"
                       >
                          
                         <p
@@ -1391,6 +1391,192 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div
+            class="card-main large-section flex flex-row items-start app-body "
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Prescription Payment Options
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <section
+                class="flex flex-row items-start app-body"
+              >
+                <div
+                  class="flex flex-col flex-grow"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <a
+                      style="display: flex;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0"
+                        style="max-width: max-content; height: auto; display: flex;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: flex;"
+                        >
+                          Medicare Prescription Payment Plan Sign-up
+                        </p>
+                        <p
+                          class="ml-1"
+                          style="display: flex;"
+                        >
+                          <img
+                            alt=""
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </p>
+                      </button>
+                    </a>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                    />
+                    <span
+                      class="rich-text body-1 manage-image"
+                    >
+                      <span>
+                        Now you can pay for your prescription drugs over time with a monthly payment. You can learn more by reading the
+                         
+                      </span>
+                      <span
+                        class="link"
+                      >
+                        <a
+                          class="link"
+                          href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
+                          target="_blank"
+                        >
+                          fact sheet
+                        </a>
+                      </span>
+                      <span>
+                        .
+                      </span>
+                    </span>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                    />
+                    <span
+                      class="rich-text body-1 manage-image"
+                    >
+                      <span>
+                        If you had an urgent prescription filled that you paid for before we received and processed your enrollment in the Medicare Prescription Payment Plan, you may be able to
+                         
+                      </span>
+                      <span
+                        class="link"
+                      >
+                        <a
+                          class="link"
+                          target="_blank"
+                        >
+                          get a retroactive election
+                        </a>
+                      </span>
+                      <span>
+                         into the program.
+                      </span>
+                    </span>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                    />
+                    <span
+                      class="rich-text body-1 manage-image"
+                    >
+                      <span>
+                        Learn more about 
+                      </span>
+                      <span
+                        class="link"
+                      >
+                        <a
+                          class="link"
+                          href="https://www.bcbst-medicare.com/use-insurance/health-care-rights/medicare"
+                          target="_blank"
+                        >
+                          making a complaint
+                        </a>
+                      </span>
+                      <span>
+                        .
+                      </span>
+                    </span>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                    />
+                    <a
+                      href="https://www.ssa.gov/medicare/part-d-extra-help"
+                      style="display: flex;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0"
+                        style="max-width: max-content; height: auto; display: flex;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: flex;"
+                        >
+                          Social Security Extra Help Program
+                        </p>
+                        <p
+                          class="ml-1"
+                          style="display: flex;"
+                        >
+                          <img
+                            alt=""
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </p>
+                      </button>
+                    </a>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                    />
+                    <p
+                      class="body-1"
+                    >
+                      If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
+                    </p>
                   </div>
                 </div>
               </section>

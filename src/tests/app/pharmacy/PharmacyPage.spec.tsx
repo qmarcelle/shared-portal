@@ -1,6 +1,7 @@
-import Pharmacy from '@/app/pharmacy/page';
+import PharmacyPage from '@/app/pharmacy/page';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER = 'https://www.shopbcbstotc.com';
 
 // Mock useRouter:
 const mockPush = jest.fn();
@@ -13,9 +14,14 @@ jest.mock('next/navigation', () => ({
   },
 }));
 
+const renderUI = async () => {
+  const result = await PharmacyPage();
+  return render(result);
+};
+
 describe('Pharmacy Page', () => {
-  it('should render the page correctly', () => {
-    const { container } = render(<Pharmacy />);
+  it('should render the page correctly', async () => {
+    const { container } = await renderUI();
     expect(screen.getByText('My Recent Pharmacy Claims')).toBeVisible();
     expect(screen.getByText('View All Pharmacy Claims')).toBeVisible();
     fireEvent.click(screen.getByText(/View All Pharmacy Claims/i));

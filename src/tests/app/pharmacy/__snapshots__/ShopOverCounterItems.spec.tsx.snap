@@ -49,7 +49,7 @@ exports[`ShopOverCounterItemsCard should render the  Biometric UI correctly 1`] 
                 >
                   <a
                     class="!flex pt-0 pl-0 ml-2"
-                    href="https://www.cvs.com/benefits/account/create-account/email"
+                    href="https://www.shopbcbstotc.com"
                   >
                      
                     <p
@@ -128,7 +128,7 @@ exports[`ShopOverCounterItemsCard should render the  Biometric UI correctly 1`] 
               >
                 <a
                   class="!flex pt-0 pl-0 ml-2"
-                  href="https://www.cvs.com/benefits/account/create-account/email"
+                  href="https://www.shopbcbstotc.com"
                 >
                    
                   <p

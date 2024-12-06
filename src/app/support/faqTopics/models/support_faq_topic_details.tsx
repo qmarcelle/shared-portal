@@ -232,7 +232,7 @@ export const SupportFaqTopicDetails: Map<
           para2: '',
         },
       ],
-      faqBottomCardDetails: [
+      faqSecondCardDetails: [
         {
           serviceTitle: 'Disputing Claims',
           serviceLabel: 'Do you think we made a mistake?',
@@ -484,6 +484,238 @@ export const SupportFaqTopicDetails: Map<
     },
   ],
   [
+    FaqTopicType.SharingPermisionsSecurity,
+    {
+      topicType: FaqTopicType.SharingPermisionsSecurity,
+      faqTopicHeaderDetails: {
+        title: 'Sharing, Permissions & Security FAQ',
+        description:
+          'How to keep your information secure, manage your online account and more.',
+      },
+      faqTopCardDetails: [
+        {
+          serviceTitle: 'About Multi-factor Authentication',
+          serviceLabel: 'What is multi-factor authentication (MFA)?',
+          para1:
+            'Multi-factor authentication (MFA) is a way to make sure your online accounts are extra safe. It means you need to prove who you are in more than one way before you can log in. Usually, you use your password and then something else, like a code sent to your phone. This makes it much harder for someone else to get into your account.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'Why do I need to use MFA for my account?',
+          para1:
+            'BlueCross wants to keep your personal health information safe, and MFA is one way to make it harder for someone else to log in to your account.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I set up MFA on my account?',
+          para1:
+            'On the new Security Settings page, you’ll see four options for turning on MFA. You can choose to receive your codes from an Authenticator app, text, email, or phone call. You’ll provide some information, then provide the one-time passcode (OTP) that we sent you.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'Can I choose how to get my codes?',
+          para1:
+            'Yes. You can choose to get your code through Authenticator apps, text, email, and phone calls. You will automatically be set up for email when you register, but you can switch methods at any time.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'If I have multiple methods turned on, which one of them gets the code?',
+          para1: 'You’ll get asked at login which method you prefer most.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'What do I do if I need to update my email address or phone number? ',
+          para1:
+            'To update your contact information, you need to turn off that method of MFA first. Then you can update your information on the Security Settings page.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'What should I do if I can’t access my code?',
+          para1:
+            'You’ll need to contact us to have a representative remove that MFA channel so you can log in again.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'What if I don’t receive the MFA code?',
+          para1:
+            'If you don’t receive the code, check your spam or junk folders. If you can’t find it, try changing the email address or phone number where you’re getting the code.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'Can I turn off MFA?',
+          para1:
+            'You can turn off MFA on the Security Settings page. There is a toggle for turning MFA on and off. But we don’t recommend turning it off as it keeps your account less secure.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'What is an Authenticator App and how do I use it for MFA?',
+          para1:
+            'An Authenticator app is an application that you download onto your mobile device that allows you to receive security codes from BCBST and other websites. Authenticators are one of the most secure ways to use MFA with your online account. Some people use Microsoft or Google Authenticator, for examples, as their Authenticator app.',
+          bulletPoints: [],
+          para2: '',
+        },
+      ],
+      faqSecondCardDetails: [
+        {
+          serviceTitle: 'About Email Verification',
+          serviceLabel: 'What is a one-time passcode and how does it work?',
+          para1:
+            'A one-time passcode is a security code sent to a user to verify their identity as the owner of their online account. This could be part of the registration process, a forgotten password, enabling multifactor authentication or logging in with MFA.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I confirm my email using a one-time passcode?',
+          para1:
+            'After you’ve registered, you’ll be told that you need to verify your email address. You’ll get an email with a one-time passcode that you’ll need to enter.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'I didn’t receive my one-time passcode email. What should I do?',
+          para1:
+            'Double check the email address or phone number to which the code is being sent. Make sure to check the spam or junk folders on your computer or phone. There will be a resend security code button in case your one-time passcode expires before you’re able to complete the process. If you’re still having trouble, contact us using the phone number on the back of your Member ID card.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'Can I use a different email address for verification?',
+          para1:
+            'The email address you use for your online account registration will be the address associated with your online account. At any point, you can change your email address in the communications settings or security settings pages in your online account or mobile app and this will change the email address used for verification.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'What should I do if my one-time passcode expires?',
+          para1:
+            'You should be able to resend yourself a new code on the page that is asking you for the security code. If you’re not able to resend one, then you may need to start the process over to receive a new one.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'Is email verification required for all users?',
+          para1:
+            'Email verification is required for all users creating online accounts.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I update my email address for verification?',
+          para1:
+            'If you entered the wrong email address during registration, you’ll need to use the number on the back of your Member ID card to call us and have us change it for you.',
+          bulletPoints: [],
+          para2: '',
+        },
+      ],
+      faqThirdCardDetails: [
+        {
+          serviceTitle: 'About Account Management',
+          serviceLabel: 'How do I reset my password using a one-time passcode?',
+          para1:
+            'When trying to reset your password the screens will ask you to provide your username and date of birth to verify your identity. Then an email with a one-time security code will be sent to the email address on file for your account. Provide that code with your new password. ',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'What should I do if my one-time passcode for password reset expires?',
+          para1:
+            'You’ll need to resend a new code to yourself. If you don’t receive the new code, then you will need to start the password reset process over from the beginning to receive a new code.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'Is there a limit to how many times I can reset my password using one-time passcodes?',
+          para1: 'You can get 10 one-time passcodes a day.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'What should I do if I still can’t access my account after resetting my password?',
+          para1:
+            'Make sure the username you’re trying to use is correct. Also verify that the new password you are entering matches the new password you just created for that online account. If you’re still having trouble you may need to call us using the number on the back of your Member ID card.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'How do I update my personal information on my account?',
+          para1:
+            'You can update your email address and phone number in your online account or the mobile app. To update other personal information, like your mailing address, you’ll need to contact us using the number on the back of your Member ID card.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'What should I do if I forget my username?',
+          para1:
+            'If you forget your username, you can use the Forgot Username / Username Retrieval links from any login screen to recover it.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'Can I link multiple accounts under one login? ',
+          para1:
+            'A user with multiple plans or multiple roles (Member, Personal Representative or Authorized User) will have access to all their plans and roles automatically in their online account. If you don’t see all that displayed correctly, you can contact us to verify that all policies and roles are associated with your online account. ',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'What should I do if I suspect unauthorized access to my account?',
+          para1:
+            'If you suspect someone has been accessing your online account, you should contact us at the number on the back of your Member ID card and tell the representative that you want to file a report with the Privacy Office.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How can I switch between my different policies? ',
+          para1:
+            'You’ll be given the chance to consolidate all your online accounts and plans under a single username so that they can access all their plans online with the same credentials. Use the plan Switcher at the top of the page to choose the plan which you want to view. ',
+          bulletPoints: [],
+          para2: '',
+        },
+      ],
+    },
+  ],
+  [
     FaqTopicType.MyPlanInformation,
     {
       topicType: FaqTopicType.MyPlanInformation,
@@ -557,6 +789,177 @@ export const SupportFaqTopicDetails: Map<
           ),
           bulletPoints: [],
           para2: '',
+        },
+      ],
+    },
+  ],
+  [
+    FaqTopicType.Pharmacy,
+    {
+      topicType: FaqTopicType.Pharmacy,
+      faqTopicHeaderDetails: {
+        title: 'Pharmacy FAQ',
+        description:
+          'How to find pharmacies, find prescription drug coverage and more',
+      },
+      faqTopCardDetails: [
+        {
+          serviceTitle: 'Help with Prescription Drugs',
+          serviceLabel: 'How can I find out which drugs my plan covers?',
+          para1: (
+            <p className="body-1">
+              To see a list of all the prescription drugs your plan covers, go
+              to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Check Drug Cost & Coverage page"
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account.
+            </p>
+          ),
+          bulletPoints: [],
+          para2: (
+            <p className="body-1">
+              You can also{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="view or download a pdf formulary. "
+                displayStyle="inline"
+              />
+            </p>
+          ),
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I get a prior authorization?',
+          para1:
+            'If your doctor prescribes a drug that needs a prior authorization, they’ll ask us for one when they write your prescription. We’ll review the case, make sure the drug is appropriate and safe, and make a decision. If it’s approved, we’ll send you a letter to let you know. Then you’ll be able to get your drugs from the pharmacy.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'What is a specialty medication?',
+          para1:
+            'Specialty medications are expensive drugs that usually treat complex conditions. Some specialty drugs can be delivered to your home, but some of them have to be taken at the doctor’s office.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I know if a drug is a specialty drug?',
+          para1:
+            'Specialty drugs are typically on higher tiers like 4 or 5 and usually need prior authorizations. They can also have special handing requirements, like temperature control, too. Some specialty drugs are only available at certain pharmacies. Many specialty drugs have coupons that can help you save money on your copay or coinsurance.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How can I save money on my prescriptions?',
+          para1: (
+            <p className="body-1">
+              One way you could save is to use the drug price comparison tool.
+              You can compare the prices of the drugs you’re currently taking
+              with other drugs that may work as well, including generic drugs,
+              which can cost much less than brand-name drugs. Go to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Check Drug Cost & Coverage page"
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account.
+            </p>
+          ),
+          bulletPoints: [],
+          para2: (
+            <p className="body-1">
+              You can also sign up for 90-day fills of some drugs via mail,
+              which can save you time and money compared to picking up smaller
+              amounts every month. To start getting your prescriptions by mail,
+              go to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Start Rx Delivery by Mail page "
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account. CVS Caremark Mail Service Pharmacy
+              will fill your order and let you know when it will arrive.
+            </p>
+          ),
+        },
+      ],
+      faqSecondCardDetails: [
+        {
+          serviceTitle: 'Help with Pharmacies & Mail Order',
+          serviceLabel: 'Do I have to use a CVS pharmacy?',
+          para1:
+            'CVS Caremark helps BlueCross manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'Why should I use a mail order pharmacy for any of my prescriptions?',
+          para1:
+            'Getting the drugs you take every day to manage your health from a mail order pharmacy can save you time and money. You won’t have to make trips to the pharmacy, and you can get 90-day fills of many drugs. That can lower your cost and make it easier to avoid running out of your medications, which can keep you healthier.',
+          bulletPoints: [],
+          para2: (
+            <p className="body-1">
+              To start getting your prescriptions by mail, go to the{' '}
+              <AppLink
+                className="p-0"
+                callback={openBankDocument}
+                label="Start Rx Delivery by Mail page"
+                displayStyle="inline"
+                icon={
+                  <Image
+                    src={externalIcon}
+                    className="icon inline"
+                    alt="Info"
+                  />
+                }
+              />{' '}
+              on your caremark.com account. CVS Caremark Mail Service Pharmacy
+              will fill your order and let you know when it will arrive.
+            </p>
+          ),
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?',
+          para1:
+            'To view and manage prescription information for dependents age 13-18, they’ll need to create their own caremark.com account. After doing so, they can then grant you to access to manage their mail order prescriptions and see claims history.',
+          bulletPoints: [],
+          para2:
+            'After creating their caremark.com account, they can grant you access by going to their Profile on caremark.com, then choosing Family Access. This change may take around 4 hours to update.',
         },
       ],
     },

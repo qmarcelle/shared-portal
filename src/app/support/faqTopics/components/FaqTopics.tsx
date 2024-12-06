@@ -39,7 +39,11 @@ export const FaqTopics = () => {
             topicType={topics?.topicType}
           />
           <FaqCard
-            services={topics?.faqBottomCardDetails}
+            services={topics?.faqSecondCardDetails}
+            topicType={topics?.topicType}
+          />
+          <FaqCard
+            services={topics?.faqThirdCardDetails}
             topicType={topics?.topicType}
           />
         </Column>

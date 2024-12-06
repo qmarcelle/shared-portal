@@ -1,4 +1,5 @@
 import { BenefitsProviderInfoCard } from '@/app/dashboard/components/BenefitsProviderInfoCard';
+import { FindMedicalProvidersComponent } from '@/app/dashboard/components/FindMedicalProvidersComponent';
 import { BenefitsProviderInfo } from '@/app/dashboard/models/BenefitsProviderInfo';
 import { AppPage } from '@/components/foundation/AppPage';
 import { Body } from '@/components/foundation/Body';
@@ -62,19 +63,22 @@ export const EmployerProvidedBenfitsPage = ({
               />
             ))}
           </ul>
-          <Card className="small-section page-section-36_67">
-            <Column>
-              <TextBox
-                type="title-2"
-                text="Get Help with Employer Provided Benefits"
-                className="mb-4"
-              />
-              <TextBox
-                type="body-2"
-                text="Contact your employer to get help with these programs."
-              />
-            </Column>
-          </Card>
+          <Column className="page-section-36_67">
+            <Card className="small-section">
+              <Column>
+                <TextBox
+                  type="title-2"
+                  text="Get Help with Employer Provided Benefits"
+                  className="mb-4"
+                />
+                <TextBox
+                  type="body-2"
+                  text="Contact your employer to get help with these programs."
+                />
+              </Column>
+            </Card>
+            <FindMedicalProvidersComponent />
+          </Column>
         </Section>
       </Body>
     </AppPage>

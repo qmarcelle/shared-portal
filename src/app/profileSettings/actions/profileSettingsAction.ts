@@ -1,15 +1,16 @@
 'use server';
 
 import { getMemberDetails } from '@/actions/memberDetails';
+import { auth } from '@/auth';
 import { esApi } from '@/utils/api/esApi';
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 
 export async function invokeEmailAction(): Promise<string> {
   try {
-    const memberDetails = await getMemberDetails();
+    const session = await auth();
     const emailResponse = await esApi.get(
-      `/memberContactPreference?memberKey=${memberDetails.member_ck}&subscriberKey=${memberDetails.subscriber_ck}&getMemberPreferenceBy=memberKeySubscriberKey&memberUserId=${memberDetails.userID}&extendedOptions=true`,
+      `/memberContactPreference?memberKey=${session?.user.currUsr?.plan.memCk}&subscriberKey=${session?.user.currUsr?.plan.sbsbCk}&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true`,
     );
 
     if (emailResponse?.data?.data?.emailAddress != null) {

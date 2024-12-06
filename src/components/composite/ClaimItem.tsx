@@ -6,6 +6,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { StatusLabel } from '@/components/foundation/StatusLabel';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ClaimDetails } from '@/models/claim_details';
+import { formatCurrency } from '@/utils/currency_formatter';
 import Image from 'next/image';
 import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
@@ -25,7 +26,6 @@ export const ClaimItem = ({
   callBack,
 }: ClaimItemProps) => {
   function getSuccessStatus() {
-    console.log(claimInfo.claimStatus);
     switch (claimInfo.claimStatus) {
       case 'Processed':
         return 'success';
@@ -39,6 +39,22 @@ export const ClaimItem = ({
         return 'success';
       default:
         return 'empty';
+    }
+  }
+
+  function getFormattedDataValue(
+    value: number | string | null,
+    defaultValue: string,
+    isDollar: boolean,
+  ): string | undefined {
+    if (value) {
+      if (isDollar) {
+        return formatCurrency(value as number);
+      } else {
+        return value as string;
+      }
+    } else {
+      return defaultValue;
     }
   }
 
@@ -147,7 +163,13 @@ export const ClaimItem = ({
                   />
                   <TextBox
                     className={`body-1 mt-2 ${item.isValueBold ? 'font-bold' : ''}`}
-                    text={item.value ?? item.defaultValue}
+                    text={
+                      getFormattedDataValue(
+                        item.value,
+                        item.defaultValue,
+                        item.isDollar ?? false,
+                      ) ?? item.defaultValue
+                    }
                   />
                 </Column>
               ))}

@@ -34,7 +34,7 @@ export const OrderIdCard = ({
   );
   const addressLine1 = toPascalCase(memberDetails?.contact?.address1 ?? '');
   const addressLine2 = toPascalCase(
-    `${memberDetails?.contact?.city} ${memberDetails?.contact?.state} ${formatZip(memberDetails?.contact?.zip)}`,
+    `${memberDetails?.contact?.city} ${memberDetails?.contact?.state} ${formatZip(memberDetails?.contact?.zipcode)}`,
   );
 
   const invokeOrderIdCard = async () => {

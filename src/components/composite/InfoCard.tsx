@@ -4,6 +4,7 @@ import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Row } from '../foundation/Row';
 import { TextBox } from '../foundation/TextBox';
+import { Spacer } from '../foundation/Spacer';
 
 export interface InfoCardProps extends IComponent {
   label: string;
@@ -26,10 +27,11 @@ export const InfoCard = ({
         <Row>
           <Image className="size-10" src={icon} alt="link" />
           <Column className="ml-4">
-            <div className="link-row-head">
+            <Row className="link-row-head">
               {label}
+              <Spacer axis="horizontal" size={8} />
               {suffix && suffix}
-            </div>
+            </Row>
             <TextBox className="body-1" text={body} />
           </Column>
         </Row>

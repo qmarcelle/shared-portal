@@ -9,8 +9,18 @@ export const getPrimaryCareOptionsData = async (): Promise<
 > => {
   try {
     const pcpPhysician = await getPCPInfo();
-    return { status: 200, data: { primaryCareProvider: pcpPhysician } };
+    return {
+      status: 200,
+      data: {
+        primaryCareProvider: pcpPhysician,
+      },
+    };
   } catch (error) {
-    return { status: 400, data: { primaryCareProvider: null } };
+    return {
+      status: 400,
+      data: {
+        primaryCareProvider: null,
+      },
+    };
   }
 };

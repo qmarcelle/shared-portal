@@ -28,9 +28,12 @@ exports[`FindInNetworkProviderSection should render the UI correctly 1`] = `
               class="flex flex-col ml-4"
             >
               <div
-                class="link-row-head"
+                class="flex flex-row link-row-head"
               >
                 Find an In-network Provider
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
               </div>
               <p
                 class="body-1 body-1"
@@ -67,9 +70,12 @@ exports[`FindInNetworkProviderSection should render the UI correctly 1`] = `
             class="flex flex-col ml-4"
           >
             <div
-              class="link-row-head"
+              class="flex flex-row link-row-head"
             >
               Find an In-network Provider
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
             </div>
             <p
               class="body-1 body-1"

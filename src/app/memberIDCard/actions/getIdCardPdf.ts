@@ -1,5 +1,6 @@
 'use server';
 
+import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { formatDateToLocale } from '@/utils/date_formatter';
@@ -9,13 +10,10 @@ export async function getIDCardPdf(
   effectiveDate: string = formatDateToLocale(new Date()),
 ): Promise<ActionResponse<number, string>> {
   try {
+    const session = await auth();
     const resp = await portalSvcsApi.get(
-      `IDCardService/PDF?subscriberCk=949881000&groupId=119002&effectiveDate=${effectiveDate}`,
+      `IDCardService/PDF?subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveDate}`,
       {
-        headers: {
-          portaluser: 'm905699955',
-          consumer: 'member',
-        },
         responseType: 'arraybuffer',
       },
     );
