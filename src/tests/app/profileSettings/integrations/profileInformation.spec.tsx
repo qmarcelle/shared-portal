@@ -1,5 +1,4 @@
 import { getMemberDetails } from '@/actions/memberDetails';
-import { memberMockResponse } from '@/app/profileSettings/mock/memberMockResponse';
 import ProfileSettingsPage from '@/app/profileSettings/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
@@ -10,9 +9,23 @@ const setupUI = async () => {
   render(result);
 };
 
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          plan: {
+            memCk: '502622001',
+            sbsbCk: '502622000',
+          },
+        },
+      },
+    }),
+  ),
+}));
+
 describe('Profile Information API Integration', () => {
   test('Profile Information Email API integration  success scenario', async () => {
-    const memberDetails = memberMockResponse;
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         isEmailVerified: false,
@@ -102,13 +115,12 @@ describe('Profile Information API Integration', () => {
     setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/memberContactPreference?memberKey=${memberDetails.member_ck}&subscriberKey=${memberDetails.subscriber_ck}&getMemberPreferenceBy=memberKeySubscriberKey&memberUserId=${memberDetails.userID}&extendedOptions=true`,
+        '/memberContactPreference?memberKey=502622001&subscriberKey=502622000&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true',
       );
     });
   });
 
   test('Profile Information Email API integration null scenario', async () => {
-    const memberDetails = memberMockResponse;
     mockedAxios.get.mockResolvedValueOnce({
       data: {},
     });
@@ -117,7 +129,7 @@ describe('Profile Information API Integration', () => {
 
     await waitFor(() => {
       const response = expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/memberContactPreference?memberKey=${memberDetails.member_ck}&subscriberKey=${memberDetails.subscriber_ck}&getMemberPreferenceBy=memberKeySubscriberKey&memberUserId=${memberDetails.userID}&extendedOptions=true`,
+        '/memberContactPreference?memberKey=502622001&subscriberKey=502622000&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true',
       );
       expect(response).toBeNull;
     });

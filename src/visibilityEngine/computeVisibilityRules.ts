@@ -1,8 +1,8 @@
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { encodeVisibilityRules } from './converters';
-import { VisibilityRules } from './rules';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
+import { encodeVisibilityRules } from './converters';
+import { VisibilityRules } from './rules';
 
 const COMMERCIAL_LOB = ['REGL'];
 const INDIVIDUAL_LOB = ['INDV'];
@@ -55,12 +55,39 @@ export function computeVisibilityRules(
   }
 
   rules['employerProvidedBenefits'] = false;
+  rules['benefitBooklet'] = false;
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
   rules['amplifyHealth'] = false;
   rules['teladoc'] = true;
   return encodeVisibilityRules(rules);
 }
+
+const isSelfCommercial = (rules: VisibilityRules | undefined) => {
+  return rules?.commercial && rules?.selfFunded;
+};
+
+const isLobCommercial = (rules: VisibilityRules | undefined) => {
+  return rules?.commercial || rules?.individual;
+};
+
+const isActiveAndNotFSAOnly = (rules: VisibilityRules | undefined) => {
+  return (
+    !rules?.futureEffective &&
+    !rules?.fsaOnly &&
+    !rules?.terminated &&
+    !rules?.katieBeckNoBenefitsElig
+  );
+};
+
+export const isChipRewardsEligible = (rules: VisibilityRules | undefined) => {
+  return (
+    (isSelfCommercial(rules) || !isLobCommercial(rules) || rules?.individual) &&
+    isActiveAndNotFSAOnly(rules) &&
+    rules?.chipRewardsEligible &&
+    rules?.blueHealthRewardsEligible
+  );
+};
 
 async function getRoles() {}
 
@@ -86,4 +113,10 @@ export function isPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
   return activeAndHealthPlanMember(rules) && rules?.myPCPElig;
+}
+
+export function isBlue365FitnessYourWayEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
 }

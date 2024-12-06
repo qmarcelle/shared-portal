@@ -36,4 +36,12 @@ export function computeAuthFunctions(
   rules.bluePerksEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'BLUEPRKS',
   )?.available;
+
+  rules.chipRewardsEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'CHIPELIGIBLE',
+  )?.available;
+
+  rules.blueHealthRewardsEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'BLUEHEALTHREWARDS',
+  )?.available;
 }

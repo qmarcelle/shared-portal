@@ -1,28 +1,41 @@
 'use server';
 
-import { getMemberDetails } from '@/actions/memberDetails';
+import { getLoggedInMember } from '@/actions/memberDetails';
+import { auth } from '@/auth';
+import { LoggedInMember } from '@/models/app/loggedin_member';
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
+import { Session } from 'next-auth';
 
 export async function invokeIDCardData(
   svgCardType: string,
   imageExtension: string,
+  memberDetailsData?: LoggedInMember | null,
+  sessionDetailsData?: Session | null,
 ): Promise<string> {
   try {
     let idCardImageResponse;
-    const memberDetails = await getMemberDetails();
+    let session;
+    let memberDetails;
+    if (!sessionDetailsData && !memberDetailsData) {
+      session = await auth();
+      memberDetails = await getLoggedInMember(session);
+    } else {
+      memberDetails = memberDetailsData;
+      session = sessionDetailsData;
+    }
 
-    const effectiveIdCardDate = memberDetails.futureEffective
+    const effectiveIdCardDate = memberDetails?.futureEffective
       ? memberDetails.effectiveStartDate
       : new Date().toLocaleDateString();
 
-    if (memberDetails.memberRelation == 'M') {
+    if (memberDetails?.memRelation == 'M') {
       idCardImageResponse = await portalSvcsApi.get(
-        `/IDCardService/Image?subscriberCk=${memberDetails.subscriber_ck}&cardType=${svgCardType}&groupId=${memberDetails.groupID}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
+        `/IDCardService/Image?subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
       );
     } else {
       idCardImageResponse = await portalSvcsApi.get(
-        `/IDCardService/Image?memberCk=${memberDetails.member_ck}&cardType=${svgCardType}&groupId=${memberDetails.groupID}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
+        `/IDCardService/Image?memberCk=${session?.user.currUsr?.plan.memCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
       );
     }
 

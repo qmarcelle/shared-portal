@@ -1,5 +1,7 @@
+'use client';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import {
   externalIcon,
@@ -8,11 +10,21 @@ import {
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
 import FindCare from '../../../../public/assets/find_care_map.svg';
-export const FindMedicalProvidersComponent = ({}) => {
+
+interface FindMedicalProvidersComponentProps extends IComponent {
+  isButtonHorizontal?: boolean;
+  className?: string;
+}
+
+export const FindMedicalProvidersComponent = ({
+  isButtonHorizontal,
+  className,
+}: FindMedicalProvidersComponentProps) => {
   return (
-    <Card className="large-section !mx-3">
+    <Card className={`large-section ${className}`}>
       <section className="gap-8">
         <Row className="align-top items-center">
           <Image src={FindCare} className="w-[40px] h-[40px]" alt="" />
@@ -42,32 +54,36 @@ export const FindMedicalProvidersComponent = ({}) => {
           ]}
         />
         <Spacer size={32} />
-        <Button
-          icon={<Image alt="external icon" src={externalOffsiteWhiteIcon} />}
-          label="Find Medical Providers"
-          callback={() => null}
-        />
-        <Spacer size={16} />
-        <Button
-          className="relative group"
-          type="secondary"
-          icon={
-            <>
-              <Image
-                className="group-hover:hidden"
-                alt="external icon"
-                src={externalIcon}
-              />
-              <Image
-                className="hidden group-hover:block absolute top-2"
-                alt="external icon"
-                src={externalOffsiteWhiteIcon}
-              />
-            </>
-          }
-          label="Find Other Care"
-          callback={() => null}
-        />
+        <Column
+          className={`flex ${isButtonHorizontal ? 'lg:!flex-row space-x-2' : 'flex-col space-y-2'}`}
+        >
+          <Button
+            icon={<Image alt="external icon" src={externalOffsiteWhiteIcon} />}
+            label="Find Medical Providers"
+            callback={() => null}
+          />
+          <Spacer size={16} />
+          <Button
+            className="relative group"
+            type="secondary"
+            icon={
+              <>
+                <Image
+                  className="group-hover:hidden"
+                  alt="external icon"
+                  src={externalIcon}
+                />
+                <Image
+                  className="hidden group-hover:block absolute top-2"
+                  alt="external icon"
+                  src={externalOffsiteWhiteIcon}
+                />
+              </>
+            }
+            label="Find Other Care"
+            callback={() => null}
+          />
+        </Column>
       </section>
     </Card>
   );

@@ -1,18 +1,18 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { ClaimsSnapshotCardSection } from '../../../app/claimSnapshotList/components/ClaimsSnapshotCardSection';
+import { ClaimsSnapshotCardSection } from '../../../app/claims/components/ClaimsSnapshotCardSection';
 
 const renderUI = () => {
   return render(
     <ClaimsSnapshotCardSection
       sortby={[
         {
-          label: 'MyShare (Low to High)',
-          value: '0',
-        },
-        {
           label: 'Date (Most Recent)',
           value: '43',
+        },
+        {
+          label: 'MyShare (Low to High)',
+          value: '0',
         },
         {
           label: 'Status (Denied First)',

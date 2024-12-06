@@ -235,7 +235,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
               class="card-main mt-4"
             >
               <div
-                class="flex flex-col"
+                class="flex flex-col ml-6"
               >
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -252,7 +252,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                   class="flex flex-row"
                 >
                   <ul
-                    class="ml-4 !font-thin"
+                    class="ml-6 !font-thin"
                   >
                     <div
                       class="flex flex-col !font-thin"
@@ -704,7 +704,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
             class="card-main mt-4"
           >
             <div
-              class="flex flex-col"
+              class="flex flex-col ml-6"
             >
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -721,7 +721,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                 class="flex flex-row"
               >
                 <ul
-                  class="ml-4 !font-thin"
+                  class="ml-6 !font-thin"
                 >
                   <div
                     class="flex flex-col !font-thin"

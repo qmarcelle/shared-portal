@@ -1,6 +1,7 @@
 'use server';
 
-import { getMemberDetails } from '@/actions/memberDetails';
+import { getLoggedInMember } from '@/actions/memberDetails';
+import { auth } from '@/auth';
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 import { OrderIdCardResponse } from '../model/api/order_id_card';
@@ -9,18 +10,19 @@ export async function orderIdCard(
   noOfCards: number,
 ): Promise<OrderIdCardResponse> {
   try {
-    const memberDetails = await getMemberDetails();
+    const session = await auth();
+    const memberDetails = await getLoggedInMember(session);
 
     const effectiveIdCardDate = new Date().toLocaleDateString();
 
-    if (memberDetails.memberRelation == 'M') {
+    if (memberDetails.memRelation == 'M') {
       const response = await portalSvcsApi.post(
-        `/IDCardService/Order?subscriberCk=${memberDetails.subscriber_ck}&groupId=${memberDetails.groupID}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
+        `/IDCardService/Order?subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
       );
       return response.data;
     } else {
       const response = await portalSvcsApi.post(
-        `/IDCardService/Order?memberCk=${memberDetails.member_ck}&groupId=${memberDetails.groupID}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
+        `/IDCardService/Order?memberCk=${session?.user.currUsr?.plan.memCk}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
       );
       return response.data;
     }

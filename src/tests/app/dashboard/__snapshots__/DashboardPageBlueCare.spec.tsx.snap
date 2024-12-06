@@ -559,7 +559,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     tabindex="-1"
                   >
                     <button
-                      class="flex flex-row link-container undefined"
+                      class="flex flex-row link-container !text-left"
                       style="max-width: max-content; height: auto; display: block;"
                       tabindex="0"
                     >
@@ -1100,9 +1100,12 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                       class="flex flex-col ml-4"
                     >
                       <div
-                        class="link-row-head"
+                        class="flex flex-row link-row-head"
                       >
                         Estimate Costs
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
                       </div>
                       <p
                         class="body-1 body-1"

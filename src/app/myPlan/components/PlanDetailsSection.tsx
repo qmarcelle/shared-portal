@@ -1,3 +1,4 @@
+import { ErrorCard } from '@/components/composite/ErrorCard';
 import { OnMyPlanComponent } from '@/components/composite/OnMyPlanComponent';
 import { Accordion } from '@/components/foundation/Accordion';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -8,6 +9,9 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { NOT_AVAILABLE } from '@/utils/constants';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Down from '../../../../public/assets/down.svg';
 import Up from '../../../../public/assets/up.svg';
@@ -15,11 +19,15 @@ import { PlanContactInformationSection } from './PlanContactInformationSection';
 
 export type PlanDeatilsSectionProps = {
   svgData: string | null;
+  planType: string | null;
+  visibilityRules?: VisibilityRules;
 } & IComponent;
 
 export const PlanDetailsSection = ({
   className,
   svgData,
+  planType,
+  visibilityRules,
 }: PlanDeatilsSectionProps) => {
   function IDCardFront() {
     return (
@@ -48,22 +56,46 @@ export const PlanDetailsSection = ({
     <Card className={className}>
       <div className="flex flex-col">
         <h2 className="title-2">Plan Details</h2>
-        <Spacer size={32} />
-        <Row>
-          <TextBox className="planType" text="Plan Type:"></TextBox>
-          <TextBox
-            text="High Deductible Health Plan with Health Savings Account (HDHP-HSA)"
-            className="font-bold"
-          ></TextBox>
-        </Row>
+        {planType ? (
+          <>
+            {!planType?.includes(NOT_AVAILABLE) && (
+              <>
+                <Spacer size={32} />
+                <Row>
+                  <TextBox text="Plan Type:"></TextBox>
+                  <Spacer size={16} axis="horizontal" />
+                  <TextBox text={planType} className="body-bold" />
+                </Row>
+              </>
+            )}
+          </>
+        ) : isBlueCareEligible(visibilityRules) ? (
+          <>
+            <Spacer size={32} />
+            <TextBox text="BlueCare Medicaid" className="font-bold"></TextBox>
+          </>
+        ) : (
+          <>
+            <Spacer size={32} />
+            <ErrorCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later. " />
+          </>
+        )}
+
         <Spacer size={32} />
         {IDCardFront()}
-
-        <Spacer size={16} />
-        <TextBox text="All members of your plan use the same ID card."></TextBox>
+        {!isBlueCareEligible(visibilityRules) && (
+          <Column>
+            <Spacer size={16} />
+            <TextBox text="All members of your plan use the same ID card."></TextBox>
+          </Column>
+        )}
         <Spacer size={32} />
-        <AppLink label="View More ID Card Options" url="/memberIDCard" />
-        <Spacer size={32} />
+        <AppLink
+          className="p-0"
+          label="View More ID Card Options"
+          url="/memberIDCard"
+        />
+        <Spacer size={24} />
         <Divider />
         <Spacer size={32} />
         <Card>

@@ -6,31 +6,57 @@ import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-import { ReactNode } from 'react';
+
 import External from '../../../../public/assets/external.svg';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 
 export interface ManageMyPlanProps extends IComponent {
-  managePlanItems: managePlanItems[];
-}
-
-interface managePlanItems {
-  title: string;
-  body: string;
-  externalLink: boolean;
-  url: string;
-  icon?: ReactNode;
+  visibilityRules?: VisibilityRules;
 }
 
 export const ManageMyPlan = ({
-  managePlanItems,
   className,
+  visibilityRules,
 }: ManageMyPlanProps) => {
+  let manageMyPlanDetails;
+  if (isBlueCareEligible(visibilityRules))
+    manageMyPlanDetails = [
+      {
+        title: 'Katie Beckett Banking Info',
+        body: 'Find and update your bank draft details for your plan here.',
+        externalLink: false,
+        url: 'url',
+      },
+    ];
+  else
+    manageMyPlanDetails = [
+      {
+        title: 'Report Other Health Insurance',
+        body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
+        externalLink: false,
+        url: 'url',
+      },
+      {
+        title: 'Update Social Security Number',
+        body: 'Add or update the Social Security Number associated with your plan.',
+        externalLink: false,
+        url: '/updateSocialSecurityNumber',
+      },
+      {
+        title: 'Enroll in a Health Plan',
+        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
+        externalLink: true,
+        url: 'url',
+      },
+    ];
+
   return (
     <Card className={className}>
       <Column>
         <Header type="title-2" text="Manage My Plan" />
         <Column>
-          {managePlanItems.map((items, index) =>
+          {manageMyPlanDetails.map((items, index) =>
             items.externalLink ? (
               <>
                 {' '}
@@ -48,7 +74,7 @@ export const ManageMyPlan = ({
                     window.location.href = items.url;
                   }}
                 />
-                {index !== managePlanItems.length - 1 && <Divider />}
+                {index !== manageMyPlanDetails.length - 1 && <Divider />}
               </>
             ) : (
               <>
@@ -64,7 +90,7 @@ export const ManageMyPlan = ({
                     window.location.href = items.url;
                   }}
                 />
-                {index !== managePlanItems.length - 1 && <Divider />}
+                {index !== manageMyPlanDetails.length - 1 && <Divider />}
               </>
             ),
           )}

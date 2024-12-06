@@ -2,10 +2,14 @@
 
 import { PlanDetailsSection } from '@/app/myPlan/components/PlanDetailsSection';
 import { ViewOtherPlanInformation } from '@/app/myPlan/components/ViewOtherPlanInformation';
+import { InfoCard } from '@/components/composite/InfoCard';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Column } from '@/components/foundation/Column';
+import { securityIcon } from '@/components/foundation/Icons';
+import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { ManageMyPlan } from './components/ManageMyPlan';
 import { MyPlanData } from './model/app/myPlanData';
 
@@ -20,12 +24,15 @@ const MyPlan = ({ data }: MyPlanProps) => {
         titleText=""
         name="My Plan"
         body={
-          <>
-            {' '}
-            <p className="body-1">
-              If you have questions, call [1-800-000-000].
-            </p>
-          </>
+          <RichText
+            spans={[
+              <span key={0}>If you have questions, </span>,
+              <span className="link !text-white" key={1}>
+                <a>start a chat</a>
+              </span>,
+              <span key={2}> or call us at [1-800-000-000].</span>,
+            ]}
+          />
         }
       />
       <Spacer size={32}></Spacer>
@@ -35,32 +42,24 @@ const MyPlan = ({ data }: MyPlanProps) => {
             <PlanDetailsSection
               className="large-section"
               svgData={data.idCardSvgFrontData}
+              planType={data.planType}
+              visibilityRules={data.visibilityRules}
             />
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
             <ManageMyPlan
               className="small-section"
-              managePlanItems={[
-                {
-                  title: 'Report Other Health Insurance',
-                  body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
-                  externalLink: false,
-                  url: 'url',
-                },
-                {
-                  title: 'Update Social Security Number',
-                  body: 'Add or update the Social Security Number associated with your plan.',
-                  externalLink: false,
-                  url: '/updateSocialSecurityNumber',
-                },
-                {
-                  title: 'Enroll in a Health Plan',
-                  body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
-                  externalLink: true,
-                  url: 'url',
-                },
-              ]}
+              visibilityRules={data.visibilityRules}
             />
+            {isBlueCareEligible(data.visibilityRules) && (
+              <InfoCard
+                key="Profile Settings"
+                label="Profile Settings"
+                icon={securityIcon}
+                body="Update your security and communication settings or share permissions."
+                link="/profileSettings"
+              />
+            )}
           </Column>
         </section>
         <Column>
@@ -69,7 +68,9 @@ const MyPlan = ({ data }: MyPlanProps) => {
           <Spacer size={32} />
           <section className="flex flex-row items-start app-body">
             <Column className=" flex-grow page-section-36_67 items-stretch">
-              <ViewOtherPlanInformation />
+              <ViewOtherPlanInformation
+                visibilityRules={data.visibilityRules}
+              />
             </Column>
           </section>
         </Column>

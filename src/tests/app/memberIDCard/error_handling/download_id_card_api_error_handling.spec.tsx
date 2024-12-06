@@ -20,6 +20,21 @@ jest
   })
   .setSystemTime(new Date('2024-02-01T00:00:00.000'));
 
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          plan: {
+            grpId: '100000',
+            sbsbCk: '91722400',
+          },
+        },
+      },
+    }),
+  ),
+}));
+
 describe('Download Member ID Card Pdf API Error Handling', () => {
   beforeAll(() => {
     render(
@@ -53,15 +68,13 @@ describe('Download Member ID Card Pdf API Error Handling', () => {
     fireEvent.click(downloadIDCardButton);
 
     // Api is called with required values
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      'IDCardService/PDF?subscriberCk=949881000&groupId=119002&effectiveDate=02/01/2024',
-      {
-        headers: { consumer: 'member', portaluser: 'm905699955' },
-        responseType: 'arraybuffer',
-      },
-    );
-
     await waitFor(() => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        'IDCardService/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=02/01/2024',
+        {
+          responseType: 'arraybuffer',
+        },
+      );
       expect(
         screen.getByText(
           'Your digital ID card is unavailable right now. We’re working on it and hope to have it up soon.',

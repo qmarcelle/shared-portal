@@ -44,6 +44,7 @@ export default function LogIn() {
     }
     if (loggedUser == true) {
       router.replace(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/security');
+      router.refresh();
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;

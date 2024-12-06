@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { Fragment } from 'react';
 import downIcon from '../../../public/assets/down.svg';
 import resetIcon from '../../../public/assets/reset.svg';
 import {
@@ -20,6 +20,9 @@ import { TextField } from './TextField';
 interface FilterProps extends IComponent {
   filterHeading: string;
   filterItems: FilterItem[];
+  onSelectCallback: (index: number, data: FilterItem[]) => void;
+  showReset: boolean;
+  onReset: () => void;
   buttons?: {
     type: 'primary';
     className: string;
@@ -56,38 +59,35 @@ export const Filter = ({
   filterHeading,
   filterItems,
   buttons,
+  showReset,
+  onReset,
+  onSelectCallback,
 }: FilterProps) => {
-  const [reset, resetFilter] = useState(false);
-  const [filterItem, setFilterItem] = useState(filterItems);
+  //const [filter, setFilter] = useState(filterItems);
 
-  const handleReset = () => {
-    resetFilter(false);
-    setFilterItem(filterItems);
-    buttons?.callback(false);
-  };
-
-  const handleDropDownUpdate = (value: FilterDetails, index: number) => {
-    const dropdDownCopiedVal = JSON.parse(JSON.stringify(filterItem));
-    if (dropdDownCopiedVal[index]) {
-      dropdDownCopiedVal[index].selectedValue = value;
-      // if (dropdDownCopiedVal[index].onFilterChanged) {
-      //   dropdDownCopiedVal[index].onFilterChanged(value.value);
-      // }
+  const handleDropDownUpdate = (
+    selectedFilter: FilterDetails,
+    index: number,
+  ) => {
+    const dropDownCopiedVal = JSON.parse(
+      JSON.stringify(filterItems),
+    ) as FilterItem[];
+    if (dropDownCopiedVal[index]) {
+      dropDownCopiedVal[index].selectedValue = selectedFilter;
     }
-    setFilterItem(dropdDownCopiedVal);
-    resetFilter(true);
+
+    onSelectCallback(index, dropDownCopiedVal);
   };
 
   const handleInputUpdate = (value: string, index: number) => {
-    const filterList = JSON.parse(JSON.stringify(filterItem));
+    const filterList = JSON.parse(JSON.stringify(filterItems)) as FilterItem[];
     if (filterList[index]) {
       filterList[index].value = value;
       // if (filterList[index].onFilterChanged) {
       //   filterList[index].onFilterChanged(value);
       // }
     }
-    setFilterItem(filterList);
-    resetFilter(true);
+    onSelectCallback(index, filterList);
   };
 
   const handleCallback = () => {
@@ -99,8 +99,8 @@ export const Filter = ({
       <Column>
         <Header className="title-2" text={filterHeading} />
         <Spacer size={32} />
-        {filterItem.slice(0, filterItem.length).map((item, index) => (
-          <>
+        {filterItems.slice(0, filterItems.length).map((item, index) => (
+          <Fragment key={item.label}>
             <Column key={index}>
               {item.type == 'dropdown' ? (
                 <div className="body-1">{item.label} </div>
@@ -133,11 +133,11 @@ export const Filter = ({
               ) : null}
             </Column>
             <Spacer size={16} />
-          </>
+          </Fragment>
         ))}
         <Spacer size={16} />
-        {reset && (
-          <a className="link flex !no-underline" href="#" onClick={handleReset}>
+        {showReset && (
+          <a className="link flex !no-underline" href="#" onClick={onReset}>
             <Image
               src={resetIcon}
               className="w-[20px] h-[20px] ml-2 mr-2 items-end"

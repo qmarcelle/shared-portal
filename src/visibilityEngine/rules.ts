@@ -22,6 +22,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'pharmacy',
   'amplifyHealth',
   'premiumHealth',
+  'benefitBooklet',
   'employerProvidedBenefits',
   'fsaOnly',
   'terminated',
@@ -30,8 +31,10 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'myPCPElig',
   'identityProtectionServices',
   'otcEnable',
-  'bluePerksEligible',
   'showPharmacyTab',
+  'chipRewardsEligible',
+  'blueHealthRewardsEligible',
+  'bluePerksElig',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

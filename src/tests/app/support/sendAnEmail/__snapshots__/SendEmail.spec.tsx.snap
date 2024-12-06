@@ -1,0 +1,1048 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Send an Email should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section flex flex-row items-start app-body "
+      >
+        <div
+          class="flex flex-col w-[100%]"
+        >
+          <div
+            class="flex flex-col"
+          >
+            <h2
+              class="title-2 !font-light !text-[26px]/[40px]"
+            >
+              Email Form
+            </h2>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              Fill out the form below to send us your message.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-col w-full text-field"
+            >
+              <p>
+                We'll send an email reply to:
+              </p>
+              <div
+                class="flex flex-row items-center input   "
+              >
+                <input
+                  aria-label="We'll send an email reply to:"
+                  class=""
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="cursor-pointer"
+                />
+              </div>
+            </div>
+            <p
+              class="body-1 body-2 mt-2"
+            >
+              Changing this email won't change the email we have on file.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              Who do you need to discuss?
+            </p>
+            <div
+              class="rich-dropdown"
+            >
+              <div
+                class="flex flex-col switch-filter default"
+                tabindex="1"
+              >
+                <div>
+                  <div
+                    class="body-1 input"
+                  >
+                    <div
+                      class="flex flex-row p-1 items-center"
+                    >
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Chris Hall
+                        </p>
+                      </div>
+                      <img
+                        alt=""
+                        class="w-[20px] h-[20px] ml-2 items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+              >
+                <div>
+                  <div>
+                    <div
+                      class="flex flex-row h-[72px] p-4 items-center divider-bottom"
+                    >
+                      <h3
+                        class="title-3 grow"
+                      >
+                        Switch to...
+                      </h3>
+                      <img
+                        alt="switch"
+                        class="size-5"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                  <ul
+                    class="max-h-[420px] min-w-[100%] overflow-auto"
+                  >
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom selected item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        >
+                          <img
+                            alt="selcted"
+                            class="size-5"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Chris Hall
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            John
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div />
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+            />
+            <p
+              class="body-1 body-1"
+            >
+              What can we help you with?
+            </p>
+            <div
+              class="rich-dropdown"
+            >
+              <div
+                class="flex flex-col switch-filter default"
+                tabindex="1"
+              >
+                <div>
+                  <div
+                    class="body-1 input"
+                  >
+                    <div
+                      class="flex flex-row p-1 items-center"
+                    >
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Select
+                        </p>
+                      </div>
+                      <img
+                        alt=""
+                        class="w-[20px] h-[20px] ml-2 items-end"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+              >
+                <div>
+                  <div>
+                    <div
+                      class="flex flex-row h-[72px] p-4 items-center divider-bottom"
+                    >
+                      <h3
+                        class="title-3 grow"
+                      >
+                        Switch to...
+                      </h3>
+                      <img
+                        alt="switch"
+                        class="size-5"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                  <ul
+                    class="max-h-[420px] min-w-[100%] overflow-auto"
+                  >
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom selected item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        >
+                          <img
+                            alt="selcted"
+                            class="size-5"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Select
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Benefits & Coverage
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            New or Existing Claims
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Deductibles
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Pharmacy & Prescriptions
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Find Care
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Dental
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Membership & Billing Questions
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class=""
+                    >
+                      <div
+                        class="flex flex-row p-4 divider-bottom  item"
+                        tabindex="1"
+                      >
+                        <div
+                          class="size-5 mr-2"
+                        />
+                        <div
+                          class="flex flex-col border-none flex-grow"
+                        >
+                          <p
+                            class="body-1"
+                          >
+                            Other
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div />
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+            />
+            <textarea
+              class="block w-full px-4 py-2 border border-[#737373]  rounded-md shadow-sm focus:ring-primary focus:border-primary-focus focus-visible:primary sm:text-sm resize-none overflow-y-scroll h-[240px]"
+              placeholder="Add your message here..."
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <button
+              aria-label="Send Email"
+              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+              disabled=""
+              type="button"
+            >
+              Send Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section flex flex-row items-start app-body "
+    >
+      <div
+        class="flex flex-col w-[100%]"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2 !font-light !text-[26px]/[40px]"
+          >
+            Email Form
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            Fill out the form below to send us your message.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              We'll send an email reply to:
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="We'll send an email reply to:"
+                class=""
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <p
+            class="body-1 body-2 mt-2"
+          >
+            Changing this email won't change the email we have on file.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            Who do you need to discuss?
+          </p>
+          <div
+            class="rich-dropdown"
+          >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
+                <div
+                  class="body-1 input"
+                >
+                  <div
+                    class="flex flex-row p-1 items-center"
+                  >
+                    <div
+                      class="flex flex-col border-none flex-grow"
+                    >
+                      <p
+                        class="body-1"
+                      >
+                        Chris Hall
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+            >
+              <div>
+                <div>
+                  <div
+                    class="flex flex-row h-[72px] p-4 items-center divider-bottom"
+                  >
+                    <h3
+                      class="title-3 grow"
+                    >
+                      Switch to...
+                    </h3>
+                    <img
+                      alt="switch"
+                      class="size-5"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+                <ul
+                  class="max-h-[420px] min-w-[100%] overflow-auto"
+                >
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom selected item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      >
+                        <img
+                          alt="selcted"
+                          class="size-5"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Chris Hall
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          John
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div />
+              </div>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            What can we help you with?
+          </p>
+          <div
+            class="rich-dropdown"
+          >
+            <div
+              class="flex flex-col switch-filter default"
+              tabindex="1"
+            >
+              <div>
+                <div
+                  class="body-1 input"
+                >
+                  <div
+                    class="flex flex-row p-1 items-center"
+                  >
+                    <div
+                      class="flex flex-col border-none flex-grow"
+                    >
+                      <p
+                        class="body-1"
+                      >
+                        Select
+                      </p>
+                    </div>
+                    <img
+                      alt=""
+                      class="w-[20px] h-[20px] ml-2 items-end"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+            >
+              <div>
+                <div>
+                  <div
+                    class="flex flex-row h-[72px] p-4 items-center divider-bottom"
+                  >
+                    <h3
+                      class="title-3 grow"
+                    >
+                      Switch to...
+                    </h3>
+                    <img
+                      alt="switch"
+                      class="size-5"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </div>
+                <ul
+                  class="max-h-[420px] min-w-[100%] overflow-auto"
+                >
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom selected item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      >
+                        <img
+                          alt="selcted"
+                          class="size-5"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Select
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Benefits & Coverage
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          New or Existing Claims
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Deductibles
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Pharmacy & Prescriptions
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Find Care
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Dental
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Membership & Billing Questions
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class=""
+                  >
+                    <div
+                      class="flex flex-row p-4 divider-bottom  item"
+                      tabindex="1"
+                    >
+                      <div
+                        class="size-5 mr-2"
+                      />
+                      <div
+                        class="flex flex-col border-none flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          Other
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div />
+              </div>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <textarea
+            class="block w-full px-4 py-2 border border-[#737373]  rounded-md shadow-sm focus:ring-primary focus:border-primary-focus focus-visible:primary sm:text-sm resize-none overflow-y-scroll h-[240px]"
+            placeholder="Add your message here..."
+          />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <button
+            aria-label="Send Email"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+            disabled=""
+            type="button"
+          >
+            Send Email
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

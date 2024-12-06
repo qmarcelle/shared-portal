@@ -59,6 +59,9 @@ const Transactions = () => {
             <Filter
               className="large-section px-0 m-0"
               filterHeading="Filter Transactions"
+              onReset={() => {}}
+              showReset={false}
+              onSelectCallback={() => {}}
               filterItems={[
                 {
                   type: 'dropdown',

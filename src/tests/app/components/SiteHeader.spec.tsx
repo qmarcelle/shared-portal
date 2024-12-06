@@ -1,5 +1,6 @@
 import { SideBarModal } from '@/components/foundation/SideBarModal';
 import SiteHeader from '@/components/foundation/SiteHeader';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
@@ -12,18 +13,27 @@ jest.mock('next/navigation', () => ({
   },
 }));
 
-const renderUI = () => {
+const vRules: VisibilityRules = {};
+function setVisibilityRules(vRules: VisibilityRules) {
+  vRules.futureEffective = false;
+  vRules.fsaOnly = false;
+  vRules.wellnessOnly = false;
+  vRules.terminated = false;
+  vRules.katieBeckNoBenefitsElig = false;
+}
+
+const renderUI = (vRules: VisibilityRules) => {
   return render(
     <div>
       <SideBarModal />
-      <SiteHeader />
+      <SiteHeader visibilityRules={vRules} />
     </div>,
   );
 };
 
 describe('SiteHeader And Navigation Menu', () => {
   it('should render the UI correctly', async () => {
-    const component = renderUI();
+    const component = renderUI(vRules);
     expect(screen.getByText('My Profile')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
     fireEvent.click(screen.getByText('My Profile'));
@@ -40,7 +50,9 @@ describe('SiteHeader And Navigation Menu', () => {
 
   it('should navigate the menu links correctly', async () => {
     const baseUrl = window.location.origin;
-    const component = renderUI();
+    vRules.blueCare = false;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
 
     /**** Nav Links For Find Care & Cost  */
 
@@ -252,6 +264,22 @@ describe('SiteHeader And Navigation Menu', () => {
     );
     expect(screen.getByText('Frequently Asked Questions')).toBeInTheDocument();
 
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should navigate the menu links correctly', async () => {
+    vRules.blueCare = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+    expect(screen.getByText('Find a Provider')).toBeVisible();
+    expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
+
+    expect(screen.getByText('Mental Health Options')).toBeVisible();
+    expect(screen.getByText('Price Medical Care')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

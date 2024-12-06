@@ -13,15 +13,15 @@ import {
 } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { FaqTopicType } from '../faqTopics/models/faq_details';
 
 const FrequentlyAskedQuestions = () => {
-  const benefitsParam = encodeURIComponent('Benefits & Coverage');
   const faqInformationDetails = [
     {
       label: 'Benefits & Coverage',
       description: 'Learn more about service limits, deductibles and more.',
       iconName: benefits,
-      link: `/support/faqTopics?faqtype=${benefitsParam}`,
+      link: `/support/faqTopics?faqtype=${encodeURIComponent(FaqTopicType.BenefitsAndCoverage)}`,
     },
     {
       label: 'Claims',
@@ -41,7 +41,9 @@ const FrequentlyAskedQuestions = () => {
       label: 'My Plan Information',
       description: 'How to update your address, dependents, and more.',
       iconName: enrollment,
-      link: '/support/faqTopics?faqtype=MyPlanInformation',
+      link: `/support/faqTopics?faqtype=${encodeURIComponent(
+        FaqTopicType.MyPlanInformation,
+      )}`,
     },
     {
       label: 'Pharmacy',
@@ -62,7 +64,9 @@ const FrequentlyAskedQuestions = () => {
       description:
         'How to share your health insurance information, represent a dependent individual and more.',
       iconName: keyIcon,
-      link: '/support/faqTopics?faqtype=SharingPermissions&Security',
+      link: `/support/faqTopics?faqtype=${encodeURIComponent(
+        FaqTopicType.SharingPermisionsSecurity,
+      )}`,
     },
   ];
 

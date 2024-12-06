@@ -16,5 +16,5 @@ export interface MemberContactInfo {
   address1: string;
   city: string;
   state: string;
-  zip: string;
+  zipcode: string;
 }
