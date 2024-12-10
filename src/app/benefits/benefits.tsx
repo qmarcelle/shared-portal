@@ -13,11 +13,8 @@ import Image from 'next/image';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 
-import { Card } from '@/components/foundation/Card';
-import { FilterHead, FilterTile } from '@/components/foundation/Filter';
-import { Header } from '@/components/foundation/Header';
-import { RichDropDown } from '@/components/foundation/RichDropDown';
-import { FilterDetails } from '@/models/filter_dropdown_details';
+import { Filter } from '@/components/foundation/Filter';
+import { FilterItem } from '@/models/filter_dropdown_details';
 import { Member, PlanDetail } from '@/models/member/api/loggedInUserInfo';
 import { SessionUser } from '@/userManagement/models/sessionUser';
 import { useRouter } from 'next/navigation';
@@ -59,64 +56,8 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
   const [dentalBenefitsItems, setDentalBenefitsItems] = useState<
     ManageBenefitsItems[]
   >([]);
+
   const router = useRouter();
-
-  const isDelinquent =
-    user?.currUsr?.plan.grpId == '127600' && user?.vRules?.delinquent;
-  if (isDelinquent) {
-    return <Delinquent />;
-  }
-
-  const createOtherBenefits = (): ManageBenefitsItems[] => {
-    const otherBenefitItems: ManageBenefitsItems[] = [];
-    if (user === undefined || user.vRules === undefined) {
-      return otherBenefitItems;
-    }
-    if (user.vRules.identityProtectionServices) {
-      otherBenefitItems.push({
-        title: 'Identity Protection Services',
-        body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
-        externalLink: false,
-        url: '/benefits/identityProtectionServices',
-      });
-    }
-    otherBenefitItems.push({
-      title: 'Health Programs & Resources',
-      body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-      externalLink: false,
-      url: 'url',
-    });
-    if (user.vRules.active && user.vRules.otcEnable) {
-      otherBenefitItems.push({
-        title: 'Shop Over-the-Counter Items',
-        body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
-        externalLink: false,
-        url: 'https://www.cvs.com/benefits/account/create-account/email',
-        icon: <Image src={externalIcon} alt="link" />,
-      });
-    }
-    if (user.vRules.commercial && user.vRules.bluePerksEligible) {
-      otherBenefitItems.push({
-        title: 'Member Discounts',
-        body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-        externalLink: false,
-        url: 'url',
-        icon: <Image src={externalIcon} alt="link" />,
-      });
-    }
-
-    if (user.vRules.employerProvidedBenefits) {
-      otherBenefitItems.push({
-        title: 'Employer Provided Benefits',
-        body: 'Your employer offers even more programs and benefits you can explore here.',
-        externalLink: false,
-        url: '/benefits/employerProvidedBenefits',
-      });
-    }
-    return otherBenefitItems;
-  };
-
-  const otherBenefitItems = createOtherBenefits();
 
   const {
     setSelectedBenefitDetails,
@@ -258,7 +199,11 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
   }, [currentUserBenefitData, onBenefitSelected, filterAndGroupByCategoryId]);
 
   const onMemberSelectionChange = useCallback(
-    (selectedMember: string) => {
+    (selectedMember: string | undefined) => {
+      if (selectedMember === undefined) {
+        console.log('Selected member is undefined');
+        return;
+      }
       console.log(`Selected Member: ${selectedMember}`);
       const member = memberInfo.find(
         (item) => item.memberCk === parseInt(selectedMember),
@@ -273,7 +218,11 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
   );
 
   const onBenefitTypeSelectChange = useCallback(
-    (val: string): void => {
+    (val: string | undefined): void => {
+      if (val === undefined) {
+        console.log('Selected benefit type is undefined');
+        return;
+      }
       console.log(`Selected Benefit Type: ${val}`);
       setCurrentSelectedBenefitType(val);
     },
@@ -304,6 +253,69 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
     [currentSelectedMember.planDetails],
   );
 
+  const createOtherBenefits = (): ManageBenefitsItems[] => {
+    const otherBenefitItems: ManageBenefitsItems[] = [];
+    if (user === undefined || user.vRules === undefined) {
+      return otherBenefitItems;
+    }
+    if (user.vRules.identityProtectionServices) {
+      otherBenefitItems.push({
+        title: 'Identity Protection Services',
+        body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
+        externalLink: false,
+        url: '/benefits/identityProtectionServices',
+      });
+    }
+    otherBenefitItems.push({
+      title: 'Health Programs & Resources',
+      body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+      externalLink: false,
+      url: 'url',
+    });
+    if (user.vRules.active && user.vRules.otcEnable) {
+      otherBenefitItems.push({
+        title: 'Shop Over-the-Counter Items',
+        body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
+        externalLink: false,
+        url: 'https://www.cvs.com/benefits/account/create-account/email',
+        icon: <Image src={externalIcon} alt="link" />,
+      });
+    }
+    if (user.vRules.commercial && user.vRules.bluePerksElig) {
+      otherBenefitItems.push({
+        title: 'Member Discounts',
+        body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+        externalLink: false,
+        url: 'url',
+        icon: <Image src={externalIcon} alt="link" />,
+      });
+    }
+
+    if (user.vRules.employerProvidedBenefits) {
+      otherBenefitItems.push({
+        title: 'Employer Provided Benefits',
+        body: 'Your employer offers even more programs and benefits you can explore here.',
+        externalLink: false,
+        url: '/benefits/employerProvidedBenefits',
+      });
+    }
+    return otherBenefitItems;
+  };
+
+  const isDelinquent =
+    user?.currUsr?.plan.grpId == '127600' && user?.vRules?.delinquent;
+  if (isDelinquent) {
+    return <Delinquent />;
+  }
+
+  const otherBenefitItems = createOtherBenefits();
+
+  function onFilterSelectChange(index: number, data: FilterItem[]) {
+    if (index == 0) onMemberSelectionChange(data[index].selectedValue?.value);
+    else if (index == 1)
+      onBenefitTypeSelectChange(data[index].selectedValue?.value);
+  }
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -322,37 +334,53 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
         <Spacer size={16} />
         <section className="flex flex-row items-start app-body" id="Filter">
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <Card className="small-section">
-              <>
-                <Header className="title-2" text="Filter Benefits" />
-                <Spacer size={32} />
-                <div className="body-1">Member</div>
-                <RichDropDown<FilterDetails>
-                  headBuilder={(val) => <FilterHead user={val} />}
-                  itemData={memberDropdownValues as FilterDetails[]}
-                  itemsBuilder={(data, index) => (
-                    <FilterTile user={data} key={index} />
-                  )}
-                  selected={memberDropdownValues[0] as FilterDetails}
-                  onSelectItem={(val) => {
-                    onMemberSelectionChange(val.value);
-                  }}
-                />
-                <Spacer size={16} />
-                <div className="body-1">Benefit Type</div>
-                <RichDropDown<FilterDetails>
-                  headBuilder={(val) => <FilterHead user={val} />}
-                  itemData={benefitTypes as FilterDetails[]}
-                  itemsBuilder={(data, index) => (
-                    <FilterTile user={data} key={index} />
-                  )}
-                  selected={benefitTypes[0] as FilterDetails}
-                  onSelectItem={(val) => {
-                    onBenefitTypeSelectChange(val.value);
-                  }}
-                />
-              </>
-            </Card>
+            <Filter
+              className="filter-component"
+              filterHeading="Filter Benefits"
+              filterItems={[
+                {
+                  type: 'dropdown',
+                  label: 'Member',
+                  value: memberDropdownValues,
+                  selectedValue:
+                    currentSelectedMember === undefined
+                      ? memberDropdownValues[0]
+                      : memberDropdownValues.find(
+                          (member) =>
+                            member.value ===
+                            currentSelectedMember.memberCk.toString(),
+                        ),
+                },
+                {
+                  type: 'dropdown',
+                  label: 'Benefits',
+                  value: benefitTypes,
+                  selectedValue:
+                    currentSelectedBenefitType === undefined
+                      ? benefitTypes[0]
+                      : benefitTypes.find(
+                          (benefit) =>
+                            benefit.value === currentSelectedBenefitType,
+                        ),
+                },
+              ]}
+              onSelectCallback={(index, data) => {
+                onFilterSelectChange(index, data);
+              }}
+              showReset={true}
+              onReset={() => {
+                onMemberSelectionChange(memberDropdownValues[0].value);
+                onBenefitTypeSelectChange(benefitTypes[0].value);
+              }}
+              // buttons={{
+              //   type: 'primary',
+              //   className: 'apply-button',
+              //   label: 'Apply',
+              //   callback: (isClicked) => {
+              //     console.log('Apply button clicked', isClicked);
+              //   },
+              // }}
+            />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
             {currentSelectedMember.planDetails.find(
