@@ -7,7 +7,7 @@ import { Session } from 'next-auth';
 import { MemberData, getLoggedInUserInfo } from './loggedUserInfo';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getMemberDetails(): Promise<any> {
+export async function getMemberDetails() {
   //need to implement member service API call
   return memberMockResponse;
 }

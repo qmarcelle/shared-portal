@@ -14,14 +14,13 @@ jest.mock('next/navigation', () => ({
   },
 }));
 
-const renderUI = async () => {
-  const result = await PharmacyPage();
-  return render(result);
-};
-
 describe('Pharmacy Page', () => {
   it('should render the page correctly', async () => {
-    const { container } = await renderUI();
+    const Page = await PharmacyPage();
+    const container = render(Page);
+    expect(
+      screen.getByText('View Covered Drug List (Formulary)'),
+    ).toBeVisible();
     expect(screen.getByText('My Recent Pharmacy Claims')).toBeVisible();
     expect(screen.getByText('View All Pharmacy Claims')).toBeVisible();
     fireEvent.click(screen.getByText(/View All Pharmacy Claims/i));

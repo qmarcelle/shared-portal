@@ -1,36 +1,647 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pharmacy Page should render the page correctly 1`] = `
-<div>
-  <main
-    class="flex flex-col justify-center items-center page"
-  >
-    <div
-      class="flex flex-col app-content app-base-font-color"
-    >
-      <section
-        class="flex flex-row items-start app-body "
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="flex flex-col justify-center items-center page"
       >
         <div
-          class="flex flex-col flex-grow"
+          class="flex flex-col app-content app-base-font-color"
         >
-          <div
-            class="flex flex-col  m-4"
+          <section
+            class="flex flex-row items-start app-body "
           >
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
             <div
-              class="card-main p-4 md:p-10"
+              class="flex flex-col flex-grow"
             >
               <div
-                class="flex flex-col"
+                class="flex flex-col  m-4"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="card-main p-4 md:p-10"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col block md:hidden"
+                    >
+                      <img
+                        alt="download form"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <h2
+                          class="title-2"
+                        >
+                          Get More with CVS Caremark
+                        </h2>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <p
+                          class="body-1 body-1"
+                        >
+                          A caremark.com account will let you get prescriptions by mail, price a medication and more.
+                        </p>
+                      </div>
+                      <div
+                        class="flex flex-col hidden md:block"
+                      >
+                        <img
+                          alt="download form"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-wrap gap-4"
+                      >
+                        <div
+                          class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                        >
+                          <div
+                            class="flex flex-row p-2"
+                          >
+                            <img
+                              alt="Prescription Icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <p
+                              class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            >
+                              View or Refill My Prescriptions
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                        >
+                          <div
+                            class="flex flex-row p-2"
+                          >
+                            <img
+                              alt="Mail Order Pharmacy Icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <p
+                              class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            >
+                              Get My Prescriptions by Mail
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                        >
+                          <div
+                            class="flex flex-row p-2"
+                          >
+                            <img
+                              alt="Cost Icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <p
+                              class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            >
+                              Find Drug Cost & My Coverage
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                        >
+                          <div
+                            class="flex flex-row p-2"
+                          >
+                            <img
+                              alt="Search Pharmacy Icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <p
+                              class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            >
+                              Find a Pharmacy
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container !flex p-0"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Visit CVS Caremark
+                        </p>
+                        <p
+                          class="ml-1"
+                          style="display: block;"
+                        >
+                          <img
+                            alt="download form"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main large-section"
               >
                 <div
-                  class="flex flex-col block md:hidden"
+                  class="flex flex-col"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    My Recent Pharmacy Claims
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="card-button cursor-pointer mb-4"
+                  >
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
+                    >
+                      <img
+                        alt="Pharmacy"
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col min-w-[95%]"
+                      >
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
+                        >
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt="Pharmacy"
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
+                            >
+                              123 Pharmacy
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
+                              >
+                                Processed
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $50.00
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                            >
+                              Visited on 08/10/2023, For Chris Hall
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $50.00
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div
+                    class="card-button cursor-pointer mb-4"
+                  >
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
+                    >
+                      <img
+                        alt="Pharmacy"
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col min-w-[95%]"
+                      >
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
+                        >
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt="Pharmacy"
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
+                            >
+                              565 Pharmacy
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="error flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
+                              >
+                                Denied
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $403.98
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                            >
+                              Visited on 07/05/2023, For Chris Hall
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $403.98
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div
+                    class="card-button cursor-pointer mb-4"
+                  >
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
+                    >
+                      <img
+                        alt="Pharmacy"
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col min-w-[95%]"
+                      >
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
+                        >
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt="Pharmacy"
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
+                            >
+                              890 Pharmacy
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
+                              >
+                                Pending
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                              >
+                                $33.00
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                            >
+                              Visited on 12/22/2022, For Chris Hall
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $33.00
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View All Pharmacy Claims
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main large-section md:w-[352px] md:h-[248px]"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    My Pharmacy Spending Summary
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1"
+                  >
+                    View your annual statement for your pharmacy claims.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    href="/spendingSummary?type=Pharmacy"
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container !flex p-0"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        View Pharmacy Spending Summary
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <p
+                  class="title-1 ml-4 md:mt-12"
+                >
+                  Resources & Support
+                </p>
+              </div>
+              <div
+                class="card-main large-section skip-underscore"
+              >
+                <div
+                  class="flex flex-col"
                 >
                   <img
-                    alt="download form"
+                    alt="Shopping Credit Icon"
+                    class="size-10 block md:hidden"
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -40,32 +651,974 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     style="color: transparent;"
                     width="40"
                   />
+                  <div
+                    class="flex flex-row"
+                  >
+                    <img
+                      alt="Shopping Credit Icon"
+                      class="size-10 mt-3 mr-2 hidden md:block"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <section
+                      class="flex justify-start self-start my-health-link"
+                    >
+                      <span
+                        class="rich-text body-1 undefined"
+                      >
+                        <div
+                          class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4"
+                        >
+                          <a
+                            class="!flex pt-0 pl-0 ml-2"
+                            href="https://www.shopbcbstotc.com"
+                          >
+                             
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Shop Over-the-Counter Items
+                            </p>
+                            <img
+                              alt=""
+                              class="link flex ml-2"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </a>
+                        </div>
+                      </span>
+                    </section>
+                  </div>
+                  <p
+                    class="body-1 body-1 md:ml-14 ml-2"
+                  >
+                    You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
+                  </p>
                 </div>
+              </div>
+               
+            </div>
+          </section>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main large-section flex flex-row items-start app-body "
+              >
                 <div
-                  class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
+                  class="flex flex-col"
                 >
+                  <h2
+                    class="title-2"
+                  >
+                    Pharmacy Documents & Forms
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                  />
                   <div
                     class="flex flex-col"
                   >
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                    />
-                    <h2
-                      class="title-2"
+                    <div
+                      class="flex flex-col"
                     >
-                      Get More with CVS Caremark
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                    />
-                    <p
-                      class="body-1 body-1"
+                      <div
+                        class="flex flex-col items-stretch"
+                      >
+                        <a
+                          href="/assets/formularies/Default-DrugFormularyPDF/Drug-Formulary-List.pdf"
+                          style="display: inline;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container text-left pl-0"
+                            style="max-width: max-content; height: auto; display: inline;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: inline;"
+                            >
+                              View Covered Drug List (Formulary)
+                            </p>
+                            <p
+                              class="ml-1"
+                              style="display: inline;"
+                            >
+                              <img
+                                alt="download Icon"
+                                class="inline"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
+                        <p
+                          class="body-1"
+                        >
+                          Download a list of all the drugs your plan covers.
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
                     >
-                      A caremark.com account will let you get prescriptions by mail, price a medication and more.
-                    </p>
+                      <div
+                        class="flex flex-col items-stretch"
+                      >
+                        <a
+                          href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                          style="display: inline;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container text-left pl-0"
+                            style="max-width: max-content; height: auto; display: inline;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: inline;"
+                            >
+                              Prescription Drug Claim Form
+                            </p>
+                            <p
+                              class="ml-1"
+                              style="display: inline;"
+                            >
+                              <img
+                                alt="download Icon"
+                                class="inline"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
+                        <p
+                          class="body-1"
+                        >
+                          We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col items-stretch"
+                      >
+                        <a
+                          href="/assets/cvs-mail-order-form.pdf"
+                          style="display: inline;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container text-left pl-0"
+                            style="max-width: max-content; height: auto; display: inline;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: inline;"
+                            >
+                              Prescription Mail Service Order Form
+                            </p>
+                            <p
+                              class="ml-1"
+                              style="display: inline;"
+                            >
+                              <img
+                                alt="download Icon"
+                                class="inline"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
+                        <p
+                          class="body-1"
+                        >
+                          Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col items-stretch"
+                      >
+                        <a
+                          style="display: inline;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container text-left pl-0"
+                            style="max-width: max-content; height: auto; display: inline;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: inline;"
+                            >
+                              Request for Medicare Prescription Drug Coverage Determination
+                            </p>
+                            <p
+                              class="ml-1"
+                              style="display: inline;"
+                            >
+                              <img
+                                alt="right arrow Icon"
+                                class="inline"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
+                        <p
+                          class="body-1"
+                        >
+                          You can request an exception for prescription drug coverage.
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col items-stretch"
+                      >
+                        <a
+                          style="display: inline;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container text-left pl-0"
+                            style="max-width: max-content; height: auto; display: inline;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: inline;"
+                            >
+                              Request for Redetermination of Medicare Prescription Drug Denial
+                            </p>
+                            <p
+                              class="ml-1"
+                              style="display: inline;"
+                            >
+                              <img
+                                alt="right arrow Icon"
+                                class="inline"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
+                        <p
+                          class="body-1"
+                        >
+                          If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                        />
+                      </div>
+                    </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col  flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main large-section flex flex-row items-start app-body "
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Pharmacy FAQ
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <section
+                    class="flex flex-row items-start app-body"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <h2
+                          class="title-2"
+                        >
+                          Help with Prescription Drugs
+                        </h2>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  How can I find out which drugs my plan covers?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                            <div
+                              class=""
+                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  How do I get a prior authorization?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                            <div
+                              class=""
+                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  What is a specialty medication?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                            <div
+                              class=""
+                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  How do I know if a drug is a specialty drug?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                            <div
+                              class=""
+                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  How can I save money on my prescriptions?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                  <section
+                    class="flex flex-row items-start app-body"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <h2
+                          class="title-2"
+                        >
+                          Help with Pharmacies & Mail Order
+                        </h2>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  Do I have to use a CVS pharmacy?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                            <div
+                              class=""
+                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  Why should I use a mail order pharmacy for any of my prescriptions?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                            <div
+                              class=""
+                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-col items-stretch"
+                          >
+                            <div
+                              class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                            >
+                              <div
+                                class="flex flex-row m-1 accordion-head"
+                              >
+                                <p
+                                  class="mr-2 flex-grow"
+                                >
+                                  I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?
+                                </p>
+                                <img
+                                  alt="Down Chevron"
+                                  class="pl-2 w-6"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div
+                                class="mr-2 flex-grow"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div
+                class="card-main large-section flex flex-row items-start app-body "
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Prescription Payment Options
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <section
+                    class="flex flex-row items-start app-body"
+                  >
+                    <div
+                      class="flex flex-col flex-grow"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <a
+                          style="display: flex;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container pl-0"
+                            style="max-width: max-content; height: auto; display: flex;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: flex;"
+                            >
+                              Medicare Prescription Payment Plan Sign-up
+                            </p>
+                            <p
+                              class="ml-1"
+                              style="display: flex;"
+                            >
+                              <img
+                                alt=""
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                        <span
+                          class="rich-text body-1 manage-image"
+                        >
+                          <span>
+                            Now you can pay for your prescription drugs over time with a monthly payment. You can learn more by reading the
+                             
+                          </span>
+                          <span
+                            class="link"
+                          >
+                            <a
+                              class="link"
+                              href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
+                              target="_blank"
+                            >
+                              fact sheet
+                            </a>
+                          </span>
+                          <span>
+                            .
+                          </span>
+                        </span>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                        <span
+                          class="rich-text body-1 manage-image"
+                        >
+                          <span>
+                            If you had an urgent prescription filled that you paid for before we received and processed your enrollment in the Medicare Prescription Payment Plan, you may be able to
+                             
+                          </span>
+                          <span
+                            class="link"
+                          >
+                            <a
+                              class="link"
+                              target="_blank"
+                            >
+                              get a retroactive election
+                            </a>
+                          </span>
+                          <span>
+                             into the program.
+                          </span>
+                        </span>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                        <span
+                          class="rich-text body-1 manage-image"
+                        >
+                          <span>
+                            Learn more about 
+                          </span>
+                          <span
+                            class="link"
+                          >
+                            <a
+                              class="link"
+                              href="https://www.bcbst-medicare.com/use-insurance/health-care-rights/medicare"
+                              target="_blank"
+                            >
+                              making a complaint
+                            </a>
+                          </span>
+                          <span>
+                            .
+                          </span>
+                        </span>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                        />
+                        <a
+                          href="https://www.ssa.gov/medicare/part-d-extra-help"
+                          style="display: flex;"
+                          tabindex="-1"
+                        >
+                          <button
+                            class="flex flex-row link-container pl-0"
+                            style="max-width: max-content; height: auto; display: flex;"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link undefined"
+                              style="display: flex;"
+                            >
+                              Social Security Extra Help Program
+                            </p>
+                            <p
+                              class="ml-1"
+                              style="display: flex;"
+                            >
+                              <img
+                                alt=""
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <section
+          class="flex flex-row items-start app-body "
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <div
+              class="flex flex-col  m-4"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="card-main p-4 md:p-10"
+              >
+                <div
+                  class="flex flex-col"
+                >
                   <div
-                    class="flex flex-col hidden md:block"
+                    class="flex flex-col block md:hidden"
                   >
                     <img
                       alt="download form"
@@ -79,135 +1632,31 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       width="40"
                     />
                   </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-row"
-                >
                   <div
-                    class="flex flex-wrap gap-4"
+                    class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
                   >
                     <div
-                      class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                      class="flex flex-col"
                     >
-                      <div
-                        class="flex flex-row p-2"
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <h2
+                        class="title-2"
                       >
-                        <img
-                          alt="Prescription Icon"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                        <p
-                          class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                        >
-                          View or Refill My Prescriptions
-                        </p>
-                      </div>
+                        Get More with CVS Caremark
+                      </h2>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                      >
+                        A caremark.com account will let you get prescriptions by mail, price a medication and more.
+                      </p>
                     </div>
                     <div
-                      class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
-                    >
-                      <div
-                        class="flex flex-row p-2"
-                      >
-                        <img
-                          alt="Mail Order Pharmacy Icon"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                        <p
-                          class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                        >
-                          Get My Prescriptions by Mail
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
-                    >
-                      <div
-                        class="flex flex-row p-2"
-                      >
-                        <img
-                          alt="Cost Icon"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                        <p
-                          class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                        >
-                          Find Drug Cost & My Coverage
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
-                    >
-                      <div
-                        class="flex flex-row p-2"
-                      >
-                        <img
-                          alt="Search Pharmacy Icon"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                        <p
-                          class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                        >
-                          Find a Pharmacy
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <a
-                  style="display: block;"
-                  tabindex="-1"
-                >
-                  <button
-                    class="flex flex-row link-container !flex p-0"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
-                  >
-                    <p
-                      class="link undefined"
-                      style="display: block;"
-                    >
-                      Visit CVS Caremark
-                    </p>
-                    <p
-                      class="ml-1"
-                      style="display: block;"
+                      class="flex flex-col hidden md:block"
                     >
                       <img
                         alt="download form"
@@ -220,67 +1669,139 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         style="color: transparent;"
                         width="40"
                       />
-                    </p>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        class="flex flex-row items-start app-body"
-      >
-        <div
-          class="flex flex-col flex-grow page-section-63_33 items-stretch"
-        >
-          <div
-            class="card-main large-section"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <h1
-                class="title-1 title-2"
-              >
-                My Recent Pharmacy Claims
-              </h1>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <div
-                class="card-button cursor-pointer mb-4"
-              >
-                <section
-                  class="md:flex md:flex-row align-top m-4"
-                >
-                  <img
-                    alt="Pharmacy"
-                    class="icon max-md:hidden"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
+                    </div>
+                  </div>
                   <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    class="flex flex-col min-w-[95%]"
+                    class="flex flex-row"
                   >
-                    <section
-                      class="md:flex md:flex-row md:justify-between"
+                    <div
+                      class="flex flex-wrap gap-4"
                     >
-                      <section
-                        class="flex flex-row mb-[10px] md:flex-col"
+                      <div
+                        class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                      >
+                        <div
+                          class="flex flex-row p-2"
+                        >
+                          <img
+                            alt="Prescription Icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                          >
+                            View or Refill My Prescriptions
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                      >
+                        <div
+                          class="flex flex-row p-2"
+                        >
+                          <img
+                            alt="Mail Order Pharmacy Icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                          >
+                            Get My Prescriptions by Mail
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                      >
+                        <div
+                          class="flex flex-row p-2"
+                        >
+                          <img
+                            alt="Cost Icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                          >
+                            Find Drug Cost & My Coverage
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="card-elevated cursor-pointer  flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
+                      >
+                        <div
+                          class="flex flex-row p-2"
+                        >
+                          <img
+                            alt="Search Pharmacy Icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <p
+                            class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                          >
+                            Find a Pharmacy
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container !flex p-0"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="0"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Visit CVS Caremark
+                      </p>
+                      <p
+                        class="ml-1"
+                        style="display: block;"
                       >
                         <img
-                          alt="Pharmacy"
-                          class="icon md:hidden"
+                          alt="download form"
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -290,29 +1811,122 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           style="color: transparent;"
                           width="40"
                         />
-                        <h3
-                          class="title-3 body-bold primary-color max-md:ml-[5px]"
-                        >
-                          123 Pharmacy
-                        </h3>
-                      </section>
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  My Recent Pharmacy Claims
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="card-button cursor-pointer mb-4"
+                >
+                  <section
+                    class="md:flex md:flex-row align-top m-4"
+                  >
+                    <img
+                      alt="Pharmacy"
+                      class="icon max-md:hidden"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col min-w-[95%]"
+                    >
                       <section
-                        class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                        class="md:flex md:flex-row md:justify-between"
                       >
-                        <div
-                          class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                        <section
+                          class="flex flex-row mb-[10px] md:flex-col"
+                        >
+                          <img
+                            alt="Pharmacy"
+                            class="icon md:hidden"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <h3
+                            class="title-3 body-bold primary-color max-md:ml-[5px]"
+                          >
+                            123 Pharmacy
+                          </h3>
+                        </section>
+                        <section
+                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
                         >
                           <div
-                            class="circle rounded-full w-3 h-3 aspect-square"
-                          />
-                          <p
-                            class="font-bold ml-2 body-2"
+                            class="success flex flex-row justify-center items-center px-2 py-1 rounded"
                           >
-                            Processed
+                            <div
+                              class="circle rounded-full w-3 h-3 aspect-square"
+                            />
+                            <p
+                              class="font-bold ml-2 body-2"
+                            >
+                              Processed
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $50.00
+                            </p>
+                          </div>
+                        </section>
+                      </section>
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 body-1 mt-2"
+                          >
+                            Visited on 08/10/2023, For Chris Hall
                           </p>
                         </div>
                         <div
-                          class="flex flex-col md:hidden"
+                          class="flex flex-col max-md:hidden"
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
@@ -320,98 +1934,98 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             $50.00
                           </p>
                         </div>
-                      </section>
-                    </section>
-                    <div
-                      class="flex flex-row justify-between"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 body-1 mt-2"
-                        >
-                          Visited on 08/10/2023, For Chris Hall
-                        </p>
-                      </div>
-                      <div
-                        class="flex flex-col max-md:hidden"
-                      >
-                        <p
-                          class="body-1 body-1 font-bold mt-2"
-                        >
-                          $50.00
-                        </p>
                       </div>
                     </div>
-                  </div>
-                </section>
-              </div>
-              <div
-                class="card-button cursor-pointer mb-4"
-              >
-                <section
-                  class="md:flex md:flex-row align-top m-4"
+                  </section>
+                </div>
+                <div
+                  class="card-button cursor-pointer mb-4"
                 >
-                  <img
-                    alt="Pharmacy"
-                    class="icon max-md:hidden"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                  />
-                  <div
-                    class="flex flex-col min-w-[95%]"
+                  <section
+                    class="md:flex md:flex-row align-top m-4"
                   >
-                    <section
-                      class="md:flex md:flex-row md:justify-between"
+                    <img
+                      alt="Pharmacy"
+                      class="icon max-md:hidden"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col min-w-[95%]"
                     >
                       <section
-                        class="flex flex-row mb-[10px] md:flex-col"
+                        class="md:flex md:flex-row md:justify-between"
                       >
-                        <img
-                          alt="Pharmacy"
-                          class="icon md:hidden"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                        <h3
-                          class="title-3 body-bold primary-color max-md:ml-[5px]"
+                        <section
+                          class="flex flex-row mb-[10px] md:flex-col"
                         >
-                          565 Pharmacy
-                        </h3>
-                      </section>
-                      <section
-                        class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                      >
-                        <div
-                          class="error flex flex-row justify-center items-center px-2 py-1 rounded"
+                          <img
+                            alt="Pharmacy"
+                            class="icon md:hidden"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <h3
+                            class="title-3 body-bold primary-color max-md:ml-[5px]"
+                          >
+                            565 Pharmacy
+                          </h3>
+                        </section>
+                        <section
+                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
                         >
                           <div
-                            class="circle rounded-full w-3 h-3 aspect-square"
-                          />
-                          <p
-                            class="font-bold ml-2 body-2"
+                            class="error flex flex-row justify-center items-center px-2 py-1 rounded"
                           >
-                            Denied
+                            <div
+                              class="circle rounded-full w-3 h-3 aspect-square"
+                            />
+                            <p
+                              class="font-bold ml-2 body-2"
+                            >
+                              Denied
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $403.98
+                            </p>
+                          </div>
+                        </section>
+                      </section>
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 body-1 mt-2"
+                          >
+                            Visited on 07/05/2023, For Chris Hall
                           </p>
                         </div>
                         <div
-                          class="flex flex-col md:hidden"
+                          class="flex flex-col max-md:hidden"
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
@@ -419,98 +2033,98 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             $403.98
                           </p>
                         </div>
-                      </section>
-                    </section>
-                    <div
-                      class="flex flex-row justify-between"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 body-1 mt-2"
-                        >
-                          Visited on 07/05/2023, For Chris Hall
-                        </p>
-                      </div>
-                      <div
-                        class="flex flex-col max-md:hidden"
-                      >
-                        <p
-                          class="body-1 body-1 font-bold mt-2"
-                        >
-                          $403.98
-                        </p>
                       </div>
                     </div>
-                  </div>
-                </section>
-              </div>
-              <div
-                class="card-button cursor-pointer mb-4"
-              >
-                <section
-                  class="md:flex md:flex-row align-top m-4"
+                  </section>
+                </div>
+                <div
+                  class="card-button cursor-pointer mb-4"
                 >
-                  <img
-                    alt="Pharmacy"
-                    class="icon max-md:hidden"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                  />
-                  <div
-                    class="flex flex-col min-w-[95%]"
+                  <section
+                    class="md:flex md:flex-row align-top m-4"
                   >
-                    <section
-                      class="md:flex md:flex-row md:justify-between"
+                    <img
+                      alt="Pharmacy"
+                      class="icon max-md:hidden"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col min-w-[95%]"
                     >
                       <section
-                        class="flex flex-row mb-[10px] md:flex-col"
+                        class="md:flex md:flex-row md:justify-between"
                       >
-                        <img
-                          alt="Pharmacy"
-                          class="icon md:hidden"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                        <h3
-                          class="title-3 body-bold primary-color max-md:ml-[5px]"
+                        <section
+                          class="flex flex-row mb-[10px] md:flex-col"
                         >
-                          890 Pharmacy
-                        </h3>
-                      </section>
-                      <section
-                        class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                      >
-                        <div
-                          class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
+                          <img
+                            alt="Pharmacy"
+                            class="icon md:hidden"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <h3
+                            class="title-3 body-bold primary-color max-md:ml-[5px]"
+                          >
+                            890 Pharmacy
+                          </h3>
+                        </section>
+                        <section
+                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
                         >
                           <div
-                            class="circle rounded-full w-3 h-3 aspect-square"
-                          />
-                          <p
-                            class="font-bold ml-2 body-2"
+                            class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
                           >
-                            Pending
+                            <div
+                              class="circle rounded-full w-3 h-3 aspect-square"
+                            />
+                            <p
+                              class="font-bold ml-2 body-2"
+                            >
+                              Pending
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                            >
+                              $33.00
+                            </p>
+                          </div>
+                        </section>
+                      </section>
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 body-1 mt-2"
+                          >
+                            Visited on 12/22/2022, For Chris Hall
                           </p>
                         </div>
                         <div
-                          class="flex flex-col md:hidden"
+                          class="flex flex-col max-md:hidden"
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
@@ -518,142 +2132,104 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             $33.00
                           </p>
                         </div>
-                      </section>
-                    </section>
-                    <div
-                      class="flex flex-row justify-between"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 body-1 mt-2"
-                        >
-                          Visited on 12/22/2022, For Chris Hall
-                        </p>
-                      </div>
-                      <div
-                        class="flex flex-col max-md:hidden"
-                      >
-                        <p
-                          class="body-1 body-1 font-bold mt-2"
-                        >
-                          $33.00
-                        </p>
                       </div>
                     </div>
-                  </div>
-                </section>
+                  </section>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <a
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container undefined"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      View All Pharmacy Claims
+                    </p>
+                  </button>
+                </a>
               </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <a
-                style="display: block;"
-                tabindex="-1"
-              >
-                <button
-                  class="flex flex-row link-container undefined"
-                  style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
-                >
-                  <p
-                    class="link undefined"
-                    style="display: block;"
-                  >
-                    View All Pharmacy Claims
-                  </p>
-                </button>
-              </a>
             </div>
           </div>
-        </div>
-        <div
-          class="flex flex-col  flex-grow page-section-36_67 items-stretch"
-        >
           <div
-            class="card-main large-section md:w-[352px] md:h-[248px]"
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
           >
             <div
-              class="flex flex-col"
+              class="card-main large-section md:w-[352px] md:h-[248px]"
             >
-              <h2
-                class="title-2"
-              >
-                My Pharmacy Spending Summary
-              </h2>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <p
-                class="body-1"
-              >
-                View your annual statement for your pharmacy claims.
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <a
-                href="/spendingSummary?type=Pharmacy"
-                style="display: block;"
-                tabindex="-1"
-              >
-                <button
-                  class="flex flex-row link-container !flex p-0"
-                  style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
-                >
-                  <p
-                    class="link undefined"
-                    style="display: block;"
-                  >
-                    View Pharmacy Spending Summary
-                  </p>
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        class="flex flex-row items-start app-body"
-      >
-        <div
-          class="flex flex-col flex-grow"
-        >
-          <div
-            class="flex flex-row"
-          >
-            <p
-              class="title-1 ml-4 md:mt-12"
-            >
-              Resources & Support
-            </p>
-          </div>
-          <div
-            class="card-main large-section skip-underscore"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <img
-                alt="Shopping Credit Icon"
-                class="size-10 block md:hidden"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
               <div
-                class="flex flex-row"
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  My Pharmacy Spending Summary
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  View your annual statement for your pharmacy claims.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <a
+                  href="/spendingSummary?type=Pharmacy"
+                  style="display: block;"
+                  tabindex="-1"
+                >
+                  <button
+                    class="flex flex-row link-container !flex p-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="0"
+                  >
+                    <p
+                      class="link undefined"
+                      style="display: block;"
+                    >
+                      View Pharmacy Spending Summary
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <p
+                class="title-1 ml-4 md:mt-12"
+              >
+                Resources & Support
+              </p>
+            </div>
+            <div
+              class="card-main large-section skip-underscore"
+            >
+              <div
+                class="flex flex-col"
               >
                 <img
                   alt="Shopping Credit Icon"
-                  class="size-10 mt-3 mr-2 hidden md:block"
+                  class="size-10 block md:hidden"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -663,928 +2239,996 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   style="color: transparent;"
                   width="40"
                 />
-                <section
-                  class="flex justify-start self-start my-health-link"
+                <div
+                  class="flex flex-row"
                 >
-                  <span
-                    class="rich-text body-1 undefined"
+                  <img
+                    alt="Shopping Credit Icon"
+                    class="size-10 mt-3 mr-2 hidden md:block"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <section
+                    class="flex justify-start self-start my-health-link"
                   >
-                    <div
-                      class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4"
+                    <span
+                      class="rich-text body-1 undefined"
                     >
-                      <a
-                        class="!flex pt-0 pl-0 ml-2"
-                        href="https://www.shopbcbstotc.com"
+                      <div
+                        class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4"
                       >
-                         
-                        <p
-                          class="font-bold primary-color"
+                        <a
+                          class="!flex pt-0 pl-0 ml-2"
+                          href="https://www.shopbcbstotc.com"
                         >
-                          Shop Over-the-Counter Items
-                        </p>
-                        <img
-                          alt=""
-                          class="link flex ml-2"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </a>
-                    </div>
-                  </span>
-                </section>
+                           
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Shop Over-the-Counter Items
+                          </p>
+                          <img
+                            alt=""
+                            class="link flex ml-2"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </a>
+                      </div>
+                    </span>
+                  </section>
+                </div>
+                <p
+                  class="body-1 body-1 md:ml-14 ml-2"
+                >
+                  You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
+                </p>
               </div>
-              <p
-                class="body-1 body-1 md:ml-14 ml-2"
-              >
-                You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
-              </p>
             </div>
+             
           </div>
-           
-        </div>
-      </section>
-      <section
-        class="flex flex-row items-start app-body"
-      >
-        <div
-          class="flex flex-col flex-grow page-section-36_67 items-stretch"
+        </section>
+        <section
+          class="flex flex-row items-start app-body"
         >
           <div
-            class="card-main large-section flex flex-row items-start app-body "
+            class="flex flex-col flex-grow page-section-36_67 items-stretch"
           >
             <div
-              class="flex flex-col"
+              class="card-main large-section flex flex-row items-start app-body "
             >
-              <h2
-                class="title-2"
-              >
-                Pharmacy Documents & Forms
-              </h2>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
-              />
               <div
                 class="flex flex-col"
               >
+                <h2
+                  class="title-2"
+                >
+                  Pharmacy Documents & Forms
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                />
                 <div
                   class="flex flex-col"
                 >
                   <div
-                    class="flex flex-col items-stretch"
+                    class="flex flex-col"
                   >
-                    <a
-                      href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
-                      style="display: inline;"
-                      tabindex="-1"
-                    >
-                      <button
-                        class="flex flex-row link-container text-left pl-0"
-                        style="max-width: max-content; height: auto; display: inline;"
-                        tabindex="0"
-                      >
-                        <p
-                          class="link undefined"
-                          style="display: inline;"
-                        >
-                          View Covered Drug List (Formulary)
-                        </p>
-                        <p
-                          class="ml-1"
-                          style="display: inline;"
-                        >
-                          <img
-                            alt="download Icon"
-                            class="inline"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </p>
-                      </button>
-                    </a>
-                    <p
-                      class="body-1"
-                    >
-                      Download a list of all the drugs your plan covers.
-                    </p>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
                     <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex flex-col"
-                >
-                  <div
-                    class="flex flex-col items-stretch"
-                  >
-                    <a
-                      href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
-                      style="display: inline;"
-                      tabindex="-1"
+                      class="flex flex-col items-stretch"
                     >
-                      <button
-                        class="flex flex-row link-container text-left pl-0"
-                        style="max-width: max-content; height: auto; display: inline;"
-                        tabindex="0"
+                      <a
+                        href="/assets/formularies/Default-DrugFormularyPDF/Drug-Formulary-List.pdf"
+                        style="display: inline;"
+                        tabindex="-1"
                       >
-                        <p
-                          class="link undefined"
-                          style="display: inline;"
+                        <button
+                          class="flex flex-row link-container text-left pl-0"
+                          style="max-width: max-content; height: auto; display: inline;"
+                          tabindex="0"
                         >
-                          Prescription Drug Claim Form
-                        </p>
-                        <p
-                          class="ml-1"
-                          style="display: inline;"
-                        >
-                          <img
-                            alt="download Icon"
-                            class="inline"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </p>
-                      </button>
-                    </a>
-                    <p
-                      class="body-1"
-                    >
-                      We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
-                    </p>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
+                          <p
+                            class="link undefined"
+                            style="display: inline;"
+                          >
+                            View Covered Drug List (Formulary)
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: inline;"
+                          >
+                            <img
+                              alt="download Icon"
+                              class="inline"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <p
+                        class="body-1"
+                      >
+                        Download a list of all the drugs your plan covers.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
                     <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex flex-col"
-                >
-                  <div
-                    class="flex flex-col items-stretch"
-                  >
-                    <a
-                      style="display: inline;"
-                      tabindex="-1"
+                      class="flex flex-col items-stretch"
                     >
-                      <button
-                        class="flex flex-row link-container text-left pl-0"
-                        style="max-width: max-content; height: auto; display: inline;"
-                        tabindex="0"
+                      <a
+                        href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                        style="display: inline;"
+                        tabindex="-1"
                       >
-                        <p
-                          class="link undefined"
-                          style="display: inline;"
+                        <button
+                          class="flex flex-row link-container text-left pl-0"
+                          style="max-width: max-content; height: auto; display: inline;"
+                          tabindex="0"
                         >
-                          Prescription Mail Service Order Form
-                        </p>
-                        <p
-                          class="ml-1"
-                          style="display: inline;"
-                        >
-                          <img
-                            alt="download Icon"
-                            class="inline"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </p>
-                      </button>
-                    </a>
-                    <p
-                      class="body-1"
-                    >
-                      Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
-                    </p>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
+                          <p
+                            class="link undefined"
+                            style="display: inline;"
+                          >
+                            Prescription Drug Claim Form
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: inline;"
+                          >
+                            <img
+                              alt="download Icon"
+                              class="inline"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <p
+                        class="body-1"
+                      >
+                        We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
                     <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex flex-col"
-                >
-                  <div
-                    class="flex flex-col items-stretch"
-                  >
-                    <a
-                      style="display: inline;"
-                      tabindex="-1"
+                      class="flex flex-col items-stretch"
                     >
-                      <button
-                        class="flex flex-row link-container text-left pl-0"
-                        style="max-width: max-content; height: auto; display: inline;"
-                        tabindex="0"
+                      <a
+                        href="/assets/cvs-mail-order-form.pdf"
+                        style="display: inline;"
+                        tabindex="-1"
                       >
-                        <p
-                          class="link undefined"
-                          style="display: inline;"
+                        <button
+                          class="flex flex-row link-container text-left pl-0"
+                          style="max-width: max-content; height: auto; display: inline;"
+                          tabindex="0"
                         >
-                          Request for Medicare Prescription Drug Coverage Determination
-                        </p>
-                        <p
-                          class="ml-1"
-                          style="display: inline;"
-                        >
-                          <img
-                            alt="right arrow Icon"
-                            class="inline"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </p>
-                      </button>
-                    </a>
-                    <p
-                      class="body-1"
-                    >
-                      You can request an exception for prescription drug coverage.
-                    </p>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
+                          <p
+                            class="link undefined"
+                            style="display: inline;"
+                          >
+                            Prescription Mail Service Order Form
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: inline;"
+                          >
+                            <img
+                              alt="download Icon"
+                              class="inline"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <p
+                        class="body-1"
+                      >
+                        Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
                     <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="flex flex-col"
-                >
-                  <div
-                    class="flex flex-col items-stretch"
-                  >
-                    <a
-                      style="display: inline;"
-                      tabindex="-1"
+                      class="flex flex-col items-stretch"
                     >
-                      <button
-                        class="flex flex-row link-container text-left pl-0"
-                        style="max-width: max-content; height: auto; display: inline;"
-                        tabindex="0"
+                      <a
+                        style="display: inline;"
+                        tabindex="-1"
                       >
-                        <p
-                          class="link undefined"
-                          style="display: inline;"
+                        <button
+                          class="flex flex-row link-container text-left pl-0"
+                          style="max-width: max-content; height: auto; display: inline;"
+                          tabindex="0"
                         >
-                          Request for Redetermination of Medicare Prescription Drug Denial
-                        </p>
-                        <p
-                          class="ml-1"
-                          style="display: inline;"
-                        >
-                          <img
-                            alt="right arrow Icon"
-                            class="inline"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </p>
-                      </button>
-                    </a>
-                    <p
-                      class="body-1"
+                          <p
+                            class="link undefined"
+                            style="display: inline;"
+                          >
+                            Request for Medicare Prescription Drug Coverage Determination
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: inline;"
+                          >
+                            <img
+                              alt="right arrow Icon"
+                              class="inline"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <p
+                        class="body-1"
+                      >
+                        You can request an exception for prescription drug coverage.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col items-stretch"
                     >
-                      If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).
-                    </p>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
+                      <a
+                        style="display: inline;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left pl-0"
+                          style="max-width: max-content; height: auto; display: inline;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: inline;"
+                          >
+                            Request for Redetermination of Medicare Prescription Drug Denial
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: inline;"
+                          >
+                            <img
+                              alt="right arrow Icon"
+                              class="inline"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <p
+                        class="body-1"
+                      >
+                        If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="flex flex-col  flex-grow page-section-63_33 items-stretch"
-        >
           <div
-            class="card-main large-section flex flex-row items-start app-body "
+            class="flex flex-col  flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="flex flex-col"
+              class="card-main large-section flex flex-row items-start app-body "
             >
-              <h2
-                class="title-2"
+              <div
+                class="flex flex-col"
               >
-                Pharmacy FAQ
-              </h2>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <section
-                class="flex flex-row items-start app-body"
-              >
-                <div
-                  class="flex flex-col flex-grow"
+                <h2
+                  class="title-2"
+                >
+                  Pharmacy FAQ
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <section
+                  class="flex flex-row items-start app-body"
                 >
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col flex-grow"
                   >
-                    <h2
-                      class="title-2"
-                    >
-                      Help with Prescription Drugs
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
                     <div
                       class="flex flex-col"
                     >
+                      <h2
+                        class="title-2"
+                      >
+                        Help with Prescription Drugs
+                      </h2>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              How can I find out which drugs my plan covers?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                How can I find out which drugs my plan covers?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
                           <div
-                            class="mr-2 flex-grow"
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
                         </div>
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
                       </div>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              How do I get a prior authorization?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                How do I get a prior authorization?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
                           <div
-                            class="mr-2 flex-grow"
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
                         </div>
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
                       </div>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              What is a specialty medication?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                What is a specialty medication?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
                           <div
-                            class="mr-2 flex-grow"
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
                         </div>
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
                       </div>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              How do I know if a drug is a specialty drug?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                How do I know if a drug is a specialty drug?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
                           <div
-                            class="mr-2 flex-grow"
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
                         </div>
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
                       </div>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              How can I save money on my prescriptions?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                How can I save money on my prescriptions?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
-                          <div
-                            class="mr-2 flex-grow"
-                          />
                         </div>
                       </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
                     </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
                   </div>
-                </div>
-              </section>
-              <section
-                class="flex flex-row items-start app-body"
-              >
-                <div
-                  class="flex flex-col flex-grow"
+                </section>
+                <section
+                  class="flex flex-row items-start app-body"
                 >
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col flex-grow"
                   >
-                    <h2
-                      class="title-2"
-                    >
-                      Help with Pharmacies & Mail Order
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
                     <div
                       class="flex flex-col"
                     >
+                      <h2
+                        class="title-2"
+                      >
+                        Help with Pharmacies & Mail Order
+                      </h2>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              Do I have to use a CVS pharmacy?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                Do I have to use a CVS pharmacy?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
                           <div
-                            class="mr-2 flex-grow"
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
                         </div>
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
                       </div>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              Why should I use a mail order pharmacy for any of my prescriptions?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                Why should I use a mail order pharmacy for any of my prescriptions?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
                           <div
-                            class="mr-2 flex-grow"
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                           />
                         </div>
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
                       </div>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
                       <div
-                        class="flex flex-col items-stretch"
+                        class="flex flex-col"
                       >
                         <div
-                          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
+                          class="flex flex-col items-stretch"
                         >
                           <div
-                            class="flex flex-row m-1 accordion-head"
+                            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2"
                           >
-                            <p
-                              class="mr-2 flex-grow"
+                            <div
+                              class="flex flex-row m-1 accordion-head"
                             >
-                              I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?
-                            </p>
-                            <img
-                              alt="Down Chevron"
-                              class="pl-2 w-6"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
+                              <p
+                                class="mr-2 flex-grow"
+                              >
+                                I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?
+                              </p>
+                              <img
+                                alt="Down Chevron"
+                                class="pl-2 w-6"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div
+                              class="mr-2 flex-grow"
                             />
                           </div>
-                          <div
-                            class="mr-2 flex-grow"
-                          />
                         </div>
                       </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
                     </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
                   </div>
-                </div>
-              </section>
+                </section>
+              </div>
             </div>
-          </div>
-          <div
-            class="card-main large-section flex flex-row items-start app-body "
-          >
             <div
-              class="flex flex-col"
+              class="card-main large-section flex flex-row items-start app-body "
             >
-              <h2
-                class="title-2"
+              <div
+                class="flex flex-col"
               >
-                Prescription Payment Options
-              </h2>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <section
-                class="flex flex-row items-start app-body"
-              >
-                <div
-                  class="flex flex-col flex-grow"
+                <h2
+                  class="title-2"
+                >
+                  Prescription Payment Options
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <section
+                  class="flex flex-row items-start app-body"
                 >
                   <div
-                    class="flex flex-col"
+                    class="flex flex-col flex-grow"
                   >
-                    <a
-                      style="display: flex;"
-                      tabindex="-1"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0"
-                        style="max-width: max-content; height: auto; display: flex;"
-                        tabindex="0"
-                      >
-                        <p
-                          class="link undefined"
-                          style="display: flex;"
-                        >
-                          Medicare Prescription Payment Plan Sign-up
-                        </p>
-                        <p
-                          class="ml-1"
-                          style="display: flex;"
-                        >
-                          <img
-                            alt=""
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </p>
-                      </button>
-                    </a>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
-                    />
-                    <span
-                      class="rich-text body-1 manage-image"
-                    >
-                      <span>
-                        Now you can pay for your prescription drugs over time with a monthly payment. You can learn more by reading the
-                         
-                      </span>
-                      <span
-                        class="link"
-                      >
-                        <a
-                          class="link"
-                          href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
-                          target="_blank"
-                        >
-                          fact sheet
-                        </a>
-                      </span>
-                      <span>
-                        .
-                      </span>
-                    </span>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
-                    />
-                    <span
-                      class="rich-text body-1 manage-image"
-                    >
-                      <span>
-                        If you had an urgent prescription filled that you paid for before we received and processed your enrollment in the Medicare Prescription Payment Plan, you may be able to
-                         
-                      </span>
-                      <span
-                        class="link"
-                      >
-                        <a
-                          class="link"
-                          target="_blank"
-                        >
-                          get a retroactive election
-                        </a>
-                      </span>
-                      <span>
-                         into the program.
-                      </span>
-                    </span>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
-                    />
-                    <span
-                      class="rich-text body-1 manage-image"
-                    >
-                      <span>
-                        Learn more about 
-                      </span>
-                      <span
-                        class="link"
-                      >
-                        <a
-                          class="link"
-                          href="https://www.bcbst-medicare.com/use-insurance/health-care-rights/medicare"
-                          target="_blank"
-                        >
-                          making a complaint
-                        </a>
-                      </span>
-                      <span>
-                        .
-                      </span>
-                    </span>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
-                    />
                     <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
-                    />
-                    <a
-                      href="https://www.ssa.gov/medicare/part-d-extra-help"
-                      style="display: flex;"
-                      tabindex="-1"
+                      class="flex flex-col"
                     >
-                      <button
-                        class="flex flex-row link-container pl-0"
-                        style="max-width: max-content; height: auto; display: flex;"
-                        tabindex="0"
+                      <a
+                        style="display: flex;"
+                        tabindex="-1"
                       >
-                        <p
-                          class="link undefined"
-                          style="display: flex;"
+                        <button
+                          class="flex flex-row link-container pl-0"
+                          style="max-width: max-content; height: auto; display: flex;"
+                          tabindex="0"
                         >
-                          Social Security Extra Help Program
-                        </p>
-                        <p
-                          class="ml-1"
-                          style="display: flex;"
+                          <p
+                            class="link undefined"
+                            style="display: flex;"
+                          >
+                            Medicare Prescription Payment Plan Sign-up
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: flex;"
+                          >
+                            <img
+                              alt=""
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <span
+                        class="rich-text body-1 manage-image"
+                      >
+                        <span>
+                          Now you can pay for your prescription drugs over time with a monthly payment. You can learn more by reading the
+                           
+                        </span>
+                        <span
+                          class="link"
                         >
-                          <img
-                            alt=""
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </p>
-                      </button>
-                    </a>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
-                    />
-                    <p
-                      class="body-1"
-                    >
-                      If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
-                    </p>
+                          <a
+                            class="link"
+                            href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
+                            target="_blank"
+                          >
+                            fact sheet
+                          </a>
+                        </span>
+                        <span>
+                          .
+                        </span>
+                      </span>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <span
+                        class="rich-text body-1 manage-image"
+                      >
+                        <span>
+                          If you had an urgent prescription filled that you paid for before we received and processed your enrollment in the Medicare Prescription Payment Plan, you may be able to
+                           
+                        </span>
+                        <span
+                          class="link"
+                        >
+                          <a
+                            class="link"
+                            target="_blank"
+                          >
+                            get a retroactive election
+                          </a>
+                        </span>
+                        <span>
+                           into the program.
+                        </span>
+                      </span>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <span
+                        class="rich-text body-1 manage-image"
+                      >
+                        <span>
+                          Learn more about 
+                        </span>
+                        <span
+                          class="link"
+                        >
+                          <a
+                            class="link"
+                            href="https://www.bcbst-medicare.com/use-insurance/health-care-rights/medicare"
+                            target="_blank"
+                          >
+                            making a complaint
+                          </a>
+                        </span>
+                        <span>
+                          .
+                        </span>
+                      </span>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+                      />
+                      <a
+                        href="https://www.ssa.gov/medicare/part-d-extra-help"
+                        style="display: flex;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container pl-0"
+                          style="max-width: max-content; height: auto; display: flex;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: flex;"
+                          >
+                            Social Security Extra Help Program
+                          </p>
+                          <p
+                            class="ml-1"
+                            style="display: flex;"
+                          >
+                            <img
+                              alt=""
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <p
+                        class="body-1"
+                      >
+                        If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </section>
+                </section>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  </main>
-</div>
+        </section>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

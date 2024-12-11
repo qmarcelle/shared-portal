@@ -27,13 +27,18 @@ import { PharmacySpendingSummary } from './components/PharmacySpendingSummary';
 import { PrescriptionPaymentsOptions } from './components/PrescriptionPaymentOptions';
 import { ShopOverCounterItemsCard } from './components/ShopOverCounterItems';
 
-const Pharmacy = () => {
+export type PharmacyProps = {
+  data: string;
+};
+
+const Pharmacy = ({ data }: PharmacyProps) => {
   const router = useRouter();
   //To Do Remove Below EsLint once integrated with API
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const redirectToPharmacyClaims = (claimId: string) => {
     router.push('/pharmacy/pharmacyClaims');
   };
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -175,7 +180,7 @@ const Pharmacy = () => {
                       linkTitle: 'View Covered Drug List (Formulary)',
                       linkDescription:
                         'Download a list of all the drugs your plan covers.',
-                      linkURL: 'http://www.bcbst.com/docs/pharmacy/go-510.pdf',
+                      linkURL: `/assets/formularies/${data}/Drug-Formulary-List.pdf`,
                       linkIcon: (
                         <Image
                           src={downloadIcon}
@@ -202,6 +207,7 @@ const Pharmacy = () => {
                       linkTitle: 'Prescription Mail Service Order Form',
                       linkDescription:
                         'Mail order is easy and convenient. You can have your prescriptions delivered right to your home.',
+                      linkURL: '/assets/cvs-mail-order-form.pdf',
                       linkIcon: (
                         <Image
                           src={downloadIcon}
