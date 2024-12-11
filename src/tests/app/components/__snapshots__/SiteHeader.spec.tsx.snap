@@ -1,5 +1,884 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan menu link correctly Enroll eligibility members 1`] = `
+<body
+  style=""
+>
+  <div>
+    <div>
+      <nav
+        class="primary-color sm:pt-[74px] lg:pt-[134px]"
+      >
+        <div
+          class="h-18 w-full fixed top-0 left-0 right-0 flex justify-between border-b bg-white z-50"
+        >
+          <div
+            class="flex items-center"
+          >
+            <div
+              class="flex lg:hidden h-18 w-18 items-center justify-center border-r"
+            >
+              <button
+                aria-controls="menu-bar"
+                aria-expanded="false"
+                class="p-0 justify-center"
+                data-collapse-toggle="menu-bar"
+                type="button"
+              >
+                <span
+                  class="sr-only"
+                >
+                  Close main menu
+                </span>
+                <img
+                  alt="Close icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="18"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="18"
+                />
+              </button>
+            </div>
+            <a
+              class="ml-5 lg:px-0"
+              href="/dashboard"
+            >
+              <img
+                alt="BCBST Logo"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
+                style="color: transparent;"
+                width="174"
+              />
+            </a>
+            <div
+              class="mx-4 w-[268px] hidden md:block"
+            >
+              <div
+                class="rich-dropdown"
+              >
+                <div
+                  class="flex flex-col switch-filter default"
+                  tabindex="1"
+                >
+                  <div>
+                    <div
+                      class="flex flex-row px-4 py-2 items-center justify-between"
+                    >
+                      <div
+                        class="flex flex-col max-w-[90%]"
+                      >
+                        <p
+                          class="body-2 app-base-font-color"
+                        >
+                          View Plan:
+                        </p>
+                        <p
+                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        >
+                          BlueCross BlueShield of Tennessee
+                        </p>
+                      </div>
+                      <img
+                        alt="switch"
+                        class="size-5 head-icon m-[4px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex items-center"
+          >
+            <a
+              class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
+              href="inbox"
+            >
+              <img
+                alt="Inbox"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                class="hidden lg:inline px-2 pt-2"
+              >
+                Inbox
+              </span>
+            </a>
+            <a
+              class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
+              href="/memberIDCard"
+            >
+              <img
+                alt="ID Card"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                class="hidden lg:inline px-2 pt-2"
+              >
+                ID Card
+              </span>
+            </a>
+            <div
+              aria-label="Profile Card"
+              class="flex h-full secondary-bg-color2 text-white px-4 py-1 hover:bg-info focus:bg-info focus:mr-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:h-[90%] "
+              tabindex="0"
+            >
+              <img
+                alt="Profile Icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="hidden lg:block p-2"
+              >
+                <span
+                  class="text-xs"
+                >
+                  My Profile
+                </span>
+                <p />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
+        />
+        <div
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          data-accordion="collapse"
+          id="menu-bar"
+        >
+          <div
+            class="flex font-bold"
+          >
+            <div
+              class="flex flex-col w-full lg:flex-row mt-1 border-b border-r lg:border-r-0"
+            >
+              <div
+                class="flex px-5 lg:px-1"
+                id="accordion-collapse-heading-1"
+              >
+                <div
+                  class="w-full"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-1"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group  "
+                    data-accordion-target="#accordion-collapse-body-1"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      Find Care & Costs
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:px-1"
+                id="accordion-collapse-heading-2"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-2"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group border-b-4 rounded-bl-none rounded-br-none border-primary active"
+                    data-accordion-target="#accordion-collapse-body-2"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      My Plan
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:px-1"
+                id="accordion-collapse-heading-3"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-3"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group  "
+                    data-accordion-target="#accordion-collapse-body-3"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      My Health
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:px-1"
+                id="accordion-collapse-heading-4"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-4"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group  "
+                    data-accordion-target="#accordion-collapse-body-4"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      Pharmacy
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex px-5 lg:px-1"
+                id="accordion-collapse-heading-5"
+              >
+                <div
+                  class="w-full border-t lg:border-0"
+                >
+                  <button
+                    aria-controls="accordion-collapse-body-5"
+                    aria-expanded="false"
+                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group  "
+                    data-accordion-target="#accordion-collapse-body-5"
+                    type="button"
+                  >
+                    <span
+                      class="flex lg:pr-2 primary-color"
+                    >
+                      Support
+                    </span>
+                    <img
+                      alt="Chevron icon"
+                      class="block lg:hidden ml-auto"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <img
+                      alt="Chevron icon"
+                      aria-expanded="false"
+                      class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
+                      data-accordion-icon="true"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+              >
+                <div
+                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                >
+                  <div
+                    class="flex flex-row align-top"
+                  >
+                    <div
+                      class="flex flex-row rounded-[4px] m-4 box-border items-end focus:outline-none focus:ring-2 focus:ring-primary-color"
+                      tabindex="0"
+                    >
+                      <a>
+                        <p
+                          class="body-1 link-row-head"
+                        >
+                          Search
+                        </p>
+                      </a>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <img
+                        alt="Search"
+                        class="icon items-end ml-1"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0"
+          >
+            <div />
+            <div>
+              <div
+                aria-labelledby="accordion-collapse-heading-2"
+                class="block border-b grid p-5 grid-cols-4 gap-1 font-bold"
+                id="accordion-collapse-body-2"
+              >
+                <button
+                  class="lg:hidden items-center p-0 mb-4"
+                  data-accordion-target="#accordion-collapse-body-2"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-4 h-4 rotate-270 shrink-0 primary-color"
+                    data-accordion-icon="true"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 5 5 1 1 5"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                    />
+                  </svg>
+                  <span
+                    class="primary-color underline pl-1"
+                  >
+                    Back
+                  </span>
+                </button>
+                <div
+                  class="pb-5 border-b col-start-1 col-end-5 ..."
+                >
+                  <a
+                    class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
+                    href="/myPlan"
+                  >
+                    <span
+                      class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
+                    >
+                      My Plan
+                    </span>
+                    <img
+                      alt="Parent Page Arrow"
+                      data-nimg="1"
+                      decoding="async"
+                      height="32"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+                      style="color: transparent;"
+                      width="32"
+                    />
+                  </a>
+                </div>
+                <div
+                  class="col-start-1 col-end-5 lg:col-start-1 lg:col-end-2 py-4 border-b lg:border-0"
+                >
+                  <div
+                    class="lg:grid-rows-4"
+                  >
+                    <h1
+                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    >
+                      Plan Details
+                    </h1>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Benefits & Coverage
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Plan Documents
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Services Used
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+                >
+                  <div
+                    class="lg:grid-rows-4"
+                  >
+                    <h1
+                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    >
+                      Claims
+                    </h1>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          View Claims
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Prior Authorizations
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Submit a Claim
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
+                >
+                  <div
+                    class="lg:grid-rows-4"
+                  >
+                    <h1
+                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    >
+                      Spending
+                    </h1>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Balances
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Spending Accounts (HSA, FSA)
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Spending Summary
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4"
+                >
+                  <div
+                    class="lg:grid-rows-4"
+                  >
+                    <h1
+                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    >
+                      Manage My Plan
+                    </h1>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/balances"
+                      target="_blank"
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        View or Pay Premium
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do"
+                      target="_blank"
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Enroll in a Health Plan
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Manage My Policy
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Report Other Health Insurance
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+            <div />
+            <div />
+          </div>
+        </div>
+      </nav>
+      <div
+        class="mx-2 py-2 block md:hidden"
+      >
+        <div
+          class="rich-dropdown"
+        >
+          <div
+            class="flex flex-col switch-filter default"
+            tabindex="1"
+          >
+            <div>
+              <div
+                class="flex flex-row px-4 py-2 items-center justify-between"
+              >
+                <div
+                  class="flex flex-col max-w-[90%]"
+                >
+                  <p
+                    class="body-2 app-base-font-color"
+                  >
+                    View Plan:
+                  </p>
+                  <p
+                    class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    BlueCross BlueShield of Tennessee
+                  </p>
+                </div>
+                <img
+                  alt="switch"
+                  class="size-5 head-icon m-[4px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`SiteHeader And Navigation Menu should navigate the menu links correctly 1`] = `
 <body
   style=""
@@ -738,7 +1617,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
 </body>
 `;
 
-exports[`SiteHeader And Navigation Menu should navigate the menu links correctly 2`] = `
+exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - Find Care menu link for Blue Care 1`] = `
 <body
   style=""
 >

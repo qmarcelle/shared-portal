@@ -1,10 +1,10 @@
 'use client';
+import { VirtualMentalHealthCareSection } from '@/app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 
 const healthProgramsResources = () => {
   return (

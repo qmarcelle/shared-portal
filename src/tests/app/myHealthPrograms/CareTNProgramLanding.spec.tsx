@@ -1,4 +1,4 @@
-import CareTNProgramLanding from '@/app/myHealthPrograms/components/CareTNProgramLanding';
+import CareTNProgramLanding from '@/app/myHealth/healthProgramsResources/myHealthPrograms/components/CareTNProgramLanding';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

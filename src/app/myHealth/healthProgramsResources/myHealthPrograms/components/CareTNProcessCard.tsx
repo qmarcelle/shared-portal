@@ -7,11 +7,11 @@ import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import qrCodeFPO from '../../../../public/assets/fpo_qr_code.jpg';
-import numberStepOne from '../../../../public/assets/number_step_one.svg';
-import numberStepThree from '../../../../public/assets/number_step_three.svg';
-import numberStepTwo from '../../../../public/assets/number_step_two.svg';
-import wellframeLogo from '../../../../public/assets/wellframe.svg';
+import qrCodeFPO from '../../../../../../public/assets/fpo_qr_code.jpg';
+import numberStepOne from '../../../../../../public/assets/number_step_one.svg';
+import numberStepThree from '../../../../../../public/assets/number_step_three.svg';
+import numberStepTwo from '../../../../../../public/assets/number_step_two.svg';
+import wellframeLogo from '../../../../../../public/assets/wellframe.svg';
 
 export type CareTNProcessCardProps = {
   accessCodeData: string;

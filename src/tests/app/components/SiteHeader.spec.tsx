@@ -13,7 +13,7 @@ jest.mock('next/navigation', () => ({
   },
 }));
 
-const vRules: VisibilityRules = {};
+let vRules: VisibilityRules = {};
 function setVisibilityRules(vRules: VisibilityRules) {
   vRules.futureEffective = false;
   vRules.fsaOnly = false;
@@ -32,6 +32,10 @@ const renderUI = (vRules: VisibilityRules) => {
 };
 
 describe('SiteHeader And Navigation Menu', () => {
+  beforeEach(() => {
+    vRules = {};
+  });
+
   it('should render the UI correctly', async () => {
     const component = renderUI(vRules);
     expect(screen.getByText('My Profile')).toBeVisible();
@@ -50,8 +54,7 @@ describe('SiteHeader And Navigation Menu', () => {
 
   it('should navigate the menu links correctly', async () => {
     const baseUrl = window.location.origin;
-    vRules.blueCare = false;
-    setVisibilityRules(vRules);
+
     const component = renderUI(vRules);
 
     /**** Nav Links For Find Care & Cost  */
@@ -267,7 +270,7 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(component.baseElement).toMatchSnapshot();
   });
 
-  it('should navigate the menu links correctly', async () => {
+  it('should navigate to Find Care and Cost - Find Care menu link for Blue Care', async () => {
     vRules.blueCare = true;
     setVisibilityRules(vRules);
     const component = renderUI(vRules);
@@ -277,9 +280,25 @@ describe('SiteHeader And Navigation Menu', () => {
     fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
     expect(screen.getByText('Find a Provider')).toBeVisible();
     expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
-
     expect(screen.getByText('Mental Health Options')).toBeVisible();
     expect(screen.getByText('Price Medical Care')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should navigate my Plan - Manage my Plan menu link correctly Enroll eligibility members', async () => {
+    vRules.commercial = true;
+    vRules.subscriber = true;
+    vRules.enRollEligible = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+
+    /**** Nav Links For My Plan  */
+
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(screen.getByText('View or Pay Premium')).toBeVisible();
+    expect(screen.getByText('Enroll in a Health Plan')).toBeInTheDocument();
+    expect(screen.getByText('Manage My Policy')).toBeVisible();
+    expect(screen.getByText('Report Other Health Insurance')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

@@ -23,12 +23,14 @@ export async function getLoggedInMember(
     );
     member.subscriberId = loggedUserInfo.subscriberID;
     member.noOfDependents = loggedUserInfo.members.length;
+    member.groupId = loggedUserInfo.groupData.groupID;
     const loggedMember = loggedUserInfo.members.find(
       (x) => x.memRelation == 'M',
     );
     if (loggedMember) {
       member.firstName = loggedMember?.firstName ?? '';
       member.lastName = loggedMember?.lastName ?? '';
+      member.dateOfBirth = loggedMember?.birthDate ?? '';
       member.suffix = loggedMember?.memberSuffix ?? 0;
       member.memRelation = loggedMember?.memRelation ?? '';
       const mailAddressType = loggedMember?.mailAddressType ?? '';

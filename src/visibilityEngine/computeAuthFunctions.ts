@@ -29,4 +29,12 @@ export function computeAuthFunctions(
   rules.bluePerksElig = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'BLUEPRKS',
   )?.available;
+
+  rules.enRollEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'ENROLLELIGIBLE',
+  )?.available;
+
+  rules.enableBenefitChange = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'ENABLE_BENEFIT_CHANGE_TAB',
+  )?.available;
 }

@@ -3,30 +3,51 @@ import { Column } from '@/components/foundation/Column';
 import {
   communicationSettingsIcon,
   securityIcon,
+  sharePermissionsIcon,
 } from '@/components/foundation/Icons';
+import { isCommunicationSettingsEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 
-export const ProfileSettingsSection = () => {
-  const profileSettingDetails = [
-    {
-      label: 'Communication Settings',
-      description: 'Update your alert preferences.',
-      iconName: communicationSettingsIcon,
-      link: '/communicationSettings',
-    },
-    {
-      label: 'Security Settings',
-      description: 'Change your password and edit your account security.',
-      iconName: securityIcon,
-      link: '/security',
-    },
-    // US-34084 Hide Sharing & Permissions page and component
-    // {
-    //   label: 'Sharing & Permissions',
-    //   description: 'View or edit access to plan information.',
-    //   iconName: sharePermissionsIcon,
-    //   link: '/sharingPermissions',
-    // },
-  ];
+export type ProfileSettingsSectionProps = {
+  visibilityRules?: VisibilityRules;
+};
+
+export const ProfileSettingsSection = ({
+  visibilityRules,
+}: ProfileSettingsSectionProps) => {
+  let profileSettingDetails;
+  if (isCommunicationSettingsEligible(visibilityRules)) {
+    profileSettingDetails = [
+      {
+        label: 'Communication Settings',
+        description: 'Update your alert preferences.',
+        iconName: communicationSettingsIcon,
+        link: '/communicationSettings',
+      },
+      {
+        label: 'Security Settings',
+        description: 'Change your password and edit your account security.',
+        iconName: securityIcon,
+        link: '/security',
+      },
+
+      {
+        label: 'Sharing & Permissions',
+        description: 'View or edit access to plan information.',
+        iconName: sharePermissionsIcon,
+        link: '/sharingPermissions',
+      },
+    ];
+  } else {
+    profileSettingDetails = [
+      {
+        label: 'Sharing & Permissions',
+        description: 'View or edit access to plan information.',
+        iconName: sharePermissionsIcon,
+        link: '/sharingPermissions',
+      },
+    ];
+  }
 
   return (
     <Column>

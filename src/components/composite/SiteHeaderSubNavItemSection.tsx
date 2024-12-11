@@ -86,7 +86,7 @@ export const SubNavItemSection = ({
               )}
               {tempChildPages.map(
                 (item, index) =>
-                  !item.showOnMenu(visibilityRules) &&
+                  item.showOnMenu(visibilityRules) &&
                   (item.external ? (
                     <Link
                       key={index}
