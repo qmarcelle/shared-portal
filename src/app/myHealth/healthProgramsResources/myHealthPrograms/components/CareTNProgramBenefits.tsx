@@ -2,9 +2,9 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import calendarConfirmSVG from '../../../../public/assets/calendar_confirm.svg';
-import personalizedContentSVG from '../../../../public/assets/desktop_video.svg';
-import primaryCareLogo from '../../../../public/assets/primary_care_management.svg';
+import calendarConfirmSVG from '../../../../../../public/assets/calendar_confirm.svg';
+import personalizedContentSVG from '../../../../../../public/assets/desktop_video.svg';
+import primaryCareLogo from '../../../../../../public/assets/primary_care_management.svg';
 
 const CareTNProgramBenefits = () => {
   return (

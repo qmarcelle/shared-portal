@@ -1,6 +1,6 @@
-import { HealthProgramsResources } from '@/app/myHealthPrograms/components/HealthProgramsResources';
-import { HealthProgramType } from '@/app/myHealthPrograms/models/health_program_type';
-import { healthProgramsandResourcesDetails } from '@/app/myHealthPrograms/models/health_programs_resources';
+import { HealthProgramsResources } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/components/HealthProgramsResources';
+import { HealthProgramType } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
+import { healthProgramsandResourcesDetails } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/health_programs_resources';
 import { render, screen } from '@testing-library/react';
 
 const renderUI = () => {

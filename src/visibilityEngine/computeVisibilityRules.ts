@@ -109,6 +109,10 @@ export function isBlueCareEligible(rules: VisibilityRules | undefined) {
   return activeAndHealthPlanMember(rules) && rules?.blueCare;
 }
 
+export function isBlueCareNotEligible(rules: VisibilityRules | undefined) {
+  return !isBlueCareEligible(rules);
+}
+
 export function isPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
@@ -119,4 +123,28 @@ export function isBlue365FitnessYourWayEligible(
   rules: VisibilityRules | undefined,
 ) {
   return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
+}
+
+export function isCommunicationSettingsEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return !rules?.terminated && !rules?.futureEffective;
+}
+
+export function isEnrollEligible(rules: VisibilityRules | undefined) {
+  return (
+    rules?.commercial &&
+    activeAndHealthPlanMember(rules) &&
+    rules?.subscriber &&
+    rules?.enRollEligible
+  );
+}
+
+export function isManageMyPolicyEligible(rules: VisibilityRules | undefined) {
+  return (
+    rules?.enableBenefitChange &&
+    rules?.subscriber &&
+    !rules?.wellnessOnly &&
+    !rules?.futureEffective
+  );
 }

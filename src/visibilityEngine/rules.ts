@@ -32,6 +32,8 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'chipRewardsEligible',
   'blueHealthRewardsEligible',
   'bluePerksElig',
+  'enRollEligible',
+  'enableBenefitChange',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

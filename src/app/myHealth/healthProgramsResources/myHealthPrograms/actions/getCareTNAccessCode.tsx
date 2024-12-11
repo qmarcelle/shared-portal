@@ -1,7 +1,7 @@
 import { getMemberDetails } from '@/actions/memberDetails';
-import { AccessCodeType } from '@/app/myHealthPrograms/models/access_code_details';
 
 import { logger } from '@/utils/logger';
+import { AccessCodeType } from '../models/access_code_details';
 import { AccessCodeResourcesDetails } from '../models/access_code_resources';
 
 export async function getAccessCodeDetails(): Promise<string> {
