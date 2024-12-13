@@ -30,6 +30,18 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'BLUEPRKS',
   )?.available;
 
+  rules.individualSBCEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'INDIVIDUAL_SBC_ELIGIBLE',
+  )?.available;
+
+  rules.medicareAdvantageGroupIndicator = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'MedicareAdvantageGroupIndicator',
+  )?.available;
+
+  rules.isCondensedExperience = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'CONDENSED_EXPERIENCE',
+  )?.available;
+
   rules.enRollEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'ENROLLELIGIBLE',
   )?.available;

@@ -32,6 +32,9 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'chipRewardsEligible',
   'blueHealthRewardsEligible',
   'bluePerksElig',
+  'individualSBCEligible',
+  'medicareAdvantageGroupIndicator',
+  'isCondensedExperience',
   'enRollEligible',
   'enableBenefitChange',
 ] as const;

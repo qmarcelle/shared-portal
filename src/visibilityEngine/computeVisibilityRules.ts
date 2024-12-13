@@ -21,6 +21,7 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
+let groupID: string;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
@@ -33,6 +34,7 @@ export function computeVisibilityRules(
   rules.commercial = COMMERCIAL_LOB.includes(loggedUserInfo.lob);
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
+  groupID = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -55,7 +57,6 @@ export function computeVisibilityRules(
   }
 
   rules['employerProvidedBenefits'] = false;
-  rules['benefitBooklet'] = false;
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
   rules['amplifyHealth'] = false;
@@ -123,6 +124,23 @@ export function isBlue365FitnessYourWayEligible(
   rules: VisibilityRules | undefined,
 ) {
   return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
+}
+
+export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
+  return (
+    !rules?.wellnessOnly &&
+    (rules?.individualSBCEligible ||
+      rules?.commercial ||
+      rules?.medicareAdvantageGroupIndicator) &&
+    rules.subscriber &&
+    hasCondensesedExperienceProfiler(rules) != 'Quantum'
+  );
+}
+
+function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
+  if (rules?.isCondensedExperience && groupID == '130430')
+    return 'FirstHorizon';
+  if (rules?.isCondensedExperience) return 'Quantum';
 }
 
 export function isCommunicationSettingsEligible(
