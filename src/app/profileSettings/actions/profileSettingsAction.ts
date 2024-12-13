@@ -1,6 +1,6 @@
 'use server';
 
-import { getMemberDetails } from '@/actions/memberDetails';
+import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { esApi } from '@/utils/api/esApi';
 import { portalSvcsApi } from '@/utils/api/portalApi';
@@ -26,11 +26,12 @@ export async function invokeEmailAction(): Promise<string> {
 
 export async function invokePhoneNumberAction(): Promise<string> {
   try {
-    const memberDetails = await getMemberDetails();
+    const session = await auth();
+    const memberDetails = await getLoggedInMember(session);
     const effectiveDetials = new Date().toLocaleDateString(); // current date
 
     const phoneNumberResponse = await portalSvcsApi.get(
-      `/IDCardService/OperationHours?groupId=${memberDetails.groupID}&subscriberCk=${memberDetails.subscriber_ck}&effectiveDetials=${effectiveDetials}`,
+      `/IDCardService/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&effectiveDetials=${effectiveDetials}`,
     );
     if (phoneNumberResponse?.data.memberServicePhoneNumber != null) {
       return phoneNumberResponse?.data.memberServicePhoneNumber;

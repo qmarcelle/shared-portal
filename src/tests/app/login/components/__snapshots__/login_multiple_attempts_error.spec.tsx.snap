@@ -43,7 +43,7 @@ exports[`Multiple Attempts for login error should render all the required compon
             <p
               class="body-1 text-center"
             >
-              You have attempted to log in too many times. Please wait 15 minutes to try again.
+              You have attempted to log in too many times. Please wait 10 minutes to try again.
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -142,7 +142,7 @@ exports[`Multiple Attempts for login error should render all the required compon
           <p
             class="body-1 text-center"
           >
-            You have attempted to log in too many times. Please wait 15 minutes to try again.
+            You have attempted to log in too many times. Please wait 10 minutes to try again.
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"

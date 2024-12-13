@@ -32,51 +32,15 @@ exports[`planDocuments should render the UI correctly 1`] = `
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
+            <p
+              class="body-1"
+            >
+              To request a printed version of any of these materials, please contact us.
+            </p>
           </section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
-          <a
-            href=""
-          >
-            <div
-              class="card-elevated small-section"
-            >
-              <div
-                class="flex flex-row"
-              >
-                <img
-                  alt="link"
-                  class="size-10"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <div
-                  class="flex flex-col ml-4"
-                >
-                  <div
-                    class="flex flex-row link-row-head"
-                  >
-                    Request Printed Material
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                  </div>
-                  <p
-                    class="body-1 body-1"
-                  >
-                    Ask us to mail your plan documents to you.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </a>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
@@ -112,51 +76,15 @@ exports[`planDocuments should render the UI correctly 1`] = `
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
+          <p
+            class="body-1"
+          >
+            To request a printed version of any of these materials, please contact us.
+          </p>
         </section>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
-        <a
-          href=""
-        >
-          <div
-            class="card-elevated small-section"
-          >
-            <div
-              class="flex flex-row"
-            >
-              <img
-                alt="link"
-                class="size-10"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <div
-                class="flex flex-col ml-4"
-              >
-                <div
-                  class="flex flex-row link-row-head"
-                >
-                  Request Printed Material
-                  <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                  />
-                </div>
-                <p
-                  class="body-1 body-1"
-                >
-                  Ask us to mail your plan documents to you.
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
@@ -249,16 +177,57 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <section>
             <p
               class="body-1"
             >
               To request a printed version of any of these materials, please contact us.
             </p>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            href=""
+          >
+            <div
+              class="card-elevated small-section"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="link"
+                  class="size-10"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="flex flex-col ml-4"
+                >
+                  <div
+                    class="flex flex-row link-row-head"
+                  >
+                    Request Printed Material
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Ask us to mail your plan documents to you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <section>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
@@ -426,16 +395,57 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
-        </section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <section>
           <p
             class="body-1"
           >
             To request a printed version of any of these materials, please contact us.
           </p>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          href=""
+        >
+          <div
+            class="card-elevated small-section"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="link"
+                class="size-10"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="flex flex-col ml-4"
+              >
+                <div
+                  class="flex flex-row link-row-head"
+                >
+                  Request Printed Material
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                </div>
+                <p
+                  class="body-1 body-1"
+                >
+                  Ask us to mail your plan documents to you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
@@ -660,16 +670,57 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <section>
             <p
               class="body-1"
             >
               To request a printed version of any of these materials, please contact us.
             </p>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            href=""
+          >
+            <div
+              class="card-elevated small-section"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="link"
+                  class="size-10"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="flex flex-col ml-4"
+                >
+                  <div
+                    class="flex flex-row link-row-head"
+                  >
+                    Request Printed Material
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Ask us to mail your plan documents to you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <section>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
@@ -862,16 +913,57 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
-        </section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <section>
           <p
             class="body-1"
           >
             To request a printed version of any of these materials, please contact us.
           </p>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          href=""
+        >
+          <div
+            class="card-elevated small-section"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="link"
+                class="size-10"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="flex flex-col ml-4"
+              >
+                <div
+                  class="flex flex-row link-row-head"
+                >
+                  Request Printed Material
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                </div>
+                <p
+                  class="body-1 body-1"
+                >
+                  Ask us to mail your plan documents to you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />

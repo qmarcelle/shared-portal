@@ -1,4 +1,4 @@
-import MyHealthProgramsPage from '@/app/myHealthPrograms/page';
+import MyHealthProgramsPage from '@/app/myHealth/healthProgramsResources/myHealthPrograms/page';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { render, screen, waitFor } from '@testing-library/react';
 

@@ -119,6 +119,7 @@ export const SiteHeaderSubNavSection = ({
           qt={qt}
           shortLinks={shortLinks}
           childPages={childPages}
+          visibilityRules={visibilityRules}
         />
       </div>
       <div className="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4">
@@ -128,6 +129,7 @@ export const SiteHeaderSubNavSection = ({
           qt={qt}
           shortLinks={shortLinks}
           childPages={childPages}
+          visibilityRules={visibilityRules}
         />
       </div>
     </div>

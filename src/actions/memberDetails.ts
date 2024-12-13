@@ -7,7 +7,7 @@ import { Session } from 'next-auth';
 import { MemberData, getLoggedInUserInfo } from './loggedUserInfo';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getMemberDetails(): Promise<any> {
+export async function getMemberDetails() {
   //need to implement member service API call
   return memberMockResponse;
 }
@@ -23,12 +23,14 @@ export async function getLoggedInMember(
     );
     member.subscriberId = loggedUserInfo.subscriberID;
     member.noOfDependents = loggedUserInfo.members.length;
+    member.groupId = loggedUserInfo.groupData.groupID;
     const loggedMember = loggedUserInfo.members.find(
       (x) => x.memRelation == 'M',
     );
     if (loggedMember) {
       member.firstName = loggedMember?.firstName ?? '';
       member.lastName = loggedMember?.lastName ?? '';
+      member.dateOfBirth = loggedMember?.birthDate ?? '';
       member.suffix = loggedMember?.memberSuffix ?? 0;
       member.memRelation = loggedMember?.memRelation ?? '';
       const mailAddressType = loggedMember?.mailAddressType ?? '';
