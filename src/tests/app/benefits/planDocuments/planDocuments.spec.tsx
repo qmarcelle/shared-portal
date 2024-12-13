@@ -27,7 +27,12 @@ describe('planDocuments', () => {
   it('should render the UI correctly', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce({
-      user: { id: 'Testuser0123', vRules: { benefitBooklet: false } },
+      user: {
+        id: 'Testuser0123',
+        vRules: {
+          wellnessOnly: true,
+        },
+      },
     });
     mockedAxios.get.mockResolvedValue({
       data: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
@@ -40,17 +45,23 @@ describe('planDocuments', () => {
     expect(text).toContain(
       'We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.',
     );
-    expect(screen.getByText('Request Printed Material')).toBeVisible();
-    expect(
-      screen.getByText('Ask us to mail your plan documents to you.'),
-    ).toBeVisible();
+    //expect(screen.getByText('Request Printed Material')).toBeVisible();
+    //expect(screen.getByText('Ask us to mail your plan documents to you.'),).toBeVisible();
     expect(component).toMatchSnapshot();
   });
 
   it('should render the UI correctly with iframe', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce({
-      user: { id: 'Testuser0123', vRules: { benefitBooklet: true } },
+      user: {
+        id: 'Testuser0123',
+        vRules: {
+          wellnessOnly: false,
+          individualSBCEligible: true,
+          subscriber: true,
+          isCondensedExperience: false,
+        },
+      },
     });
     mockedAxios.get.mockResolvedValue({
       data: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
@@ -62,6 +73,10 @@ describe('planDocuments', () => {
       screen.getByText(
         'To request a printed version of any of these materials, please contact us.',
       ),
+    ).toBeVisible();
+    expect(screen.getByText('Request Printed Material')).toBeVisible();
+    expect(
+      screen.getByText('Ask us to mail your plan documents to you.'),
     ).toBeVisible();
     expect(mockedAxios.get).toHaveBeenCalledWith(
       'https://anwas31.bcbst.com:13130/secure/restricted/apps/ElectronicEOCWeb/membereoclandingpage.do',
@@ -77,7 +92,15 @@ describe('planDocuments', () => {
   it('should render the UI correctly with iframe error', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce({
-      user: { id: 'Testuser0123', vRules: { benefitBooklet: true } },
+      user: {
+        id: 'Testuser0123',
+        vRules: {
+          wellnessOnly: false,
+          individualSBCEligible: true,
+          subscriber: true,
+          isCondensedExperience: false,
+        },
+      },
     });
     mockedAxios.get.mockResolvedValue({
       data: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
