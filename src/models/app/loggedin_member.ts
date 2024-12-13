@@ -12,4 +12,6 @@ export interface LoggedInMember {
   noOfDependents: number;
   contact: Address;
   homeAddress: Address;
+  dateOfBirth: string;
+  groupId: string;
 }

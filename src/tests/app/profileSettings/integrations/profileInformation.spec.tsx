@@ -1,5 +1,5 @@
-import { getMemberDetails } from '@/actions/memberDetails';
 import ProfileSettingsPage from '@/app/profileSettings/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
@@ -15,8 +15,9 @@ jest.mock('src/auth', () => ({
       user: {
         currUsr: {
           plan: {
-            memCk: '502622001',
-            sbsbCk: '502622000',
+            grpId: '100000',
+            sbsbCk: '91722400',
+            memCk: '91722407',
           },
         },
       },
@@ -25,6 +26,9 @@ jest.mock('src/auth', () => ({
 }));
 
 describe('Profile Information API Integration', () => {
+  beforeEach(() => {
+    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+  });
   test('Profile Information Email API integration  success scenario', async () => {
     mockedAxios.get.mockResolvedValueOnce({
       data: {
@@ -115,7 +119,7 @@ describe('Profile Information API Integration', () => {
     setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberContactPreference?memberKey=502622001&subscriberKey=502622000&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true',
+        '/memberContactPreference?memberKey=91722407&subscriberKey=91722400&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true',
       );
     });
   });
@@ -129,14 +133,13 @@ describe('Profile Information API Integration', () => {
 
     await waitFor(() => {
       const response = expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberContactPreference?memberKey=502622001&subscriberKey=502622000&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true',
+        '/memberContactPreference?memberKey=91722407&subscriberKey=91722400&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true',
       );
       expect(response).toBeNull;
     });
   });
 
   test('Profile Information Phone number API integration success scenario', async () => {
-    const memberDetails = await getMemberDetails();
     const effectiveDetials = new Date().toLocaleDateString(); // current date
 
     mockedAxios.get.mockResolvedValueOnce({
@@ -173,13 +176,12 @@ describe('Profile Information API Integration', () => {
     setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/OperationHours?groupId=${memberDetails.groupID}&subscriberCk=${memberDetails.subscriber_ck}&effectiveDetials=${effectiveDetials}`,
+        `/IDCardService/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
       );
     });
   });
 
   test('Profile Information Phone number API integration null scenario', async () => {
-    const memberDetails = await getMemberDetails();
     const effectiveDetials = new Date().toLocaleDateString(); // current date
 
     mockedAxios.get.mockResolvedValueOnce({
@@ -190,7 +192,7 @@ describe('Profile Information API Integration', () => {
 
     await waitFor(() => {
       const response = expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/OperationHours?groupId=${memberDetails.groupID}&subscriberCk=${memberDetails.subscriber_ck}&effectiveDetials=${effectiveDetials}`,
+        `/IDCardService/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
       );
       expect(response).toBeNull;
     });

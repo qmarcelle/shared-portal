@@ -23,7 +23,7 @@ const ProfileSettings = ({ data }: ProfileSettingsProps) => {
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <ProfileSettingsSection />
+            <ProfileSettingsSection visibilityRules={data.visibilityRules} />
           </Column>
         </section>
       </Column>

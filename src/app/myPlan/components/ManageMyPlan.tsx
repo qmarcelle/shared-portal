@@ -7,9 +7,12 @@ import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 
-import External from '../../../../public/assets/external.svg';
+import {
+  isBlueCareEligible,
+  isManageMyPolicyEligible,
+} from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import External from '../../../../public/assets/external.svg';
 
 export interface ManageMyPlanProps extends IComponent {
   visibilityRules?: VisibilityRules;
@@ -25,6 +28,27 @@ export const ManageMyPlan = ({
       {
         title: 'Katie Beckett Banking Info',
         body: 'Find and update your bank draft details for your plan here.',
+        externalLink: false,
+        url: 'url',
+      },
+    ];
+  else if (isManageMyPolicyEligible(visibilityRules))
+    manageMyPlanDetails = [
+      {
+        title: 'Report Other Health Insurance',
+        body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
+        externalLink: false,
+        url: 'url',
+      },
+      {
+        title: 'Update Social Security Number',
+        body: 'Add or update the Social Security Number associated with your plan.',
+        externalLink: false,
+        url: '/updateSocialSecurityNumber',
+      },
+      {
+        title: 'Manage My Policy',
+        body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
         externalLink: false,
         url: 'url',
       },
