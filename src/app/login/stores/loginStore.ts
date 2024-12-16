@@ -21,6 +21,7 @@ import {
   mapMfaDeviceType,
 } from '../utils/mfaDeviceMapper';
 import { useMfaStore } from './mfaStore';
+import { usePasswordResetStore } from './passwordResetStore';
 import { useVerifyEmailStore } from './verifyEmailStore';
 
 export type LoginStore = {
@@ -48,6 +49,7 @@ export type LoginStore = {
   interactionData: LoginInteractionData | null;
   userToken: string;
   emailId: string;
+  forcedPasswordReset: boolean;
 };
 
 export const useLoginStore = createWithEqualityFn<LoginStore>(
@@ -62,6 +64,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     mfaNeeded: false,
     userToken: '',
     verifyEmail: false,
+    forcedPasswordReset: false,
     emailId: '',
     updateLoggedUser: (val: boolean) => set(() => ({ loggedUser: val })),
     updateMultipleLoginAttempts: (val: boolean) =>
@@ -111,6 +114,17 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
               interactionToken: resp.data?.interactionToken ?? '',
             },
             emailId: resp.data?.email ?? '',
+          });
+          return;
+        }
+
+        if (resp.status == LoginStatus.PASSWORD_RESET_REQUIRED) {
+          set({
+            forcedPasswordReset: true,
+            interactionData: {
+              interactionId: resp.data?.interactionId ?? '',
+              interactionToken: resp.data?.interactionToken ?? '',
+            },
           });
           return;
         }
@@ -207,6 +221,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         password: '',
         multipleLoginAttempts: false,
         verifyEmail: false,
+        forcedPasswordReset: false,
       });
       useMfaStore.setState({
         stage: MfaModeState.selection,
@@ -216,6 +231,9 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       useMfaStore.getState().updateResendCode(false);
       useVerifyEmailStore.getState().updateCode('');
       useVerifyEmailStore.getState().resetApiErrors();
+      usePasswordResetStore.getState().updatePassword('');
+      usePasswordResetStore.getState().updateDOB('');
+      usePasswordResetStore.getState().resetError();
     },
     resetApiErrors: () =>
       set(() => ({
