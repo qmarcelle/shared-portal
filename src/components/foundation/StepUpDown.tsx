@@ -65,7 +65,7 @@ export const StepUpDown = ({
     >
       {label && <p>{label}</p>}
       <div
-        className={`flex flex-row items-center input ${className} ${
+        className={`flex flex-row items-center ${className} ${
           focus ? 'input-focus' : ''
         }`}
       >
