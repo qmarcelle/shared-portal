@@ -873,6 +873,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   </div>
                 </div>
                 <a
+                  aria-label="View Balances"
                   href="/balances"
                   style="display: block;"
                   tabindex="-1"
@@ -880,7 +881,8 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   <button
                     class="flex flex-row link-container pl-0"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -967,6 +969,7 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                 />
                 <a
+                  aria-label="View Spending Accounts"
                   href="/spendingAccounts"
                   style="display: block;"
                   tabindex="-1"
@@ -974,7 +977,8 @@ exports[`DentalBasic should render UI correctly 1`] = `
                   <button
                     class="flex flex-row link-container undefined"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"

@@ -163,13 +163,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           </ul>
                         </div>
                         <a
+                          aria-label="Learn More About Teladoc Mental Health"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -271,13 +273,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           </ul>
                         </div>
                         <a
+                          aria-label="Learn More About AbleTo"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -375,13 +379,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           </ul>
                         </div>
                         <a
+                          aria-label="Learn More About Hinge Health"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -479,13 +485,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           </ul>
                         </div>
                         <a
+                          aria-label="Learn More About Blue of Tennessee Medical Centers"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -587,13 +595,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           </ul>
                         </div>
                         <a
+                          aria-label="Learn More About Teladoc Health Primary Care"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -695,13 +705,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           </ul>
                         </div>
                         <a
+                          aria-label="Learn More About Teladoc Health Urgent Care"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -791,13 +803,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           </ul>
                         </div>
                         <a
+                          aria-label="Learn More About Nurse Chat"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -1049,13 +1063,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
                 />
                 <a
+                  aria-label="View All Health Programs & Resources"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -1231,13 +1247,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About Teladoc Mental Health"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1339,13 +1357,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About AbleTo"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1443,13 +1463,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About Hinge Health"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1547,13 +1569,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About Blue of Tennessee Medical Centers"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1655,13 +1679,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About Teladoc Health Primary Care"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1763,13 +1789,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About Teladoc Health Urgent Care"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1859,13 +1887,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About Nurse Chat"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -2117,13 +2147,15 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
               />
               <a
+                aria-label="View All Health Programs & Resources"
                 style="display: block;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"

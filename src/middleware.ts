@@ -11,13 +11,28 @@ const { auth } = NextAuth(authConfig);
 
 export default auth(async (req) => {
   const isLoggedIn = !!req.auth;
-  console.log(`ROUTE ${req.nextUrl.pathname} loggedIn=${isLoggedIn}`);
+  const method = req.method;
+  console.log(`${method} ${req.nextUrl.pathname} loggedIn=${isLoggedIn}`);
   const { nextUrl } = req;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
   const isInboundSSO = inboundSSORoutes.has(nextUrl.pathname);
+
+  /* Handle POST call from public site
+   * This will NOT autofill the username field. It just redirects the POST call to a GET to prevent the app from confusing it for a server action call.
+   */
+  if (req.method == 'POST' && nextUrl.pathname == '/login') {
+    try {
+      const formData = await req.formData();
+      if (formData.get('accountType')) {
+        return Response.redirect(new URL('/login', nextUrl));
+      }
+    } catch (err) {
+      console.log('Skipped POST request check due to no form data.');
+    }
+  }
 
   /**
    * Handle requests to the root of the application (/)

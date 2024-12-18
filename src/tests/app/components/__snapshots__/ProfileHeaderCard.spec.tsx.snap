@@ -269,13 +269,15 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   class="flex flex-col"
                 >
                   <a
+                    aria-label="All Profile Settings"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -309,13 +311,15 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
                   <a
+                    aria-label="Communication Settings"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -329,13 +333,15 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                   />
                   <a
+                    aria-label="Security Settings"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -624,13 +630,15 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 class="flex flex-col"
               >
                 <a
+                  aria-label="All Profile Settings"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -664,13 +672,15 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />
                 <a
+                  aria-label="Communication Settings"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -684,13 +694,15 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                 />
                 <a
+                  aria-label="Security Settings"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -1034,13 +1046,15 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                 class="flex flex-col"
               >
                 <a
+                  aria-label="All Profile Settings"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -1074,13 +1088,15 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />
                 <a
+                  aria-label="Communication Settings"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -1094,13 +1110,15 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                 />
                 <a
+                  aria-label="Security Settings"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"

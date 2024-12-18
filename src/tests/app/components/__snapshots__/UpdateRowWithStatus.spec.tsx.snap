@@ -59,13 +59,15 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
             Use your authenticator app's security code
           </p>
           <a
+            aria-label="Remove Method"
             style="display: flex;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container font-bold primary-color pl-0"
               style="max-width: max-content; height: auto; display: flex;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link linkUnderlineNone"
@@ -161,13 +163,15 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
             Use your authenticator app's security code
           </p>
           <a
+            aria-label="Remove Method"
             style="display: flex;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container font-bold primary-color pl-0"
               style="max-width: max-content; height: auto; display: flex;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link linkUnderlineNone"

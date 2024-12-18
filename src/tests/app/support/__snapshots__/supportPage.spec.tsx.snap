@@ -156,6 +156,7 @@ exports[`Support Page should render the page correctly 1`] = `
                     If it's after hours or you'd rather send us an email, we're right here.
                   </p>
                   <a
+                    aria-label="Send an Email"
                     href="/support/sendAnEmail"
                     style="display: block;"
                     tabindex="-1"
@@ -163,7 +164,8 @@ exports[`Support Page should render the page correctly 1`] = `
                     <button
                       class="flex flex-row link-container !px-0"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -520,6 +522,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   If it's after hours or you'd rather send us an email, we're right here.
                 </p>
                 <a
+                  aria-label="Send an Email"
                   href="/support/sendAnEmail"
                   style="display: block;"
                   tabindex="-1"
@@ -527,7 +530,8 @@ exports[`Support Page should render the page correctly 1`] = `
                   <button
                     class="flex flex-row link-container !px-0"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"

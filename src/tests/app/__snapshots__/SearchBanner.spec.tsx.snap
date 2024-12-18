@@ -31,13 +31,15 @@ exports[`Search Results Page should render all the required components 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
+            aria-label="Get Started with Teladoc Health"
             style="display: inline-flex;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container searchBannerLink inline"
               style="max-width: max-content; height: auto; display: inline-flex;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -94,13 +96,15 @@ exports[`Search Results Page should render all the required components 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <a
+          aria-label="Get Started with Teladoc Health"
           style="display: inline-flex;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container searchBannerLink inline"
             style="max-width: max-content; height: auto; display: inline-flex;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"

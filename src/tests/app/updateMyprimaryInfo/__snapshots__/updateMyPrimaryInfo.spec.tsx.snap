@@ -61,6 +61,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                       />
                       <a
+                        aria-label="Go to Directory to Find a Doctor"
                         href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
                         style="display: block;"
                         tabindex="-1"
@@ -68,7 +69,8 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                         <button
                           class="flex flex-row link-container !flex pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -431,13 +433,15 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                       />
                       <a
+                        aria-label="Primary Care Provider Change Form"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -499,6 +503,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
+            aria-label="Go to Directory to Find a Doctor"
             href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
             style="display: block;"
             tabindex="-1"
@@ -506,7 +511,8 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
             <button
               class="flex flex-row link-container !flex pl-0"
               style="max-width: max-content; height: auto; display: block;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -860,13 +866,15 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <a
+          aria-label="Primary Care Provider Change Form"
           style="display: block;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container !flex pl-0"
             style="max-width: max-content; height: auto; display: block;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"
@@ -973,6 +981,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                       />
                       <a
+                        aria-label="Go to Directory to Find a Doctor"
                         href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
                         style="display: block;"
                         tabindex="-1"
@@ -980,7 +989,8 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                         <button
                           class="flex flex-row link-container !flex pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1343,13 +1353,15 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                       />
                       <a
+                        aria-label="Primary Care Provider Change Form"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -1411,6 +1423,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
+            aria-label="Go to Directory to Find a Doctor"
             href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
             style="display: block;"
             tabindex="-1"
@@ -1418,7 +1431,8 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
             <button
               class="flex flex-row link-container !flex pl-0"
               style="max-width: max-content; height: auto; display: block;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -1772,13 +1786,15 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <a
+          aria-label="Primary Care Provider Change Form"
           style="display: block;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container !flex pl-0"
             style="max-width: max-content; height: auto; display: block;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"

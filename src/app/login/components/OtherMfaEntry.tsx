@@ -7,6 +7,7 @@ import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
+import { FormEvent } from 'react';
 import { AppProg } from '../models/app/app_prog';
 import {
   INVALID_CODE_LENGTH,
@@ -43,7 +44,8 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
   const { resetApiErrors, apiErrors } = useLoginStore();
   const showTooltip = code.length < MIN_CODE_LENGTH;
 
-  function validateSecurityCode() {
+  function validateSecurityCode(e?: FormEvent<HTMLFormElement>) {
+    e?.preventDefault();
     const analytics: AnalyticsData = {
       click_text: 'confirm',
       click_url: process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL,
@@ -108,68 +110,71 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
   };
 
   return (
-    <section id="mainSection">
-      <TextBox type="title-2" text="Let's Confirm Your Identity" />
-      <Spacer size={16} />
-      <p>We&apos;ve sent a code to:</p>
-      <span aria-label="authentication-method">{authMethod}</span>
-      <Spacer size={32} />
-      <TextField
-        label="Enter Security Code"
-        valueCallback={(val) => updateSecurityCode(val)}
-        errors={apiErrors}
-      />
-      <Spacer size={24} />
-      {resend && <TextBox className="text-lime-700" text="Code resent!" />}
-      {!resend && (
-        <AppLink
-          className="self-start"
-          callback={() => updateCodeResentText()}
-          label="Resend Code"
+    <form onSubmit={(e) => validateSecurityCode(e)}>
+      <section id="mainSection">
+        <TextBox type="title-2" text="Let's Confirm Your Identity" />
+        <Spacer size={16} />
+        <p>We&apos;ve sent a code to:</p>
+        <span aria-label="authentication-method">{authMethod}</span>
+        <Spacer size={32} />
+        <TextField
+          label="Enter Security Code"
+          valueCallback={(val) => updateSecurityCode(val)}
+          errors={apiErrors}
         />
-      )}
-      <Spacer size={32} />
-      <ToolTip
-        showTooltip={showTooltip}
-        className="flex flex-row justify-center items-center tooltip"
-        label="Enter a Security Code."
-      >
-        <Button
-          callback={validateSecurityCode()}
-          label={
-            completeMfaProg == AppProg.loading ||
-            completeMfaProg == AppProg.success
-              ? 'Confirming'
-              : 'Confirm'
-          }
-        />
-      </ToolTip>
+        <Spacer size={24} />
+        {resend && <TextBox className="text-lime-700" text="Code resent!" />}
+        {!resend && (
+          <AppLink
+            className="self-start"
+            callback={() => updateCodeResentText()}
+            label="Resend Code"
+          />
+        )}
+        <Spacer size={32} />
+        <ToolTip
+          showTooltip={showTooltip}
+          className="flex flex-row justify-center items-center tooltip"
+          label="Enter a Security Code."
+        >
+          <Button
+            style="submit"
+            callback={validateSecurityCode()}
+            label={
+              completeMfaProg == AppProg.loading ||
+              completeMfaProg == AppProg.success
+                ? 'Confirming'
+                : 'Confirm'
+            }
+          />
+        </ToolTip>
 
-      <Spacer size={16} />
-      {availMfaModes.length > 1 && (
-        <AppLink
-          label="Choose a Different Method"
-          callback={chooseDifferentMfaMethod}
-          className="m-auto"
-        />
-      )}
-      <Spacer size={32} />
-      <Divider />
-      <Spacer size={32} />
-      <h3>Need Help?</h3>
-      <Spacer size={8} />
-      <p>
-        Give us a call using the number listed on the back of your Member ID
-        card or{' '}
-        <AppLink
-          className="pl-0 pt-0 pr-0"
-          url="https://www.bcbst.com/contact-us"
-          label="contact us"
-          displayStyle="inline"
-          callback={trackContactUsAnalytics}
-        />
-        .
-      </p>
-    </section>
+        <Spacer size={16} />
+        {availMfaModes.length > 1 && (
+          <AppLink
+            label="Choose a Different Method"
+            callback={chooseDifferentMfaMethod}
+            className="m-auto"
+          />
+        )}
+        <Spacer size={32} />
+        <Divider />
+        <Spacer size={32} />
+        <h3>Need Help?</h3>
+        <Spacer size={8} />
+        <p>
+          Give us a call using the number listed on the back of your Member ID
+          card or{' '}
+          <AppLink
+            className="pl-0 pt-0 pr-0"
+            url="https://www.bcbst.com/contact-us"
+            label="contact us"
+            displayStyle="inline"
+            callback={trackContactUsAnalytics}
+          />
+          .
+        </p>
+      </section>
+    </form>
   );
 };

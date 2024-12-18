@@ -15,7 +15,7 @@ export const ToolTip = ({
 }: ToolTipProps) => {
   return (
     <div className={className}>
-      {showTooltip && <span className="tooltiptext">{label}</span>}
+      {showTooltip && <span className="tooltiptext !p-2">{label}</span>}
       {children}
     </div>
   );
