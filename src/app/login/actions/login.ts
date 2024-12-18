@@ -46,7 +46,7 @@ export async function callLogin(
       request,
     );
 
-    logger.info('Login API - Success', resp);
+    logger.info('Login API - Success', resp, request.username);
     status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
@@ -83,7 +83,7 @@ export async function callLogin(
       },
     };
   } catch (error) {
-    logger.error('Login API - Failure', error);
+    logger.error('Login API - Failure', error, request.username);
     if (error instanceof AxiosError) {
       return {
         status:

@@ -31,7 +31,9 @@ describe('Multiple Login MFA Invalid Secutity Code Attempts Error', () => {
     // Login Info Card
 
     const inputUserName = screen.getByRole('textbox', { name: /Username/i });
-    const password = screen.getByLabelText(/password/i);
+    const password = screen.getByLabelText(/password/i, {
+      selector: 'input',
+    });
     const loginButton = screen.getByRole('button', {
       name: /Log In/i,
     });
@@ -203,6 +205,7 @@ describe('Multiple Login MFA Invalid Secutity Code Attempts Error', () => {
             '9ec9b4378c914db7d8ef2f15d8ec26d66eb2ad9d481288b2d540573dfde33eed94c8d01d24630a125680e5d035a61e541f24421ec76ab8bd70fe7f85c9ff61ae9bb95b775d894180c9ea09d5a695fcaccf9f7a5738e6df462d2809318cf393d7abc5d982e9f0fb279c63faf58ad806ba7ce8a371d9f576f31ff3ed81a35a7c54',
           policyId: 'policyId',
           appId: 'appId',
+          userToken: expect.anything(),
         },
       );
     });

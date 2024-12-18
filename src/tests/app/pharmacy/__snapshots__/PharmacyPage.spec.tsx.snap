@@ -194,13 +194,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <a
+                      aria-label="Visit CVS Caremark"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container !flex p-0"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"
@@ -552,13 +554,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
                   <a
+                    aria-label="View All Pharmacy Claims"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -597,6 +601,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="View Pharmacy Spending Summary"
                     href="/spendingSummary?type=Pharmacy"
                     style="display: block;"
                     tabindex="-1"
@@ -604,7 +609,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     <button
                       class="flex flex-row link-container !flex p-0"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -742,6 +748,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         class="flex flex-col items-stretch"
                       >
                         <a
+                          aria-label="View Covered Drug List (Formulary)"
                           href="/assets/formularies/Default-DrugFormularyPDF/Drug-Formulary-List.pdf"
                           style="display: inline;"
                           tabindex="-1"
@@ -749,7 +756,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           <button
                             class="flex flex-row link-container text-left pl-0"
                             style="max-width: max-content; height: auto; display: inline;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -800,6 +808,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         class="flex flex-col items-stretch"
                       >
                         <a
+                          aria-label="Prescription Drug Claim Form"
                           href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
                           style="display: inline;"
                           tabindex="-1"
@@ -807,7 +816,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           <button
                             class="flex flex-row link-container text-left pl-0"
                             style="max-width: max-content; height: auto; display: inline;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -858,6 +868,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         class="flex flex-col items-stretch"
                       >
                         <a
+                          aria-label="Prescription Mail Service Order Form"
                           href="/assets/cvs-mail-order-form.pdf"
                           style="display: inline;"
                           tabindex="-1"
@@ -865,7 +876,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           <button
                             class="flex flex-row link-container text-left pl-0"
                             style="max-width: max-content; height: auto; display: inline;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -916,13 +928,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         class="flex flex-col items-stretch"
                       >
                         <a
+                          aria-label="Request for Medicare Prescription Drug Coverage Determination"
                           style="display: inline;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left pl-0"
                             style="max-width: max-content; height: auto; display: inline;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -973,13 +987,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         class="flex flex-col items-stretch"
                       >
                         <a
+                          aria-label="Request for Redetermination of Medicare Prescription Drug Denial"
                           style="display: inline;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container text-left pl-0"
                             style="max-width: max-content; height: auto; display: inline;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -1424,13 +1440,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         class="flex flex-col"
                       >
                         <a
+                          aria-label="Medicare Prescription Payment Plan Sign-up"
                           style="display: flex;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container pl-0"
                             style="max-width: max-content; height: auto; display: flex;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -1540,6 +1558,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
                         />
                         <a
+                          aria-label="Social Security Extra Help Program"
                           href="https://www.ssa.gov/medicare/part-d-extra-help"
                           style="display: flex;"
                           tabindex="-1"
@@ -1547,7 +1566,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           <button
                             class="flex flex-row link-container pl-0"
                             style="max-width: max-content; height: auto; display: flex;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -1782,13 +1802,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="Visit CVS Caremark"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !flex p-0"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -2140,13 +2162,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
                 <a
+                  aria-label="View All Pharmacy Claims"
                   style="display: block;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -2185,6 +2209,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <a
+                  aria-label="View Pharmacy Spending Summary"
                   href="/spendingSummary?type=Pharmacy"
                   style="display: block;"
                   tabindex="-1"
@@ -2192,7 +2217,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   <button
                     class="flex flex-row link-container !flex p-0"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -2330,6 +2356,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       class="flex flex-col items-stretch"
                     >
                       <a
+                        aria-label="View Covered Drug List (Formulary)"
                         href="/assets/formularies/Default-DrugFormularyPDF/Drug-Formulary-List.pdf"
                         style="display: inline;"
                         tabindex="-1"
@@ -2337,7 +2364,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         <button
                           class="flex flex-row link-container text-left pl-0"
                           style="max-width: max-content; height: auto; display: inline;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -2388,6 +2416,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       class="flex flex-col items-stretch"
                     >
                       <a
+                        aria-label="Prescription Drug Claim Form"
                         href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
                         style="display: inline;"
                         tabindex="-1"
@@ -2395,7 +2424,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         <button
                           class="flex flex-row link-container text-left pl-0"
                           style="max-width: max-content; height: auto; display: inline;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -2446,6 +2476,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       class="flex flex-col items-stretch"
                     >
                       <a
+                        aria-label="Prescription Mail Service Order Form"
                         href="/assets/cvs-mail-order-form.pdf"
                         style="display: inline;"
                         tabindex="-1"
@@ -2453,7 +2484,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         <button
                           class="flex flex-row link-container text-left pl-0"
                           style="max-width: max-content; height: auto; display: inline;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -2504,13 +2536,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       class="flex flex-col items-stretch"
                     >
                       <a
+                        aria-label="Request for Medicare Prescription Drug Coverage Determination"
                         style="display: inline;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
                           style="max-width: max-content; height: auto; display: inline;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -2561,13 +2595,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       class="flex flex-col items-stretch"
                     >
                       <a
+                        aria-label="Request for Redetermination of Medicare Prescription Drug Denial"
                         style="display: inline;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
                           style="max-width: max-content; height: auto; display: inline;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -3012,13 +3048,15 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       class="flex flex-col"
                     >
                       <a
+                        aria-label="Medicare Prescription Payment Plan Sign-up"
                         style="display: flex;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
                           style="max-width: max-content; height: auto; display: flex;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -3128,6 +3166,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
                       />
                       <a
+                        aria-label="Social Security Extra Help Program"
                         href="https://www.ssa.gov/medicare/part-d-extra-help"
                         style="display: flex;"
                         tabindex="-1"
@@ -3135,7 +3174,8 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         <button
                           class="flex flex-row link-container pl-0"
                           style="max-width: max-content; height: auto; display: flex;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"

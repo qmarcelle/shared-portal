@@ -11,4 +11,8 @@ export const errorCodeMessageMap = new Map<string | number, string>([
     'INVALID_OTP',
     'There is a problem with the security code. Try re-entering or resending the code.',
   ],
+  [
+    'INVALID_VALUE',
+    'There is a problem with the security code. Try re-entering or resending the code.',
+  ],
 ]);

@@ -323,6 +323,7 @@ exports[`Medical and Dental Balances API Integration with Medical not active sho
                 We work with EyeMed to provide your vision benefits. To manage your vision plan, 
               </p>
               <a
+                aria-label="visit EyeMed"
                 href=""
                 style="display: inline-flex;"
                 tabindex="-1"
@@ -330,7 +331,8 @@ exports[`Medical and Dental Balances API Integration with Medical not active sho
                 <button
                   class="flex flex-row link-container p-0"
                   style="max-width: max-content; height: auto; display: inline-flex;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"
@@ -501,13 +503,15 @@ exports[`Medical and Dental Balances API Integration with Medical not active sho
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <a
+                aria-label="View Spending Summary"
                 style="display: block;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"
@@ -597,6 +601,7 @@ exports[`Medical and Dental Balances API Integration with Medical not active sho
                 style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
               />
               <a
+                aria-label="View Spending Accounts"
                 href=""
                 style="display: block;"
                 tabindex="-1"
@@ -604,7 +609,8 @@ exports[`Medical and Dental Balances API Integration with Medical not active sho
                 <button
                   class="flex flex-row link-container undefined"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"

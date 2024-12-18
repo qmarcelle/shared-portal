@@ -226,13 +226,15 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
           />
           <a
+            aria-label="Learn More & Compare Virtual Care Options"
             style="display: block;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
               style="max-width: max-content; height: auto; display: block;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -468,13 +470,15 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
         />
         <a
+          aria-label="Learn More & Compare Virtual Care Options"
           style="display: block;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
             style="max-width: max-content; height: auto; display: block;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"

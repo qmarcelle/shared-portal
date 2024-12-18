@@ -5,7 +5,7 @@ import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
@@ -38,13 +38,17 @@ export default function LogIn() {
   ]);
 
   const router = useRouter();
+  const queryParams = useSearchParams();
   function renderComp() {
     if (unhandledErrors == true) {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/security');
-      router.refresh();
+      router.replace(
+        queryParams.get('TargetResource') ||
+          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL ||
+          '/security',
+      );
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
