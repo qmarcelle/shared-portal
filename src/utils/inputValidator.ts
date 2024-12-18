@@ -135,3 +135,15 @@ export const isConfirmEmailAddressMatch = (value: string, email: string) => {
     return true;
   }
 };
+/**
+ * check entered domain is valid or not
+ */
+
+export const isValidEmailDomain = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return false;
+  }
+  const parts = email.split('@');
+  return parts.length === 2 && parts[1].endsWith('bcbst.com');
+};
