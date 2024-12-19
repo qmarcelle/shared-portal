@@ -358,7 +358,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         showOnMenu: () => {
           return true;
         },
-        url: '/healthProgramsResources',
+        url: '/myHealth/healthProgramsResources',
         external: false,
       },
       {

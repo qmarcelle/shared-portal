@@ -1,3 +1,4 @@
+import { Session } from 'next-auth';
 import { ReactNode } from 'react';
 
 export interface HealthProgramHeaderCardDetails {
@@ -7,5 +8,5 @@ export interface HealthProgramHeaderCardDetails {
   serviceDesc2?: ReactNode[];
   buttonText?: string;
   icon?: string;
-  redirectLink?: string;
+  redirectLink?: (groupId: Session | null) => string;
 }
