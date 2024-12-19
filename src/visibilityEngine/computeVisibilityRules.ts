@@ -4,6 +4,7 @@ import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
 import { VisibilityRules } from './rules';
 
+
 const COMMERCIAL_LOB = ['REGL'];
 const INDIVIDUAL_LOB = ['INDV'];
 const MEDICAID_LOB = ['MEDA'];
@@ -59,7 +60,6 @@ export function computeVisibilityRules(
   rules['employerProvidedBenefits'] = false;
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
-  rules['amplifyHealth'] = false;
   rules['teladoc'] = true;
   return encodeVisibilityRules(rules);
 }
@@ -165,4 +165,48 @@ export function isManageMyPolicyEligible(rules: VisibilityRules | undefined) {
     !rules?.wellnessOnly &&
     !rules?.futureEffective
   );
+}
+
+export function isNewMentalHealthSupportAbleToEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    (rules?.mentalHealthSupport || rules?.fullyInsured) &&
+    rules?.medical &&
+    isActiveAndNotFSAOnly(rules)
+  );
+}
+
+export function isNewMentalHealthSupportMyStrengthCompleteEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.myStrengthCompleteEligible && activeAndHealthPlanMember(rules);
+}
+
+export function isTeladocPrimary360Eligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.primary360Eligible && activeAndHealthPlanMember(rules);
+}
+
+export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
+  return (
+    rules?.hingeHealthEligible ||
+    (rules?.groupRenewalDateBeforeTodaysDate &&
+      (rules?.fullyInsured || rules?.levelFunded))
+  );
+}
+
+function nurseChatEnabler(rules: VisibilityRules | undefined) {
+  if (
+    isActiveAndNotFSAOnly(rules) &&
+    (rules?.healthCoachElig || rules?.indivEHBUser || rules?.groupEHBUser)
+  )
+    return 'enabled';
+  else return 'disabled';
+}
+
+export function isNurseChatEligible(rules: VisibilityRules | undefined) {
+  if (nurseChatEnabler(rules) === 'enabled') return true;
+  else return false;
 }

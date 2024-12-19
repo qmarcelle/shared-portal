@@ -17,8 +17,6 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'spendingAccounts',
   'externalSpendingAcct',
   'teladoc',
-  'primary360',
-  'myStrengthComplete',
   'pharmacy',
   'amplifyHealth',
   'premiumHealth',
@@ -37,6 +35,15 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'isCondensedExperience',
   'enRollEligible',
   'enableBenefitChange',
+  'mentalHealthSupport',
+  'myStrengthCompleteEligible',
+  'primary360Eligible',
+  'hingeHealthEligible',
+  'groupRenewalDateBeforeTodaysDate',
+  'healthCoachElig',
+  'indivEHBUser',
+  'groupEHBUser',
+  'isAmplifyMem',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

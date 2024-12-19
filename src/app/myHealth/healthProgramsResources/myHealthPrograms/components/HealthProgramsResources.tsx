@@ -7,18 +7,22 @@ import { CostforThisOptionCard } from './CostforThisOptionCard';
 import { GoodforThisOptionCard } from './GoodforThisOptionCard';
 import { HealthProgramsHeaderCard } from './HealthProgramsHeaderCard';
 import { WhyUseThisOptionCard } from './WhyUseThisOptionCard';
+import { Session } from 'next-auth';
 
 interface HealthProgramsResourcesProps extends IComponent {
   healthProgramDetails?: HealthProgramDetails;
+  sessionData: Session | null;
 }
 
 export const HealthProgramsResources = ({
   healthProgramDetails,
+  sessionData,
 }: HealthProgramsResourcesProps) => {
   return (
     <Column className="app-content app-base-font-color">
       <Spacer size={64} />
       <HealthProgramsHeaderCard
+        sessionData={sessionData}
         healthProgramHeaderDetails={
           healthProgramDetails?.healthProgramHeaderDetails ??
           ({} as HealthProgramHeaderCardDetails)
