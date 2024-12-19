@@ -17,6 +17,11 @@ jest.mock('next/navigation', () => ({
       replace: mockReplace,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 const resetToHome = useLoginStore.getState().resetToHome;
 

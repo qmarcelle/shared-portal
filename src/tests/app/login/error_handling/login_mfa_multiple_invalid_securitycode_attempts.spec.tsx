@@ -19,6 +19,11 @@ jest.mock('next/navigation', () => ({
       replace: () => null,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 
 const setupUI = () => {
