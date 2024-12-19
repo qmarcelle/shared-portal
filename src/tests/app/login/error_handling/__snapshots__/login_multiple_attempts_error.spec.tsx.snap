@@ -114,6 +114,7 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
                   >
                     <p
                       class="link undefined"
+                      style="display: block;"
                     >
                       Forgot Username/Password?
                     </p>
