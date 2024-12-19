@@ -8,6 +8,7 @@ import {
 } from '@/components/foundation/Icons';
 import { HealthProgramDetails } from './health_program_details';
 import { HealthProgramType } from './health_program_type';
+import { getHingeHealthLink } from '@/visibilityEngine/computeVisibilityRules';
 
 export const healthProgramsandResourcesDetails: Map<
   HealthProgramType,
@@ -130,9 +131,7 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use Hinge Health',
         icon: hingeHealthLogo,
-        redirectLink: () => {
-          return process.env.NEXT_PUBLIC_HINGE_HEALTH ?? '';
-        },
+        redirectLink: getHingeHealthLink,
       },
       whyUseThisOptionDetails: [
         'In-network & no cost to you',
