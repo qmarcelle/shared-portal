@@ -1,4 +1,6 @@
+import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
+import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
@@ -209,4 +211,25 @@ function nurseChatEnabler(rules: VisibilityRules | undefined) {
 export function isNurseChatEligible(rules: VisibilityRules | undefined) {
   if (nurseChatEnabler(rules) === 'enabled') return true;
   else return false;
+}
+
+export function getHingeHealthLink(session: Session | null) {
+  const groupId = session?.user.currUsr?.plan.grpId;
+  const hingehealthvRules = session?.user.vRules;
+  let hingeHealthLink;
+  if (groupId) {
+    hingeHealthLink = hingeHealthLinks.get(groupId);
+  }
+
+  if (hingeHealthLink == null) {
+    if (
+      hingehealthvRules?.groupRenewalDateBeforeTodaysDate &&
+      (hingehealthvRules?.fullyInsured ||
+        hingehealthvRules?.selfFunded ||
+        hingehealthvRules?.levelFunded)
+    )
+      return process.env.NEXT_PUBLIC_HINGE_HEALTH ?? '';
+    else return process.env.NEXT_PUBLIC_HINGE_HEALTH_DEFAULT ?? '';
+  }
+  return hingeHealthLink;
 }
