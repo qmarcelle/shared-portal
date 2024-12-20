@@ -10,13 +10,9 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
-import {
-  formatDate,
-  isValidPassword,
-  validateDate,
-} from '@/utils/inputValidator';
-import { useRouter } from 'next/navigation';
-import { FormEvent, useState } from 'react';
+import { formatDate } from '@/utils/inputValidator';
+import { FormEvent } from 'react';
+import { usePasswordResetStore } from '../stores/passwordResetStore';
 
 export const ResetPasswordComponent = () => {
   const instructions = [
@@ -28,45 +24,47 @@ export const ResetPasswordComponent = () => {
     'Cannot be any of your last 10 passwords',
     'Cannot be a commonly used password',
   ];
-  const [invalidDate, setInvalidDate] = useState<string[]>([]);
-  const [invalidPassword, setInvalidPassword] = useState<string[]>([]);
-  const [date, setDate] = useState('');
-  const [password, setPassword] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [
+    password,
+    dob,
+    invalidDate,
+    invalidPassword,
+    showSuccess,
+    updatePassword,
+    updatedDOB,
+    resetPassword,
+    onContinue,
+  ] = usePasswordResetStore((state) => [
+    state.password,
+    state.dob,
+    state.invalidDOBError,
+    state.invalidPasswordError,
+    state.isResetSuccess,
+    state.updatePassword,
+    state.updateDOB,
+    state.resetPassword,
+    state.onContinue,
+  ]);
   let isBackSpacePressed: boolean = false;
-  const router = useRouter();
 
   const handleChange = (val: string) => {
     let formattedDate = val;
     if (!isBackSpacePressed) {
       formattedDate = formatDate(val);
     }
-    setDate(formattedDate);
-    if (!validateDate(date)) {
-      setInvalidDate(['Please enter a valid date.']);
-    } else {
-      setInvalidDate([]);
-    }
+    updatedDOB(formattedDate);
   };
   const keyDownCallBack = (keyCode: string) => {
-    isBackSpacePressed = keyCode == 'Backspace';
+    isBackSpacePressed = keyCode == 'Backspace' || keyCode == '/';
   };
-  const updatePassword = (val: string) => {
-    setPassword(val);
-    if (!isValidPassword(val)) {
-      setInvalidPassword(['Please enter a valid password.']);
-    } else {
-      setInvalidPassword([]);
-    }
-  };
-  const resetPassword = (e?: FormEvent<HTMLFormElement>) => {
+  const onResetPassword = (e?: FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
-    setShowSuccess(true);
+    resetPassword();
   };
   const enableReset = (): boolean => {
     return (
       password.length > 0 &&
-      date.length > 0 &&
+      dob.length > 0 &&
       !invalidDate.length &&
       !invalidPassword.length
     );
@@ -75,7 +73,7 @@ export const ResetPasswordComponent = () => {
   return (
     <form
       onSubmit={(e) => {
-        enableReset() ? resetPassword(e) : undefined;
+        enableReset() ? onResetPassword(e) : undefined;
       }}
     >
       {!showSuccess ? (
@@ -112,7 +110,7 @@ export const ResetPasswordComponent = () => {
             label="Date of Birth (MM/DD/YYYY)"
             valueCallback={(val) => handleChange(val)}
             onKeydownCallback={(val) => keyDownCallBack(val)}
-            value={date}
+            value={dob}
             errors={invalidDate}
             maxLength={10}
             hint="__ /__ /____"
@@ -135,7 +133,7 @@ export const ResetPasswordComponent = () => {
             label="Enter your date of birth and new password to continue."
           >
             <Button
-              callback={enableReset() ? resetPassword : undefined}
+              callback={enableReset() ? onResetPassword : undefined}
               style="submit"
               label="Reset Password"
             />
@@ -177,11 +175,7 @@ export const ResetPasswordComponent = () => {
                 />
               </Column>
             }
-            doneCallBack={() =>
-              router.replace(
-                process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/security',
-              )
-            }
+            doneCallBack={() => onContinue()}
           />
         </section>
       )}

@@ -62,12 +62,12 @@ export default function LogIn() {
     if (multipleMFASecurityCodeAttempts == true) {
       return <MFASecurityCodeMultipleAttemptComponent />;
     }
+    if (forcedPasswordReset == true) {
+      return <ResetPasswordComponent />;
+    }
     if (mfaNeeded == false) {
       if (verifyEmail == true) {
         return <LoginEmailVerification />;
-      }
-      if (forcedPasswordReset == true) {
-        return <ResetPasswordComponent />;
       }
       return <LoginComponent />;
     } else {

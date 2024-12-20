@@ -144,6 +144,13 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           userToken: useLoginStore.getState().userToken,
         });
 
+        if (resp.status == SubmitMFAStatus.PASSWORD_RESET_REQUIRED) {
+          useLoginStore.setState({
+            forcedPasswordReset: true,
+          });
+          return;
+        }
+
         if (resp.status == SubmitMFAStatus.OTP_OK) {
           useLoginStore.setState({
             loggedUser: true,

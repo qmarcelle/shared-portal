@@ -21,6 +21,7 @@ import {
   mapMfaDeviceType,
 } from '../utils/mfaDeviceMapper';
 import { useMfaStore } from './mfaStore';
+import { usePasswordResetStore } from './passwordResetStore';
 import { useVerifyEmailStore } from './verifyEmailStore';
 
 export type LoginStore = {
@@ -120,7 +121,10 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         if (resp.status == LoginStatus.PASSWORD_RESET_REQUIRED) {
           set({
             forcedPasswordReset: true,
-            emailId: resp.data?.email ?? '',
+            interactionData: {
+              interactionId: resp.data?.interactionId ?? '',
+              interactionToken: resp.data?.interactionToken ?? '',
+            },
           });
           return;
         }
@@ -227,6 +231,9 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       useMfaStore.getState().updateResendCode(false);
       useVerifyEmailStore.getState().updateCode('');
       useVerifyEmailStore.getState().resetApiErrors();
+      usePasswordResetStore.getState().updatePassword('');
+      usePasswordResetStore.getState().updateDOB('');
+      usePasswordResetStore.getState().resetError();
     },
     resetApiErrors: () =>
       set(() => ({
