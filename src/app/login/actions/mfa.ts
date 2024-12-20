@@ -71,6 +71,7 @@ export async function callSubmitMfaOtp(
   let authUser: string | null = null;
   let username: string | null = null;
   try {
+    let status: SubmitMFAStatus = SubmitMFAStatus.OTP_OK;
     params.policyId = process.env.ES_API_POLICY_ID;
     params.appId = process.env.ES_API_APP_ID;
     username = verifyUserId(params.userToken);
@@ -82,12 +83,16 @@ export async function callSubmitMfaOtp(
     if (!username) {
       throw 'Failed to verify username';
     }
-    authUser = username;
+    if (resp.data.data?.flowStatus == 'PASSWORD_RESET_REQUIRED') {
+      status = SubmitMFAStatus.PASSWORD_RESET_REQUIRED;
+    } else {
+      authUser = username;
+    }
     await setWebsphereRedirectCookie({
       ...resp.data.data,
     });
     return {
-      status: SubmitMFAStatus.OTP_OK,
+      status: status,
       data: resp.data.data,
     };
   } catch (err) {
