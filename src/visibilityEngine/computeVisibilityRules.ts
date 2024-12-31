@@ -111,10 +111,6 @@ export function isBlueCareEligible(rules: VisibilityRules | undefined) {
   return activeAndHealthPlanMember(rules) && rules?.blueCare;
 }
 
-export function isBlueCareNotEligible(rules: VisibilityRules | undefined) {
-  return !isBlueCareEligible(rules);
-}
-
 export function isPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
@@ -127,6 +123,26 @@ export function isBlue365FitnessYourWayEligible(
   return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
 }
 
+export function isTeledocPrimary360Eligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.primary360Eligible && activeAndHealthPlanMember(rules);
+}
+
+export function isPrimaryCareMenuOption(rules: VisibilityRules | undefined) {
+  return isBlueCareEligible(rules) || isTeledocPrimary360Eligible(rules);
+}
+export function isMentalHealthMenuOption(rules: VisibilityRules | undefined) {
+  return (
+    isBlueCareEligible(rules) ||
+    isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
+    isNewMentalHealthSupportAbleToEligible(rules)
+  );
+}
+
+export function isBlueCareNotEligible(rules: VisibilityRules | undefined) {
+  return !isBlueCareEligible(rules);
+}
 export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
   return (
     !rules?.wellnessOnly &&
