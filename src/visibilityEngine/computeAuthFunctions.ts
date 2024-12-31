@@ -50,6 +50,10 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'ENABLE_BENEFIT_CHANGE_TAB',
   )?.available;
 
+  rules.payMyPremiumElig = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'PAYMYPREMIUMELIGIBLE',
+  )?.available;
+
   rules.mentalHealthSupport = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'MENTAL_HEALTH_SUPPORT',
   )?.available;

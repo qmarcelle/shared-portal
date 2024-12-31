@@ -9,7 +9,11 @@ import { securityIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import {
+  isBlueCareEligible,
+  isPayMyPremiumEligible,
+} from '@/visibilityEngine/computeVisibilityRules';
+import { PayPremiumSection } from '../dashboard/components/PayPremium';
 import { ManageMyPlan } from './components/ManageMyPlan';
 import { MyPlanData } from './model/app/myPlanData';
 
@@ -47,6 +51,13 @@ const MyPlan = ({ data }: MyPlanProps) => {
             />
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
+            {isPayMyPremiumEligible(data.visibilityRules) && (
+              <PayPremiumSection
+                className="large-section"
+                dueDate="08/10/2023"
+                amountDue={1000.46}
+              />
+            )}
             <ManageMyPlan
               className="small-section"
               visibilityRules={data.visibilityRules}
