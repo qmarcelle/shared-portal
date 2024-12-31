@@ -35,6 +35,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'isCondensedExperience',
   'enRollEligible',
   'enableBenefitChange',
+  'payMyPremiumElig',
   'mentalHealthSupport',
   'myStrengthCompleteEligible',
   'primary360Eligible',

@@ -6,7 +6,6 @@ import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
 import { VisibilityRules } from './rules';
 
-
 const COMMERCIAL_LOB = ['REGL'];
 const INDIVIDUAL_LOB = ['INDV'];
 const MEDICAID_LOB = ['MEDA'];
@@ -167,6 +166,10 @@ export function isManageMyPolicyEligible(rules: VisibilityRules | undefined) {
     !rules?.wellnessOnly &&
     !rules?.futureEffective
   );
+}
+
+export function isPayMyPremiumEligible(rules: VisibilityRules | undefined) {
+  return rules?.subscriber && !rules?.wellnessOnly && rules?.payMyPremiumElig;
 }
 
 export function isNewMentalHealthSupportAbleToEligible(
