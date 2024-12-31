@@ -62,6 +62,14 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'ENABLE_BENEFIT_CHANGE_TAB',
   )?.available;
 
+  rules.dentalCostsEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'DENTALCOSTELIGIBLE',
+  )?.available;
+
+  rules.enableCostTools = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'ENABLE_COST_TOOLS',
+  )?.available;
+
   rules.payMyPremiumElig = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'PAYMYPREMIUMELIGIBLE',
   )?.available;

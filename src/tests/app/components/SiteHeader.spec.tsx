@@ -356,4 +356,17 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(screen.getByText('Report Other Health Insurance')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
+  it('should navigate the price dental care menu link correctly', async () => {
+    vRules.dental = true;
+    vRules.dentalCostsEligible = true;
+    vRules.enableCostTools = true;
+    const component = renderUI(vRules);
+
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+    expect(screen.getByText('Price Dental Care')).toBeInTheDocument();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
 });

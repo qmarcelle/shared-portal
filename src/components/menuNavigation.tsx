@@ -2,6 +2,7 @@ import {
   isBlueCareNotEligible,
   isEnrollEligible,
   isMentalHealthMenuOption,
+  isPriceDentalCareMenuOptions,
   isPrimaryCareMenuOption,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -95,7 +96,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Dental Care',
         description: 'This is Price Dental Care',
         category: 'Estimate Costs',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isPriceDentalCareMenuOptions,
         url: '/priceDentalCare',
         external: false,
       },

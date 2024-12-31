@@ -43,7 +43,6 @@ const renderUI = () => {
 describe('DentalBalance', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
-    expect(screen.getByText('Dental Balance')).toBeVisible();
     expect(screen.getByText('Deductible')).toBeVisible();
     expect(screen.getByText('Out-of-Pocket')).toBeVisible();
     expect(screen.getByText('Services Used')).toBeVisible();

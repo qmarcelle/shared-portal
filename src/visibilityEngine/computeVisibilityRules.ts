@@ -184,6 +184,22 @@ export function isManageMyPolicyEligible(rules: VisibilityRules | undefined) {
   );
 }
 
+export function isFindADentist(rules: VisibilityRules | undefined) {
+  return rules?.dental;
+}
+
+export function isDentalCostEstimator(rules: VisibilityRules | undefined) {
+  return rules?.enableCostTools && rules?.dentalCostsEligible && rules?.dental;
+}
+
+export function isPriceDentalCareMenuOptions(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    isBlueCareNotEligible(rules) ||
+    (isDentalCostEstimator(rules) && isFindADentist(rules))
+  );
+}
 export function isPayMyPremiumEligible(rules: VisibilityRules | undefined) {
   return rules?.subscriber && !rules?.wellnessOnly && rules?.payMyPremiumElig;
 }
