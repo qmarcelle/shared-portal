@@ -30,6 +30,18 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'BLUEPRKS',
   )?.available;
 
+  rules.myStrengthCompleteEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'TELADOC_MYSTRENGTHCOMPLETE',
+  )?.available;
+
+  rules.mentalHealthSupport = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'MENTAL_HEALTH_SUPPORT',
+  )?.available;
+
+  rules.primary360Eligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'TELADOC_PRIMARY360',
+  )?.available;
+
   rules.individualSBCEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'INDIVIDUAL_SBC_ELIGIBLE',
   )?.available;

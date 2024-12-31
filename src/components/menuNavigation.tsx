@@ -1,6 +1,8 @@
 import {
   isBlueCareNotEligible,
   isEnrollEligible,
+  isMentalHealthMenuOption,
+  isPrimaryCareMenuOption,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
@@ -55,10 +57,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Primary Care Options',
         description: 'This is Primary Care Options',
         category: 'Find Care',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/primaryCareOptions',
+        showOnMenu: isPrimaryCareMenuOption,
+        url: 'findcare/primaryCareOptions',
         external: false,
       },
       {
@@ -66,10 +66,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Mental Health Options',
         description: 'This is Mental Health Option',
         category: 'Find Care',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/mentalHealthOptions',
+        showOnMenu: isMentalHealthMenuOption,
+        url: 'findcare/mentalHealthOptions',
         external: false,
       },
       {
