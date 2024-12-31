@@ -3,6 +3,10 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import {
+  isDentalCostEstimator,
+  isFindADentist,
+} from '@/visibilityEngine/computeVisibilityRules';
 import { SpendingAccountSummary } from '../../dashboard/components/SpendingAccountSummary';
 import { BalanceSectionWrapper } from './components/BalanceSection';
 import { SpendingAccountSection } from './components/SpendingAccountsSection';
@@ -31,11 +35,14 @@ export const Balances = ({ data }: BalancePageProps) => {
               title="Medical & Pharmacy Balance"
               product={data?.medical}
             />
-            <BalanceSectionWrapper
-              key="Dental"
-              title="Dental Balance"
-              product={data?.dental}
-            />
+            {isFindADentist(data?.visibilityRules) &&
+              isDentalCostEstimator(data?.visibilityRules) && (
+                <BalanceSectionWrapper
+                  key="Dental"
+                  title="Dental Balance"
+                  product={data?.dental}
+                />
+              )}
             <VisionBalance className="large-section" linkURL="" />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
