@@ -424,7 +424,7 @@ exports[`Footer Component should render the UI correctly 1`] = `
               class="flex flex-col lg:w-[67%] lg:text-left mt-4"
             >
               ©1998-
-              2024
+              2025
                BlueCross BlueShield of Tennessee, Inc., an Independent Licensee of the Blue Cross Blue Shield Association. BlueCross BlueShield of Tennessee is a Qualified Health Plan issuer in the Health Insurance Marketplace. 1 Cameron Hill Circle, Chattanooga TN 37402-0001
             </div>
             <div

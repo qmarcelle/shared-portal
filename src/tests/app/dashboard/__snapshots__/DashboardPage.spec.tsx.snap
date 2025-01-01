@@ -528,13 +528,15 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
                   <a
+                    aria-label="View Claims"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -835,6 +837,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="View Balances"
                     href="/balances"
                     style="display: block;"
                     tabindex="-1"
@@ -842,7 +845,8 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -1067,13 +1071,15 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="View Spending Summary"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -1166,13 +1172,15 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="View Prior Authorizations"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -1485,13 +1493,15 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="View Benefits & Coverage"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
