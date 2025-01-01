@@ -7,6 +7,7 @@ export enum LoginStatus {
   VALIDATION_FAILURE,
   ERROR,
   MULTIPLE_LOGIN_ATTEMPTS,
+  PASSWORD_RESET_REQUIRED,
 }
 
 export enum SelectMFAStatus {
@@ -20,4 +21,13 @@ export enum SubmitMFAStatus {
   OTP_INVALID_LIMIT_REACHED,
   VALIDATION_FAILURE,
   GENERIC_OR_INLINE_ERROR,
+  PASSWORD_RESET_REQUIRED,
+}
+
+export enum PasswordResetStatus {
+  RESET_OK,
+  PREVIOUS_PASSWORD,
+  COMMON_PASSWORD,
+  DOB_NOT_MATCHED,
+  ERROR,
 }

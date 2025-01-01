@@ -1,4 +1,6 @@
+import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
+import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
@@ -21,6 +23,7 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
+let groupID: string;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
@@ -33,6 +36,7 @@ export function computeVisibilityRules(
   rules.commercial = COMMERCIAL_LOB.includes(loggedUserInfo.lob);
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
+  groupID = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -55,10 +59,8 @@ export function computeVisibilityRules(
   }
 
   rules['employerProvidedBenefits'] = false;
-  rules['benefitBooklet'] = false;
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
-  rules['amplifyHealth'] = false;
   rules['teladoc'] = true;
   return encodeVisibilityRules(rules);
 }
@@ -109,10 +111,6 @@ export function isBlueCareEligible(rules: VisibilityRules | undefined) {
   return activeAndHealthPlanMember(rules) && rules?.blueCare;
 }
 
-export function isBlueCareNotEligible(rules: VisibilityRules | undefined) {
-  return !isBlueCareEligible(rules);
-}
-
 export function isPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
@@ -123,6 +121,43 @@ export function isBlue365FitnessYourWayEligible(
   rules: VisibilityRules | undefined,
 ) {
   return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
+}
+
+export function isTeledocPrimary360Eligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.primary360Eligible && activeAndHealthPlanMember(rules);
+}
+
+export function isPrimaryCareMenuOption(rules: VisibilityRules | undefined) {
+  return isBlueCareEligible(rules) || isTeledocPrimary360Eligible(rules);
+}
+export function isMentalHealthMenuOption(rules: VisibilityRules | undefined) {
+  return (
+    isBlueCareEligible(rules) ||
+    isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
+    isNewMentalHealthSupportAbleToEligible(rules)
+  );
+}
+
+export function isBlueCareNotEligible(rules: VisibilityRules | undefined) {
+  return !isBlueCareEligible(rules);
+}
+export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
+  return (
+    !rules?.wellnessOnly &&
+    (rules?.individualSBCEligible ||
+      rules?.commercial ||
+      rules?.medicareAdvantageGroupIndicator) &&
+    rules.subscriber &&
+    hasCondensesedExperienceProfiler(rules) != 'Quantum'
+  );
+}
+
+function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
+  if (rules?.isCondensedExperience && groupID == '130430')
+    return 'FirstHorizon';
+  if (rules?.isCondensedExperience) return 'Quantum';
 }
 
 export function isCommunicationSettingsEligible(
@@ -147,4 +182,89 @@ export function isManageMyPolicyEligible(rules: VisibilityRules | undefined) {
     !rules?.wellnessOnly &&
     !rules?.futureEffective
   );
+}
+
+export function isFindADentist(rules: VisibilityRules | undefined) {
+  return rules?.dental;
+}
+
+export function isDentalCostEstimator(rules: VisibilityRules | undefined) {
+  return rules?.enableCostTools && rules?.dentalCostsEligible && rules?.dental;
+}
+
+export function isPriceDentalCareMenuOptions(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    isBlueCareNotEligible(rules) ||
+    (isDentalCostEstimator(rules) && isFindADentist(rules))
+  );
+}
+export function isPayMyPremiumEligible(rules: VisibilityRules | undefined) {
+  return rules?.subscriber && !rules?.wellnessOnly && rules?.payMyPremiumElig;
+}
+
+export function isNewMentalHealthSupportAbleToEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    (rules?.mentalHealthSupport || rules?.fullyInsured) &&
+    rules?.medical &&
+    isActiveAndNotFSAOnly(rules)
+  );
+}
+
+export function isNewMentalHealthSupportMyStrengthCompleteEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.myStrengthCompleteEligible && activeAndHealthPlanMember(rules);
+}
+
+export function isTeladocPrimary360Eligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.primary360Eligible && activeAndHealthPlanMember(rules);
+}
+
+export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
+  return (
+    rules?.hingeHealthEligible ||
+    (rules?.groupRenewalDateBeforeTodaysDate &&
+      (rules?.fullyInsured || rules?.levelFunded))
+  );
+}
+
+function nurseChatEnabler(rules: VisibilityRules | undefined) {
+  if (
+    isActiveAndNotFSAOnly(rules) &&
+    (rules?.healthCoachElig || rules?.indivEHBUser || rules?.groupEHBUser)
+  )
+    return 'enabled';
+  else return 'disabled';
+}
+
+export function isNurseChatEligible(rules: VisibilityRules | undefined) {
+  if (nurseChatEnabler(rules) === 'enabled') return true;
+  else return false;
+}
+
+export function getHingeHealthLink(session: Session | null) {
+  const groupId = session?.user.currUsr?.plan.grpId;
+  const hingehealthvRules = session?.user.vRules;
+  let hingeHealthLink;
+  if (groupId) {
+    hingeHealthLink = hingeHealthLinks.get(groupId);
+  }
+
+  if (hingeHealthLink == null) {
+    if (
+      hingehealthvRules?.groupRenewalDateBeforeTodaysDate &&
+      (hingehealthvRules?.fullyInsured ||
+        hingehealthvRules?.selfFunded ||
+        hingehealthvRules?.levelFunded)
+    )
+      return process.env.NEXT_PUBLIC_HINGE_HEALTH ?? '';
+    else return process.env.NEXT_PUBLIC_HINGE_HEALTH_DEFAULT ?? '';
+  }
+  return hingeHealthLink;
 }

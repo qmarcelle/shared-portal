@@ -28,36 +28,49 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
                 <div
-                  class="card-main neutral container mt-4"
+                  class="card-main large-section"
                 >
-                  <div
-                    class="flex flex-row flex flex-row align-top m-4"
+                  <p
+                    class="body-1 body-1 font-bold"
                   >
-                    <img
-                      alt="alert"
-                      class="icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-row flex flex-col flex-grow"
-                    >
-                      <p
-                        class="body-1"
-                      >
-                        Oops, it looks like something went wrong. Try again later.
-                      </p>
-                    </div>
-                  </div>
+                    Louthan, James D.
+                  </p>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Primary Care Provider
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-2"
+                  >
+                    Facility Address
+                  </p>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    2033 Meadowview Ln Ste 200
+                  </p>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Kingsport TN 37660-7432
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-2"
+                  >
+                    Phone
+                  </p>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    (423) 857-2260
+                  </p>
                 </div>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"

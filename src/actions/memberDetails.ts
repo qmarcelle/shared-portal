@@ -24,6 +24,7 @@ export async function getLoggedInMember(
     member.subscriberId = loggedUserInfo.subscriberID;
     member.noOfDependents = loggedUserInfo.members.length;
     member.groupId = loggedUserInfo.groupData.groupID;
+    member.cmCondition = loggedUserInfo.cmcondition.join(',');
     const loggedMember = loggedUserInfo.members.find(
       (x) => x.memRelation == 'M',
     );

@@ -8,6 +8,7 @@ import {
 } from '@/components/foundation/Icons';
 import { HealthProgramDetails } from './health_program_details';
 import { HealthProgramType } from './health_program_type';
+import { getHingeHealthLink } from '@/visibilityEngine/computeVisibilityRules';
 
 export const healthProgramsandResourcesDetails: Map<
   HealthProgramType,
@@ -25,7 +26,9 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use Alight',
         icon: alightIcon,
-        redirectLink: process.env.NEXT_PUBLIC_ALIGHT ?? '',
+        redirectLink: () => {
+          return process.env.NEXT_PUBLIC_ALIGHT ?? '';
+        },
       },
       whyUseThisOptionDetails: [
         'In-network & covered by your plan at no cost to you',
@@ -57,7 +60,9 @@ export const healthProgramsandResourcesDetails: Map<
         serviceDesc: '',
         buttonText: 'Use Silver&Fit',
         icon: silverFitLogo,
-        redirectLink: process.env.NEXT_PUBLIC_SILVER_FIT ?? '',
+        redirectLink: () => {
+          return process.env.NEXT_PUBLIC_SILVER_FIT ?? '';
+        },
       },
       whyUseThisOptionDetails: [
         'In-network & covered by your plan at no extra cost',
@@ -90,7 +95,9 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
-        redirectLink: '',
+        redirectLink: () => {
+          return '';
+        },
       },
       whyUseThisOptionDetails: [
         'If eligible, covered by your plan at no extra cost',
@@ -124,7 +131,7 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use Hinge Health',
         icon: hingeHealthLogo,
-        redirectLink: process.env.NEXT_PUBLIC_HINGE_HEALTH ?? '',
+        redirectLink: getHingeHealthLink,
       },
       whyUseThisOptionDetails: [
         'In-network & no cost to you',
@@ -162,7 +169,9 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
-        redirectLink: '',
+        redirectLink: () => {
+          return '';
+        },
       },
       whyUseThisOptionDetails: [
         'If eligible, covered by your plan at no extra cost',
@@ -196,7 +205,9 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Get Your QuestSelect Card',
         icon: questSelectLogo,
-        redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
+        redirectLink: () => {
+          return process.env.NEXT_PUBLIC_QUEST_SELECT ?? '';
+        },
       },
       whyUseThisOptionDetails: [
         'In-network with your plan*',
@@ -231,7 +242,9 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
-        redirectLink: '',
+        redirectLink: () => {
+          return '';
+        },
       },
       whyUseThisOptionDetails: [
         'In-network & covered by your plan',
@@ -308,7 +321,9 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
-        redirectLink: '',
+        redirectLink: () => {
+          return '';
+        },
       },
       whyUseThisOptionDetails: [
         'In-network & covered by your plan',
@@ -352,7 +367,9 @@ export const healthProgramsandResourcesDetails: Map<
           "The first time using this service, you'll need to create an account.",
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
-        redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
+        redirectLink: () => {
+          return process.env.NEXT_PUBLIC_QUEST_SELECT ?? '';
+        },
       },
       whyUseThisOptionDetails: [
         'If eligible, covered by your plan at no extra cost',
@@ -390,7 +407,9 @@ export const healthProgramsandResourcesDetails: Map<
           "The first time using this service, you'll need to create an account.",
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
-        redirectLink: process.env.NEXT_PUBLIC_QUEST_SELECT ?? '',
+        redirectLink: () => {
+          return process.env.NEXT_PUBLIC_QUEST_SELECT ?? '';
+        },
       },
       whyUseThisOptionDetails: [
         'In-network & covered by your plan',
@@ -436,7 +455,9 @@ export const healthProgramsandResourcesDetails: Map<
           'The first time using this service, you’ll need to create an account.',
         buttonText: 'Use AbleTo',
         icon: ableToLogo,
-        redirectLink: process.env.NEXT_PUBLIC_ABLETO ?? '',
+        redirectLink: () => {
+          return process.env.NEXT_PUBLIC_ABLETO ?? '';
+        },
       },
       whyUseThisOptionDetails: [
         'In-network & covered by your plan',
