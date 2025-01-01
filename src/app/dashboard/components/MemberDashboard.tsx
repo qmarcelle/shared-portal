@@ -17,6 +17,7 @@ import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
   isBlueCareEligible,
+  isPayMyPremiumEligible,
   isPrimaryCarePhysicianEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
@@ -137,13 +138,14 @@ const MemberDashboard = ({
             )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            {!isBlueCareEligible(visibilityRules) && (
-              <PayPremiumSection
-                className="large-section"
-                dueDate="08/10/2023"
-                amountDue={1000.46}
-              />
-            )}
+            {!isBlueCareEligible(visibilityRules) &&
+              isPayMyPremiumEligible(visibilityRules) && (
+                <PayPremiumSection
+                  className="large-section"
+                  dueDate="08/10/2023"
+                  amountDue={1000.46}
+                />
+              )}
 
             {!isBlueCareEligible(visibilityRules) && (
               <SpendingAccountSummary

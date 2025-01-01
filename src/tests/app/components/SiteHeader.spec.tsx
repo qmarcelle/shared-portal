@@ -21,7 +21,12 @@ function setVisibilityRules(vRules: VisibilityRules) {
   vRules.terminated = false;
   vRules.katieBeckNoBenefitsElig = false;
 }
-
+function setisActiveAndNotFSAOnly(vRules: VisibilityRules) {
+  vRules.futureEffective = false;
+  vRules.fsaOnly = false;
+  vRules.terminated = false;
+  vRules.katieBeckNoBenefitsElig = false;
+}
 const renderUI = (vRules: VisibilityRules) => {
   return render(
     <div>
@@ -67,25 +72,8 @@ describe('SiteHeader And Navigation Menu', () => {
         name: /Price Dental Care/i,
       }),
     );
-    expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
 
     expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
-
-    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: /Mental Health Options/i,
-      }),
-    );
-    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
-
-    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: /Mental Health Options/i,
-      }),
-    );
-    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
 
     expect(screen.getAllByText(/Virtual Care Options/i));
     fireEvent.click(
@@ -284,7 +272,74 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(screen.getByText('Price Medical Care')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
+  it('should navigate the primary care menu link correctly', async () => {
+    vRules.primary360Eligible = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
 
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+    expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should navigate the Mental Health Options menu link correctly for Teladoc', async () => {
+    vRules.myStrengthCompleteEligible = true;
+    setisActiveAndNotFSAOnly(vRules);
+    const component = renderUI(vRules);
+
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+
+    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /Mental Health Options/i,
+      }),
+    );
+    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
+
+    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /Mental Health Options/i,
+      }),
+    );
+    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should navigate the Mental Health Options menu link correctly for AbleTo', async () => {
+    vRules.mentalHealthSupport = true;
+    vRules.commercialFull = true;
+    vRules.medical = true;
+    setisActiveAndNotFSAOnly(vRules);
+    const component = renderUI(vRules);
+
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+
+    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /Mental Health Options/i,
+      }),
+    );
+    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
+
+    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /Mental Health Options/i,
+      }),
+    );
+    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
+    expect(component.baseElement).toMatchSnapshot();
+  });
   it('should navigate my Plan - Manage my Plan menu link correctly Enroll eligibility members', async () => {
     vRules.commercial = true;
     vRules.subscriber = true;
@@ -299,6 +354,19 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(screen.getByText('Enroll in a Health Plan')).toBeInTheDocument();
     expect(screen.getByText('Manage My Policy')).toBeVisible();
     expect(screen.getByText('Report Other Health Insurance')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should navigate the price dental care menu link correctly', async () => {
+    vRules.dental = true;
+    vRules.dentalCostsEligible = true;
+    vRules.enableCostTools = true;
+    const component = renderUI(vRules);
+
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+    expect(screen.getByText('Price Dental Care')).toBeInTheDocument();
+
     expect(component.baseElement).toMatchSnapshot();
   });
 });

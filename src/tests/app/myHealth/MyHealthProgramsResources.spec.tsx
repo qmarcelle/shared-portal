@@ -1,0 +1,130 @@
+import MyHealthProgramsResources from '@/app/myHealth/healthProgramsResources';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+
+let vRules: VisibilityRules = {};
+
+function activeAndNotFSAOnlyProfiler(rules: VisibilityRules) {
+  return (
+    !rules?.futureEffective &&
+    !rules?.fsaOnly &&
+    !rules?.terminated &&
+    !rules?.katieBeckNoBenefitsElig
+  );
+}
+
+function activeAndHealthPlanMemberProfiler(rules: VisibilityRules) {
+  return !rules?.wellnessOnly && activeAndNotFSAOnlyProfiler(rules);
+}
+
+const renderUI = (vRules: VisibilityRules) => {
+  return render(<MyHealthProgramsResources visibilityRules={vRules} />);
+};
+
+describe('MyHealthProgramsResources', () => {
+  beforeEach(() => {
+    vRules = {};
+  });
+  it('should render UI correctly for MyHealthProgramsResources', () => {
+    const component = renderUI(vRules);
+    screen.getByRole('heading', {
+      name: 'Health Programs & Resources',
+    });
+    screen.getByText(
+      'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+    );
+    screen.getByText('View all your plan benefits here');
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render UI correctly for Able To Health Program', () => {
+    vRules.mentalHealthSupport = true;
+    vRules.medical = true;
+    activeAndNotFSAOnlyProfiler(vRules);
+    const component = renderUI(vRules);
+    screen.getByText('Mental Health');
+    screen.getByText('AbleTo');
+    screen.getByText(
+      'AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.',
+    );
+    screen.getByText('Learn More About AbleTo');
+    screen.getByText('Generally good for:');
+    screen.getByText('Anxiety');
+    screen.getByText('Depression');
+    screen.getByText('Grief');
+    screen.getByText('Stress');
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render UI correctly for Talk To Nurse Health Program', () => {
+    vRules.healthCoachElig = true;
+    activeAndNotFSAOnlyProfiler(vRules);
+    const component = renderUI(vRules);
+    screen.getByText('Urgent Care');
+    screen.getByText('Talk to a Nurse');
+    screen.getByText(
+      'Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.',
+    );
+    screen.getByText('Learn More About Nurseline');
+    screen.getByText('Generally good for:');
+    screen.getByText('Assessing symptoms and advice');
+    screen.getByText('General health information');
+    screen.getByText('Education and support on conditions or procedures');
+    screen.getByText('Help making decisions for surgery or other treatments');
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render UI correctly for Teledoc Health Primar Card Provider Health Program', () => {
+    vRules.primary360Eligible = true;
+    activeAndHealthPlanMemberProfiler(vRules);
+    const component = renderUI(vRules);
+    screen.getByText('Primary Care');
+    screen.getByText('Teladoc Health Primary Card Provider');
+    screen.getByText(
+      'With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.',
+    );
+    screen.getByText('Learn More About Teladoc Health Primary Care');
+    screen.getByText('Generally good for:');
+    screen.getByText('Annual checkups and preventive care');
+    screen.getByText('Prescriptions');
+    screen.getByText('Lab orders and recommended screenings');
+    screen.getByText('Referrals to in-network specialists');
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render UI correctly for Teladoc Mental  Health Program', () => {
+    vRules.myStrengthCompleteEligible = true;
+    activeAndHealthPlanMemberProfiler(vRules);
+    const component = renderUI(vRules);
+    screen.getByText('Mental Health');
+    screen.getByText('Teladoc Mental Health');
+    screen.getByText(
+      'Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.',
+    );
+    screen.getByText('Learn More About Teladoc Mental Health');
+    screen.getByText('Generally good for:');
+    screen.getByText('Anxiety, stress, feeling overwhelmed');
+    screen.getByText('Relationship conflicts');
+    screen.getByText('Depression');
+    screen.getByText('Trauma and PTSD');
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render UI correctly for Hinge Health Program', () => {
+    vRules.hingeHealthEligible = true;
+    const component = renderUI(vRules);
+    screen.getByText('Physical Therapy');
+    screen.getByText('Hinge Health Back & Joint Care');
+    screen.getByText(
+      'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
+    );
+    screen.getByText('Learn More About Hinge Health');
+    screen.getByText('Generally good for:');
+    screen.getByText('Back pain');
+    screen.getByText('Wrist and ankle pain');
+    screen.getByText('Pelvic pain and incontinence');
+    screen.getByText('Neck and shoulder pain');
+    expect(component).toMatchSnapshot();
+  });
+});

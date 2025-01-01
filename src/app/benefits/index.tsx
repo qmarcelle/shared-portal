@@ -12,9 +12,16 @@ import VisionIcon from '../../../public/assets/vision_benefit.svg';
 import { Filter } from '@/components/foundation/Filter';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
+import {
+  isDentalCostEstimator,
+  isFindADentist,
+} from '@/visibilityEngine/computeVisibilityRules';
 import { MedicalPharmacyDentalCard } from './components/MedicalPharmacyDentalCard';
-
-const Benefits = () => {
+import { BenefitsData } from './models/benefitsData';
+type BenefitsPageProps = {
+  data: BenefitsData | undefined;
+};
+const Benefits = ({ data }: BenefitsPageProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -188,73 +195,76 @@ const Benefits = () => {
               ]}
             />
 
-            <MedicalPharmacyDentalCard
-              className="small-section w-[672px] "
-              heading="Dental"
-              cardIcon={<Image src={DentalIcon} alt="link" />}
-              manageBenefitItems={[
-                {
-                  title: 'Anesthesia',
-                  body: '',
-                  externalLink: false,
-                  url: 'url',
-                },
-                {
-                  title: 'Basic',
-                  body: '',
-                  externalLink: false,
-                  url: 'url',
-                },
-                {
-                  title: 'Diagnostic & Preventive',
-                  body: '',
-                  externalLink: false,
-                  url: 'url',
-                },
-                {
-                  title: 'Endodontics',
-                  body: '',
-                  externalLink: false,
-                  url: 'url',
-                },
-                {
-                  title: 'Major',
-                  body: '',
-                  externalLink: true,
-                  url: 'url',
-                },
-                {
-                  title: 'Occlusal Guard',
-                  body: '',
-                  externalLink: true,
-                  url: 'url',
-                },
-                {
-                  title: 'Oral Surgery',
-                  body: '',
-                  externalLink: true,
-                  url: 'url',
-                },
-                {
-                  title: 'Orthodontic Treatment',
-                  body: '',
-                  externalLink: true,
-                  url: 'url',
-                },
-                {
-                  title: 'Periodontics',
-                  body: '',
-                  externalLink: true,
-                  url: 'url',
-                },
-                {
-                  title: 'TMJ Services',
-                  body: '',
-                  externalLink: true,
-                  url: 'url',
-                },
-              ]}
-            />
+            {isFindADentist(data?.visibilityRules) &&
+              isDentalCostEstimator(data?.visibilityRules) && (
+                <MedicalPharmacyDentalCard
+                  className="small-section w-[672px] "
+                  heading="Dental"
+                  cardIcon={<Image src={DentalIcon} alt="link" />}
+                  manageBenefitItems={[
+                    {
+                      title: 'Anesthesia',
+                      body: '',
+                      externalLink: false,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Basic',
+                      body: '',
+                      externalLink: false,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Diagnostic & Preventive',
+                      body: '',
+                      externalLink: false,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Endodontics',
+                      body: '',
+                      externalLink: false,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Major',
+                      body: '',
+                      externalLink: true,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Occlusal Guard',
+                      body: '',
+                      externalLink: true,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Oral Surgery',
+                      body: '',
+                      externalLink: true,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Orthodontic Treatment',
+                      body: '',
+                      externalLink: true,
+                      url: 'url',
+                    },
+                    {
+                      title: 'Periodontics',
+                      body: '',
+                      externalLink: true,
+                      url: 'url',
+                    },
+                    {
+                      title: 'TMJ Services',
+                      body: '',
+                      externalLink: true,
+                      url: 'url',
+                    },
+                  ]}
+                />
+              )}
             <MedicalPharmacyDentalCard
               className="small-section w-[672px] "
               heading="Vision"

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const MyHealthProgramsPage = async () => {
   const result = await getAccessCodeDetails();
-  return <MyHealthPrograms data={result} />;
+  return <MyHealthPrograms data={result.data!} />;
 };
 
 export default MyHealthProgramsPage;

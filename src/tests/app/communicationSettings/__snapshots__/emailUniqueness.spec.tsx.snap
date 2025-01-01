@@ -1,0 +1,479 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateCommunicationEmail displays success message on final page 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <img
+        alt="success"
+        class="size-[80px]"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+      />
+      <h1
+        class="title-1 title-2"
+      >
+        Email Address Updated
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-col w-[358px]"
+      >
+        <div
+          class="flex flex-col items-center"
+        >
+          <p
+            class="body-1 text-center"
+          >
+            Your email address is:
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            test@example.com
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <button
+          aria-label="Done"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`UpdateCommunicationEmail renders initial page with email input 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <h1
+        class="title-1 title-2"
+      >
+        Update Email Address
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1 text-center"
+      >
+        Enter the new email address you'd like to use for communications and security settings.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-[352px]"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Email Address
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Email Address"
+                class=""
+                type="email"
+                value="test@example.com"
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <button
+          aria-label="Next"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          disabled=""
+          type="button"
+        >
+          Next
+        </button>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <button
+          aria-label="Cancel"
+          class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`UpdateCommunicationEmail shows error for invalid email address 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <h1
+        class="title-1 title-2"
+      >
+        Update Email Address
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1 text-center"
+      >
+        Enter the new email address you'd like to use for communications and security settings.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-[352px]"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Email Address
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Email Address"
+                class=""
+                type="email"
+                value="invalid-email"
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <div
+            class="text-red-500 mt-2"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="alert"
+                class="icon mt-1"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 body-1 pt-1.5 ml-2"
+              >
+                Please enter a valid address.
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <button
+          aria-label="Next"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          disabled=""
+          type="button"
+        >
+          Next
+        </button>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <button
+          aria-label="Cancel"
+          class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`UpdateCommunicationEmail shows error if email addresses do not match 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <h1
+        class="title-1 title-2"
+      >
+        Update Email Address
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1 text-center"
+      >
+        Enter the new email address you'd like to use for communications and security settings.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-[352px]"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Email Address
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Email Address"
+                class=""
+                type="email"
+                value="new@example.com"
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <div
+            class="flex flex-col"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-col w-full text-field"
+            >
+              <p>
+                Confirm Email
+              </p>
+              <div
+                class="flex flex-row items-center input   "
+              >
+                <input
+                  aria-label="Confirm Email"
+                  class=""
+                  type="text"
+                  value="different@example.com"
+                />
+                <div
+                  class="cursor-pointer"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="text-red-500 mt-2"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="alert"
+                class="icon mt-1"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <p
+                class="body-1 body-1 pt-1.5 ml-2"
+              >
+                The email addresses must match. Please check and try again.
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <button
+          aria-label="Next"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          disabled=""
+          type="button"
+        >
+          Next
+        </button>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <button
+          aria-label="Cancel"
+          class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`UpdateCommunicationEmail validates email address and shows confirmation input 1`] = `
+<body>
+  <div />
+  <div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <h1
+        class="title-1 title-2"
+      >
+        Update Email Address
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <p
+        class="body-1 text-center"
+      >
+        Enter the new email address you'd like to use for communications and security settings.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col w-[352px]"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-col w-full text-field"
+          >
+            <p>
+              Email Address
+            </p>
+            <div
+              class="flex flex-row items-center input   "
+            >
+              <input
+                aria-label="Email Address"
+                class=""
+                type="email"
+                value="new@example.com"
+              />
+              <div
+                class="cursor-pointer"
+              />
+            </div>
+          </div>
+          <div
+            class="flex flex-col"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-col w-full text-field"
+            >
+              <p>
+                Confirm Email
+              </p>
+              <div
+                class="flex flex-row items-center input   "
+              >
+                <input
+                  aria-label="Confirm Email"
+                  class=""
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="cursor-pointer"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+        />
+        <button
+          aria-label="Next"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+          disabled=""
+          type="button"
+        >
+          Next
+        </button>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <button
+          aria-label="Cancel"
+          class="button-text ghost text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;

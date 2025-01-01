@@ -14,4 +14,6 @@ export interface LoggedInMember {
   homeAddress: Address;
   dateOfBirth: string;
   groupId: string;
+  isAmplifyMem?: boolean;
+  cmCondition: string;
 }

@@ -1,0 +1,17 @@
+export enum HealthProgramsResourcesName {
+  AlightSecondOpinionAdviceAndSupport = 'AlightSecondOpinionAdviceAndSupport',
+  CareTNOneOnOneHealthSupport = 'CareTNOneOnOneHealthSupport',
+  TeladocHealthBloodPressureManagementProgram = 'TeladocHealthBloodPressureManagementProgram',
+  TeladocHealthDiabetesManagementProgram = 'TeladocHealthDiabetesManagementProgram',
+  TeladocHealthDiabetesPreventionProgram = 'TeladocHealthDiabetesPreventionProgram',
+  SilverAndFitFitnessProgram = 'SilverAndFitFitnessProgram',
+  QuestSelectLowCostLabTesting = 'QuestSelectLowCostLabTesting',
+  AbleTo = 'AbleTo',
+  TeladocMentalHealth = 'TeladocMentalHealth',
+  HingeHealthBackAndJointCare = 'HingeHealthBackAndJointCare',
+  HealthyMaternity = 'HealthyMaternity',
+  TeladocHealthPrimaryCardProvider = 'TeladocHealthPrimaryCardProvider',
+  BlueOfTennesseeMedicalCentersVirtualVisits = 'BlueOfTennesseeMedicalCentersVirtualVisits',
+  TeladocHealthGeneralAndUrgentCare = 'TeladocHealthGeneralAndUrgentCare',
+  TalkToNurse = 'TalkToNurse',
+}

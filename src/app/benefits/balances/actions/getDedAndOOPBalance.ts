@@ -46,9 +46,8 @@ export async function callGetDedAndOOPBalance({
 export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
   ActionResponse<number, BalanceData>
 > {
+  const session = await auth();
   try {
-    const session = await auth();
-
     // Get dental balance
     const respForDental = callGetDedAndOOPBalance({
       memberId: session!.user.currUsr!.plan.sbsbCk,
@@ -96,6 +95,7 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
               result[1].value.accumulatorsDetails[0]?.serviceLimitDetails,
             ),
           },
+          visibilityRules: session?.user.vRules,
         },
       };
     } else {
@@ -126,6 +126,7 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
                   ),
                 }
               : undefined,
+          visibilityRules: session?.user.vRules,
         },
       };
     }
@@ -134,6 +135,9 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
     logger.error('DedAndOOPBalance Retrieval failed', err);
     return {
       status: 400,
+      data: {
+        visibilityRules: session?.user.vRules,
+      },
     };
   }
 }

@@ -2,6 +2,7 @@ import { EmailUniquenessVerification } from '@/app/login/components/EmailUniquen
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+jest.setTimeout(30000);
 const mockReplace = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {

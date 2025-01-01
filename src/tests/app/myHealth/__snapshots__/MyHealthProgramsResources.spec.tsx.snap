@@ -1,0 +1,2165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyHealthProgramsResources should render UI correctly for Able To Health Program 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mt-4"
+          >
+            Health Programs & Resources
+          </h1>
+          <div
+            class="w-3/4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 mt-4 inline w-2/3"
+            >
+              Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+            </p>
+            <a
+              style="display: inline-flex;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container pr-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="0"
+              >
+                <p
+                  class="link undefined"
+                  style="display: inline-flex;"
+                >
+                  View all your plan benefits here
+                </p>
+              </button>
+            </a>
+            .
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="gap-4 md:flex sm:inline"
+              >
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Mental Health
+                    </p>
+                    <img
+                      alt="AbleToIcon"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        AbleTo
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Anxiety
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Depression
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Grief
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Stress
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Learn More About AbleTo
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mt-4"
+        >
+          Health Programs & Resources
+        </h1>
+        <div
+          class="w-3/4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 mt-4 inline w-2/3"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <a
+            style="display: inline-flex;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container pr-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: inline-flex;"
+              >
+                View all your plan benefits here
+              </p>
+            </button>
+          </a>
+          .
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="gap-4 md:flex sm:inline"
+            >
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Mental Health
+                  </p>
+                  <img
+                    alt="AbleToIcon"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      AbleTo
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Anxiety
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Depression
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Grief
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Stress
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Learn More About AbleTo
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MyHealthProgramsResources should render UI correctly for Hinge Health Program 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mt-4"
+          >
+            Health Programs & Resources
+          </h1>
+          <div
+            class="w-3/4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 mt-4 inline w-2/3"
+            >
+              Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+            </p>
+            <a
+              style="display: inline-flex;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container pr-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="0"
+              >
+                <p
+                  class="link undefined"
+                  style="display: inline-flex;"
+                >
+                  View all your plan benefits here
+                </p>
+              </button>
+            </a>
+            .
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="gap-4 md:flex sm:inline"
+              >
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Physical Therapy
+                    </p>
+                    <img
+                      alt="HingeHealth"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Hinge Health Back & Joint Care
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Back pain
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Wrist and ankle pain
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Pelvic pain and incontinence
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Neck and shoulder pain
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Learn More About Hinge Health
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mt-4"
+        >
+          Health Programs & Resources
+        </h1>
+        <div
+          class="w-3/4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 mt-4 inline w-2/3"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <a
+            style="display: inline-flex;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container pr-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: inline-flex;"
+              >
+                View all your plan benefits here
+              </p>
+            </button>
+          </a>
+          .
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="gap-4 md:flex sm:inline"
+            >
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Physical Therapy
+                  </p>
+                  <img
+                    alt="HingeHealth"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Hinge Health Back & Joint Care
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Back pain
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Wrist and ankle pain
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Pelvic pain and incontinence
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Neck and shoulder pain
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Learn More About Hinge Health
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgramsResources 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mt-4"
+          >
+            Health Programs & Resources
+          </h1>
+          <div
+            class="w-3/4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 mt-4 inline w-2/3"
+            >
+              Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+            </p>
+            <a
+              style="display: inline-flex;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container pr-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="0"
+              >
+                <p
+                  class="link undefined"
+                  style="display: inline-flex;"
+                >
+                  View all your plan benefits here
+                </p>
+              </button>
+            </a>
+            .
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="gap-4 md:flex sm:inline"
+              />
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mt-4"
+        >
+          Health Programs & Resources
+        </h1>
+        <div
+          class="w-3/4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 mt-4 inline w-2/3"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <a
+            style="display: inline-flex;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container pr-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: inline-flex;"
+              >
+                View all your plan benefits here
+              </p>
+            </button>
+          </a>
+          .
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="gap-4 md:flex sm:inline"
+            />
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse Health Program 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mt-4"
+          >
+            Health Programs & Resources
+          </h1>
+          <div
+            class="w-3/4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 mt-4 inline w-2/3"
+            >
+              Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+            </p>
+            <a
+              style="display: inline-flex;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container pr-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="0"
+              >
+                <p
+                  class="link undefined"
+                  style="display: inline-flex;"
+                >
+                  View all your plan benefits here
+                </p>
+              </button>
+            </a>
+            .
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="gap-4 md:flex sm:inline"
+              >
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Urgent Care
+                    </p>
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Talk to a Nurse
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Assessing symptoms and advice
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              General health information
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Education and support on conditions or procedures
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Help making decisions for surgery or other treatments 
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Learn More About Nurseline
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mt-4"
+        >
+          Health Programs & Resources
+        </h1>
+        <div
+          class="w-3/4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 mt-4 inline w-2/3"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <a
+            style="display: inline-flex;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container pr-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: inline-flex;"
+              >
+                View all your plan benefits here
+              </p>
+            </button>
+          </a>
+          .
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="gap-4 md:flex sm:inline"
+            >
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Urgent Care
+                  </p>
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Talk to a Nurse
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Assessing symptoms and advice
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            General health information
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Education and support on conditions or procedures
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Help making decisions for surgery or other treatments 
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Learn More About Nurseline
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental  Health Program 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mt-4"
+          >
+            Health Programs & Resources
+          </h1>
+          <div
+            class="w-3/4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 mt-4 inline w-2/3"
+            >
+              Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+            </p>
+            <a
+              style="display: inline-flex;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container pr-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="0"
+              >
+                <p
+                  class="link undefined"
+                  style="display: inline-flex;"
+                >
+                  View all your plan benefits here
+                </p>
+              </button>
+            </a>
+            .
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="gap-4 md:flex sm:inline"
+              >
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Mental Health
+                    </p>
+                    <img
+                      alt="TelaDoc"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Teladoc Mental Health
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Anxiety, stress, feeling overwhelmed
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Relationship conflicts
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Depression
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Trauma and PTSD
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Learn More About Teladoc Mental Health
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mt-4"
+        >
+          Health Programs & Resources
+        </h1>
+        <div
+          class="w-3/4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 mt-4 inline w-2/3"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <a
+            style="display: inline-flex;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container pr-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: inline-flex;"
+              >
+                View all your plan benefits here
+              </p>
+            </button>
+          </a>
+          .
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="gap-4 md:flex sm:inline"
+            >
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Mental Health
+                  </p>
+                  <img
+                    alt="TelaDoc"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Teladoc Mental Health
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Anxiety, stress, feeling overwhelmed
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Relationship conflicts
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Depression
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Trauma and PTSD
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Learn More About Teladoc Mental Health
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health Primar Card Provider Health Program 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mt-4"
+          >
+            Health Programs & Resources
+          </h1>
+          <div
+            class="w-3/4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 mt-4 inline w-2/3"
+            >
+              Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+            </p>
+            <a
+              style="display: inline-flex;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container pr-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="0"
+              >
+                <p
+                  class="link undefined"
+                  style="display: inline-flex;"
+                >
+                  View all your plan benefits here
+                </p>
+              </button>
+            </a>
+            .
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="gap-4 md:flex sm:inline"
+              >
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    >
+                      Primary Care
+                    </p>
+                    <img
+                      alt="TelaDoc"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                      >
+                        Teladoc Health Primary Card Provider
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                      >
+                        With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Annual checkups and preventive care
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Prescriptions
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Lab orders and recommended screenings
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Referrals to in-network specialists
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link undefined"
+                            style="display: block;"
+                          >
+                            Learn More About Teladoc Health Primary Care
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mt-4"
+        >
+          Health Programs & Resources
+        </h1>
+        <div
+          class="w-3/4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 mt-4 inline w-2/3"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <a
+            style="display: inline-flex;"
+            tabindex="-1"
+          >
+            <button
+              class="flex flex-row link-container pr-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="0"
+            >
+              <p
+                class="link undefined"
+                style="display: inline-flex;"
+              >
+                View all your plan benefits here
+              </p>
+            </button>
+          </a>
+          .
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="gap-4 md:flex sm:inline"
+            >
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  >
+                    Primary Care
+                  </p>
+                  <img
+                    alt="TelaDoc"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                    >
+                      Teladoc Health Primary Card Provider
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                    >
+                      With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Annual checkups and preventive care
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Prescriptions
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Lab orders and recommended screenings
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Referrals to in-network specialists
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Learn More About Teladoc Health Primary Care
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

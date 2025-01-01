@@ -1,6 +1,9 @@
 import {
   isBlueCareNotEligible,
   isEnrollEligible,
+  isMentalHealthMenuOption,
+  isPriceDentalCareMenuOptions,
+  isPrimaryCareMenuOption,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
@@ -55,10 +58,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Primary Care Options',
         description: 'This is Primary Care Options',
         category: 'Find Care',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/primaryCareOptions',
+        showOnMenu: isPrimaryCareMenuOption,
+        url: 'findcare/primaryCareOptions',
         external: false,
       },
       {
@@ -66,10 +67,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Mental Health Options',
         description: 'This is Mental Health Option',
         category: 'Find Care',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/mentalHealthOptions',
+        showOnMenu: isMentalHealthMenuOption,
+        url: 'findcare/mentalHealthOptions',
         external: false,
       },
       {
@@ -97,7 +96,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Dental Care',
         description: 'This is Price Dental Care',
         category: 'Estimate Costs',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isPriceDentalCareMenuOptions,
         url: '/priceDentalCare',
         external: false,
       },
@@ -358,7 +357,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         showOnMenu: () => {
           return true;
         },
-        url: '/healthProgramsResources',
+        url: '/myHealth/healthProgramsResources',
         external: false,
       },
       {

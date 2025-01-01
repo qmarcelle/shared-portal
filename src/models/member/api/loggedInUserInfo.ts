@@ -17,7 +17,7 @@ export type LoggedInUserInfo = {
   authFunctions: AuthFunction[];
   healthCareAccounts: any[];
   esigroupNum: string;
-  cmcondition: any[];
+  cmcondition: string[];
 };
 
 export type Address = {

@@ -1,6 +1,9 @@
+import { VisibilityRules } from '@/visibilityEngine/rules';
+
 export type BalanceData = {
-  medical: ProductBalance | undefined;
-  dental: ProductBalance | undefined;
+  medical?: ProductBalance;
+  dental?: ProductBalance;
+  visibilityRules?: VisibilityRules;
 };
 
 export type ProductBalance = {

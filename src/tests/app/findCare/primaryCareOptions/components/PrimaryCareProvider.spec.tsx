@@ -14,7 +14,6 @@ const renderUI = (providerDetails: PrimaryCareProviderDetails | null) => {
     />,
   );
 };
-
 describe('Primary Care Provider', () => {
   it('should render the UI correctly', async () => {
     const providerDetails = {
