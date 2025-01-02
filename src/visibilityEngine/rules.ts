@@ -39,6 +39,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'isCondensedExperience',
   'enRollEligible',
   'enableBenefitChange',
+  'medicare',
   'enableCostTools',
   'dentalCostsEligible',
   'payMyPremiumElig',
