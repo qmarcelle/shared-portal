@@ -10,6 +10,7 @@ import { VisibilityRules } from './rules';
 const COMMERCIAL_LOB = ['REGL'];
 const INDIVIDUAL_LOB = ['INDV'];
 const MEDICAID_LOB = ['MEDA'];
+const MEDICARE_LOB = ['MEDC'];
 
 const PTYP_SELF_FUNDED: string[] = ['ASO', 'CLIN', 'COST'];
 const PTYP_LEVEL_FUNDED: string[] = ['LVLF'];
@@ -36,6 +37,8 @@ export function computeVisibilityRules(
   rules.commercial = COMMERCIAL_LOB.includes(loggedUserInfo.lob);
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
+  rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
+
   groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,

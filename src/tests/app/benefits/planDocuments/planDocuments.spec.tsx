@@ -71,7 +71,7 @@ describe('planDocuments', () => {
     expect(screen.getByText('Plan Documents')).toBeVisible();
     expect(
       screen.getByText(
-        'To request a printed version of any of these materials, please contact us.',
+        'To request a printed version of any of these materials, please',
       ),
     ).toBeVisible();
     expect(screen.getByText('Request Printed Material')).toBeVisible();
@@ -121,6 +121,33 @@ describe('planDocuments', () => {
         httpsAgent: expect.any(Agent),
       },
     );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render the UI correctly for medicare', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce({
+      user: {
+        id: 'Testuser0123',
+        vRules: {
+          medicare: true,
+        },
+      },
+    });
+    mockedAxios.get.mockResolvedValue({
+      data: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
+<head><title>Electronic Evidence Of Coverage</title></head>`,
+    });
+    const component = await renderUI();
+    expect(screen.getByText('Plan Documents')).toBeVisible();
+    expect(
+      screen.getByText(
+        'To request a printed version of any of these materials, please',
+      ),
+    ).toBeVisible();
+    expect(screen.getByText('Provider Directory')).toBeVisible();
+    expect(screen.getByText('Pharmacy Directory')).toBeVisible();
+    expect(screen.getByText('Medication List (Formulary) 2025')).toBeVisible();
     expect(component).toMatchSnapshot();
   });
 });
