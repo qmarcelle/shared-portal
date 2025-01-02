@@ -16,6 +16,7 @@ import { Header } from '@/components/foundation/Header';
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
+  isAHAdvisorpage,
   isBlueCareEligible,
   isPayMyPremiumEligible,
   isPrimaryCarePhysicianEligible,
@@ -40,11 +41,12 @@ const MemberDashboard = ({
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <section className="sm:flex sm:flex-row items-start">
-          {!isBlueCareEligible(visibilityRules) && (
-            <AmplifyHealthAdvisorBanner />
+        {!isBlueCareEligible(visibilityRules) &&
+          isAHAdvisorpage(visibilityRules) && (
+            <section className="sm:flex sm:flex-row items-start">
+              <AmplifyHealthAdvisorBanner />
+            </section>
           )}
-        </section>
         <Spacer size={32}></Spacer>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">

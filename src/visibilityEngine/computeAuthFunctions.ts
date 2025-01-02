@@ -30,6 +30,10 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'BLUEPRKS',
   )?.available;
 
+  rules.amplifyMember = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'AMPLIFYMEMBER',
+  )?.available;
+
   rules.myStrengthCompleteEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'TELADOC_MYSTRENGTHCOMPLETE',
   )?.available;

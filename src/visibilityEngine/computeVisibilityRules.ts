@@ -1,4 +1,5 @@
 import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
+import { ahAdvisorpageSetting } from '@/models/app/visibility_rules_constants';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
@@ -23,20 +24,19 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
-let groupID: string;
+let groupId: string;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
   //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
-
   rules.active = loggedUserInfo.isActive;
   rules.subscriber = loggedUserInfo.subscriberLoggedIn;
   rules.externalSpendingAcct = loggedUserInfo.healthCareAccounts?.length > 0;
   rules.commercial = COMMERCIAL_LOB.includes(loggedUserInfo.lob);
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
-  groupID = loggedUserInfo.groupData.groupID;
+  groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -123,6 +123,35 @@ export function isBlue365FitnessYourWayEligible(
   return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
 }
 
+export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
+  return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
+}
+
+function isAHAdvisorEnabled(groupId: string | undefined) {
+  const currentDate = new Date();
+  const ahAdvisorValue = ahAdvisorpageSetting;
+  const ahAdvisor = ahAdvisorValue.split(',');
+  if (!ahAdvisor || ahAdvisor.length === 0) {
+    return false;
+  }
+  for (let i = 0; i < ahAdvisor.length; i++) {
+    const groupWithDate = ahAdvisor[i].split('|');
+    if (!groupWithDate || groupWithDate.length !== 2) {
+      continue;
+    }
+    if (groupId === groupWithDate[0]) {
+      let configuredDate;
+      try {
+        configuredDate = new Date(groupWithDate[1]);
+        return currentDate <= configuredDate;
+      } catch (e) {
+        console.error('Error while parsing Date ' + e);
+      }
+    }
+  }
+  return false;
+}
+
 export function isTeledocPrimary360Eligible(
   rules: VisibilityRules | undefined,
 ) {
@@ -155,7 +184,7 @@ export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
 }
 
 function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
-  if (rules?.isCondensedExperience && groupID == '130430')
+  if (rules?.isCondensedExperience && groupId == '130430')
     return 'FirstHorizon';
   if (rules?.isCondensedExperience) return 'Quantum';
 }
