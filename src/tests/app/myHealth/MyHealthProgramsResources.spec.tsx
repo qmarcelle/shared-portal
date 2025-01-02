@@ -127,4 +127,22 @@ describe('MyHealthProgramsResources', () => {
     screen.getByText('Neck and shoulder pain');
     expect(component).toMatchSnapshot();
   });
+  it('should render UI correctly for CareTN One On One Health Support', () => {
+    vRules.isCondensedExperience = false;
+    vRules.cmEnable = true;
+    vRules.commercial = true;
+    const component = renderUI(vRules);
+    screen.getByText('Advice & Support');
+    screen.getByText('CareTN One-on-One Health Support');
+    screen.getByText(
+      'Did you know you can talk to your very own care team? The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
+    );
+    screen.getByText('Learn More About CareTN');
+    screen.getByText('Generally good for:');
+    screen.getByText('Living with long-term health conditions');
+    screen.getByText('Diabetes');
+    screen.getByText('Respiratory health');
+    screen.getByText('Mental health');
+    expect(component).toMatchSnapshot();
+  });
 });

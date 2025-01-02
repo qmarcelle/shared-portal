@@ -101,4 +101,8 @@ export function computeAuthFunctions(
   rules.isAmplifyMem = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'AMPLIFYMEMBER',
   )?.available;
+
+  rules.cmEnable = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'careManagementExclusion',
+  )?.available;
 }

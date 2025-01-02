@@ -50,6 +50,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'indivEHBUser',
   'groupEHBUser',
   'isAmplifyMem',
+  'cmEnable',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];
