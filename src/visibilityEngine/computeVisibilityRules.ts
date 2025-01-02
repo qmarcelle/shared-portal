@@ -126,6 +126,10 @@ export function isBlue365FitnessYourWayEligible(
   return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
 }
 
+export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
+  return rules?.condensedPortalExperienceGroups;
+}
+
 export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
   return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
 }

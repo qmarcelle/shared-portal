@@ -30,6 +30,10 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'BLUEPRKS',
   )?.available;
 
+  rules.condensedPortalExperienceGroups = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'CONDENSED_EXPERIENCE',
+  )?.available;
+
   rules.amplifyMember = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'AMPLIFYMEMBER',
   )?.available;
