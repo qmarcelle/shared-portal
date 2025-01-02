@@ -1,21 +1,22 @@
 'use client';
 import { VirtualMentalHealthCareSection } from '@/app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
+import { VirtualHealthCareDetails } from '@/app/mentalHealthOptions/models/mental_health_care_options_details';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { VirtualHealthCareDetails } from '@/app/mentalHealthOptions/models/mental_health_care_options_details';
-import { myHealthProgramsandResourcesDetails } from './models/health_programs_resources_details';
-import { HealthProgramsResourcesName } from './models/health_programs_resources_names';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 import {
+  isCareManagementEligiblity,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
   isTeladocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import { myHealthProgramsandResourcesDetails } from './models/health_programs_resources_details';
+import { HealthProgramsResourcesName } from './models/health_programs_resources_names';
 
 export type MyHealthProgramsResourcesProps = {
   visibilityRules?: VisibilityRules;
@@ -56,6 +57,12 @@ const MyHealthProgramsResources = ({
       HealthProgramsResourcesName.TalkToNurse,
     );
     if (nurseChat) virtualHealthCareDetails.push(nurseChat);
+  }
+  if (isCareManagementEligiblity(visibilityRules)) {
+    const careManagement = myHealthProgramsandResourcesDetails.get(
+      HealthProgramsResourcesName.CareTNOneOnOneHealthSupport,
+    );
+    if (careManagement) virtualHealthCareDetails.push(careManagement);
   }
 
   return (

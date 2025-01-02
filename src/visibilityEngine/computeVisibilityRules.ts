@@ -268,3 +268,11 @@ export function getHingeHealthLink(session: Session | null) {
   }
   return hingeHealthLink;
 }
+
+export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
+  return (
+    rules?.commercial &&
+    rules?.cmEnable &&
+    !(hasCondensesedExperienceProfiler(rules) == 'Quantum')
+  );
+}
