@@ -1,13 +1,37 @@
-import Pharmacy from '@/app/pharmacy/pharmacyBluecare/page';
+import Pharmacy from '@/app/pharmacy';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { render, screen } from '@testing-library/react';
 
-const renderUI = () => {
-  return render(<Pharmacy />);
+// Mock useRouter:
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+    };
+  },
+}));
+
+let vRules: VisibilityRules = {};
+const renderUI = (vRules: VisibilityRules) => {
+  return render(<Pharmacy visibilityRules={vRules} data={''} />);
 };
 
+function setVisibilityRules(vRules: VisibilityRules) {
+  vRules.futureEffective = false;
+  vRules.fsaOnly = false;
+  vRules.wellnessOnly = false;
+  vRules.terminated = false;
+  vRules.katieBeckNoBenefitsElig = false;
+}
 describe('Pharmacy Benefits', () => {
+  beforeEach(() => {
+    vRules = {};
+  });
   it('should render the UI correctly', async () => {
-    const component = renderUI();
+    vRules.blueCare = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
     screen.getByRole('heading', { name: 'Pharmacy Benefits' });
     screen.getAllByText(
       'You have a pharmacy card just for your prescription drugs. Here are some helpful things to know:',
