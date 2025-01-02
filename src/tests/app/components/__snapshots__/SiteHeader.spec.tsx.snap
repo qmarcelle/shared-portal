@@ -5167,7 +5167,7 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                   <button
                     aria-controls="accordion-collapse-body-1"
                     aria-expanded="false"
-                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group border-b-4 rounded-bl-none rounded-br-none border-primary active"
+                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group  "
                     data-accordion-target="#accordion-collapse-body-1"
                     type="button"
                   >
@@ -5215,7 +5215,7 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                   <button
                     aria-controls="accordion-collapse-body-2"
                     aria-expanded="false"
-                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group  "
+                    class="items-center px-0 lg:p-4 py-4 h-[56px] rounded-[4px] hover:bg-secondary-focus focus:outline-none focus:ring-2 focus:ring-primary box-border group border-b-4 rounded-bl-none rounded-br-none border-primary active"
                     data-accordion-target="#accordion-collapse-body-2"
                     type="button"
                   >
@@ -5441,15 +5441,16 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
           <div
             class="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0"
           >
+            <div />
             <div>
               <div
-                aria-labelledby="accordion-collapse-heading-1"
+                aria-labelledby="accordion-collapse-heading-2"
                 class="block border-b grid p-5 grid-cols-4 gap-1 font-bold"
-                id="accordion-collapse-body-1"
+                id="accordion-collapse-body-2"
               >
                 <button
                   class="lg:hidden items-center p-0 mb-4"
-                  data-accordion-target="#accordion-collapse-body-1"
+                  data-accordion-target="#accordion-collapse-body-2"
                   type="button"
                 >
                   <svg
@@ -5479,12 +5480,12 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/findcare"
+                    href="/myPlan"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      Find Care & Costs
+                      My Plan
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -5508,17 +5509,34 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                     <h1
                       class="title-1 py-2 tertiary-color font-thin !text-2xl"
                     >
-                      Find Care
+                      Plan Details
                     </h1>
                     <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Benefits & Coverage
+                        </p>
+                      </button>
+                    </a>
+                    <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/findprovider"
+                      href="https://bluecare.bcbst.com/get-care/documents-forms"
                       target="_blank"
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
-                        Find a Provider
+                        Member Handbook
                       </p>
                       <img
                         alt="External Link"
@@ -5532,40 +5550,6 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                         style="color: transparent;"
                         width="40"
                       />
-                    </a>
-                    <a
-                      style="display: block;"
-                      tabindex="-1"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
-                      >
-                        <p
-                          class="link undefined"
-                          style="display: block;"
-                        >
-                          Primary Care Options
-                        </p>
-                      </button>
-                    </a>
-                    <a
-                      style="display: block;"
-                      tabindex="-1"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
-                      >
-                        <p
-                          class="link undefined"
-                          style="display: block;"
-                        >
-                          Mental Health Options
-                        </p>
-                      </button>
                     </a>
                   </div>
                 </div>
@@ -5578,30 +5562,58 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                     <h1
                       class="title-1 py-2 tertiary-color font-thin !text-2xl"
                     >
-                      Estimate Costs
+                      Claims
                     </h1>
                     <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/pricemedicalcare"
-                      target="_blank"
+                      style="display: block;"
+                      tabindex="-1"
                     >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
                       >
-                        Price Medical Care
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          View Claims
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Prior Authorizations
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="0"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Submit a Claim
+                        </p>
+                      </button>
                     </a>
                   </div>
                 </div>
@@ -5610,48 +5622,7 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                 >
                   <div
                     class="lg:grid-rows-4"
-                  >
-                    <a
-                      href="/benefits"
-                    >
-                      <div
-                        class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
-                      >
-                        <h3
-                          class="pb-3 text-sm text-black"
-                        >
-                          Quick Tip
-                        </h3>
-                        <p
-                          class="pb-1 text-base app-base-font-color "
-                        >
-                          Looking for what's covered under your plan?
-                        </p>
-                        <p
-                          class="pb-1 text-base app-base-font-color "
-                        >
-                          Check out your
-                          <span
-                            class="font-bold"
-                          >
-                             Benefits & Coverages.
-                          </span>
-                        </p>
-                        <img
-                          alt="Page Arrow"
-                          class="ml-auto"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                    </a>
-                  </div>
+                  />
                 </div>
                 <div
                   class="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4"
@@ -5662,7 +5633,6 @@ exports[`SiteHeader And Navigation Menu should navigate to Find Care and Cost - 
                 </div>
               </div>
             </div>
-            <div />
             <div />
             <div />
             <div />
