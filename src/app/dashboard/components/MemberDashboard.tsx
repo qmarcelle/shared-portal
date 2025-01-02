@@ -20,6 +20,7 @@ import {
   isBlueCareEligible,
   isPayMyPremiumEligible,
   isPrimaryCarePhysicianEligible,
+  isQuantumHealthEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
@@ -42,6 +43,7 @@ const MemberDashboard = ({
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
         {!isBlueCareEligible(visibilityRules) &&
+          !isQuantumHealthEligible(visibilityRules) &&
           isAHAdvisorpage(visibilityRules) && (
             <section className="sm:flex sm:flex-row items-start">
               <AmplifyHealthAdvisorBanner />
@@ -96,9 +98,9 @@ const MemberDashboard = ({
                 },
               ]}
             />
-
             {isBlueCareEligible(visibilityRules) &&
-              isPrimaryCarePhysicianEligible(visibilityRules) && (
+              isPrimaryCarePhysicianEligible(visibilityRules) &&
+              !isQuantumHealthEligible(visibilityRules) && (
                 <PrimaryCareProvider
                   className="large-section"
                   providerDetails={primaryCareProviderData}
@@ -107,40 +109,42 @@ const MemberDashboard = ({
                   title="My Primary Care Provider"
                 />
               )}
-            {!isBlueCareEligible(visibilityRules) && (
-              <MedicalBalanceSection
-                className="large-section"
-                members={[
-                  {
-                    label: 'Chris Hall',
-                    value: '0',
-                  },
-                  {
-                    label: 'Megan Chaler',
-                    value: '43',
-                  },
-                ]}
-                balanceNetworks={[
-                  {
-                    label: 'In-Network',
-                    value: '0',
-                  },
-                  { label: 'Out-of-Network', value: '1' },
-                ]}
-                deductibleLimit={2000}
-                deductibleSpent={1800}
-                onSelectedMemberChange={() => {}}
-                onSelectedNetworkChange={() => {}}
-                outOfPocketLimit={3000}
-                outOfPocketSpent={1500}
-                selectedMemberId="43"
-                selectedNetworkId="1"
-                displayDisclaimerText={false}
-              />
-            )}
+            {!isBlueCareEligible(visibilityRules) &&
+              !isQuantumHealthEligible(visibilityRules) && (
+                <MedicalBalanceSection
+                  className="large-section"
+                  members={[
+                    {
+                      label: 'Chris Hall',
+                      value: '0',
+                    },
+                    {
+                      label: 'Megan Chaler',
+                      value: '43',
+                    },
+                  ]}
+                  balanceNetworks={[
+                    {
+                      label: 'In-Network',
+                      value: '0',
+                    },
+                    { label: 'Out-of-Network', value: '1' },
+                  ]}
+                  deductibleLimit={2000}
+                  deductibleSpent={1800}
+                  onSelectedMemberChange={() => {}}
+                  onSelectedNetworkChange={() => {}}
+                  outOfPocketLimit={3000}
+                  outOfPocketSpent={1500}
+                  selectedMemberId="43"
+                  selectedNetworkId="1"
+                  displayDisclaimerText={false}
+                />
+              )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
             {!isBlueCareEligible(visibilityRules) &&
+              !isQuantumHealthEligible(visibilityRules) &&
               isPayMyPremiumEligible(visibilityRules) && (
                 <PayPremiumSection
                   className="large-section"
@@ -184,31 +188,33 @@ const MemberDashboard = ({
         />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <BenefitsAndCoverageSection
-              className="large-section"
-              benefits={[
-                {
-                  benefitName: 'Medical Benefits',
-                  benefitURL: '#',
-                },
-                {
-                  benefitName: 'Pharmacy Benefits',
-                  benefitURL: '#',
-                },
-                {
-                  benefitName: 'Dental Benefits',
-                  benefitURL: '#',
-                },
-                {
-                  benefitName: 'Vision Benefits',
-                  benefitURL: '#',
-                },
-                {
-                  benefitName: 'Other Benefits',
-                  benefitURL: '#',
-                },
-              ]}
-            />
+            {!isQuantumHealthEligible(visibilityRules) && (
+              <BenefitsAndCoverageSection
+                className="large-section"
+                benefits={[
+                  {
+                    benefitName: 'Medical Benefits',
+                    benefitURL: '#',
+                  },
+                  {
+                    benefitName: 'Pharmacy Benefits',
+                    benefitURL: '#',
+                  },
+                  {
+                    benefitName: 'Dental Benefits',
+                    benefitURL: '#',
+                  },
+                  {
+                    benefitName: 'Vision Benefits',
+                    benefitURL: '#',
+                  },
+                  {
+                    benefitName: 'Other Benefits',
+                    benefitURL: '#',
+                  },
+                ]}
+              />
+            )}
           </Column>
           <Column className="page-section-36_67 items-stretch">
             {!isBlueCareEligible(visibilityRules) && (
@@ -306,40 +312,42 @@ const MemberDashboard = ({
           </Column>
         </section>
         <section>
-          {!isBlueCareEligible(visibilityRules) && <AmplifyHealthCard />}
+          {!isBlueCareEligible(visibilityRules) &&
+            !isQuantumHealthEligible(visibilityRules) && <AmplifyHealthCard />}
         </section>
         <section>
-          {visibilityRules?.employerProvidedBenefits && (
-            <EmployeeProvidedBenefitsTile
-              className="large-section"
-              employer="Ben Cole Co"
-              employerLogo={bcbstBlueLogo}
-              benefits={[
-                {
-                  id: '45',
-                  providedBy: 'Davis Vision',
-                  contact: '1-800-456-9876',
-                  url: 'https://davis-vision.com',
-                },
-                {
-                  id: '87',
-                  providedBy: 'Nirmal Dental',
-                  contact: '1-800-367-9676',
-                  url: 'https://nirmaldental.com',
-                },
-                {
-                  id: '25',
-                  providedBy: 'Low Pharm',
-                  contact: '1-800-834-2465',
-                },
-                {
-                  id: '289',
-                  providedBy: 'Quant Labs',
-                  contact: '1-800-834-3465',
-                },
-              ]}
-            />
-          )}
+          {visibilityRules?.employerProvidedBenefits &&
+            !isQuantumHealthEligible(visibilityRules) && (
+              <EmployeeProvidedBenefitsTile
+                className="large-section"
+                employer="Ben Cole Co"
+                employerLogo={bcbstBlueLogo}
+                benefits={[
+                  {
+                    id: '45',
+                    providedBy: 'Davis Vision',
+                    contact: '1-800-456-9876',
+                    url: 'https://davis-vision.com',
+                  },
+                  {
+                    id: '87',
+                    providedBy: 'Nirmal Dental',
+                    contact: '1-800-367-9676',
+                    url: 'https://nirmaldental.com',
+                  },
+                  {
+                    id: '25',
+                    providedBy: 'Low Pharm',
+                    contact: '1-800-834-2465',
+                  },
+                  {
+                    id: '289',
+                    providedBy: 'Quant Labs',
+                    contact: '1-800-834-3465',
+                  },
+                ]}
+              />
+            )}
         </section>
         <Spacer size={32}></Spacer>
       </Column>
