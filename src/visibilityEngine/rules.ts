@@ -30,6 +30,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'chipRewardsEligible',
   'blueHealthRewardsEligible',
   'bluePerksElig',
+  'amplifyMember',
   'primary360Eligible',
   'mentalHealthSupport',
   'commercialFull',
