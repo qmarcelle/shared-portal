@@ -1,4 +1,5 @@
 import {
+  isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
   isMentalHealthMenuOption,
@@ -152,9 +153,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Plan Documents',
         description: 'This is Plan Documents',
         category: 'Plan Details',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/benefits/planDocuments',
         external: false,
       },
@@ -163,11 +162,18 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Services Used',
         description: 'This is Services Used',
         category: 'Plan Details',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/benefits/servicesUsed',
         external: false,
+      },
+      {
+        id: 102,
+        title: 'Member Handbook',
+        description: 'This is Member Handbook',
+        category: 'Plan Details',
+        showOnMenu: isBlueCareEligible,
+        url: 'https://bluecare.bcbst.com/get-care/documents-forms',
+        external: true,
       },
       {
         id: 96,
@@ -207,9 +213,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Balances',
         description: 'This is Balances',
         category: 'Spending',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/balances',
         external: false,
       },
@@ -218,9 +222,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Accounts (HSA, FSA)',
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/spendingAccounts',
         external: false,
       },
@@ -229,9 +231,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Summary',
         description: 'This is Spending Summary',
         category: 'Spending',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/spendingSummary',
         external: false,
       },
@@ -240,9 +240,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'View or Pay Premium',
         description: 'This is View or Pay Premium',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/balances',
         external: true,
       },
@@ -251,7 +249,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Enroll in a Health Plan',
         description: 'This is Enroll in a Health Plan',
         category: 'Manage My Plan',
-        showOnMenu: isEnrollEligible,
+        showOnMenu: (rules) =>
+          isEnrollEligible(rules) && isBlueCareNotEligible(rules),
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
         external: true,
       },
@@ -260,9 +259,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Manage My Policy',
         description: 'This is Manage My Policy',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '',
         external: false,
       },
@@ -271,9 +268,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/reportOtherHealthInsurance',
         external: false,
       },

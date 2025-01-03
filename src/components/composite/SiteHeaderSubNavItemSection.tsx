@@ -34,7 +34,8 @@ export const SubNavItemSection = ({
   const router = useRouter();
 
   childPages.map((item) => {
-    if (colType == item.category) tempChildPages.push(item);
+    if (colType == item.category && item.showOnMenu(visibilityRules))
+      tempChildPages.push(item);
   });
 
   function ChangeUrl(link: string) {
@@ -77,40 +78,38 @@ export const SubNavItemSection = ({
         } else if (colType.length != 0) {
           return (
             <>
-              {colType !== 'Support' && (
+              {colType !== 'Support' && !!tempChildPages.length && (
                 <TextBox
                   type="title-1"
                   text={colType}
                   className="py-2 tertiary-color font-thin !text-2xl"
                 />
               )}
-              {tempChildPages.map(
-                (item, index) =>
-                  item.showOnMenu(visibilityRules) &&
-                  (item.external ? (
-                    <Link
-                      key={index}
-                      className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href={item.url}
-                      target="_blank"
-                    >
-                      <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
-                        {item.title}
-                      </p>
-                      <Image
-                        className="pb-2"
-                        src={externalIcon}
-                        alt="External Link"
-                      />
-                    </Link>
-                  ) : (
-                    <AppLink
-                      key={index}
-                      label={item.title}
-                      callback={() => ChangeUrl(item.url)}
-                      className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+              {tempChildPages.map((item, index) =>
+                item.external ? (
+                  <Link
+                    key={index}
+                    className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href={item.url}
+                    target="_blank"
+                  >
+                    <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
+                      {item.title}
+                    </p>
+                    <Image
+                      className="pb-2"
+                      src={externalIcon}
+                      alt="External Link"
                     />
-                  )),
+                  </Link>
+                ) : (
+                  <AppLink
+                    key={index}
+                    label={item.title}
+                    callback={() => ChangeUrl(item.url)}
+                    className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                  />
+                ),
               )}
             </>
           );

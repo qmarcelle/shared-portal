@@ -13,6 +13,7 @@ import {
   searchPharmacyIcon,
 } from '@/components/foundation/Icons';
 import Iframe from '@/components/foundation/Iframe';
+import { InlineLink } from '@/components/foundation/InlineLink';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -25,6 +26,8 @@ type PlanDocumentsProps = {
   data: PlanDocumentsData;
 };
 const PlanDocuments = ({ data }: PlanDocumentsProps) => {
+  const isBenefitBooklet = isBenefitBookletEnabled(data?.visibilityRules);
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -41,17 +44,27 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
             text="We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits."
           />
 
-          <TextBox text="To request a printed version of any of these materials, please contact us." />
+          <TextBox
+            className="inline"
+            text="To request a printed version of any of these materials, please "
+          />
+          <InlineLink className="inline py-0 pl-0 pr-0" label="contact us" />
+          <TextBox className="inline" text="." />
         </section>
-        <Spacer size={16} />
-        {isBenefitBookletEnabled(data?.visibilityRules) && (
+
+        {(isBenefitBooklet || data?.visibilityRules?.medicare) && (
           <>
-            <InfoCard
-              icon={envelopeIcon}
-              label={'Request Printed Material'}
-              body={'Ask us to mail your plan documents to you.'}
-              link={''}
-            />
+            {isBenefitBooklet && (
+              <>
+                <Spacer size={16} />
+                <InfoCard
+                  icon={envelopeIcon}
+                  label={'Request Printed Material'}
+                  body={'Ask us to mail your plan documents to you.'}
+                  link={''}
+                />
+              </>
+            )}
 
             <section>
               <Spacer size={32} />
@@ -107,17 +120,21 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
                   </Card>
                 </Column>
               </Row>
-              {data?.iframeContent ? (
-                <Iframe
-                  id="eoc_portal"
-                  title="Benefit Booklet"
-                  srcdoc={data?.iframeContent}
-                />
-              ) : (
-                <ErrorInfoCard
-                  className="mt-4"
-                  errorText="We're not able to load Benefit Booklet right now. Please try again later."
-                />
+              {isBenefitBooklet && (
+                <>
+                  {data?.iframeContent ? (
+                    <Iframe
+                      id="eoc_portal"
+                      title="Benefit Booklet"
+                      srcdoc={data?.iframeContent}
+                    />
+                  ) : (
+                    <ErrorInfoCard
+                      className="mt-4"
+                      errorText="We're not able to load Benefit Booklet right now. Please try again later."
+                    />
+                  )}
+                </>
               )}
             </section>
           </>

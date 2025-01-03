@@ -1,4 +1,5 @@
 import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
+import { ahAdvisorpageSetting } from '@/models/app/visibility_rules_constants';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
@@ -9,6 +10,7 @@ import { VisibilityRules } from './rules';
 const COMMERCIAL_LOB = ['REGL'];
 const INDIVIDUAL_LOB = ['INDV'];
 const MEDICAID_LOB = ['MEDA'];
+const MEDICARE_LOB = ['MEDC'];
 
 const PTYP_SELF_FUNDED: string[] = ['ASO', 'CLIN', 'COST'];
 const PTYP_LEVEL_FUNDED: string[] = ['LVLF'];
@@ -23,20 +25,21 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
-let groupID: string;
+let groupId: string;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
   //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
-
   rules.active = loggedUserInfo.isActive;
   rules.subscriber = loggedUserInfo.subscriberLoggedIn;
   rules.externalSpendingAcct = loggedUserInfo.healthCareAccounts?.length > 0;
   rules.commercial = COMMERCIAL_LOB.includes(loggedUserInfo.lob);
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
-  groupID = loggedUserInfo.groupData.groupID;
+  rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
+
+  groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -123,6 +126,39 @@ export function isBlue365FitnessYourWayEligible(
   return (rules?.individual || rules?.commercial) && rules?.bluePerksElig;
 }
 
+export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
+  return rules?.condensedPortalExperienceGroups;
+}
+
+export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
+  return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
+}
+
+function isAHAdvisorEnabled(groupId: string | undefined) {
+  const currentDate = new Date();
+  const ahAdvisorValue = ahAdvisorpageSetting;
+  const ahAdvisor = ahAdvisorValue.split(',');
+  if (!ahAdvisor || ahAdvisor.length === 0) {
+    return false;
+  }
+  for (let i = 0; i < ahAdvisor.length; i++) {
+    const groupWithDate = ahAdvisor[i].split('|');
+    if (!groupWithDate || groupWithDate.length !== 2) {
+      continue;
+    }
+    if (groupId === groupWithDate[0]) {
+      let configuredDate;
+      try {
+        configuredDate = new Date(groupWithDate[1]);
+        return currentDate <= configuredDate;
+      } catch (e) {
+        console.error('Error while parsing Date ' + e);
+      }
+    }
+  }
+  return false;
+}
+
 export function isTeledocPrimary360Eligible(
   rules: VisibilityRules | undefined,
 ) {
@@ -155,7 +191,7 @@ export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
 }
 
 function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
-  if (rules?.isCondensedExperience && groupID == '130430')
+  if (rules?.isCondensedExperience && groupId == '130430')
     return 'FirstHorizon';
   if (rules?.isCondensedExperience) return 'Quantum';
 }
@@ -267,4 +303,12 @@ export function getHingeHealthLink(session: Session | null) {
     else return process.env.NEXT_PUBLIC_HINGE_HEALTH_DEFAULT ?? '';
   }
   return hingeHealthLink;
+}
+
+export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
+  return (
+    rules?.commercial &&
+    rules?.cmEnable &&
+    !(hasCondensesedExperienceProfiler(rules) == 'Quantum')
+  );
 }

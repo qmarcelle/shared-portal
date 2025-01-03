@@ -270,6 +270,14 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
     expect(screen.getByText('Mental Health Options')).toBeVisible();
     expect(screen.getByText('Price Medical Care')).toBeVisible();
+
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(screen.getByText('Benefits & Coverage')).toBeVisible();
+    expect(screen.getByText('Member Handbook')).toBeVisible();
+    expect(screen.getByText('View Claims')).toBeVisible();
+    expect(screen.getByText('Prior Authorizations')).toBeVisible();
+    expect(screen.getByText('Submit a Claim')).toBeVisible();
+
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should navigate the primary care menu link correctly', async () => {
