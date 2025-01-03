@@ -52,6 +52,7 @@ export default function LogIn() {
           process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL ||
           '/security',
       );
+      router.refresh();
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
