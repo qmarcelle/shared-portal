@@ -43,7 +43,7 @@ describe('Support Page', () => {
           subscriberLoggedIn: true,
           lob: 'REGL',
           groupData: {
-            groupID: '100000',
+            groupID: '130430',
             groupCK: '21908',
             groupName: 'Chris B Hall Enterprises',
             parentGroupID: '100001',
@@ -712,16 +712,24 @@ describe('Support Page', () => {
     const component = await setupUI();
     // Contact Us Section should be present
 
-    expect(screen.getByText('Contact Us')).toBeVisible();
+    expect(screen.getByText('Contact Quantum Health')).toBeVisible();
     expect(screen.getAllByText('Call')[0]).toBeVisible();
-    expect(screen.getByText('Chat')).toBeVisible();
-    expect(screen.getByText('Email')).toBeVisible();
+    expect(screen.getAllByText('[1-800-000-0000]')[0]).toBeVisible();
+
+    expect(screen.queryByText('Contact Us')).not.toBeInTheDocument();
+    expect(screen.getAllByText('Call')[0]).toBeVisible();
+    expect(screen.queryByText('Chat')).not.toBeInTheDocument();
+    expect(screen.queryByText('Email')).not.toBeInTheDocument();
 
     // Resources Section should be present
-    expect(screen.getByText('Resources')).toBeVisible();
-    expect(screen.getByText('Frequently Asked Questions')).toBeVisible();
-    expect(screen.getByText('Health Insurance Glossary')).toBeVisible();
-    expect(screen.getByText('Find a Form')).toBeVisible();
+    expect(screen.queryByText('Resources')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Frequently Asked Questions'),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Health Insurance Glossary'),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Find a Form')).not.toBeInTheDocument();
 
     expect(component).toMatchSnapshot();
   });

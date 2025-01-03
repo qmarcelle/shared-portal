@@ -30,6 +30,8 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'chipRewardsEligible',
   'blueHealthRewardsEligible',
   'bluePerksElig',
+  'condensedPortalExperienceGroups',
+  'amplifyMember',
   'primary360Eligible',
   'mentalHealthSupport',
   'commercialFull',
@@ -38,6 +40,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'isCondensedExperience',
   'enRollEligible',
   'enableBenefitChange',
+  'medicare',
   'enableCostTools',
   'dentalCostsEligible',
   'payMyPremiumElig',
@@ -50,6 +53,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'indivEHBUser',
   'groupEHBUser',
   'isAmplifyMem',
+  'cmEnable',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

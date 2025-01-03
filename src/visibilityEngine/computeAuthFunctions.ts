@@ -30,6 +30,14 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'BLUEPRKS',
   )?.available;
 
+  rules.condensedPortalExperienceGroups = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'CONDENSED_EXPERIENCE',
+  )?.available;
+
+  rules.amplifyMember = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'AMPLIFYMEMBER',
+  )?.available;
+
   rules.myStrengthCompleteEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'TELADOC_MYSTRENGTHCOMPLETE',
   )?.available;
@@ -100,5 +108,9 @@ export function computeAuthFunctions(
 
   rules.isAmplifyMem = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'AMPLIFYMEMBER',
+  )?.available;
+
+  rules.cmEnable = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'careManagementExclusion',
   )?.available;
 }
