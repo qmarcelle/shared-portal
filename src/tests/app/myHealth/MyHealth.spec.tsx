@@ -28,6 +28,7 @@ jest.mock('../../../auth', () => ({
           terminated: false,
           katieBeckNoBenefitsElig: false,
           blueCare: false,
+          ohdEligible: true,
         },
       },
     }),

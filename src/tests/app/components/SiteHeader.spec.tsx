@@ -377,4 +377,13 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(component.baseElement).toMatchSnapshot();
   });
+  it('should be able to render Bimetric Screening menu ', () => {
+    vRules.ohdEligible = true;
+    const component = renderUI(vRules);
+
+    fireEvent.click(screen.getByText('My Health'));
+    expect(screen.getByText('Biometric Screening'));
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
 });

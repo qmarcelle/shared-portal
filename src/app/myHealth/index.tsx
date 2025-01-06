@@ -19,6 +19,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import healthSupportIcon from '@/public/assets/health_support.svg';
 import healthSurveyIcon from '@/public/assets/health_survey.svg';
 import {
+  isBiometricScreening,
   isBlue365FitnessYourWayEligible,
   isBlueCareEligible,
   isChipRewardsEligible,
@@ -160,6 +161,9 @@ export type MyHealthProps = {
 };
 const MyHealth = ({ data }: MyHealthProps) => {
   const isBlueCareMember = isBlueCareEligible(data.visibilityRules);
+  const isBiometricScreeningVisible = isBiometricScreening(
+    data.visibilityRules,
+  );
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -235,16 +239,18 @@ const MyHealth = ({ data }: MyHealthProps) => {
             options={healthLibraryDetails}
           />
         </section>
+        {isBiometricScreeningVisible && (
+          <section>
+            <MyHealthOffsiteLinkCard
+              icon={biometricScreeningIcon}
+              title="Schedule a Biometric Screening"
+              description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
+              url=""
+            />
+          </section>
+        )}
         {!isBlueCareMember && (
           <>
-            <section>
-              <MyHealthOffsiteLinkCard
-                icon={biometricScreeningIcon}
-                title="Schedule a Biometric Screening"
-                description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
-                url=""
-              />
-            </section>
             <section>
               <MemberWellnessCenterOptions
                 className="large-section"
