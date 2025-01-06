@@ -151,6 +151,13 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           return;
         }
 
+        if (resp.status == SubmitMFAStatus.EMAIL_UNIQUENESS) {
+          useLoginStore.setState({
+            emailUniqueness: true,
+          });
+          return;
+        }
+
         if (resp.status == SubmitMFAStatus.OTP_OK) {
           useLoginStore.setState({
             loggedUser: true,

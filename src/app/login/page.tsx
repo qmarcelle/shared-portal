@@ -6,6 +6,7 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { EmailUniquenessVerification } from './components/EmailUniquenessVerification';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
@@ -26,6 +27,8 @@ export default function LogIn() {
     riskLevelNotDetermined,
     verifyEmail,
     forcedPasswordReset,
+    emailUniqueness,
+    verifyUniqueEmail,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
@@ -35,6 +38,8 @@ export default function LogIn() {
     state.riskLevelNotDetermined,
     state.verifyEmail,
     state.forcedPasswordReset,
+    state.emailUniqueness,
+    state.verifyUniqueEmail,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
@@ -65,10 +70,13 @@ export default function LogIn() {
     if (forcedPasswordReset == true) {
       return <ResetPasswordComponent />;
     }
+    if (verifyEmail == true || verifyUniqueEmail == true) {
+      return <LoginEmailVerification />;
+    }
+    if (emailUniqueness == true) {
+      return <EmailUniquenessVerification />;
+    }
     if (mfaNeeded == false) {
-      if (verifyEmail == true) {
-        return <LoginEmailVerification />;
-      }
       return <LoginComponent />;
     } else {
       return <MfaComponent />;

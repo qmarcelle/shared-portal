@@ -71,6 +71,9 @@ export async function callLogin(
       case 'PASSWORD_RESET_REQUIRED':
         status = LoginStatus.PASSWORD_RESET_REQUIRED;
         break;
+      case 'NEW_EMAIL_REQUIRED':
+        status = LoginStatus.EMAIL_UNIQUENESS;
+        break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {

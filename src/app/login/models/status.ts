@@ -8,6 +8,7 @@ export enum LoginStatus {
   ERROR,
   MULTIPLE_LOGIN_ATTEMPTS,
   PASSWORD_RESET_REQUIRED,
+  EMAIL_UNIQUENESS,
 }
 
 export enum SelectMFAStatus {
@@ -22,6 +23,7 @@ export enum SubmitMFAStatus {
   VALIDATION_FAILURE,
   GENERIC_OR_INLINE_ERROR,
   PASSWORD_RESET_REQUIRED,
+  EMAIL_UNIQUENESS,
 }
 
 export enum PasswordResetStatus {
@@ -29,5 +31,12 @@ export enum PasswordResetStatus {
   PREVIOUS_PASSWORD,
   COMMON_PASSWORD,
   DOB_NOT_MATCHED,
+  ERROR,
+}
+
+export enum EmailUniquenessStatus {
+  VERIFY_EMAIL,
+  INVALID_EMAIL,
+  EMAIL_ALREADY_IN_USE,
   ERROR,
 }

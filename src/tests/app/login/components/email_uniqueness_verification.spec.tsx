@@ -1,6 +1,6 @@
 import { EmailUniquenessVerification } from '@/app/login/components/EmailUniquenessVerification';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 const mockReplace = jest.fn();
 jest.mock('next/navigation', () => ({
@@ -19,11 +19,11 @@ describe('Email Unique Verification screen', () => {
     const component = setupUI();
 
     expect(
-      screen.getByRole('heading', { name: 'Choose Your Email Address' }),
+      screen.getByRole('heading', { name: 'Update Your Email Address' }),
     ).toBeVisible();
     expect(
       screen.getByText(
-        'Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue.',
+        'You need to change your email, or the email was already associated with another account. Please enter a new email address below.',
       ),
     ).toBeVisible();
     expect(screen.getByLabelText(/Confirm Email Address/i)).toBeVisible();
@@ -40,23 +40,6 @@ describe('Email Unique Verification screen', () => {
 
   test('Email Unique Verification screen UI Field Validations', async () => {
     const component = setupUI();
-    const dateEntryInput = screen.getByLabelText('Date of Birth (MM/DD/YYYY)');
-
-    //check for invalid date formate
-    await userEvent.type(dateEntryInput, '18/11/1970');
-    await waitFor(() => {
-      expect(
-        screen.getByText('Please follow the MM/DD/YYYY format.'),
-      ).toBeVisible();
-    });
-    //check for leap year date
-    await userEvent.type(dateEntryInput, '02/29/2023');
-    fireEvent.click(screen.getByRole('button', { name: /Next/i }));
-    await waitFor(() => {
-      expect(
-        screen.getByText('Please follow the MM/DD/YYYY format.'),
-      ).toBeVisible();
-    });
 
     //check valid email formate
     const emailEntryInput = screen.getByLabelText('Email Address');

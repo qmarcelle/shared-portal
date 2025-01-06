@@ -21,6 +21,11 @@ jest.mock('next/navigation', () => ({
       replace: mockReplace,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 
 jest.setTimeout(30000);
@@ -58,6 +63,7 @@ describe('Log In of User whose Email Id is not registered yet', () => {
             interactionId: 'interactionId1',
             interactionToken: 'interactionToken1',
             mfaDeviceList: [],
+            email: 'abcdefggh@bcbst.com',
           },
           details: {
             componentName: 'mfauthentication',

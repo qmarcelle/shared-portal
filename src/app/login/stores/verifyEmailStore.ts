@@ -41,14 +41,19 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
         set({
           completeVerifyEmailProg: AppProg.loading,
         });
-        const resp = await callVerifyEmailOtp({
-          emailOtp: get().code,
-          interactionId:
-            useLoginStore.getState().interactionData!.interactionId,
-          interactionToken:
-            useLoginStore.getState().interactionData!.interactionToken,
-          username: useLoginStore.getState().username,
-        });
+        const resp = await callVerifyEmailOtp(
+          {
+            emailOtp: get().code,
+            interactionId:
+              useLoginStore.getState().interactionData!.interactionId,
+            interactionToken:
+              useLoginStore.getState().interactionData!.interactionToken,
+            username: useLoginStore.getState().username,
+          },
+          useLoginStore.getState().verifyUniqueEmail
+            ? 'verifyUniqueEmailOtp'
+            : 'verifyEmailOtp',
+        );
 
         switch (resp.status) {
           case LoginStatus.ERROR:
@@ -57,6 +62,10 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
             useLoginStore.getState().updateLoggedUser(true);
             break;
         }
+        useLoginStore.setState({
+          verifyEmail: false,
+          verifyUniqueEmail: false,
+        });
         // Process login response for further operations
         await useLoginStore.getState().processLogin(resp.data!);
         set({
