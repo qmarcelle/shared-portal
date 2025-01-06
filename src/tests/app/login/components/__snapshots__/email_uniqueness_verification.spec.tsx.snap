@@ -3,162 +3,135 @@
 exports[`Email Unique Verification screen Email Unique Verification screen UI 1`] = `
 <body>
   <div>
-    <section
-      id="mainSection"
-    >
-      <h1
-        class="title-1 title-2"
+    <form>
+      <section
+        id="mainSection"
       >
-        Choose Your Email Address
-      </h1>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
-      <p
-        class="body-1"
-      >
-        Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue.
-      </p>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-col w-full text-field"
-      >
-        <p>
-          Date of Birth (MM/DD/YYYY)
-        </p>
-        <div
-          class="flex flex-row items-center input  "
+        <h1
+          class="title-1 title-2"
         >
-          <input
-            aria-label="Date of Birth (MM/DD/YYYY)"
-            class=""
-            maxlength="10"
-            type="text"
-            value=""
-          />
-          <div
-            class="cursor-pointer"
-          />
-        </div>
-        <div
-          class="error-container mt-1 p-1"
-        >
-          <div />
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-col w-full text-field"
-      >
-        <p>
-          Email Address
-        </p>
-        <div
-          class="flex flex-row items-center input  "
-        >
-          <input
-            aria-label="Email Address"
-            class=""
-            type="email"
-            value=""
-          />
-          <div
-            class="cursor-pointer"
-          />
-        </div>
-        <div
-          class="error-container mt-1 p-1"
-        >
-          <div />
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-col w-full text-field"
-      >
-        <p>
-          Confirm Email Address
-        </p>
-        <div
-          class="flex flex-row items-center input  "
-        >
-          <input
-            aria-label="Confirm Email Address"
-            class=""
-            type="email"
-            value=""
-          />
-          <div
-            class="cursor-pointer"
-          />
-        </div>
-        <div
-          class="error-container mt-1 p-1"
-        >
-          <div />
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-row justify-center items-center tooltip"
-      >
+          Update Your Email Address
+        </h1>
         <span
-          class="tooltiptext !p-2"
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
         >
-          Fill out the form to continue.
-        </span>
-        <button
-          aria-label="Next"
-          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-          type="button"
-        >
-          Next
-        </button>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class=""
-        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-      />
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <p
-        class="body-1 title-3"
-      >
-        Need help?
-      </p>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
-      <span
-        class="body-1 undefined"
-      >
-        <span>
-          Give us a call using the number listed on the back of your Member ID card or
-           
-        </span>
+          You need to change your email, or the email was already associated with another account. Please enter a new email address below.
+        </p>
         <span
-          class="link"
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
         >
-          <a
-            href=""
+          <p>
+            Email Address
+          </p>
+          <div
+            class="flex flex-row items-center input  "
           >
-            contact us
-          </a>
+            <input
+              aria-label="Email Address"
+              class=""
+              type="email"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+          <div
+            class="error-container mt-1 p-1"
+          >
+            <div />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
+        >
+          <p>
+            Confirm Email Address
+          </p>
+          <div
+            class="flex flex-row items-center input  "
+          >
+            <input
+              aria-label="Confirm Email Address"
+              class=""
+              type="email"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+          <div
+            class="error-container mt-1 p-1"
+          >
+            <div />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row justify-center items-center tooltip"
+        >
+          <span
+            class="tooltiptext !p-2"
+          >
+            Fill out the form to continue.
+          </span>
+          <button
+            aria-label="Next"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+            type="submit"
+          >
+            Next
+          </button>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <p
+          class="body-1 title-3"
+        >
+          Need help?
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="body-1 undefined"
+        >
+          <span>
+            Give us a call using the number listed on the back of your Member ID card or
+             
+          </span>
+          <span
+            class="link"
+          >
+            <a
+              href=""
+            >
+              contact us
+            </a>
+          </span>
         </span>
-      </span>
-    </section>
+      </section>
+    </form>
   </div>
 </body>
 `;
@@ -166,214 +139,161 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
 exports[`Email Unique Verification screen Email Unique Verification screen UI Field Validations 1`] = `
 <body>
   <div>
-    <section
-      id="mainSection"
-    >
-      <h1
-        class="title-1 title-2"
+    <form>
+      <section
+        id="mainSection"
       >
-        Choose Your Email Address
-      </h1>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
-      <p
-        class="body-1"
-      >
-        Your email is invalid, or the original email address you provided is already associated with another account. Please provide your date of birth and new email address to continue.
-      </p>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-col w-full text-field"
-      >
-        <p>
-          Date of Birth (MM/DD/YYYY)
-        </p>
-        <div
-          class="flex flex-row items-center input  error-input"
+        <h1
+          class="title-1 title-2"
         >
-          <input
-            aria-label="Date of Birth (MM/DD/YYYY)"
-            class=""
-            maxlength="10"
-            type="text"
-            value="18/11/1970"
-          />
-          <div
-            class="cursor-pointer"
-          />
-        </div>
-        <div
-          class="error-container mt-1 p-1"
-        >
-          <div>
-            <div
-              class="flex flex-row"
-            >
-              <div
-                class="inline-flex"
-              >
-                <img
-                  alt="ErrorIcon"
-                  class="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <p
-                  class="ml-2"
-                >
-                  Please follow the MM/DD/YYYY format.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-col w-full text-field"
-      >
-        <p>
-          Email Address
-        </p>
-        <div
-          class="flex flex-row items-center input  "
-        >
-          <input
-            aria-label="Email Address"
-            class=""
-            type="email"
-            value="chall123gmail.comchall123@gmail.com"
-          />
-          <div
-            class="cursor-pointer"
-          />
-        </div>
-        <div
-          class="error-container mt-1 p-1"
-        >
-          <div />
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-col w-full text-field"
-      >
-        <p>
-          Confirm Email Address
-        </p>
-        <div
-          class="flex flex-row items-center input input-focus error-input"
-        >
-          <input
-            aria-label="Confirm Email Address"
-            class=""
-            type="email"
-            value="chall1811@gmail.com"
-          />
-          <div
-            class="cursor-pointer"
-          />
-        </div>
-        <div
-          class="error-container mt-1 p-1"
-        >
-          <div>
-            <div
-              class="flex flex-row"
-            >
-              <div
-                class="inline-flex"
-              >
-                <img
-                  alt="ErrorIcon"
-                  class="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <p
-                  class="ml-2"
-                >
-                  The email addresses must match. Please check and try again.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class="flex flex-row justify-center items-center tooltip"
-      >
+          Update Your Email Address
+        </h1>
         <span
-          class="tooltiptext !p-2"
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
         >
-          Fill out the form to continue.
-        </span>
-        <button
-          aria-label="Next"
-          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-          type="button"
-        >
-          Next
-        </button>
-      </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <div
-        class=""
-        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-      />
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
-      <p
-        class="body-1 title-3"
-      >
-        Need help?
-      </p>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
-      <span
-        class="body-1 undefined"
-      >
-        <span>
-          Give us a call using the number listed on the back of your Member ID card or
-           
-        </span>
+          You need to change your email, or the email was already associated with another account. Please enter a new email address below.
+        </p>
         <span
-          class="link"
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
         >
-          <a
-            href=""
+          <p>
+            Email Address
+          </p>
+          <div
+            class="flex flex-row items-center input  "
           >
-            contact us
-          </a>
+            <input
+              aria-label="Email Address"
+              class=""
+              type="email"
+              value="chall123gmail.comchall123@gmail.com"
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+          <div
+            class="error-container mt-1 p-1"
+          >
+            <div />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col w-full text-field"
+        >
+          <p>
+            Confirm Email Address
+          </p>
+          <div
+            class="flex flex-row items-center input input-focus error-input"
+          >
+            <input
+              aria-label="Confirm Email Address"
+              class=""
+              type="email"
+              value="chall1811@gmail.com"
+            />
+            <div
+              class="cursor-pointer"
+            />
+          </div>
+          <div
+            class="error-container mt-1 p-1"
+          >
+            <div>
+              <div
+                class="flex flex-row"
+              >
+                <div
+                  class="inline-flex"
+                >
+                  <img
+                    alt="ErrorIcon"
+                    class="icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <p
+                    class="ml-2"
+                  >
+                    The email addresses must match. Please check and try again.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row justify-center items-center tooltip"
+        >
+          <span
+            class="tooltiptext !p-2"
+          >
+            Fill out the form to continue.
+          </span>
+          <button
+            aria-label="Next"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+            type="submit"
+          >
+            Next
+          </button>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <p
+          class="body-1 title-3"
+        >
+          Need help?
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="body-1 undefined"
+        >
+          <span>
+            Give us a call using the number listed on the back of your Member ID card or
+             
+          </span>
+          <span
+            class="link"
+          >
+            <a
+              href=""
+            >
+              contact us
+            </a>
+          </span>
         </span>
-      </span>
-    </section>
+      </section>
+    </form>
   </div>
 </body>
 `;

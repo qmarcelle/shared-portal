@@ -15,14 +15,16 @@ import { LoginStatus } from '../models/status';
 
 export async function callVerifyEmailOtp(
   request: VerifyEmailOtpRequest,
+  verifyEmailEndPoint: string,
 ): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
   let status: LoginStatus;
   try {
     request.policyId = process.env.ES_API_POLICY_ID;
     request.appId = process.env.ES_API_APP_ID;
+
     const resp = await esApi.post<ESResponse<PortalLoginResponse>>(
-      '/mfAuthentication/loginAuthentication/verifyEmailOtp',
+      `/mfAuthentication/loginAuthentication/${verifyEmailEndPoint}`,
       request,
     );
 
