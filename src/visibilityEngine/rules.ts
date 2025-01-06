@@ -54,6 +54,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'groupEHBUser',
   'isAmplifyMem',
   'cmEnable',
+  'ohdEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

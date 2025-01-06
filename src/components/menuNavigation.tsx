@@ -1,4 +1,5 @@
 import {
+  isBiometricScreening,
   isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
@@ -320,6 +321,15 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
           return true;
         },
         url: '/memberwellnesscenter',
+        external: true,
+      },
+      {
+        id: 103,
+        title: 'Biometric Screening',
+        description: 'This is Biometric Screening',
+        category: 'Wellness',
+        showOnMenu: isBiometricScreening,
+        url: '/biometricscreening',
         external: true,
       },
       {

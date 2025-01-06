@@ -113,4 +113,8 @@ export function computeAuthFunctions(
   rules.cmEnable = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'careManagementExclusion',
   )?.available;
+
+  rules.ohdEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName === 'OHDELIGIBLE',
+  )?.available;
 }

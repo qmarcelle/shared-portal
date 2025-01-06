@@ -312,3 +312,7 @@ export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
     !(hasCondensesedExperienceProfiler(rules) == 'Quantum')
   );
 }
+
+export function isBiometricScreening(rules: VisibilityRules | undefined) {
+  return rules?.ohdEligible;
+}
