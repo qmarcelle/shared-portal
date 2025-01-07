@@ -461,7 +461,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
             class="flex flex-row"
           >
             <p
-              class="title-2"
+              class="title-1"
             >
               View Other Plan Information
             </p>
@@ -561,7 +561,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   </div>
                 </a>
                 <a
-                  href="/priorAuth"
+                  href="/priorAuthorization"
                 >
                   <div
                     class="card-elevated small-section"
@@ -602,7 +602,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   </div>
                 </a>
                 <a
-                  href="/spendingAccount"
+                  href="/spendingAccounts"
                 >
                   <div
                     class="card-elevated small-section"
