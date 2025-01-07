@@ -275,7 +275,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
         </div>
       </a>
       <a
-        href="/priorAuth"
+        href="/priorAuthorization"
       >
         <div
           class="card-elevated small-section"
@@ -316,7 +316,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
         </div>
       </a>
       <a
-        href="/spendingAccount"
+        href="/spendingAccounts"
       >
         <div
           class="card-elevated small-section"

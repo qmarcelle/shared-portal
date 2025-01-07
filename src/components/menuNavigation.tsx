@@ -184,7 +184,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         showOnMenu: () => {
           return true;
         },
-        url: '/claimSnapshotList',
+        url: '/claims',
         external: false,
       },
       {
