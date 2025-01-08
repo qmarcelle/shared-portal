@@ -89,10 +89,10 @@ export async function callSubmitMfaOtp(
       status = SubmitMFAStatus.EMAIL_UNIQUENESS;
     } else {
       authUser = username;
+      await setWebsphereRedirectCookie({
+        ...resp.data.data,
+      });
     }
-    await setWebsphereRedirectCookie({
-      ...resp.data.data,
-    });
     return {
       status: status,
       data: resp.data.data,
