@@ -1074,7 +1074,9 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   </div>
                 </section>
               </div>
-              <a>
+              <a
+                href=""
+              >
                 <div
                   class="card-elevated small-section"
                 >
