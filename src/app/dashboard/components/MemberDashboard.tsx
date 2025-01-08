@@ -269,6 +269,7 @@ const MemberDashboard = ({
                 label="Estimate Costs"
                 body="Plan your upcoming care costs before you make an appointment."
                 icon={EstimateCost}
+                link={process.env.NEXT_PUBLIC_ESTIMATE_COSTS_SAPPHIRE ?? ''}
               ></InfoCard>
             )}
             {!isBlueCareEligible(visibilityRules) && (
