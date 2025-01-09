@@ -29,6 +29,11 @@ describe('OtherHealthInsurance', () => {
     expect(
       screen.getByRole('heading', { name: 'About Other Insurance' }),
     ).toBeVisible();
+    expect(
+      screen.getByText(
+        "Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by the selections you make here.",
+      ),
+    );
     const updateButtons = screen.getAllByText(/Update/i);
     fireEvent.click(updateButtons[0]);
     await waitFor(() => {
