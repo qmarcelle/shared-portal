@@ -110,6 +110,10 @@ export function computeAuthFunctions(
     (f) => f.functionName == 'AMPLIFYMEMBER',
   )?.available;
 
+  rules.diabetesPreventionEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'TELADOC_DIABETESPREVENTION',
+  )?.available;
+
   rules.cmEnable = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'careManagementExclusion',
   )?.available;

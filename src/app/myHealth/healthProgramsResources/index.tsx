@@ -8,6 +8,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import {
   isCareManagementEligiblity,
+  isDiabetesPreventionEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
@@ -57,6 +58,12 @@ const MyHealthProgramsResources = ({
       HealthProgramsResourcesName.TalkToNurse,
     );
     if (nurseChat) virtualHealthCareDetails.push(nurseChat);
+  }
+  if (isDiabetesPreventionEligible(visibilityRules)) {
+    const diabetesPrevention = myHealthProgramsandResourcesDetails.get(
+      HealthProgramsResourcesName.TeladocHealthDiabetesPreventionProgram,
+    );
+    if (diabetesPrevention) virtualHealthCareDetails.push(diabetesPrevention);
   }
   if (isCareManagementEligiblity(visibilityRules)) {
     const careManagement = myHealthProgramsandResourcesDetails.get(

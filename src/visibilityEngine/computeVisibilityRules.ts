@@ -304,7 +304,11 @@ export function getHingeHealthLink(session: Session | null) {
   }
   return hingeHealthLink;
 }
-
+export function isDiabetesPreventionEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.diabetesPreventionEligible && activeAndHealthPlanMember(rules);
+}
 export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
   return (
     rules?.commercial &&

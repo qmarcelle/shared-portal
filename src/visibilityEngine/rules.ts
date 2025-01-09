@@ -53,6 +53,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'indivEHBUser',
   'groupEHBUser',
   'isAmplifyMem',
+  'diabetesPreventionEligible',
   'cmEnable',
   'ohdEligible',
 ] as const;
