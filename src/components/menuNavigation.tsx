@@ -5,6 +5,7 @@ import {
   isEnrollEligible,
   isMentalHealthMenuOption,
   isPriceDentalCareMenuOptions,
+  isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -107,7 +108,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Vision Care',
         description: 'This is Price Vision Care',
         category: 'Estimate Costs',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isPriceVisionCareMenuOptions,
         url: '/pricevisioncare',
         external: true,
       },
