@@ -60,7 +60,7 @@ const FrequentlyAskedQuestions = () => {
       link: '/support/faqTopics?faqtype=PriorAuthorization',
     },
     {
-      label: 'Sharing, Permissions & Security',
+      label: 'Security',
       description:
         'How to share your health insurance information, represent a dependent individual and more.',
       iconName: keyIcon,

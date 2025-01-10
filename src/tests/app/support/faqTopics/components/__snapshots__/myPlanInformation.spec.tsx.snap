@@ -451,7 +451,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                                 class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
-                                Sharing, Permissions & Security
+                                Security
                               </p>
                             </button>
                           </a>
@@ -917,7 +917,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                               class="link !no-underline manage-faq"
                               style="display: block;"
                             >
-                              Sharing, Permissions & Security
+                              Security
                             </p>
                           </button>
                         </a>
