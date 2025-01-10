@@ -488,7 +488,7 @@ export const SupportFaqTopicDetails: Map<
     {
       topicType: FaqTopicType.SharingPermisionsSecurity,
       faqTopicHeaderDetails: {
-        title: 'Sharing, Permissions & Security FAQ',
+        title: 'Security FAQ',
         description:
           'How to keep your information secure, manage your online account and more.',
       },
