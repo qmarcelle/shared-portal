@@ -100,6 +100,7 @@ export const SiteHeaderSubNavSection = ({
           shortLinks={shortLinks}
           childPages={childPages}
           visibilityRules={visibilityRules}
+          closeSubMenu={closeSubMenu}
         />
       </div>
       <div className="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0">
@@ -110,6 +111,7 @@ export const SiteHeaderSubNavSection = ({
           shortLinks={shortLinks}
           childPages={childPages}
           visibilityRules={visibilityRules}
+          closeSubMenu={closeSubMenu}
         />
       </div>
       <div className="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0">
@@ -120,6 +122,7 @@ export const SiteHeaderSubNavSection = ({
           shortLinks={shortLinks}
           childPages={childPages}
           visibilityRules={visibilityRules}
+          closeSubMenu={closeSubMenu}
         />
       </div>
       <div className="col-start-1 col-end-5 lg:col-start-4 lg:col-end-5 py-4">
@@ -130,6 +133,7 @@ export const SiteHeaderSubNavSection = ({
           shortLinks={shortLinks}
           childPages={childPages}
           visibilityRules={visibilityRules}
+          closeSubMenu={closeSubMenu}
         />
       </div>
     </div>
