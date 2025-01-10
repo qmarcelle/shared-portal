@@ -349,6 +349,17 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(component.baseElement).toMatchSnapshot();
   });
+  it('should navigate the price vision care menu link correctly', async () => {
+    vRules.vision = true;
+    setVisibilityRules(vRules);
+    vRules.blueCare = false;
+    const component = renderUI(vRules);
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+    expect(screen.getByText('Price Vision Care')).toBeInTheDocument();
+    expect(component.baseElement).toMatchSnapshot();
+  });
   it('should be able to render Bimetric Screening menu ', () => {
     vRules.ohdEligible = true;
     const component = renderUI(vRules);

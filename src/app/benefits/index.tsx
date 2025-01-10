@@ -15,6 +15,7 @@ import { RichText } from '@/components/foundation/RichText';
 import {
   isDentalCostEstimator,
   isFindADentist,
+  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { JointProcedureCard } from './components/JointProcedureCard';
 import { MedicalPharmacyDentalCard } from './components/MedicalPharmacyDentalCard';
@@ -270,20 +271,22 @@ const Benefits = ({ data }: BenefitsPageProps) => {
                   ]}
                 />
               )}
-            <MedicalPharmacyDentalCard
-              className="small-section w-[672px] "
-              heading="Vision"
-              cardIcon={<Image src={VisionIcon} alt="link" />}
-              manageBenefitItems={[
-                {
-                  title: 'Visit EyeMed',
-                  body: 'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
-                  externalLink: false,
-                  url: 'url',
-                  icon: <Image src={externalIcon} alt="link" />,
-                },
-              ]}
-            />
+            {isVisionEligible(data?.visibilityRules) && (
+              <MedicalPharmacyDentalCard
+                className="small-section w-[672px] "
+                heading="Vision"
+                cardIcon={<Image src={VisionIcon} alt="link" />}
+                manageBenefitItems={[
+                  {
+                    title: 'Visit EyeMed',
+                    body: 'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
+                    externalLink: false,
+                    url: 'url',
+                    icon: <Image src={externalIcon} alt="link" />,
+                  },
+                ]}
+              />
+            )}
             <MedicalPharmacyDentalCard
               className="small-section w-[672px] "
               heading="Other Benefits"

@@ -353,60 +353,6 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
               </div>
             </div>
           </div>
-          <div
-            class="card-main large-section"
-          >
-            <div>
-              <h1
-                class="title-1 title-2"
-              >
-                Vision Balance
-              </h1>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
-              />
-              <p
-                class="body-1 inline"
-              >
-                We work with EyeMed to provide your vision benefits. To manage your vision plan, 
-              </p>
-              <a
-                href=""
-                style="display: inline-flex;"
-                tabindex="-1"
-              >
-                <button
-                  class="flex flex-row link-container p-0"
-                  style="max-width: max-content; height: auto; display: inline-flex;"
-                  tabindex="0"
-                >
-                  <p
-                    class="link undefined"
-                    style="display: inline-flex;"
-                  >
-                    visit EyeMed
-                  </p>
-                  <p
-                    class="ml-1"
-                    style="display: inline-flex;"
-                  >
-                    <img
-                      alt="external icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </p>
-                </button>
-              </a>
-              .
-            </div>
-          </div>
         </div>
         <div
           class="flex flex-col  flex-grow page-section-36_67 items-stretch"

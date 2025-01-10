@@ -304,6 +304,14 @@ export function getHingeHealthLink(session: Session | null) {
   }
   return hingeHealthLink;
 }
+export function isVisionEligible(rules: VisibilityRules | undefined) {
+  return rules?.vision && activeAndHealthPlanMember(rules);
+}
+export function isPriceVisionCareMenuOptions(
+  rules: VisibilityRules | undefined,
+) {
+  return isBlueCareNotEligible(rules) || isVisionEligible(rules);
+}
 export function isDiabetesPreventionEligible(
   rules: VisibilityRules | undefined,
 ) {
