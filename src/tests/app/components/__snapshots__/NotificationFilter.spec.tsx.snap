@@ -15,29 +15,6 @@ exports[`Display Notification Filter should render UI correctly 1`] = `
           Inbox
         </h1>
         <section
-          class="m-4 mb-0"
-        >
-          <div
-            class="flex"
-          >
-            <div
-              class="mr-4 title-3 font-bold toggle-link text-[--primary-color] toggle-link-active"
-            >
-              <a>
-                Document Center
-              </a>
-            </div>
-            <div
-              class="font-bold title-3 toggle-link false"
-            >
-              <a>
-                Notifications
-              </a>
-            </div>
-          </div>
-          <hr />
-        </section>
-        <section
           class="flex flex-row items-start app-body"
           id="Filter"
         >
@@ -207,7 +184,7 @@ exports[`Display Notification Filter should render UI correctly 1`] = `
                                 <p
                                   class="body-1"
                                 >
-                                  Last 30 days
+                                  Last Two Years
                                 </p>
                               </div>
                               <img
