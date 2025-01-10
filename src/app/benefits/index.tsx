@@ -16,6 +16,7 @@ import {
   isDentalCostEstimator,
   isFindADentist,
 } from '@/visibilityEngine/computeVisibilityRules';
+import { JointProcedureCard } from './components/JointProcedureCard';
 import { MedicalPharmacyDentalCard } from './components/MedicalPharmacyDentalCard';
 import { BenefitsData } from './models/benefitsData';
 type BenefitsPageProps = {
@@ -117,6 +118,10 @@ const Benefits = ({ data }: BenefitsPageProps) => {
                   selectedValue: { label: 'All Types', value: '1', id: '1' },
                 },
               ]}
+            />
+            <JointProcedureCard
+              className="large-section px-0 m-0 text-white"
+              phoneNumber={data?.phoneNumber ?? ''}
             />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
