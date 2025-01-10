@@ -1,7 +1,6 @@
 'use client';
 
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
-import { AlertBar } from '@/components/foundation/AlertBar';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { UserRole } from '@/userManagement/models/sessionUser';
@@ -18,12 +17,6 @@ export type DashboardProps = {
 const Dashboard = ({ data }: DashboardProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
-      <AlertBar
-        alerts={[
-          'There is a planned system outage on July 23-25',
-          'Another type of message that effects',
-        ]}
-      />
       <WelcomeBanner
         className="px-4"
         titleText="Welcome, "

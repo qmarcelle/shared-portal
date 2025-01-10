@@ -5,7 +5,9 @@ exports[`FindInNetworkProviderSection should render the UI correctly 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <a>
+      <a
+        href=""
+      >
         <div
           class="card-elevated small-section"
         >
@@ -47,7 +49,9 @@ exports[`FindInNetworkProviderSection should render the UI correctly 1`] = `
     </div>
   </body>,
   "container": <div>
-    <a>
+    <a
+      href=""
+    >
       <div
         class="card-elevated small-section"
       >
