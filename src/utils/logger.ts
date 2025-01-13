@@ -1,4 +1,5 @@
 import { AxiosError, AxiosHeaders, AxiosResponse } from 'axios';
+import { isObject } from './object_utils';
 
 export const ES_TRANSACTION_ID = 'ES-transactionId';
 const FIELDS_TO_BE_MASKED = ['password'];
@@ -44,8 +45,12 @@ class Logger {
         .get(ES_TRANSACTION_ID)
         ?.toString();
       const url = `${err.config?.method} ${err.config?.url ?? ''} ${err.response?.status?.toString()}`;
-      const request = this.maskFields(JSON.parse(err.config?.data));
-      const response = this.maskFields(err.response?.data);
+      const request = isObject(err.config?.data)
+        ? this.maskFields(JSON.parse(err.config?.data))
+        : null;
+      const response = isObject(err.response?.data)
+        ? this.maskFields(err.response?.data)
+        : null;
       log = `URL: ${url} 
         UserId: ${userName}
         ES TRANSACTION ID: ${esTransactionId} 
