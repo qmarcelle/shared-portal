@@ -26,7 +26,7 @@ export async function callVerifyEmailOtp(
       request,
     );
 
-    logger.info('Verify Email OTP API- Success', resp);
+    logger.info('Verify Email OTP API- Success', resp, request.username);
     status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
@@ -59,7 +59,7 @@ export async function callVerifyEmailOtp(
       },
     };
   } catch (error) {
-    logger.error('Verify Email OTP API - Failure', error);
+    logger.error('Verify Email OTP API - Failure', error, request.username);
     if (error instanceof AxiosError) {
       return {
         status: LoginStatus.ERROR,

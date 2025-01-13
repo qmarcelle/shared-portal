@@ -1,6 +1,4 @@
 import { Card } from '@/components/foundation/Card';
-import { Divider } from '@/components/foundation/Divider';
-import { LinkRow } from '@/components/foundation/LinkRow';
 import { ListRow } from '@/components/foundation/ListRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { ToolTip } from '@/components/foundation/Tooltip';
@@ -14,6 +12,9 @@ interface LoginInfoComponentProps {
 }
 
 export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
+  // Disabling EsLint Rules for this method for 10/16 release due to iFrame.
+  // To Do: Enable it for 12/16 release
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const changeMyPasswordAnalytics = () => {
     const analytics: AnalyticsData = {
       click_text: 'change my password',
@@ -48,6 +49,8 @@ export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
           }
         />
         <p className="m-2">{username}</p>
+        {/* Commenting out for 10/16 release due to iFrame. 
+        To Do: Enable it for 12/16 release
         <Spacer size={24} />
         <Divider />
         <Spacer size={16} />
@@ -57,7 +60,7 @@ export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
             window.location.href = process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '';
             changeMyPasswordAnalytics();
           }}
-        />
+        /> */}
       </div>
     </Card>
   );

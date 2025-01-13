@@ -19,7 +19,7 @@ class Logger {
     return JSON.stringify(data) ?? undefined;
   }
 
-  formatSuccessResponse(resp: AxiosResponse): string {
+  formatSuccessResponse(resp: AxiosResponse, userName?: string): string {
     let log: string = '';
     if (resp) {
       const esTransactionId = (resp.headers as AxiosHeaders)
@@ -29,6 +29,7 @@ class Logger {
       const request = this.maskFields(JSON.parse(resp.config?.data));
       const response = this.maskFields(resp.data);
       log = `URL: ${url}
+        UserId: ${userName}
         ES TRANSACTION ID: ${esTransactionId} 
         ${request ? `Request: ${request}` : null} 
         ${response ? `Response: ${response}` : null}}`;
@@ -36,7 +37,7 @@ class Logger {
     return log;
   }
 
-  formatErrorResponse(err: AxiosError): string {
+  formatErrorResponse(err: AxiosError, userName?: string): string {
     let log: string = '';
     if (err) {
       const esTransactionId = (err.response?.headers as AxiosHeaders)
@@ -46,6 +47,7 @@ class Logger {
       const request = this.maskFields(JSON.parse(err.config?.data));
       const response = this.maskFields(err.response?.data);
       log = `URL: ${url} 
+        UserId: ${userName}
         ES TRANSACTION ID: ${esTransactionId} 
         ${request ? `Request: ${request}` : null} 
         ${response ? `Response: ${response}` : null}}`;
@@ -59,7 +61,7 @@ class Logger {
         console.info(
           `[${new Date().toLocaleString()}] I Sequence-${
             this.sequence
-          }-${msg}-${this.formatSuccessResponse(info[0])}`,
+          }-${msg}-${this.formatSuccessResponse(info[0], info[1])}`,
         );
       } else {
         console.info(
@@ -82,7 +84,7 @@ class Logger {
         console.error(
           `[${new Date().toLocaleString()}] E Sequence-${
             this.sequence
-          }-${msg}-${this.formatErrorResponse(err[0])}`,
+          }-${msg}-${this.formatErrorResponse(err[0], err[1])}`,
         );
       } else {
         console.error(

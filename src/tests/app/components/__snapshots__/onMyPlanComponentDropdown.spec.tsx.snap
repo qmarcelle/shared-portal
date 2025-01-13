@@ -15,13 +15,15 @@ exports[`OnMyPlanComponent should render the UI correctly for more that one opti
       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
     />
     <a
+      aria-label="View Benefits & Coverage"
       style="display: block;"
       tabindex="-1"
     >
       <button
         class="flex flex-row link-container undefined"
         style="max-width: max-content; height: auto; display: block;"
-        tabindex="0"
+        tabindex="-1"
+        type="button"
       >
         <p
           class="link undefined"
@@ -50,13 +52,15 @@ exports[`OnMyPlanComponent should render the UI correctly for more that one opti
       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
     />
     <a
+      aria-label="View Benefits & Coverage"
       style="display: block;"
       tabindex="-1"
     >
       <button
         class="flex flex-row link-container undefined"
         style="max-width: max-content; height: auto; display: block;"
-        tabindex="0"
+        tabindex="-1"
+        type="button"
       >
         <p
           class="link undefined"

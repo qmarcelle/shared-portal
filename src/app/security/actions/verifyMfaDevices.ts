@@ -19,10 +19,14 @@ export async function verifyMfaDevices(
       '/mfAuthentication/verifyDevices',
       request,
     );
-    logger.info('VerifyMFADevices API - Success', axiosResponse);
+    logger.info(
+      'VerifyMFADevices API - Success',
+      axiosResponse,
+      request.userId,
+    );
     return axiosResponse?.data;
   } catch (error) {
-    logger.error('VerifyMFADevices API - Failure', error);
+    logger.error('VerifyMFADevices API - Failure', error, request.userId);
     if (error instanceof AxiosError) {
       return {
         errorCode:
