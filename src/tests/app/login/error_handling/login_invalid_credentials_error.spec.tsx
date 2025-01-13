@@ -5,6 +5,16 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+const mockReplace = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: mockReplace,
+    };
+  },
+}));
+
 const setupUI = () => {
   render(<LoginComponent />);
 };
@@ -14,7 +24,9 @@ describe('Login invalid credentials Error', () => {
     setupUI();
     // Login Info Card
     const inputUserName = screen.getByRole('textbox', { name: /Username/i });
-    const password = screen.getByLabelText(/password/i);
+    const password = screen.getByLabelText(/password/i, {
+      selector: 'input',
+    });
     const btnLogIn = screen.getByRole('button', { name: /Log In/i });
     await userEvent.type(inputUserName, 'username');
     await userEvent.type(password, 'password');
@@ -47,7 +59,7 @@ describe('Login invalid credentials Error', () => {
       expect(
         screen.getByText(
           // eslint-disable-next-line quotes
-          "We didn't recognize the username or password you entered. Please try again. [UI-401]",
+          "We didn't recognize the username or password you entered. Please try again.",
         ),
       ).toBeVisible();
     });

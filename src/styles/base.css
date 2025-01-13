@@ -400,3 +400,16 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
 }
+
+.animate-pulse .loaderWidth {
+  width: 74%;
+}
+
+.animate-pulse .loaderWidth.max-w-\[330px\] {
+  width: 61%;
+}
+
+.react-responsive-modal-modal {
+  padding: 0px !important;
+  margin: 0px !important;
+}

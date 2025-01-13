@@ -133,6 +133,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <a
+                  aria-label="View More ID Card Options"
                   href="/memberIDCard"
                   style="display: block;"
                   tabindex="-1"
@@ -140,7 +141,8 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   <button
                     class="flex flex-row link-container p-0"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"

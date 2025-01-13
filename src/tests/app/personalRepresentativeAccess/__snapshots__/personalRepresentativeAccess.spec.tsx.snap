@@ -376,13 +376,15 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                     style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                                   />
                                   <a
+                                    aria-label="Invite to Register"
                                     style="display: block;"
                                     tabindex="-1"
                                   >
                                     <button
                                       class="flex flex-row link-container !flex pl-0"
                                       style="max-width: max-content; height: auto; display: block;"
-                                      tabindex="0"
+                                      tabindex="-1"
+                                      type="button"
                                     >
                                       <p
                                         class="link undefined"
@@ -583,13 +585,15 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
                     />
                     <a
+                      aria-label="Download Authorization Form"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container !flex p-0"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"
@@ -996,13 +1000,15 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                   style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                                 />
                                 <a
+                                  aria-label="Invite to Register"
                                   style="display: block;"
                                   tabindex="-1"
                                 >
                                   <button
                                     class="flex flex-row link-container !flex pl-0"
                                     style="max-width: max-content; height: auto; display: block;"
-                                    tabindex="0"
+                                    tabindex="-1"
+                                    type="button"
                                   >
                                     <p
                                       class="link undefined"
@@ -1203,13 +1209,15 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
                   />
                   <a
+                    aria-label="Download Authorization Form"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !flex p-0"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"

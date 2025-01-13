@@ -186,6 +186,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
           />
           <div>
             <a
+              aria-label="View All Member Discounts"
               href=""
               style="display: inline-flex;"
               tabindex="-1"
@@ -193,7 +194,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
               <button
                 class="flex flex-row link-container p-0"
                 style="max-width: max-content; height: auto; display: inline-flex;"
-                tabindex="0"
+                tabindex="-1"
+                type="button"
               >
                 <p
                   class="link undefined"
@@ -402,6 +404,7 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
         />
         <div>
           <a
+            aria-label="View All Member Discounts"
             href=""
             style="display: inline-flex;"
             tabindex="-1"
@@ -409,7 +412,8 @@ exports[`MemberDiscountsSection should render the UI correctly 1`] = `
             <button
               class="flex flex-row link-container p-0"
               style="max-width: max-content; height: auto; display: inline-flex;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"

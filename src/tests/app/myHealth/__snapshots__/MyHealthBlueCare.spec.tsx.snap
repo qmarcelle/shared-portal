@@ -76,6 +76,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
                 <a
+                  aria-label="View or Update Primary Care Provider"
                   href="/myPrimaryCareProvider"
                   style="display: block;"
                   tabindex="-1"
@@ -83,7 +84,8 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   <button
                     class="flex flex-row link-container !text-left"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"
@@ -133,6 +135,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                           class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
                         >
                           <a
+                            aria-label="Fill-out The Health History & Needs Survey"
                             href=""
                             style="display: block;"
                             tabindex="-1"
@@ -140,7 +143,8 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                             <button
                               class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link undefined"
@@ -211,6 +215,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                           class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
                         >
                           <a
+                            aria-label="Get One-on-One Health Support"
                             href=""
                             style="display: block;"
                             tabindex="-1"
@@ -218,7 +223,8 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                             <button
                               class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link undefined"
@@ -640,13 +646,15 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                 style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
               />
               <a
+                aria-label="View All Health Programs & Resources"
                 style="display: block;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"
@@ -691,6 +699,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
                     >
                       <a
+                        aria-label="WellTuned Blog"
                         href=""
                         style="display: block;"
                         tabindex="-1"
@@ -698,7 +707,8 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         <button
                           class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -982,6 +992,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                     class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
                   >
                     <a
+                      aria-label="Visit The Health Library"
                       href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89"
                       style="display: block;"
                       tabindex="-1"
@@ -989,7 +1000,8 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       <button
                         class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"

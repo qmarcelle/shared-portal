@@ -14,6 +14,11 @@ jest.mock('next/navigation', () => ({
       replace: mockReplace,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 
 const setupUI = () => {
@@ -25,7 +30,9 @@ describe('Login API Error', () => {
     setupUI();
     // Login Info Card
     const inputUserName = screen.getByRole('textbox', { name: /Username/i });
-    const password = screen.getByLabelText(/password/i);
+    const password = screen.getByLabelText(/password/i, {
+      selector: 'input',
+    });
     const btnLogIn = screen.getByRole('button', { name: /Log In/i });
     await userEvent.type(inputUserName, 'bcbstuser222');
     await userEvent.type(password, 'Th1sisagreatpassword!!');

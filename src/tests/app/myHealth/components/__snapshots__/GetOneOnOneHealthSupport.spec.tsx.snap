@@ -36,6 +36,7 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                   class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
                 >
                   <a
+                    aria-label="Get One-on-One Health Support"
                     href=""
                     style="display: block;"
                     tabindex="-1"
@@ -43,7 +44,8 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                     <button
                       class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -117,6 +119,7 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                 class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
               >
                 <a
+                  aria-label="Get One-on-One Health Support"
                   href=""
                   style="display: block;"
                   tabindex="-1"
@@ -124,7 +127,8 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                   <button
                     class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
                     style="max-width: max-content; height: auto; display: block;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link undefined"

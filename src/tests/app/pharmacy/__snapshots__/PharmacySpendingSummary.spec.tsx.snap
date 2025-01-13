@@ -28,13 +28,15 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
+            aria-label="View Pharmacy Spending Summary"
             style="display: block;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container !flex p-0"
               style="max-width: max-content; height: auto; display: block;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -72,13 +74,15 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <a
+          aria-label="View Pharmacy Spending Summary"
           style="display: block;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container !flex p-0"
             style="max-width: max-content; height: auto; display: block;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"

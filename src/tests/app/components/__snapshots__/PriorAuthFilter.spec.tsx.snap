@@ -25,13 +25,15 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
             Need more than two years of prior authorizations?
              
             <a
+              aria-label="Start a chat"
               style="display: block;"
               tabindex="-1"
             >
               <button
                 class="flex flex-row link-container link !flex caremark pt-0"
                 style="max-width: max-content; height: auto; display: block;"
-                tabindex="0"
+                tabindex="-1"
+                type="button"
               >
                 <p
                   class="link undefined"
@@ -49,13 +51,15 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
             Looking for a prescription drug pre-approval? Go to your
              
             <a
+              aria-label="caremark.com account"
               style="display: block;"
               tabindex="-1"
             >
               <button
                 class="flex flex-row link-container link !flex caremark pt-0"
                 style="max-width: max-content; height: auto; display: block;"
-                tabindex="0"
+                tabindex="-1"
+                type="button"
               >
                 <p
                   class="link undefined"

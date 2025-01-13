@@ -17,10 +17,14 @@ export async function deleteMfaDevices(
       '/mfAuthentication/deleteDevices',
       request,
     );
-    logger.info('DeleteMFADevices API - Success', axiosResponse);
+    logger.info(
+      'DeleteMFADevices API - Success',
+      axiosResponse,
+      request.userId,
+    );
     return axiosResponse?.data;
   } catch (error) {
-    logger.error('DeleteMFADevices API - Failure', error);
+    logger.error('DeleteMFADevices API - Failure', error, request.userId);
     if (error instanceof AxiosError) {
       return {
         errorCode:

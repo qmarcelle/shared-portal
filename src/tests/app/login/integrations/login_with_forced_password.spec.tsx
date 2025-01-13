@@ -13,7 +13,6 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-// Mock useRouter:
 const mockReplace = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {
@@ -21,6 +20,11 @@ jest.mock('next/navigation', () => ({
       prefetch: () => null,
       replace: mockReplace,
       refresh: jest.fn(),
+    };
+  },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
     };
   },
 }));
