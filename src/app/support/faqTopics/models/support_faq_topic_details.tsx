@@ -4,6 +4,7 @@ import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaqTopicDetails, FaqTopicType } from './faq_details';
 
 export const SupportFaqTopicDetails: Map<
@@ -412,6 +413,114 @@ export const SupportFaqTopicDetails: Map<
               ]}
             />
           ),
+        },
+      ],
+    },
+  ],
+  [
+    FaqTopicType.PriorAuthorization,
+    {
+      topicType: FaqTopicType.PriorAuthorization,
+      faqTopicHeaderDetails: {
+        title: 'Prior Authorization FAQ',
+        description: 'Learn more about prior authorizations and statuses.',
+      },
+      faqTopCardDetails: [
+        {
+          serviceTitle: 'Understanding Prior Authorization',
+          serviceLabel: 'What is a prior authorization?',
+          para1:
+            // eslint-disable-next-line quotes
+            "Prior authorization is a process that ensures any prescribed treatments or drugs are appropriate and safe. Prior authorizations require your health provider to get approval from your health insurance plan. It's also known as preauthorization or pre-certification.",
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel: 'How do I get a prior authorization?',
+          para1:
+            'If your doctor prescribes a treatment that needs prior authorization, they’ll ask us for one when they write your treatment plan. We’ll review the case, make sure the treatment is appropriate and safe, and make a decision. If it’s approved, we’ll send you a letter to let you know.',
+          bulletPoints: [],
+          para2: '',
+        },
+      ],
+      faqSecondCardDetails: [
+        {
+          serviceTitle: 'Help with Prior Authorization Status',
+          serviceLabel: 'What does the status of my prior authorizations mean?',
+          para1:
+            // eslint-disable-next-line quotes
+            'Prior authorizations can have one of three statuses: approved, partially approved or denied. Approved means that your health plan agrees with your doctor that the medical service or prescription drug is necessary and safe. Partially approved means that your health plan has concerns about the safety or need of part of your request. Denied means that your health plan does not agree with your doctor that a medical service or prescription drug is necessary or safe.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'My prior authorization was approved. What do I do next?',
+          para1:
+            // eslint-disable-next-line quotes
+            'If your request was approved, move forward with the medical service or drug as your doctor instructed.',
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            'What can I do if my prior authorization is partially approved or denied?',
+          para1: (
+            <RichText
+              spans={[
+                <span key={1}>
+                  If a medical service or prescription drug prior authorization
+                  was partially approved or denied, we’ll send you a letter
+                  explaining why with details on how to file an appeal. For more
+                  information, please
+                </span>,
+                <span key={2}>
+                  <a className="link font-bold"> contact us.</a>
+                </span>,
+              ]}
+            />
+          ),
+          bulletPoints: [],
+          para2: '',
+        },
+        {
+          serviceTitle: '',
+          serviceLabel:
+            // eslint-disable-next-line quotes
+            "I'm expecting a prior authorization. Where are all my prior authorizations?",
+          para1: (
+            <RichText
+              spans={[
+                <span key={1}>
+                  We’ll show your medical prior authorizations on the
+                </span>,
+                <span key={2}>
+                  <Link href="/priorAuthorization" className="link font-bold">
+                    {' '}
+                    prior authorization page.
+                  </Link>
+                </span>,
+                <span key={3}>
+                  {' '}
+                  For any prescription drug-related prior authorizations, you
+                  may need to log in to your Caremark account. If your pharmacy
+                  benefits aren’t provided by CVS Caremark, you can
+                </span>,
+                <span key={4}>
+                  <a className="link font-bold"> contact us</a>
+                </span>,
+                <span key={5}>
+                  , and we’ll help you find your prescription prior
+                  authorization status.
+                </span>,
+              ]}
+            />
+          ),
+          bulletPoints: [],
+          para2: '',
         },
       ],
     },
