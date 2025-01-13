@@ -8,6 +8,7 @@ import {
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
+  isSpendingAccountsMenuOptions,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
@@ -225,7 +226,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Accounts (HSA, FSA)',
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isSpendingAccountsMenuOptions,
         url: '/spendingAccounts',
         external: false,
       },

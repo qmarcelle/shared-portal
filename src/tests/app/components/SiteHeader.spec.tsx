@@ -373,4 +373,34 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(component.baseElement).toMatchSnapshot();
   });
+  it('should navigate the Spending Accounts menu link correctly', async () => {
+    vRules.subscriber = true;
+    vRules.fsaOnly = true;
+    vRules.fsaHraEligible = true;
+    vRules.commercial = true;
+    vRules.flexibleSpendingAccount = true;
+    const component = renderUI(vRules);
+
+    /**** Nav Links For My Plan  */
+
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(
+      screen.getByText('Spending Accounts (HSA, FSA)'),
+    ).toBeInTheDocument();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should not navigate to the Spending Accounts menu link', async () => {
+    vRules.subscriber = false;
+    vRules.blueCare = true;
+    const component = renderUI(vRules);
+
+    /**** Nav Links For My Plan  */
+
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(
+      screen.queryByText('Spending Accounts (HSA, FSA)'),
+    ).not.toBeInTheDocument();
+    expect(component.baseElement).toMatchSnapshot();
+  });
 });

@@ -121,4 +121,16 @@ export function computeAuthFunctions(
   rules.ohdEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName === 'OHDELIGIBLE',
   )?.available;
+
+  rules.fsaHraEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'FSAHRAELIGIBLE',
+  )?.available;
+
+  rules.flexibleSpendingAccount = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'FlexibleSpendingAccount',
+  )?.available;
+
+  rules.healthReimbursementAccount = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName === 'HealthReimbursementAccount',
+  )?.available;
 }
