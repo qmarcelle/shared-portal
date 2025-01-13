@@ -1830,13 +1830,15 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
+              aria-label="View all your plan benefits here"
               style="display: inline-flex;"
               tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
                 style="max-width: max-content; height: auto; display: inline-flex;"
-                tabindex="0"
+                tabindex="-1"
+                type="button"
               >
                 <p
                   class="link undefined"
@@ -1949,13 +1951,15 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                         </ul>
                       </div>
                       <a
+                        aria-label="Learn More About Diabetes Prevention"
                         style="display: block;"
                         tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -2002,13 +2006,15 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
+            aria-label="View all your plan benefits here"
             style="display: inline-flex;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
               style="max-width: max-content; height: auto; display: inline-flex;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -2121,13 +2127,15 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </ul>
                     </div>
                     <a
+                      aria-label="Learn More About Diabetes Prevention"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"
