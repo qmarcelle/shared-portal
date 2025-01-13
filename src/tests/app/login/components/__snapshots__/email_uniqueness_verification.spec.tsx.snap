@@ -90,6 +90,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
           <button
             aria-label="Next"
             class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+            disabled=""
             type="submit"
           >
             Next
@@ -252,6 +253,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
           <button
             aria-label="Next"
             class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+            disabled=""
             type="submit"
           >
             Next

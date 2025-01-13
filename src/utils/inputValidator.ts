@@ -49,7 +49,7 @@ export const isValidEmailAddress = (email: string): boolean => {
 
 export const isValidPassword = (password: string): boolean => {
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[!@#$%^&*()\-=_+])(?!.*[\[\]{};':"\\|,.`<>\/?~*]).{8,30}$/g;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[!@#$%^&*()\-=_+])(?!.*[\[\]{};':"\\|,.`<>\/?~]).{8,30}$/g;
   return passwordRegex.test(password);
 };
 
