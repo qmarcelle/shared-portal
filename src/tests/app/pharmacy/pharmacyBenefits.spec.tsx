@@ -1,37 +1,50 @@
-import Pharmacy from '@/app/pharmacy';
-import { VisibilityRules } from '@/visibilityEngine/rules';
+import PharmacyPage from '@/app/pharmacy/page';
+import { mockedAxios } from '@/tests/__mocks__/axios';
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
+const renderUI = async () => {
+  const page = await PharmacyPage();
+  return render(page);
+};
+
+const vRules = {
+  user: {
+    vRules: {
+      futureEffective: false,
+      fsaOnly: false,
+      wellnessOnly: false,
+      terminated: false,
+      katieBeckNoBenefitsElig: false,
+      blueCare: true,
+    },
+  },
+};
+
+jest.mock('src/auth', () => ({
+  auth: jest.fn(),
+}));
+
 // Mock useRouter:
+const mockPush = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
       prefetch: () => null,
-      replace: () => null,
+      push: mockPush,
     };
   },
 }));
 
-let vRules: VisibilityRules = {};
-const renderUI = (vRules: VisibilityRules) => {
-  return render(<Pharmacy visibilityRules={vRules} data={''} />);
-};
-
-function setVisibilityRules(vRules: VisibilityRules) {
-  vRules.futureEffective = false;
-  vRules.fsaOnly = false;
-  vRules.wellnessOnly = false;
-  vRules.terminated = false;
-  vRules.katieBeckNoBenefitsElig = false;
-}
 describe('Pharmacy Benefits', () => {
-  beforeEach(() => {
-    vRules = {};
-  });
-  it('should render the UI correctly', async () => {
-    vRules.blueCare = true;
-    setVisibilityRules(vRules);
-    const component = renderUI(vRules);
+  it('should render Pharmacy Benefits correctly', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    const component = await renderUI();
+
     screen.getByRole('heading', { name: 'Pharmacy Benefits' });
     screen.getAllByText(
       'You have a pharmacy card just for your prescription drugs. Here are some helpful things to know:',
@@ -47,6 +60,6 @@ describe('Pharmacy Benefits', () => {
       'href',
       'https://www.tn.gov/tenncare/members-applicants/pharmacy.html',
     );
-    expect(component).toMatchSnapshot();
+    expect(component.baseElement).toMatchSnapshot();
   });
 });
