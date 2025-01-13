@@ -15,6 +15,7 @@ export const EmailUniquenessVerification = () => {
     confirmEmailAddress,
     invalidEmailError,
     invalidConfirmEmailError,
+    isApiError,
     updateEmail,
     updateEmailAddress,
     updateConfirmEmailAddress,
@@ -23,6 +24,7 @@ export const EmailUniquenessVerification = () => {
     state.confirmEmailAddress,
     state.invalidEmailError,
     state.invalidConfirmEmailError,
+    state.isApiError,
     state.updateEmail,
     state.updateEmailAddress,
     state.updateConfirmEmailAddress,
@@ -72,6 +74,7 @@ export const EmailUniquenessVerification = () => {
           value={confirmEmailAddress}
           valueCallback={(val) => updateConfirmEmailAddress(val)}
           errors={invalidConfirmEmailError}
+          highlightError={!isApiError}
         ></TextField>
         <Spacer size={32} />
         <ToolTip

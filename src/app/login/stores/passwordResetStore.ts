@@ -34,7 +34,9 @@ export const usePasswordResetStore = createWithEqualityFn<PasswordResetStore>(
       }));
       if (!isValidPassword(val)) {
         set(() => ({
-          invalidPasswordError: ['Please enter a valid password.'],
+          invalidPasswordError: [
+            'Your password has an invalid character. Passwords can only use these characters: !@#$%^&*()+=-_',
+          ],
         }));
       } else {
         set(() => ({

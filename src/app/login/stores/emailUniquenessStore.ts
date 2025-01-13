@@ -14,6 +14,7 @@ type EmailUniquenessStore = {
   confirmEmailAddress: string;
   invalidEmailError: string[];
   invalidConfirmEmailError: string[];
+  isApiError: boolean;
   updateEmailAddress: (val: string) => void;
   updateConfirmEmailAddress: (val: string) => void;
   updateEmail: () => Promise<void>;
@@ -26,6 +27,7 @@ export const useEmailUniquenessStore =
     confirmEmailAddress: '',
     invalidEmailError: [],
     invalidConfirmEmailError: [],
+    isApiError: false,
     updateEmailAddress: (value: string) => {
       const isValidEmail = isValidEmailAddress(value);
       const isValidLength = validateLength(value);
@@ -39,7 +41,7 @@ export const useEmailUniquenessStore =
         invalidEmail = ['Please enter a valid Email address.'];
       }
       if (
-        isConfirmEmailAddressMatch(value, get().confirmEmailAddress) &&
+        !isConfirmEmailAddressMatch(value, get().confirmEmailAddress) &&
         get().confirmEmailAddress !== ''
       ) {
         invalidConfirmEmail = [
@@ -57,7 +59,7 @@ export const useEmailUniquenessStore =
         value,
         get().emailAddress,
       );
-      set(() => ({ confirmEmailAddress: value }));
+      set(() => ({ confirmEmailAddress: value, isApiError: false }));
       if (!isEmailMatch) {
         set(() => ({
           invalidConfirmEmailError: [
@@ -101,6 +103,7 @@ export const useEmailUniquenessStore =
                 // eslint-disable-next-line quotes
                 "We can't send emails to this address. Please enter a valid address.",
               ],
+              isApiError: true,
             }));
             break;
           case EmailUniquenessStatus.EMAIL_ALREADY_IN_USE:
@@ -108,6 +111,7 @@ export const useEmailUniquenessStore =
               invalidConfirmEmailError: [
                 'The email address entered is already in use by another account. Please choose a different email address.',
               ],
+              isApiError: true,
             }));
             break;
           default:

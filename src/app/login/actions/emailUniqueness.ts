@@ -32,8 +32,12 @@ export async function callUpdateEmail(
       },
     };
   } catch (error) {
+    logger.error('Update Email API - Failure', error, request.newEmail);
     if (error instanceof AxiosError) {
-      switch (error.response?.data.data?.errorCode) {
+      const errorCode =
+        error.response?.data.data?.errorCode ??
+        error.response?.data.details?.returnCode;
+      switch (errorCode) {
         case 'EU-400-1':
           status = EmailUniquenessStatus.INVALID_EMAIL;
           break;
@@ -48,7 +52,9 @@ export async function callUpdateEmail(
         status: status,
         data: error.response?.data.data,
         error: {
-          errorCode: error.response?.data.data.errorCode,
+          errorCode:
+            error.response?.data.data.errorCode ??
+            error.response?.data.details?.returnCode,
           message: error.response?.data,
         },
       };
