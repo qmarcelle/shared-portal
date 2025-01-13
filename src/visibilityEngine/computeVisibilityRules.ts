@@ -26,6 +26,7 @@ const PTYP_FULLY_INSURED: string[] = [
 ];
 
 let groupId: string;
+let healthCareAccountEligible: any[] | null;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
@@ -39,6 +40,7 @@ export function computeVisibilityRules(
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
   rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
 
+  healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
@@ -329,6 +331,30 @@ export function isBiometricScreening(rules: VisibilityRules | undefined) {
   return rules?.ohdEligible;
 }
 
+export function isSpendingAccountsMenuOptions(
+  rules: VisibilityRules | undefined,
+) {
+  return isBlueCareNotEligible(rules) || isSpendingAccountsEligible(rules);
+}
+
+export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
+  if (rules?.subscriber) {
+    if (
+      rules?.fsaOnly ||
+      (healthCareAccountEligible != null &&
+        healthCareAccountEligible.length != 0)
+    ) {
+      if (rules?.fsaHraEligible && rules?.commercial) {
+        if (
+          rules?.flexibleSpendingAccount ||
+          rules?.healthReimbursementAccount
+        ) {
+          return true;
+        } else return false;
+      } else return false;
+    } else return false;
+  } else return false;
+}
 export function isBlueCareAndPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
