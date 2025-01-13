@@ -183,9 +183,9 @@ export const DocumentCenter = ({ documents, membersInfo }: DocumentProps) => {
                 },
               ],
               selectedValue: {
-                label: 'Last 30 days',
-                value: '30',
-                id: '1',
+                label: 'Last Two Years',
+                value: '730',
+                id: '5',
               },
             },
           ]}

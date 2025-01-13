@@ -145,4 +145,22 @@ describe('MyHealthProgramsResources', () => {
     screen.getByText('Mental health');
     expect(component).toMatchSnapshot();
   });
+  it('should render UI correctly for Teladoc Health Diabetes Prevention Program', () => {
+    vRules.diabetesPreventionEligible = true;
+    activeAndHealthPlanMemberProfiler(vRules);
+
+    const component = renderUI(vRules);
+    screen.getByText('Diabetes');
+    screen.getByText('Teladoc Health Diabetes Prevention Program');
+    screen.getByText(
+      'Get a personal action plan, health coaching and a smart scale at no extra cost.',
+    );
+    screen.getByText('Learn More About Diabetes Prevention');
+    screen.getByText('Generally good for:');
+    screen.getByText('Viewing weight trends');
+    screen.getByText('Expert coaching and advice');
+    screen.getByText('Sharing reports with the doctor');
+    screen.getByText('Personalized eating tips');
+    expect(component).toMatchSnapshot();
+  });
 });

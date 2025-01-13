@@ -64,7 +64,6 @@ describe('My Health Page', () => {
     );
     expect(screen.getByText('Health Library')).toBeVisible();
     expect(screen.getByText('Visit The Health Library')).toBeVisible();
-    expect(screen.getByText('Schedule a Biometric Screening')).toBeVisible();
     expect(screen.getByText('Member Wellness Center')).toBeVisible();
     expect(
       screen.getByText(

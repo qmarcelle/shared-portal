@@ -1,3 +1,4 @@
+import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
@@ -8,11 +9,13 @@ export async function getBenefits(): Promise<
 > {
   try {
     const session = await auth();
+    const phoneNumber = await invokePhoneNumberAction();
 
     return {
       status: 200,
       data: {
         visibilityRules: session?.user.vRules,
+        phoneNumber: phoneNumber,
       },
     };
   } catch (err) {
@@ -23,6 +26,7 @@ export async function getBenefits(): Promise<
       status: 400,
       data: {
         visibilityRules: session?.user.vRules,
+        phoneNumber: '',
       },
     };
   }

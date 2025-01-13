@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Other Benefits should render UI correctly 1`] = `
+exports[`Member Programs and Resources should render the UI correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -62,43 +62,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                             <p
                               class="font-bold primary-color"
                             >
-                              Alight Second Opinion Advice & Support
-                            </p>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <p
-                            class="body-1"
-                          >
-                            Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
-                          </p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    aria-hidden="false"
-                    class="slick-slide slick-active"
-                    data-index="1"
-                    style="outline: none; width: 0px;"
-                    tabindex="-1"
-                  >
-                    <div>
-                      <div
-                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
-                      >
-                        <a
-                          class="p-4 block"
-                          href="null"
-                        >
-                          <div
-                            class="flex flex-row"
-                          >
-                            <p
-                              class="font-bold primary-color"
-                            >
-                              CareTN One-on-One Health Support 
+                              CareTN One-on-One Health Support
                             </p>
                           </div>
                           <span
@@ -116,7 +80,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                   <div
                     aria-hidden="false"
                     class="slick-slide slick-active"
-                    data-index="2"
+                    data-index="1"
                     style="outline: none; width: 0px;"
                     tabindex="-1"
                   >
@@ -150,6 +114,42 @@ exports[`Other Benefits should render UI correctly 1`] = `
                     </div>
                   </div>
                   <div
+                    aria-hidden="false"
+                    class="slick-slide slick-active"
+                    data-index="2"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Teladoc Health Blood Pressure Management Program
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
                     aria-hidden="true"
                     class="slick-slide"
                     data-index="3"
@@ -170,7 +170,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                             <p
                               class="font-bold primary-color"
                             >
-                              Test
+                              Teladoc Health Diabetes Management Program
                             </p>
                           </div>
                           <span
@@ -179,7 +179,151 @@ exports[`Other Benefits should render UI correctly 1`] = `
                           <p
                             class="body-1"
                           >
-                            THis is test card.
+                            Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="4"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Teladoc Health Diabetes Prevention Program
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            Get a personal action plan, health coaching and a smart scale at no extra cost.
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="5"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Teladoc Second Opinion Advice & Support
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="6"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              QuestSelect™ Low-Cost Lab Testing
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="7"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                      >
+                        <a
+                          class="p-4 block"
+                          href="null"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Silver&Fit Fitness Program
+                            </p>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1"
+                          >
+                            Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                           </p>
                         </a>
                       </div>
@@ -218,7 +362,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
             >
               <div
                 class="primary-bg-color h-1.5 rounded-full"
-                style="width: 75%;"
+                style="width: 38%;"
               />
             </div>
           </div>
@@ -226,15 +370,13 @@ exports[`Other Benefits should render UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
           />
           <a
-            aria-label="View All Health Programs & Resources"
             style="display: block;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
               style="max-width: max-content; height: auto; display: block;"
-              tabindex="-1"
-              type="button"
+              tabindex="0"
             >
               <p
                 class="link undefined"
@@ -306,43 +448,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                           <p
                             class="font-bold primary-color"
                           >
-                            Alight Second Opinion Advice & Support
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <p
-                          class="body-1"
-                        >
-                          Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
-                        </p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  aria-hidden="false"
-                  class="slick-slide slick-active"
-                  data-index="1"
-                  style="outline: none; width: 0px;"
-                  tabindex="-1"
-                >
-                  <div>
-                    <div
-                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
-                    >
-                      <a
-                        class="p-4 block"
-                        href="null"
-                      >
-                        <div
-                          class="flex flex-row"
-                        >
-                          <p
-                            class="font-bold primary-color"
-                          >
-                            CareTN One-on-One Health Support 
+                            CareTN One-on-One Health Support
                           </p>
                         </div>
                         <span
@@ -360,7 +466,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                 <div
                   aria-hidden="false"
                   class="slick-slide slick-active"
-                  data-index="2"
+                  data-index="1"
                   style="outline: none; width: 0px;"
                   tabindex="-1"
                 >
@@ -394,6 +500,42 @@ exports[`Other Benefits should render UI correctly 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="2"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Teladoc Health Blood Pressure Management Program
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
                   aria-hidden="true"
                   class="slick-slide"
                   data-index="3"
@@ -414,7 +556,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                           <p
                             class="font-bold primary-color"
                           >
-                            Test
+                            Teladoc Health Diabetes Management Program
                           </p>
                         </div>
                         <span
@@ -423,7 +565,151 @@ exports[`Other Benefits should render UI correctly 1`] = `
                         <p
                           class="body-1"
                         >
-                          THis is test card.
+                          Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="4"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Teladoc Health Diabetes Prevention Program
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          Get a personal action plan, health coaching and a smart scale at no extra cost.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="5"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Teladoc Second Opinion Advice & Support
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="6"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            QuestSelect™ Low-Cost Lab Testing
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="7"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                    >
+                      <a
+                        class="p-4 block"
+                        href="null"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <p
+                            class="font-bold primary-color"
+                          >
+                            Silver&Fit Fitness Program
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <p
+                          class="body-1"
+                        >
+                          Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                         </p>
                       </a>
                     </div>
@@ -462,7 +748,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
           >
             <div
               class="primary-bg-color h-1.5 rounded-full"
-              style="width: 75%;"
+              style="width: 38%;"
             />
           </div>
         </div>
@@ -470,15 +756,13 @@ exports[`Other Benefits should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
         />
         <a
-          aria-label="View All Health Programs & Resources"
           style="display: block;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
             style="max-width: max-content; height: auto; display: block;"
-            tabindex="-1"
-            type="button"
+            tabindex="0"
           >
             <p
               class="link undefined"

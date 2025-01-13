@@ -47,3 +47,7 @@
   border-radius: 8px;
   box-shadow: 0px 1px 8px 0px rgba(0, 73, 126, 0.16);
 }
+
+.card-elevated.myHealthCard {
+  height: 230px;
+}

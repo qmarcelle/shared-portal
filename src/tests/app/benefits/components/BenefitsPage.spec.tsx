@@ -14,6 +14,7 @@ const vRules = {
       dental: true,
       dentalCostsEligible: true,
       enableCostTools: true,
+      vision: true,
     },
   },
 };
@@ -34,6 +35,24 @@ describe('Balances Page', () => {
 
     expect(screen.getByText('Dental')).toBeVisible();
     expect(screen.getByText('Anesthesia')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should render Vision coverage information on the Benefits & Coverage page', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+
+    const component = await renderUI();
+
+    expect(screen.getByText('Vision')).toBeVisible();
+    expect(screen.getByText('Visit EyeMed')).toBeVisible();
+    expect(
+      screen.getByText(
+        'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
+      ),
+    ).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

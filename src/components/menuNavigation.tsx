@@ -1,10 +1,14 @@
 import {
+  isBiometricScreening,
+  isBlueCareAndPrimaryCarePhysicianEligible,
   isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
   isMentalHealthMenuOption,
   isPriceDentalCareMenuOptions,
+  isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
+  isSpendingAccountsMenuOptions,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
@@ -106,7 +110,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Vision Care',
         description: 'This is Price Vision Care',
         category: 'Estimate Costs',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isPriceVisionCareMenuOptions,
         url: '/pricevisioncare',
         external: true,
       },
@@ -183,7 +187,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         showOnMenu: () => {
           return true;
         },
-        url: '/claimSnapshotList',
+        url: '/claims',
         external: false,
       },
       {
@@ -222,7 +226,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Accounts (HSA, FSA)',
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isSpendingAccountsMenuOptions,
         url: '/spendingAccounts',
         external: false,
       },
@@ -323,14 +327,21 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
       {
+        id: 103,
+        title: 'Biometric Screening',
+        description: 'This is Biometric Screening',
+        category: 'Wellness',
+        showOnMenu: isBiometricScreening,
+        url: '/biometricscreening',
+        external: true,
+      },
+      {
         id: 83,
         title: 'My Primary Care Provider',
         description: 'This is My Primary Care Provider',
         category: 'Wellness',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/myprimarycareprov',
+        showOnMenu: isBlueCareAndPrimaryCarePhysicianEligible,
+        url: '/myPrimaryCareProvider',
         external: false,
       },
       {

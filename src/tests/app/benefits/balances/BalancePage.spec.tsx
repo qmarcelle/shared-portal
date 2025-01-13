@@ -17,6 +17,7 @@ const vRules = {
       dental: true,
       dentalCostsEligible: true,
       enableCostTools: true,
+      vision: true,
     },
   },
 };
@@ -84,6 +85,17 @@ describe('Balances Page', () => {
       '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
     );
     expect(screen.getByText('Dental Balance')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should render Vision Balance information on the Balances page', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    const component = await renderUI();
+    expect(screen.getByText('Vision Balance')).toBeVisible();
+    expect(screen.getByText('visit EyeMed')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });
 });
