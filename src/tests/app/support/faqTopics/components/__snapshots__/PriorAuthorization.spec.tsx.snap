@@ -1,0 +1,853 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prior Authorization FAQ should render the UI correctly 1`] = `
+<div>
+  <div
+    class="flex flex-col app-content app-base-font-color"
+  >
+    <div
+      class="flex flex-col md:m-2 m-4"
+    >
+      <div
+        class="flex flex-row justify-between mt-2 md:mt-16 lg:mt-0"
+      >
+        <div
+          class="flex flex-col max-w-2xl"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <h1
+            class="title-1"
+          >
+            Prior Authorization FAQ
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1 body-1"
+          >
+            Learn more about prior authorizations and statuses.
+          </p>
+        </div>
+      </div>
+    </div>
+    <section
+      class="flex flex-row items-start app-body"
+    >
+      <div
+        class="flex flex-col flex-grow page-section-63_33 items-stretch"
+      >
+        <div
+          class="card-main large-section flex flex-row items-start app-body "
+        >
+          <div
+            class="flex flex-col w-[100%]"
+          >
+             
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Understanding Prior Authorization
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-col items-stretch"
+              >
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      What is a prior authorization?
+                    </p>
+                    <img
+                      alt="Up Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-1"
+                  >
+                    <div
+                      class="flex flex-col flex flex-col"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span>
+                            Prior authorization is a process that ensures any prescribed treatments or drugs are appropriate and safe. Prior authorizations require your health provider to get approval from your health insurance plan. It's also known as preauthorization or pre-certification.
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <ul
+                          class="ml-4"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span />
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              />
+              <div
+                class="flex flex-col items-stretch"
+              >
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      How do I get a prior authorization?
+                    </p>
+                    <img
+                      alt="Up Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-1"
+                  >
+                    <div
+                      class="flex flex-col flex flex-col"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span>
+                            If your doctor prescribes a treatment that needs prior authorization, they’ll ask us for one when they write your treatment plan. We’ll review the case, make sure the treatment is appropriate and safe, and make a decision. If it’s approved, we’ll send you a letter to let you know.
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <ul
+                          class="ml-4"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span />
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-main large-section flex flex-row items-start app-body "
+        >
+          <div
+            class="flex flex-col w-[100%]"
+          >
+             
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Help with Prior Authorization Status
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-col items-stretch"
+              >
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      What does the status of my prior authorizations mean?
+                    </p>
+                    <img
+                      alt="Up Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-1"
+                  >
+                    <div
+                      class="flex flex-col flex flex-col"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span>
+                            Prior authorizations can have one of three statuses: approved, partially approved or denied. Approved means that your health plan agrees with your doctor that the medical service or prescription drug is necessary and safe. Partially approved means that your health plan has concerns about the safety or need of part of your request. Denied means that your health plan does not agree with your doctor that a medical service or prescription drug is necessary or safe.
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <ul
+                          class="ml-4"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span />
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              />
+              <div
+                class="flex flex-col items-stretch"
+              >
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      My prior authorization was approved. What do I do next?
+                    </p>
+                    <img
+                      alt="Up Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-1"
+                  >
+                    <div
+                      class="flex flex-col flex flex-col"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span>
+                            If your request was approved, move forward with the medical service or drug as your doctor instructed.
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <ul
+                          class="ml-4"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span />
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              />
+              <div
+                class="flex flex-col items-stretch"
+              >
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      What can I do if my prior authorization is partially approved or denied?
+                    </p>
+                    <img
+                      alt="Up Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-1"
+                  >
+                    <div
+                      class="flex flex-col flex flex-col"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span>
+                            <span
+                              class="rich-text body-1 undefined"
+                            >
+                              <span>
+                                If a medical service or prescription drug prior authorization was partially approved or denied, we’ll send you a letter explaining why with details on how to file an appeal. For more information, please
+                              </span>
+                              <span>
+                                <a
+                                  class="link font-bold"
+                                >
+                                   contact us.
+                                </a>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <ul
+                          class="ml-4"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span />
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              />
+              <div
+                class="flex flex-col items-stretch"
+              >
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-2 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      I'm expecting a prior authorization. Where are all my prior authorizations?
+                    </p>
+                    <img
+                      alt="Up Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="m-1"
+                  >
+                    <div
+                      class="flex flex-col flex flex-col"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span>
+                            <span
+                              class="rich-text body-1 undefined"
+                            >
+                              <span>
+                                We’ll show your medical prior authorizations on the
+                              </span>
+                              <span>
+                                <a
+                                  class="link font-bold"
+                                  href="/priorAuthorization"
+                                >
+                                   
+                                  prior authorization page.
+                                </a>
+                              </span>
+                              <span>
+                                 
+                                For any prescription drug-related prior authorizations, you may need to log in to your Caremark account. If your pharmacy benefits aren’t provided by CVS Caremark, you can
+                              </span>
+                              <span>
+                                <a
+                                  class="link font-bold"
+                                >
+                                   contact us
+                                </a>
+                              </span>
+                              <span>
+                                , and we’ll help you find your prescription prior authorization status.
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <ul
+                          class="ml-4"
+                        />
+                      </div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span />
+                        </span>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+      >
+        <div
+          class="card-main mt-4"
+        >
+          <div
+            class="flex flex-col ml-6"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <h2
+              class="title-2 !font-light !text-[26px]/[40px] ml-4"
+            >
+              Other FAQ Topics
+            </h2>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row"
+            >
+              <ul
+                class="ml-6 !font-thin"
+              >
+                <div
+                  class="flex flex-col !font-thin"
+                >
+                  <li>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container p-0 "
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link !no-underline manage-faq"
+                            style="display: block;"
+                          >
+                            Benefits & Coverage
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col !font-thin"
+                >
+                  <li>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container p-0 "
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link !no-underline manage-faq"
+                            style="display: block;"
+                          >
+                            Claims
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col !font-thin"
+                >
+                  <li>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container p-0 "
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link !no-underline manage-faq"
+                            style="display: block;"
+                          >
+                            ID Cards
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col !font-thin"
+                >
+                  <li>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container p-0 "
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link !no-underline manage-faq"
+                            style="display: block;"
+                          >
+                            My Plan Information
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col !font-thin"
+                >
+                  <li>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container p-0 "
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link !no-underline manage-faq"
+                            style="display: block;"
+                          >
+                            Pharmacy
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col !font-thin"
+                >
+                  <li>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link !no-underline manage-faq"
+                            style="display: block;"
+                          >
+                            Prior Authorization
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col !font-thin"
+                >
+                  <li>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <a
+                        style="display: block;"
+                        tabindex="-1"
+                      >
+                        <button
+                          class="flex flex-row link-container p-0 "
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link !no-underline manage-faq"
+                            style="display: block;"
+                          >
+                            Security
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </li>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;
