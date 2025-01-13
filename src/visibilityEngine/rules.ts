@@ -56,6 +56,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'diabetesPreventionEligible',
   'cmEnable',
   'ohdEligible',
+  'displayPharmacyTab',
   'fsaHraEligible',
   'flexibleSpendingAccount',
   'healthReimbursementAccount',

@@ -122,6 +122,10 @@ export function computeAuthFunctions(
     (f) => f.functionName === 'OHDELIGIBLE',
   )?.available;
 
+  rules.displayPharmacyTab = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName === 'ENABLE_PHAR_TAB',
+  )?.available;
+
   rules.fsaHraEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'FSAHRAELIGIBLE',
   )?.available;

@@ -331,6 +331,15 @@ export function isBiometricScreening(rules: VisibilityRules | undefined) {
   return rules?.ohdEligible;
 }
 
+export function isPharmacyBenefitsEligible(rules: VisibilityRules | undefined) {
+  return (
+    rules?.displayPharmacyTab &&
+    !rules?.terminated &&
+    !rules?.wellnessOnly &&
+    !rules?.fsaOnly
+  );
+}
+
 export function isSpendingAccountsMenuOptions(
   rules: VisibilityRules | undefined,
 ) {
