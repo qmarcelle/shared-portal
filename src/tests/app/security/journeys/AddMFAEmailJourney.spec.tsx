@@ -58,6 +58,10 @@ describe('Add Mfa Email Journey', () => {
     });
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
+
+    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
+    await userEvent.type(confirmEmailEntryInput, 'chall123@gmail.com');
+
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
     // Enter code screen rendered correctly
     await waitFor(() => {
@@ -177,6 +181,47 @@ describe('Add Mfa Email Journey', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Invalid Email Address')).toBeVisible();
+    });
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('show error if email and confirm email address do not match', async () => {
+    // Init Screen is rendered correctly
+    await waitFor(() => {
+      expect(
+        screen.getByRole('heading', { name: 'Email Setup' }),
+      ).toBeVisible();
+    });
+    expect(component.baseElement).toMatchSnapshot();
+
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          message: 'Phone already registered.',
+          deviceType: 'SMS',
+          deviceStatus: 'ACTIVATION_REQUIRED',
+          createdAt: '2024-02-09T12:40:33.554Z',
+          updatedAt: '2024-02-09T12:40:33.554Z',
+          phone: '11111111111',
+          email: 'chall123@gmail.com',
+          secret: 'ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+          keyUri:
+            'otpauth://totp/thomas@abc.com?secret=ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ',
+        },
+      },
+    });
+    const emailEntryInput = screen.getByLabelText(/Email Address/i);
+    await userEvent.type(emailEntryInput, 'chall123@gmail.com');
+    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
+    await userEvent.type(confirmEmailEntryInput, 'chall1234@gmail.com');
+    fireEvent.click(screen.getByRole('button', { name: /next/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          'The email addresses must match. Please check and try again.',
+        ),
+      ).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
   });
