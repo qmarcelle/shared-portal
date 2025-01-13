@@ -6,6 +6,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import {
   isDentalCostEstimator,
   isFindADentist,
+  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SpendingAccountSummary } from '../../dashboard/components/SpendingAccountSummary';
 import { BalanceSectionWrapper } from './components/BalanceSection';
@@ -43,7 +44,10 @@ export const Balances = ({ data }: BalancePageProps) => {
                   product={data?.dental}
                 />
               )}
-            <VisionBalance className="large-section" linkURL="" />
+
+            {isVisionEligible(data?.visibilityRules) && (
+              <VisionBalance className="large-section" linkURL="" />
+            )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <SpendingAccountSummary

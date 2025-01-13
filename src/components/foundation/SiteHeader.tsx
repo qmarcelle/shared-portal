@@ -9,6 +9,7 @@ import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
 import menuNavigation from '../menuNavigation';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
+import { AlertBar } from './AlertBar';
 import {
   bcbstBlueLogo,
   bcbstStackedlogo,
@@ -195,6 +196,13 @@ export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
                 )}
               </div>
             ))}
+            <AlertBar
+              alerts={
+                (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
+                  ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
+                  : []
+              }
+            />
           </div>
         </div>
         {/* NavSub Bars */}

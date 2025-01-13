@@ -278,7 +278,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Sharing%2C%20Permissions%20%26%20Security"
+        href="/support/faqTopics?faqtype=Security"
       >
         <div
           class="card-elevated small-section"
@@ -304,7 +304,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               <div
                 class="flex flex-row link-row-head"
               >
-                Sharing, Permissions & Security
+                Security
                 <span
                   style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                 />

@@ -887,7 +887,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         >
                           <div>
                             <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                             >
                               <a
                                 class="p-4 block"
@@ -923,7 +923,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         >
                           <div>
                             <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                             >
                               <a
                                 class="p-4 block"
@@ -959,7 +959,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         >
                           <div>
                             <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                             >
                               <a
                                 class="p-4 block"
@@ -995,7 +995,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         >
                           <div>
                             <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                             >
                               <a
                                 class="p-4 block"
@@ -1971,7 +1971,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <div>
                           <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                           >
                             <a
                               class="p-4 block"
@@ -2007,7 +2007,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <div>
                           <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                           >
                             <a
                               class="p-4 block"
@@ -2043,7 +2043,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <div>
                           <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                           >
                             <a
                               class="p-4 block"
@@ -2079,7 +2079,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <div>
                           <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                           >
                             <a
                               class="p-4 block"

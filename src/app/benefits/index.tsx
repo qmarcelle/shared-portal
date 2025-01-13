@@ -15,7 +15,9 @@ import { RichText } from '@/components/foundation/RichText';
 import {
   isDentalCostEstimator,
   isFindADentist,
+  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
+import { JointProcedureCard } from './components/JointProcedureCard';
 import { MedicalPharmacyDentalCard } from './components/MedicalPharmacyDentalCard';
 import { BenefitsData } from './models/benefitsData';
 type BenefitsPageProps = {
@@ -117,6 +119,10 @@ const Benefits = ({ data }: BenefitsPageProps) => {
                   selectedValue: { label: 'All Types', value: '1', id: '1' },
                 },
               ]}
+            />
+            <JointProcedureCard
+              className="large-section px-0 m-0 text-white"
+              phoneNumber={data?.phoneNumber ?? ''}
             />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
@@ -265,20 +271,22 @@ const Benefits = ({ data }: BenefitsPageProps) => {
                   ]}
                 />
               )}
-            <MedicalPharmacyDentalCard
-              className="small-section w-[672px] "
-              heading="Vision"
-              cardIcon={<Image src={VisionIcon} alt="link" />}
-              manageBenefitItems={[
-                {
-                  title: 'Visit EyeMed',
-                  body: 'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
-                  externalLink: false,
-                  url: 'url',
-                  icon: <Image src={externalIcon} alt="link" />,
-                },
-              ]}
-            />
+            {isVisionEligible(data?.visibilityRules) && (
+              <MedicalPharmacyDentalCard
+                className="small-section w-[672px] "
+                heading="Vision"
+                cardIcon={<Image src={VisionIcon} alt="link" />}
+                manageBenefitItems={[
+                  {
+                    title: 'Visit EyeMed',
+                    body: 'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
+                    externalLink: false,
+                    url: 'url',
+                    icon: <Image src={externalIcon} alt="link" />,
+                  },
+                ]}
+              />
+            )}
             <MedicalPharmacyDentalCard
               className="small-section w-[672px] "
               heading="Other Benefits"

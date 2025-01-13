@@ -19,12 +19,15 @@ import { Spacer } from '@/components/foundation/Spacer';
 import healthSupportIcon from '@/public/assets/health_support.svg';
 import healthSurveyIcon from '@/public/assets/health_survey.svg';
 import {
+  isBiometricScreening,
   isBlue365FitnessYourWayEligible,
+  isBlueCareAndPrimaryCarePhysicianEligible,
   isBlueCareEligible,
   isChipRewardsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
+import { OtherBenefits } from '../virtualCareOptions/components/OtherBenefits';
 import { HealthLibraryOptions } from './components/HealthLibraryOptions';
 import { MemberDiscounts } from './components/MemberDiscounts';
 import { MemberWellnessCenterOptions } from './components/MemberWellnessCenterOptions';
@@ -160,6 +163,9 @@ export type MyHealthProps = {
 };
 const MyHealth = ({ data }: MyHealthProps) => {
   const isBlueCareMember = isBlueCareEligible(data.visibilityRules);
+  const isBiometricScreeningVisible = isBiometricScreening(
+    data.visibilityRules,
+  );
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -171,9 +177,12 @@ const MyHealth = ({ data }: MyHealthProps) => {
             />
           </section>
         )}
-        {isBlueCareMember && (
-          <section className="flex flex-row items-start app-body">
-            <Column className="flex-grow page-section-36_67 items-stretch">
+
+        <section className="flex flex-row items-start app-body">
+          <Column className="flex-grow page-section-36_67 items-stretch">
+            {isBlueCareAndPrimaryCarePhysicianEligible(
+              data.visibilityRules,
+            ) && (
               <PrimaryCareProvider
                 className="large-section"
                 providerDetails={data.primaryCareProvider}
@@ -181,8 +190,10 @@ const MyHealth = ({ data }: MyHealthProps) => {
                 linkLabel="View or Update Primary Care Provider"
                 title="My Primary Care Provider"
               />
-            </Column>
-            <Column className="flex-grow page-section-63_33 items-stretch">
+            )}
+          </Column>
+          <Column className="flex-grow page-section-63_33 items-stretch">
+            {isBlueCareMember && (
               <Column>
                 <MyHealthOffsiteLinkCard
                   icon={healthSurveyIcon}
@@ -202,12 +213,77 @@ const MyHealth = ({ data }: MyHealthProps) => {
                   }
                 />
               </Column>
-            </Column>
-          </section>
-        )}
+            )}
+          </Column>
+        </section>
+
         <Spacer size={64} />
         <Header text="Other Programs & Resources" type="title-1" />
         <Spacer size={32} />
+        <section className="flex-row items-start app-body">
+          <OtherBenefits
+            className="large-section"
+            cardClassName="myHealthCard"
+            options={[
+              {
+                id: '1',
+                title: 'CareTN One-on-One Health Support ',
+                description:
+                  'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
+                url: 'null',
+              },
+              {
+                id: '2',
+                title: 'Healthy Maternity',
+                description:
+                  'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. ',
+                url: 'null',
+              },
+              {
+                id: '3',
+                title: 'Teladoc Health Blood Pressure Management Program',
+                description:
+                  'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
+                url: 'null',
+              },
+              {
+                id: '4',
+                title: 'Teladoc Health Diabetes Management Program',
+                description:
+                  'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
+                url: 'null',
+              },
+              {
+                id: '5',
+                title: 'Teladoc Health Diabetes Prevention Program',
+                description:
+                  'Get a personal action plan, health coaching and a smart scale at no extra cost.',
+                url: 'null',
+              },
+              {
+                id: '6',
+                title: 'Teladoc Second Opinion Advice & Support',
+                description:
+                  'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
+                url: 'null',
+              },
+              {
+                id: '7',
+                title: 'QuestSelect™ Low-Cost Lab Testing',
+                description:
+                  'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+                url: 'null',
+              },
+              {
+                id: '8',
+                title: 'Silver&Fit Fitness Program',
+                description:
+                  'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
+                url: 'null',
+              },
+            ]}
+          />
+        </section>
         <section>
           <MyHealthOffsiteLinkCard
             icon={wellTunedBlogIcon}
@@ -235,16 +311,18 @@ const MyHealth = ({ data }: MyHealthProps) => {
             options={healthLibraryDetails}
           />
         </section>
+        {isBiometricScreeningVisible && (
+          <section>
+            <MyHealthOffsiteLinkCard
+              icon={biometricScreeningIcon}
+              title="Schedule a Biometric Screening"
+              description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
+              url=""
+            />
+          </section>
+        )}
         {!isBlueCareMember && (
           <>
-            <section>
-              <MyHealthOffsiteLinkCard
-                icon={biometricScreeningIcon}
-                title="Schedule a Biometric Screening"
-                description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
-                url=""
-              />
-            </section>
             <section>
               <MemberWellnessCenterOptions
                 className="large-section"

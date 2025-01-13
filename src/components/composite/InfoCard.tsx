@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { IComponent } from '../IComponent';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Row } from '../foundation/Row';
-import { TextBox } from '../foundation/TextBox';
 import { Spacer } from '../foundation/Spacer';
+import { TextBox } from '../foundation/TextBox';
 
 export interface InfoCardProps extends IComponent {
   label: string;
@@ -22,7 +23,7 @@ export const InfoCard = ({
   suffix,
 }: InfoCardProps) => {
   return (
-    <a href={link}>
+    <Link href={link ?? ''}>
       <Card type="elevated" key={label} className="small-section">
         <Row>
           <Image className="size-10" src={icon} alt="link" />
@@ -36,6 +37,6 @@ export const InfoCard = ({
           </Column>
         </Row>
       </Card>
-    </a>
+    </Link>
   );
 };

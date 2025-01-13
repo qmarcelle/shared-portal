@@ -9,6 +9,7 @@ jest.mock('next/navigation', () => ({
     return {
       prefetch: () => null,
       replace: () => null,
+      push: () => null,
     };
   },
 }));
@@ -67,105 +68,88 @@ describe('SiteHeader And Navigation Menu', () => {
     fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
 
     expect(screen.getByText(/Price Dental Care/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Price Dental Care/i,
       }),
-    );
+    ).toBeVisible();
 
     expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
 
-    expect(screen.getAllByText(/Virtual Care Options/i));
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Virtual Care Options/i,
       }),
-    );
-    expect(screen.getByText('Virtual Care Options')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Price Dental Care/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Price Dental Care/i,
       }),
-    );
-    expect(screen.getByText('Price Dental Care')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
     /**** Nav Links For My Plan  */
 
     fireEvent.click(screen.getAllByText('My Plan')[0]);
-    expect(screen.getAllByText(/Benefits & Coverage/i));
-    fireEvent.click(
+
+    expect(
       screen.getByRole('button', {
         name: /Benefits & Coverage/i,
       }),
-    );
-    expect(screen.getByText('Benefits & Coverage')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Plan Documents/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Plan Documents/i,
       }),
-    );
-    expect(screen.getByText('Plan Documents')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/View Claims/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /View Claims/i,
       }),
-    );
-    expect(screen.getByText('Claims')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Prior Authorizations/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Prior Authorizations/i,
       }),
-    );
-    expect(screen.getByText(/Prior Authorization/i)).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Balances/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Balances/i,
       }),
-    );
-    expect(screen.getByText('Balances')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Services Used/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Services Used/i,
       }),
-    );
-    expect(screen.getByText('Services Used')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Spending Accounts \(HSA, FSA\)/i));
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Spending Accounts \(HSA, FSA\)/i,
       }),
-    );
-    expect(screen.getByText(/Spending Accounts/i)).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Spending Summary/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Spending Summary/i,
       }),
-    );
-    expect(screen.getByText('Spending Summary')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getByText(/Report Other Health Insurance/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Report Other Health Insurance/i,
       }),
-    );
+    ).toBeInTheDocument();
+
     expect(
-      screen.getByText('Report Other Health Insurance'),
+      screen.getByRole('button', {
+        name: /Manage My Policy/i,
+      }),
     ).toBeInTheDocument();
 
     expect(
@@ -175,13 +159,11 @@ describe('SiteHeader And Navigation Menu', () => {
     /**** Nav Links For My Health  */
 
     fireEvent.click(screen.getAllByText('My Health')[0]);
-    expect(screen.getAllByText(/Health Programs & Resources/i));
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Health Programs & Resources/i,
       }),
-    );
-    expect(screen.getByText('Health Programs & Resources')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
     expect(
       screen.getAllByRole('link', {
@@ -207,21 +189,17 @@ describe('SiteHeader And Navigation Menu', () => {
       'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
     );
 
-    expect(screen.getAllByText(/Pharmacy Documents & Forms/i));
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Pharmacy Documents & Forms/i,
       }),
-    );
-    expect(screen.getByText('Pharmacy Documents & Forms')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
-    expect(screen.getAllByText(/Pharmacy FAQ/i));
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Pharmacy FAQ/i,
       }),
-    );
-    expect(screen.getByText('Pharmacy FAQ')).toBeInTheDocument();
+    ).toBeInTheDocument();
 
     expect(
       screen.getByRole('link', { name: /Pharmacy Claims/i }),
@@ -240,25 +218,38 @@ describe('SiteHeader And Navigation Menu', () => {
       }),
     ).toHaveProperty('href', 'https://www.healthcare.gov/glossary/');
 
-    expect(screen.getAllByText(/Find a Form/i));
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Find a Form/i,
       }),
-    );
+    ).toBeInTheDocument();
 
-    expect(screen.getAllByText(/Frequently Asked Questions/i));
+    expect(
+      screen.getByRole('button', {
+        name: /Frequently Asked Questions/i,
+      }),
+    ).toBeInTheDocument();
+
+    expect(component.baseElement).toMatchSnapshot();
+
+    // Test that submenu dismisses on clicking child items
+
     fireEvent.click(
       screen.getByRole('button', {
         name: /Frequently Asked Questions/i,
       }),
     );
-    expect(screen.getByText('Frequently Asked Questions')).toBeInTheDocument();
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(
+      screen.queryByRole('button', {
+        name: /Frequently Asked Questions/i,
+      }),
+    ).toBeNull();
+
+    expect(component.container).toMatchSnapshot();
   });
 
-  it('should navigate to Find Care and Cost - Find Care menu link for Blue Care', async () => {
+  it('should navigate menu link for Blue Care', async () => {
     vRules.blueCare = true;
     setVisibilityRules(vRules);
     const component = renderUI(vRules);
@@ -277,6 +268,10 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(screen.getByText('View Claims')).toBeVisible();
     expect(screen.getByText('Prior Authorizations')).toBeVisible();
     expect(screen.getByText('Submit a Claim')).toBeVisible();
+
+    /**** Nav Links For My Health  */
+    fireEvent.click(screen.getAllByText('My Health')[0]);
+    expect(screen.getByText('My Primary Care Provider')).toBeVisible();
 
     expect(component.baseElement).toMatchSnapshot();
   });
@@ -301,21 +296,11 @@ describe('SiteHeader And Navigation Menu', () => {
 
     fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
 
-    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Mental Health Options/i,
       }),
-    );
-    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
-
-    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: /Mental Health Options/i,
-      }),
-    );
-    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
+    ).toBeVisible();
 
     expect(component.baseElement).toMatchSnapshot();
   });
@@ -331,21 +316,12 @@ describe('SiteHeader And Navigation Menu', () => {
 
     fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
 
-    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
-    fireEvent.click(
+    expect(
       screen.getByRole('button', {
         name: /Mental Health Options/i,
       }),
-    );
-    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
+    ).toBeVisible();
 
-    expect(screen.getByText(/Mental Health Options/i)).toBeVisible();
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: /Mental Health Options/i,
-      }),
-    );
-    expect(screen.getByText('Mental Health Options')).toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should navigate my Plan - Manage my Plan menu link correctly Enroll eligibility members', async () => {
@@ -375,6 +351,56 @@ describe('SiteHeader And Navigation Menu', () => {
     fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
     expect(screen.getByText('Price Dental Care')).toBeInTheDocument();
 
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should navigate the price vision care menu link correctly', async () => {
+    vRules.vision = true;
+    setVisibilityRules(vRules);
+    vRules.blueCare = false;
+    const component = renderUI(vRules);
+    /**** Nav Links For Find Care & Cost  */
+
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+    expect(screen.getByText('Price Vision Care')).toBeInTheDocument();
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should be able to render Bimetric Screening menu ', () => {
+    vRules.ohdEligible = true;
+    const component = renderUI(vRules);
+
+    fireEvent.click(screen.getByText('My Health'));
+    expect(screen.getByText('Biometric Screening'));
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should navigate the Spending Accounts menu link correctly', async () => {
+    vRules.subscriber = true;
+    vRules.fsaOnly = true;
+    vRules.fsaHraEligible = true;
+    vRules.commercial = true;
+    vRules.flexibleSpendingAccount = true;
+    const component = renderUI(vRules);
+
+    /**** Nav Links For My Plan  */
+
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(
+      screen.getByText('Spending Accounts (HSA, FSA)'),
+    ).toBeInTheDocument();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should not navigate to the Spending Accounts menu link', async () => {
+    vRules.subscriber = false;
+    vRules.blueCare = true;
+    const component = renderUI(vRules);
+
+    /**** Nav Links For My Plan  */
+
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(
+      screen.queryByText('Spending Accounts (HSA, FSA)'),
+    ).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

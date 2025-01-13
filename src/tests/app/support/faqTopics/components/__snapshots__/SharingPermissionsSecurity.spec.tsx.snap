@@ -23,7 +23,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <h1
                 class="title-1"
               >
-                Sharing, Permissions & Security FAQ
+                Security FAQ
               </h1>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -1554,7 +1554,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                                 class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
-                                Sharing, Permissions & Security
+                                Security
                               </p>
                             </button>
                           </a>
@@ -1592,7 +1592,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
             <h1
               class="title-1"
             >
-              Sharing, Permissions & Security FAQ
+              Security FAQ
             </h1>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -3123,7 +3123,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                               class="link !no-underline manage-faq"
                               style="display: block;"
                             >
-                              Sharing, Permissions & Security
+                              Security
                             </p>
                           </button>
                         </a>

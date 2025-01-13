@@ -19,6 +19,7 @@ export interface SiteHeaderSubNavItemProps extends IComponent {
   shortLinks?: ShortLinkNavItem[];
   childPages: ChildPages[];
   visibilityRules?: VisibilityRules;
+  closeSubMenu: () => void;
 }
 
 export const SubNavItemSection = ({
@@ -29,6 +30,7 @@ export const SubNavItemSection = ({
   shortLinks,
   childPages,
   visibilityRules,
+  closeSubMenu,
 }: SiteHeaderSubNavItemProps) => {
   const tempChildPages: ChildPages[] = [];
   const router = useRouter();
@@ -39,7 +41,8 @@ export const SubNavItemSection = ({
   });
 
   function ChangeUrl(link: string) {
-    router.replace(link);
+    router.push(link);
+    closeSubMenu();
   }
 
   return (
@@ -47,7 +50,7 @@ export const SubNavItemSection = ({
       {(() => {
         if (colType == 'QT') {
           return (
-            <a href={qt?.link}>
+            <Link href={qt?.link ?? ''} onClick={closeSubMenu}>
               <div className="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg">
                 <h3 className="pb-3 text-sm text-black">Quick Tip</h3>
                 <p className="pb-1 text-base app-base-font-color ">
@@ -60,7 +63,7 @@ export const SubNavItemSection = ({
                   alt="Page Arrow"
                 ></Image>
               </div>
-            </a>
+            </Link>
           );
         } else if (colType == 'LINKS') {
           return shortLinks?.map((item, index) => (

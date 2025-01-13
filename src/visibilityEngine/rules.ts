@@ -53,7 +53,12 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'indivEHBUser',
   'groupEHBUser',
   'isAmplifyMem',
+  'diabetesPreventionEligible',
   'cmEnable',
+  'ohdEligible',
+  'fsaHraEligible',
+  'flexibleSpendingAccount',
+  'healthReimbursementAccount',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

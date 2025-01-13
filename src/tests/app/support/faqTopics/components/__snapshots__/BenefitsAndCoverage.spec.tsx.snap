@@ -624,7 +624,7 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                                 class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
-                                Sharing, Permissions & Security
+                                Security
                               </p>
                             </button>
                           </a>
@@ -1263,7 +1263,7 @@ exports[`Benefits and Coverage FAQ should render the UI correctly 1`] = `
                               class="link !no-underline manage-faq"
                               style="display: block;"
                             >
-                              Sharing, Permissions & Security
+                              Security
                             </p>
                           </button>
                         </a>

@@ -11,9 +11,14 @@ import { OtherBenefitsInfo } from '../models/OtherBenefitsInfo';
 
 interface OtherBenefitsProps extends IComponent {
   options: OtherBenefitsInfo[];
+  cardClassName?: string;
 }
 
-export const OtherBenefits = ({ options, className }: OtherBenefitsProps) => {
+export const OtherBenefits = ({
+  options,
+  className,
+  cardClassName,
+}: OtherBenefitsProps) => {
   return (
     <Card className={className}>
       <Column>
@@ -29,7 +34,7 @@ export const OtherBenefits = ({ options, className }: OtherBenefitsProps) => {
             <VirtualCareOptionsCard
               key={item.id}
               id={item.id}
-              className="mr-4 shrink-0 "
+              className={`mr-4 shrink-0 ${cardClassName}`}
               description={item.description}
               title={item.title}
               url={item.url}
