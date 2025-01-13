@@ -328,3 +328,9 @@ export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
 export function isBiometricScreening(rules: VisibilityRules | undefined) {
   return rules?.ohdEligible;
 }
+
+export function isBlueCareAndPrimaryCarePhysicianEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return isBlueCareEligible(rules) || isPrimaryCarePhysicianEligible(rules);
+}

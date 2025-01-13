@@ -249,7 +249,7 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(component.container).toMatchSnapshot();
   });
 
-  it('should navigate to Find Care and Cost - Find Care menu link for Blue Care', async () => {
+  it('should navigate menu link for Blue Care', async () => {
     vRules.blueCare = true;
     setVisibilityRules(vRules);
     const component = renderUI(vRules);
@@ -268,6 +268,10 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(screen.getByText('View Claims')).toBeVisible();
     expect(screen.getByText('Prior Authorizations')).toBeVisible();
     expect(screen.getByText('Submit a Claim')).toBeVisible();
+
+    /**** Nav Links For My Health  */
+    fireEvent.click(screen.getAllByText('My Health')[0]);
+    expect(screen.getByText('My Primary Care Provider')).toBeVisible();
 
     expect(component.baseElement).toMatchSnapshot();
   });

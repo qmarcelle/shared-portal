@@ -1,5 +1,6 @@
 import {
   isBiometricScreening,
+  isBlueCareAndPrimaryCarePhysicianEligible,
   isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
@@ -338,10 +339,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'My Primary Care Provider',
         description: 'This is My Primary Care Provider',
         category: 'Wellness',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/myprimarycareprov',
+        showOnMenu: isBlueCareAndPrimaryCarePhysicianEligible,
+        url: '/myPrimaryCareProvider',
         external: false,
       },
       {
