@@ -586,7 +586,7 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
-                            aria-label="Sharing, Permissions & Security"
+                            aria-label="Security"
                             style="display: block;"
                             tabindex="-1"
                           >
@@ -1201,7 +1201,7 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
-                          aria-label="Sharing, Permissions & Security"
+                          aria-label="Security"
                           style="display: block;"
                           tabindex="-1"
                         >
