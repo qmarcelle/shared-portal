@@ -57,7 +57,9 @@ const FrequentlyAskedQuestions = () => {
       description:
         'Learn more about prior authorizations, statuses and how to make appeals.',
       iconName: priorAuthorizations,
-      link: '/support/faqTopics?faqtype=PriorAuthorization',
+      link: `/support/faqTopics?faqtype=${encodeURIComponent(
+        FaqTopicType.PriorAuthorization,
+      )}`,
     },
     {
       label: 'Security',
