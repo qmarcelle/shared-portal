@@ -21,6 +21,7 @@ import healthSurveyIcon from '@/public/assets/health_survey.svg';
 import {
   isBiometricScreening,
   isBlue365FitnessYourWayEligible,
+  isBlueCareAndPrimaryCarePhysicianEligible,
   isBlueCareEligible,
   isChipRewardsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -176,9 +177,12 @@ const MyHealth = ({ data }: MyHealthProps) => {
             />
           </section>
         )}
-        {isBlueCareMember && (
-          <section className="flex flex-row items-start app-body">
-            <Column className="flex-grow page-section-36_67 items-stretch">
+
+        <section className="flex flex-row items-start app-body">
+          <Column className="flex-grow page-section-36_67 items-stretch">
+            {isBlueCareAndPrimaryCarePhysicianEligible(
+              data.visibilityRules,
+            ) && (
               <PrimaryCareProvider
                 className="large-section"
                 providerDetails={data.primaryCareProvider}
@@ -186,8 +190,10 @@ const MyHealth = ({ data }: MyHealthProps) => {
                 linkLabel="View or Update Primary Care Provider"
                 title="My Primary Care Provider"
               />
-            </Column>
-            <Column className="flex-grow page-section-63_33 items-stretch">
+            )}
+          </Column>
+          <Column className="flex-grow page-section-63_33 items-stretch">
+            {isBlueCareMember && (
               <Column>
                 <MyHealthOffsiteLinkCard
                   icon={healthSurveyIcon}
@@ -207,9 +213,10 @@ const MyHealth = ({ data }: MyHealthProps) => {
                   }
                 />
               </Column>
-            </Column>
-          </section>
-        )}
+            )}
+          </Column>
+        </section>
+
         <Spacer size={64} />
         <Header text="Other Programs & Resources" type="title-1" />
         <Spacer size={32} />
