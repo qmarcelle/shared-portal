@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
+import { IComponent } from '../IComponent';
 import { Column } from './Column';
 
-export interface CheckboxProps {
+export interface CheckboxProps extends IComponent {
   selected?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   callback?: (val: any) => void;
@@ -19,10 +20,11 @@ export const Checkbox = ({
   callback,
   selected,
   classProps,
+  className,
 }: CheckboxProps) => {
   return (
     <div
-      className={`flex flex-row gap-2 p-2  ${callback == null ? 'checkbox-disabled' : ''}`}
+      className={`flex flex-row gap-2 p-2  ${callback == null ? 'checkbox-disabled' : ''} ${className ?? ''}`}
     >
       <label>
         <input

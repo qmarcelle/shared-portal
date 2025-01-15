@@ -172,7 +172,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled"
+              class="flex flex-row gap-2 p-2  checkbox-disabled "
             >
               <label>
                 <input
@@ -199,7 +199,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled"
+              class="flex flex-row gap-2 p-2  checkbox-disabled "
             >
               <label>
                 <input
@@ -224,7 +224,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled"
+              class="flex flex-row gap-2 p-2  checkbox-disabled "
             >
               <label>
                 <input
@@ -681,7 +681,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled"
+              class="flex flex-row gap-2 p-2  checkbox-disabled "
             >
               <label>
                 <input
@@ -878,7 +878,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled"
+            class="flex flex-row gap-2 p-2  checkbox-disabled "
           >
             <label>
               <input
@@ -905,7 +905,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled"
+            class="flex flex-row gap-2 p-2  checkbox-disabled "
           >
             <label>
               <input
@@ -930,7 +930,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled"
+            class="flex flex-row gap-2 p-2  checkbox-disabled "
           >
             <label>
               <input
@@ -1387,7 +1387,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled"
+            class="flex flex-row gap-2 p-2  checkbox-disabled "
           >
             <label>
               <input

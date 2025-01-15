@@ -75,7 +75,7 @@ exports[`Account selection Component should render all the required details 1`] 
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          class="flex flex-row gap-2 p-2  "
+          class="flex flex-row gap-2 p-2   "
         >
           <label>
             <input
@@ -279,7 +279,7 @@ exports[`Account selection Component should render all the required details 1`] 
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
       <div
-        class="flex flex-row gap-2 p-2  "
+        class="flex flex-row gap-2 p-2   "
       >
         <label>
           <input
