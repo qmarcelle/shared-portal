@@ -29,7 +29,7 @@ export const ManageMyPlan = ({
         title: 'Katie Beckett Banking Info',
         body: 'Find and update your bank draft details for your plan here.',
         externalLink: false,
-        url: 'url',
+        url: 'myPlan/katieBeckettBankingInfo',
       },
     ];
   else if (isManageMyPolicyEligible(visibilityRules))

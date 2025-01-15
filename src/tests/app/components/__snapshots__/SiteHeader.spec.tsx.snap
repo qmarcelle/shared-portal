@@ -2547,6 +2547,25 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                         </p>
                       </button>
                     </a>
+                    <a
+                      aria-label="Update Katie Beckett Banking Info"
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Update Katie Beckett Banking Info
+                        </p>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -5116,6 +5135,25 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                           style="display: block;"
                         >
                           Report Other Health Insurance
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      aria-label="Update Katie Beckett Banking Info"
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Update Katie Beckett Banking Info
                         </p>
                       </button>
                     </a>
@@ -9627,7 +9665,32 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                 >
                   <div
                     class="lg:grid-rows-4"
-                  />
+                  >
+                    <h1
+                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    >
+                      Manage My Plan
+                    </h1>
+                    <a
+                      aria-label="Update Katie Beckett Banking Info"
+                      style="display: block;"
+                      tabindex="-1"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                          style="display: block;"
+                        >
+                          Update Katie Beckett Banking Info
+                        </p>
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

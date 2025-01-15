@@ -276,6 +276,17 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         url: '/reportOtherHealthInsurance',
         external: false,
       },
+      {
+        id: 73,
+        title: 'Update Katie Beckett Banking Info',
+        description: 'This is Updating Katie Beckett Banking Info',
+        category: 'Manage My Plan',
+        showOnMenu: () => {
+          return true;
+        },
+        url: 'myPlan/katieBeckettBankingInfo',
+        external: false,
+      },
     ],
     activeSubNavId: null,
     closeSubMenu: () => {},
