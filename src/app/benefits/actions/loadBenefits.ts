@@ -36,29 +36,3 @@ export default async function loadBenefits(
     return { status: 400, data: { memberCk: 0 } };
   }
 }
-
-// function mapResponseToBenefitsDetailsBean(data: any): BenefitDetailsBean {
-//   // Implement the mapping logic here
-//   logger.info('Mapping response to MyBenefitsDetailsBean');
-//   logger.info(data);
-//   return {
-//     // ...map the data to MyBenefitsDetailsBean properties
-//     planId: '',
-//     productType: '',
-//     productPrefix: '',
-//     planType: '',
-//     planStartDate: '',
-//     planEffectiveDate: '',
-//     planTermDate: '',
-//     eligibilityStatus: '',
-//     coverageLevelCode: '',
-//     coverageLevelDescription: '',
-//     subscriberOnly: false,
-//     planDetailAvailable: false,
-//     carveOutInfo: [],
-//     rateSchedule: [],
-//     networkTiers: [],
-//     serviceCategories: [],
-//     coveredServices: [],
-//   };
-// }

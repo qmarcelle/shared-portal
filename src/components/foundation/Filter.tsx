@@ -83,9 +83,6 @@ export const Filter = ({
     const filterList = JSON.parse(JSON.stringify(filterItems)) as FilterItem[];
     if (filterList[index]) {
       filterList[index].value = value;
-      // if (filterList[index].onFilterChanged) {
-      //   filterList[index].onFilterChanged(value);
-      // }
     }
     onSelectCallback(index, filterList);
   };
