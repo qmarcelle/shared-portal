@@ -1,3 +1,5 @@
+'use server';
+
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { memberService } from '@/utils/api/memberService';
@@ -11,7 +13,6 @@ export const loadUserData = async (
     const memberCk = session?.user.currUsr?.plan.memCk
       ? session?.user.currUsr?.plan.memCk
       : '0';
-    logger.info(`Plan Info: ${JSON.stringify(session?.user.currUsr?.plan)}`);
     logger.info(`Getting LoggedInUserInfo for memberCk: ${memberCk}`);
     //get LoggedInUserData based on MemberCk
     const dataURL = `/api/member/v1/members/byMemberCk/${memberCk}`;

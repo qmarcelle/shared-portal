@@ -15,8 +15,7 @@ import { RichText } from '@/components/foundation/RichText';
 
 import { Filter } from '@/components/foundation/Filter';
 import { FilterItem } from '@/models/filter_dropdown_details';
-import { Member, PlanDetail } from '@/models/member/api/loggedInUserInfo';
-import { SessionUser } from '@/userManagement/models/sessionUser';
+import { Member } from '@/models/member/api/loggedInUserInfo';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
@@ -24,29 +23,30 @@ import {
   getMemberDropdownValues,
 } from './actions/benefitsUtils';
 import loadBenefits from './actions/loadBenefits';
-import { Delinquent } from './components/Delinquent';
 import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
 } from './components/MedicalPharmacyDentalCard';
-import {
-  ALL_BENEFIT_TYPE,
-  DENTAL_BENEFIT_TYPE,
-  MEDICAL_BENEFIT_TYPE,
-  OTHER_BENEFIT_TYPE,
-  RX_BENEFIT_TYPE,
-  VISION_BENEFIT_TYPE,
-} from './models/benefitConsts';
+import { BenefitType } from './models/benefitConsts';
 import { MemberBenefitsBean } from './models/member_benefits_bean';
 import { useBenefitsStore } from './stores/benefitsStore';
+import { generateBenefitsItems } from './utils/generateBenefitsBeans';
+import { generateRxBenefits } from './utils/generateRxBenefits';
+import { showPharmacyOptions } from './utils/showPharmacyOptions';
 
 interface BenefitsProps {
-  user: SessionUser | undefined;
   memberInfo: Member[];
   benefitsBean: MemberBenefitsBean;
+  otherBenefitItems: ManageBenefitsItems[];
+  userGroupId: string;
 }
 
-const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
+const Benefits = ({
+  memberInfo,
+  benefitsBean,
+  otherBenefitItems,
+  userGroupId,
+}: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
   >([]);
@@ -123,51 +123,21 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
 
   useEffect(() => {
     if (currentUserBenefitData.medicalBenefits) {
-      const medBenefits: ManageBenefitsItems[] = [];
-      currentUserBenefitData.medicalBenefits.serviceCategories.forEach(
-        (item) => {
-          medBenefits.push({
-            title: item.category,
-            body: '',
-            externalLink: false,
-            onClick: () =>
-              onBenefitSelected(
-                currentUserBenefitData.medicalBenefits?.networkTiers,
-                filterAndGroupByCategoryId(
-                  currentUserBenefitData.medicalBenefits?.coveredServices,
-                  item.id,
-                ),
-                { category: item.category, id: item.id },
-                MEDICAL_BENEFIT_TYPE,
-              ),
-          });
-        },
+      setMedicalBenefitsItems(
+        generateBenefitsItems(
+          currentUserBenefitData.medicalBenefits,
+          onBenefitSelected,
+          filterAndGroupByCategoryId,
+          BenefitType.MEDICAL,
+        ),
       );
-      setMedicalBenefitsItems(medBenefits);
-      if (
-        !hidePharmacyOptions(
-          user?.currUsr?.plan.grpId,
-          currentSelectedMember.planDetails,
-        )
-      ) {
-        const rxItems: ManageBenefitsItems[] = [
-          {
-            title: 'Prescription Drugs',
-            body: '',
-            externalLink: false,
-            onClick: () =>
-              onBenefitSelected(
-                currentUserBenefitData.medicalBenefits?.networkTiers,
-                filterAndGroupByCategoryId(
-                  currentUserBenefitData.medicalBenefits?.coveredServices,
-                  107,
-                ),
-                { category: 'Prescription Drugs', id: 107 },
-                MEDICAL_BENEFIT_TYPE,
-              ),
-          },
-        ];
-        setRXBenefitsItems(rxItems);
+      if (showPharmacyOptions(userGroupId, currentSelectedMember.planDetails)) {
+        setRXBenefitsItems(
+          generateRxBenefits(
+            currentUserBenefitData.medicalBenefits,
+            onBenefitSelected,
+          ),
+        );
       }
     } else {
       setRXBenefitsItems([]);
@@ -175,24 +145,13 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
     }
     if (currentUserBenefitData.dentalBenefits) {
       const denBenefits: ManageBenefitsItems[] = [];
-      currentUserBenefitData.dentalBenefits.serviceCategories.forEach(
-        (item) => {
-          denBenefits.push({
-            title: item.category,
-            body: '',
-            externalLink: false,
-            onClick: () =>
-              onBenefitSelected(
-                currentUserBenefitData.dentalBenefits?.networkTiers,
-                filterAndGroupByCategoryId(
-                  currentUserBenefitData.dentalBenefits?.coveredServices,
-                  item.id,
-                ),
-                { category: item.category, id: item.id },
-                DENTAL_BENEFIT_TYPE,
-              ),
-          });
-        },
+      setDentalBenefitsItems(
+        generateBenefitsItems(
+          currentUserBenefitData.dentalBenefits,
+          onBenefitSelected,
+          filterAndGroupByCategoryId,
+          BenefitType.DENTAL,
+        ),
       );
       setDentalBenefitsItems(denBenefits);
     }
@@ -252,63 +211,6 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
     () => getBenefitTypes(currentSelectedMember.planDetails),
     [currentSelectedMember.planDetails],
   );
-
-  const createOtherBenefits = (): ManageBenefitsItems[] => {
-    const otherBenefitItems: ManageBenefitsItems[] = [];
-    if (user === undefined || user.vRules === undefined) {
-      return otherBenefitItems;
-    }
-    if (user.vRules.identityProtectionServices) {
-      otherBenefitItems.push({
-        title: 'Identity Protection Services',
-        body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
-        externalLink: false,
-        url: '/benefits/identityProtectionServices',
-      });
-    }
-    otherBenefitItems.push({
-      title: 'Health Programs & Resources',
-      body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-      externalLink: false,
-      url: 'url',
-    });
-    if (user.vRules.active && user.vRules.otcEnable) {
-      otherBenefitItems.push({
-        title: 'Shop Over-the-Counter Items',
-        body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
-        externalLink: false,
-        url: 'https://www.cvs.com/benefits/account/create-account/email',
-        icon: <Image src={externalIcon} alt="link" />,
-      });
-    }
-    if (user.vRules.commercial && user.vRules.bluePerksElig) {
-      otherBenefitItems.push({
-        title: 'Member Discounts',
-        body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
-        externalLink: false,
-        url: 'url',
-        icon: <Image src={externalIcon} alt="link" />,
-      });
-    }
-
-    if (user.vRules.employerProvidedBenefits) {
-      otherBenefitItems.push({
-        title: 'Employer Provided Benefits',
-        body: 'Your employer offers even more programs and benefits you can explore here.',
-        externalLink: false,
-        url: '/benefits/employerProvidedBenefits',
-      });
-    }
-    return otherBenefitItems;
-  };
-
-  const isDelinquent =
-    user?.currUsr?.plan.grpId == '127600' && user?.vRules?.delinquent;
-  if (isDelinquent) {
-    return <Delinquent />;
-  }
-
-  const otherBenefitItems = createOtherBenefits();
 
   function onFilterSelectChange(index: number, data: FilterItem[]) {
     if (index == 0) onMemberSelectionChange(data[index].selectedValue?.value);
@@ -372,22 +274,14 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
                 onMemberSelectionChange(memberDropdownValues[0].value);
                 onBenefitTypeSelectChange(benefitTypes[0].value);
               }}
-              // buttons={{
-              //   type: 'primary',
-              //   className: 'apply-button',
-              //   label: 'Apply',
-              //   callback: (isClicked) => {
-              //     console.log('Apply button clicked', isClicked);
-              //   },
-              // }}
             />
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
             {currentSelectedMember.planDetails.find(
-              (item) => item.productCategory === 'M',
+              (item) => item.productCategory === BenefitType.MEDICAL,
             ) &&
-              (currentSelectedBenefitType === 'M' ||
-                currentSelectedBenefitType === 'A') && (
+              (currentSelectedBenefitType === BenefitType.MEDICAL ||
+                currentSelectedBenefitType === BenefitType.ALL) && (
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] benefitsLink"
                   heading="Medical"
@@ -396,9 +290,9 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
                 />
               )}
             {currentSelectedMember.planDetails.find(
-              (item) => item.productCategory === MEDICAL_BENEFIT_TYPE,
+              (item) => item.productCategory === BenefitType.MEDICAL,
             ) &&
-              [RX_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
+              [BenefitType.RX.toString(), BenefitType.ALL.toString()].includes(
                 currentSelectedBenefitType,
               ) && (
                 <MedicalPharmacyDentalCard
@@ -411,9 +305,10 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
             {currentSelectedMember.planDetails.find(
               (item) => item.productCategory === 'D',
             ) &&
-              [DENTAL_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
-                currentSelectedBenefitType,
-              ) && (
+              [
+                BenefitType.DENTAL.toString(),
+                BenefitType.ALL.toString(),
+              ].includes(currentSelectedBenefitType) && (
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Dental"
@@ -424,9 +319,10 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
             {currentSelectedMember.planDetails.find(
               (item) => item.productCategory === 'V',
             ) &&
-              [VISION_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
-                currentSelectedBenefitType,
-              ) && (
+              [
+                BenefitType.VISION.toString(),
+                BenefitType.ALL.toString(),
+              ].includes(currentSelectedBenefitType) && (
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Vision"
@@ -442,9 +338,10 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
                   ]}
                 />
               )}
-            {[OTHER_BENEFIT_TYPE, ALL_BENEFIT_TYPE].includes(
-              currentSelectedBenefitType,
-            ) && (
+            {[
+              BenefitType.OTHER.toString(),
+              BenefitType.ALL.toString(),
+            ].includes(currentSelectedBenefitType) && (
               <MedicalPharmacyDentalCard
                 className="small-section w-[672px] "
                 heading="Other Benefits"
@@ -459,21 +356,3 @@ const Benefits = ({ memberInfo, benefitsBean, user }: BenefitsProps) => {
   );
 };
 export default Benefits;
-
-function hidePharmacyOptions(
-  grpId: string | undefined,
-  planDetails: PlanDetail[],
-) {
-  //hide if grpId is in hidden groups
-  if (grpId === undefined) {
-    return true;
-  }
-  const hideGroups: string[] = process.env.HIDE_RX_GROUP_IDS?.split(',') || [];
-  if (hideGroups.includes(grpId)) {
-    return true;
-  }
-  const hidePlans: string[] = process.env.HIDE_RX_PLAN_IDS?.split(',') || [];
-  if (planDetails.find((plan) => hidePlans.includes(plan.planID))) {
-    return true;
-  }
-}
