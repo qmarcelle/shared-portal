@@ -7,6 +7,26 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
       class="flex flex-col justify-center items-center page"
     >
       <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient  "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            Pharmacy
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+        </div>
+      </div>
+      <div
         class="flex flex-col app-content app-base-font-color"
       >
         <section
@@ -704,6 +724,26 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
     <main
       class="flex flex-col justify-center items-center page"
     >
+      <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient  "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            Pharmacy
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+        </div>
+      </div>
       <div
         class="flex flex-col app-content app-base-font-color"
       >

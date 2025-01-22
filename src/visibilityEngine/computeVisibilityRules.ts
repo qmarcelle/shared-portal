@@ -369,3 +369,7 @@ export function isBlueCareAndPrimaryCarePhysicianEligible(
 ) {
   return isBlueCareEligible(rules) || isPrimaryCarePhysicianEligible(rules);
 }
+
+export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
+  return rules?.active && rules.otcEnable && !rules.displayPharmacyTab;
+}

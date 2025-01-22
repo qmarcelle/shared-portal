@@ -57,6 +57,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'cmEnable',
   'ohdEligible',
   'displayPharmacyTab',
+  'otcEnable',
   'fsaHraEligible',
   'flexibleSpendingAccount',
   'healthReimbursementAccount',
