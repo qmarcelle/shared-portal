@@ -15,11 +15,7 @@ import { BenefitDetailSection } from '../components/BenefitDetailSection';
 import { BenefitTypeHeaderSection } from '../components/BenefitTypeHeaderSection';
 import { BenefitTypeDetail } from '../models/benefit_details';
 import { BenefitLevelDetails } from '../models/benefit_type_header_details';
-import {
-  DENTAL_BENEFIT_TYPE,
-  MEDICAL_BENEFIT_TYPE,
-  RX_BENEFIT_TYPE,
-} from '../models/benefitConsts';
+import { BenefitType } from '../models/benefitConsts';
 import { useBenefitsStore } from '../stores/benefitsStore';
 
 export const Details = ({
@@ -114,7 +110,7 @@ export const Details = ({
                 link="servicesused"
               />
               {/* Add Medical Balances Card */}
-              {[MEDICAL_BENEFIT_TYPE, RX_BENEFIT_TYPE].includes(
+              {[BenefitType.MEDICAL, BenefitType.RX].includes(
                 selectedBenefitDetails.benefitType,
               ) && (
                 <BalanceSectionWrapper
@@ -123,7 +119,7 @@ export const Details = ({
                   product={balanceData?.medical}
                 />
               )}
-              {selectedBenefitDetails.benefitType === DENTAL_BENEFIT_TYPE && (
+              {selectedBenefitDetails.benefitType === BenefitType.DENTAL && (
                 <BalanceSectionWrapper
                   key="Dental"
                   title="Dental Balance"
