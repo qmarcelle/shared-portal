@@ -373,3 +373,7 @@ export function isBlueCareAndPrimaryCarePhysicianEligible(
 export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
   return rules?.active && rules.otcEnable && !rules.displayPharmacyTab;
 }
+
+export function isBloodPressureManagementEligible(rules: VisibilityRules) {
+  return rules.hypertensionMgmt && activeAndHealthPlanMember(rules);
+}

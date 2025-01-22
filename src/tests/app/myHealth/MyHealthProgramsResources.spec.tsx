@@ -163,4 +163,26 @@ describe('MyHealthProgramsResources', () => {
     screen.getByText('Personalized eating tips');
     expect(component).toMatchSnapshot();
   });
+
+  it('should render UI correctly for Teladoc Blood Pressure Management Program Card', () => {
+    vRules.hypertensionMgmt = true;
+    const component = renderUI(vRules);
+
+    screen.getByText('Blood Pressure');
+    screen.getByText('Teladoc Health Blood Pressure Management Program');
+
+    expect(component.container).toMatchSnapshot();
+  });
+
+  it('should not render Teladoc Blood Pressure Management Program Card when rule is false', () => {
+    vRules.hypertensionMgmt = false;
+    const component = renderUI(vRules);
+
+    expect(screen.queryByText('Blood Pressure')).toBeNull();
+    expect(
+      screen.queryByText('Teladoc Health Blood Pressure Management Program'),
+    ).toBeNull();
+
+    expect(component.container).toMatchSnapshot();
+  });
 });

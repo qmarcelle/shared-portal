@@ -7,6 +7,7 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import {
+  isBloodPressureManagementEligible,
   isCareManagementEligiblity,
   isDiabetesPreventionEligible,
   isHingeHealthEligible,
@@ -70,6 +71,15 @@ const MyHealthProgramsResources = ({
       HealthProgramsResourcesName.CareTNOneOnOneHealthSupport,
     );
     if (careManagement) virtualHealthCareDetails.push(careManagement);
+  }
+
+  if (isBloodPressureManagementEligible(visibilityRules!)) {
+    const teladocBpmCard = myHealthProgramsandResourcesDetails.get(
+      HealthProgramsResourcesName.TeladocHealthBloodPressureManagementProgram,
+    );
+    if (teladocBpmCard) {
+      virtualHealthCareDetails.push(teladocBpmCard);
+    }
   }
 
   return (

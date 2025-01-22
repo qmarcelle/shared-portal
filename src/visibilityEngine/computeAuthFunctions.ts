@@ -93,4 +93,6 @@ export function computeAuthFunctions(
   rules.healthReimbursementAccount = authFunctionsMap.get(
     'HealthReimbursementAccount',
   );
+
+  rules.hypertensionMgmt = authFunctionsMap.get('TELADOC_HYPERTENSIONMGMT');
 }
