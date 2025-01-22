@@ -110,16 +110,18 @@ export const Details = ({
                 link="servicesused"
               />
               {/* Add Medical Balances Card */}
-              {[BenefitType.MEDICAL, BenefitType.RX].includes(
-                selectedBenefitDetails.benefitType,
-              ) && (
+              {[
+                BenefitType.MEDICAL.toString(),
+                BenefitType.RX.toString(),
+              ].includes(selectedBenefitDetails.benefitType) && (
                 <BalanceSectionWrapper
                   key="Medical"
                   title="Medical & Pharmacy Balance"
                   product={balanceData?.medical}
                 />
               )}
-              {selectedBenefitDetails.benefitType === BenefitType.DENTAL && (
+              {selectedBenefitDetails.benefitType ===
+                BenefitType.DENTAL.toString() && (
                 <BalanceSectionWrapper
                   key="Dental"
                   title="Dental Balance"
