@@ -267,6 +267,9 @@ const Benefits = ({
                 },
               ]}
               onSelectCallback={(index, data) => {
+                console.log(
+                  `Filter selection changed: index=${index}, data=${JSON.stringify(data)}`,
+                );
                 onFilterSelectChange(index, data);
               }}
               showReset={true}
