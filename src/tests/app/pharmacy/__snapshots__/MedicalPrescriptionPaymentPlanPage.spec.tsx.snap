@@ -1,0 +1,510 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Medical Prescription Payment Plan Page should render the page correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section>
+            <div
+              class="flex flex-row"
+            >
+              <p
+                class="title-1"
+              >
+                Medicare Prescription Payment Plan
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="max-w-[650px] body-1"
+            >
+              Now you can pay for your prescription drugs over time with a monthly
+      payment.You can learn more by reading this
+              <a
+                class="primary-color !font-bold ml-1 underline"
+                href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
+                target="_blank"
+              >
+                fact sheet
+              </a>
+              . Or if you need help paying for prescriptions, 
+              <a
+                aria-label=" Social Security Extra Help program"
+                style="display: inline;"
+                tabindex="-1"
+              >
+                <button
+                  class="flex flex-row link-container !font-bold inline-flex p-0"
+                  style="max-width: max-content; height: auto; display: inline;"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <p
+                    class="link undefined"
+                    style="display: inline;"
+                  >
+                     Social Security Extra Help program
+                  </p>
+                  <p
+                    class="ml-1"
+                    style="display: inline;"
+                  >
+                    <img
+                      alt="external icon"
+                      class="inline"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
+              </a>
+              could lower your cost.
+            </p>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section>
+            <div
+              class="card-elevated small-section "
+            >
+              <div
+                class="flex flex-row"
+              >
+                <p
+                  class="title-3 "
+                >
+                  Terms and Conditions
+                </p>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 max-w-[650px] font-bold"
+              >
+                Please read the following:
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div>
+                By clicking on "I AGREE" button after reading this:
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                I understand that BlueCross BlueShield of Tennessee, Inc., and its affiliates, will disclose to WIPRO,
+                 LLC any and all necessary information about me so that WIPRO, LLC can administer 
+                 my participation in the Medicare Prescription Payment Plan program, including, but not limited to, 
+                 my name, Medicare Beneficiary Identifier, mailing address, and status as a member of my Health Plan offered or 
+                 administered by BlueCross BlueShield of Tennessee, Inc., or any of its affiliates. 
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+              >
+                I authorize BlueCross BlueShield of Tennessee, Inc., or any of its affiliates, to redirect me to the WIPRO, LLC 
+                website, an external beneficiary portal, in order for me to apply for, request, opt-in or opt-out of, or otherwise
+                 access participation into the Medicare Prescription Payment Plan program. I further certify that if I am accepted 
+                 to the Medicare Prescription Payment Program, I have the capability to and shall pay my monthly bills. If I do not 
+                 pay my monthly bills for the Medicare Prescription Payment Program, I agree to any and all consequences thereof, 
+                 including without limitation disenrollment and payment of any amounts due and owing to
+                 BlueCross BlueShield of Tennessee, Inc. or any of its affiliates. I authorize BlueCross BlueShield of Tennessee, Inc.,
+                   any of its affiliates or WIPRO, LLC to send email, text, and other forms of communication. Unencrypted email or text 
+                   messages may possibly be intercepted and read by people other than those it’s addressed to. Message and data rates may apply. 
+                    I further agree that my participation in the Medicare Prescription Payment Program is subject to all terms, conditions, 
+                    and requirements outlined in the applicable Terms and Conditions, my Evidence of Coverage, and applicable law, 
+                    regulation, or regulatory guidance.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row gap-2 p-2   "
+              >
+                <label>
+                  <input
+                    id="myCheckbox"
+                    name=""
+                    type="checkbox"
+                  />
+                </label>
+                <div
+                  class="flex flex-col"
+                >
+                  <label
+                    for="myCheckbox"
+                  >
+                    <p>
+                      I read, considered, understand and agree to the contents above. I
+                  understand that, by clicking on the "I AGREE" button, below, I am
+                  confirming my authorization for the use, disclosure of information about
+                  me and redirection to WIPRO, LLC, as described herein.
+                    </p>
+                  </label>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-row gap-2 p-2   "
+              >
+                <label>
+                  <input
+                    id="myCheckbox"
+                    name=""
+                    type="checkbox"
+                  />
+                </label>
+                <div
+                  class="flex flex-col"
+                >
+                  <label
+                    for="myCheckbox"
+                  >
+                    <p />
+                  </label>
+                  <div>
+                    I have read and agree to the Medicare Prescription Payment Plan
+                    <a
+                      class="primary-color !font-bold ml-1"
+                      href="/assets/terms_and_conditions.pdf"
+                      target="_blank"
+                    >
+                      Terms and Conditions
+                    </a>
+                    .
+                  </div>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row pl-3 pr-3"
+              >
+                <button
+                  aria-label="Print"
+                  class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null outline outline-primary-content mr-4 max-w-[256px]"
+                  type="button"
+                >
+                  Print
+                </button>
+                <button
+                  aria-label="I Agree"
+                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive outline outline-primary-content max-w-[256px]"
+                  disabled=""
+                  type="button"
+                >
+                  I Agree
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section>
+          <div
+            class="flex flex-row"
+          >
+            <p
+              class="title-1"
+            >
+              Medicare Prescription Payment Plan
+            </p>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="max-w-[650px] body-1"
+          >
+            Now you can pay for your prescription drugs over time with a monthly
+      payment.You can learn more by reading this
+            <a
+              class="primary-color !font-bold ml-1 underline"
+              href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
+              target="_blank"
+            >
+              fact sheet
+            </a>
+            . Or if you need help paying for prescriptions, 
+            <a
+              aria-label=" Social Security Extra Help program"
+              style="display: inline;"
+              tabindex="-1"
+            >
+              <button
+                class="flex flex-row link-container !font-bold inline-flex p-0"
+                style="max-width: max-content; height: auto; display: inline;"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="link undefined"
+                  style="display: inline;"
+                >
+                   Social Security Extra Help program
+                </p>
+                <p
+                  class="ml-1"
+                  style="display: inline;"
+                >
+                  <img
+                    alt="external icon"
+                    class="inline"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </p>
+              </button>
+            </a>
+            could lower your cost.
+          </p>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section>
+          <div
+            class="card-elevated small-section "
+          >
+            <div
+              class="flex flex-row"
+            >
+              <p
+                class="title-3 "
+              >
+                Terms and Conditions
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 max-w-[650px] font-bold"
+            >
+              Please read the following:
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div>
+              By clicking on "I AGREE" button after reading this:
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+            >
+              I understand that BlueCross BlueShield of Tennessee, Inc., and its affiliates, will disclose to WIPRO,
+                 LLC any and all necessary information about me so that WIPRO, LLC can administer 
+                 my participation in the Medicare Prescription Payment Plan program, including, but not limited to, 
+                 my name, Medicare Beneficiary Identifier, mailing address, and status as a member of my Health Plan offered or 
+                 administered by BlueCross BlueShield of Tennessee, Inc., or any of its affiliates. 
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+            >
+              I authorize BlueCross BlueShield of Tennessee, Inc., or any of its affiliates, to redirect me to the WIPRO, LLC 
+                website, an external beneficiary portal, in order for me to apply for, request, opt-in or opt-out of, or otherwise
+                 access participation into the Medicare Prescription Payment Plan program. I further certify that if I am accepted 
+                 to the Medicare Prescription Payment Program, I have the capability to and shall pay my monthly bills. If I do not 
+                 pay my monthly bills for the Medicare Prescription Payment Program, I agree to any and all consequences thereof, 
+                 including without limitation disenrollment and payment of any amounts due and owing to
+                 BlueCross BlueShield of Tennessee, Inc. or any of its affiliates. I authorize BlueCross BlueShield of Tennessee, Inc.,
+                   any of its affiliates or WIPRO, LLC to send email, text, and other forms of communication. Unencrypted email or text 
+                   messages may possibly be intercepted and read by people other than those it’s addressed to. Message and data rates may apply. 
+                    I further agree that my participation in the Medicare Prescription Payment Program is subject to all terms, conditions, 
+                    and requirements outlined in the applicable Terms and Conditions, my Evidence of Coverage, and applicable law, 
+                    regulation, or regulatory guidance.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2   "
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p>
+                    I read, considered, understand and agree to the contents above. I
+                  understand that, by clicking on the "I AGREE" button, below, I am
+                  confirming my authorization for the use, disclosure of information about
+                  me and redirection to WIPRO, LLC, as described herein.
+                  </p>
+                </label>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row gap-2 p-2   "
+            >
+              <label>
+                <input
+                  id="myCheckbox"
+                  name=""
+                  type="checkbox"
+                />
+              </label>
+              <div
+                class="flex flex-col"
+              >
+                <label
+                  for="myCheckbox"
+                >
+                  <p />
+                </label>
+                <div>
+                  I have read and agree to the Medicare Prescription Payment Plan
+                  <a
+                    class="primary-color !font-bold ml-1"
+                    href="/assets/terms_and_conditions.pdf"
+                    target="_blank"
+                  >
+                    Terms and Conditions
+                  </a>
+                  .
+                </div>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row pl-3 pr-3"
+            >
+              <button
+                aria-label="Print"
+                class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null outline outline-primary-content mr-4 max-w-[256px]"
+                type="button"
+              >
+                Print
+              </button>
+              <button
+                aria-label="I Agree"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive outline outline-primary-content max-w-[256px]"
+                disabled=""
+                type="button"
+              >
+                I Agree
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

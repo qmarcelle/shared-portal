@@ -545,6 +545,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                     >
                       <a
                         aria-label="Medicare Prescription Payment Plan Sign-up"
+                        href="/pharmacy/medicalPrescriptionPaymentPlan"
                         style="display: flex;"
                         tabindex="-1"
                       >
@@ -2177,6 +2178,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                     >
                       <a
                         aria-label="Medicare Prescription Payment Plan Sign-up"
+                        href="/pharmacy/medicalPrescriptionPaymentPlan"
                         style="display: flex;"
                         tabindex="-1"
                       >

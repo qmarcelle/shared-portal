@@ -10,6 +10,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
       >
         <a
           aria-label="Medicare Prescription Payment Plan Sign-up"
+          href="/pharmacy/medicalPrescriptionPaymentPlan"
           style="display: flex;"
           tabindex="-1"
         >
@@ -179,6 +180,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
     >
       <a
         aria-label="Medicare Prescription Payment Plan Sign-up"
+        href="/pharmacy/medicalPrescriptionPaymentPlan"
         style="display: flex;"
         tabindex="-1"
       >
