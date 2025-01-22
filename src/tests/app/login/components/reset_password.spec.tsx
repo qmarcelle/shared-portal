@@ -57,8 +57,14 @@ describe('Reset password screen', () => {
       selector: 'input',
     });
 
-    //check for invalid date formate
+    //check for invalid password format
     await userEvent.type(passwordEntryInput, 'xyz@2020');
+    await waitFor(() => {
+      expect(screen.getByText('Please enter a valid password.')).toBeVisible();
+    });
+
+    await userEvent.clear(passwordEntryInput);
+    await userEvent.type(passwordEntryInput, 'xyZ:2020');
     await waitFor(() => {
       expect(
         screen.getByText(
@@ -81,6 +87,9 @@ describe('Reset password screen', () => {
         screen.queryByText(
           'Your password has an invalid character. Passwords can only use these characters: !@#$%^&*()+=-_',
         ),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText('Please enter a valid password.'),
       ).not.toBeInTheDocument();
       expect(
         screen.queryByText('Please enter a valid date.'),

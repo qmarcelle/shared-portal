@@ -1023,6 +1023,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                       <button
                         aria-label="Next"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                        disabled=""
                         type="button"
                       >
                         Next
@@ -1235,6 +1236,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                       <button
                         aria-label="Next"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                        disabled=""
                         type="button"
                       >
                         Next
