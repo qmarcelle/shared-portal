@@ -40,6 +40,7 @@ export const PrescriptionPaymentsOptions = ({
         className="pl-0"
         icon={icon}
         displayStyle="flex"
+        url="/pharmacy/medicalPrescriptionPaymentPlan"
       />
       <Spacer size={12} />
       <RichText

@@ -9,13 +9,16 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         class="flex flex-col"
       >
         <a
+          aria-label="Medicare Prescription Payment Plan Sign-up"
+          href="/pharmacy/medicalPrescriptionPaymentPlan"
           style="display: flex;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container pl-0"
             style="max-width: max-content; height: auto; display: flex;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"
@@ -125,6 +128,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
           style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
         />
         <a
+          aria-label="Social Security Extra Help Program"
           href="https://www.ssa.gov/medicare/part-d-extra-help"
           style="display: flex;"
           tabindex="-1"
@@ -132,7 +136,8 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
           <button
             class="flex flex-row link-container pl-0"
             style="max-width: max-content; height: auto; display: flex;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"
@@ -174,13 +179,16 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
       class="flex flex-col"
     >
       <a
+        aria-label="Medicare Prescription Payment Plan Sign-up"
+        href="/pharmacy/medicalPrescriptionPaymentPlan"
         style="display: flex;"
         tabindex="-1"
       >
         <button
           class="flex flex-row link-container pl-0"
           style="max-width: max-content; height: auto; display: flex;"
-          tabindex="0"
+          tabindex="-1"
+          type="button"
         >
           <p
             class="link undefined"
@@ -290,6 +298,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
       />
       <a
+        aria-label="Social Security Extra Help Program"
         href="https://www.ssa.gov/medicare/part-d-extra-help"
         style="display: flex;"
         tabindex="-1"
@@ -297,7 +306,8 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         <button
           class="flex flex-row link-container pl-0"
           style="max-width: max-content; height: auto; display: flex;"
-          tabindex="0"
+          tabindex="-1"
+          type="button"
         >
           <p
             class="link undefined"

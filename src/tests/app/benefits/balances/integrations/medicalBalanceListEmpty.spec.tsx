@@ -10,6 +10,11 @@ jest.mock('src/auth', () => ({
         currUsr: {
           plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
         },
+        vRules: {
+          dental: true,
+          dentalCostsEligible: true,
+          enableCostTools: true,
+        },
       },
     }),
   ),

@@ -5,13 +5,14 @@ import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
+import { ResetPasswordComponent } from './components/ResetPasswordComponent';
 import { useLoginStore } from './stores/loginStore';
 import { useMfaStore } from './stores/mfaStore';
 
@@ -24,6 +25,7 @@ export default function LogIn() {
     isRiskScoreHigh,
     riskLevelNotDetermined,
     verifyEmail,
+    forcedPasswordReset,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
@@ -32,18 +34,24 @@ export default function LogIn() {
     state.isRiskScoreHigh,
     state.riskLevelNotDetermined,
     state.verifyEmail,
+    state.forcedPasswordReset,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
   ]);
 
   const router = useRouter();
+  const queryParams = useSearchParams();
   function renderComp() {
     if (unhandledErrors == true) {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/security');
+      router.replace(
+        queryParams.get('TargetResource') ||
+          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL ||
+          '/security',
+      );
       router.refresh();
     }
     if (multipleLoginAttempts == true) {
@@ -55,12 +63,14 @@ export default function LogIn() {
     if (multipleMFASecurityCodeAttempts == true) {
       return <MFASecurityCodeMultipleAttemptComponent />;
     }
+    if (forcedPasswordReset == true) {
+      return <ResetPasswordComponent />;
+    }
     if (mfaNeeded == false) {
       if (verifyEmail == true) {
         return <LoginEmailVerification />;
-      } else {
-        return <LoginComponent />;
       }
+      return <LoginComponent />;
     } else {
       return <MfaComponent />;
     }

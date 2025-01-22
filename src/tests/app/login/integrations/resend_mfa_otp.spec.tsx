@@ -20,6 +20,11 @@ jest.mock('next/navigation', () => ({
       replace: mockReplace,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 
 jest.mock('next/headers', () => {
@@ -53,7 +58,9 @@ const setupUI = () => {
   const inputUsername = screen.getByRole('textbox', {
     name: /username/i,
   });
-  const inputPassword = screen.getByLabelText(/password/i);
+  const inputPassword = screen.getByLabelText(/password/i, {
+    selector: 'input',
+  });
   const loginButton = screen.getByRole('button', {
     name: /Log In/i,
   });
@@ -365,6 +372,7 @@ describe('Resend Mfa Code', () => {
           interactionId: 'interactionId3',
           interactionToken: 'interactionToken3',
           policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
+          userToken: expect.anything(),
         },
       );
     });

@@ -1,0 +1,669 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Katie Beckett Banking Info Page should render the Banking form correctly 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1"
+        >
+          Katie Beckett Banking Info
+        </h1>
+        <p
+          class="body-1 body-1 m-2 ml-0 mb-0 md:w-2/3"
+        >
+          Below is the authorization for BlueCare Tennessee to accept bank draft payments for health insurance premiums.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Bank Draft Form
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1"
+                >
+                  Update the bank draft details for your form in the plan below.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <h2
+                  class="title-3"
+                >
+                  Member Information
+                </h2>
+                <section>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Member Name
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Member Name"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Daytime Phone Number
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Daytime Phone Number"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Member ID number
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Member ID number"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Member Street Address
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Member Street Address"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      City
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="City"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      State
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="State"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      ZIP Code
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="ZIP Code"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                </section>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                />
+                <h2
+                  class="title-3"
+                >
+                  Bank Information
+                </h2>
+                <section>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Name of the Bank
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Name of the Bank"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      City
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="City"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      State
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="State"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      ZIP Code
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="ZIP Code"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Name of Bank Account
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Name of Bank Account"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 mt-4 mb-2"
+                    >
+                      Type of Bank Account:
+                    </p>
+                    <div
+                      class="flex flex-col body-1"
+                    >
+                      <ul
+                        class="flex flex-col gap-2 pl-2 pt-1"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Checking"
+                              checked=""
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Checking
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Savings"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Savings
+                            </p>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Bank Routing Number
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Bank Routing Number"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Confirm Bank Routing Number
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Confirm Bank Routing Number"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Bank Account Number
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Bank Account Number"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-col w-full text-field"
+                  >
+                    <p>
+                      Confirm Bank Account Number
+                    </p>
+                    <div
+                      class="flex flex-row items-center input   "
+                    >
+                      <input
+                        aria-label="Confirm Bank Account Number"
+                        class=""
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                  />
+                  <div
+                    class="flex flex-row gap-2 p-2  checkbox-disabled pl-0"
+                  >
+                    <label>
+                      <input
+                        id="myCheckbox"
+                        name=""
+                        type="checkbox"
+                      />
+                    </label>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <label
+                        for="myCheckbox"
+                      >
+                        <p />
+                      </label>
+                      <span
+                        class="rich-text body-1 undefined"
+                      >
+                        <span>
+                          By checking this box, I acknowledge that I have the authority to allow access to this account on behalf of the account holder.
+                           
+                        </span>
+                        <span
+                          class="link font-bold"
+                        >
+                          <a>
+                            View Terms & Conditions
+                          </a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <div
+                    class="flex flex-col relative inline-block w-full text-field "
+                  >
+                    <p
+                      class="mb-2 mt-3"
+                    >
+                      Today's Date
+                    </p>
+                    <div
+                      class="flex flex-row items-center input relative w-full left-0 top-full   "
+                    >
+                      <input
+                        aria-label="Today's Date"
+                        class=""
+                        maxlength="10"
+                        placeholder="__  / __  /  ____"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="cursor-pointer"
+                      >
+                        <div
+                          class="flex flex-row items-center relative inline-block"
+                        >
+                          <div
+                            class="separator"
+                          />
+                          <div>
+                            <img
+                              alt="calenderIcon"
+                              class="icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="w-full"
+                    >
+                      <div
+                        class="react-datepicker-wrapper"
+                      >
+                        <div
+                          class="react-datepicker__input-container"
+                        >
+                          <input
+                            class="hidden"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <button
+                    aria-label="Submit Form"
+                    class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                    disabled=""
+                    type="button"
+                  >
+                    Submit Form
+                  </button>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="card-elevated small-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Get Help with the Bank Draft Form
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <span>
+                      If you need help, please reach out to us. You can
+                       
+                    </span>
+                    <span
+                      class="link font-bold"
+                    >
+                      <a>
+                        start a chat
+                      </a>
+                    </span>
+                    <span>
+                       or call us at [1-800-000-000].
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+`;

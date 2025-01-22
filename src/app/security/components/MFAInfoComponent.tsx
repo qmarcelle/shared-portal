@@ -18,6 +18,7 @@ import { Header } from '@/components/foundation/Header';
 import { Loader } from '@/components/foundation/Loader';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { ToolTip } from '@/components/foundation/Tooltip';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 
@@ -124,10 +125,16 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
                     );
                   }}
                   label={
-                    <TextBox
-                      className="underline underline-offset-4 decoration-dashed app-underline font-bold"
-                      text="Authenticator App"
-                    />
+                    <ToolTip
+                      showTooltip={true}
+                      className="flex flex-row tooltip"
+                      label="An authenticator app is a security application that runs on your mobile device. We recommend using Google Authenticator App, but you can use the app of your choice."
+                    >
+                      <TextBox
+                        className="underline underline-offset-4 decoration-dashed app-underline font-bold"
+                        text="Authenticator App"
+                      />
+                    </ToolTip>
                   }
                   enabled={
                     mfaDevices.get(MfaDeviceType.authenticator)?.enabled ??

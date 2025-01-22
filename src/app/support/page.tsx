@@ -1,3 +1,5 @@
+import { getLoggedInMember } from '@/actions/memberDetails';
+import { auth } from '@/auth';
 import { Metadata } from 'next';
 import Support from '.';
 import { getSupportData } from './actions/getSupportData';
@@ -8,7 +10,16 @@ export const metadata: Metadata = {
 
 const SupportPage = async () => {
   const result = await getSupportData();
-  return <Support data={result.data!} />;
+  const quantumHealthEligGroups = '130430,82039,130504,90750,82025';
+  const session = await auth();
+  const memberDetails = await getLoggedInMember(session);
+
+  const quantumHealthEnabled = quantumHealthEligGroups
+    .split(',')
+    .includes(memberDetails.groupId);
+  return (
+    <Support data={result.data!} quantumHealthEnabled={quantumHealthEnabled} />
+  );
 };
 
 export default SupportPage;

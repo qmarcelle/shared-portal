@@ -1,4 +1,6 @@
-export const loggedInUserInfoMockResp = {
+import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
+
+export const loggedInUserInfoMockResp: LoggedInUserInfo = {
   isActive: true,
   subscriberLoggedIn: true,
   lob: 'REGL',

@@ -97,13 +97,15 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
                 </ul>
               </div>
               <a
+                aria-label="Learn More About Alight"
                 style="display: block;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container text-left"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"
@@ -205,13 +207,15 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
                 </ul>
               </div>
               <a
+                aria-label="Learn More About CareTN"
                 style="display: block;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container text-left"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"
@@ -305,13 +309,15 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
                 </ul>
               </div>
               <a
+                aria-label="Learn More About Blood Pressure Management"
                 style="display: block;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container text-left"
                   style="max-width: max-content; height: auto; display: block;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link undefined"
@@ -420,13 +426,15 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               </ul>
             </div>
             <a
+              aria-label="Learn More About Alight"
               style="display: block;"
               tabindex="-1"
             >
               <button
                 class="flex flex-row link-container text-left"
                 style="max-width: max-content; height: auto; display: block;"
-                tabindex="0"
+                tabindex="-1"
+                type="button"
               >
                 <p
                   class="link undefined"
@@ -528,13 +536,15 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               </ul>
             </div>
             <a
+              aria-label="Learn More About CareTN"
               style="display: block;"
               tabindex="-1"
             >
               <button
                 class="flex flex-row link-container text-left"
                 style="max-width: max-content; height: auto; display: block;"
-                tabindex="0"
+                tabindex="-1"
+                type="button"
               >
                 <p
                   class="link undefined"
@@ -628,13 +638,15 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               </ul>
             </div>
             <a
+              aria-label="Learn More About Blood Pressure Management"
               style="display: block;"
               tabindex="-1"
             >
               <button
                 class="flex flex-row link-container text-left"
                 style="max-width: max-content; height: auto; display: block;"
-                tabindex="0"
+                tabindex="-1"
+                type="button"
               >
                 <p
                   class="link undefined"

@@ -114,7 +114,7 @@ exports[` 1`] = `
               Check all that apply:
             </p>
             <div
-              class="flex flex-row gap-2 p-2  "
+              class="flex flex-row gap-2 p-2   "
             >
               <label>
                 <input
@@ -140,7 +140,7 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  "
+              class="flex flex-row gap-2 p-2   "
             >
               <label>
                 <input
@@ -165,7 +165,7 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  "
+              class="flex flex-row gap-2 p-2   "
             >
               <label>
                 <input
@@ -190,7 +190,7 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  "
+              class="flex flex-row gap-2 p-2   "
             >
               <label>
                 <input
@@ -215,7 +215,7 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  "
+              class="flex flex-row gap-2 p-2   "
             >
               <label>
                 <input
@@ -240,7 +240,7 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  "
+              class="flex flex-row gap-2 p-2   "
             >
               <label>
                 <input
@@ -379,7 +379,7 @@ exports[` 1`] = `
             Check all that apply:
           </p>
           <div
-            class="flex flex-row gap-2 p-2  "
+            class="flex flex-row gap-2 p-2   "
           >
             <label>
               <input
@@ -405,7 +405,7 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  "
+            class="flex flex-row gap-2 p-2   "
           >
             <label>
               <input
@@ -430,7 +430,7 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  "
+            class="flex flex-row gap-2 p-2   "
           >
             <label>
               <input
@@ -455,7 +455,7 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  "
+            class="flex flex-row gap-2 p-2   "
           >
             <label>
               <input
@@ -480,7 +480,7 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  "
+            class="flex flex-row gap-2 p-2   "
           >
             <label>
               <input
@@ -505,7 +505,7 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  "
+            class="flex flex-row gap-2 p-2   "
           >
             <label>
               <input

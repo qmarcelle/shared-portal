@@ -20,7 +20,12 @@ export const AppLink = ({
   displayStyle = 'block',
 }: LinkProps) => {
   return (
-    <a style={{ display: `${displayStyle}` }} tabIndex={-1} href={url}>
+    <a
+      style={{ display: `${displayStyle}` }}
+      tabIndex={-1}
+      href={url}
+      aria-label={label}
+    >
       <button
         onClick={callback}
         style={{
@@ -28,7 +33,8 @@ export const AppLink = ({
           height: 'auto',
           display: `${displayStyle}`,
         }}
-        tabIndex={0}
+        type="button"
+        tabIndex={-1}
         className={`flex flex-row link-container ${className}`}
       >
         <p

@@ -333,13 +333,15 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <a
+                          aria-label="Resend Code"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -366,13 +368,15 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                       />
                     </div>
                     <a
+                      aria-label="Cancel"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"

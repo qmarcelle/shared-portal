@@ -94,13 +94,15 @@ exports[`ProfileInformationCard should render UI correctly 1`] = `
                 (123) 456-7890
               </p>
               <a
+                aria-label="Update"
                 style="display: flex;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container font-bold primary-color pl-0"
                   style="max-width: max-content; height: auto; display: flex;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link linkUnderlineNone"
@@ -165,13 +167,15 @@ exports[`ProfileInformationCard should render UI correctly 1`] = `
                 chall123@gmail.com
               </p>
               <a
+                aria-label="Update"
                 style="display: flex;"
                 tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container font-bold primary-color pl-0"
                   style="max-width: max-content; height: auto; display: flex;"
-                  tabindex="0"
+                  tabindex="-1"
+                  type="button"
                 >
                   <p
                     class="link linkUnderlineNone"

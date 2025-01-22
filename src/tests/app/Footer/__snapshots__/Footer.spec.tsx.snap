@@ -1,0 +1,461 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component should render the UI correctly 1`] = `
+<body>
+  <div>
+    <footer>
+      <section
+        class="brand-gradient"
+        role="contentinfo"
+      >
+        <div
+          class="flex flex-col md:text-left text-center app-content container mx-auto grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_29%] lg:grid-cols-[1fr_1fr_1fr_40%] gap-4 md:gap-x-8 text-sm text-white min-h-[216px]"
+        >
+          <div
+            class="flex flex-col"
+          >
+            <h3
+              class="body-bold mb-4"
+            >
+              Popular Links
+            </h3>
+            <ul
+              class="space-y-4 font-thin body-2"
+            >
+              <li>
+                <a
+                  href="/memberIDCard"
+                >
+                  Get an ID Card
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/findcare"
+                >
+                  Find Care & Costs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/claims"
+                >
+                  View Claims
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/profileSettings"
+                >
+                  Profile Settings
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="flex flex-col"
+          >
+            <h3
+              class="body-bold mb-4"
+            >
+              Support
+            </h3>
+            <ul
+              class="space-y-4 body-2 font-thin"
+            >
+              <li>
+                <a
+                  href="/support"
+                >
+                  Get Help & Contact Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                >
+                  Share Website Feedback
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                >
+                  Share Your Screen
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="flex flex-col"
+          >
+            <h3
+              class="body-bold mb-4"
+            >
+              Important Information
+            </h3>
+            <ul
+              class="space-y-4 body-2 font-thin"
+            >
+              <li>
+                <a
+                  href=""
+                >
+                  Nondiscrimination
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                >
+                  Member Rights
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                >
+                  Fight Fraud
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="flex flex-col md:ml-16 p-7 md:p-0 text-left"
+          >
+            <div
+              class="flex flex-row md:block lg:flex"
+            >
+              <img
+                alt=""
+                class=""
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <div
+                class="flex flex-col ml-4 md:ml-0 lg:ml-4 mt-1"
+              >
+                <h3
+                  class="body-bold mb-2"
+                >
+                  Download the App
+                </h3>
+                <p
+                  class="body-2"
+                >
+                  Download the BCBSTN app in the Apple Store or Google Play.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row flex mt-4 grid grid-cols-6 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 md:mb-2 mb-0 lg:mb-0 gap-x-2 gap-y-4"
+            >
+              <img
+                alt="Facebook Icon"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="35"
+              />
+              <img
+                alt="Linkedin Icon"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="35"
+              />
+              <img
+                alt="Instagram Icon"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="35"
+              />
+              <img
+                alt="Youtube ICon"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="35"
+              />
+              <img
+                alt="Pintrest Icon"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="35"
+              />
+              <img
+                alt="X Icon"
+                data-nimg="1"
+                decoding="async"
+                height="35"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="35"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="bg-neutral text-white text-xs"
+      >
+        <div
+          class="flex flex-col app-content container mx-auto text-center space-y-8 mb-[72px]"
+        >
+          <div
+            class="flex flex-row flex flex-wrap justify-center gap-2 body-2"
+          >
+            <a
+              href=""
+            >
+              Español
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              العربية
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              繁體中文
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Tiếng Việt
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              한국어
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Français
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              ພາສາລາວ
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Deutsch
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              ગુજરાતી
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              日本語
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Tagalog
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              हिंदी
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Русский
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              فارسی
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Kreyòl Ayisyen
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Polski
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Português
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Italiano
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Diné Bizaad
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Deitsch
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Gagana Samoa
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Kapasal Falawasch
+            </a>
+            <span>
+              |
+            </span>
+            <a
+              href=""
+            >
+              Chamoru
+            </a>
+          </div>
+          <div
+            class="flex flex-row mt-8 border-t border-text-white flex-col-reverse lg:flex-row pt-4 flex lg:justify-between space-y-2 md:space-y-0 lg:pb-4 body-2"
+          >
+            <div
+              class="flex flex-col lg:w-[67%] lg:text-left mt-4"
+            >
+              ©1998-
+              2025
+               BlueCross BlueShield of Tennessee, Inc., an Independent Licensee of the Blue Cross Blue Shield Association. BlueCross BlueShield of Tennessee is a Qualified Health Plan issuer in the Health Insurance Marketplace. 1 Cameron Hill Circle, Chattanooga TN 37402-0001
+            </div>
+            <div
+              class="flex flex-row space-x-4 body-2 !mt-4 lg:text-left justify-center"
+            >
+              <a
+                href=""
+              >
+                Sitemap
+              </a>
+              <span>
+                |
+              </span>
+              <a
+                href=""
+              >
+                Privacy & Security
+              </a>
+              <span>
+                |
+              </span>
+              <a
+                href=""
+              >
+                Legal
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+  </div>
+</body>
+`;

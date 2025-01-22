@@ -1,0 +1,3169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Balances Page should render Dental coverage information on the Benefits & Coverage page 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <p
+            class="title-1"
+          >
+            Benefits & Coverage
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="rich-text body-1 undefined"
+        >
+          <span>
+            If you have questions, 
+          </span>
+          <span
+            class="link font-bold"
+          >
+            start a chat
+          </span>
+          <span>
+             or call us at [1-800-000-000].
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+          id="Filter"
+        >
+          <div
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main large-section px-0 m-0"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  Filter Benefits
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="body-1"
+                  >
+                    Member
+                     
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <div>
+                    <div
+                      class="rich-dropdown"
+                    >
+                      <div
+                        class="flex flex-col switch-filter default"
+                        tabindex="1"
+                      >
+                        <div>
+                          <div
+                            class="body-1 input"
+                          >
+                            <div
+                              class="flex flex-row p-1 items-center"
+                            >
+                              <div
+                                class="flex flex-col border-none flex-grow"
+                              >
+                                <p
+                                  class="body-1"
+                                >
+                                  Chris Hall
+                                </p>
+                              </div>
+                              <img
+                                alt=""
+                                class="w-[20px] h-[20px] ml-2 items-end"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="body-1"
+                  >
+                    Benefit Type
+                     
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <div>
+                    <div
+                      class="rich-dropdown"
+                    >
+                      <div
+                        class="flex flex-col switch-filter default"
+                        tabindex="1"
+                      >
+                        <div>
+                          <div
+                            class="body-1 input"
+                          >
+                            <div
+                              class="flex flex-row p-1 items-center"
+                            >
+                              <div
+                                class="flex flex-col border-none flex-grow"
+                              >
+                                <p
+                                  class="body-1"
+                                >
+                                  All Types
+                                </p>
+                              </div>
+                              <img
+                                alt=""
+                                class="w-[20px] h-[20px] ml-2 items-end"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <a
+                  class="link flex !no-underline"
+                  href="#"
+                >
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 mr-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  Reset Filter
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+            </div>
+            <div
+              class="card-info large-section px-0 m-0 text-white"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-3"
+                >
+                  Call Before Scheduling Your Joint Procedure
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span>
+                    Your plan requires giving us a call before pursuing knee, hip, or spine procedures. Give us a call at 
+                  </span>
+                  <span>
+                    [1-800-565-9140] or 
+                  </span>
+                  <span
+                    class="link-white-text"
+                  >
+                    <a>
+                      start a chat
+                    </a>
+                  </span>
+                  <span>
+                     now.
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main small-section w-[672px] benefitsLink"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Medical
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Preventive Care
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Office Visits
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Allergy
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Emergency
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Inpatient Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Outpatient Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Medical Equipment / Prosthetics / Orthotics
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Behavioral Health
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Other Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Pharmacy
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Prescription Drugs
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Dental
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Anesthesia
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Basic
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Diagnostic & Preventive
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Endodontics
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Major
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Occlusal Guard
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Oral Surgery
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Orthodontic Treatment
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Periodontics
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          TMJ Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Vision
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Visit EyeMed
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Other Benefits
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Identity Protection Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Health Programs & Resources
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Shop Over-the-Counter Items
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Member Discounts
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Employer Provided Benefits
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Your employer offers even more programs and benefits you can explore here.
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+`;
+
+exports[`Balances Page should render Vision coverage information on the Benefits & Coverage page 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <p
+            class="title-1"
+          >
+            Benefits & Coverage
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="rich-text body-1 undefined"
+        >
+          <span>
+            If you have questions, 
+          </span>
+          <span
+            class="link font-bold"
+          >
+            start a chat
+          </span>
+          <span>
+             or call us at [1-800-000-000].
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+          id="Filter"
+        >
+          <div
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main large-section px-0 m-0"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  Filter Benefits
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="body-1"
+                  >
+                    Member
+                     
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <div>
+                    <div
+                      class="rich-dropdown"
+                    >
+                      <div
+                        class="flex flex-col switch-filter default"
+                        tabindex="1"
+                      >
+                        <div>
+                          <div
+                            class="body-1 input"
+                          >
+                            <div
+                              class="flex flex-row p-1 items-center"
+                            >
+                              <div
+                                class="flex flex-col border-none flex-grow"
+                              >
+                                <p
+                                  class="body-1"
+                                >
+                                  Chris Hall
+                                </p>
+                              </div>
+                              <img
+                                alt=""
+                                class="w-[20px] h-[20px] ml-2 items-end"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="body-1"
+                  >
+                    Benefit Type
+                     
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <div>
+                    <div
+                      class="rich-dropdown"
+                    >
+                      <div
+                        class="flex flex-col switch-filter default"
+                        tabindex="1"
+                      >
+                        <div>
+                          <div
+                            class="body-1 input"
+                          >
+                            <div
+                              class="flex flex-row p-1 items-center"
+                            >
+                              <div
+                                class="flex flex-col border-none flex-grow"
+                              >
+                                <p
+                                  class="body-1"
+                                >
+                                  All Types
+                                </p>
+                              </div>
+                              <img
+                                alt=""
+                                class="w-[20px] h-[20px] ml-2 items-end"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <a
+                  class="link flex !no-underline"
+                  href="#"
+                >
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 mr-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  Reset Filter
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+            </div>
+            <div
+              class="card-info large-section px-0 m-0 text-white"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-3"
+                >
+                  Call Before Scheduling Your Joint Procedure
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span>
+                    Your plan requires giving us a call before pursuing knee, hip, or spine procedures. Give us a call at 
+                  </span>
+                  <span>
+                    [1-800-565-9140] or 
+                  </span>
+                  <span
+                    class="link-white-text"
+                  >
+                    <a>
+                      start a chat
+                    </a>
+                  </span>
+                  <span>
+                     now.
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main small-section w-[672px] benefitsLink"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Medical
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Preventive Care
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Office Visits
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Allergy
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Emergency
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Inpatient Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Outpatient Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Medical Equipment / Prosthetics / Orthotics
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Behavioral Health
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Other Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Pharmacy
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Prescription Drugs
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Dental
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Anesthesia
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Basic
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Diagnostic & Preventive
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Endodontics
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Major
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Occlusal Guard
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Oral Surgery
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Orthodontic Treatment
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Periodontics
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          TMJ Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Vision
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Visit EyeMed
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main small-section w-[672px] "
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="mr-2"
+                  >
+                    <img
+                      alt="link"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <p
+                    class="title-2 mt-2 ml-2"
+                  >
+                    Other Benefits
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Identity Protection Services
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Health Programs & Resources
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Shop Over-the-Counter Items
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Member Discounts
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </section>
+                  <section
+                    class="manage-benefit"
+                  >
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col p-1 false cursor-pointer link-row-container"
+                    >
+                      <div
+                        class="flex flex-row m-2"
+                      >
+                        <p
+                          class="link-row-head mr-2"
+                          tabindex="0"
+                        >
+                          Employer Provided Benefits
+                        </p>
+                        <img
+                          alt="link"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="m-2"
+                      >
+                        <div
+                          class="body-1 flex flex-row"
+                        >
+                          Your employer offers even more programs and benefits you can explore here.
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+`;

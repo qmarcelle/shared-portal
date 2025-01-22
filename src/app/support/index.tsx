@@ -24,58 +24,91 @@ import { SupportData } from './model/app/support_data';
 
 export type SupportProps = {
   data: SupportData;
+  quantumHealthEnabled: boolean;
 };
 
-const CONTACT_ITEMS = [
-  {
-    icon: <Image src={callIcon} alt="call icon" />,
-    label: 'Call',
-    body: (
-      <>
-        <TextBox text="8 a.m. - 6 p.m. ET," />
-        <TextBox text="Mon - Fri" />
-      </>
-    ),
-    footer: (
-      <RichText
-        spans={[
-          <TextBox key="first" text="Call " />,
-          <TextBox
-            className="font-bold"
-            key="second"
-            text="1-800-000-0000, TTY 711"
-          />,
-        ]}
-      />
-    ),
-  },
-  {
-    icon: <Image src={chatIcon} alt="chat icon" />,
-    label: 'Chat',
-    body: (
-      <>
-        <TextBox text="8 a.m. - 5:15 p.m. ET," />
-        <TextBox text="Mon - Fri" />
-      </>
-    ),
-    footer: <Button callback={() => {}} label="Start a Chat" />,
-  },
-  {
-    icon: <Image src={emailIcon} alt="email icon" />,
-    label: 'Email',
-    body: (
-      <TextBox text="If it's after hours or you'd rather send us an email, we're right here." />
-    ),
-    footer: (
-      <AppLink
-        className="!px-0"
-        label="Send an Email"
-        url="/support/sendAnEmail"
-      />
-    ),
-  },
-];
+let ContactHeader = '';
+let CONTACT_ITEMS: any[] = [];
 
+function getQuantumHealthContent() {
+  ContactHeader = 'Contact Quantum Health';
+  CONTACT_ITEMS = [
+    {
+      icon: <Image src={callIcon} alt="call icon" />,
+      label: '',
+      body: (
+        <>
+          <RichText
+            spans={[
+              <TextBox key="first" className="font-bold" text="Call " />,
+              <TextBox
+                className="font-bold"
+                key="second"
+                text=" [1-800-000-0000]"
+              />,
+            ]}
+          />
+        </>
+      ),
+      footer: (
+        <RichText spans={[<TextBox key="first" text="Anytime, 24/7 " />]} />
+      ),
+    },
+  ];
+}
+
+function getGeneralContent() {
+  ContactHeader = 'Contact Us';
+  CONTACT_ITEMS = [
+    {
+      icon: <Image src={callIcon} alt="call icon" />,
+      label: 'Call',
+      body: (
+        <>
+          <TextBox text="8 a.m. - 6 p.m. ET," />
+          <TextBox text="Mon - Fri" />
+        </>
+      ),
+      footer: (
+        <RichText
+          spans={[
+            <TextBox key="first" text="Call " />,
+            <TextBox
+              className="font-bold"
+              key="second"
+              text="1-800-000-0000, TTY 711"
+            />,
+          ]}
+        />
+      ),
+    },
+    {
+      icon: <Image src={chatIcon} alt="chat icon" />,
+      label: 'Chat',
+      body: (
+        <>
+          <TextBox text="8 a.m. - 5:15 p.m. ET," />
+          <TextBox text="Mon - Fri" />
+        </>
+      ),
+      footer: <Button callback={() => {}} label="Start a Chat" />,
+    },
+    {
+      icon: <Image src={emailIcon} alt="email icon" />,
+      label: 'Email',
+      body: (
+        <TextBox text="If it's after hours or you'd rather send us an email, we're right here." />
+      ),
+      footer: (
+        <AppLink
+          className="!px-0"
+          label="Send an Email"
+          url="/support/sendAnEmail"
+        />
+      ),
+    },
+  ];
+}
 const RESOURCES = [
   {
     icon: <Image src={questionsIcon} alt="questions icon" />,
@@ -103,7 +136,7 @@ const ModalOverlay = ({ isOpen }: { isOpen: boolean }) => {
   return <div className="fixed modal-overlay inset-0 bg-opacity-50 z-50"></div>;
 };
 
-const Support = ({ data }: SupportProps) => {
+const Support = ({ data, quantumHealthEnabled }: SupportProps) => {
   const [isNewWindowOpen, setIsNewWindowOpen] = useState(false);
   let qualtricsWindow: WindowProxy | null;
   useEffect(() => {
@@ -135,6 +168,9 @@ const Support = ({ data }: SupportProps) => {
       setIsNewWindowOpen(true);
     }
   };
+  {
+    quantumHealthEnabled ? getQuantumHealthContent() : getGeneralContent();
+  }
   return (
     <>
       <title>Support</title>
@@ -149,11 +185,11 @@ const Support = ({ data }: SupportProps) => {
         </header>
 
         {/* Main */}
-        <main>
+        <main className="flex flex-col w-full justify-center items-center">
           <Column className="app-content app-base-font-color px-4 mt-8 gap-8">
             {/* Contact Us UI */}
             <section className="self-stretch px-8">
-              <TextBox type="title-2" text="Contact Us" />
+              <TextBox type="title-2" text={ContactHeader} />
               <Spacer size={32} />
               <Row className="justify-stretch gap-8 flex-wrap">
                 {CONTACT_ITEMS.map((item) => (
@@ -171,28 +207,30 @@ const Support = ({ data }: SupportProps) => {
         </main>
         {/* Resources */}
         <section className="flex flex-col w-full">
-          <div className="self-center relative top-8">
-            <Card className="p-4 mx-4 sm:p-8">
-              <Column>
-                <TextBox type="title-2" text="Resources" />
-                <Spacer size={16} />
-                <TextBox text="Find answers to your health insurance questions or find a form." />
-                <Spacer size={32} />
-                <Row className="gap-4 flex-wrap">
-                  {RESOURCES.map((item) => (
-                    <ResourceMiniCard
-                      key={item.label}
-                      className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                      icon={item.icon}
-                      label={item.label}
-                      link={item.link}
-                      external={item.external}
-                    />
-                  ))}
-                </Row>
-              </Column>
-            </Card>
-          </div>
+          {!quantumHealthEnabled && (
+            <div className="self-center relative top-8">
+              <Card className="p-4 mx-4 sm:p-8">
+                <Column>
+                  <TextBox type="title-2" text="Resources" />
+                  <Spacer size={16} />
+                  <TextBox text="Find answers to your health insurance questions or find a form." />
+                  <Spacer size={32} />
+                  <Row className="gap-4 flex-wrap">
+                    {RESOURCES.map((item) => (
+                      <ResourceMiniCard
+                        key={item.label}
+                        className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                        icon={item.icon}
+                        label={item.label}
+                        link={item.link}
+                        external={item.external}
+                      />
+                    ))}
+                  </Row>
+                </Column>
+              </Card>
+            </div>
+          )}
 
           <div className="w-full surface-gradient-flipped">
             <Column className="mt-16 text-white items-center px-4 gap-4">

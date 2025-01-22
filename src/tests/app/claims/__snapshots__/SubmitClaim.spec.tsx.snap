@@ -65,6 +65,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Medical Claim Form"
                           href=""
                           style="display: block;"
                           tabindex="-1"
@@ -72,7 +73,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                           <button
                             class="flex flex-row link-container pl-0"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -124,6 +126,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Prescription Claim Form"
                           href=""
                           style="display: block;"
                           tabindex="-1"
@@ -131,7 +134,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                           <button
                             class="flex flex-row link-container pl-0"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -183,6 +187,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Dental Claim Form"
                           href=""
                           style="display: block;"
                           tabindex="-1"
@@ -190,7 +195,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                           <button
                             class="flex flex-row link-container pl-0"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -242,6 +248,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Vision Claim Form"
                           href=""
                           style="display: block;"
                           tabindex="-1"
@@ -249,7 +256,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                           <button
                             class="flex flex-row link-container pl-0"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -301,6 +309,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Breast Pump Claim Form"
                           href=""
                           style="display: block;"
                           tabindex="-1"
@@ -308,7 +317,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                           <button
                             class="flex flex-row link-container pl-0"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -457,6 +467,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
+                        aria-label="Medical Claim Form"
                         href=""
                         style="display: block;"
                         tabindex="-1"
@@ -464,7 +475,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         <button
                           class="flex flex-row link-container pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -516,6 +528,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
+                        aria-label="Prescription Claim Form"
                         href=""
                         style="display: block;"
                         tabindex="-1"
@@ -523,7 +536,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         <button
                           class="flex flex-row link-container pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -575,6 +589,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
+                        aria-label="Dental Claim Form"
                         href=""
                         style="display: block;"
                         tabindex="-1"
@@ -582,7 +597,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         <button
                           class="flex flex-row link-container pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -634,6 +650,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
+                        aria-label="Vision Claim Form"
                         href=""
                         style="display: block;"
                         tabindex="-1"
@@ -641,7 +658,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         <button
                           class="flex flex-row link-container pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
@@ -693,6 +711,7 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                       class="flex flex-row"
                     >
                       <a
+                        aria-label="Breast Pump Claim Form"
                         href=""
                         style="display: block;"
                         tabindex="-1"
@@ -700,7 +719,8 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                         <button
                           class="flex flex-row link-container pl-0"
                           style="max-width: max-content; height: auto; display: block;"
-                          tabindex="0"
+                          tabindex="-1"
+                          type="button"
                         >
                           <p
                             class="link undefined"
