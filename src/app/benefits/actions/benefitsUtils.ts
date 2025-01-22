@@ -31,8 +31,9 @@ export const getBenefitTypes = (planDetails: PlanDetail[]) => {
   });
   const items: BenefitDropdownItem[] = [];
   let id = 0;
-  items.push({ label: 'All Types', value: BenefitType.ALL, id: '0' });
+  items.push({ label: 'All Types', value: BenefitType.ALL, id: id.toString() });
   sortedPlanDetails.forEach((plan) => {
+    console.log(`Id: ${id} for Plan: ${plan.productCategory}`);
     id++;
     switch (plan.productCategory) {
       case BenefitType.MEDICAL:
@@ -66,6 +67,7 @@ export const getBenefitTypes = (planDetails: PlanDetail[]) => {
         break;
     }
   });
+  id++;
   items.push({
     label: 'Other',
     value: BenefitType.OTHER,

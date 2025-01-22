@@ -1,16 +1,16 @@
 import { externalIcon } from '@/components/foundation/Icons';
-import { SessionUser } from '@/userManagement/models/sessionUser';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { ManageBenefitsItems } from '../components/MedicalPharmacyDentalCard';
 
 export const generateOtherBenefitsForUser = (
-  user: SessionUser | undefined,
+  vRules: VisibilityRules,
 ): ManageBenefitsItems[] => {
   const otherBenefitItems: ManageBenefitsItems[] = [];
-  if (user === undefined || user.vRules === undefined) {
+  if (vRules === undefined) {
     return otherBenefitItems;
   }
-  if (user.vRules.identityProtectionServices) {
+  if (vRules.identityProtectionServices) {
     otherBenefitItems.push({
       title: 'Identity Protection Services',
       body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
@@ -24,7 +24,7 @@ export const generateOtherBenefitsForUser = (
     externalLink: false,
     url: 'url',
   });
-  if (user.vRules.active && user.vRules.otcEnable) {
+  if (vRules.active && vRules.otcEnable) {
     otherBenefitItems.push({
       title: 'Shop Over-the-Counter Items',
       body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
@@ -32,7 +32,7 @@ export const generateOtherBenefitsForUser = (
       icon: <Image src={externalIcon} alt="link" />,
     });
   }
-  if (user.vRules.commercial && user.vRules.bluePerksElig) {
+  if (vRules.commercial && vRules.bluePerksElig) {
     otherBenefitItems.push({
       title: 'Member Discounts',
       body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
@@ -42,7 +42,7 @@ export const generateOtherBenefitsForUser = (
     });
   }
 
-  if (user.vRules.employerProvidedBenefits) {
+  if (vRules.employerProvidedBenefits) {
     otherBenefitItems.push({
       title: 'Employer Provided Benefits',
       body: 'Your employer offers even more programs and benefits you can explore here.',

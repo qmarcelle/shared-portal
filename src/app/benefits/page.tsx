@@ -42,7 +42,7 @@ const BenefitsAndCoveragePage = async () => {
       <Benefits
         memberInfo={userInfoData.members}
         benefitsBean={loadBenefitsData.data}
-        otherBenefitItems={generateOtherBenefitsForUser(session.user)}
+        otherBenefitItems={generateOtherBenefitsForUser(session.user.vRules!)}
         userGroupId={userInfoData.groupData.groupID}
       />
     );
