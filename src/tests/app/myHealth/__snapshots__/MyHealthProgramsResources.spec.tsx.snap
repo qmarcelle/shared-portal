@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MyHealthProgramsResources should not render Teladoc Blood Pressure Management Program Card when rule is false 1`] = `
+<div>
+  <div
+    class="flex flex-col justify-center items-center page"
+  >
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+    />
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <h1
+        class="title-1 mt-4"
+      >
+        Health Programs & Resources
+      </h1>
+      <div
+        class="w-3/4"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 mt-4 inline w-2/3"
+        >
+          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+        </p>
+        <a
+          aria-label="View all your plan benefits here"
+          style="display: inline-flex;"
+          tabindex="-1"
+        >
+          <button
+            class="flex flex-row link-container pr-0"
+            style="max-width: max-content; height: auto; display: inline-flex;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+              style="display: inline-flex;"
+            >
+              View all your plan benefits here
+            </p>
+          </button>
+        </a>
+        .
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="gap-4 flex flex-wrap"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`MyHealthProgramsResources should render UI correctly for Able To Health Program 1`] = `
 {
   "asFragment": [Function],
@@ -61,7 +128,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
@@ -237,7 +304,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             >
               <div
                 class="card-elevated cursor-pointer \${className} md:w-80"
@@ -470,7 +537,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
@@ -646,7 +713,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             >
               <div
                 class="card-elevated cursor-pointer \${className} md:w-80"
@@ -879,7 +946,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
@@ -1055,7 +1122,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             >
               <div
                 class="card-elevated cursor-pointer \${className} md:w-80"
@@ -1288,7 +1355,7 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               />
             </div>
           </section>
@@ -1353,7 +1420,7 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             />
           </div>
         </section>
@@ -1475,7 +1542,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
@@ -1639,7 +1706,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             >
               <div
                 class="card-elevated cursor-pointer \${className} md:w-80"
@@ -1799,6 +1866,176 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
 }
 `;
 
+exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood Pressure Management Program Card 1`] = `
+<div>
+  <div
+    class="flex flex-col justify-center items-center page"
+  >
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+    />
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <h1
+        class="title-1 mt-4"
+      >
+        Health Programs & Resources
+      </h1>
+      <div
+        class="w-3/4"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 mt-4 inline w-2/3"
+        >
+          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+        </p>
+        <a
+          aria-label="View all your plan benefits here"
+          style="display: inline-flex;"
+          tabindex="-1"
+        >
+          <button
+            class="flex flex-row link-container pr-0"
+            style="max-width: max-content; height: auto; display: inline-flex;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+              style="display: inline-flex;"
+            >
+              View all your plan benefits here
+            </p>
+          </button>
+        </a>
+        .
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="gap-4 flex flex-wrap"
+          >
+            <div
+              class="card-elevated cursor-pointer \${className} md:w-80"
+            >
+              <div
+                class="flex flex-row flex flex-col align-top m-4 mt-8"
+              >
+                <p
+                  class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                >
+                  Blood Pressure
+                </p>
+                <img
+                  alt="TelaDoc"
+                  class="w-1/2"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+                <div
+                  class="flex flex-col flex flex-col flex-grow"
+                >
+                  <p
+                    class="body-1 title-3 !font-bold m-4 mb-0"
+                  >
+                    Teladoc Health Blood Pressure Management Program
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1 m-4 mb-0"
+                  >
+                    Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <div>
+                    <p
+                      class="body-1 body-1 m-4"
+                    >
+                      Generally good for:
+                    </p>
+                    <ul
+                      class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                    >
+                      <div>
+                        <li>
+                          High blood pressure management
+                        </li>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                      </div>
+                      <div>
+                        <li>
+                          Meal planning
+                        </li>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                      </div>
+                      <div>
+                        <li>
+                          Building healthy habits
+                        </li>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                      </div>
+                    </ul>
+                  </div>
+                  <a
+                    aria-label="Learn More About Blood Pressure Management"
+                    style="display: block;"
+                    tabindex="-1"
+                  >
+                    <button
+                      class="flex flex-row link-container text-left"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <p
+                        class="link undefined"
+                        style="display: block;"
+                      >
+                        Learn More About Blood Pressure Management
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health Diabetes Prevention Program 1`] = `
 {
   "asFragment": [Function],
@@ -1860,7 +2097,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
@@ -2036,7 +2273,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             >
               <div
                 class="card-elevated cursor-pointer \${className} md:w-80"
@@ -2269,7 +2506,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
@@ -2445,7 +2682,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             >
               <div
                 class="card-elevated cursor-pointer \${className} md:w-80"
@@ -2678,7 +2915,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
@@ -2854,7 +3091,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <div
-              class="gap-4 md:flex sm:inline"
+              class="gap-4 flex flex-wrap"
             >
               <div
                 class="card-elevated cursor-pointer \${className} md:w-80"

@@ -72,7 +72,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                 class="flex flex-row flex-grow items-stretch gap-4 flex-wrap"
               >
                 <div
-                  class="gap-4 md:flex sm:inline"
+                  class="gap-4 flex flex-wrap"
                 >
                   <div
                     class="card-elevated cursor-pointer \${className} md:w-80"
@@ -1156,7 +1156,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
               class="flex flex-row flex-grow items-stretch gap-4 flex-wrap"
             >
               <div
-                class="gap-4 md:flex sm:inline"
+                class="gap-4 flex flex-wrap"
               >
                 <div
                   class="card-elevated cursor-pointer \${className} md:w-80"
