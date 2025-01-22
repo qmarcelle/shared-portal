@@ -53,6 +53,11 @@ export const isValidPassword = (password: string): boolean => {
   return passwordRegex.test(password);
 };
 
+export const isSpecialCharactersAvailable = (password: string): boolean => {
+  const passwordRegex = /.*[\[\]{};':"\\|,.`<>\/?~].*/;
+  return passwordRegex.test(password);
+};
+
 /**
  * Validates the given Email address length.
  * @param email

@@ -1,4 +1,8 @@
-import { isValidPassword, validateDate } from '@/utils/inputValidator';
+import {
+  isSpecialCharactersAvailable,
+  isValidPassword,
+  validateDate,
+} from '@/utils/inputValidator';
 import { logger } from '@/utils/logger';
 import { createWithEqualityFn } from 'zustand/traditional';
 import {
@@ -33,10 +37,13 @@ export const usePasswordResetStore = createWithEqualityFn<PasswordResetStore>(
         password: val.trim(),
       }));
       if (!isValidPassword(val)) {
+        let errorMsg = 'Please enter a valid password.';
+        if (isSpecialCharactersAvailable(val)) {
+          errorMsg =
+            'Your password has an invalid character. Passwords can only use these characters: !@#$%^&*()+=-_';
+        }
         set(() => ({
-          invalidPasswordError: [
-            'Your password has an invalid character. Passwords can only use these characters: !@#$%^&*()+=-_',
-          ],
+          invalidPasswordError: [errorMsg],
         }));
       } else {
         set(() => ({
