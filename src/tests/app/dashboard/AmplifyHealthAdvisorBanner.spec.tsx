@@ -14,7 +14,7 @@ describe('AmplifyHealthAdvisorBanner', () => {
     ).toBeVisible();
     expect(
       screen.getByText(
-        'Have a question or need advice? Your AmplifyHealth Advisor is here for you 24/7. You can start a chat or call us at [1-800-000-0000].',
+        'Have a question or need advice? Your AmplifyHealth Advisor is here for you 24/7. You can start a chat or call us at [1-866-258-3267].',
       ),
     ).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
