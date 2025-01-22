@@ -27,7 +27,7 @@ describe('computeAuthFunctions', () => {
         subGroupName: '',
         clientID: '',
         policyType: '',
-        groupEIN: ''
+        groupEIN: '',
       },
       networkPrefix: '',
       subscriberID: '',
@@ -42,7 +42,7 @@ describe('computeAuthFunctions', () => {
       addresses: [],
       healthCareAccounts: [],
       esigroupNum: '',
-      cmcondition: []
+      cmcondition: [],
     };
 
     const rules: VisibilityRules = {
@@ -51,7 +51,7 @@ describe('computeAuthFunctions', () => {
       myPCPElig: false,
       identityProtectionServices: false,
       otcEnable: false,
-      bluePerksEligible: false,
+      bluePerksElig: false,
       showPharmacyTab: false,
     };
 
@@ -63,7 +63,7 @@ describe('computeAuthFunctions', () => {
     expect(rules.identityProtectionServices).toBe(false);
     expect(rules.otcEnable).toBe(true);
     expect(rules.showPharmacyTab).toBe(false);
-    expect(rules.bluePerksEligible).toBe(true);
+    expect(rules.bluePerksElig).toBe(true);
   });
 
   it('should handle missing auth functions gracefully', () => {
@@ -82,7 +82,7 @@ describe('computeAuthFunctions', () => {
         subGroupName: '',
         clientID: '',
         policyType: '',
-        groupEIN: ''
+        groupEIN: '',
       },
       networkPrefix: '',
       subscriberID: '',
@@ -97,7 +97,7 @@ describe('computeAuthFunctions', () => {
       addresses: [],
       healthCareAccounts: [],
       esigroupNum: '',
-      cmcondition: []
+      cmcondition: [],
     };
 
     const rules: VisibilityRules = {
@@ -106,7 +106,7 @@ describe('computeAuthFunctions', () => {
       myPCPElig: false,
       identityProtectionServices: false,
       otcEnable: false,
-      bluePerksEligible: false,
+      bluePerksElig: false,
       showPharmacyTab: false,
     };
 
@@ -117,7 +117,7 @@ describe('computeAuthFunctions', () => {
     expect(rules.myPCPElig).toBeUndefined();
     expect(rules.identityProtectionServices).toBeUndefined();
     expect(rules.otcEnable).toBeUndefined();
-    expect(rules.bluePerksEligible).toBeUndefined();
+    expect(rules.bluePerksElig).toBeUndefined();
     expect(rules.showPharmacyTab).toBeUndefined();
   });
 });
