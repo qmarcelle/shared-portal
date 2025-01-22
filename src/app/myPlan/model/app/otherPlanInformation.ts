@@ -25,13 +25,13 @@ export const OtherPlanInformation = [
     label: 'Prior Authorizations',
     description: 'Check the status of your prior authorizations.',
     iconName: priorAuthorizations,
-    link: '/priorAuth',
+    link: '/priorAuthorization',
   },
   {
     label: 'Spending Accounts',
     description: 'Check your HSA, HRA or FSA accounts.',
     iconName: spendingAccounts,
-    link: '/spendingAccount',
+    link: '/spendingAccounts',
   },
   {
     label: 'Spending Summary',

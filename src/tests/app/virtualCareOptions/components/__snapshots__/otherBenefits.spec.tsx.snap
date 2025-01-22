@@ -50,7 +50,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                       >
                         <a
                           class="p-4 block"
@@ -86,7 +86,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                       >
                         <a
                           class="p-4 block"
@@ -122,7 +122,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                       >
                         <a
                           class="p-4 block"
@@ -158,7 +158,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                   >
                     <div>
                       <div
-                        class="card-elevated cursor-pointer mr-4 shrink-0 "
+                        class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                       >
                         <a
                           class="p-4 block"
@@ -226,13 +226,15 @@ exports[`Other Benefits should render UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
           />
           <a
+            aria-label="View All Health Programs & Resources"
             style="display: block;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
               style="max-width: max-content; height: auto; display: block;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -292,7 +294,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                     >
                       <a
                         class="p-4 block"
@@ -328,7 +330,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                     >
                       <a
                         class="p-4 block"
@@ -364,7 +366,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                     >
                       <a
                         class="p-4 block"
@@ -400,7 +402,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                 >
                   <div>
                     <div
-                      class="card-elevated cursor-pointer mr-4 shrink-0 "
+                      class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
                     >
                       <a
                         class="p-4 block"
@@ -468,13 +470,15 @@ exports[`Other Benefits should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
         />
         <a
+          aria-label="View All Health Programs & Resources"
           style="display: block;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
             style="max-width: max-content; height: auto; display: block;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"

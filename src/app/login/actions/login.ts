@@ -46,7 +46,7 @@ export async function callLogin(
       request,
     );
 
-    logger.info('Login API - Success', resp);
+    logger.info('Login API - Success', resp, request.username);
     status = LoginStatus.ERROR;
 
     switch (resp.data.data?.message) {
@@ -68,6 +68,9 @@ export async function callLogin(
       case 'DEVICE_SELECTION_REQUIRED':
         status = LoginStatus.MFA_REQUIRED_MULTIPLE_DEVICES;
         break;
+      case 'PASSWORD_RESET_REQUIRED':
+        status = LoginStatus.PASSWORD_RESET_REQUIRED;
+        break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {
@@ -83,7 +86,7 @@ export async function callLogin(
       },
     };
   } catch (error) {
-    logger.error('Login API - Failure', error);
+    logger.error('Login API - Failure', error, request.username);
     if (error instanceof AxiosError) {
       return {
         status:

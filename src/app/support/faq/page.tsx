@@ -57,10 +57,12 @@ const FrequentlyAskedQuestions = () => {
       description:
         'Learn more about prior authorizations, statuses and how to make appeals.',
       iconName: priorAuthorizations,
-      link: '/support/faqTopics?faqtype=PriorAuthorization',
+      link: `/support/faqTopics?faqtype=${encodeURIComponent(
+        FaqTopicType.PriorAuthorization,
+      )}`,
     },
     {
-      label: 'Sharing, Permissions & Security',
+      label: 'Security',
       description:
         'How to share your health insurance information, represent a dependent individual and more.',
       iconName: keyIcon,

@@ -9,6 +9,11 @@ jest.mock('next/navigation', () => ({
       replace: mockReplace,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 const setupUI = () => {
   render(<LogInPage />);

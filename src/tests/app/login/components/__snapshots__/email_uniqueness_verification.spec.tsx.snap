@@ -111,7 +111,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
         class="flex flex-row justify-center items-center tooltip"
       >
         <span
-          class="tooltiptext"
+          class="tooltiptext !p-2"
         >
           Fill out the form to continue.
         </span>
@@ -327,7 +327,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
         class="flex flex-row justify-center items-center tooltip"
       >
         <span
-          class="tooltiptext"
+          class="tooltiptext !p-2"
         >
           Fill out the form to continue.
         </span>

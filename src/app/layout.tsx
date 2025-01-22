@@ -2,6 +2,7 @@
 
 import '@/app/globals.css';
 import { ClientInitComponent } from '@/components/clientComponents/ClientInitComponent';
+import Footer from '@/components/foundation/Footer';
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
@@ -21,7 +22,7 @@ export default function RootLayout({
         <ClientInitComponent />
         <SiteHeaderServerWrapper />
         <ClientLayout>{children}</ClientLayout>
-
+        <Footer />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <script
           src="https://apps.pingone.com/signals/web-sdk/5.3.7/signals-sdk.js"

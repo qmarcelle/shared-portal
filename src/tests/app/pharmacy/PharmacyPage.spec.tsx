@@ -18,9 +18,6 @@ describe('Pharmacy Page', () => {
   it('should render the page correctly', async () => {
     const Page = await PharmacyPage();
     const container = render(Page);
-    expect(
-      screen.getByText('View Covered Drug List (Formulary)'),
-    ).toBeVisible();
     expect(screen.getByText('My Recent Pharmacy Claims')).toBeVisible();
     expect(screen.getByText('View All Pharmacy Claims')).toBeVisible();
     fireEvent.click(screen.getByText(/View All Pharmacy Claims/i));

@@ -145,13 +145,15 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                   Connected On 01/01/2023
                 </p>
                 <a
+                  aria-label="Remove"
                   style="display: flex;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color pl-0"
                     style="max-width: max-content; height: auto; display: flex;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link linkUnderlineNone"
@@ -220,13 +222,15 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                   Connected On 01/01/2023
                 </p>
                 <a
+                  aria-label="Remove"
                   style="display: flex;"
                   tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color pl-0"
                     style="max-width: max-content; height: auto; display: flex;"
-                    tabindex="0"
+                    tabindex="-1"
+                    type="button"
                   >
                     <p
                       class="link linkUnderlineNone"

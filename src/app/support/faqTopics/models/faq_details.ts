@@ -29,5 +29,5 @@ export enum FaqTopicType {
   MyPlanInformation = 'My Plan Information',
   Pharmacy = 'Pharmacy',
   PriorAuthorization = 'Prior Authorization',
-  SharingPermisionsSecurity = 'Sharing, Permissions & Security',
+  SharingPermisionsSecurity = 'Security',
 }

@@ -10,8 +10,11 @@ export const AboutOtherInsurance = () => {
       <Column>
         <Header type="title-2" text="About Other Insurance" />
         <Spacer size={16} />
-        <TextBox text="Even if you don't have other coverage, we still need to know that we can process your claims correctly" />
-        <Spacer size={32} />
+        <TextBox
+          text={`Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This
+             is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by
+              the selections you make here.`}
+        />
       </Column>
     </Card>
   );

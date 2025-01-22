@@ -19,6 +19,7 @@ export interface SiteHeaderSubNavItemProps extends IComponent {
   shortLinks?: ShortLinkNavItem[];
   childPages: ChildPages[];
   visibilityRules?: VisibilityRules;
+  closeSubMenu: () => void;
 }
 
 export const SubNavItemSection = ({
@@ -29,16 +30,19 @@ export const SubNavItemSection = ({
   shortLinks,
   childPages,
   visibilityRules,
+  closeSubMenu,
 }: SiteHeaderSubNavItemProps) => {
   const tempChildPages: ChildPages[] = [];
   const router = useRouter();
 
   childPages.map((item) => {
-    if (colType == item.category) tempChildPages.push(item);
+    if (colType == item.category && item.showOnMenu(visibilityRules))
+      tempChildPages.push(item);
   });
 
   function ChangeUrl(link: string) {
-    router.replace(link);
+    router.push(link);
+    closeSubMenu();
   }
 
   return (
@@ -46,7 +50,7 @@ export const SubNavItemSection = ({
       {(() => {
         if (colType == 'QT') {
           return (
-            <a href={qt?.link}>
+            <Link href={qt?.link ?? ''} onClick={closeSubMenu}>
               <div className="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg">
                 <h3 className="pb-3 text-sm text-black">Quick Tip</h3>
                 <p className="pb-1 text-base app-base-font-color ">
@@ -59,7 +63,7 @@ export const SubNavItemSection = ({
                   alt="Page Arrow"
                 ></Image>
               </div>
-            </a>
+            </Link>
           );
         } else if (colType == 'LINKS') {
           return shortLinks?.map((item, index) => (
@@ -77,40 +81,38 @@ export const SubNavItemSection = ({
         } else if (colType.length != 0) {
           return (
             <>
-              {colType !== 'Support' && (
+              {colType !== 'Support' && !!tempChildPages.length && (
                 <TextBox
                   type="title-1"
                   text={colType}
                   className="py-2 tertiary-color font-thin !text-2xl"
                 />
               )}
-              {tempChildPages.map(
-                (item, index) =>
-                  item.showOnMenu(visibilityRules) &&
-                  (item.external ? (
-                    <Link
-                      key={index}
-                      className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href={item.url}
-                      target="_blank"
-                    >
-                      <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
-                        {item.title}
-                      </p>
-                      <Image
-                        className="pb-2"
-                        src={externalIcon}
-                        alt="External Link"
-                      />
-                    </Link>
-                  ) : (
-                    <AppLink
-                      key={index}
-                      label={item.title}
-                      callback={() => ChangeUrl(item.url)}
-                      className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+              {tempChildPages.map((item, index) =>
+                item.external ? (
+                  <Link
+                    key={index}
+                    className="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href={item.url}
+                    target="_blank"
+                  >
+                    <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
+                      {item.title}
+                    </p>
+                    <Image
+                      className="pb-2"
+                      src={externalIcon}
+                      alt="External Link"
                     />
-                  )),
+                  </Link>
+                ) : (
+                  <AppLink
+                    key={index}
+                    label={item.title}
+                    callback={() => ChangeUrl(item.url)}
+                    className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                  />
+                ),
               )}
             </>
           );

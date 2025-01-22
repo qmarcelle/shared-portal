@@ -52,11 +52,10 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   <p
                     class="body-1"
                   >
-                    Even if you don't have other coverage, we still need to know that we can process your claims correctly
+                    Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This
+             is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by
+              the selections you make here.
                   </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
                 </div>
               </div>
             </div>
@@ -788,11 +787,10 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                 <p
                   class="body-1"
                 >
-                  Even if you don't have other coverage, we still need to know that we can process your claims correctly
+                  Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This
+             is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by
+              the selections you make here.
                 </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
               </div>
             </div>
           </div>

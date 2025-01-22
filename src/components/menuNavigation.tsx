@@ -1,6 +1,14 @@
 import {
+  isBiometricScreening,
+  isBlueCareAndPrimaryCarePhysicianEligible,
+  isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
+  isMentalHealthMenuOption,
+  isPriceDentalCareMenuOptions,
+  isPriceVisionCareMenuOptions,
+  isPrimaryCareMenuOption,
+  isSpendingAccountsMenuOptions,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
@@ -55,10 +63,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Primary Care Options',
         description: 'This is Primary Care Options',
         category: 'Find Care',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/primaryCareOptions',
+        showOnMenu: isPrimaryCareMenuOption,
+        url: 'findcare/primaryCareOptions',
         external: false,
       },
       {
@@ -66,10 +72,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Mental Health Options',
         description: 'This is Mental Health Option',
         category: 'Find Care',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/mentalHealthOptions',
+        showOnMenu: isMentalHealthMenuOption,
+        url: 'findcare/mentalHealthOptions',
         external: false,
       },
       {
@@ -97,7 +101,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Dental Care',
         description: 'This is Price Dental Care',
         category: 'Estimate Costs',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isPriceDentalCareMenuOptions,
         url: '/priceDentalCare',
         external: false,
       },
@@ -106,7 +110,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Price Vision Care',
         description: 'This is Price Vision Care',
         category: 'Estimate Costs',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: isPriceVisionCareMenuOptions,
         url: '/pricevisioncare',
         external: true,
       },
@@ -153,9 +157,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Plan Documents',
         description: 'This is Plan Documents',
         category: 'Plan Details',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/benefits/planDocuments',
         external: false,
       },
@@ -164,11 +166,18 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Services Used',
         description: 'This is Services Used',
         category: 'Plan Details',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/benefits/servicesUsed',
         external: false,
+      },
+      {
+        id: 102,
+        title: 'Member Handbook',
+        description: 'This is Member Handbook',
+        category: 'Plan Details',
+        showOnMenu: isBlueCareEligible,
+        url: 'https://bluecare.bcbst.com/get-care/documents-forms',
+        external: true,
       },
       {
         id: 96,
@@ -178,7 +187,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         showOnMenu: () => {
           return true;
         },
-        url: '/claimSnapshotList',
+        url: '/claims',
         external: false,
       },
       {
@@ -208,9 +217,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Balances',
         description: 'This is Balances',
         category: 'Spending',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/balances',
         external: false,
       },
@@ -219,9 +226,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Accounts (HSA, FSA)',
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isSpendingAccountsMenuOptions,
         url: '/spendingAccounts',
         external: false,
       },
@@ -230,9 +235,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Spending Summary',
         description: 'This is Spending Summary',
         category: 'Spending',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/spendingSummary',
         external: false,
       },
@@ -241,9 +244,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'View or Pay Premium',
         description: 'This is View or Pay Premium',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '/balances',
         external: true,
       },
@@ -252,7 +253,8 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Enroll in a Health Plan',
         description: 'This is Enroll in a Health Plan',
         category: 'Manage My Plan',
-        showOnMenu: isEnrollEligible,
+        showOnMenu: (rules) =>
+          isEnrollEligible(rules) && isBlueCareNotEligible(rules),
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
         external: true,
       },
@@ -261,9 +263,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Manage My Policy',
         description: 'This is Manage My Policy',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: '',
         external: false,
       },
@@ -272,10 +272,19 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
+        showOnMenu: isBlueCareNotEligible,
+        url: '/reportOtherHealthInsurance',
+        external: false,
+      },
+      {
+        id: 73,
+        title: 'Update Katie Beckett Banking Info',
+        description: 'This is Updating Katie Beckett Banking Info',
+        category: 'Manage My Plan',
         showOnMenu: () => {
           return true;
         },
-        url: '/reportOtherHealthInsurance',
+        url: 'myPlan/katieBeckettBankingInfo',
         external: false,
       },
     ],
@@ -329,14 +338,21 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         external: true,
       },
       {
+        id: 103,
+        title: 'Biometric Screening',
+        description: 'This is Biometric Screening',
+        category: 'Wellness',
+        showOnMenu: isBiometricScreening,
+        url: '/biometricscreening',
+        external: true,
+      },
+      {
         id: 83,
         title: 'My Primary Care Provider',
         description: 'This is My Primary Care Provider',
         category: 'Wellness',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/myprimarycareprov',
+        showOnMenu: isBlueCareAndPrimaryCarePhysicianEligible,
+        url: '/myPrimaryCareProvider',
         external: false,
       },
       {
@@ -358,7 +374,7 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         showOnMenu: () => {
           return true;
         },
-        url: '/healthProgramsResources',
+        url: '/myHealth/healthProgramsResources',
         external: false,
       },
       {

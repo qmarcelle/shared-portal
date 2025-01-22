@@ -47,6 +47,12 @@ export const isValidEmailAddress = (email: string): boolean => {
   return validEmail;
 };
 
+export const isValidPassword = (password: string): boolean => {
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[!@#$%^&*()\-=_+])(?!.*[\[\]{};':"\\|,.`<>\/?~*]).{8,30}$/g;
+  return passwordRegex.test(password);
+};
+
 /**
  * Validates the given Email address length.
  * @param email
@@ -62,6 +68,9 @@ export const validateLength = (value: string): boolean => {
  * @returns date
  */
 export const validateDate = (dateVal: string) => {
+  if (dateVal.replace(/\//g, '').length <= 7) {
+    return false;
+  }
   // Regular expression to match MM/DD/YYYY format
   const datePattern =
     /(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)dd/;
@@ -93,14 +102,24 @@ export const validateDate = (dateVal: string) => {
  * @returns masked  date
  */
 export const formatDate = (value: string) => {
-  // Remove all non-digit characters
-  value = value.replace(/\D/g, '');
-  //Add slashes at the appropriate positions
-  if (value.length > 2) {
-    value = value.slice(0, 2) + '/' + value.slice(2);
-  }
-  if (value.length > 5) {
-    value = value.slice(0, 5) + '/' + value.slice(5);
+  if (value.includes('/')) {
+    const digits = value.split('/');
+    if (digits.length == 2) {
+      if (digits[1].length > 2) {
+        value =
+          digits[0] + '/' + digits[1].slice(0, 2) + '/' + digits[1].slice(2);
+      }
+    }
+  } else {
+    // Remove all non-digit characters
+    value = value.replace(/\D/g, '');
+    //Add slashes at the appropriate positions
+    if (value.length > 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    if (value.length > 5) {
+      value = value.slice(0, 5) + '/' + value.slice(5);
+    }
   }
   return value;
 };
@@ -115,4 +134,16 @@ export const isConfirmEmailAddressMatch = (value: string, email: string) => {
   } else {
     return true;
   }
+};
+/**
+ * check entered domain is valid or not
+ */
+
+export const isValidEmailDomain = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return false;
+  }
+  const parts = email.split('@');
+  return parts.length === 2 && parts[1].endsWith('bcbst.com');
 };

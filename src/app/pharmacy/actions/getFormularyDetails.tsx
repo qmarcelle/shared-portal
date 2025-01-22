@@ -1,10 +1,16 @@
 'use server';
 import { getMemberDetails } from '@/actions/memberDetails';
+import { auth } from '@/auth';
+import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
 import fs from 'fs';
+import { PharmacyData } from '../models/app/pharmacyData';
 import { getFormularyFilter } from './getFormularyFilter';
 
-export async function getFormularyDetails(): Promise<string> {
+export async function getFormularyDetails(): Promise<
+  ActionResponse<number, PharmacyData>
+> {
+  const session = await auth();
   try {
     let formularyURL = '';
     const memberDetails = await getMemberDetails();
@@ -23,9 +29,21 @@ export async function getFormularyDetails(): Promise<string> {
         formularyURL = 'Default-DrugFormularyPDF';
       }
     }
-    return formularyURL;
+    return {
+      status: 200,
+      data: {
+        formularyURL: formularyURL,
+        visibilityRules: session?.user.vRules,
+      },
+    };
   } catch (error) {
     logger.error('Drug list formulary error ', error);
-    return '';
+    return {
+      status: 400,
+      data: {
+        formularyURL: '',
+        visibilityRules: session?.user.vRules,
+      },
+    };
   }
 }

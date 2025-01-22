@@ -1,10 +1,15 @@
-import { getMemberDetails } from '@/actions/memberDetails';
+import { getLoggedInMember } from '@/actions/memberDetails';
 
 import { logger } from '@/utils/logger';
 import { AccessCodeType } from '../models/access_code_details';
 import { AccessCodeResourcesDetails } from '../models/access_code_resources';
+import { auth } from '@/auth';
+import { MyHealthProgramsData } from '../models/my_Health_Programs_Data';
+import { ActionResponse } from '@/models/app/actionResponse';
 
-export async function getAccessCodeDetails(): Promise<string> {
+export async function getAccessCodeDetails(): Promise<
+  ActionResponse<number, MyHealthProgramsData>
+> {
   const btnAccessCodeList = [
     AccessCodeType.BtnBlueWell,
     AccessCodeType.BtnBlueChat,
@@ -16,15 +21,30 @@ export async function getAccessCodeDetails(): Promise<string> {
     AccessCodeType.AmpBlueHere,
   ];
   try {
-    const memberDetails = await getMemberDetails();
-    const accessCodeList = memberDetails.isAmplifyMem
+    const session = await auth();
+    const memberDetails = await getLoggedInMember();
+    const accessCodeList = session?.user.vRules?.isAmplifyMem
       ? ampAccessCodeList
       : btnAccessCodeList;
-
-    return accessCodeEvaluation(memberDetails.cmCondtion, accessCodeList);
+    return {
+      status: 200,
+      data: {
+        careTNAccessCode: accessCodeEvaluation(
+          memberDetails.cmCondition,
+          accessCodeList,
+        ),
+        sessionData: session,
+      },
+    };
   } catch (error) {
     logger.error('CareTN Access Code error ', error);
-    return '';
+    return {
+      status: 400,
+      data: {
+        careTNAccessCode: '',
+        sessionData: null,
+      },
+    };
   }
 }
 

@@ -10,15 +10,18 @@ import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
+import { Session } from 'next-auth';
 
 interface HealthProgramHeaderProps extends IComponent {
   icon?: ReactNode;
   healthProgramHeaderDetails: HealthProgramHeaderCardDetails;
+  sessionData: Session | null;
 }
 
 export const HealthProgramsHeaderCard = ({
   icon = <Image alt="external icon" src={externalOffsiteWhiteIcon} />,
   healthProgramHeaderDetails,
+  sessionData,
 }: HealthProgramHeaderProps) => {
   return (
     <Column className="md:m-2 m-4">
@@ -63,7 +66,7 @@ export const HealthProgramsHeaderCard = ({
               className="my-health-programs-header-button"
               callback={() => {
                 window.location.href =
-                  healthProgramHeaderDetails.redirectLink ?? ' ';
+                  healthProgramHeaderDetails.redirectLink?.(sessionData) ?? ' ';
               }}
             />
           )}

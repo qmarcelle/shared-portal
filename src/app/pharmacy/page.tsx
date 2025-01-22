@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 };
 
 const PharmacyPage = async () => {
-  const componentURL = await getFormularyDetails();
-  return <Pharmacy data={componentURL} />;
+  const result = await getFormularyDetails();
+  return <Pharmacy data={result.data!} />;
 };
 
 export default PharmacyPage;

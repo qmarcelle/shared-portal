@@ -1,6 +1,7 @@
 import { ActionResponse } from '@/models/app/actionResponse';
 import { AppProg } from '@/models/app_prog';
 import { logger } from '@/utils/logger';
+import { FormEvent } from 'react';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callVerifyEmailOtp } from '../actions/verifyEmail';
@@ -12,7 +13,7 @@ import { useLoginStore } from './loginStore';
 type VerifyEmailStore = {
   code: string;
   updateCode: (code: string) => void;
-  submitVerifyEmailAuth: () => void;
+  submitVerifyEmailAuth: (e?: FormEvent<HTMLFormElement>) => void;
   resetApiErrors: () => void;
   completeVerifyEmailProg: AppProg;
   apiErrors: string[];
@@ -31,8 +32,9 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
       set(() => ({
         code: val.trim(),
       })),
-    submitVerifyEmailAuth: async () => {
+    submitVerifyEmailAuth: async (e?: FormEvent<HTMLFormElement>) => {
       try {
+        e?.preventDefault();
         // Clear existing errors
         set({ apiErrors: [] });
         // Set SubmitMfa prog to loading

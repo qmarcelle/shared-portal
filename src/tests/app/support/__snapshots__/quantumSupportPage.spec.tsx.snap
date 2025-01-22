@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Support Page should render the page correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <title>
+        Support
+      </title>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <header
+          class="flex flex-col h-[175px] w-full text-white justify-center items-center brand-gradient"
+        >
+          <div
+            class="flex flex-col items-start w-full app-content px-4"
+          >
+            <h1
+              class="title-1"
+            >
+              Support
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+            >
+              We're here to help answer your questions
+            </p>
+          </div>
+        </header>
+        <main
+          class="flex flex-col w-full justify-center items-center"
+        >
+          <div
+            class="flex flex-col app-content app-base-font-color px-4 mt-8 gap-8"
+          >
+            <section
+              class="self-stretch px-8"
+            >
+              <h2
+                class="title-2"
+              >
+                Contact Quantum Health
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-stretch gap-8 flex-wrap"
+              >
+                <div
+                  class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
+                >
+                  <img
+                    alt="call icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <h3
+                    class="title-3 !font-bold"
+                  />
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <p
+                      class="body-1 font-bold"
+                    >
+                      Call 
+                    </p>
+                    <p
+                      class="body-1 font-bold"
+                    >
+                       [1-800-000-0000]
+                    </p>
+                  </span>
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <p
+                      class="body-1"
+                    >
+                      Anytime, 24/7 
+                    </p>
+                  </span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+        <section
+          class="flex flex-col w-full"
+        >
+          <div
+            class="w-full surface-gradient-flipped"
+          >
+            <div
+              class="flex flex-col mt-16 text-white items-center px-4 gap-4"
+            >
+              <h2
+                class="title-2 text-center"
+              >
+                Have feedback about our website?
+              </h2>
+              <p
+                class="body-1 text-center"
+              >
+                We want to hear from you. Share your feedback about your experience using our website.
+              </p>
+              <button
+                aria-label="Share Your Feedback"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+                type="button"
+              >
+                Share Your Feedback
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <title>
+      Support
+    </title>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <header
+        class="flex flex-col h-[175px] w-full text-white justify-center items-center brand-gradient"
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <h1
+            class="title-1"
+          >
+            Support
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+          >
+            We're here to help answer your questions
+          </p>
+        </div>
+      </header>
+      <main
+        class="flex flex-col w-full justify-center items-center"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color px-4 mt-8 gap-8"
+        >
+          <section
+            class="self-stretch px-8"
+          >
+            <h2
+              class="title-2"
+            >
+              Contact Quantum Health
+            </h2>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-row justify-stretch gap-8 flex-wrap"
+            >
+              <div
+                class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
+              >
+                <img
+                  alt="call icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <h3
+                  class="title-3 !font-bold"
+                />
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <p
+                    class="body-1 font-bold"
+                  >
+                    Call 
+                  </p>
+                  <p
+                    class="body-1 font-bold"
+                  >
+                     [1-800-000-0000]
+                  </p>
+                </span>
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <p
+                    class="body-1"
+                  >
+                    Anytime, 24/7 
+                  </p>
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <section
+        class="flex flex-col w-full"
+      >
+        <div
+          class="w-full surface-gradient-flipped"
+        >
+          <div
+            class="flex flex-col mt-16 text-white items-center px-4 gap-4"
+          >
+            <h2
+              class="title-2 text-center"
+            >
+              Have feedback about our website?
+            </h2>
+            <p
+              class="body-1 text-center"
+            >
+              We want to hear from you. Share your feedback about your experience using our website.
+            </p>
+            <button
+              aria-label="Share Your Feedback"
+              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+              type="button"
+            >
+              Share Your Feedback
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

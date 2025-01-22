@@ -21,7 +21,7 @@ exports[`AmplifyHealthAdvisorBanner should render UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <p>
-            Have a question or need advice? Your AmplifyHealth Advisor is here for you 24/7. You can start a chat or call us at [1-800-000-0000].
+            Have a question or need advice? Your AmplifyHealth Advisor is here for you 24/7. You can start a chat or call us at [1-866-258-3267].
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"

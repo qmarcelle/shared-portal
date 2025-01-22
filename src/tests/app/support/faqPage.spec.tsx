@@ -46,7 +46,7 @@ describe('Frequently Asked Question Page', () => {
         'Learn more about prior authorizations, statuses and how to make appeals.',
       ),
     ).toBeVisible();
-    expect(screen.getByText('Sharing, Permissions & Security')).toBeVisible();
+    expect(screen.getByText('Security')).toBeVisible();
     expect(
       screen.getByText(
         'How to share your health insurance information, represent a dependent individual and more.',

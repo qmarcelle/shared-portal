@@ -1,0 +1,749 @@
+import SupportPage from '@/app/support/page';
+import { mockedAxios } from '@/tests/__mocks__/axios';
+import '@testing-library/jest-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
+
+global.open = jest.fn();
+process.env.NEXT_PUBLIC_PORTAL_QUALTRICS_URL =
+  'https://test-bcbst.qualtrics.com/jfe/form';
+
+const setupUI = async () => {
+  const result = await SupportPage();
+  return render(result);
+};
+
+jest.mock('../../../auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          plan: {
+            grpId: '100000',
+            memCk: '123456789',
+          },
+        },
+      },
+    }),
+  ),
+}));
+
+describe('Support Page', () => {
+  beforeEach(() => {
+    mockedAxios.get
+      .mockResolvedValueOnce({
+        data: {
+          data: {
+            hashCode: 'xyz',
+          },
+        },
+      })
+      .mockResolvedValueOnce({
+        data: {
+          isActive: true,
+          subscriberLoggedIn: true,
+          lob: 'REGL',
+          groupData: {
+            groupID: '130430',
+            groupCK: '21908',
+            groupName: 'Chris B Hall Enterprises',
+            parentGroupID: '100001',
+            subGroupID: '0001',
+            subGroupCK: 28951,
+            subGroupName: 'Chris B Hall Enterprises',
+            clientID: 'EI',
+            policyType: 'INT',
+            groupEIN: '620427913',
+          },
+          networkPrefix: 'QMI',
+          subscriberID: '902218823',
+          subscriberCK: '91722400',
+          subscriberFirstName: 'CHRIS',
+          subscriberLastName: 'HALL',
+          subscriberTitle: '',
+          subscriberDateOfBirth: '08/06/1959',
+          subscriberOriginalEffectiveDate: '01/01/2001',
+          members: [
+            {
+              isActive: true,
+              memberOrigEffDt: '06/29/2009',
+              memberCk: 91722407,
+              firstName: 'CHRISTMAS',
+              middleInitial: '',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'S',
+              birthDate: '06/29/2009',
+              gender: 'M',
+              memberSuffix: 6,
+              mailAddressType: 'H',
+              workPhone: '',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'M',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'M',
+                  planID: 'MBPX0806',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Blue Network P',
+                },
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: false,
+              hasSocial: true,
+              esipharmacyEligible: true,
+            },
+            {
+              isActive: true,
+              memberOrigEffDt: '06/15/2009',
+              memberCk: 91722406,
+              firstName: 'KRISSY',
+              middleInitial: 'C',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'D',
+              birthDate: '06/15/2009',
+              gender: 'F',
+              memberSuffix: 5,
+              mailAddressType: 'H',
+              workPhone: '',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'M',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'M',
+                  planID: 'MBPX0806',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Blue Network P',
+                },
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: false,
+              hasSocial: false,
+              esipharmacyEligible: true,
+            },
+            {
+              isActive: true,
+              memberOrigEffDt: '05/01/2009',
+              memberCk: 91722405,
+              firstName: 'CHRISTIAN',
+              middleInitial: '',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'S',
+              birthDate: '10/31/2011',
+              gender: 'M',
+              memberSuffix: 4,
+              mailAddressType: 'H',
+              workPhone: '',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'M',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'M',
+                  planID: 'MBPX0806',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Blue Network P',
+                },
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: false,
+              hasSocial: true,
+              esipharmacyEligible: true,
+            },
+            {
+              isActive: true,
+              memberOrigEffDt: '01/01/2001',
+              memberCk: 91722402,
+              firstName: 'KRISTY',
+              middleInitial: '',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'W',
+              birthDate: '05/17/1971',
+              gender: 'F',
+              memberSuffix: 1,
+              mailAddressType: 'H',
+              workPhone: '',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: false,
+              hasSocial: true,
+              esipharmacyEligible: false,
+            },
+            {
+              isActive: true,
+              memberOrigEffDt: '01/01/2001',
+              memberCk: 91722401,
+              firstName: 'CHRIS',
+              middleInitial: 'B',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'M',
+              birthDate: '08/06/1959',
+              gender: 'M',
+              memberSuffix: 0,
+              mailAddressType: 'H',
+              workPhone: '1234567890',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'D',
+                  coverageLevel: '*',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+                {
+                  productType: 'M',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'D',
+                  planID: 'DEHCNY02',
+                  effectiveDate: 1509508800000,
+                  planStartDate: 1451624400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'DentalBlue Preferred Network',
+                },
+                {
+                  productCategory: 'M',
+                  planID: 'MBPX0806',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Blue Network P',
+                },
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: true,
+              hasSocial: true,
+              esipharmacyEligible: true,
+            },
+            {
+              isActive: true,
+              memberOrigEffDt: '01/01/2014',
+              memberCk: 91722409,
+              firstName: 'CHRISTOFF',
+              middleInitial: '',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'S',
+              birthDate: '01/01/2000',
+              gender: 'M',
+              memberSuffix: 8,
+              mailAddressType: 'H',
+              workPhone: '',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'M',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'M',
+                  planID: 'MBPX0806',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Blue Network P',
+                },
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: false,
+              hasSocial: false,
+              esipharmacyEligible: true,
+            },
+            {
+              isActive: true,
+              memberOrigEffDt: '12/11/2006',
+              memberCk: 91722408,
+              firstName: 'CHRISTO',
+              middleInitial: '',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'S',
+              birthDate: '12/11/2006',
+              gender: 'M',
+              memberSuffix: 7,
+              mailAddressType: 'H',
+              workPhone: '',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'M',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'M',
+                  planID: 'MBPX0806',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Blue Network P',
+                },
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: false,
+              hasSocial: true,
+              esipharmacyEligible: true,
+            },
+            {
+              isActive: true,
+              memberOrigEffDt: '12/11/2006',
+              memberCk: 54363201,
+              firstName: 'ChrisBalance',
+              middleInitial: '',
+              lastName: 'HALL',
+              title: '',
+              memRelation: 'S',
+              birthDate: '12/11/2006',
+              gender: 'M',
+              memberSuffix: 7,
+              mailAddressType: 'H',
+              workPhone: '',
+              otherInsurance: [],
+              coverageTypes: [
+                {
+                  productType: 'M',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'S',
+                  coverageLevel: 'A',
+                  exchange: false,
+                  indvGroupInd: '',
+                  pedAdultInd: '',
+                },
+                {
+                  productType: 'V',
+                  coverageLevel: 'A',
+                  exchange: true,
+                  indvGroupInd: 'Group',
+                  pedAdultInd: 'Adult',
+                },
+              ],
+              planDetails: [
+                {
+                  productCategory: 'M',
+                  planID: 'MBPX0806',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Blue Network P',
+                },
+                {
+                  productCategory: 'S',
+                  planID: 'WSXM0218',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1514782800000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Wellness Plan',
+                },
+                {
+                  productCategory: 'V',
+                  planID: 'VEMGN002',
+                  effectiveDate: 1546318800000,
+                  planStartDate: 1383278400000,
+                  planClassID: 'PPOA',
+                  networkPlanName: 'Vision Blue',
+                },
+              ],
+              inXPermissions: true,
+              futureEffective: false,
+              loggedIn: false,
+              hasSocial: true,
+              esipharmacyEligible: true,
+            },
+          ],
+          coverageTypes: [
+            {
+              productType: 'M',
+              coverageLevel: 'A',
+              exchange: false,
+              indvGroupInd: '',
+              pedAdultInd: '',
+            },
+            {
+              productType: 'S',
+              coverageLevel: 'A',
+              exchange: false,
+              indvGroupInd: '',
+              pedAdultInd: '',
+            },
+            {
+              productType: 'V',
+              coverageLevel: 'A',
+              exchange: true,
+              indvGroupInd: 'Group',
+              pedAdultInd: 'Adult',
+            },
+            {
+              productType: 'D',
+              coverageLevel: '*',
+              exchange: true,
+              indvGroupInd: 'Group',
+              pedAdultInd: 'Adult',
+            },
+          ],
+          addresses: [
+            {
+              type: '1',
+              address1: 'TEST BLUE ACCESS',
+              address2: '',
+              address3: '',
+              city: 'Chattanooga',
+              state: 'TN',
+              zipcode: '37412',
+              county: 'HAMILTON',
+              phone: '',
+              email: '',
+            },
+            {
+              type: '2',
+              address1: 'TEST 2 BLUE ACCESS',
+              address2: '',
+              address3: '',
+              city: 'Chattanooga',
+              state: 'TN',
+              zipcode: '37402',
+              county: 'HAMILTON',
+              phone: '',
+              email: '',
+            },
+            {
+              type: 'H',
+              address1: '1 CAMERON HILL CIRCLE',
+              address2: '',
+              address3: '',
+              city: 'CHATTANOOGA',
+              state: 'TN',
+              zipcode: '37402',
+              county: 'HAMILTON',
+              phone: '4235353065',
+              email: '',
+            },
+          ],
+          healthCareAccounts: [],
+          esigroupNum: '100000MBPX0806',
+          cmcondition: [],
+        },
+      });
+    // Mock the window properties
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      value: 1024,
+    });
+
+    Object.defineProperty(window, 'innerHeight', {
+      writable: true,
+      value: 768,
+    });
+  });
+  it('should render the page correctly', async () => {
+    const component = await setupUI();
+    // Contact Us Section should be present
+
+    expect(screen.getByText('Contact Quantum Health')).toBeVisible();
+    expect(screen.getAllByText('Call')[0]).toBeVisible();
+    expect(screen.getAllByText('[1-800-000-0000]')[0]).toBeVisible();
+
+    expect(screen.queryByText('Contact Us')).not.toBeInTheDocument();
+    expect(screen.getAllByText('Call')[0]).toBeVisible();
+    expect(screen.queryByText('Chat')).not.toBeInTheDocument();
+    expect(screen.queryByText('Email')).not.toBeInTheDocument();
+
+    // Resources Section should be present
+    expect(screen.queryByText('Resources')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Frequently Asked Questions'),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Health Insurance Glossary'),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Find a Form')).not.toBeInTheDocument();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should open the Qualtrics survey link on feedback button click', async () => {
+    await setupUI();
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      '/memberDetails/hashKey?memberKey=123456789&groupId=100000',
+    );
+    fireEvent.click(screen.getByLabelText('Share Your Feedback'));
+    expect(global.open).toHaveBeenCalledWith(
+      'https://test-bcbst.qualtrics.com/jfe/form/SV_6rHlwsGRs79CO33?Q_CHL=si&grpnbr=100000&qs_digid=xyz',
+      '_blank',
+      'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=256,width=512,height=768',
+    );
+  });
+});

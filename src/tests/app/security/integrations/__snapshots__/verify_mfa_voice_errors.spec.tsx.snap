@@ -335,13 +335,15 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                           </div>
                         </div>
                         <a
+                          aria-label="Resend Code"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -368,13 +370,15 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                       />
                     </div>
                     <a
+                      aria-label="Cancel"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"
@@ -926,13 +930,15 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                           </div>
                         </div>
                         <a
+                          aria-label="Resend Code"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -959,13 +965,15 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                       />
                     </div>
                     <a
+                      aria-label="Cancel"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"
@@ -1517,13 +1525,15 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                           </div>
                         </div>
                         <a
+                          aria-label="Resend Code"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -1550,13 +1560,15 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                       />
                     </div>
                     <a
+                      aria-label="Cancel"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"
@@ -2108,13 +2120,15 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                           </div>
                         </div>
                         <a
+                          aria-label="Resend Code"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link undefined"
@@ -2141,13 +2155,15 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                       />
                     </div>
                     <a
+                      aria-label="Cancel"
                       style="display: block;"
                       tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
                         style="max-width: max-content; height: auto; display: block;"
-                        tabindex="0"
+                        tabindex="-1"
+                        type="button"
                       >
                         <p
                           class="link undefined"

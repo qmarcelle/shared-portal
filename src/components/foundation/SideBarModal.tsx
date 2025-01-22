@@ -215,6 +215,7 @@ export const InnerAppModal = ({
           <Column>
             <div className="sideBar-content">
               <ModalHeader onClose={closeModal} />
+              <Spacer size={32} />
               <Column className="items-stretch p-4">
                 {modalBody ? (
                   React.cloneElement(modalBody, {

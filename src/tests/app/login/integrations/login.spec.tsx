@@ -15,6 +15,11 @@ jest.mock('next/navigation', () => ({
       replace: () => null,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 
 jest.setTimeout(30000);
@@ -24,7 +29,9 @@ const setupUI = () => {
   const inputUsername = screen.getByRole('textbox', {
     name: /username/i,
   });
-  const inputPassword = screen.getByLabelText(/password/i);
+  const inputPassword = screen.getByLabelText(/password/i, {
+    selector: 'input',
+  });
   const loginButton = screen.getByRole('button', {
     name: /Log In/i,
   });

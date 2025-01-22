@@ -20,6 +20,11 @@ jest.mock('next/navigation', () => ({
       replace: mockReplace,
     };
   },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
 }));
 
 const setupUI = () => {
@@ -27,7 +32,9 @@ const setupUI = () => {
   const inputUsername = screen.getByRole('textbox', {
     name: /username/i,
   });
-  const inputPassword = screen.getByLabelText(/password/i);
+  const inputPassword = screen.getByLabelText(/password/i, {
+    selector: 'input',
+  });
   const loginButton = screen.getByRole('button', {
     name: /Log In/i,
   });
@@ -197,6 +204,7 @@ describe('Select Device Service Errors', () => {
           policyId: 'aa080f071f4e8f1ce4ab0072d2aeaa12',
           appId:
             '9caf7bfcb9e40cf575bf301b36ce6d7c37b23b3b6b070eca18122a4118db14cddc194cce8aba2608099a1252bcf7f7aa8c2bd2fcb918959218ac8d93ba6782b20805ad8b6bc5653743b9e8357f7b2bde09f1ae2dbf843d5bb2102c45f33e0386165b19d629d06b068daa805f18b898fe53da1f0b585b248c11d944f17ee58cef',
+          userToken: expect.anything(),
         },
       );
       expect(

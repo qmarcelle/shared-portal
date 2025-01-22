@@ -1,4 +1,5 @@
 import MyHealthPage from '@/app/myHealth/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
@@ -21,12 +22,8 @@ jest.mock('../../../auth', () => ({
           },
         },
         vRules: {
-          futureEffective: false,
-          fsaOnly: false,
-          wellnessOnly: false,
-          terminated: false,
-          katieBeckNoBenefitsElig: false,
-          blueCare: false,
+          myPCPElig: true,
+          ohdEligible: true,
         },
       },
     }),
@@ -34,6 +31,9 @@ jest.mock('../../../auth', () => ({
 }));
 
 describe('My Health Page', () => {
+  beforeEach(() => {
+    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+  });
   it('should render My Health Page correctly', async () => {
     mockedAxios.get.mockResolvedValueOnce({
       data: {
@@ -56,6 +56,12 @@ describe('My Health Page', () => {
       '/memberservice/PCPhysicianService/pcPhysician/123456789',
     );
 
+    expect(screen.getByText('Louthan, James D.')).toBeVisible();
+    expect(screen.getByText('2033 Meadowview Ln Ste 200')).toBeVisible();
+    expect(screen.getByText('My Primary Care Provider')).toBeVisible();
+    expect(
+      screen.getByText('View or Update Primary Care Provider'),
+    ).toBeVisible();
     screen.getByText('WellTuned Blog');
     screen.getByText(
       'Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health.',

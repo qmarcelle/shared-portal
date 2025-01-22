@@ -278,13 +278,15 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
+            aria-label="View Employer Provided Benefits"
             style="display: block;"
             tabindex="-1"
           >
             <button
               class="flex flex-row link-container body-bold p-0 sm:p-2"
               style="max-width: max-content; height: auto; display: block;"
-              tabindex="0"
+              tabindex="-1"
+              type="button"
             >
               <p
                 class="link undefined"
@@ -572,13 +574,15 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <a
+          aria-label="View Employer Provided Benefits"
           style="display: block;"
           tabindex="-1"
         >
           <button
             class="flex flex-row link-container body-bold p-0 sm:p-2"
             style="max-width: max-content; height: auto; display: block;"
-            tabindex="0"
+            tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"

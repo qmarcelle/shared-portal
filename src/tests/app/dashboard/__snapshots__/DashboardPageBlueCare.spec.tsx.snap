@@ -7,89 +7,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
       class="flex flex-col justify-center items-center page"
     >
       <div
-        class="flex flex-col self-stretch"
-      >
-        <div>
-          <div
-            class="flex flex-row py-1 px-2 w-full alert-tile"
-          >
-            <div>
-              <img
-                alt="AlertIcon"
-                class="icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-            <p
-              class="mx-1 grow"
-            >
-              There is a planned system outage on July 23-25
-            </p>
-            <div>
-              <img
-                alt="CloseIcon"
-                class="icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </div>
-          <div
-            class="divider"
-          />
-        </div>
-        <div
-          class="flex flex-row py-1 px-2 w-full alert-tile"
-        >
-          <div>
-            <img
-              alt="AlertIcon"
-              class="icon"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
-          </div>
-          <p
-            class="mx-1 grow"
-          >
-            Another type of message that effects
-          </p>
-          <div>
-            <img
-              alt="CloseIcon"
-              class="icon"
-              data-nimg="1"
-              decoding="async"
-              height="40"
-              loading="lazy"
-              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-              style="color: transparent;"
-              width="40"
-            />
-          </div>
-        </div>
-      </div>
-      <div
         class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
       >
         <div
@@ -161,9 +78,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
         <div
           class="flex flex-col app-content app-base-font-color"
         >
-          <section
-            class="sm:flex sm:flex-row items-start"
-          />
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
@@ -488,13 +402,15 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
                   <a
+                    aria-label="View Claims"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -554,6 +470,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
                   <a
+                    aria-label="View or Update Primary Care Provider"
                     href="/myPrimaryCareProvider"
                     style="display: block;"
                     tabindex="-1"
@@ -561,7 +478,8 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     <button
                       class="flex flex-row link-container !text-left"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -655,13 +573,15 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="View Prior Authorizations"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -974,13 +894,15 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <a
+                    aria-label="View Benefits & Coverage"
                     style="display: block;"
                     tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
                       style="max-width: max-content; height: auto; display: block;"
-                      tabindex="0"
+                      tabindex="-1"
+                      type="button"
                     >
                       <p
                         class="link undefined"
@@ -1077,7 +999,9 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   </div>
                 </section>
               </div>
-              <a>
+              <a
+                href=""
+              >
                 <div
                   class="card-elevated small-section"
                 >

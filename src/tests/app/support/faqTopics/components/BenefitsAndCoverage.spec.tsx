@@ -39,7 +39,7 @@ describe('Benefits and Coverage FAQ', () => {
     screen.getByText('My Plan Information');
     screen.getByText('Pharmacy');
     screen.getByText('Prior Authorization');
-    screen.getByText('Sharing, Permissions & Security');
+    screen.getByText('Security');
 
     expect(component).toMatchSnapshot();
   });

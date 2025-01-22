@@ -394,13 +394,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
+                            aria-label="Benefits & Coverage"
                             style="display: block;"
                             tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link !no-underline manage-faq"
@@ -424,13 +426,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
+                            aria-label="Claims"
                             style="display: block;"
                             tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link !no-underline manage-faq"
@@ -454,13 +458,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
+                            aria-label="ID Cards"
                             style="display: block;"
                             tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link !no-underline manage-faq"
@@ -484,13 +490,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
+                            aria-label="My Plan Information"
                             style="display: block;"
                             tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link !no-underline manage-faq"
@@ -514,13 +522,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
+                            aria-label="Pharmacy"
                             style="display: block;"
                             tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link !no-underline manage-faq"
@@ -544,13 +554,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
+                            aria-label="Prior Authorization"
                             style="display: block;"
                             tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link !no-underline manage-faq"
@@ -574,19 +586,21 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <a
+                            aria-label="Security"
                             style="display: block;"
                             tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
                               style="max-width: max-content; height: auto; display: block;"
-                              tabindex="0"
+                              tabindex="-1"
+                              type="button"
                             >
                               <p
                                 class="link !no-underline manage-faq"
                                 style="display: block;"
                               >
-                                Sharing, Permissions & Security
+                                Security
                               </p>
                             </button>
                           </a>
@@ -995,13 +1009,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Benefits & Coverage"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link !no-underline manage-faq"
@@ -1025,13 +1041,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Claims"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link !no-underline manage-faq"
@@ -1055,13 +1073,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="ID Cards"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link !no-underline manage-faq"
@@ -1085,13 +1105,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="My Plan Information"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link !no-underline manage-faq"
@@ -1115,13 +1137,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Pharmacy"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link !no-underline manage-faq"
@@ -1145,13 +1169,15 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Prior Authorization"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link !no-underline manage-faq"
@@ -1175,19 +1201,21 @@ exports[`Claims FAQ should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <a
+                          aria-label="Security"
                           style="display: block;"
                           tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
                             style="max-width: max-content; height: auto; display: block;"
-                            tabindex="0"
+                            tabindex="-1"
+                            type="button"
                           >
                             <p
                               class="link !no-underline manage-faq"
                               style="display: block;"
                             >
-                              Sharing, Permissions & Security
+                              Security
                             </p>
                           </button>
                         </a>
