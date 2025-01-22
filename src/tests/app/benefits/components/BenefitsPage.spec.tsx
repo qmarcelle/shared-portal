@@ -11,20 +11,14 @@ jest.mock('src/auth', () => ({
   auth: jest.fn(),
 }));
 
-const vRules = {
-  user: {
-    currUsr: {
-      plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
-    },
-    vRules: {
-      dental: true,
-      dentalCostsEligible: true,
-      enableCostTools: true,
-      vision: true,
-    },
-  },
-};
-
 describe('Benefits Page', () => {
-  //these need to be rewritten
+  it('should display an error if the benefits data is not available', async () => {
+    const { getByText } = await renderUI();
+
+    expect(
+      getByText(
+        'There was a problem loading your benefit information. Please try again later.',
+      ),
+    ).toBeInTheDocument();
+  });
 });
