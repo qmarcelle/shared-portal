@@ -1,6 +1,7 @@
 'use client';
 
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
+import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import {
@@ -20,6 +21,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
+  isFreedomMaBlueAdvantage,
   isPharmacyBenefitsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -45,19 +47,39 @@ const Pharmacy = ({ data }: PharmacyProps) => {
     router.push('/pharmacy/pharmacyClaims');
   };
 
+  const getOtcContent = () => (
+    <ShopOverCounterItemsCard
+      icon={shoppingCreditIcon}
+      title="Shop Over-the-Counter Items"
+      description="You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door."
+      url={process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER ?? ''}
+    />
+  );
+  const isBlueCare = isBlueCareEligible(data.visibilityRules);
+  const isFreedomMaBlueAdvantageMember = !!isFreedomMaBlueAdvantage(
+    data.visibilityRules,
+  );
   return (
     <main className="flex flex-col justify-center items-center page">
-      {isBlueCareEligible(data.visibilityRules) && (
+      <WelcomeBanner name="Pharmacy" />
+      {(isBlueCare || isFreedomMaBlueAdvantageMember) && (
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body ">
             <Column>
-              <PharmacyBenefits />
+              <PharmacyBenefits
+                isFreedomMember={isFreedomMaBlueAdvantageMember}
+              />
             </Column>
           </section>
+          {isFreedomMaBlueAdvantageMember && (
+            <section className="flex flex-row items-start app-body ">
+              <Column> {getOtcContent()}</Column>
+            </section>
+          )}
         </Column>
       )}
 
-      {!isBlueCareEligible(data.visibilityRules) && (
+      {!isBlueCare && !isFreedomMaBlueAdvantageMember && (
         <Column className="app-content app-base-font-color">
           {isPharmacyBenefitsEligible(data.visibilityRules) && (
             <section className="flex flex-row items-start app-body ">
@@ -179,12 +201,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                 className="title-1 ml-4 md:mt-12"
                 text="Resources & Support"
               />
-              <ShopOverCounterItemsCard
-                icon={shoppingCreditIcon}
-                title="Shop Over-the-Counter Items"
-                description="You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door."
-                url={process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER ?? ''}
-              />{' '}
+              {getOtcContent()}{' '}
             </Column>
           </section>
           <section className="flex flex-row items-start app-body">

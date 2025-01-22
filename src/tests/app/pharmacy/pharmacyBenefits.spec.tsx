@@ -17,6 +17,8 @@ const vRules = {
       terminated: false,
       katieBeckNoBenefitsElig: false,
       blueCare: true,
+      active: false,
+      otcEnable: false,
     },
   },
 };
@@ -60,6 +62,37 @@ describe('Pharmacy Benefits', () => {
       'href',
       'https://www.tn.gov/tenncare/members-applicants/pharmacy.html',
     );
+    expect(
+      screen.queryByText(
+        'Your plan does not include Medicare Part D prescription drug coverage. Please consult your Evidence of Coverage (EOC) for more information on medical benefits.',
+      ),
+    ).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should render Ui properly for Freedom MA BlueAdvantage member', async () => {
+    vRules.user.vRules.active = true;
+    vRules.user.vRules.otcEnable = true;
+    vRules.user.vRules.blueCare = false;
+    const mockAuth = jest.requireMock('src/auth').auth;
+
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: { visibilityRules: vRules.user.vRules },
+    });
+    const component = await renderUI();
+    expect(
+      screen.getByRole('heading', { name: 'Pharmacy Benefits' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Your plan does not include Medicare Part D prescription drug coverage. Please consult your Evidence of Coverage (EOC) for more information on medical benefits.',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
+      ),
+    ).toBeInTheDocument();
+    expect(component).toMatchSnapshot();
   });
 });

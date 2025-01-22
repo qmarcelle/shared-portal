@@ -6,135 +6,91 @@ export function computeAuthFunctions(
   loggedUserInfo: LoggedInUserInfo,
   rules: VisibilityRules,
 ): void {
-  rules.delinquent = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'CLAIMSHOLD',
-  )?.available;
+  const authFunctionsMap = new Map<string, boolean>(
+    loggedUserInfo.authFunctions.map((x) => [x.functionName, x.available]),
+  );
 
-  rules.katieBeckNoBenefitsElig = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'KB_NO_BENEFITS',
-  )?.available;
+  rules.delinquent = authFunctionsMap.get('CLAIMSHOLD');
 
-  rules.myPCPElig = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'MYPCPELIGIBLE',
-  )?.available;
+  rules.katieBeckNoBenefitsElig = authFunctionsMap.get('KB_NO_BENEFITS');
 
-  rules.chipRewardsEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'CHIPELIGIBLE',
-  )?.available;
+  rules.myPCPElig = authFunctionsMap.get('MYPCPELIGIBLE');
 
-  rules.blueHealthRewardsEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'BLUEHEALTHREWARDS',
-  )?.available;
+  rules.chipRewardsEligible = authFunctionsMap.get('CHIPELIGIBLE');
 
-  rules.bluePerksElig = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'BLUEPRKS',
-  )?.available;
+  rules.blueHealthRewardsEligible = authFunctionsMap.get('BLUEHEALTHREWARDS');
 
-  rules.condensedPortalExperienceGroups = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'CONDENSED_EXPERIENCE',
-  )?.available;
+  rules.bluePerksElig = authFunctionsMap.get('BLUEPRKS');
 
-  rules.amplifyMember = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'AMPLIFYMEMBER',
-  )?.available;
+  rules.condensedPortalExperienceGroups = authFunctionsMap.get(
+    'CONDENSED_EXPERIENCE',
+  );
 
-  rules.myStrengthCompleteEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'TELADOC_MYSTRENGTHCOMPLETE',
-  )?.available;
+  rules.amplifyMember = authFunctionsMap.get('AMPLIFYMEMBER');
 
-  rules.mentalHealthSupport = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'MENTAL_HEALTH_SUPPORT',
-  )?.available;
+  rules.myStrengthCompleteEligible = authFunctionsMap.get(
+    'TELADOC_MYSTRENGTHCOMPLETE',
+  );
 
-  rules.primary360Eligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'TELADOC_PRIMARY360',
-  )?.available;
+  rules.mentalHealthSupport = authFunctionsMap.get('MENTAL_HEALTH_SUPPORT');
 
-  rules.individualSBCEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'INDIVIDUAL_SBC_ELIGIBLE',
-  )?.available;
+  rules.primary360Eligible = authFunctionsMap.get('TELADOC_PRIMARY360');
 
-  rules.medicareAdvantageGroupIndicator = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'MedicareAdvantageGroupIndicator',
-  )?.available;
+  rules.individualSBCEligible = authFunctionsMap.get('INDIVIDUAL_SBC_ELIGIBLE');
 
-  rules.isCondensedExperience = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'CONDENSED_EXPERIENCE',
-  )?.available;
+  rules.medicareAdvantageGroupIndicator = authFunctionsMap.get(
+    'MedicareAdvantageGroupIndicator',
+  );
 
-  rules.enRollEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'ENROLLELIGIBLE',
-  )?.available;
+  rules.isCondensedExperience = authFunctionsMap.get('CONDENSED_EXPERIENCE');
 
-  rules.enableBenefitChange = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'ENABLE_BENEFIT_CHANGE_TAB',
-  )?.available;
+  rules.enRollEligible = authFunctionsMap.get('ENROLLELIGIBLE');
 
-  rules.dentalCostsEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'DENTALCOSTELIGIBLE',
-  )?.available;
+  rules.enableBenefitChange = authFunctionsMap.get('ENABLE_BENEFIT_CHANGE_TAB');
 
-  rules.enableCostTools = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'ENABLE_COST_TOOLS',
-  )?.available;
+  rules.dentalCostsEligible = authFunctionsMap.get('DENTALCOSTELIGIBLE');
 
-  rules.payMyPremiumElig = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'PAYMYPREMIUMELIGIBLE',
-  )?.available;
+  rules.enableCostTools = authFunctionsMap.get('ENABLE_COST_TOOLS');
 
-  rules.mentalHealthSupport = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'MENTAL_HEALTH_SUPPORT',
-  )?.available;
+  rules.payMyPremiumElig = authFunctionsMap.get('PAYMYPREMIUMELIGIBLE');
 
-  rules.myStrengthCompleteEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'TELADOC_MYSTRENGTHCOMPLETE',
-  )?.available;
+  rules.mentalHealthSupport = authFunctionsMap.get('MENTAL_HEALTH_SUPPORT');
 
-  rules.primary360Eligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'TELADOC_PRIMARY360',
-  )?.available;
+  rules.myStrengthCompleteEligible = authFunctionsMap.get(
+    'TELADOC_MYSTRENGTHCOMPLETE',
+  );
 
-  rules.hingeHealthEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'HINGE_HEALTH_ELIGIBLE',
-  )?.available;
+  rules.primary360Eligible = authFunctionsMap.get('TELADOC_PRIMARY360');
 
-  rules.groupRenewalDateBeforeTodaysDate = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'GROUP_RENEWAL_DATE_BEFORE_TODAY',
-  )?.available;
+  rules.hingeHealthEligible = authFunctionsMap.get('HINGE_HEALTH_ELIGIBLE');
 
-  rules.healthCoachElig = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'HEALTHCOACHELIGIBLE',
-  )?.available;
+  rules.groupRenewalDateBeforeTodaysDate = authFunctionsMap.get(
+    'GROUP_RENEWAL_DATE_BEFORE_TODAY',
+  );
 
-  rules.isAmplifyMem = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'AMPLIFYMEMBER',
-  )?.available;
+  rules.healthCoachElig = authFunctionsMap.get('HEALTHCOACHELIGIBLE');
 
-  rules.diabetesPreventionEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'TELADOC_DIABETESPREVENTION',
-  )?.available;
+  rules.isAmplifyMem = authFunctionsMap.get('AMPLIFYMEMBER');
 
-  rules.cmEnable = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'careManagementExclusion',
-  )?.available;
+  rules.diabetesPreventionEligible = authFunctionsMap.get(
+    'TELADOC_DIABETESPREVENTION',
+  );
 
-  rules.ohdEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName === 'OHDELIGIBLE',
-  )?.available;
+  rules.cmEnable = authFunctionsMap.get('careManagementExclusion');
 
-  rules.displayPharmacyTab = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName === 'ENABLE_PHAR_TAB',
-  )?.available;
+  rules.ohdEligible = authFunctionsMap.get('OHDELIGIBLE');
 
-  rules.fsaHraEligible = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'FSAHRAELIGIBLE',
-  )?.available;
+  rules.displayPharmacyTab = authFunctionsMap.get('ENABLE_PHAR_TAB');
 
-  rules.flexibleSpendingAccount = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName == 'FlexibleSpendingAccount',
-  )?.available;
+  rules.otcEnable = authFunctionsMap.get('OTCEnable');
 
-  rules.healthReimbursementAccount = loggedUserInfo.authFunctions.find(
-    (f) => f.functionName === 'HealthReimbursementAccount',
-  )?.available;
+  rules.fsaHraEligible = authFunctionsMap.get('FSAHRAELIGIBLE');
+
+  rules.flexibleSpendingAccount = authFunctionsMap.get(
+    'FlexibleSpendingAccount',
+  );
+
+  rules.healthReimbursementAccount = authFunctionsMap.get(
+    'HealthReimbursementAccount',
+  );
 }
