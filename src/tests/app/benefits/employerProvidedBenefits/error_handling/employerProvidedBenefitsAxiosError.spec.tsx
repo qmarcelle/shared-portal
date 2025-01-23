@@ -22,7 +22,10 @@ describe('Employer Provided Benefits Page Api Error', () => {
     );
 
     // Page should show error scenario
-    // TODO: Add error expectation
-    expect(screen.queryByText('Aetna EAP')).toBeNull();
+    expect(
+      screen.getByText(
+        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
+      ),
+    ).toBeVisible();
   });
 });

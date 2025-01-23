@@ -1,6 +1,7 @@
 import { BenefitsProviderInfoCard } from '@/app/dashboard/components/BenefitsProviderInfoCard';
 import { FindMedicalProvidersComponent } from '@/app/dashboard/components/FindMedicalProvidersComponent';
 import { BenefitsProviderInfo } from '@/app/dashboard/models/BenefitsProviderInfo';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppPage } from '@/components/foundation/AppPage';
 import { Body } from '@/components/foundation/Body';
 import { Card } from '@/components/foundation/Card';
@@ -52,16 +53,23 @@ export const EmployerProvidedBenfitsPage = ({
         </Row>
         <Section>
           <ul className="flex flex-col gap-4 flex-grow page-section-63_33 items-stretch my-4">
-            {benefits?.map((item) => (
-              <BenefitsProviderInfoCard
-                key={item.id}
-                id={item.id}
-                className="shrink-0"
-                contact={item.contact}
-                providedBy={item.providedBy}
-                url={item.url}
+            {benefits?.length ? (
+              benefits.map((item) => (
+                <BenefitsProviderInfoCard
+                  key={item.id}
+                  id={item.id}
+                  className="shrink-0"
+                  contact={item.contact}
+                  providedBy={item.providedBy}
+                  url={item.url}
+                />
+              ))
+            ) : (
+              <ErrorInfoCard
+                className="mt-4"
+                errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
               />
-            ))}
+            )}
           </ul>
           <Column className="page-section-36_67">
             <Card className="small-section">
