@@ -1,18 +1,16 @@
-import { PrintedRequestForm } from '@/app/updateMyPrimaryCareProvider/components/printedRequestForm';
-import { ProviderDirectory } from '@/app/updateMyPrimaryCareProvider/components/ProviderDirectory';
-import { SendEmailRequest } from '@/app/updateMyPrimaryCareProvider/components/SendEmailRequest';
 import UpdateMyPrimaryCareProvider from '@/app/updateMyPrimaryCareProvider/page';
 import SelectPCPImage from '@/public/assets/select_pcp.png';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Image from 'next/image';
 const renderUI = () => {
   return render(
     <>
       <UpdateMyPrimaryCareProvider />,
-      <ProviderDirectory />,
+      {/* <ProviderDirectory />,
       <SendEmailRequest />,
-      <PrintedRequestForm />,
+      <PrintedRequestForm />, */}
     </>,
   );
 };
@@ -51,6 +49,39 @@ describe('UpdateMyPrimaryCareProvider', () => {
     expect(submitRequest[0]).toBeInTheDocument();
     screen.getAllByText('Option 3: Complete & Mail a Printed Request Form');
     screen.getAllByText(/Primary Care Provider Change Form/i);
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should render UI correctly with validations', async () => {
+    const component = renderUI();
+    const inputCity = screen.getByLabelText(/City/i);
+    const inputState = screen.getByLabelText(/State/i);
+    const inputCounty = screen.getByLabelText(/County/i);
+    const inputZipCode = screen.getByLabelText(/ZIP Code/i);
+    const inputPhoneNumber = screen.getByLabelText(/Phone Number/i);
+    const submitButton = screen.getByRole('button', {
+      name: /Submit Request/i,
+    });
+    await userEvent.type(inputCity, 'KINGSPORT');
+    await userEvent.type(inputCounty, 'Shleby');
+    await userEvent.type(inputState, 'TN');
+    await userEvent.type(inputZipCode, '12345');
+    await userEvent.type(inputPhoneNumber, '1234567890');
+    fireEvent.click(submitButton);
+    expect(screen.getAllByText('(Required Field)')).toBeVisible;
+
+    //test zipcode formate validation
+    await userEvent.type(inputZipCode, '1234');
+    expect(screen.getAllByText('Please enter a valid zip code.')).toBeVisible;
+
+    //test PhoneNumber formate validation
+    await userEvent.type(inputPhoneNumber, '1234');
+    expect(
+      screen.getAllByText(
+        'Please enter a valid contact phone number (XXX-XXX-XXXX).',
+      ),
+    ).toBeVisible;
+
     expect(component.baseElement).toMatchSnapshot();
   });
 });
