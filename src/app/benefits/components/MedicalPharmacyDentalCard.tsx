@@ -12,12 +12,14 @@ export interface MedicalPharmacyDentalCardProps extends IComponent {
   cardIcon: JSX.Element;
 }
 
-interface ManageBenefitsItems {
+export interface ManageBenefitsItems {
   title: string;
   body: string;
   externalLink: boolean;
-  url: string;
+  onClick?: (serviceCategory: ServiceCategory | undefined) => void;
+  url?: string;
   icon?: JSX.Element;
+  serviceCategory?: ServiceCategory; // Add this line
 }
 
 export const MedicalPharmacyDentalCard = ({
@@ -45,7 +47,15 @@ export const MedicalPharmacyDentalCard = ({
                 divider={false}
                 icon={items.icon}
                 onClick={() => {
-                  window.location.href = items.url;
+                  if (items.onClick !== undefined) {
+                    // Add this line
+                    items.onClick(items.serviceCategory);
+                  } // Modify this line
+                  else {
+                    if (items.url) {
+                      window.location.href = items.url;
+                    }
+                  }
                 }}
               />
               {index !== managePlanItems.length - 1 && <Divider />}

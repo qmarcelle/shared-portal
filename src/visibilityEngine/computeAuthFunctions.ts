@@ -6,6 +6,9 @@ export function computeAuthFunctions(
   loggedUserInfo: LoggedInUserInfo,
   rules: VisibilityRules,
 ): void {
+  console.log(
+    `Auth Functions: ${JSON.stringify(loggedUserInfo.authFunctions)}`,
+  );
   const authFunctionsMap = new Map<string, boolean>(
     loggedUserInfo.authFunctions.map((x) => [x.functionName, x.available]),
   );
@@ -15,6 +18,18 @@ export function computeAuthFunctions(
   rules.katieBeckNoBenefitsElig = authFunctionsMap.get('KB_NO_BENEFITS');
 
   rules.myPCPElig = authFunctionsMap.get('MYPCPELIGIBLE');
+
+  rules.identityProtectionServices = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'IDPROTECTELIGIBLE',
+  )?.available;
+
+  rules.otcEnable = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'OTCEnable',
+  )?.available;
+
+  rules.showPharmacyTab = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'ENABLE_PHAR_TAB',
+  )?.available;
 
   rules.chipRewardsEligible = authFunctionsMap.get('CHIPELIGIBLE');
 
