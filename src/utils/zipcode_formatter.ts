@@ -4,3 +4,8 @@ export const formatZip = (zipCode: string | undefined) => {
   }
   return zipCode ?? ' ';
 };
+
+export const isValidZipCode = (zipCode: string) => {
+  const regex = /^\d{5}(-\d{4})?$/;
+  return regex.test(zipCode);
+};
