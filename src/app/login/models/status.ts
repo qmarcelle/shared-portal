@@ -9,6 +9,7 @@ export enum LoginStatus {
   MULTIPLE_LOGIN_ATTEMPTS,
   PASSWORD_RESET_REQUIRED,
   EMAIL_UNIQUENESS,
+  REACTIVATION_REQUIRED,
 }
 
 export enum SelectMFAStatus {

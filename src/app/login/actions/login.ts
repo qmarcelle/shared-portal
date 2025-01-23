@@ -74,6 +74,9 @@ export async function callLogin(
       case 'NEW_EMAIL_REQUIRED':
         status = LoginStatus.EMAIL_UNIQUENESS;
         break;
+      case 'DEACTIVATED_DUE_TO_INACTIVITY':
+        status = LoginStatus.REACTIVATION_REQUIRED;
+        break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {

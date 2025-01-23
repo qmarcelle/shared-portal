@@ -38,6 +38,7 @@ export type LoginStore = {
   verifyUniqueEmail: boolean;
   emailUniqueness: boolean;
   mfaNeeded: boolean;
+  inactive: boolean;
   updateUsername: (val: string) => void;
   updatePassword: (val: string) => void;
   updateMultipleLoginAttempts: (val: boolean) => void;
@@ -74,6 +75,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     verifyUniqueEmail: false,
     emailUniqueness: false,
     forcedPasswordReset: false,
+    inactive: false,
     emailId: '',
     updateLoggedUser: (val: boolean) => set(() => ({ loggedUser: val })),
     updateMultipleLoginAttempts: (val: boolean) =>
@@ -114,10 +116,22 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         }
         // Set to success if request succeeded
         set(() => ({ loginProg: AppProg.success }));
-        //To Do Uncomment once ES API is available for integration
         if (resp.status == LoginStatus.VERIFY_EMAIL) {
           set({
             verifyEmail: true,
+            interactionData: {
+              interactionId: resp.data?.interactionId ?? '',
+              interactionToken: resp.data?.interactionToken ?? '',
+            },
+            emailId: resp.data?.email ?? '',
+          });
+          return;
+        }
+
+        if (resp.status == LoginStatus.REACTIVATION_REQUIRED) {
+          set({
+            verifyEmail: true,
+            inactive: true,
             interactionData: {
               interactionId: resp.data?.interactionId ?? '',
               interactionToken: resp.data?.interactionToken ?? '',

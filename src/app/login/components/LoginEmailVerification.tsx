@@ -14,11 +14,12 @@ import {
   INVALID_CODE_LENGTH,
   MIN_CODE_LENGTH,
 } from '../models/app/login_constants';
+import { LoginEmailVerificationText } from '../models/app/verify_text';
 import { useLoginStore } from '../stores/loginStore';
 import { useVerifyEmailStore } from '../stores/verifyEmailStore';
 
 export const LoginEmailVerification = () => {
-  const { emailId } = useLoginStore();
+  const { emailId, inactive } = useLoginStore();
   const {
     resetApiErrors,
     updateCode,
@@ -56,14 +57,28 @@ export const LoginEmailVerification = () => {
     googleAnalytics(analytics);
   };
 
+  const interfaceText: LoginEmailVerificationText = inactive
+    ? {
+        title: 'Welcome Back!',
+        line1:
+          'It looks like it has been a while since you logged in to your account.',
+        line2: 'For security purposes, we’ve sent a code to:',
+      }
+    : {
+        title: 'Let’s Verify Your Email',
+        line1:
+          'We’ll need to confirm your email address before you can log in.',
+        line2: 'We’ve sent a code to:',
+      };
+
   return (
     <form onSubmit={validateSecurityCode()}>
       <div id="mainSection">
-        <Header text="Let's Verify Your Email" />
+        <Header text={interfaceText.title} />
         <Spacer size={16} />
-        <TextBox text="We’ll need to confirm your email address before you can log in." />
+        <TextBox text={interfaceText.line1} />
         <Spacer size={16} />
-        <TextBox text="We’ve sent a code to:" />
+        <TextBox text={interfaceText.line2} />
         <TextBox
           text={emailId ? maskEmail(emailId) : ''}
           className="font-bold"
