@@ -62,6 +62,13 @@ export const loggedInUserInfoMockResp: LoggedInUserInfo = {
           indvGroupInd: 'Group',
           pedAdultInd: 'Adult',
         },
+        {
+          productType: 'D',
+          coverageLevel: 'A',
+          exchange: true,
+          indvGroupInd: 'Group',
+          pedAdultInd: 'Adult',
+        },
       ],
       planDetails: [
         {
@@ -83,6 +90,14 @@ export const loggedInUserInfoMockResp: LoggedInUserInfo = {
         {
           productCategory: 'V',
           planID: 'VEMGN002',
+          effectiveDate: 1546318800000,
+          planStartDate: 1383278400000,
+          planClassID: 'PPOA',
+          networkPlanName: 'Vision Blue',
+        },
+        {
+          productCategory: 'D',
+          planID: 'DEHCNY02',
           effectiveDate: 1546318800000,
           planStartDate: 1383278400000,
           planClassID: 'PPOA',
