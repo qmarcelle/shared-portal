@@ -4,11 +4,11 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { ServicesUsed } from '@/models/app/servicesused_details';
+import { ServicesUsedItem } from '@/models/app/servicesused_details';
 
 interface ServicesUsedChartProps {
   label: string;
-  serviceDetails: ServicesUsed[];
+  serviceDetails: ServicesUsedItem[];
 }
 
 export const ServicesUsedChart = ({
