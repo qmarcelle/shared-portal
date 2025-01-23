@@ -1,12 +1,19 @@
 import { Metadata } from 'next';
 import ServicesUsed from '.';
+import { getServicesUsedData } from './actions/getServicesUsedData';
 
 export const metadata: Metadata = {
-  title: 'ServicesUsed',
+  title: 'Services Used',
 };
 
 const ServicesUsedPage = async () => {
-  return <ServicesUsed />;
+  const result = await getServicesUsedData();
+  return (
+    <ServicesUsed
+      users={result.data?.members}
+      services={result.data?.services}
+    />
+  );
 };
 
 export default ServicesUsedPage;

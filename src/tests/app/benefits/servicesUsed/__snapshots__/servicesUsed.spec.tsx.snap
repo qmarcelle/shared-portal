@@ -76,7 +76,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         <p
                           class="body-bold"
                         >
-                          Chris Hall
+                          CHRISTMAS HALL
                         </p>
                         <span
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
@@ -120,7 +120,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                             <p
                               class="whitespace-nowrap mx-2"
                             >
-                              Chris Hall
+                              CHRISTMAS HALL
                             </p>
                           </div>
                         </div>
@@ -134,7 +134,91 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                             <p
                               class="whitespace-nowrap mx-2"
                             >
-                              Megan Chaler
+                              KRISSY HALL
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              CHRISTIAN HALL
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              KRISTY HALL
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              CHRIS HALL
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              CHRISTOFF HALL
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              CHRISTO HALL
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                        >
+                          <div
+                            class="size-5 mx-2"
+                          />
+                          <div>
+                            <p
+                              class="whitespace-nowrap mx-2"
+                            >
+                              ChrisBalance HALL
                             </p>
                           </div>
                         </div>
@@ -160,7 +244,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                           <p
                             class="body-1 font-bold"
                           >
-                            0
+                            --
                           </p>
                           <p
                             class="body-2"
@@ -171,7 +255,42 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         <p
                           class="body-1 ml-5"
                         >
-                          1 Visit Benefit Period - Mammogram
+                          $3,000.00 Out of Pocket - Individual  - In Network
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            --
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          $6,000.00 Out of Pocket - Individual  - Out of Network
                         </p>
                       </div>
                       <span
@@ -206,7 +325,357 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         <p
                           class="body-1 ml-5"
                         >
-                          1 Annual OB-Gyn Exam Per Calendar Year
+                          1 Visit Per Calendar Year -- Mammogram
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            0
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          1 Visit Per Calendar Year -- Gyn
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            0
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          12 Visits Per Year - Dietary Counseling
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            0
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          4 Injections Per Year --  Trigger Point Injection
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            0
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          20 Per Benefit Period - Urine/Serum Drug Testing
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            0
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          1 Visit Per Calendar Year - Wellcare - Over Age 6
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            0
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          8 Visits Per Year - Tobacco Cessation Counseling
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            0
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          8 Visits Per Year - Alcohol Misuse Counseling
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            $0.00
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          $10,000 Per Benefit Period - Organ Transplant -Travel, Meals & Lodging
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            $0.00
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          $1,000 Per Benefit Period û General Travel Benefit
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                    </div>
+                    <div>
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 font-bold"
+                          >
+                            $0.00
+                          </p>
+                          <p
+                            class="body-2"
+                          >
+                            Used
+                          </p>
+                        </div>
+                        <p
+                          class="body-1 ml-5"
+                        >
+                          $40,000 Lifetime Max - Infertility Treatment
                         </p>
                       </div>
                       <span
@@ -294,7 +763,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                 </div>
               </a>
               <a
-                href="/claimSnapshotList"
+                href="/claims"
               >
                 <div
                   class="card-elevated small-section"
@@ -466,7 +935,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       <p
                         class="body-bold"
                       >
-                        Chris Hall
+                        CHRISTMAS HALL
                       </p>
                       <span
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
@@ -510,7 +979,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                           <p
                             class="whitespace-nowrap mx-2"
                           >
-                            Chris Hall
+                            CHRISTMAS HALL
                           </p>
                         </div>
                       </div>
@@ -524,7 +993,91 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                           <p
                             class="whitespace-nowrap mx-2"
                           >
-                            Megan Chaler
+                            KRISSY HALL
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                      >
+                        <div
+                          class="size-5 mx-2"
+                        />
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            CHRISTIAN HALL
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                      >
+                        <div
+                          class="size-5 mx-2"
+                        />
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            KRISTY HALL
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                      >
+                        <div
+                          class="size-5 mx-2"
+                        />
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            CHRIS HALL
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                      >
+                        <div
+                          class="size-5 mx-2"
+                        />
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            CHRISTOFF HALL
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                      >
+                        <div
+                          class="size-5 mx-2"
+                        />
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            CHRISTO HALL
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                      >
+                        <div
+                          class="size-5 mx-2"
+                        />
+                        <div>
+                          <p
+                            class="whitespace-nowrap mx-2"
+                          >
+                            ChrisBalance HALL
                           </p>
                         </div>
                       </div>
@@ -550,7 +1103,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         <p
                           class="body-1 font-bold"
                         >
-                          0
+                          --
                         </p>
                         <p
                           class="body-2"
@@ -561,7 +1114,42 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-5"
                       >
-                        1 Visit Benefit Period - Mammogram
+                        $3,000.00 Out of Pocket - Individual  - In Network
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          --
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        $6,000.00 Out of Pocket - Individual  - Out of Network
                       </p>
                     </div>
                     <span
@@ -596,7 +1184,357 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       <p
                         class="body-1 ml-5"
                       >
-                        1 Annual OB-Gyn Exam Per Calendar Year
+                        1 Visit Per Calendar Year -- Mammogram
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          0
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        1 Visit Per Calendar Year -- Gyn
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          0
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        12 Visits Per Year - Dietary Counseling
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          0
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        4 Injections Per Year --  Trigger Point Injection
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          0
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        20 Per Benefit Period - Urine/Serum Drug Testing
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          0
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        1 Visit Per Calendar Year - Wellcare - Over Age 6
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          0
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        8 Visits Per Year - Tobacco Cessation Counseling
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          0
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        8 Visits Per Year - Alcohol Misuse Counseling
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          $0.00
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        $10,000 Per Benefit Period - Organ Transplant -Travel, Meals & Lodging
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          $0.00
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        $1,000 Per Benefit Period û General Travel Benefit
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          $0.00
+                        </p>
+                        <p
+                          class="body-2"
+                        >
+                          Used
+                        </p>
+                      </div>
+                      <p
+                        class="body-1 ml-5"
+                      >
+                        $40,000 Lifetime Max - Infertility Treatment
                       </p>
                     </div>
                     <span
@@ -684,7 +1622,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
               </div>
             </a>
             <a
-              href="/claimSnapshotList"
+              href="/claims"
             >
               <div
                 class="card-elevated small-section"

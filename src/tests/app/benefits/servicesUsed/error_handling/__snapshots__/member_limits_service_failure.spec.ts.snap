@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Services Used Error Handling should show error message on service failure 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+    />
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <h1
+        class="title-1  mb-0"
+      >
+        Services Used
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+      />
+      <p
+        class="body-1 body-1  mb-0 w-2/3"
+      >
+        Below is a list of common services, the maximum amount covered by your plan and how many you've used.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main neutral container mt-2"
+          >
+            <div
+              class="flex flex-row flex flex-row align-top m-4"
+            >
+              <img
+                alt="alert"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-row flex flex-col flex-grow"
+              >
+                <p
+                  class="body-1"
+                >
+                  There was a problem loading your information. Please try refreshing the page or returning to this page later.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+        >
+          <a
+            href="/findcare"
+          >
+            <div
+              class="card-elevated small-section"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="link"
+                  class="size-10"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="flex flex-col ml-4"
+                >
+                  <div
+                    class="flex flex-row link-row-head"
+                  >
+                    Find Care & Estimate Costs
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Find a health care provider near you, or plan your upcoming care costs before you make an appointment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            href="/claims"
+          >
+            <div
+              class="card-elevated small-section"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="link"
+                  class="size-10"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="flex flex-col ml-4"
+                >
+                  <div
+                    class="flex flex-row link-row-head"
+                  >
+                    Claims
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Search for claims and view details or submit a claim.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Get Help with Services Used
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <span
+                class="rich-text body-1 undefined"
+              >
+                <span>
+                  if you need help, please help reach out to us.You can
+                   
+                </span>
+                <span
+                  class="link"
+                >
+                  <a>
+                    start a chat 
+                  </a>
+                </span>
+                <span>
+                  or call us at [1-800-000-000]
+                </span>
+              </span>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <span
+                class="rich-text body-1 undefined"
+              >
+                <span>
+                  You can also try our 
+                </span>
+                <span
+                  class="link"
+                >
+                  <a>
+                    Benefits & Coverage FAQ.
+                  </a>
+                </span>
+              </span>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+`;

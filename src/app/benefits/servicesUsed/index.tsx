@@ -1,4 +1,5 @@
 'use client';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
@@ -9,9 +10,16 @@ import {
 } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { MedicalServices } from '../components/MedicalServices';
+import { ServicesUsedItem } from '@/models/app/servicesused_details';
+import { UIUser } from '@/models/app/uiUser';
+import { MedicalServicesWrapper } from '../components/MedicalServices';
 
-const ServicesUsed = () => {
+type ServicesUsedProps = {
+  users: UIUser[] | undefined;
+  services: Map<string, ServicesUsedItem[]> | undefined;
+};
+
+const ServicesUsed = ({ users, services }: ServicesUsedProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
@@ -25,33 +33,22 @@ const ServicesUsed = () => {
         <Spacer size={8} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <MedicalServices
-              className="large-section"
-              members={[
-                {
-                  label: 'Chris Hall',
-                  value: '43',
-                },
-                {
-                  label: 'Megan Chaler',
-                  value: '0',
-                },
-              ]}
-              onSelectedMemberChange={() => {}}
-              selectedMemberId="43"
-              medicalServiceDetailsUsed={[
-                {
-                  limitAmount: '1',
-                  spentAmount: '0',
-                  serviceName: 'Visit Benefit Period - Mammogram',
-                },
-                {
-                  limitAmount: '1',
-                  spentAmount: '0',
-                  serviceName: 'Annual OB-Gyn Exam Per Calendar Year',
-                },
-              ]}
-            />
+            {services && users ? (
+              <MedicalServicesWrapper
+                className="large-section"
+                members={users.map((item) => ({
+                  label: item.name,
+                  value: item.id,
+                }))}
+                initSelectedMemberId={users[0].id}
+                medicalServiceDetailsUsed={services}
+              />
+            ) : (
+              <ErrorInfoCard
+                className="mt-2"
+                errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
+              />
+            )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <InfoCard
@@ -64,7 +61,7 @@ const ServicesUsed = () => {
               label="Claims"
               body="Search for claims and view details or submit a claim."
               icon={claimsBenefitsCoverage}
-              link="/claimSnapshotList"
+              link="/claims"
             ></InfoCard>
             <GetHelpSection
               linkURL={'Benefits & Coverage FAQ.'}

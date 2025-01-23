@@ -7,14 +7,15 @@ import { Dropdown, SelectItem } from '../../../components/foundation/Dropdown';
 import { Spacer } from '../../../components/foundation/Spacer';
 
 import { TextBox } from '@/components/foundation/TextBox';
-import { ServicesUsed } from '@/models/app/servicesused_details';
+import { ServicesUsedItem } from '@/models/app/servicesused_details';
+import { useState } from 'react';
 import { MedicalServicesUsedChart } from './MedicalServicesUsedChart';
 
 export interface MedicalServicesProps extends IComponent {
   members: SelectItem[];
   selectedMemberId: string;
-  medicalServiceDetailsUsed: ServicesUsed[];
-  onSelectedMemberChange: () => void;
+  medicalServiceDetailsUsed: ServicesUsedItem[];
+  onSelectedMemberChange: (val: string) => void;
 }
 
 export const MedicalServices = ({
@@ -65,5 +66,32 @@ export const MedicalServices = ({
         </Column>
       </Column>
     </Card>
+  );
+};
+
+interface MedicalServicesWrapperProps extends IComponent {
+  members: SelectItem[];
+  initSelectedMemberId: string;
+  medicalServiceDetailsUsed: Map<string, ServicesUsedItem[]>;
+}
+
+export const MedicalServicesWrapper = ({
+  members,
+  initSelectedMemberId,
+  medicalServiceDetailsUsed,
+  className,
+}: MedicalServicesWrapperProps) => {
+  const [selectedMemberId, setSelectedMemberId] =
+    useState(initSelectedMemberId);
+  return (
+    <MedicalServices
+      members={members}
+      selectedMemberId={selectedMemberId}
+      medicalServiceDetailsUsed={
+        medicalServiceDetailsUsed.get(selectedMemberId)!
+      }
+      className={className}
+      onSelectedMemberChange={(val) => setSelectedMemberId(val)}
+    />
   );
 };

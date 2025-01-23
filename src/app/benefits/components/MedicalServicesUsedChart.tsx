@@ -2,11 +2,11 @@ import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
 import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
-import { ServicesUsed } from '@/models/app/servicesused_details';
+import { ServicesUsedItem } from '@/models/app/servicesused_details';
 import { Spacer } from '../../../components/foundation/Spacer';
 
 interface MedicalServicesUsedChartProps {
-  medicalServiceDetails: ServicesUsed[];
+  medicalServiceDetails: ServicesUsedItem[];
 }
 export const MedicalServicesUsedChart = ({
   medicalServiceDetails,
@@ -28,12 +28,7 @@ export const MedicalServicesUsedChart = ({
                   />
                   <TextBox type="body-2" text="Used" />
                 </Column>
-                <TextBox
-                  className="ml-5"
-                  text={
-                    (String(item.limitAmount) ?? '--') + ' ' + item.serviceName
-                  }
-                />
+                <TextBox className="ml-5" text={item.serviceName} />
               </Row>
               <Spacer size={16} />
               <Divider />
