@@ -1,7 +1,7 @@
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { ViewOtherPlanInformation } from '../../../app/myPlan/components/ViewOtherPlanInformation';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 
 const vRules: VisibilityRules = {};
 const renderUI = (vRules: VisibilityRules) => {
@@ -25,7 +25,6 @@ describe('Other Plan Information Component', () => {
     screen.getByText('Claims');
     screen.getByText('Prior Authorizations');
     screen.getByText('Spending Accounts');
-    screen.getByText('Spending Summary');
     screen.getByText('Plan Documents');
 
     expect(component.baseElement).toMatchSnapshot();
@@ -39,6 +38,23 @@ describe('Other Plan Information Component', () => {
     screen.getByText('Claims');
     screen.getByText('Prior Authorizations');
     screen.getByText('Member Handbook');
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should render UI correctly for Commercial groups', () => {
+    vRules.blueCare = false;
+    vRules.subscriber = true;
+    vRules.memberNotEligibleForPHS = false;
+    vRules.commercial = true;
+    vRules.wellnessOnly = false;
+
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    screen.getByText('Benefits & Coverage');
+    screen.getByText('Claims');
+    screen.getByText('Prior Authorizations');
+    screen.getByText('Spending Accounts');
+    screen.getByText('Spending Summary');
+    screen.getByText('Plan Documents');
     expect(component.baseElement).toMatchSnapshot();
   });
 });

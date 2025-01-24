@@ -1,10 +1,14 @@
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { externalIcon } from '@/components/foundation/Icons';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import {
+  isAnnualStatementEligible,
+  isBlueCareEligible,
+} from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { BlueCarePlanInformation } from '../model/app/blueCarePlanInformation';
+import { CommercialPlanInformation } from '../model/app/commercialPlanInformation';
 import { OtherPlanInformation } from '../model/app/otherPlanInformation';
 
 export type ViewOtherPlanInformationProps = {
@@ -18,6 +22,8 @@ export const ViewOtherPlanInformation = ({
 
   if (isBlueCareEligible(visibilityRules))
     viewOtherPlanInformationDetails = BlueCarePlanInformation;
+  else if (isAnnualStatementEligible(visibilityRules))
+    viewOtherPlanInformationDetails = CommercialPlanInformation;
   else viewOtherPlanInformationDetails = OtherPlanInformation;
 
   return (

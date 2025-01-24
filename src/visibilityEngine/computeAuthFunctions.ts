@@ -114,4 +114,12 @@ export function computeAuthFunctions(
   rules.consumerMedicalEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'CONSUMER_MEDICAL_ELIGIBLE',
   )?.available;
+
+  rules.memberNotEligibleForPHS = !loggedUserInfo.authFunctions.find(
+    (f) => f.functionName === 'PHSELIGIBLE',
+  )?.available;
+
+  rules.allMedicareAdvantageEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName === 'AllMedicareAdvantage',
+  )?.available;
 }

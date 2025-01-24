@@ -369,6 +369,16 @@ export function isBlueCareAndPrimaryCarePhysicianEligible(
 ) {
   return isBlueCareEligible(rules) || isPrimaryCarePhysicianEligible(rules);
 }
+export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {
+  return (
+    rules?.subscriber &&
+    !rules?.memberNotEligibleForPHS &&
+    (rules?.individual ||
+      rules?.commercial ||
+      rules?.allMedicareAdvantageEligible) &&
+    !rules?.wellnessOnly
+  );
+}
 
 export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
   return rules?.active && rules.otcEnable && !rules.displayPharmacyTab;

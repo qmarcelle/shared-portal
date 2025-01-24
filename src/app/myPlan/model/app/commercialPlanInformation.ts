@@ -4,9 +4,10 @@ import {
   planDocuments,
   priorAuthorizations,
   spendingAccounts,
+  spendingSummary,
 } from '@/components/foundation/Icons';
 
-export const OtherPlanInformation = [
+export const CommercialPlanInformation = [
   {
     label: 'Benefits & Coverage',
     // eslint-disable-next-line quotes
@@ -31,6 +32,13 @@ export const OtherPlanInformation = [
     description: 'Check your HSA, HRA or FSA accounts.',
     iconName: spendingAccounts,
     link: '/spendingAccounts',
+  },
+  {
+    label: 'Spending Summary',
+    description:
+      'Your annual statement shows claims we received and processed.',
+    iconName: spendingSummary,
+    link: '/spendingSummary',
   },
   {
     label: 'Plan Documents',
