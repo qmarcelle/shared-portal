@@ -64,6 +64,8 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'fsaHraEligible',
   'flexibleSpendingAccount',
   'healthReimbursementAccount',
+  'memberNotEligibleForPHS',
+  'allMedicareAdvantageEligible',
   'hypertensionMgmt',
   'consumerMedicalEligible',
 ] as const;

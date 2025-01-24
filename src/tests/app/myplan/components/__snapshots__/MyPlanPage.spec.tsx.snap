@@ -645,47 +645,6 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   </div>
                 </a>
                 <a
-                  href="/spendingSummary"
-                >
-                  <div
-                    class="card-elevated small-section"
-                  >
-                    <div
-                      class="flex flex-row"
-                    >
-                      <img
-                        alt="link"
-                        class="size-10"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <div
-                        class="flex flex-col ml-4"
-                      >
-                        <div
-                          class="flex flex-row link-row-head"
-                        >
-                          Spending Summary
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                        </div>
-                        <p
-                          class="body-1 body-1"
-                        >
-                          Your annual statement shows claims we received and processed.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a
                   href="/benefits/planDocuments"
                 >
                   <div
