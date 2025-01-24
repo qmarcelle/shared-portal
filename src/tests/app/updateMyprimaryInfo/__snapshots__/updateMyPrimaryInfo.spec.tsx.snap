@@ -135,310 +135,316 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                     class="card-main large-section"
                   >
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col w-[100%]"
                     >
-                      <h1
-                        class="title-1 title-2"
-                      >
-                        Option 2: Send an Email Request
-                      </h1>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <p
-                        class="body-1 body-1"
-                      >
-                        Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="card-main px-0 m-0 !border-none"
-                      >
+                      <form>
                         <div
                           class="flex flex-col"
                         >
                           <h1
                             class="title-1 title-2"
                           >
-                            Member Information
+                            Option 2: Send an Email Request
                           </h1>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1 body-1"
+                          >
+                            Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
+                          </p>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="flex flex-col"
+                            class="card-main px-0 m-0 !border-none"
                           >
                             <div
-                              class="body-1"
+                              class="flex flex-col"
                             >
-                              Member Name
-                               
-                            </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
-                            />
-                            <div>
+                              <h1
+                                class="title-1 title-2"
+                              >
+                                Member Information
+                              </h1>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                              />
                               <div
-                                class="rich-dropdown"
+                                class="flex flex-col"
                               >
                                 <div
-                                  class="flex flex-col switch-filter default"
-                                  tabindex="1"
+                                  class="body-1"
                                 >
-                                  <div>
+                                  Member Name
+                                   
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                                />
+                                <div>
+                                  <div
+                                    class="rich-dropdown"
+                                  >
                                     <div
-                                      class="body-1 input"
+                                      class="flex flex-col switch-filter default"
+                                      tabindex="1"
                                     >
-                                      <div
-                                        class="flex flex-row p-1 items-center"
-                                      >
+                                      <div>
                                         <div
-                                          class="flex flex-col border-none flex-grow"
+                                          class="body-1 input"
                                         >
-                                          <p
-                                            class="body-1"
+                                          <div
+                                            class="flex flex-row p-1 items-center"
                                           >
-                                            Chris Hall
-                                          </p>
+                                            <div
+                                              class="flex flex-col border-none flex-grow"
+                                            >
+                                              <p
+                                                class="body-1"
+                                              >
+                                                CHRISTMAS HALL
+                                              </p>
+                                            </div>
+                                            <img
+                                              alt=""
+                                              class="w-[20px] h-[20px] ml-2 items-end"
+                                              data-nimg="1"
+                                              decoding="async"
+                                              height="40"
+                                              loading="lazy"
+                                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                              style="color: transparent;"
+                                              width="40"
+                                            />
+                                          </div>
                                         </div>
-                                        <img
-                                          alt=""
-                                          class="w-[20px] h-[20px] ml-2 items-end"
-                                          data-nimg="1"
-                                          decoding="async"
-                                          height="40"
-                                          loading="lazy"
-                                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                          style="color: transparent;"
-                                          width="40"
-                                        />
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                            </div>
+                          </div>
+                          <h1
+                            class="title-1 title-2"
+                          >
+                            Provider Information
+                          </h1>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Name of Provider (First & Last Name)
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Name of Provider (First & Last Name)"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
                             </div>
                           </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Street Address
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Street Address"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                          </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              City
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="City"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                        </div>
-                      </div>
-                      <h1
-                        class="title-1 title-2"
-                      >
-                        Provider Information
-                      </h1>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Name of Provider (First & Last Name)
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Name of Provider (First & Last Name)"
-                            class=""
-                            type="text"
-                            value=""
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Street Address
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Street Address"
-                            class=""
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          City
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="City"
-                            class=""
-                            type="text"
-                            value=""
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              State
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="State"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          State
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="State"
-                            class=""
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Zip Code
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Zip Code"
-                            class=""
-                            type="text"
-                            value=""
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Zip Code
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Zip Code"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          County
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="County"
-                            class=""
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Phone Number
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Phone Number"
-                            class=""
-                            type="text"
-                            value=""
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              County
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="County"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Phone Number
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Phone Number"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <button
+                            aria-label="Submit Request"
+                            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                            type="submit"
+                          >
+                            Submit Request
+                          </button>
                         </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <button
-                        aria-label="Submit Request"
-                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                        type="button"
-                      >
-                        Submit Request
-                      </button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -511,7 +517,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
         </section>
       </div>
     </main>
-    ,
   </div>
   <div>
     <img
@@ -664,310 +669,316 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                     class="card-main large-section"
                   >
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col w-[100%]"
                     >
-                      <h1
-                        class="title-1 title-2"
-                      >
-                        Option 2: Send an Email Request
-                      </h1>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <p
-                        class="body-1 body-1"
-                      >
-                        Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="card-main px-0 m-0 !border-none"
-                      >
+                      <form>
                         <div
                           class="flex flex-col"
                         >
                           <h1
                             class="title-1 title-2"
                           >
-                            Member Information
+                            Option 2: Send an Email Request
                           </h1>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1 body-1"
+                          >
+                            Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
+                          </p>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="flex flex-col"
+                            class="card-main px-0 m-0 !border-none"
                           >
                             <div
-                              class="body-1"
+                              class="flex flex-col"
                             >
-                              Member Name
-                               
-                            </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
-                            />
-                            <div>
+                              <h1
+                                class="title-1 title-2"
+                              >
+                                Member Information
+                              </h1>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                              />
                               <div
-                                class="rich-dropdown"
+                                class="flex flex-col"
                               >
                                 <div
-                                  class="flex flex-col switch-filter default"
-                                  tabindex="1"
+                                  class="body-1"
                                 >
-                                  <div>
+                                  Member Name
+                                   
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                                />
+                                <div>
+                                  <div
+                                    class="rich-dropdown"
+                                  >
                                     <div
-                                      class="body-1 input"
+                                      class="flex flex-col switch-filter default"
+                                      tabindex="1"
                                     >
-                                      <div
-                                        class="flex flex-row p-1 items-center"
-                                      >
+                                      <div>
                                         <div
-                                          class="flex flex-col border-none flex-grow"
+                                          class="body-1 input"
                                         >
-                                          <p
-                                            class="body-1"
+                                          <div
+                                            class="flex flex-row p-1 items-center"
                                           >
-                                            Chris Hall
-                                          </p>
+                                            <div
+                                              class="flex flex-col border-none flex-grow"
+                                            >
+                                              <p
+                                                class="body-1"
+                                              >
+                                                CHRISTMAS HALL
+                                              </p>
+                                            </div>
+                                            <img
+                                              alt=""
+                                              class="w-[20px] h-[20px] ml-2 items-end"
+                                              data-nimg="1"
+                                              decoding="async"
+                                              height="40"
+                                              loading="lazy"
+                                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                              style="color: transparent;"
+                                              width="40"
+                                            />
+                                          </div>
                                         </div>
-                                        <img
-                                          alt=""
-                                          class="w-[20px] h-[20px] ml-2 items-end"
-                                          data-nimg="1"
-                                          decoding="async"
-                                          height="40"
-                                          loading="lazy"
-                                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                          style="color: transparent;"
-                                          width="40"
-                                        />
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                            </div>
+                          </div>
+                          <h1
+                            class="title-1 title-2"
+                          >
+                            Provider Information
+                          </h1>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Name of Provider (First & Last Name)
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Name of Provider (First & Last Name)"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
                             </div>
                           </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Street Address
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Street Address"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                          </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              City
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="City"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                        </div>
-                      </div>
-                      <h1
-                        class="title-1 title-2"
-                      >
-                        Provider Information
-                      </h1>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Name of Provider (First & Last Name)
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Name of Provider (First & Last Name)"
-                            class=""
-                            type="text"
-                            value=""
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Street Address
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Street Address"
-                            class=""
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          City
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="City"
-                            class=""
-                            type="text"
-                            value=""
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              State
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="State"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          State
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="State"
-                            class=""
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Zip Code
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Zip Code"
-                            class=""
-                            type="text"
-                            value=""
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Zip Code
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Zip Code"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          County
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="County"
-                            class=""
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Phone Number
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Phone Number"
-                            class=""
-                            type="text"
-                            value=""
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              County
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="County"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Phone Number
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Phone Number"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <button
+                            aria-label="Submit Request"
+                            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                            type="submit"
+                          >
+                            Submit Request
+                          </button>
                         </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <button
-                        aria-label="Submit Request"
-                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                        type="button"
-                      >
-                        Submit Request
-                      </button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -1040,7 +1051,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
         </section>
       </div>
     </main>
-    ,
   </div>
   <div>
     <img
@@ -1193,388 +1203,394 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                     class="card-main large-section"
                   >
                     <div
-                      class="flex flex-col"
+                      class="flex flex-col w-[100%]"
                     >
-                      <h1
-                        class="title-1 title-2"
-                      >
-                        Option 2: Send an Email Request
-                      </h1>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <p
-                        class="body-1 body-1"
-                      >
-                        Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
-                      </p>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="card-main px-0 m-0 !border-none"
-                      >
+                      <form>
                         <div
                           class="flex flex-col"
                         >
                           <h1
                             class="title-1 title-2"
                           >
-                            Member Information
+                            Option 2: Send an Email Request
+                          </h1>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <p
+                            class="body-1 body-1"
+                          >
+                            Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
+                          </p>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <div
+                            class="card-main px-0 m-0 !border-none"
+                          >
+                            <div
+                              class="flex flex-col"
+                            >
+                              <h1
+                                class="title-1 title-2"
+                              >
+                                Member Information
+                              </h1>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                              />
+                              <div
+                                class="flex flex-col"
+                              >
+                                <div
+                                  class="body-1"
+                                >
+                                  Member Name
+                                   
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                                />
+                                <div>
+                                  <div
+                                    class="rich-dropdown"
+                                  >
+                                    <div
+                                      class="flex flex-col switch-filter default"
+                                      tabindex="1"
+                                    >
+                                      <div>
+                                        <div
+                                          class="body-1 input"
+                                        >
+                                          <div
+                                            class="flex flex-row p-1 items-center"
+                                          >
+                                            <div
+                                              class="flex flex-col border-none flex-grow"
+                                            >
+                                              <p
+                                                class="body-1"
+                                              >
+                                                CHRISTMAS HALL
+                                              </p>
+                                            </div>
+                                            <img
+                                              alt=""
+                                              class="w-[20px] h-[20px] ml-2 items-end"
+                                              data-nimg="1"
+                                              decoding="async"
+                                              height="40"
+                                              loading="lazy"
+                                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                              style="color: transparent;"
+                                              width="40"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                            </div>
+                          </div>
+                          <h1
+                            class="title-1 title-2"
+                          >
+                            Provider Information
                           </h1>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="flex flex-col"
+                            class="flex flex-col w-full text-field"
                           >
+                            <p>
+                              Name of Provider (First & Last Name)
+                            </p>
                             <div
-                              class="body-1"
+                              class="flex flex-row items-center input   error-input"
                             >
-                              Member Name
-                               
-                            </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
-                            />
-                            <div>
+                              <input
+                                aria-label="Name of Provider (First & Last Name)"
+                                class=""
+                                type="text"
+                                value=""
+                              />
                               <div
-                                class="rich-dropdown"
-                              >
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div>
                                 <div
-                                  class="flex flex-col switch-filter default"
-                                  tabindex="1"
+                                  class="flex flex-row"
                                 >
-                                  <div>
-                                    <div
-                                      class="body-1 input"
+                                  <div
+                                    class="inline-flex"
+                                  >
+                                    <img
+                                      alt="ErrorIcon"
+                                      class="icon"
+                                      data-nimg="1"
+                                      decoding="async"
+                                      height="40"
+                                      loading="lazy"
+                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                      style="color: transparent;"
+                                      width="40"
+                                    />
+                                    <p
+                                      class="ml-2"
                                     >
-                                      <div
-                                        class="flex flex-row p-1 items-center"
-                                      >
-                                        <div
-                                          class="flex flex-col border-none flex-grow"
-                                        >
-                                          <p
-                                            class="body-1"
-                                          >
-                                            Chris Hall
-                                          </p>
-                                        </div>
-                                        <img
-                                          alt=""
-                                          class="w-[20px] h-[20px] ml-2 items-end"
-                                          data-nimg="1"
-                                          decoding="async"
-                                          height="40"
-                                          loading="lazy"
-                                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                          style="color: transparent;"
-                                          width="40"
-                                        />
-                                      </div>
-                                    </div>
+                                      (Required Field)
+                                    </p>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Street Address
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="Street Address"
+                                class=""
+                                type="text"
+                                value=""
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                          </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              City
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   "
+                            >
+                              <input
+                                aria-label="City"
+                                class=""
+                                type="text"
+                                value="KINGSPORT"
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                        </div>
-                      </div>
-                      <h1
-                        class="title-1 title-2"
-                      >
-                        Provider Information
-                      </h1>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Name of Provider (First & Last Name)
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   error-input"
-                        >
-                          <input
-                            aria-label="Name of Provider (First & Last Name)"
-                            class=""
-                            type="text"
-                            value=""
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div>
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              State
+                            </p>
                             <div
-                              class="flex flex-row"
+                              class="flex flex-row items-center input   "
                             >
+                              <input
+                                aria-label="State"
+                                class=""
+                                type="text"
+                                value="TN"
+                              />
                               <div
-                                class="inline-flex"
-                              >
-                                <img
-                                  alt="ErrorIcon"
-                                  class="icon"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                                <p
-                                  class="ml-2"
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Zip Code
+                            </p>
+                            <div
+                              class="flex flex-row items-center input   error-input"
+                            >
+                              <input
+                                aria-label="Zip Code"
+                                class=""
+                                type="text"
+                                value="123"
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div>
+                                <div
+                                  class="flex flex-row"
                                 >
-                                  (Required Field)
-                                </p>
+                                  <div
+                                    class="inline-flex"
+                                  >
+                                    <img
+                                      alt="ErrorIcon"
+                                      class="icon"
+                                      data-nimg="1"
+                                      decoding="async"
+                                      height="40"
+                                      loading="lazy"
+                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                      style="color: transparent;"
+                                      width="40"
+                                    />
+                                    <p
+                                      class="ml-2"
+                                    >
+                                      Please enter a valid zip code.
+                                    </p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Street Address
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="Street Address"
-                            class=""
-                            type="text"
-                            value=""
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
                           <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          City
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="City"
-                            class=""
-                            type="text"
-                            value="KINGSPORT"
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          State
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="State"
-                            class=""
-                            type="text"
-                            value="TN"
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Zip Code
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   error-input"
-                        >
-                          <input
-                            aria-label="Zip Code"
-                            class=""
-                            type="text"
-                            value="123451234"
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div>
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              County
+                            </p>
                             <div
-                              class="flex flex-row"
+                              class="flex flex-row items-center input   "
                             >
+                              <input
+                                aria-label="County"
+                                class=""
+                                type="text"
+                                value="Shleby"
+                              />
                               <div
-                                class="inline-flex"
-                              >
-                                <img
-                                  alt="ErrorIcon"
-                                  class="icon"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                                <p
-                                  class="ml-2"
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                          />
+                          <div
+                            class="flex flex-col w-full text-field"
+                          >
+                            <p>
+                              Phone Number
+                            </p>
+                            <div
+                              class="flex flex-row items-center input  input-focus error-input"
+                            >
+                              <input
+                                aria-label="Phone Number"
+                                class=""
+                                type="text"
+                                value="12345678901234"
+                              />
+                              <div
+                                class="cursor-pointer"
+                              />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div>
+                                <div
+                                  class="flex flex-row"
                                 >
-                                  Please enter a valid zip code.
-                                </p>
+                                  <div
+                                    class="inline-flex"
+                                  >
+                                    <img
+                                      alt="ErrorIcon"
+                                      class="icon"
+                                      data-nimg="1"
+                                      decoding="async"
+                                      height="40"
+                                      loading="lazy"
+                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                      style="color: transparent;"
+                                      width="40"
+                                    />
+                                    <p
+                                      class="ml-2"
+                                    >
+                                      Please enter a valid contact phone number (XXX-XXX-XXXX).
+                                    </p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          County
-                        </p>
-                        <div
-                          class="flex flex-row items-center input   "
-                        >
-                          <input
-                            aria-label="County"
-                            class=""
-                            type="text"
-                            value="Shleby"
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                           />
-                          <div
-                            class="cursor-pointer"
-                          />
+                          <button
+                            aria-label="Submit Request"
+                            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                            type="submit"
+                          >
+                            Submit Request
+                          </button>
                         </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <div
-                        class="flex flex-col w-full text-field"
-                      >
-                        <p>
-                          Phone Number
-                        </p>
-                        <div
-                          class="flex flex-row items-center input  input-focus error-input"
-                        >
-                          <input
-                            aria-label="Phone Number"
-                            class=""
-                            type="text"
-                            value="12345678901234"
-                          />
-                          <div
-                            class="cursor-pointer"
-                          />
-                        </div>
-                        <div
-                          class="error-container mt-1 p-1"
-                        >
-                          <div>
-                            <div
-                              class="flex flex-row"
-                            >
-                              <div
-                                class="inline-flex"
-                              >
-                                <img
-                                  alt="ErrorIcon"
-                                  class="icon"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                                <p
-                                  class="ml-2"
-                                >
-                                  Please enter a valid contact phone number (XXX-XXX-XXXX).
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                      <button
-                        aria-label="Submit Request"
-                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                        type="button"
-                      >
-                        Submit Request
-                      </button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -1647,7 +1663,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
         </section>
       </div>
     </main>
-    ,
   </div>
 </body>
 `;

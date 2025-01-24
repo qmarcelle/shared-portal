@@ -6,6 +6,8 @@ import { Header } from '@/components/foundation/Header';
 import { downloadIcon } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { logger } from '@/utils/logger';
+import axios from 'axios';
 import Image from 'next/image';
 
 interface PrintedRequestFormProps extends IComponent {
@@ -15,6 +17,26 @@ interface PrintedRequestFormProps extends IComponent {
 export const PrintedRequestForm = ({
   icon = <Image src={downloadIcon} alt="link" />,
 }: PrintedRequestFormProps) => {
+  function downloadPDF() {
+    axios
+      .get('/assets/primary_care_provider_pcp_change_request_form.pdf', {
+        responseType: 'blob',
+      })
+      .then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute(
+          'download',
+          '/assets/primary_care_provider_pcp_change_request_form.pdf',
+        );
+        document.body.appendChild(link);
+        link.click();
+      })
+      .catch((err) => {
+        logger.error(err);
+      });
+  }
   return (
     <Card className="m-4 p-8">
       <Column>
@@ -32,6 +54,7 @@ export const PrintedRequestForm = ({
           label="Primary Care Provider Change Form"
           icon={icon}
           className="!flex pl-0"
+          callback={downloadPDF}
         />
       </Column>
     </Card>

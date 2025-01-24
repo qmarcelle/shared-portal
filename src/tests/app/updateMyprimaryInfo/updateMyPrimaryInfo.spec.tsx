@@ -1,18 +1,25 @@
-import UpdateMyPrimaryCareProvider from '@/app/updateMyPrimaryCareProvider/page';
+import UpdateMyPrimaryCareProviderPage from '@/app/updateMyPrimaryCareProvider/page';
 import SelectPCPImage from '@/public/assets/select_pcp.png';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Image from 'next/image';
-const renderUI = () => {
-  return render(
-    <>
-      <UpdateMyPrimaryCareProvider />,
-      {/* <ProviderDirectory />,
-      <SendEmailRequest />,
-      <PrintedRequestForm />, */}
-    </>,
-  );
+
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
+        },
+      },
+    }),
+  ),
+}));
+
+const renderUI = async () => {
+  const result = await UpdateMyPrimaryCareProviderPage();
+  return render(result);
 };
 
 describe('UpdateMyPrimaryCareProvider', () => {
@@ -20,8 +27,8 @@ describe('UpdateMyPrimaryCareProvider', () => {
     jest.clearAllMocks();
   });
 
-  it('should render UI correctly', () => {
-    const component = renderUI();
+  it('should render UI correctly', async () => {
+    const component = await renderUI();
     screen.getByRole('heading', { name: 'Update My Primary Care Provider' });
     screen.getByText(
       'Choose one option below and follow the instructions to add or update your primary care provider.',
@@ -53,7 +60,7 @@ describe('UpdateMyPrimaryCareProvider', () => {
   });
 
   it('should render UI correctly with validations', async () => {
-    const component = renderUI();
+    const component = await renderUI();
     const inputCity = screen.getByLabelText(/City/i);
     const inputState = screen.getByLabelText(/State/i);
     const inputCounty = screen.getByLabelText(/County/i);
@@ -65,13 +72,11 @@ describe('UpdateMyPrimaryCareProvider', () => {
     await userEvent.type(inputCity, 'KINGSPORT');
     await userEvent.type(inputCounty, 'Shleby');
     await userEvent.type(inputState, 'TN');
-    await userEvent.type(inputZipCode, '12345');
+    //await userEvent.type(inputZipCode, '12345');
     await userEvent.type(inputPhoneNumber, '1234567890');
-    fireEvent.click(submitButton);
-    expect(screen.getAllByText('(Required Field)')).toBeVisible;
 
     //test zipcode formate validation
-    await userEvent.type(inputZipCode, '1234');
+    await userEvent.type(inputZipCode, '123');
     expect(screen.getAllByText('Please enter a valid zip code.')).toBeVisible;
 
     //test PhoneNumber formate validation
@@ -81,6 +86,9 @@ describe('UpdateMyPrimaryCareProvider', () => {
         'Please enter a valid contact phone number (XXX-XXX-XXXX).',
       ),
     ).toBeVisible;
+
+    fireEvent.click(submitButton);
+    expect(screen.getAllByText('(Required Field)')).toBeVisible;
 
     expect(component.baseElement).toMatchSnapshot();
   });

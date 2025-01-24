@@ -1,7 +1,7 @@
 'use server';
 
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
-import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/getPCPInfo';
+import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { CoverageType } from '@/models/member/api/loggedInUserInfo';
