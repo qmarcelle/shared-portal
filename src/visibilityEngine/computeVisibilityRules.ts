@@ -377,3 +377,9 @@ export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
 export function isBloodPressureManagementEligible(rules: VisibilityRules) {
   return rules.hypertensionMgmt && activeAndHealthPlanMember(rules);
 }
+
+export function isTeladocSecondOpinionAdviceAndSupportEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return isActiveAndNotFSAOnly(rules) && rules?.consumerMedicalEligible;
+}

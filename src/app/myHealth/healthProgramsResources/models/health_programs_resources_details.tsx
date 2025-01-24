@@ -6,20 +6,21 @@ export const myHealthProgramsandResourcesDetails: Map<
   VirtualHealthCareDetails
 > = new Map([
   [
-    HealthProgramsResourcesName.AlightSecondOpinionAdviceAndSupport,
+    HealthProgramsResourcesName.TeladocSecondOpinionAdviceAndSupport,
     {
       healthcareType: 'Advice & Support',
-      icon: 'Alight',
-      healthCareName: 'Alight Second Opinion Advice & Support',
+      icon: 'TelaDoc',
+      healthCareName: 'Teladoc Second Opinion Advice & Support',
       description:
-        'Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost.',
-      link: 'Learn More About Alight',
+        // eslint-disable-next-line quotes
+        'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
+      link: 'Learn More About Second Opinion Advice & Support',
       itemDataTitle: 'Generally good for:',
       itemData: [
-        'Speaking with an expert about your diagnosis',
-        'Rare or life-threatening condition support',
-        'Considering risky or complicated treatment',
-        'Compare costs of treatment or tests',
+        'Confirming a diagnosis',
+        'Deciding on a treatment plan',
+        'Getting expert guidance on a surgery',
+        'Providing answers to your questions about your diagnosis or recommended treatment',
       ],
     },
   ],

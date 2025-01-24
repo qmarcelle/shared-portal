@@ -65,6 +65,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'flexibleSpendingAccount',
   'healthReimbursementAccount',
   'hypertensionMgmt',
+  'consumerMedicalEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

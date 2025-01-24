@@ -15,6 +15,7 @@ import {
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
   isTeladocPrimary360Eligible,
+  isTeladocSecondOpinionAdviceAndSupportEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { myHealthProgramsandResourcesDetails } from './models/health_programs_resources_details';
@@ -71,6 +72,13 @@ const MyHealthProgramsResources = ({
       HealthProgramsResourcesName.CareTNOneOnOneHealthSupport,
     );
     if (careManagement) virtualHealthCareDetails.push(careManagement);
+  }
+  if (isTeladocSecondOpinionAdviceAndSupportEligible(visibilityRules)) {
+    const teladocSecondOpinion = myHealthProgramsandResourcesDetails.get(
+      HealthProgramsResourcesName.TeladocSecondOpinionAdviceAndSupport,
+    );
+    if (teladocSecondOpinion)
+      virtualHealthCareDetails.push(teladocSecondOpinion);
   }
 
   if (isBloodPressureManagementEligible(visibilityRules!)) {

@@ -185,4 +185,23 @@ describe('MyHealthProgramsResources', () => {
 
     expect(component.container).toMatchSnapshot();
   });
+
+  it('should render UI correctly for TeladocSecondOpinionAdviceAndSupport', () => {
+    vRules.consumerMedicalEligible = true;
+    const component = renderUI(vRules);
+    screen.getByText('Advice & Support');
+    screen.getByText('Teladoc Second Opinion Advice & Support');
+    screen.getByText(
+      'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
+    );
+    screen.getByText('Learn More About Second Opinion Advice & Support');
+    screen.getByText('Generally good for:');
+    screen.getByText('Confirming a diagnosis');
+    screen.getByText('Deciding on a treatment plan');
+    screen.getByText('Getting expert guidance on a surgery');
+    screen.getByText(
+      'Providing answers to your questions about your diagnosis or recommended treatment',
+    );
+    expect(component).toMatchSnapshot();
+  });
 });
