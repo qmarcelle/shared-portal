@@ -110,4 +110,8 @@ export function computeAuthFunctions(
   );
 
   rules.hypertensionMgmt = authFunctionsMap.get('TELADOC_HYPERTENSIONMGMT');
+
+  rules.consumerMedicalEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'CONSUMER_MEDICAL_ELIGIBLE',
+  )?.available;
 }

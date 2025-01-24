@@ -1,5 +1,4 @@
 export enum HealthProgramsResourcesName {
-  AlightSecondOpinionAdviceAndSupport = 'AlightSecondOpinionAdviceAndSupport',
   CareTNOneOnOneHealthSupport = 'CareTNOneOnOneHealthSupport',
   TeladocHealthBloodPressureManagementProgram = 'TeladocHealthBloodPressureManagementProgram',
   TeladocHealthDiabetesManagementProgram = 'TeladocHealthDiabetesManagementProgram',
@@ -14,4 +13,5 @@ export enum HealthProgramsResourcesName {
   BlueOfTennesseeMedicalCentersVirtualVisits = 'BlueOfTennesseeMedicalCentersVirtualVisits',
   TeladocHealthGeneralAndUrgentCare = 'TeladocHealthGeneralAndUrgentCare',
   TalkToNurse = 'TalkToNurse',
+  TeladocSecondOpinionAdviceAndSupport = 'TeladocSecondOpinionAdviceAndSupport',
 }
