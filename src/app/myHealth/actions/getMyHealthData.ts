@@ -1,6 +1,6 @@
 'use server';
 
-import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/getPCPInfo';
+import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { MyHealthData } from '../models/app/my_health_data';

@@ -3,7 +3,7 @@
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { PrimaryCareOptionsData } from '../model/app/primary_care_options_data';
-import { getPCPInfo } from './getPCPInfo';
+import { getPCPInfo } from './pcpInfo';
 
 export const getPrimaryCareOptionsData = async (): Promise<
   ActionResponse<number, PrimaryCareOptionsData>
