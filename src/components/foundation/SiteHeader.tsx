@@ -7,7 +7,7 @@ import { useMediaQuery } from 'react-responsive';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
-import menuNavigation from '../menuNavigation';
+import { getMenuNavigation } from '../menuNavigation';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 import { AlertBar } from './AlertBar';
 import {
@@ -25,6 +25,8 @@ type SiteHeaderProps = { visibilityRules: VisibilityRules };
 export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
+
+  const menuNavigation = getMenuNavigation(visibilityRules);
 
   const toggleMenu = () => {
     if (!isOpen) {

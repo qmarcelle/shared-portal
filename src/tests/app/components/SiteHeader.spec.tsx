@@ -1,3 +1,6 @@
+process.env.NEXT_PUBLIC_BLUECARE_FIND_FORM_URL =
+  'https://bluecare.bcbst.com/get-care/documents-forms';
+
 import { SideBarModal } from '@/components/foundation/SideBarModal';
 import SiteHeader from '@/components/foundation/SiteHeader';
 import { VisibilityRules } from '@/visibilityEngine/rules';
@@ -402,5 +405,36 @@ describe('SiteHeader And Navigation Menu', () => {
       screen.queryByText('Spending Accounts (HSA, FSA)'),
     ).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should link to BlueCare find form for BlueCare eligible users', async () => {
+    vRules = {};
+    vRules.blueCare = true;
+    const component = renderUI(vRules);
+
+    // Show Nav links for Support
+    fireEvent.click(screen.getByText('Support'));
+    const findAForm = screen.getByRole('link', {
+      name: 'Find a Form External Link',
+    });
+    expect(findAForm).toHaveAttribute(
+      'href',
+      'https://bluecare.bcbst.com/get-care/documents-forms',
+    );
+    expect(component.container).toMatchSnapshot();
+  });
+
+  it('should not link to BlueCare find form for BlueCare ineligible users', async () => {
+    vRules = {};
+    vRules.blueCare = false;
+    const component = renderUI(vRules);
+
+    // Show Nav links for Support
+    fireEvent.click(screen.getByText('Support'));
+
+    expect(
+      screen.queryByRole('link', { name: 'Find a Form External Link' }),
+    ).toBeNull();
+    expect(component.container).toMatchSnapshot();
   });
 });
