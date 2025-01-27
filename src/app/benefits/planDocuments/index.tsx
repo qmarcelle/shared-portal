@@ -48,7 +48,11 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
             className="inline"
             text="To request a printed version of any of these materials, please "
           />
-          <InlineLink className="inline py-0 pl-0 pr-0" label="contact us" />
+          <InlineLink
+            className="inline py-0 pl-0 pr-0"
+            label="contact us"
+            url="/support"
+          />
           <TextBox className="inline" text="." />
         </section>
 
