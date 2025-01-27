@@ -10,9 +10,12 @@ import {
   isPrimaryCareMenuOption,
   isSpendingAccountsMenuOptions,
 } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
-const menuNavigation: SiteHeaderSubNavProps[] = [
+export const getMenuNavigation = (
+  rules: VisibilityRules,
+): SiteHeaderSubNavProps[] => [
   {
     id: 1,
     title: 'Find Care & Costs',
@@ -567,8 +570,10 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
         showOnMenu: () => {
           return true;
         },
-        url: 'https://www.bcbst.com/use-insurance/documents-forms/',
-        external: false,
+        url: isBlueCareEligible(rules)
+          ? process.env.NEXT_PUBLIC_BLUECARE_FIND_FORM_URL!
+          : 'https://www.bcbst.com/use-insurance/documents-forms/',
+        external: isBlueCareEligible(rules) ?? false,
       },
       {
         id: 85,
@@ -586,5 +591,3 @@ const menuNavigation: SiteHeaderSubNavProps[] = [
     closeSubMenu: () => {},
   },
 ];
-
-export default menuNavigation;
