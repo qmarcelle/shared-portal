@@ -66,11 +66,21 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
           verifyEmail: false,
           verifyUniqueEmail: false,
         });
-        // Process login response for further operations
-        await useLoginStore.getState().processLogin(resp.data!);
         set({
           completeVerifyEmailProg: AppProg.success,
         });
+        if (resp.status == LoginStatus.PASSWORD_RESET_REQUIRED) {
+          useLoginStore.setState({
+            forcedPasswordReset: true,
+            interactionData: {
+              interactionId: resp.data?.interactionId ?? '',
+              interactionToken: resp.data?.interactionToken ?? '',
+            },
+          });
+          return;
+        }
+        // Process login response for further operations
+        await useLoginStore.getState().processLogin(resp.data!);
       } catch (err) {
         logger.error('Error from Verify Email Api', err);
         // Set indicator for login button

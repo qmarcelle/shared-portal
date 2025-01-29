@@ -49,6 +49,8 @@ const setupUI = () => {
   return { inputUsername, inputPassword, loginButton };
 };
 
+process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL = '/dashboard';
+
 describe('Log in user with email verification required', () => {
   afterEach(() => {
     resetToHome();
