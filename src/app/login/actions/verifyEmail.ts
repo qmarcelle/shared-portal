@@ -46,6 +46,9 @@ export async function callVerifyEmailOtp(
       case 'DEVICE_SELECTION_REQUIRED':
         status = LoginStatus.MFA_REQUIRED_MULTIPLE_DEVICES;
         break;
+      case 'PASSWORD_RESET_REQUIRED':
+        status = LoginStatus.PASSWORD_RESET_REQUIRED;
+        break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {

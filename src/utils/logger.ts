@@ -28,11 +28,7 @@ class Logger {
       const url = `${resp.config?.method} ${resp.config?.url ?? ''} ${resp.status?.toString()}`;
       const request = this.maskFields(JSON.parse(resp.config?.data));
       const response = this.maskFields(resp.data);
-      log = `URL: ${url}
-        UserId: ${userName}
-        ES TRANSACTION ID: ${esTransactionId} 
-        ${request ? `Request: ${request}` : null} 
-        ${response ? `Response: ${response}` : null}}`;
+      log = `URL: ${url} UserId: ${userName} ES TRANSACTION ID: ${esTransactionId} ${request ? `Request: ${request}` : null} ${response ? `Response: ${response}` : null}`;
     }
     return log;
   }
@@ -46,11 +42,7 @@ class Logger {
       const url = `${err.config?.method} ${err.config?.url ?? ''} ${err.response?.status?.toString()}`;
       const request = this.maskFields(JSON.parse(err.config?.data));
       const response = this.maskFields(err.response?.data);
-      log = `URL: ${url} 
-        UserId: ${userName}
-        ES TRANSACTION ID: ${esTransactionId} 
-        ${request ? `Request: ${request}` : null} 
-        ${response ? `Response: ${response}` : null}}`;
+      log = `URL: ${url} UserId: ${userName} ES TRANSACTION ID: ${esTransactionId} ${request ? `Request: ${request}` : null} ${response ? `Response: ${response}` : null}`;
     }
     return log;
   }
