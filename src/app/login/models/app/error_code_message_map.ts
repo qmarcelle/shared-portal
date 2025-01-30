@@ -20,6 +20,10 @@ export const inlineErrorCodeMessageMap = new Map<string | number, string>([
     "We didn't recognize the username or password you entered. Please try again.",
   ],
   ['MFA-403', 'Invalid OTP'],
+  [
+    'UI-404',
+    "We didn't recognize the username or password you entered. Please try again.",
+  ],
 ]);
 
 export const UNDEFINED_ERROR_CODE = 500;
