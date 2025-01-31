@@ -8,6 +8,7 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
     >
       <p
         class="title-2"
+        style="display: block;"
       >
         Let's Confirm Your Identity
       </p>

@@ -103,6 +103,7 @@ exports[`Security Page should render page correctly when mfa is disabled 1`] = `
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                    Multi-factor authentication (MFA) will confirm your identity when you log in,    protecting your important health information.
               </p>

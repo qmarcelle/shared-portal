@@ -17,6 +17,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           You need to change your email, or the email was already associated with another account. Please enter a new email address below.
         </p>
@@ -108,6 +109,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
         />
         <p
           class="body-1 title-3"
+          style="display: block;"
         >
           Need help?
         </p>
@@ -154,6 +156,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           You need to change your email, or the email was already associated with another account. Please enter a new email address below.
         </p>
@@ -271,6 +274,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
         />
         <p
           class="body-1 title-3"
+          style="display: block;"
         >
           Need help?
         </p>

@@ -103,6 +103,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                    Multi-factor authentication (MFA) will confirm your identity when you log in,    protecting your important health information.
               </p>
@@ -154,8 +155,9 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                     </div>
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
-                      We'll send a one-time security code to your email by default. Set up   multiple methods for more options when you log in.
+                      We'll send a one-time security code to your email by default. Set up multiple methods for more options when you log in.
                     </p>
                   </div>
                 </div>
@@ -214,6 +216,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           </span>
                           <p
                             class="body-1 underline underline-offset-4 decoration-dashed app-underline font-bold"
+                            style="display: block;"
                             tabindex="0"
                           >
                             Authenticator App
@@ -301,6 +304,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         </div>
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           Email Message
                         </p>
@@ -309,6 +313,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         />
                         <p
                           class="body-1 mb-4"
+                          style="display: block;"
                         >
                           Send a security code to testEmail@bcbst.com.
                         </p>
@@ -391,6 +396,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         </div>
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           Text Message
                         </p>
@@ -399,6 +405,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         />
                         <p
                           class="body-1 mb-4"
+                          style="display: block;"
                         >
                           Send a security code to (467) 589-6875.
                         </p>
@@ -481,6 +488,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         </div>
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           Voice Call
                         </p>
@@ -489,6 +497,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         />
                         <p
                           class="body-1 mb-4"
+                          style="display: block;"
                         >
                           Send a security code to (467) 589-6875.
                         </p>
