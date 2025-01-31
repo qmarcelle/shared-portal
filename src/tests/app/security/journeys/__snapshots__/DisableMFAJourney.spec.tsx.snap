@@ -99,6 +99,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 text-center"
+                          style="display: block;"
                         >
                           Are you sure you want to turn off the email method of mutli-factor authentication?
                         </p>
@@ -270,6 +271,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           You've Successfully turned off the email method of multi-factor authentication.
                         </p>

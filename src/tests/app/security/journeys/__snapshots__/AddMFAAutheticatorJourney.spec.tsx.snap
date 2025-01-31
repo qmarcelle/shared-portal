@@ -93,6 +93,7 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Scan the QR Code or manually type the secret key into your authenticator app then enter the security code.
                     </p>
@@ -121,6 +122,7 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 font-bold"
+                          style="display: block;"
                         >
                           Secret Key:
                         </p>
@@ -129,6 +131,7 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ
                         </p>
@@ -342,6 +345,7 @@ exports[`Authenticator App Setup should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           The next time you login, you'll generate a code through your authenticator app.
                         </p>
@@ -484,6 +488,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Scan the QR Code or manually type the secret key into your authenticator app then enter the security code.
                     </p>
@@ -512,6 +517,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1 body-1 font-bold"
+                          style="display: block;"
                         >
                           Secret Key:
                         </p>
@@ -520,6 +526,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ
                         </p>
@@ -715,6 +722,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Scan the QR Code or manually type the secret key into your authenticator app then enter the security code.
                     </p>
@@ -743,6 +751,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1 body-1 font-bold"
+                          style="display: block;"
                         >
                           Secret Key:
                         </p>
@@ -751,6 +760,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ
                         </p>
