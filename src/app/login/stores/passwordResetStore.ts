@@ -112,7 +112,7 @@ export const usePasswordResetStore = createWithEqualityFn<PasswordResetStore>(
             set(() => ({
               invalidDOBError: [
                 // eslint-disable-next-line quotes
-                "This isn't the birthdate that we have on file for you. Please try again.",
+                "This information doesn't match what we have on file for your account.",
               ],
             }));
             break;
