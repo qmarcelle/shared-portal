@@ -371,7 +371,7 @@ describe('Log In User whose status is forced password reset', () => {
       //should see error message on password reset screen
       expect(
         screen.getByText(
-          /This isn't the birthdate that we have on file for you. Please try again./i,
+          /This information doesn't match what we have on file for your account./i,
         ),
       ).toBeVisible();
     });
