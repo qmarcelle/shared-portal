@@ -21,19 +21,29 @@ export async function getLoggedInMember(
     const loggedUserInfo = await getLoggedInUserInfo(
       session?.user.currUsr?.plan.memCk ?? '',
     );
+    member.userId = session?.user.id ?? '';
     member.subscriberId = loggedUserInfo.subscriberID;
+    member.subscriberCk = loggedUserInfo.subscriberCK;
     member.noOfDependents = loggedUserInfo.members.length;
+    member.lob = loggedUserInfo.lob;
+    member.groupDetails = loggedUserInfo.groupData;
+    member.networkPrefix = loggedUserInfo.networkPrefix;
     member.groupId = loggedUserInfo.groupData.groupID;
+    member.groupEIN = loggedUserInfo.groupData.groupEIN;
     member.cmCondition = loggedUserInfo.cmcondition.join(',');
     const loggedMember = loggedUserInfo.members.find(
       (x) => x.memRelation == 'M',
     );
     if (loggedMember) {
       member.firstName = loggedMember?.firstName ?? '';
+      member.middleIntital = loggedMember?.middleInitial ?? '';
       member.lastName = loggedMember?.lastName ?? '';
       member.dateOfBirth = loggedMember?.birthDate ?? '';
       member.suffix = loggedMember?.memberSuffix ?? 0;
       member.memRelation = loggedMember?.memRelation ?? '';
+      member.memeCk = loggedMember?.memberCk;
+      member.gender = loggedMember?.gender;
+      member.ssn = loggedMember?.socialSecNum ?? '';
       const mailAddressType = loggedMember?.mailAddressType ?? '';
       if (mailAddressType) {
         for (const contact of loggedUserInfo.addresses) {
@@ -52,10 +62,24 @@ export async function getLoggedInMember(
         for (const planDetails of member.planDetails) {
           if (planDetails.effectiveDate > todayInMillisec) {
             member.futureEffective = true;
-            if (planDetails.productCategory == 'M')
+            if (planDetails.productCategory == 'M') {
+              member.isMedical = true;
               member.effectiveStartDate = new Date(
                 planDetails.effectiveDate,
               ).toLocaleDateString();
+              member.mpdpdId = planDetails.planID;
+            }
+            if (planDetails.productCategory == 'D') {
+              member.isDental = true;
+              member.dpdpdId = planDetails.planID;
+            }
+            if (planDetails.productCategory == 'V') {
+              member.isVision = true;
+              member.vpdpdId = planDetails.planID;
+            }
+            if (planDetails.productCategory == 'S') {
+              member.spdpdId = planDetails.planID;
+            }
             if (member.futureEffective && member.effectiveStartDate != null)
               break;
           }
@@ -79,6 +103,10 @@ export async function getMemberAndDependents(
       id: name + item.memberCk.toString().slice(-2),
       name,
       memberCK: item.memberCk,
+      firstName: item.firstName,
+      lastName: item.lastName,
+      suffix: item.memberSuffix,
+      dob: item.birthDate,
     };
   });
 }

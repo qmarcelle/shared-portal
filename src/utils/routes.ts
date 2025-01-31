@@ -19,6 +19,7 @@ export const apiAuthPrefix = '/api';
  */
 export const inboundSSORoutes = new Map<string, string>([
   ['/embed/dxAuth', '/embed/security'],
+  ['/sso', '/sso'],
 ]);
 
 /**

@@ -57,3 +57,7 @@ export type Claim = {
   claimReceivedCalendarDate: string;
   bcbstpaysYou: number;
 };
+
+export type ClaimDetailResponse = {
+  claim: Claim;
+};

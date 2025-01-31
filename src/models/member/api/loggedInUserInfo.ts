@@ -81,6 +81,7 @@ export type Member = {
   loggedIn: boolean;
   hasSocial: boolean;
   esipharmacyEligible: boolean;
+  socialSecNum?: string;
 };
 
 export type PlanDetail = {
