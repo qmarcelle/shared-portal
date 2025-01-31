@@ -51,8 +51,10 @@ export const MedicalPharmacyDentalCard = ({
                     // Add this line
                     items.onClick(items.serviceCategory);
                   } // Modify this line
-                  else {
-                    if (items.url) {
+                  else if (items.url) {
+                    if (items.externalLink) {
+                      window.open(items.url, '_blank');
+                    } else {
                       window.location.href = items.url;
                     }
                   }

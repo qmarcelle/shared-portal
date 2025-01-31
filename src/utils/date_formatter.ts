@@ -1,5 +1,39 @@
+import { format, parse } from 'date-fns';
+
 export const UNIXTimeSeconds = (): number => {
   return Math.floor(new Date().getTime() / 1000);
+};
+
+/**
+ * Formats the Date object to given format
+ * @param date The date to format
+ */
+export const formatDateToGiven = (
+  date?: Date,
+  month?: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow' | undefined,
+  day?: 'numeric' | '2-digit' | undefined,
+  year?: 'numeric' | '2-digit' | undefined,
+  hour?: 'numeric' | '2-digit' | undefined,
+  minute?: 'numeric' | '2-digit' | undefined,
+  second?: 'numeric' | '2-digit' | undefined,
+  timeZoneName?:
+    | 'long'
+    | 'short'
+    | 'shortOffset'
+    | 'longOffset'
+    | 'shortGeneric'
+    | 'longGeneric'
+    | undefined,
+) => {
+  return (date ?? new Date()).toLocaleDateString('en-US', {
+    day,
+    month,
+    year,
+    hour,
+    minute,
+    second,
+    timeZoneName,
+  });
 };
 
 /**
@@ -7,11 +41,7 @@ export const UNIXTimeSeconds = (): number => {
  * @param date The date to format
  */
 export const formatDateToLocale = (date: Date) => {
-  return date.toLocaleDateString('en-US', {
-    month: '2-digit',
-    day: '2-digit',
-    year: 'numeric',
-  });
+  return formatDateToGiven(date, '2-digit', '2-digit', 'numeric');
 };
 
 /**
@@ -20,6 +50,22 @@ export const formatDateToLocale = (date: Date) => {
  */
 export const formatDateToIntlLocale = (date: Date) => {
   return formatDateToLocale(date).replace(/\//g, '-');
+};
+
+/**
+ * Formats the Date string to format given as input
+ * @param date Date should be in string format
+ * @param inputPattern Date format of an input date as a string
+ * @param outputPattern Expected Date format as a string
+ * @returns Convert the Date into expected format and send it as string
+ */
+export const formatDateString = (
+  date: string,
+  inputPattern: string,
+  outputPattern: string,
+): string => {
+  const parsedDate = parse(date, inputPattern, new Date());
+  return format(parsedDate, outputPattern);
 };
 
 export const getDateTwoYearsAgoFormatted = () => {

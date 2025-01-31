@@ -1,19 +1,42 @@
-import { Address, PlanDetail } from '../member/api/loggedInUserInfo';
+import {
+  Address,
+  AuthFunction,
+  GroupData,
+  PlanDetail,
+} from '../member/api/loggedInUserInfo';
 
 export interface LoggedInMember {
   subscriberId: string;
+  subscriberCk: string;
   suffix: number;
   memRelation: string;
   planDetails: PlanDetail[] | undefined;
   futureEffective: boolean;
   effectiveStartDate: string;
   firstName: string;
+  middleIntital: string;
   lastName: string;
   noOfDependents: number;
   contact: Address;
   homeAddress: Address;
-  dateOfBirth: string;
+  memeCk: number;
+  gender: string;
+  lob: string;
+  networkPrefix: string;
+  groupDetails: GroupData;
+  authFunctions: AuthFunction[] | undefined;
   groupId: string;
+  ssn: string;
+  groupEIN: string;
+  userId: string;
+  mpdpdId?: string;
+  dpdpdId?: string;
+  vpdpdId?: string;
+  spdpdId?: string;
+  isMedical: boolean;
+  isDental: boolean;
+  isVision: boolean;
+  dateOfBirth: string;
   isAmplifyMem?: boolean;
   cmCondition: string;
 }

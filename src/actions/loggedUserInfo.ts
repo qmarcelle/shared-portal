@@ -8,6 +8,10 @@ export type MemberData = {
   id: string;
   name: string;
   memberCK: number;
+  firstName?: string;
+  lastName?: string;
+  suffix: number;
+  dob: string;
 };
 
 export async function getLoggedInUserInfo(

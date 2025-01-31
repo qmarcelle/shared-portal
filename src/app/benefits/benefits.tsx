@@ -334,8 +334,10 @@ const Benefits = ({
                     {
                       title: 'Visit EyeMed',
                       body: 'We work with EyeMed to provide your vision benefits. To manage your vision plan, visit EyeMed.',
-                      externalLink: false,
-                      url: 'url',
+                      externalLink: true,
+                      url:
+                        '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS,
                       icon: <Image src={externalIcon} alt="link" />,
                     },
                   ]}
