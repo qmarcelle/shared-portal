@@ -8,7 +8,7 @@ export const inlineErrorCodeMessageMap = new Map<string | number, string>([
     'There is a problem with the security code. Try re-entering or resending the code.',
   ],
   [
-    'OTP expired',
+    'OTP Expired',
     'There is a problem with the security code. Try re-entering or resending the code.',
   ],
   [
