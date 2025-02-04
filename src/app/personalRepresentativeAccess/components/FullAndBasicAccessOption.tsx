@@ -12,7 +12,7 @@ const FullAndBasicAccessOption = ({
   selectedData: boolean;
 }) => {
   return (
-    <main className="">
+    <main>
       {selectedData && (
         <Column className="items-center">
           <Row className="body-1 text-center">
@@ -42,7 +42,7 @@ const FullAndBasicAccessOption = ({
       {!selectedData && (
         <Column className="items-center">
           <RichText
-            type="body-2"
+            type="body-1"
             spans={[
               <span key={0}>Grant </span>,
               <span className="font-bold" key={1}>
@@ -70,10 +70,12 @@ const FullAndBasicAccessOption = ({
             type="body-1"
             spans={[
               <span key={0}>
-                You are asking BlueCross BlueShield of Tennessee to give your
+                {
+                  'You are asking BlueCross BlueShield of Tennessee to give your '
+                }
               </span>,
-              <span className="link" key={1}>
-                <a> Personal Representative Full Access </a>
+              <span className="link font-bold" key={1}>
+                <a>Personal Representative Full Access </a>
               </span>,
               <span key={2}>
                 {' '}
@@ -81,11 +83,11 @@ const FullAndBasicAccessOption = ({
                 portal and through our interoperability application programming
                 interfaces (APIs), including our
               </span>,
-              <span className="link" key={3}>
+              <span className="link font-bold" key={3}>
                 <a> Patient Access API </a>
               </span>,
               <span key={4}>and </span>,
-              <span className="link" key={5}>
+              <span className="link font-bold" key={5}>
                 {' '}
                 <a> Payer-to-Payer API. </a>
               </span>,
@@ -105,7 +107,7 @@ const FullAndBasicAccessOption = ({
             spans={[
               <span key={0}> By clicking the</span>,
               <span key={1} className="font-bold">
-                &quot;I Agree&quot;
+                {' "I Agree" '}
               </span>,
               <span key={3}>
                 button after reading this, you authorize BlueCross BlueShield of
@@ -149,7 +151,7 @@ const FullAndBasicAccessOption = ({
           <RichText
             type="body-1"
             spans={[
-              <span key={0} className="inline-block">
+              <span key={0}>
                 The information they will have access to may reveal highly
                 sensitive health information about you, including information
                 about your treatment or care for reproductive health (e.g.,
@@ -165,14 +167,13 @@ const FullAndBasicAccessOption = ({
                 authorizing the disclosure of this highly sensitive health
                 information.
               </span>,
-
-              <span key={1} className="inline-block mb-5">
+              <span key={1} className="!block mb-4 pt-4">
                 We are making this disclosure at your request, with your
                 approval and at your direction. The intended purposes of the use
                 and disclosure of your health information, including your highly
                 sensitive health information, are to:
               </span>,
-              <span key={3} className="inline-block mb-5">
+              <span key={3} className="inline-block mb-4">
                 <ul className="list-disc list-outside pl-5">
                   <li className="pb-2 marker:text-blue-500">
                     Give you control over the use and redisclosure of your
@@ -194,7 +195,7 @@ const FullAndBasicAccessOption = ({
                   </li>
                 </ul>
               </span>,
-              <span key={4} className="inline-block mb-5">
+              <span key={4} className="!block mb-4 pt-2">
                 You acknowledge that your Personal Representative and the
                 people, companies and other third parties that they authorize to
                 receive your health information may not be subject to state or
@@ -215,15 +216,15 @@ const FullAndBasicAccessOption = ({
                 civil, criminal, administrative, and legislative proceedings
                 against you.
               </span>,
-              <span key={5} className="inline-block mb-5">
+              <span key={5} className="inline-block pt-4">
                 This authorization for the release of your health information is
                 voluntary. This authorization will remain in effect until one of
                 the following events happen:
               </span>,
-              <span key={6} className="inline-block mb-5">
-                <ul className="list-outside list-disc pl-5">
+              <span key={6} className="inline-block mb-4">
+                <ul className="list-outside list-disc pl-4 pt-4">
                   <li className="mb-2 marker:text-blue-500">
-                    It is revoked &lpar;taken back&rpar;.
+                    {'It is revoked (taken back).'}
                   </li>
                   <li className="mb-2 marker:text-blue-500">
                     XX calendar days after the last time you access your portal
@@ -246,7 +247,7 @@ const FullAndBasicAccessOption = ({
                   </li>
                 </ul>
               </span>,
-              <span key={7} className="inline-block mb-5">
+              <span key={7} className="mb-4 pt-4">
                 You understand that BlueCross BlueShield of Tennessee will not
                 condition the provision of treatment, payment for treatment,
                 enrollment in a health plan, or eligibility for benefits on your
@@ -262,7 +263,7 @@ const FullAndBasicAccessOption = ({
                 BlueShield made in reliance on this authorization before the
                 cancellation.
               </span>,
-              <span key={8} className="inline-block mb-5">
+              <span key={8} className="!block mb-4 pt-4">
                 {' '}
                 Please note that your Personal Representative will not have Full
                 Access to your health information or the ability to use our APIs
@@ -277,8 +278,8 @@ const FullAndBasicAccessOption = ({
                 Notice To Recipient of Substance Use Disorder Records:
               </span>,
               <span key={10}>
-                42 CFR Part 2 prohibits unauthorized use or disclosure of these
-                records.
+                {` 42 CFR Part 2 prohibits unauthorized use or disclosure of these
+                records.`}
               </span>,
             ]}
           />
@@ -288,17 +289,28 @@ const FullAndBasicAccessOption = ({
           <Spacer size={16} />
           <Checkbox
             label=""
-            body="I Agree. Clicking “I Agree” means that you have read, understand, and
-          agree to this authorization. You are giving your permission for
-          BlueCross BlueShield of Tennessee to give your Personal
-          Representative, and any person, company or other third party
-          authorized by your Personal Representative, access to your health
-          information, including your highly sensitive health information. You
-          understand that you can contact BlueCross BlueShield of Tennessee for
-          a copy of this authorization."
+            body={
+              <RichText
+                spans={[
+                  <span key={0} className="font-bold">
+                    I Agree.
+                  </span>,
+                  <span key={1}>
+                    {` Clicking “I Agree” means that you have read, understand, and
+                    agree to this authorization. You are giving your permission
+                    for BlueCross BlueShield of Tennessee to give your Personal
+                    Representative, and any person, company or other third party
+                    authorized by your Personal Representative, access to your
+                    health information, including your highly sensitive health
+                    information. You understand that you can contact BlueCross
+                    BlueShield of Tennessee for a copy of this authorization.`}
+                  </span>,
+                ]}
+              />
+            }
             selected={true}
           ></Checkbox>
-          <Spacer size={32} />
+          <Spacer size={16} />
           <TextField type="text" label="Type Your Full Name"></TextField>
           <Spacer size={32} />
         </Column>

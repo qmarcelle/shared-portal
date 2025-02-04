@@ -19,6 +19,7 @@ describe('PersonalRepresentativeAccess', () => {
     expect(screen.getAllByText('Full Access'));
     expect(screen.getAllByText('[Mature Minor]'));
     expect(screen.getByText('DOB: 01/01/2008')).toBeVisible();
+    expect(screen.getAllByText('Update')[0]).toBeInTheDocument();
     expect(screen.getAllByText('Basic Access as of 01/01/2024'));
     expect(
       screen.getAllByText('This member has not created an online profile.'),

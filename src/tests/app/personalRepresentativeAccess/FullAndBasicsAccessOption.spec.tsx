@@ -1,0 +1,30 @@
+import FullAndBasicAccessOption from '@/app/personalRepresentativeAccess/components/FullAndBasicAccessOption';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+
+const renderUI = (selectedValue: boolean) =>
+  render(<FullAndBasicAccessOption selectedData={selectedValue} />);
+describe('Full And Basics Access Option', () => {
+  it('should render the UI correctly for true', () => {
+    const component = renderUI(true);
+    expect(screen.getByText('Grant Basic Access to Chris Hall'));
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should render the UI correctly for false', () => {
+    const component = renderUI(false);
+    expect(
+      screen.getByText(
+        'HIPAA Authorization for Full Portal Access and Interoperability APIs',
+      ),
+    );
+    expect(screen.getByText('Personal Representative Full Access'));
+    expect(
+      screen.getByText(
+        'Demographic and contact information related to you and your family;',
+      ),
+    );
+    expect(screen.getByText('Type Your Full Name'));
+    expect(component.baseElement).toMatchSnapshot();
+  });
+});

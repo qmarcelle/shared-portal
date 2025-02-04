@@ -12,8 +12,8 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { useState } from 'react';
 import FullAndBasicAccessOption from '../components/FullAndBasicAccessOption';
 
-const bottomNote =
-  'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and condition.';
+const bottomNote = `Disclaimer: BlueCross BlueShield of Tennessee is not responsible for your personal representative or any third parties authorized by you or your personal representative to have access to your health information. 
+  BlueCross BlueShield of Tennessee does not warrant that information provided with be accurate, timely, or complete.`;
 
 interface InviteToRegisterProps {
   memberName: string;
@@ -41,7 +41,7 @@ export const EditLevelOfAccess = ({
         <Column>
           <TextBox className="text-center" text="You're changing access for:" />
           <Spacer size={24} />
-          <TextBox className="text-center" text="Chris Hall" />
+          <TextBox className="text-center bold" text="Chris Hall" />
           <Spacer size={24} />
           <Column>
             <Radio

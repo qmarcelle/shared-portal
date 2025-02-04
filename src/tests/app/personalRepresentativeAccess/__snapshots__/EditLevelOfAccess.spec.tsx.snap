@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col items-center"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h2
+        class="title-2"
+      >
+        Edit Level Of Access
+      </h2>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="flex flex-col items-center  w-[358px]"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <p
+            class="body-1 text-center"
+          >
+            You're changing access for:
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <p
+            class="body-1 text-center bold"
+          >
+            Chris Hall
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+          />
+          <div
+            class="flex flex-col"
+          >
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="Full Access"
+                  checked=""
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class="font-bold"
+                >
+                  Full Access
+                </p>
+                <p>
+                  Your Representative will have access to all documents and claims, even those with sensitive information
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row gap-1 "
+            >
+              <label>
+                <input
+                  aria-label="Basic Access"
+                  id=""
+                  name=""
+                  type="radio"
+                />
+              </label>
+              <div
+                class="flex-col m-1"
+              >
+                <p
+                  class="font-bold"
+                >
+                  Basic Access
+                </p>
+                <p>
+                  Your Representative will have access to all documents and claims, but will not be able to view sensitive information
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="mb-8"
+        >
+          <p
+            class="body-1 body-2"
+          >
+            Disclaimer: BlueCross BlueShield of Tennessee is not responsible for your personal representative or any third parties authorized by you or your personal representative to have access to your health information. 
+  BlueCross BlueShield of Tennessee does not warrant that information provided with be accurate, timely, or complete.
+          </p>
+        </div>
+        <button
+          aria-label="Next"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color"
+          type="button"
+        >
+          Next
+        </button>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          aria-label="Cancel"
+          style="display: block;"
+          tabindex="-1"
+        >
+          <button
+            class="flex flex-row link-container undefined"
+            style="max-width: max-content; height: auto; display: block;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+              style="display: block;"
+            >
+              Cancel
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+`;
