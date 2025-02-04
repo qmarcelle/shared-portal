@@ -4,10 +4,8 @@ import { AccordionListCard } from '@/components/composite/AccordionListCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
-import { accessGranted, basicAccessIcon } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 import { AuthorizationForm } from './components/AuthorizationForm';
 import { BecomeRepresentative } from './components/BecomeRepresentative';
 import { MembersRepresented } from './components/MembersRepresented';
@@ -34,13 +32,6 @@ const PersonalRepresentativeAccess = () => {
               header="Understanding Access"
               information={[
                 {
-                  icon: (
-                    <Image
-                      className="size-[20px] mr-2"
-                      src={accessGranted}
-                      alt="Full Access"
-                    />
-                  ),
                   title: 'Full Access',
                   body: (
                     <div className="m-1">
@@ -57,13 +48,6 @@ const PersonalRepresentativeAccess = () => {
                   ),
                 },
                 {
-                  icon: (
-                    <Image
-                      className="size-[20px] mr-2"
-                      src={basicAccessIcon}
-                      alt="Full Access"
-                    />
-                  ),
                   title: 'Basic Access',
                   body: (
                     <div className="m-1">

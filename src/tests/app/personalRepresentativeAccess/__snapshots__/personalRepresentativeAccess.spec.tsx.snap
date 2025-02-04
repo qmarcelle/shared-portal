@@ -58,22 +58,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                     <div
                       class="flex flex-row m-1 accordion-head"
                     >
-                      <div
-                        class="mr-1"
-                      >
-                        <img
-                          alt="Full Access"
-                          class="size-[20px] mr-2"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
                       <p
                         class="mr-2 flex-grow"
                       >
@@ -106,22 +90,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                     <div
                       class="flex flex-row m-1 accordion-head"
                     >
-                      <div
-                        class="mr-1"
-                      >
-                        <img
-                          alt="Full Access"
-                          class="size-[20px] mr-2"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
                       <p
                         class="mr-2 flex-grow"
                       >
@@ -173,7 +141,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                         class="card-elevated cursor-pointer mb-4"
                       >
                         <div
-                          class="flex flex-col m-4"
+                          class="flex flex-col m-8"
                         >
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -182,7 +150,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             class="flex flex-row justify-between"
                           >
                             <p
-                              class="body-1 ml-2 font-bold body-1"
+                              class="body-1 font-bold body-1"
                             >
                               Robert Hall
                             </p>
@@ -196,16 +164,9 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
                           <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class=""
-                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                            />
-                          </div>
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
@@ -220,24 +181,11 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               />
                             </div>
                             <div>
-                               
                               <div
                                 class="flex flex-row"
                               >
-                                <img
-                                  alt="Info"
-                                  class="icon"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
                                 <p
-                                  class="body-1 pt-1 ml-1"
+                                  class="body-1 pt-1"
                                 >
                                   Basic Access as of 01/01/2024
                                 </p>
@@ -257,7 +205,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Edit Access
+                                    Update
                                   </p>
                                   <div
                                     class="ml-2"
@@ -287,7 +235,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                         class="card-elevated cursor-pointer mb-4"
                       >
                         <div
-                          class="flex flex-col m-4"
+                          class="flex flex-col m-8"
                         >
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -296,7 +244,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             class="flex flex-row justify-between"
                           >
                             <p
-                              class="body-1 ml-2 font-bold body-1"
+                              class="body-1 font-bold body-1"
                             >
                               [Mature Minor]
                             </p>
@@ -310,16 +258,9 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
                           <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class=""
-                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                            />
-                          </div>
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
@@ -329,88 +270,66 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             <div
                               class="flex flex-row"
                             >
-                              <img
-                                alt="Info"
-                                class="icon"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
                               <p
-                                class="body-1 pt-1 ml-1"
+                                class="body-1 pt-1"
                               >
                                 Basic Access as of 01/01/2024
                               </p>
-                              <span
-                                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-                              />
                             </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
                             <div
-                              class="flex flex-row"
+                              class="card-main w-full"
+                              style="background-color: rgba(0, 0, 0, 0.05);"
                             >
-                              <span
-                                style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                              />
                               <div
-                                class="card-main w-full"
-                                style="background-color: rgba(0, 0, 0, 0.05);"
+                                class="flex flex-col m-4"
                               >
                                 <div
-                                  class="flex flex-col m-4"
+                                  class="flex flex-row mt-2"
                                 >
-                                  <div
-                                    class="flex flex-row mt-2"
+                                  <p
+                                    class="body-1 body-1"
+                                  >
+                                    This member has not created an online profile.
+                                  </p>
+                                </div>
+                                <a
+                                  aria-label="Invite to Register"
+                                  style="display: block;"
+                                  tabindex="-1"
+                                >
+                                  <button
+                                    class="flex flex-row link-container !flex pl-0"
+                                    style="max-width: max-content; height: auto; display: block;"
+                                    tabindex="-1"
+                                    type="button"
                                   >
                                     <p
-                                      class="body-1 body-1"
+                                      class="link undefined"
+                                      style="display: block;"
                                     >
-                                      This member has not created an online profile.
+                                      Invite to Register
                                     </p>
-                                  </div>
-                                  <span
-                                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                                  />
-                                  <a
-                                    aria-label="Invite to Register"
-                                    style="display: block;"
-                                    tabindex="-1"
-                                  >
-                                    <button
-                                      class="flex flex-row link-container !flex pl-0"
-                                      style="max-width: max-content; height: auto; display: block;"
-                                      tabindex="-1"
-                                      type="button"
+                                    <p
+                                      class="ml-1"
+                                      style="display: block;"
                                     >
-                                      <p
-                                        class="link undefined"
-                                        style="display: block;"
-                                      >
-                                        Invite to Register
-                                      </p>
-                                      <p
-                                        class="ml-1"
-                                        style="display: block;"
-                                      >
-                                        <img
-                                          alt="link"
-                                          data-nimg="1"
-                                          decoding="async"
-                                          height="40"
-                                          loading="lazy"
-                                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                          style="color: transparent;"
-                                          width="40"
-                                        />
-                                      </p>
-                                    </button>
-                                  </a>
-                                </div>
+                                      <img
+                                        alt="link"
+                                        data-nimg="1"
+                                        decoding="async"
+                                        height="40"
+                                        loading="lazy"
+                                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                        style="color: transparent;"
+                                        width="40"
+                                      />
+                                    </p>
+                                  </button>
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -420,7 +339,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                         class="card-elevated cursor-pointer mb-4"
                       >
                         <div
-                          class="flex flex-col m-4"
+                          class="flex flex-col m-8"
                         >
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -429,7 +348,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             class="flex flex-row justify-between"
                           >
                             <p
-                              class="body-1 ml-2 font-bold body-1"
+                              class="body-1 font-bold body-1"
                             >
                               [Mature Minor]
                             </p>
@@ -443,16 +362,9 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
                           <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class=""
-                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                            />
-                          </div>
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                           />
@@ -467,24 +379,11 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               />
                             </div>
                             <div>
-                               
                               <div
                                 class="flex flex-row"
                               >
-                                <img
-                                  alt="Info"
-                                  class="icon"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
                                 <p
-                                  class="body-1 pt-1 ml-1"
+                                  class="body-1 pt-1"
                                 >
                                   Basic Access as of 01/01/2024
                                 </p>
@@ -504,7 +403,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Edit Access
+                                    Update
                                   </p>
                                   <div
                                     class="ml-2"
@@ -682,22 +581,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                   <div
                     class="flex flex-row m-1 accordion-head"
                   >
-                    <div
-                      class="mr-1"
-                    >
-                      <img
-                        alt="Full Access"
-                        class="size-[20px] mr-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
                     <p
                       class="mr-2 flex-grow"
                     >
@@ -730,22 +613,6 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                   <div
                     class="flex flex-row m-1 accordion-head"
                   >
-                    <div
-                      class="mr-1"
-                    >
-                      <img
-                        alt="Full Access"
-                        class="size-[20px] mr-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
                     <p
                       class="mr-2 flex-grow"
                     >
@@ -797,7 +664,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                       class="card-elevated cursor-pointer mb-4"
                     >
                       <div
-                        class="flex flex-col m-4"
+                        class="flex flex-col m-8"
                       >
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -806,7 +673,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                           class="flex flex-row justify-between"
                         >
                           <p
-                            class="body-1 ml-2 font-bold body-1"
+                            class="body-1 font-bold body-1"
                           >
                             Robert Hall
                           </p>
@@ -820,16 +687,9 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
@@ -844,24 +704,11 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             />
                           </div>
                           <div>
-                             
                             <div
                               class="flex flex-row"
                             >
-                              <img
-                                alt="Info"
-                                class="icon"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
                               <p
-                                class="body-1 pt-1 ml-1"
+                                class="body-1 pt-1"
                               >
                                 Basic Access as of 01/01/2024
                               </p>
@@ -881,7 +728,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Edit Access
+                                  Update
                                 </p>
                                 <div
                                   class="ml-2"
@@ -911,7 +758,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                       class="card-elevated cursor-pointer mb-4"
                     >
                       <div
-                        class="flex flex-col m-4"
+                        class="flex flex-col m-8"
                       >
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -920,7 +767,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                           class="flex flex-row justify-between"
                         >
                           <p
-                            class="body-1 ml-2 font-bold body-1"
+                            class="body-1 font-bold body-1"
                           >
                             [Mature Minor]
                           </p>
@@ -934,16 +781,9 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
@@ -953,88 +793,66 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                           <div
                             class="flex flex-row"
                           >
-                            <img
-                              alt="Info"
-                              class="icon"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
                             <p
-                              class="body-1 pt-1 ml-1"
+                              class="body-1 pt-1"
                             >
                               Basic Access as of 01/01/2024
                             </p>
-                            <span
-                              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-                            />
                           </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
                           <div
-                            class="flex flex-row"
+                            class="card-main w-full"
+                            style="background-color: rgba(0, 0, 0, 0.05);"
                           >
-                            <span
-                              style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                            />
                             <div
-                              class="card-main w-full"
-                              style="background-color: rgba(0, 0, 0, 0.05);"
+                              class="flex flex-col m-4"
                             >
                               <div
-                                class="flex flex-col m-4"
+                                class="flex flex-row mt-2"
                               >
-                                <div
-                                  class="flex flex-row mt-2"
+                                <p
+                                  class="body-1 body-1"
+                                >
+                                  This member has not created an online profile.
+                                </p>
+                              </div>
+                              <a
+                                aria-label="Invite to Register"
+                                style="display: block;"
+                                tabindex="-1"
+                              >
+                                <button
+                                  class="flex flex-row link-container !flex pl-0"
+                                  style="max-width: max-content; height: auto; display: block;"
+                                  tabindex="-1"
+                                  type="button"
                                 >
                                   <p
-                                    class="body-1 body-1"
+                                    class="link undefined"
+                                    style="display: block;"
                                   >
-                                    This member has not created an online profile.
+                                    Invite to Register
                                   </p>
-                                </div>
-                                <span
-                                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                                />
-                                <a
-                                  aria-label="Invite to Register"
-                                  style="display: block;"
-                                  tabindex="-1"
-                                >
-                                  <button
-                                    class="flex flex-row link-container !flex pl-0"
-                                    style="max-width: max-content; height: auto; display: block;"
-                                    tabindex="-1"
-                                    type="button"
+                                  <p
+                                    class="ml-1"
+                                    style="display: block;"
                                   >
-                                    <p
-                                      class="link undefined"
-                                      style="display: block;"
-                                    >
-                                      Invite to Register
-                                    </p>
-                                    <p
-                                      class="ml-1"
-                                      style="display: block;"
-                                    >
-                                      <img
-                                        alt="link"
-                                        data-nimg="1"
-                                        decoding="async"
-                                        height="40"
-                                        loading="lazy"
-                                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                        style="color: transparent;"
-                                        width="40"
-                                      />
-                                    </p>
-                                  </button>
-                                </a>
-                              </div>
+                                    <img
+                                      alt="link"
+                                      data-nimg="1"
+                                      decoding="async"
+                                      height="40"
+                                      loading="lazy"
+                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                      style="color: transparent;"
+                                      width="40"
+                                    />
+                                  </p>
+                                </button>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -1044,7 +862,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                       class="card-elevated cursor-pointer mb-4"
                     >
                       <div
-                        class="flex flex-col m-4"
+                        class="flex flex-col m-8"
                       >
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -1053,7 +871,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                           class="flex flex-row justify-between"
                         >
                           <p
-                            class="body-1 ml-2 font-bold body-1"
+                            class="body-1 font-bold body-1"
                           >
                             [Mature Minor]
                           </p>
@@ -1067,16 +885,9 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
                         <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
@@ -1091,24 +902,11 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             />
                           </div>
                           <div>
-                             
                             <div
                               class="flex flex-row"
                             >
-                              <img
-                                alt="Info"
-                                class="icon"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
                               <p
-                                class="body-1 pt-1 ml-1"
+                                class="body-1 pt-1"
                               >
                                 Basic Access as of 01/01/2024
                               </p>
@@ -1128,7 +926,7 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Edit Access
+                                  Update
                                 </p>
                                 <div
                                   class="ml-2"

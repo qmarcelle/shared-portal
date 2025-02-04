@@ -6,7 +6,7 @@ import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
-import { accessGranted, inboxIcon } from '@/components/foundation/Icons';
+import { inboxIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -36,40 +36,34 @@ export const MembersRepresentativeItem = ({
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
 }: MembersRepresentativeItemProps) => {
-  // const [isPending, setIsPending] = useState(false);
   const { showAppModal } = useAppModalStore();
   function getProfileOfflineContent() {
     return (
       <Column>
         <Row>
-          <Image src={accessGranted} className="icon" alt="Info" />
-          <TextBox className="pt-1 ml-1" text="Basic Access as of 01/01/2024" />
-          <Spacer axis="horizontal" size={32} />
+          <TextBox className="pt-1" text="Basic Access as of 01/01/2024" />
         </Row>
-        <Row>
-          <Spacer axis="horizontal" size={16} />
-          <Card backgroundColor="rgba(0,0,0,0.05)" className="w-full">
-            <Column className="m-4">
-              <Row className="mt-2">
-                <TextBox
-                  className="body-1"
-                  text="This member has not created an online profile."
-                />
-              </Row>
-              <Spacer axis="horizontal" size={8} />
-              <AppLink
-                className="!flex pl-0"
-                label="Invite to Register"
-                icon={icon1}
-                callback={() =>
-                  showAppModal({
-                    content: <InviteToRegister memberName={memberName} />,
-                  })
-                }
+        <Spacer size={16} />
+        <Card backgroundColor="rgba(0,0,0,0.05)" className="w-full">
+          <Column className="m-4">
+            <Row className="mt-2">
+              <TextBox
+                className="body-1"
+                text="This member has not created an online profile."
               />
-            </Column>
-          </Card>
-        </Row>
+            </Row>
+            <AppLink
+              className="!flex pl-0"
+              label="Invite to Register"
+              icon={icon1}
+              callback={() =>
+                showAppModal({
+                  content: <InviteToRegister memberName={memberName} />,
+                })
+              }
+            />
+          </Column>
+        </Card>
       </Column>
     );
   }
@@ -81,20 +75,14 @@ export const MembersRepresentativeItem = ({
           <Spacer axis="horizontal" size={8} />
           {fullAccess && (
             <Row>
-              <Image src={accessGranted} className="icon" alt="Info" />
-              <TextBox className="pt-1 ml-1" text="Full Access" />
+              <TextBox className="pt-1" text="Full Access as of 01/01/2024" />
             </Row>
           )}
         </Row>
         {!fullAccess && (
           <div>
-            {' '}
             <Row>
-              <Image src={accessGranted} className="icon" alt="Info" />
-              <TextBox
-                className="pt-1 ml-1"
-                text="Basic Access as of 01/01/2024"
-              />
+              <TextBox className="pt-1" text="Basic Access as of 01/01/2024" />
               <Spacer size={42} />
             </Row>
             {!isRepresentative && (
@@ -102,7 +90,7 @@ export const MembersRepresentativeItem = ({
                 <Spacer size={42} />
                 <Title
                   className="font-bold primary-color"
-                  text="Edit Access"
+                  text="Update"
                   suffix={icon}
                   callback={() =>
                     showAppModal({
@@ -140,17 +128,14 @@ export const MembersRepresentativeItem = ({
       type="elevated"
       onClick={onClick}
     >
-      <Column className="m-4">
+      <Column className="m-8">
         <Spacer size={16} />
         <Row className="justify-between">
-          <TextBox className="ml-2 font-bold body-1" text={memberName} />
+          <TextBox className="font-bold body-1" text={memberName} />
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />
-        <Row>
-          <Spacer axis="horizontal" size={8} />
-          <Divider />
-        </Row>
+        <Divider />
         <Spacer size={16} />
         {isOnline ? getProfileOnlineContent() : getProfileOfflineContent()}
       </Column>
