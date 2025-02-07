@@ -53,6 +53,7 @@ export const CVSCaremarkInformationCard = ({
                   className=" flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
                   serviceIcon={item.serviceIcon}
                   serviceLabel={item.serviceLabel}
+                  url={item.url}
                 />
               ))}
             </div>
@@ -64,6 +65,7 @@ export const CVSCaremarkInformationCard = ({
             label={linkText}
             icon={linkIcon}
             callback={() => null}
+            url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
           />
         </Column>
       </Card>
