@@ -337,7 +337,7 @@ const Benefits = ({
                       externalLink: true,
                       url:
                         '/sso/launch?PartnerSpId=' +
-                        process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS,
+                        process.env.NEXT_PUBLIC_IDP_EYEMED,
                       icon: <Image src={externalIcon} alt="link" />,
                     },
                   ]}
