@@ -19,7 +19,12 @@ import { useLoginStore } from '../stores/loginStore';
 import { useVerifyEmailStore } from '../stores/verifyEmailStore';
 
 export const LoginEmailVerification = () => {
-  const { emailId, inactive } = useLoginStore();
+  const [verifyUniqueEmail, emailId, inactive] = useLoginStore((state) => [
+    state.verifyUniqueEmail,
+    state.emailId,
+    state.inactive,
+  ]);
+
   const {
     resetApiErrors,
     updateCode,
@@ -27,22 +32,26 @@ export const LoginEmailVerification = () => {
     code,
     completeVerifyEmailProg,
     submitVerifyEmailAuth,
-  } = useVerifyEmailStore((state) => ({
-    resetApiErrors: state.resetApiErrors,
-    updateCode: state.updateCode,
-    apiErrors: state.apiErrors,
-    code: state.code,
-    completeVerifyEmailProg: state.completeVerifyEmailProg,
-    submitVerifyEmailAuth: state.submitVerifyEmailAuth,
-  }));
+    isResentSuccessCode,
+    handleResendCode,
+  } = useVerifyEmailStore((state) => state);
+
   const updateSecurityCode = (value: string) => {
-    updateCode(value);
     if (apiErrors.length) {
       resetApiErrors();
     }
+    updateCode(value);
   };
-  const validateSecurityCode = () =>
-    code.length > INVALID_CODE_LENGTH ? submitVerifyEmailAuth : undefined;
+
+  const updateResendCode = () => {
+    if (apiErrors.length) {
+      resetApiErrors();
+    }
+    handleResendCode();
+  };
+
+  const validateSecurityCode = () => code.length > INVALID_CODE_LENGTH;
+
   const showTooltip = code.length < MIN_CODE_LENGTH;
 
   const trackContactUsAnalytics = () => {
@@ -78,7 +87,7 @@ export const LoginEmailVerification = () => {
       };
 
   return (
-    <form onSubmit={validateSecurityCode()}>
+    <form onSubmit={validateSecurityCode() ? submitVerifyEmailAuth : undefined}>
       <div id="mainSection">
         <Header text={interfaceText.title} />
         <Spacer size={16} />
@@ -98,6 +107,17 @@ export const LoginEmailVerification = () => {
           errors={apiErrors}
         />
         <Spacer size={16} />
+        {isResentSuccessCode && verifyUniqueEmail && (
+          <TextBox className="body-1 text-lime-700" text="Code resent!" />
+        )}
+        {!isResentSuccessCode && verifyUniqueEmail && (
+          <AppLink
+            className="self-start !pl-0"
+            callback={updateResendCode}
+            label="Resend Code"
+          />
+        )}
+        <Spacer size={16} />
         <ToolTip
           showTooltip={showTooltip}
           className="flex flex-row justify-center items-center tooltip"
@@ -105,7 +125,9 @@ export const LoginEmailVerification = () => {
         >
           <Button
             style="submit"
-            callback={validateSecurityCode()}
+            callback={
+              validateSecurityCode() ? submitVerifyEmailAuth : undefined
+            }
             label={
               completeVerifyEmailProg == AppProg.loading
                 ? 'Confirming...'
@@ -114,6 +136,7 @@ export const LoginEmailVerification = () => {
           />
         </ToolTip>
         <Spacer size={32} />
+
         <Divider />
         <Spacer size={16} />
         <Header text={interfaceText.lowerTitle} type="title-3" />

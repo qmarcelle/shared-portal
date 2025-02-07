@@ -4,7 +4,9 @@ import { logger } from '@/utils/logger';
 import { FormEvent } from 'react';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
+import { getEmailUniquenessResendCode } from '../actions/emailUniquenessResendOtp';
 import { callVerifyEmailOtp } from '../actions/verifyEmail';
+import { EmailUniquenessResendCodeStatus } from '../models/api/email_uniqueness_resendcode_request';
 import { PortalLoginResponse } from '../models/api/login';
 import { inlineErrorCodeMessageMap } from '../models/app/error_code_message_map';
 import { LoginStatus } from '../models/status';
@@ -17,6 +19,8 @@ type VerifyEmailStore = {
   resetApiErrors: () => void;
   completeVerifyEmailProg: AppProg;
   apiErrors: string[];
+  handleResendCode: () => Promise<void>;
+  isResentSuccessCode: boolean;
 };
 
 export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
@@ -27,6 +31,8 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
       set(() => ({
         apiErrors: [],
       })),
+    isApiError: false,
+    isResentSuccessCode: false,
     completeVerifyEmailProg: AppProg.init,
     updateCode: (val: string) =>
       set(() => ({
@@ -96,6 +102,27 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
         } else {
           useLoginStore.setState({ unhandledErrors: true });
         }
+      }
+    },
+    handleResendCode: async () => {
+      try {
+        const resp = await getEmailUniquenessResendCode({
+          interactionId:
+            useLoginStore.getState().interactionData?.interactionId ?? '',
+          interactionToken:
+            useLoginStore.getState().interactionData?.interactionToken ?? '',
+        });
+        switch (resp.status) {
+          case EmailUniquenessResendCodeStatus.RESEND_OTP:
+            set(() => ({ isResentSuccessCode: true }));
+            break;
+
+          default:
+            throw resp;
+        }
+      } catch (err) {
+        logger.error('Error from resend OTP', err);
+        useLoginStore.setState({ unhandledErrors: true });
       }
     },
   }),

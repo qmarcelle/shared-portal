@@ -74,6 +74,9 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
         <div
           class="flex flex-row justify-center items-center tooltip"
         >

@@ -30,7 +30,7 @@ describe('Login Email Verification Component', () => {
       'Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or',
     );
     expect(
-      screen.getByRole('button', {
+      screen.getByRole('link', {
         name: /contact us/i,
       }),
     ).toBeVisible();

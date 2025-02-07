@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Email Uniqueness resend code - Http Error 408 Email uniqueness resend code 408 http error code 1`] = `
+<body>
+  <div>
+    <div>
+      <header>
+        <title>
+          Member Login
+        </title>
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flow-root"
+          >
+            <a
+              class="float-left"
+              href="https://www.bcbst.com"
+            >
+              <img
+                alt="Blue Cross Blue Shield of Tennessee"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                id="logo"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </a>
+            <a
+              class="float-right"
+              href="https://www.bcbst.com/contact-us"
+              tabindex="-1"
+            >
+              <button
+                class="buttonlink headerbutton"
+                id="contactbutton"
+              >
+                Contact Us
+              </button>
+            </a>
+          </div>
+        </div>
+      </header>
+      <section>
+        <div
+          id="blueback"
+        >
+          <div
+            id="marginSection"
+          >
+            <button
+              class="buttonlink pt-9"
+              id="backButton"
+            >
+              Back to Homepage
+            </button>
+            <article
+              id="mainSection"
+            >
+              <div
+                class="flex flex-col items-center"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <img
+                  alt="alert"
+                  class="size-[80px]"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <h1
+                  class="title-1 title-2"
+                >
+                  Login Error
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col items-center"
+                >
+                  <p
+                    class="body-1 text-center"
+                  >
+                    Oops! We're sorry. Something went wrong. Please try again.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <p
+                    class="body-1 title-3 center"
+                  >
+                    Need help?
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                </div>
+                <footer>
+                  <p
+                    class="text-center"
+                  >
+                    Give us a call using the number listed on the back of your Member ID card or 
+                     
+                    <a
+                      class="link"
+                      href=""
+                      tabindex="0"
+                    >
+                      contact us.
+                    </a>
+                  </p>
+                </footer>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;

@@ -1,0 +1,439 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display Resend Code text for email uniqueness User should see Code resent! message on click of Resend code 1`] = `
+<body>
+  <div>
+    <div>
+      <header>
+        <title>
+          Member Login
+        </title>
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flow-root"
+          >
+            <a
+              class="float-left"
+              href="https://www.bcbst.com"
+            >
+              <img
+                alt="Blue Cross Blue Shield of Tennessee"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                id="logo"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </a>
+            <a
+              class="float-right"
+              href="https://www.bcbst.com/contact-us"
+              tabindex="-1"
+            >
+              <button
+                class="buttonlink headerbutton"
+                id="contactbutton"
+              >
+                Contact Us
+              </button>
+            </a>
+          </div>
+        </div>
+      </header>
+      <section>
+        <div
+          id="blueback"
+        >
+          <div
+            id="marginSection"
+          >
+            <button
+              class="buttonlink pt-9"
+              id="backButton"
+            >
+              Back to Homepage
+            </button>
+            <form>
+              <div
+                id="mainSection"
+              >
+                <h1
+                  class="title-1"
+                >
+                  Let’s Verify Your Email
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  We’ll need to confirm your email address before you can log in.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  We’ve sent a code to:
+                </p>
+                <p
+                  class="body-1 font-bold"
+                >
+                  a**@bcbst.com
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  Enter the security code to verify your email address.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col w-full text-field"
+                >
+                  <p>
+                    Enter Security Code
+                  </p>
+                  <div
+                    class="flex flex-row items-center input  "
+                  >
+                    <input
+                      aria-label="Enter Security Code"
+                      class=""
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      class="cursor-pointer"
+                    />
+                  </div>
+                  <div
+                    class="error-container mt-1 p-1"
+                  >
+                    <div />
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1 text-lime-700"
+                >
+                  Code resent!
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-row justify-center items-center tooltip"
+                >
+                  <span
+                    class="tooltiptext !p-2"
+                  >
+                    Enter a Security Code.
+                  </span>
+                  <button
+                    aria-label="Confirm Code"
+                    class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                    disabled=""
+                    type="submit"
+                  >
+                    Confirm Code
+                  </button>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <h3
+                  class="title-3"
+                >
+                  Don’t see your confirmation email?
+                </h3>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 pr-5"
+                >
+                  Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
+                </p>
+                <section
+                  class="flex flex-row"
+                >
+                  <a
+                    aria-label="contact us"
+                    href="https://www.bcbst.com/contact-us"
+                    style="display: inline;"
+                  >
+                    <button
+                      class="flex flex-row link-container p-0"
+                      style="max-width: max-content; height: auto; display: inline;"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <p
+                        class="link undefined"
+                      >
+                        contact us
+                      </p>
+                    </button>
+                  </a>
+                  <p
+                    class="body-1"
+                  >
+                    .
+                  </p>
+                </section>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Display Resend Code text for email uniqueness User should see Resend Code verifyUniqueEmail  is true on Email Uniqueness flow 1`] = `
+<body>
+  <div>
+    <div>
+      <header>
+        <title>
+          Member Login
+        </title>
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flow-root"
+          >
+            <a
+              class="float-left"
+              href="https://www.bcbst.com"
+            >
+              <img
+                alt="Blue Cross Blue Shield of Tennessee"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                id="logo"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </a>
+            <a
+              class="float-right"
+              href="https://www.bcbst.com/contact-us"
+              tabindex="-1"
+            >
+              <button
+                class="buttonlink headerbutton"
+                id="contactbutton"
+              >
+                Contact Us
+              </button>
+            </a>
+          </div>
+        </div>
+      </header>
+      <section>
+        <div
+          id="blueback"
+        >
+          <div
+            id="marginSection"
+          >
+            <button
+              class="buttonlink pt-9"
+              id="backButton"
+            >
+              Back to Homepage
+            </button>
+            <form>
+              <div
+                id="mainSection"
+              >
+                <h1
+                  class="title-1"
+                >
+                  Let’s Verify Your Email
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  We’ll need to confirm your email address before you can log in.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  We’ve sent a code to:
+                </p>
+                <p
+                  class="body-1 font-bold"
+                >
+                  a**@bcbst.com
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                >
+                  Enter the security code to verify your email address.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col w-full text-field"
+                >
+                  <p>
+                    Enter Security Code
+                  </p>
+                  <div
+                    class="flex flex-row items-center input  "
+                  >
+                    <input
+                      aria-label="Enter Security Code"
+                      class=""
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      class="cursor-pointer"
+                    />
+                  </div>
+                  <div
+                    class="error-container mt-1 p-1"
+                  >
+                    <div />
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <a
+                  aria-label="Resend Code"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container self-start !pl-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      Resend Code
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-row justify-center items-center tooltip"
+                >
+                  <span
+                    class="tooltiptext !p-2"
+                  >
+                    Enter a Security Code.
+                  </span>
+                  <button
+                    aria-label="Confirm Code"
+                    class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                    disabled=""
+                    type="submit"
+                  >
+                    Confirm Code
+                  </button>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <h3
+                  class="title-3"
+                >
+                  Don’t see your confirmation email?
+                </h3>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 pr-5"
+                >
+                  Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
+                </p>
+                <section
+                  class="flex flex-row"
+                >
+                  <a
+                    aria-label="contact us"
+                    href="https://www.bcbst.com/contact-us"
+                    style="display: inline;"
+                  >
+                    <button
+                      class="flex flex-row link-container p-0"
+                      style="max-width: max-content; height: auto; display: inline;"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <p
+                        class="link undefined"
+                      >
+                        contact us
+                      </p>
+                    </button>
+                  </a>
+                  <p
+                    class="body-1"
+                  >
+                    .
+                  </p>
+                </section>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;
