@@ -12,6 +12,10 @@ export const inlineErrorCodeMessageMap = new Map<string | number, string>([
     'There is a problem with the security code. Try re-entering or resending the code.',
   ],
   [
+    'MF-403',
+    'There is a problem with the security code. Try re-entering or resending the code.',
+  ],
+  [
     'UI-401',
     "We didn't recognize the username or password you entered. Please try again.",
   ],
