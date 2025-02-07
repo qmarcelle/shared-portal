@@ -53,6 +53,7 @@ export const CVSCaremarkInformationCard = ({
                   className=" flex-1 basis-1/2 md:basis-2/6 p-2 overflow-hidden"
                   serviceIcon={item.serviceIcon}
                   serviceLabel={item.serviceLabel}
+                  url={item.url}
                 />
               ))}
             </div>

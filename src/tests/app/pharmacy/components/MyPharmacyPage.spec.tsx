@@ -1,7 +1,7 @@
 import PharmacyPage from '@/app/pharmacy/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 const renderUI = async () => {
   const page = await PharmacyPage();
@@ -25,15 +25,17 @@ jest.mock('src/auth', () => ({
 }));
 
 // Mock useRouter:
-const mockPush = jest.fn();
+const mockWindow = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
       prefetch: () => null,
-      push: mockPush,
+      push: mockWindow,
     };
   },
 }));
+
+process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
 
 describe('Pharmacy Page', () => {
   it('should render Pharmacy page correctly', async () => {
@@ -65,5 +67,20 @@ describe('Pharmacy Page', () => {
     ).not.toBeInTheDocument();
     expect(screen.queryByText('Pharmacy FAQ')).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should redirect to SSO launch page when we click on Get My Prescriptions by Mail card', async () => {
+    vRules.user.vRules.displayPharmacyTab = true;
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    await renderUI();
+
+    expect(screen.getByText('Get My Prescriptions by Mail')).toBeVisible();
+
+    fireEvent.click(screen.getByText('Get My Prescriptions by Mail'));
+
+    expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
   });
 });
