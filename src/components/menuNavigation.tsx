@@ -123,8 +123,10 @@ export const getMenuNavigation = (
         description: 'This is Price a Medication',
         category: 'Estimate Costs',
         showOnMenu: isBlueCareNotEligible,
-        url: '/pricemedication',
+        url:
+          '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
         external: true,
+        openInNewWindow: false,
       },
     ],
     activeSubNavId: null,
