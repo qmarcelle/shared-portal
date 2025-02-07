@@ -69,7 +69,10 @@ const FindCare = () => {
                 {
                   label: 'Pharmacy',
                   callback: () => {
-                    console.log('Clicked Pill Pharmacy');
+                    router.push(
+                      '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+                    );
                   },
                 },
                 {
