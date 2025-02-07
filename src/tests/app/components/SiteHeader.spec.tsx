@@ -40,6 +40,8 @@ const renderUI = (vRules: VisibilityRules) => {
   );
 };
 
+process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+
 describe('SiteHeader And Navigation Menu', () => {
   beforeEach(() => {
     vRules = {};
@@ -90,6 +92,13 @@ describe('SiteHeader And Navigation Menu', () => {
         name: /Price Dental Care/i,
       }),
     ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('link', { name: 'Price a Medication External Link' }),
+    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=CVS`);
+    expect(
+      screen.getByRole('link', { name: 'Price a Medication External Link' }),
+    ).toHaveProperty('target', '');
 
     /**** Nav Links For My Plan  */
 
