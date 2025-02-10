@@ -106,6 +106,9 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                         />
                       ),
                       serviceLabel: 'Get My Prescriptions by Mail',
+                      url:
+                        '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
                     },
                     {
                       serviceIcon: <Image src={costIcon} alt="Cost Icon" />,

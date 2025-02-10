@@ -5,6 +5,7 @@ import { Divider } from '@/components/foundation/Divider';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
+import { useRouter } from 'next/navigation';
 
 export interface MedicalPharmacyDentalCardProps extends IComponent {
   manageBenefitItems: ManageBenefitsItems[];
@@ -28,6 +29,7 @@ export const MedicalPharmacyDentalCard = ({
   cardIcon,
   className,
 }: MedicalPharmacyDentalCardProps) => {
+  const router = useRouter();
   return (
     <Card className={className}>
       <Column>
@@ -53,7 +55,7 @@ export const MedicalPharmacyDentalCard = ({
                   } // Modify this line
                   else if (items.url) {
                     if (items.externalLink) {
-                      window.open(items.url, '_blank');
+                      router.push(items.url);
                     } else {
                       window.location.href = items.url;
                     }

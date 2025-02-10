@@ -4,12 +4,12 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { externalIcon, leftIcon } from '@/components/foundation/Icons';
-import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import buildSSOLink from '../actions/buildSSOPing';
 import { SSO_TEXT_MAP } from '../ssoConstants';
@@ -20,7 +20,11 @@ const LaunchSSO = () => {
   const [ssoUrl, setSSOUrl] = useState('');
   const [isError, setIsError] = useState(false);
   const sso = SSO_TEXT_MAP.get(partnerId ?? '');
+  const router = useRouter();
 
+  const handleGoBack = () => {
+    router.back();
+  };
   useEffect(() => {
     const url = buildSSOLink(searchParams.toString());
     try {
@@ -43,10 +47,13 @@ const LaunchSSO = () => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Row tabIndex={1} onClick={() => {}} className="buttonlink">
-          <Image src={leftIcon} alt="back" />
-          <TextBox text="Go Back" className="primary-color underline pt-1" />
-        </Row>
+        <Link tabIndex={1} onClick={handleGoBack} href="#">
+          <Image src={leftIcon} alt="back" className="inline" />
+          <TextBox
+            text="Go Back"
+            className="primary-color underline pt-1 inline"
+          />
+        </Link>
         <Spacer size={32} />
         {!isError ? (
           <>
