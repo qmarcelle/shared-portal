@@ -16,6 +16,7 @@ export interface ChildPages {
   url: string;
   external: boolean;
   childPages?: ChildPages[];
+  openInNewWindow?: boolean;
 }
 
 export interface ShortLinkNavItem {

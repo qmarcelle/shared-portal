@@ -34,7 +34,6 @@ jest.mock('next/navigation', () => ({
     };
   },
 }));
-
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
 
 describe('Pharmacy Page', () => {
@@ -86,6 +85,21 @@ describe('Pharmacy Page', () => {
     expect(screen.getByText('View or Refill My Prescriptions')).toBeVisible();
 
     fireEvent.click(screen.getByText('View or Refill My Prescriptions'));
+
+    expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
+  });
+  it('should redirect to SSO launch page when we click on Get My Prescriptions by Mail card', async () => {
+    vRules.user.vRules.displayPharmacyTab = true;
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    await renderUI();
+
+    expect(screen.getByText('Get My Prescriptions by Mail')).toBeVisible();
+
+    fireEvent.click(screen.getByText('Get My Prescriptions by Mail'));
 
     expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
   });

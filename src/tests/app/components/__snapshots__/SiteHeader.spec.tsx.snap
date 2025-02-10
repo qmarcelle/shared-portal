@@ -551,7 +551,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/wellnessrewards"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -574,7 +574,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/memberwellnesscenter"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -597,7 +597,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/biometricscreening"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -620,7 +620,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/memberdiscounts"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -675,7 +675,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bcbstwelltuned.com/"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -698,7 +698,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -721,7 +721,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bcbstwelltuned.com/"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -1467,7 +1467,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="https://www.healthcare.gov/glossary/"
-                    target="_blank"
+                    target=""
                   >
                     <p
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -1490,7 +1490,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="https://bluecare.bcbst.com/get-care/documents-forms"
-                    target="_blank"
+                    target=""
                   >
                     <p
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -2150,7 +2150,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/wellnessrewards"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -2173,7 +2173,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/memberwellnesscenter"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -2215,7 +2215,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/memberdiscounts"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -2270,7 +2270,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bcbstwelltuned.com/"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -2293,7 +2293,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -2316,7 +2316,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bcbstwelltuned.com/"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -3210,7 +3210,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/balances"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -3233,7 +3233,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -3919,7 +3919,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -3942,7 +3942,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4016,7 +4016,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4058,7 +4058,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricevisioncare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4080,8 +4080,8 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/pricemedication"
-                      target="_blank"
+                      href="/sso/launch?PartnerSpId=CVS"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4766,7 +4766,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4789,7 +4789,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4863,7 +4863,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4905,7 +4905,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricevisioncare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -4927,8 +4927,8 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/pricemedication"
-                      target="_blank"
+                      href="/sso/launch?PartnerSpId=CVS"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -5824,7 +5824,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/balances"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -6576,7 +6576,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://www.healthcare.gov/glossary/"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -7782,7 +7782,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -7805,7 +7805,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -7860,7 +7860,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -7902,7 +7902,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricevisioncare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -7924,8 +7924,8 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/pricemedication"
-                      target="_blank"
+                      href="/sso/launch?PartnerSpId=CVS"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -8610,7 +8610,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -8633,7 +8633,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -8688,7 +8688,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -8730,7 +8730,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricevisioncare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -8752,8 +8752,8 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/pricemedication"
-                      target="_blank"
+                      href="/sso/launch?PartnerSpId=CVS"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -9438,7 +9438,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -9461,7 +9461,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/findprovider"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -9535,7 +9535,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -9577,7 +9577,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricevisioncare"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -9599,8 +9599,8 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/pricemedication"
-                      target="_blank"
+                      href="/sso/launch?PartnerSpId=CVS"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -10348,7 +10348,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="https://www.healthcare.gov/glossary/"
-                    target="_blank"
+                    target=""
                   >
                     <p
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
@@ -11045,7 +11045,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bluecare.bcbst.com/get-care/documents-forms"
-                      target="_blank"
+                      target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"

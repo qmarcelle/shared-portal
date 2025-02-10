@@ -5,6 +5,7 @@ import { Column } from '@/components/foundation/Column';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import EstimateCost from '../../../public/assets/estimate_cost.svg';
 import findCareIcon from '../../../public/assets/find_care_search.svg';
 import MentalCareIcon from '../../../public/assets/mental_health.svg';
@@ -13,6 +14,7 @@ import { FindMedicalProvidersComponent } from '../dashboard/components/FindMedic
 import { FindCarePillBox } from './components/FindCarePillBox';
 
 const FindCare = () => {
+  const router = useRouter();
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color md:p-0 p-4">
@@ -67,7 +69,10 @@ const FindCare = () => {
                 {
                   label: 'Pharmacy',
                   callback: () => {
-                    console.log('Clicked Pill Pharmacy');
+                    router.push(
+                      '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+                    );
                   },
                 },
                 {
@@ -107,7 +112,10 @@ const FindCare = () => {
                 {
                   label: 'Prescription Drugs',
                   callback: () => {
-                    console.log('Clicked Pill Prescription Drugs');
+                    router.push(
+                      '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+                    );
                   },
                 },
                 {
