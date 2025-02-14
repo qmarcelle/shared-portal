@@ -1,4 +1,5 @@
 import PharmacyPage from '@/app/pharmacy/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
@@ -16,6 +17,10 @@ const vRules = {
       wellnessOnly: false,
       fsaOnly: false,
       blueCare: false,
+      rxEssentialEligible: false,
+      rxEssentialPlusEligible: false,
+      rxPreferredEligible: false,
+      rxChoiceEligible: true,
     },
   },
 };
@@ -33,6 +38,11 @@ jest.mock('next/navigation', () => ({
       push: mockWindow,
     };
   },
+}));
+
+jest.mock('fs', () => ({
+  ...jest.requireActual('fs'),
+  existsSync: jest.fn(),
 }));
 
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
@@ -82,5 +92,31 @@ describe('Pharmacy Page', () => {
     fireEvent.click(screen.getByText('Get My Prescriptions by Mail'));
 
     expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
+  });
+  it('should download Choice formulary correctly', async () => {
+    vRules.user.vRules.displayPharmacyTab = true;
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: loggedInUserInfoMockResp,
+    });
+    const mockSync = jest.requireMock('fs').existsSync;
+    mockSync.mockReturnValue(true);
+    const component = await renderUI();
+
+    expect(screen.getByText('Pharmacy Documents & Forms')).toBeVisible();
+    screen.getByText('View Covered Drug List (Formulary)');
+
+    const baseUrl = window.location.origin;
+
+    expect(
+      screen.getAllByRole('link', {
+        name: 'View Covered Drug List (Formulary)',
+      })[0],
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/assets/formularies/Choice-DrugFormularyPDF/Drug-Formulary-List.pdf`,
+    );
+    expect(component.baseElement).toMatchSnapshot();
   });
 });
