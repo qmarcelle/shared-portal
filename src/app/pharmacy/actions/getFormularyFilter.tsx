@@ -1,7 +1,9 @@
 import { logger } from '@/utils/logger';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 
 export async function getFormularyFilter(
   memberDetails: any,
+  visibilityRules: VisibilityRules | undefined,
 ): Promise<string | null> {
   try {
     const memberInfo = memberDetails;
@@ -35,12 +37,14 @@ export async function getFormularyFilter(
       } else {
         return memberInfo.groupID;
       }
-    } else if (memberInfo.rxEssentialEligible) {
+    } else if (visibilityRules?.rxEssentialEligible) {
       return 'Essential';
-    } else if (memberInfo.rxEssentialPlusEligible) {
+    } else if (visibilityRules?.rxEssentialPlusEligible) {
       return 'EssentialPlus';
-    } else if (memberInfo.rxPreferredEligible) {
+    } else if (visibilityRules?.rxPreferredEligible) {
       return 'Preferred';
+    } else if (visibilityRules?.rxChoiceEligible) {
+      return 'Choice';
     } else return 'null';
   } catch (error) {
     logger.error('Drug list formulary', error);

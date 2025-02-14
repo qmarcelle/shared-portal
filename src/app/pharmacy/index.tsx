@@ -220,7 +220,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                           linkTitle: 'View Covered Drug List (Formulary)',
                           linkDescription:
                             'Download a list of all the drugs your plan covers.',
-                          linkURL: `/assets/formularies/${data}/Drug-Formulary-List.pdf`,
+                          linkURL: `/assets/formularies/${data.formularyURL}/Drug-Formulary-List.pdf`,
                           linkIcon: (
                             <Image
                               src={downloadIcon}

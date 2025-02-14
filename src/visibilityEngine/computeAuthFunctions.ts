@@ -122,4 +122,20 @@ export function computeAuthFunctions(
   rules.allMedicareAdvantageEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName === 'AllMedicareAdvantage',
   )?.available;
+
+  rules.rxChoiceEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_CHOICE_ELIGIBLE',
+  )?.available;
+
+  rules.rxEssentialEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_ESSENTIAL_ELIGIBLE',
+  )?.available;
+
+  rules.rxEssentialPlusEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_ESSENTIAL_PLUS_ELIGIBLE',
+  )?.available;
+
+  rules.rxPreferredEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_PREFERRED_ELIGIBLE',
+  )?.available;
 }
