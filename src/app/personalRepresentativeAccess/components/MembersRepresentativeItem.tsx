@@ -6,11 +6,13 @@ import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
-import { inboxIcon } from '@/components/foundation/Icons';
+import { accessGranted, inboxIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { isMatureMinor } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { EditLevelOfAccess } from '../journeys/EditLevelOfAccess';
@@ -23,6 +25,7 @@ interface MembersRepresentativeItemProps extends IComponent {
   fullAccess: boolean;
   icon1?: JSX.Element;
   isRepresentative?: boolean;
+  visibilityRules?: VisibilityRules;
 }
 
 export const MembersRepresentativeItem = ({
@@ -33,6 +36,7 @@ export const MembersRepresentativeItem = ({
   className,
   fullAccess,
   isRepresentative,
+  visibilityRules,
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
 }: MembersRepresentativeItemProps) => {
@@ -41,7 +45,8 @@ export const MembersRepresentativeItem = ({
     return (
       <Column>
         <Row>
-          <TextBox className="pt-1" text="Basic Access as of 01/01/2024" />
+          <TextBox className="pt-1 ml-1" text="Basic Access as of 01/01/2024" />
+          <Spacer axis="horizontal" size={32} />
         </Row>
         <Spacer size={16} />
         <Card backgroundColor="rgba(0,0,0,0.05)" className="w-full">
@@ -75,21 +80,22 @@ export const MembersRepresentativeItem = ({
           <Spacer axis="horizontal" size={8} />
           {fullAccess && (
             <Row>
-              <TextBox className="pt-1" text="Full Access as of 01/01/2024" />
+              <Image src={accessGranted} className="icon" alt="Info" />
+              <TextBox className="ml-2" text="Full Access" />
             </Row>
           )}
         </Row>
         {!fullAccess && (
           <div>
             <Row>
-              <TextBox className="pt-1" text="Basic Access as of 01/01/2024" />
+              <TextBox className="ml-2" text="Basic Access as of 01/01/2024" />
               <Spacer size={42} />
             </Row>
-            {!isRepresentative && (
+            {!isRepresentative && isMatureMinor(visibilityRules) && (
               <Row>
                 <Spacer size={42} />
                 <Title
-                  className="font-bold primary-color"
+                  className="font-bold primary-color ml-2"
                   text="Update"
                   suffix={icon}
                   callback={() =>

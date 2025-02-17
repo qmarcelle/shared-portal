@@ -72,6 +72,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'allMedicareAdvantageEligible',
   'hypertensionMgmt',
   'consumerMedicalEligible',
+  'matureMinor',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];
