@@ -1,6 +1,6 @@
 import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
 import { ahAdvisorpageSetting } from '@/models/app/visibility_rules_constants';
-import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
+import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
@@ -59,6 +59,7 @@ export function computeVisibilityRules(
       rules.futureEffective = member.futureEffective;
       rules.terminated = !member.isActive;
       computeCoverageTypes(member, rules);
+      computeMemberAge(member, rules);
       break;
     }
   }
@@ -392,4 +393,22 @@ export function isTeladocSecondOpinionAdviceAndSupportEligible(
   rules: VisibilityRules | undefined,
 ) {
   return isActiveAndNotFSAOnly(rules) && rules?.consumerMedicalEligible;
+}
+
+function computeMemberAge(member: Member, rules: VisibilityRules) {
+  console.log('Birth Date', member.birthDate);
+  const birthDate = new Date(member.birthDate);
+  const today = new Date();
+  //Calculate age
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  const dayDiff = today.getDate() - birthDate.getDate();
+
+  //Adjust age if birthday hasn't occured this year yet
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) age--;
+  rules.matureMinor = age >= 13 && age <= 17;
+}
+
+export function isMatureMinor(rules: VisibilityRules | undefined) {
+  return rules?.active && rules?.matureMinor;
 }

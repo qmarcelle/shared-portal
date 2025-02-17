@@ -1,14 +1,21 @@
-import PersonalRepresentativeAccess from '@/app/personalRepresentativeAccess/page';
+import PersonalRepresentativeAccess from '@/app/personalRepresentativeAccess';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-const renderUI = () => {
-  return render(<PersonalRepresentativeAccess />);
+const vRules: VisibilityRules = {};
+const renderUI = (vRules: VisibilityRules) => {
+  return render(<PersonalRepresentativeAccess visibilityRules={vRules} />);
 };
+
+function setVisibilityRules(vRules: VisibilityRules) {
+  vRules.matureMinor = true;
+}
 
 describe('PersonalRepresentativeAccess', () => {
   it('should render the UI correctly', async () => {
-    const component = renderUI();
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
     expect(screen.getByText('Personal Representative Access')).toBeVisible();
     expect(
       screen.getByText(
@@ -19,7 +26,6 @@ describe('PersonalRepresentativeAccess', () => {
     expect(screen.getAllByText('Full Access'));
     expect(screen.getAllByText('[Mature Minor]'));
     expect(screen.getByText('DOB: 01/01/2008')).toBeVisible();
-    expect(screen.getAllByText('Update')[0]).toBeInTheDocument();
     expect(screen.getAllByText('Basic Access as of 01/01/2024'));
     expect(
       screen.getAllByText('This member has not created an online profile.'),

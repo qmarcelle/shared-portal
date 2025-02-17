@@ -185,44 +185,13 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                 class="flex flex-row"
                               >
                                 <p
-                                  class="body-1 pt-1"
+                                  class="body-1 ml-2"
                                 >
                                   Basic Access as of 01/01/2024
                                 </p>
                                 <span
                                   style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
                                 />
-                              </div>
-                              <div
-                                class="flex flex-row"
-                              >
-                                <span
-                                  style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
-                                />
-                                <div
-                                  class="flex flex-row"
-                                >
-                                  <p
-                                    class="font-bold primary-color"
-                                  >
-                                    Update
-                                  </p>
-                                  <div
-                                    class="ml-2"
-                                  >
-                                    <img
-                                      alt="link"
-                                      data-nimg="1"
-                                      decoding="async"
-                                      height="40"
-                                      loading="lazy"
-                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                      style="color: transparent;"
-                                      width="40"
-                                    />
-                                  </div>
-                                </div>
                               </div>
                               <div
                                 class="flex flex-row"
@@ -271,10 +240,13 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               class="flex flex-row"
                             >
                               <p
-                                class="body-1 pt-1"
+                                class="body-1 pt-1 ml-1"
                               >
                                 Basic Access as of 01/01/2024
                               </p>
+                              <span
+                                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                              />
                             </div>
                             <span
                               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -383,44 +355,13 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                                 class="flex flex-row"
                               >
                                 <p
-                                  class="body-1 pt-1"
+                                  class="body-1 ml-2"
                                 >
                                   Basic Access as of 01/01/2024
                                 </p>
                                 <span
                                   style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
                                 />
-                              </div>
-                              <div
-                                class="flex flex-row"
-                              >
-                                <span
-                                  style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
-                                />
-                                <div
-                                  class="flex flex-row"
-                                >
-                                  <p
-                                    class="font-bold primary-color"
-                                  >
-                                    Update
-                                  </p>
-                                  <div
-                                    class="ml-2"
-                                  >
-                                    <img
-                                      alt="link"
-                                      data-nimg="1"
-                                      decoding="async"
-                                      height="40"
-                                      loading="lazy"
-                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                      style="color: transparent;"
-                                      width="40"
-                                    />
-                                  </div>
-                                </div>
                               </div>
                               <div
                                 class="flex flex-row"
@@ -708,44 +649,13 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               class="flex flex-row"
                             >
                               <p
-                                class="body-1 pt-1"
+                                class="body-1 ml-2"
                               >
                                 Basic Access as of 01/01/2024
                               </p>
                               <span
                                 style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
                               />
-                            </div>
-                            <div
-                              class="flex flex-row"
-                            >
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
-                              />
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Update
-                                </p>
-                                <div
-                                  class="ml-2"
-                                >
-                                  <img
-                                    alt="link"
-                                    data-nimg="1"
-                                    decoding="async"
-                                    height="40"
-                                    loading="lazy"
-                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                    style="color: transparent;"
-                                    width="40"
-                                  />
-                                </div>
-                              </div>
                             </div>
                             <div
                               class="flex flex-row"
@@ -794,10 +704,13 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                             class="flex flex-row"
                           >
                             <p
-                              class="body-1 pt-1"
+                              class="body-1 pt-1 ml-1"
                             >
                               Basic Access as of 01/01/2024
                             </p>
+                            <span
+                              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                            />
                           </div>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -906,44 +819,13 @@ exports[`PersonalRepresentativeAccess should render the UI correctly 1`] = `
                               class="flex flex-row"
                             >
                               <p
-                                class="body-1 pt-1"
+                                class="body-1 ml-2"
                               >
                                 Basic Access as of 01/01/2024
                               </p>
                               <span
                                 style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
                               />
-                            </div>
-                            <div
-                              class="flex flex-row"
-                            >
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
-                              />
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Update
-                                </p>
-                                <div
-                                  class="ml-2"
-                                >
-                                  <img
-                                    alt="link"
-                                    data-nimg="1"
-                                    decoding="async"
-                                    height="40"
-                                    loading="lazy"
-                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                    style="color: transparent;"
-                                    width="40"
-                                  />
-                                </div>
-                              </div>
                             </div>
                             <div
                               class="flex flex-row"
