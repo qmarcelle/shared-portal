@@ -17,7 +17,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -199,7 +199,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -436,7 +436,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -612,7 +612,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -794,7 +794,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1031,7 +1031,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1207,7 +1207,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1389,7 +1389,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1626,7 +1626,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1802,7 +1802,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1984,7 +1984,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -2221,7 +2221,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div

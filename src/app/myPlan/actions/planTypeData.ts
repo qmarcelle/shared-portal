@@ -15,7 +15,7 @@ export async function getPlanTypeData(): Promise<string | null> {
   try {
     const memberDetails = await auth();
     const response = await portalSvcsApi.get(
-      `/memberservice/api/member/v1/members/byMemberCk/${memberDetails?.user.currUsr?.plan.memCk}/eligibility`,
+      `/memberservice/api/member/v1/members/byMemberCk/${memberDetails?.user.currUsr?.plan!.memCk}/eligibility`,
     );
     const planData = response?.data?.plans?.find(
       (plan: { planType: string; eligInd: boolean }) =>

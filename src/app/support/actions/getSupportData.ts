@@ -15,7 +15,7 @@ export const getSupportData = async (): Promise<
     //const memberDetails = await getMemberDetails();
     let digitalIdResponse;
     if (
-      session?.user.currUsr?.plan.grpId &&
+      session?.user.currUsr?.plan!.grpId &&
       session?.user.currUsr?.plan.memCk
     ) {
       digitalIdResponse = await getDigitalId(
@@ -28,7 +28,7 @@ export const getSupportData = async (): Promise<
       status: 200,
       data: {
         memberDetails: {
-          groupId: session?.user.currUsr?.plan.grpId ?? '',
+          groupId: session?.user.currUsr?.plan!.grpId ?? '',
           digitalId: digitalIdResponse?.data?.hashCode ?? '',
         },
       },
@@ -38,7 +38,7 @@ export const getSupportData = async (): Promise<
       status: 400,
       data: {
         memberDetails: {
-          groupId: session?.user.currUsr?.plan.grpId ?? '',
+          groupId: session?.user.currUsr?.plan!.grpId ?? '',
           digitalId: '',
         },
       },

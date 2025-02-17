@@ -14,11 +14,16 @@ jest.mock('next/navigation', () => ({
     return {
       prefetch: () => null,
       replace: () => null,
+      push: () => null,
+      refresh: () => null,
     };
   },
   useSearchParams() {
     return {
       get: jest.fn(),
     };
+  },
+  usePathname() {
+    return '/dashboard';
   },
 }));

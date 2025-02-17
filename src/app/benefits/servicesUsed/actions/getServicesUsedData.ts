@@ -15,10 +15,10 @@ export async function getServicesUsedData(): Promise<
   try {
     const session = await auth();
     const members = await getMemberAndDependents(
-      session!.user.currUsr!.plan.memCk,
+      session!.user.currUsr!.plan!.memCk,
     );
     const memberLimitsResp = await getMemberLimit({
-      memberId: session!.user.currUsr!.plan.sbsbCk,
+      memberId: session!.user.currUsr!.plan!.sbsbCk,
       productTypes: 'M',
     });
 

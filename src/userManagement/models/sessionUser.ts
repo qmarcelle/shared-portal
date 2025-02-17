@@ -1,25 +1,28 @@
 import { VisibilityRules } from '@/visibilityEngine/rules';
 
 export enum UserRole {
-  MEMBER,
-  PERSONAL_REP,
-  AUTHORIZED_USER,
+  MEMBER = 'MEM',
+  PERSONAL_REP = 'PR',
+  AUTHORIZED_USER = 'AU',
+  NON_MEM = 'NM',
 }
 
 export type SessionUser = {
   id: string;
-  currUsr?: {
+  currUsr: {
     umpi: string;
     fhirId: string;
     role: UserRole;
-    plan: {
-      memCk: string;
-      sbsbCk: string;
-      grgrCk: string;
-      grpId: string;
-      subId: string;
-      fhirId: string;
-    };
+    plan:
+      | {
+          memCk: string;
+          sbsbCk: string;
+          grgrCk: string;
+          grpId: string;
+          subId: string;
+          fhirId: string;
+        }
+      | undefined;
   };
   rules?: string;
   vRules?: VisibilityRules;

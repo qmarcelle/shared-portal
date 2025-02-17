@@ -13,7 +13,7 @@ export async function getInitialMemberListFilter(): Promise<
     const session = await auth();
     //Get Members
     const result = await getMemberAndDependents(
-      session!.user.currUsr!.plan.memCk,
+      session!.user.currUsr!.plan!.memCk,
     );
     const filterItems: FilterItem[] = [
       {

@@ -1,9 +1,46 @@
 import NonMemberDashboard from '@/app/dashboard/components/NonMemberDashboard';
+import { UserProfile } from '@/models/user_profile';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
+const mockUserProfiles: UserProfile[] = [
+  {
+    dob: '08/07/2002',
+    firstName: 'Chris',
+    lastName: 'Hall',
+    id: '76547r664',
+    personFhirId: '787655434',
+    selected: true,
+    type: UserRole.NON_MEM,
+    plans: [
+      {
+        memCK: '65765434',
+        patientFhirId: '656543456',
+        selected: true,
+      },
+    ],
+  },
+  {
+    dob: '01/01/1943',
+    firstName: 'Robert',
+    lastName: 'Hall',
+    id: '76547r664',
+    personFhirId: '787655434',
+    selected: true,
+    type: UserRole.PERSONAL_REP,
+    plans: [
+      {
+        memCK: '65765434',
+        patientFhirId: '656543456',
+        selected: true,
+      },
+    ],
+  },
+];
+
 const renderUI = () => {
-  return render(<NonMemberDashboard />);
+  return render(<NonMemberDashboard profiles={mockUserProfiles} />);
 };
 
 describe('NonMemberDashboard', () => {

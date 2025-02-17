@@ -31,11 +31,11 @@ export async function invokeIDCardData(
 
     if (memberDetails?.memRelation == 'M') {
       idCardImageResponse = await portalSvcsApi.get(
-        `/IDCardService/Image?subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
+        `/IDCardService/Image?subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
       );
     } else {
       idCardImageResponse = await portalSvcsApi.get(
-        `/IDCardService/Image?memberCk=${session?.user.currUsr?.plan.memCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
+        `/IDCardService/Image?memberCk=${session?.user.currUsr?.plan!.memCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
       );
     }
 

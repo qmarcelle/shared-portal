@@ -1,10 +1,9 @@
-import { profileData } from '@/actions/profileData';
 import { useLoginStore } from '@/app/login/stores/loginStore';
-import { UserProfile, UserType } from '@/models/user_profile';
+import { UserProfile } from '@/models/user_profile';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import { DEFAULT_LOGOUT_REDIRECT } from '@/utils/routes';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
 import { IComponent } from '../IComponent';
 import { ProfileHeaderCardItem } from '../composite/ProfileHeaderCardItem';
 import { Button } from '../foundation/Button';
@@ -13,9 +12,13 @@ import { useSideBarModalStore } from '../foundation/SideBarModal';
 
 export interface ProfileHeaderCardProps extends IComponent {
   icon: JSX.Element;
+  profiles: UserProfile[];
 }
 
-export const ProfileHeaderCard = ({ icon }: ProfileHeaderCardProps) => {
+export const ProfileHeaderCard = ({
+  icon,
+  profiles,
+}: ProfileHeaderCardProps) => {
   const { showSideBar, dismissModal } = useSideBarModalStore();
   const { signOut } = useLoginStore();
   const router = useRouter();
@@ -23,26 +26,11 @@ export const ProfileHeaderCard = ({ icon }: ProfileHeaderCardProps) => {
     await signOut();
     dismissModal();
     router.replace(DEFAULT_LOGOUT_REDIRECT);
+    router.refresh();
   };
-  const [members, setMembers] = useState<UserProfile>({
-    id: '',
-    name: '',
-    dob: '',
-  });
-  const initialized = useRef(false);
 
-  useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-    (async () => {
-      try {
-        const memberDetails = await profileData();
-        setMembers(memberDetails);
-      } catch (err) {
-        console.error('ProfileData Failure ');
-      }
-    })();
-  }, []);
+  const selectedProfile = profiles.find((item) => item.selected == true);
+
   return (
     <div
       className="flex h-full secondary-bg-color2 text-white px-4 py-1 hover:bg-info focus:bg-info focus:mr-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:h-[90%] "
@@ -51,16 +39,7 @@ export const ProfileHeaderCard = ({ icon }: ProfileHeaderCardProps) => {
       onClick={() =>
         showSideBar({
           content: (
-            <ProfileHeaderCardItem
-              profiles={[
-                {
-                  id: members.id,
-                  name: `${toPascalCase(members.name)}`,
-                  dob: members.dob,
-                  type: UserType.Primary,
-                },
-              ]}
-            />
+            <ProfileHeaderCardItem profiles={profiles} onClick={dismissModal} />
           ),
           footer: (
             <section
@@ -89,8 +68,16 @@ export const ProfileHeaderCard = ({ icon }: ProfileHeaderCardProps) => {
     >
       {icon}
       <div className="hidden lg:block p-2">
-        <span className="text-xs">My Profile</span>
-        <p>{toPascalCase(members.name)}</p>
+        <span className="text-xs">
+          {[UserRole.MEMBER, UserRole.NON_MEM].includes(selectedProfile!.type)
+            ? 'My Profile:'
+            : 'Viewing as:'}
+        </span>
+        <p>
+          {toPascalCase(
+            `${selectedProfile!.firstName} ${selectedProfile!.lastName}`,
+          )}
+        </p>
       </div>
     </div>
   );

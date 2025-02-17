@@ -10,7 +10,7 @@ export async function invokeEmailAction(): Promise<string> {
   try {
     const session = await auth();
     const emailResponse = await esApi.get(
-      `/memberContactPreference?memberKey=${session?.user.currUsr?.plan.memCk}&subscriberKey=${session?.user.currUsr?.plan.sbsbCk}&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true`,
+      `/memberContactPreference?memberKey=${session?.user.currUsr?.plan!.memCk}&subscriberKey=${session?.user.currUsr?.plan!.sbsbCk}&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true`,
     );
 
     if (emailResponse?.data?.data?.emailAddress != null) {
@@ -31,7 +31,7 @@ export async function invokePhoneNumberAction(): Promise<string> {
     const effectiveDetials = new Date().toLocaleDateString(); // current date
 
     const phoneNumberResponse = await portalSvcsApi.get(
-      `/IDCardService/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&effectiveDetials=${effectiveDetials}`,
+      `/IDCardService/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&effectiveDetials=${effectiveDetials}`,
     );
     if (phoneNumberResponse?.data.memberServicePhoneNumber != null) {
       return phoneNumberResponse?.data.memberServicePhoneNumber;

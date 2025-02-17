@@ -45,12 +45,12 @@ export async function getAllClaimsData(): Promise<
 
     // Get Members
     const members = await getMemberAndDependents(
-      session!.user.currUsr!.plan.memCk,
+      session!.user.currUsr!.plan!.memCk,
     );
 
     // Get Claims for M,D,V,P
     const claims = await getClaimsForPlans({
-      memberId: session!.user.currUsr!.plan.memCk,
+      memberId: session!.user.currUsr!.plan!.memCk,
       fromDate: getDateTwoYearsAgoFormatted(),
       toDate: formatDateToIntlLocale(new Date()),
       plans: 'MDV',

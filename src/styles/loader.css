@@ -5,3 +5,14 @@
 .animate-pulse .loaderWidth.max-w-\[330px\] {
   width: 61%;
 }
+
+.welcomeBannerLoader {
+  background: transparent;
+  border: 0px;
+  /* color: rgba(242, 242, 242, 0.4); */
+}
+
+.welcomeBannerLoader .loaderWidth {
+  border-radius: var(--Spacing-radius-rounded-8px, 8px);
+  background: rgba(242, 242, 242, 0.4);
+}

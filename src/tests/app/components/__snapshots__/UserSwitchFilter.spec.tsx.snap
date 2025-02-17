@@ -20,10 +20,10 @@ exports[`UserSwitchFilter should render UI correctly when click on personal repr
               <p
                 class="body-2 font-light"
               >
-                viewing as Authorized User
+                Viewing as Authorized User
               </p>
               <h3
-                class="title-3 font-bold p-1"
+                class="title-3 font-bold"
               >
                 Ellie Williams
               </h3>
@@ -83,7 +83,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                 My Profile
               </p>
               <h3
-                class="title-3 font-bold p-1"
+                class="title-3 font-bold"
               >
                 Chris Hall
               </h3>
@@ -230,7 +230,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                 My Profile
               </p>
               <h3
-                class="title-3 font-bold p-1"
+                class="title-3 font-bold"
               >
                 Chris Hall
               </h3>
@@ -363,7 +363,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       <p
                         class="body-2"
                       >
-                        view as Personal Representative 
+                        View as Personal Representative
                       </p>
                       <div
                         class="flex flex-row justify-between"
@@ -418,7 +418,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       <p
                         class="body-2"
                       >
-                        view as Authorized User 
+                        View as Authorized User
                       </p>
                       <div
                         class="flex flex-row justify-between"

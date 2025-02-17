@@ -1,11 +1,16 @@
 'use server';
 
+import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { CoverageType } from '@/models/member/api/loggedInUserInfo';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
+import { UserRole } from '@/userManagement/models/sessionUser';
+import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { computePolicyName } from '@/utils/policy_computer';
+import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
 import { DashboardData } from '../models/dashboardData';
 
@@ -14,6 +19,50 @@ export const getDashboardData = async (): Promise<
 > => {
   try {
     const session = await auth();
+    // Check if current user is non member
+    if (session?.user.currUsr.role == UserRole.NON_MEM) {
+      // Get the name of the non member and send off
+      const pbe = await getPersonBusinessEntity(session!.user!.id);
+      return {
+        status: 200,
+        data: {
+          memberDetails: {
+            firstName: pbe.getPBEDetails[0].firstName,
+            lastName: pbe.getPBEDetails[0].lastName,
+          },
+          role: UserRole.NON_MEM,
+          profiles: computeUserProfilesFromPbe(pbe),
+        },
+      };
+    } else if (session?.user.currUsr.plan == null) {
+      const pbe = await getPersonBusinessEntity(session!.user!.id);
+      const profiles = computeUserProfilesFromPbe(
+        pbe,
+        session?.user.currUsr.umpi,
+      );
+      const selectedProfile = profiles.find((item) => item.selected == true);
+      const plans = await getPolicyInfo(
+        selectedProfile!.plans.map((item) => item.memCK),
+      );
+      return {
+        status: 200,
+        data: {
+          memberDetails: {
+            firstName: selectedProfile!.firstName,
+            lastName: selectedProfile!.lastName,
+            plans: plans.policyInfo.map((item) => ({
+              id: item.memberId,
+              planName: item.groupName,
+              policies: computePolicyName(item.activePlanTypes),
+              subscriberName: item.subscriberName,
+              memeCk: item.memberCk,
+            })),
+          },
+          role: session!.user.currUsr.role,
+        },
+      };
+    }
+
     const [loggedUserDetails, primaryCareProviderData] =
       await Promise.allSettled([
         getLoggedInUserInfo(session?.user.currUsr?.plan.memCk ?? ''),
@@ -49,6 +98,7 @@ export const getDashboardData = async (): Promise<
       data: {
         memberDetails: null,
         primaryCareProvider: null,
+        role: null,
       },
     };
   }

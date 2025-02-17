@@ -1,5 +1,6 @@
 import SSORedirect from '@/app/sso/redirect/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
+import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
 import axios from 'axios';
@@ -21,17 +22,19 @@ jest.mock('next/navigation', () => ({
   },
 }));
 
+const session = {
+  user: {
+    currUsr: {
+      plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
+    },
+  },
+};
+
 jest.mock('src/auth', () => ({
-  auth: jest.fn(() =>
-    Promise.resolve({
-      user: {
-        currUsr: {
-          plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
-        },
-      },
-    }),
-  ),
+  auth: jest.fn(),
 }));
+
+const localAxios = axios as jest.Mocked<typeof axios>;
 
 jest.mock('src/app/sso/ssoConstants', () => ({
   ...jest.requireActual('src/app/sso/ssoConstants'),
@@ -39,9 +42,6 @@ jest.mock('src/app/sso/ssoConstants', () => ({
     ['InstamedPaymentHistory', 'InstamedPaymentHistoryImpl'],
   ]),
 }));
-
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 jest.setTimeout(30000);
 
@@ -56,45 +56,52 @@ describe('InstamedPaymentHistory SSO', () => {
   it('Should not route to InstamedPaymentHistory SSO when drop off service is failing', async () => {
     mockGet.mockReturnValueOnce('InstamedPaymentHistory');
     mockGet.mockReturnValueOnce('');
-    mockedAxios.post.mockRejectedValueOnce({});
+    localAxios.post.mockRejectedValueOnce({});
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(session);
     await setupUI();
-    await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith(
-        `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
-        {
-          cancelurl: '',
-          confirmurl: '',
-          dependentsequencenumber: '00',
-          groupnumber: '100000',
-          policynumber: '902218823',
-          userid: '',
-          subject: '',
-          targetresource: '',
-          username: '',
-        },
-        {
-          headers: {
-            'ping.instanceId': process.env.NEXT_PUBLIC_PING_REST_INSTANCE_ID,
-            Authorization: expect.anything(),
-            'Content-Type': 'application/json',
+    await waitFor(
+      () => {
+        expect(localAxios.post).toHaveBeenCalledWith(
+          `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
+          {
+            cancelurl: '',
+            confirmurl: '',
+            dependentsequencenumber: '00',
+            groupnumber: '100000',
+            policynumber: '902218823',
+            userid: '',
+            subject: '',
+            targetresource: '',
+            username: '',
           },
-        },
-      );
-      expect(mockPush).not.toHaveBeenCalled();
-    });
+          {
+            headers: {
+              'ping.instanceId': process.env.NEXT_PUBLIC_PING_REST_INSTANCE_ID,
+              Authorization: expect.anything(),
+              'Content-Type': 'application/json',
+            },
+          },
+        );
+        expect(mockPush).not.toHaveBeenCalled();
+      },
+      { timeout: 5000 },
+    );
   });
   it('Should route to InstamedPaymentHistory SSO when we click SSO Link', async () => {
     mockGet.mockReturnValueOnce('InstamedPaymentHistory');
     mockGet.mockReturnValueOnce('');
-    mockedAxios.post.mockResolvedValueOnce({
+    localAxios.post.mockResolvedValueOnce({
       status: 200,
       data: {
         REF: 'abcdef_l12345',
       },
     });
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(session);
     await setupUI();
     await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith(
+      expect(localAxios.post).toHaveBeenCalledWith(
         `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
         {
           cancelurl: '',

@@ -12,7 +12,7 @@ export async function getIDCardPdf(
   try {
     const session = await auth();
     const resp = await portalSvcsApi.get(
-      `IDCardService/PDF?subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveDate}`,
+      `IDCardService/PDF?subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveDate}`,
       {
         responseType: 'arraybuffer',
       },
