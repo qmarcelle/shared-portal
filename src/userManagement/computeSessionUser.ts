@@ -1,47 +1,99 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { PBEData } from '@/models/member/api/pbeData';
+import { UserProfile } from '@/models/user_profile';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { logger } from '@/utils/logger';
+import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { computeVisibilityRules } from '@/visibilityEngine/computeVisibilityRules';
-import { SessionUser, UserRole } from './models/sessionUser';
+import { SessionUser } from './models/sessionUser';
 
 export async function computeSessionUser(
   userId: string,
   selectedUserId?: string,
   planId?: string,
 ): Promise<SessionUser> {
-  const pbe = await getPersonBusinessEntity(userId);
-  // Get the user based on the selected user(AU, PR) with umpid(maybe)
-  // For now selecting the first user
-  const currentUser = pbe.getPBEDetails[0];
-  if (currentUser) {
-    //TODO: This logic to compute memberCK has to be changed once we have more clarity on PBE Response structure
-    // and we implement the user and plan switching.
-    const loggedUserInfo = await getLoggedInUserInfo(
-      currentUser?.relationshipInfo[0].memeCk,
-    );
+  try {
+    // Get the PBE of the loggedIn user
+    // The loggedIn user here is the user who has logged in
+    // and not the user role to which user has switched to.
+    const pbe = await getPersonBusinessEntity(userId);
 
-    // Get the plan based on the plan identifier(nativeId maybe)
-    // For now selecting the first plan
-    const plan = currentUser.relationshipInfo[0];
-    return {
-      id: userId,
-      currUsr: {
-        fhirId: currentUser.personFHIRID,
-        umpi: currentUser.umpid,
-        role: UserRole.MEMBER,
-        plan: {
-          fhirId: plan.patientFHIRID,
-          grgrCk: loggedUserInfo.groupData.groupCK,
-          grpId: loggedUserInfo.groupData.groupID,
-          memCk: plan.memeCk,
-          sbsbCk: loggedUserInfo.subscriberCK,
-          subId: loggedUserInfo.subscriberID,
-        },
-      },
-      rules: computeVisibilityRules(loggedUserInfo),
-    };
-  } else {
-    logger.error('User of given id not found');
-    throw 'User Not Found';
+    // Get the current user to which user has either switched to or
+    // their actual role with the selected plan.
+    // if user has only one plan, it is default selected.
+    // if multiple plans with no selected planId, no plan is selected.
+    const currentUser = getCurrentUser(pbe, selectedUserId, planId);
+    if (currentUser) {
+      const plans = currentUser.plans;
+
+      if (planId) {
+        return computeTokenWithPlan(userId, currentUser, planId);
+      } else {
+        const selectedPlan = plans.length == 1 ? plans[0] : null;
+        if (selectedPlan) {
+          return computeTokenWithPlan(userId, currentUser, selectedPlan.memCK);
+        }
+        return {
+          id: userId,
+          currUsr: {
+            fhirId: currentUser.personFhirId,
+            umpi: currentUser.id,
+            role: currentUser.type,
+            plan: undefined,
+          },
+        };
+      }
+    } else {
+      logger.error('User of given id not found');
+      throw 'User Not Found';
+    }
+  } catch (err) {
+    logger.error('Compute Session Error occurred', err);
+    throw err;
   }
+}
+
+function getCurrentUser(
+  pbe: PBEData,
+  selectedUserId: string | undefined,
+  selectedPlanId: string | undefined,
+): UserProfile {
+  const userProfiles = computeUserProfilesFromPbe(
+    pbe,
+    selectedUserId,
+    selectedPlanId,
+  );
+  if (selectedUserId) {
+    const selectedProfile = userProfiles.find((item) => item.selected == true);
+    return selectedProfile!;
+  } else {
+    return userProfiles[0];
+  }
+}
+
+// Computes the session token with user and plan details added
+async function computeTokenWithPlan(
+  userId: string,
+  currentUser: UserProfile,
+  planId: string,
+) {
+  const loggedUserInfo = await getLoggedInUserInfo(planId);
+  return {
+    id: userId,
+    currUsr: {
+      fhirId: currentUser.personFhirId,
+      umpi: currentUser.id,
+      role: currentUser.type,
+      plan: {
+        fhirId: currentUser.plans.find((item) => item.memCK == planId)!
+          .patientFhirId, //plan.patientFHIRID,
+        grgrCk: loggedUserInfo.groupData.groupCK,
+        grpId: loggedUserInfo.groupData.groupID,
+        memCk: planId,
+        sbsbCk: loggedUserInfo.subscriberCK,
+        subId: loggedUserInfo.subscriberID,
+      },
+    },
+    rules: computeVisibilityRules(loggedUserInfo),
+  };
 }

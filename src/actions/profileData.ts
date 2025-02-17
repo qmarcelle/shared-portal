@@ -1,19 +1,14 @@
 'use server';
 
-import { getMemberDetails } from '@/actions/memberDetails';
+import { auth } from '@/auth';
 import { UserProfile } from '@/models/user_profile';
-import { logger } from '@/utils/logger';
+import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 
-export async function profileData(): Promise<UserProfile> {
-  try {
-    const memberDetails = await getMemberDetails();
-    return {
-      id: memberDetails.userID,
-      name: memberDetails.first_name + ' ' + memberDetails.last_name, // Replace fullName with first_name+last_name of member object
-      dob: memberDetails.dateOfBirth,
-    };
-  } catch (error) {
-    logger.error('profileData failure', error);
-    throw error;
-  }
+export async function getUserProfiles(): Promise<UserProfile[]> {
+  const session = await auth();
+  const selectedUserId = session?.user.currUsr?.umpi;
+  const selectedPlanId = session?.user.currUsr.plan?.memCk;
+  const pbe = await getPersonBusinessEntity(session!.user.id);
+  return computeUserProfilesFromPbe(pbe, selectedUserId, selectedPlanId);
 }

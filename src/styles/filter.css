@@ -23,3 +23,7 @@
 #Filter .switch-filter.default ul {
   overflow: hidden;
 }
+
+.flex-modal .switch-filter {
+  position: relative !important;
+}

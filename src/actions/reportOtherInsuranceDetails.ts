@@ -9,7 +9,7 @@ export async function otherHealthInsuranceData(): Promise<AddMemberDetails[]> {
   try {
     const memberDetails = await auth();
     const result = await getLoggedInUserInfo(
-      `${memberDetails?.user.currUsr?.plan.memCk}`,
+      `${memberDetails?.user.currUsr?.plan!.memCk}`,
     );
     const response: AddMemberDetails[] = result.members
       .filter((member) => member.memRelation === 'M')

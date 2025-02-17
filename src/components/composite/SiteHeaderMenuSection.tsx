@@ -1,3 +1,4 @@
+import { UserProfile } from '@/models/user_profile';
 import Link from 'next/link';
 import { SectionHeaderMenuItem } from '../../models/section_header_menu_item';
 import { IComponent } from '../IComponent';
@@ -6,9 +7,14 @@ import ProfileHeaderCard from './ProfileHeaderCard';
 export interface SiteHeaderMenuProps extends IComponent {
   icon: JSX.Element;
   items: SectionHeaderMenuItem[];
+  profiles: UserProfile[];
 }
 
-export const SiteHeaderMenuSection = ({ icon, items }: SiteHeaderMenuProps) => {
+export const SiteHeaderMenuSection = ({
+  icon,
+  items,
+  profiles,
+}: SiteHeaderMenuProps) => {
   return (
     <div className="flex items-center">
       {items.map((item, index) => (
@@ -21,7 +27,7 @@ export const SiteHeaderMenuSection = ({ icon, items }: SiteHeaderMenuProps) => {
           <span className="hidden lg:inline px-2 pt-2">{item.title}</span>
         </Link>
       ))}
-      <ProfileHeaderCard icon={icon} />
+      <ProfileHeaderCard icon={icon} profiles={profiles} />
     </div>
   );
 };

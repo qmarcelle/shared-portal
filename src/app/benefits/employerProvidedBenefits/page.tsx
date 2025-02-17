@@ -5,12 +5,12 @@ import { getEmployerProvidedBenefits } from './actions/getEmployerProvidedBenefi
 const Page = async () => {
   const session = await auth();
   const result = await getEmployerProvidedBenefits(
-    session!.user.currUsr!.plan.memCk,
+    session!.user.currUsr!.plan!.memCk,
   );
   return (
     <EmployerProvidedBenfitsPage
       benefits={result.data}
-      groupId={session?.user.currUsr?.plan.grpId}
+      groupId={session?.user.currUsr?.plan!.grpId}
     />
   );
 };

@@ -19,7 +19,7 @@ export async function getLoggedInMember(
     const member: LoggedInMember = {} as LoggedInMember;
     const session = sessionData ?? (await auth());
     const loggedUserInfo = await getLoggedInUserInfo(
-      session?.user.currUsr?.plan.memCk ?? '',
+      session!.user.currUsr!.plan!.memCk,
     );
     member.userId = session?.user.id ?? '';
     member.subscriberId = loggedUserInfo.subscriberID;

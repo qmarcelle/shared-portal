@@ -17,7 +17,7 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -245,7 +245,7 @@ exports[`Authenticator App Setup should render the screens correctly 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -405,7 +405,7 @@ exports[`Authenticator App Setup should render the screens without error when we
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -638,7 +638,7 @@ exports[`Authenticator App Setup should render the screens without error when we
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div

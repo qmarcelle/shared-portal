@@ -34,6 +34,7 @@ interface ModalControllerProps {
   showChildModal: () => void;
   dismissChildModal: () => void;
   isChildActionAppModalProp: boolean;
+  isFlexModal: boolean;
 }
 
 export const useAppModalStore = create<ModalControllerProps>((set) => ({
@@ -49,6 +50,7 @@ export const useAppModalStore = create<ModalControllerProps>((set) => ({
     set(() => ({ showModal: isShowModal })),
   updatepageIndex: (pageIndex: number) => set(() => ({ pageIndex: pageIndex })),
   updateStore: (store: null) => set(() => ({ store: store })),
+  isFlexModal: false,
   showAppModal: ({
     content,
     store,
@@ -191,6 +193,7 @@ export const AppModal = () => {
     showChildModal,
     dismissChildModal,
     isChildActionAppModalProp,
+    isFlexModal,
   } = useAppModalStore();
   const changePage = (pageIndex: number, showBackButton: boolean = false) => {
     updateShowBack(showBackButton);
@@ -210,8 +213,9 @@ export const AppModal = () => {
   return (
     <ModalContext.Provider value={store}>
       <InnerAppModal
+        isFlexModal={isFlexModal}
         showModal={showModal}
-        modalBody={modalBody ?? <></>}
+        modalBody={modalBody}
         changePage={changePage}
         pageIndex={pageIndex}
         closeModal={closeModal}
@@ -227,13 +231,14 @@ export const AppModal = () => {
 type InnerAppModalProps = {
   showModal?: boolean;
   closeModal?: () => any;
-  modalBody: ReactElement;
+  modalBody: ReactElement | null;
   changePage?: (pageIndex: number, showBackButton: boolean) => any;
   pageIndex?: number;
   isChildModal?: boolean;
   closeChildModal?: () => any;
   closeAllModal?: () => any;
   childModalBody?: ReactElement;
+  isFlexModal: boolean;
 };
 
 export const InnerAppModal = ({
@@ -244,22 +249,27 @@ export const InnerAppModal = ({
   pageIndex = 0,
   isChildModal = false,
   childModalBody,
+  isFlexModal,
 }: InnerAppModalProps) => {
   return (
     <Modal
       classNames={{
         overlay: 'modal-overlay',
+        modal: `${isFlexModal ? '!bg-transparent' : ''}`,
       }}
       showCloseIcon={false}
       open={showModal}
-      closeOnOverlayClick={true}
+      closeOnOverlayClick={isFlexModal == false}
       onClose={closeModal}
+      center={true}
     >
-      <FocusTrap>
+      <FocusTrap active={isFlexModal == false}>
         <div>
-          <Column className="modal-container">
-            <ModalHeader onClose={closeModal} />
-            <Spacer size={32} />
+          <Column
+            className={`${!isFlexModal ? 'modal-container' : 'flex-modal'}`}
+          >
+            {!isFlexModal && <ModalHeader onClose={closeModal} />}
+            {!isFlexModal && <Spacer size={32} />}
             <div className="flex flex-row flex-grow justify-center">
               <div className="flex flex-row justify-center modal-content">
                 {modalBody ? (
@@ -277,8 +287,8 @@ export const InnerAppModal = ({
                 <div className="child-modal-content">{childModalBody}</div>
               </div>
             )}
-            <Spacer size={32} />
-            <ModalFooter />
+            {!isFlexModal && <Spacer size={32} />}
+            {!isFlexModal && <ModalFooter />}
           </Column>
         </div>
       </FocusTrap>

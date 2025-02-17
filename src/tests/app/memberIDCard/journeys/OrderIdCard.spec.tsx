@@ -1,6 +1,7 @@
 import { OrderIdCard } from '@/app/memberIDCard/journeys/OrderIdCard';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import {
   fireEvent,
@@ -37,6 +38,29 @@ const IdCardMemberDetailsMockResponse = {
   memberRelation: 'M',
   noOfDependents: 4,
 };
+
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        id: 'testUser',
+        currUsr: {
+          umpi: '57c85test3ebd23c7db88245',
+          role: UserRole.MEMBER,
+          plan: {
+            fhirId: '654543434',
+            grgrCk: '7678765456',
+            grpId: '65654323',
+            memCk: '502622001',
+            sbsbCk: '5654566',
+            subId: '56543455',
+          },
+        },
+        vRules: {},
+      },
+    }),
+  ),
+}));
 
 describe('OrderId Card', () => {
   let component: RenderResult;

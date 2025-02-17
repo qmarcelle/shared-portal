@@ -16,7 +16,7 @@ export const getEmailData = async (): Promise<
   try {
     const session = await auth();
     const famillyMembers = await invokeFamilyMemberDetailsAction(
-      `${session?.user.currUsr?.plan.memCk}`,
+      `${session?.user.currUsr?.plan!.memCk}`,
     );
     const emailData = await invokeEmailAction();
     const phoneData = await invokePhoneNumberAction();

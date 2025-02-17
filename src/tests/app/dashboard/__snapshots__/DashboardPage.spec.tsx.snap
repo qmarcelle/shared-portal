@@ -7,7 +7,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
       class="flex flex-col justify-center items-center page"
     >
       <div
-        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
       >
         <div
           class="flex flex-col items-start w-full app-content px-4"
@@ -1759,7 +1759,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
         class="flex flex-col justify-center items-center page"
       >
         <div
-          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
+          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
         >
           <div
             class="flex flex-col items-start w-full app-content px-4"
@@ -3505,7 +3505,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
       class="flex flex-col justify-center items-center page"
     >
       <div
-        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
       >
         <div
           class="flex flex-col items-start w-full app-content px-4"
@@ -5306,7 +5306,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
       class="flex flex-col justify-center items-center page"
     >
       <div
-        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
       >
         <div
           class="flex flex-col items-start w-full app-content px-4"

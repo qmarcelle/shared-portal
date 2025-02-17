@@ -17,8 +17,8 @@ export async function invokeUpdateEmailAddress(
     const session = await auth();
     const emailRequest: EmailUniquenessRequest = {
       emailAddress: request.emailAddress,
-      memberKey: session?.user.currUsr?.plan.memCk,
-      subscriberKey: session?.user.currUsr?.plan.sbsbCk,
+      memberKey: session?.user.currUsr?.plan!.memCk,
+      subscriberKey: session?.user.currUsr?.plan!.sbsbCk,
     };
     const response = await esApi.post<ESResponse<EmailUniquenessResponse>>(
       '/memberEmailAddress',

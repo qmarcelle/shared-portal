@@ -1,4 +1,7 @@
 'use client';
+import { PlanDetails } from '@/models/plan_details';
+import { UserProfile } from '@/models/user_profile';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,9 +23,21 @@ import {
   profileWhiteIcon,
 } from './Icons';
 
-type SiteHeaderProps = { visibilityRules: VisibilityRules };
+type SiteHeaderProps = {
+  visibilityRules: VisibilityRules;
+  profiles: UserProfile[];
+  selectedProfile: UserProfile;
+  plans: PlanDetails[];
+  selectedPlan: PlanDetails | undefined;
+};
 
-export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
+export default function SiteHeader({
+  visibilityRules,
+  profiles,
+  plans,
+  selectedPlan,
+  selectedProfile,
+}: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
 
@@ -49,7 +64,9 @@ export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
 
   return (
     <>
-      <nav className="primary-color sm:pt-[74px] lg:pt-[134px]">
+      <nav
+        className={`primary-color sm:pt-[74px] ${selectedPlan ? 'lg:pt-[134px]' : 'lg:pt-[74px]'}`}
+      >
         {/* Header Top Bar */}
         <div className="h-18 w-full fixed top-0 left-0 right-0 flex justify-between border-b bg-white z-50">
           <div className="flex items-center">
@@ -102,54 +119,45 @@ export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
                 />
               )}
             </Link>
-            <PlanSwitcher
-              className="mx-4 w-[268px] hidden md:block"
-              plans={[
-                {
-                  subscriberName: 'Chris Hall',
-                  policies: 'Medical, Vision, Dental',
-                  planName: 'BlueCross BlueShield of Tennessee',
-                  id: 'ABC1234567890',
-                },
-                {
-                  subscriberName: 'Maddison Hall',
-                  policies: 'Dental',
-                  planName: 'Tennessee Valley Authority',
-                  id: 'ABC000000000',
-                },
-                {
-                  subscriberName: 'Chris Hall',
-                  policies: 'Medical, Vision, Dental',
-                  planName: 'Dollar General',
-                  id: 'ABC1234567891',
-                  endedOn: '2023',
-                },
-              ]}
-              selectedPlan={{
-                subscriberName: 'Chris Hall',
-                policies: 'Medical, Vision, Dental',
-                planName: 'BlueCross BlueShield of Tennessee',
-                id: 'ABC1234567890',
-              }}
-              onSelectionChange={() => {}}
-            />
+            {selectedProfile?.type != UserRole.NON_MEM && (
+              <PlanSwitcher
+                key={selectedProfile.id + selectedPlan?.id ?? '#ran'}
+                className="mx-4 w-[268px] hidden md:block"
+                plans={plans}
+                selectedPlan={
+                  selectedPlan ?? {
+                    subscriberName: 'Chris Hall',
+                    policies: 'Medical, Vision, Dental',
+                    planName: '...',
+                    id: 'ABC1234567890',
+                    memeCk: '',
+                  }
+                }
+                onSelectionChange={() => {}}
+              />
+            )}
           </div>
           <SiteHeaderMenuSection
+            profiles={profiles}
             icon={<Image src={profileWhiteIcon} alt="Profile Icon"></Image>}
-            items={[
-              {
-                title: 'Inbox',
-                label: 'inbox',
-                icon: <Image src={inboxIcon} alt="Inbox" />,
-                url: 'inbox',
-              },
-              {
-                title: 'ID Card',
-                label: 'id card',
-                icon: <Image src={globalIdCardIcon} alt="ID Card" />,
-                url: '/memberIDCard',
-              },
-            ]}
+            items={
+              selectedPlan
+                ? [
+                    {
+                      title: 'Inbox',
+                      label: 'inbox',
+                      icon: <Image src={inboxIcon} alt="Inbox" />,
+                      url: 'inbox',
+                    },
+                    {
+                      title: 'ID Card',
+                      label: 'id card',
+                      icon: <Image src={globalIdCardIcon} alt="ID Card" />,
+                      url: '/memberIDCard',
+                    },
+                  ]
+                : []
+            }
           />
         </div>
         {/* Header Nav Bar */}
@@ -162,84 +170,72 @@ export default function SiteHeader({ visibilityRules }: SiteHeaderProps) {
           />
         )}
 
-        <div
-          id="menu-bar"
-          className={`fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto ${activeSubNavId !== null ? 'block' : 'hidden'}`}
-          data-accordion="collapse"
-        >
-          <div className="flex font-bold">
-            <SiteHeaderNavSection
-              parentPages={menuNavigation}
-              onOpenOverlay={openSubMenu}
-              activeSubNavId={activeSubNavId}
-              closeMenuAndSubMenu={closeSubMenu}
-            />
+        {selectedPlan && (
+          <div
+            id="menu-bar"
+            className={`fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto ${activeSubNavId !== null ? 'block' : 'hidden'}`}
+            data-accordion="collapse"
+          >
+            <div className="flex font-bold">
+              <SiteHeaderNavSection
+                parentPages={menuNavigation}
+                onOpenOverlay={openSubMenu}
+                activeSubNavId={activeSubNavId}
+                closeMenuAndSubMenu={closeSubMenu}
+              />
+            </div>
+            <div className="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0">
+              {menuNavigation.map((page, index) => (
+                <div key={page.id}>
+                  {activeSubNavId === page.id && (
+                    <SiteHeaderSubNavSection
+                      key={index}
+                      id={page.id}
+                      title={page.title}
+                      description={page.description}
+                      category={page.category}
+                      showOnMenu={page.showOnMenu}
+                      url={page.url}
+                      qt={page.qt}
+                      childPages={page.childPages}
+                      template={page.template}
+                      shortLinks={page.shortLinks}
+                      activeSubNavId={activeSubNavId}
+                      closeSubMenu={closeSubMenu}
+                      visibilityRules={visibilityRules}
+                    />
+                  )}
+                </div>
+              ))}
+              <AlertBar
+                alerts={
+                  (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
+                    ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
+                    : []
+                }
+              />
+            </div>
           </div>
-          <div className="absolute top-0 lg:static w-full lg:w-full bg-white z-50 border-r lg:border-0">
-            {menuNavigation.map((page, index) => (
-              <div key={page.id}>
-                {activeSubNavId === page.id && (
-                  <SiteHeaderSubNavSection
-                    key={index}
-                    id={page.id}
-                    title={page.title}
-                    description={page.description}
-                    category={page.category}
-                    showOnMenu={page.showOnMenu}
-                    url={page.url}
-                    qt={page.qt}
-                    childPages={page.childPages}
-                    template={page.template}
-                    shortLinks={page.shortLinks}
-                    activeSubNavId={activeSubNavId}
-                    closeSubMenu={closeSubMenu}
-                    visibilityRules={visibilityRules}
-                  />
-                )}
-              </div>
-            ))}
-            <AlertBar
-              alerts={
-                (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
-                  ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
-                  : []
-              }
-            />
-          </div>
-        </div>
+        )}
         {/* NavSub Bars */}
       </nav>
-      <PlanSwitcher
-        className="mx-2 py-2 block md:hidden"
-        plans={[
-          {
-            subscriberName: 'Chris Hall',
-            policies: 'Medical, Vision, Dental',
-            planName: 'BlueCross BlueShield of Tennessee',
-            id: 'ABC1234567890',
-          },
-          {
-            subscriberName: 'Maddison Hall',
-            policies: 'Dental',
-            planName: 'Tennessee Valley Authority',
-            id: 'ABC000000000',
-          },
-          {
-            subscriberName: 'Chris Hall',
-            policies: 'Medical, Vision, Dental',
-            planName: 'Dollar General',
-            id: 'ABC1234567891',
-            endedOn: '2023',
-          },
-        ]}
-        selectedPlan={{
-          subscriberName: 'Chris Hall',
-          policies: 'Medical, Vision, Dental',
-          planName: 'BlueCross BlueShield of Tennessee',
-          id: 'ABC1234567890',
-        }}
-        onSelectionChange={() => {}}
-      />
+      {selectedProfile.type != UserRole.NON_MEM && (
+        <PlanSwitcher
+          key={selectedProfile.id + selectedPlan?.id ?? '#ran'}
+          className="mx-2 py-2 block md:hidden"
+          plans={plans}
+          selectedPlan={
+            selectedPlan ?? {
+              subscriberName: 'Chris Hall',
+              policies: 'Medical, Vision, Dental',
+              planName: '...',
+              id: 'ABC1234567890',
+              memeCk: '',
+            }
+          }
+          onSelectionChange={() => {}}
+        />
+      )}
     </>
   );
 }

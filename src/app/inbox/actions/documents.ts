@@ -21,7 +21,7 @@ export async function getDocumentsList(): Promise<
     const fromDate: string = getDateTwoYearsAgo();
     const session = await auth();
     const loggedInMemberInfoReq = await getLoggedInUserInfo(
-      session!.user.currUsr!.plan.memCk,
+      session!.user.currUsr!.plan!.memCk,
     );
 
     const loggedInMemberInfo: LoggedInUserInfo = loggedInMemberInfoReq;

@@ -17,7 +17,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -220,7 +220,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -460,7 +460,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 3`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -625,7 +625,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -828,7 +828,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1056,7 +1056,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1259,7 +1259,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div

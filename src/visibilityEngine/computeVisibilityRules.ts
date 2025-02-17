@@ -287,7 +287,7 @@ export function isNurseChatEligible(rules: VisibilityRules | undefined) {
 }
 
 export function getHingeHealthLink(session: Session | null) {
-  const groupId = session?.user.currUsr?.plan.grpId;
+  const groupId = session?.user.currUsr?.plan!.grpId;
   const hingehealthvRules = session?.user.vRules;
   let hingeHealthLink;
   if (groupId) {

@@ -4,16 +4,25 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
-import { SwitchAccountDetails } from '../models/switch_Account_detail';
+import { UserProfile } from '@/models/user_profile';
+import { switchUser } from '@/userManagement/actions/switchUser';
+import { useRouter } from 'next/navigation';
 import { SwitchAccountItem } from './SwitchAccountItem';
 
 interface SwitchAccountComponentProps extends IComponent {
-  switchAccountDetails: SwitchAccountDetails[];
+  switchAccountDetails: UserProfile[];
 }
 
 export const SwitchAccountComponent = ({
   switchAccountDetails,
 }: SwitchAccountComponentProps) => {
+  const router = useRouter();
+
+  async function switchProfile(userId: string) {
+    await switchUser(userId);
+    router.refresh();
+  }
+
   return (
     <Card className="large-section">
       <Column className="flex flex-col">
@@ -32,8 +41,11 @@ export const SwitchAccountComponent = ({
             <SwitchAccountItem
               key={index}
               className="mb-4"
-              memberName={item.memberName}
-              DOB={item.dateOfBirth}
+              memberName={`${item.firstName} ${item.lastName}`}
+              DOB={item.dob}
+              id={item.id}
+              role={item.type}
+              onChange={(val) => switchProfile(val)}
             />
           ))}
         </Column>

@@ -36,7 +36,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                             My Profile
                           </p>
                           <h3
-                            class="title-3 font-bold p-1"
+                            class="title-3 font-bold"
                           >
                             JENNIE RAMAGE
                           </h3>
@@ -169,7 +169,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                   <p
                                     class="body-2"
                                   >
-                                    view as Personal Representative 
+                                    View as Personal Representative
                                   </p>
                                   <div
                                     class="flex flex-row justify-between"
@@ -224,7 +224,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                   <p
                                     class="body-2"
                                   >
-                                    view as Authorized User 
+                                    View as Authorized User
                                   </p>
                                   <div
                                     class="flex flex-row justify-between"
@@ -397,7 +397,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                           My Profile
                         </p>
                         <h3
-                          class="title-3 font-bold p-1"
+                          class="title-3 font-bold"
                         >
                           JENNIE RAMAGE
                         </h3>
@@ -530,7 +530,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 <p
                                   class="body-2"
                                 >
-                                  view as Personal Representative 
+                                  View as Personal Representative
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"
@@ -585,7 +585,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 <p
                                   class="body-2"
                                 >
-                                  view as Authorized User 
+                                  View as Authorized User
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"
@@ -813,7 +813,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                           My Profile
                         </p>
                         <h3
-                          class="title-3 font-bold p-1"
+                          class="title-3 font-bold"
                         >
                           JENNIE RAMAGE
                         </h3>
@@ -946,7 +946,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                                 <p
                                   class="body-2"
                                 >
-                                  view as Personal Representative 
+                                  View as Personal Representative
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"
@@ -1001,7 +1001,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                                 <p
                                   class="body-2"
                                 >
-                                  view as Authorized User 
+                                  View as Authorized User
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"

@@ -1,4 +1,6 @@
-import { UserProfile, UserType } from '@/models/user_profile';
+import { UserProfile } from '@/models/user_profile';
+import { UserRole } from '@/userManagement/models/sessionUser';
+import { computeRoleNameFromType } from '@/utils/role_name_converter';
 import Image from 'next/image';
 import { useState } from 'react';
 import { AppLink } from '../foundation/AppLink';
@@ -34,16 +36,16 @@ const UserProfileTile = ({
           <TextBox
             type="body-2"
             text={
-              user.type === UserType.Primary
+              user.type === UserRole.MEMBER || user.type === UserRole.NON_MEM
                 ? 'My Profile'
                 : isSelected
-                  ? `viewing as ${user.type}`
-                  : `view as ${user.type} `
+                  ? `Viewing as ${computeRoleNameFromType(user.type)}`
+                  : `View as ${computeRoleNameFromType(user.type)}`
             }
           />
           <Row className="justify-between">
             <Header
-              text={user.name}
+              text={`${user.firstName} ${user.lastName}`}
               type="title-3"
               className={`font-bold text-xl py-1 ${!isSelected ? 'primary-color' : ''}`}
             />
@@ -73,12 +75,16 @@ const UserSwitchHead = ({ user }: { user: UserProfile }) => {
           type="body-2"
           className="font-light"
           text={
-            user.type === UserType.Primary
+            user.type === UserRole.MEMBER || user.type === UserRole.NON_MEM
               ? 'My Profile'
-              : `viewing as ${user.type || ''}`
+              : `Viewing as ${computeRoleNameFromType(user.type)}`
           }
         />
-        <Header text={user.name} type="title-3" className="font-bold p-1" />
+        <Header
+          text={`${user.firstName} ${user.lastName}`}
+          type="title-3"
+          className="font-bold"
+        />
         <TextBox
           type="body-1"
           text={`DOB: ${user.dob}`}
@@ -110,8 +116,12 @@ export const UserSwitchFilter = ({
   onSelectionChange,
 }: UserSwitchFilterProps) => {
   const [selected, setSelected] = useState(selectedUser);
+  function changeSelection(val: UserProfile) {
+    onSelectionChange(val);
+    setSelected(val);
+  }
   const userLinksMap = {
-    [UserType.Primary]: [
+    [UserRole.MEMBER]: [
       {
         label: 'All Profile Settings',
         className:
@@ -129,7 +139,7 @@ export const UserSwitchFilter = ({
         className: 'font-bold primary-color body-bold body-1 manage-underline',
       },
     ],
-    [UserType.PersonalRepresentative]: [
+    [UserRole.PERSONAL_REP]: [
       {
         label: 'All Profile Settings',
         className:
@@ -144,11 +154,12 @@ export const UserSwitchFilter = ({
           'font-bold primary-color body-bold body-1 mt-4 manage-underline',
       },
     ],
-    [UserType.AuthorizedUser]: [],
+    [UserRole.AUTHORIZED_USER]: [],
+    [UserRole.NON_MEM]: [],
   };
   const userLinks = selected.type
     ? userLinksMap[selected.type]
-    : userLinksMap[UserType.AuthorizedUser];
+    : userLinksMap[UserRole.AUTHORIZED_USER];
   return (
     <section>
       <RichDropDown<UserProfile>
@@ -158,7 +169,7 @@ export const UserSwitchFilter = ({
           <UserProfileTile user={data} isSelected={selected.id === data.id} />
         )}
         selected={selected}
-        onSelectItem={(val) => setSelected(val)}
+        onSelectItem={(val) => changeSelection(val)}
         showSelected={false}
         divider={false}
         className="myProfile"
