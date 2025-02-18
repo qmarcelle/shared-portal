@@ -157,7 +157,7 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                       class="body-1"
                       style="display: block;"
                     >
-                      We'll send a one-time security code to your email by default. Set up multiple methods for more options when you log in.
+                      We'll send a one-time security code to your email by default. Set up   multiple methods for more options when you log in.
                     </p>
                   </div>
                 </div>
