@@ -1,17 +1,33 @@
-'use client';
-
-import { ServicesRenderedSection } from '@/app/claimServiceRendered/components/ServicesRenderedSection';
+import { PayProvider } from '@/app/claims/components/PayProvider';
+import { ServicesRenderedSection } from '@/app/claims/components/ServicesRenderedSection';
+import { ClaimsHelpCard } from '@/components/composite/ClaimsHelpCard';
+import { ClaimsPageInformation } from '@/components/composite/ClaimsPageInformation';
+import { CostBreakdown } from '@/components/composite/CostBreakdown';
+import { DownloadSummary } from '@/components/composite/DownloadSummary';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
-import { PayProvider } from './components/PayProvider';
+import { ClaimDetailsData } from '../models/app/claimDetailsData';
 
-const ClaimServiceRendered = () => {
+export type ClaimDetailsProps = {
+  data: ClaimDetailsData;
+};
+
+const ClaimDetails = ({ data }: ClaimDetailsProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Spacer size={32}></Spacer>
       <Column className="app-content app-base-font-color">
+        <ClaimsPageInformation claimInfo={data.claimInfo} />
+        <Spacer size={32} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
+            <CostBreakdown
+              amountBilled={263.0}
+              planPaid={187.94}
+              otherInsurancePaid={0.74}
+              yourCost={0.0}
+              planDiscount={10}
+            />
+            <Spacer size={32} />
             <ServicesRenderedSection
               serviceTitle="Immunization"
               className="large-section"
@@ -68,7 +84,11 @@ const ClaimServiceRendered = () => {
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
+            <DownloadSummary />
+            <Spacer size={32} />
             <PayProvider className="large-section" balanceAmount={30.24} />
+            <Spacer size={32} />
+            <ClaimsHelpCard />
           </Column>
         </section>
       </Column>
@@ -76,4 +96,4 @@ const ClaimServiceRendered = () => {
   );
 };
 
-export default ClaimServiceRendered;
+export default ClaimDetails;
