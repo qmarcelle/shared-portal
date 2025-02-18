@@ -68,6 +68,7 @@ export async function getAllClaimsData(): Promise<
             claimStatus: claim.claimStatusDescription,
             claimStatusCode: parseInt(claim.claimStatusCode.slice(-1)),
             claimType: CoverageTypes.get(claim.claimType)!,
+            type: claim.claimType,
             claimTotal: null,
             issuer: claim.providerName,
             memberId: member!.id,
