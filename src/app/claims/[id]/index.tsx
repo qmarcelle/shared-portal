@@ -1,3 +1,5 @@
+'use client';
+
 import { PayProvider } from '@/app/claims/components/PayProvider';
 import { ServicesRenderedSection } from '@/app/claims/components/ServicesRenderedSection';
 import { ClaimsHelpCard } from '@/components/composite/ClaimsHelpCard';
