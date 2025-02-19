@@ -119,6 +119,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $50.00
                               </p>
@@ -133,6 +134,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 08/10/2023, For Chris Hall
                             </p>
@@ -142,6 +144,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $50.00
                             </p>
@@ -218,6 +221,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $403.98
                               </p>
@@ -232,6 +236,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 07/05/2023, For Chris Hall
                             </p>
@@ -241,6 +246,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $403.98
                             </p>
@@ -317,6 +323,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $33.00
                               </p>
@@ -331,6 +338,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 12/22/2022, For Chris Hall
                             </p>
@@ -340,6 +348,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $33.00
                             </p>
@@ -354,7 +363,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   <a
                     aria-label="View All Pharmacy Claims"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -364,7 +372,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View All Pharmacy Claims
                       </p>
@@ -392,6 +399,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   />
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     View your annual statement for your pharmacy claims.
                   </p>
@@ -402,7 +410,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     aria-label="View Pharmacy Spending Summary"
                     href="/spendingSummary?type=Pharmacy"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !flex p-0"
@@ -412,7 +419,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Pharmacy Spending Summary
                       </p>
@@ -508,6 +514,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   </div>
                   <p
                     class="body-1 body-1 md:ml-14 ml-2"
+                    style="display: block;"
                   >
                     You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                   </p>
@@ -549,7 +556,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           aria-label="Medicare Prescription Payment Plan Sign-up"
                           href="/pharmacy/medicalPrescriptionPaymentPlan"
                           style="display: flex;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container pl-0"
@@ -559,13 +565,11 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="link undefined"
-                              style="display: flex;"
                             >
                               Medicare Prescription Payment Plan Sign-up
                             </p>
                             <p
                               class="ml-1"
-                              style="display: flex;"
                             >
                               <img
                                 alt=""
@@ -668,7 +672,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           aria-label="Social Security Extra Help Program"
                           href="https://www.ssa.gov/medicare/part-d-extra-help"
                           style="display: flex;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container pl-0"
@@ -678,13 +681,11 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="link undefined"
-                              style="display: flex;"
                             >
                               Social Security Extra Help Program
                             </p>
                             <p
                               class="ml-1"
-                              style="display: flex;"
                             >
                               <img
                                 alt=""
@@ -705,6 +706,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
                         </p>
@@ -834,6 +836,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $50.00
                             </p>
@@ -848,6 +851,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 08/10/2023, For Chris Hall
                           </p>
@@ -857,6 +861,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $50.00
                           </p>
@@ -933,6 +938,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $403.98
                             </p>
@@ -947,6 +953,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 07/05/2023, For Chris Hall
                           </p>
@@ -956,6 +963,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $403.98
                           </p>
@@ -1032,6 +1040,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $33.00
                             </p>
@@ -1046,6 +1055,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 12/22/2022, For Chris Hall
                           </p>
@@ -1055,6 +1065,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $33.00
                           </p>
@@ -1069,7 +1080,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 <a
                   aria-label="View All Pharmacy Claims"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
@@ -1079,7 +1089,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View All Pharmacy Claims
                     </p>
@@ -1107,6 +1116,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   View your annual statement for your pharmacy claims.
                 </p>
@@ -1117,7 +1127,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   aria-label="View Pharmacy Spending Summary"
                   href="/spendingSummary?type=Pharmacy"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !flex p-0"
@@ -1127,7 +1136,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View Pharmacy Spending Summary
                     </p>
@@ -1223,6 +1231,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1 md:ml-14 ml-2"
+                  style="display: block;"
                 >
                   You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                 </p>
@@ -1264,7 +1273,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         aria-label="Medicare Prescription Payment Plan Sign-up"
                         href="/pharmacy/medicalPrescriptionPaymentPlan"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -1274,13 +1282,11 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Medicare Prescription Payment Plan Sign-up
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -1383,7 +1389,6 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         aria-label="Social Security Extra Help Program"
                         href="https://www.ssa.gov/medicare/part-d-extra-help"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -1393,13 +1398,11 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Social Security Extra Help Program
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -1420,6 +1423,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                       />
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
                       </p>

@@ -85,6 +85,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 font-bold mt-2"
+                      style="display: block;"
                     >
                       $67
                     </p>
@@ -99,6 +100,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 mt-2"
+                    style="display: block;"
                   >
                     Visited on 02/06/2024, For Chris James
                   </p>
@@ -108,6 +110,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 font-bold mt-2"
+                    style="display: block;"
                   >
                     $67
                   </p>
@@ -184,6 +187,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 font-bold mt-2"
+                      style="display: block;"
                     />
                   </div>
                 </section>
@@ -196,6 +200,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 mt-2"
+                    style="display: block;"
                   >
                     Visited on 01/06/2024, For Aly Jame
                   </p>
@@ -205,6 +210,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 font-bold mt-2"
+                    style="display: block;"
                   />
                 </div>
               </div>
@@ -279,6 +285,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 font-bold mt-2"
+                      style="display: block;"
                     />
                   </div>
                 </section>
@@ -291,6 +298,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 mt-2"
+                    style="display: block;"
                   >
                     Visited on 01/16/2024, For Aly Jame
                   </p>
@@ -300,6 +308,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 font-bold mt-2"
+                    style="display: block;"
                   />
                 </div>
               </div>
@@ -312,7 +321,6 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
         <a
           aria-label="View All Claims"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -322,7 +330,6 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View All Claims
             </p>

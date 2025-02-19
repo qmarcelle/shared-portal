@@ -74,11 +74,13 @@ exports[`SiteHeader when PR is selected with one plan should render SiteHeader c
                   >
                     <p
                       class="body-2 app-base-font-color"
+                      style="display: block;"
                     >
                       View Plan:
                     </p>
                     <p
                       class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                      style="display: block;"
                     >
                       Radio Systems Corporation
                     </p>
@@ -444,6 +446,7 @@ exports[`SiteHeader when PR is selected with one plan should render SiteHeader c
                   <a>
                     <p
                       class="body-1 link-row-head"
+                      style="display: block;"
                     >
                       Search
                     </p>
@@ -499,11 +502,13 @@ exports[`SiteHeader when PR is selected with one plan should render SiteHeader c
             >
               <p
                 class="body-2 app-base-font-color"
+                style="display: block;"
               >
                 View Plan:
               </p>
               <p
                 class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                style="display: block;"
               >
                 Radio Systems Corporation
               </p>

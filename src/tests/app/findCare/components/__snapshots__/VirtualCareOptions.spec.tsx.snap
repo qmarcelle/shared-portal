@@ -21,6 +21,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             The following options offer quick, high-quality care for a range of non-emergency needs.
           </p>
@@ -70,6 +71,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                           </p>
@@ -106,6 +108,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
                           </p>
@@ -142,6 +145,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                           </p>
@@ -178,6 +182,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             xxx
                           </p>
@@ -228,7 +233,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
           <a
             aria-label="Learn More & Compare Virtual Care Options"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
@@ -238,7 +242,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 Learn More & Compare Virtual Care Options
               </p>
@@ -265,6 +268,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           The following options offer quick, high-quality care for a range of non-emergency needs.
         </p>
@@ -314,6 +318,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                         </p>
@@ -350,6 +355,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
                         </p>
@@ -386,6 +392,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                         </p>
@@ -422,6 +429,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           xxx
                         </p>
@@ -472,7 +480,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
         <a
           aria-label="Learn More & Compare Virtual Care Options"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -482,7 +489,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               Learn More & Compare Virtual Care Options
             </p>

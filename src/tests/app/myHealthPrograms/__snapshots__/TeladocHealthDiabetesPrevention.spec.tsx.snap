@@ -53,6 +53,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Get a personal action plan, health coaching and a smart scale at no extra cost.
               </p>
@@ -61,6 +62,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you'll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             If eligible, covered by your plan at no extra cost
                           </p>
@@ -191,6 +194,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Dedicated expert coaching support
                           </p>
@@ -221,6 +225,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Programs for healthy habits
                           </p>
@@ -251,6 +256,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Free smart scale
                           </p>
@@ -286,6 +292,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       If eligible, you can expect to pay:
                     </p>
@@ -294,6 +301,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $0
                     </p>
@@ -347,6 +355,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Viewing weight trends
                           </p>
@@ -372,6 +381,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Expert coaching and advice
                           </p>
@@ -397,6 +407,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Sharing reports with the doctor 
                           </p>
@@ -422,6 +433,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Personalized eating tips
                           </p>
@@ -447,6 +459,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Setting goals and tracking progress
                           </p>
@@ -472,6 +485,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Logging food
                           </p>
@@ -539,6 +553,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Get a personal action plan, health coaching and a smart scale at no extra cost.
             </p>
@@ -547,6 +562,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you'll need to create an account.
             </p>
@@ -647,6 +663,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           If eligible, covered by your plan at no extra cost
                         </p>
@@ -677,6 +694,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Dedicated expert coaching support
                         </p>
@@ -707,6 +725,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Programs for healthy habits
                         </p>
@@ -737,6 +756,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Free smart scale
                         </p>
@@ -772,6 +792,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     If eligible, you can expect to pay:
                   </p>
@@ -780,6 +801,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $0
                   </p>
@@ -833,6 +855,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Viewing weight trends
                         </p>
@@ -858,6 +881,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Expert coaching and advice
                         </p>
@@ -883,6 +907,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Sharing reports with the doctor 
                         </p>
@@ -908,6 +933,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Personalized eating tips
                         </p>
@@ -933,6 +959,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Setting goals and tracking progress
                         </p>
@@ -958,6 +985,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Logging food
                         </p>

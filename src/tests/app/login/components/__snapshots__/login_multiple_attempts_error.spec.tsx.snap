@@ -52,7 +52,6 @@ exports[`Multiple Attempts for login error should render all the required compon
             <a
               aria-label="Forgot Username/Password?"
               style="display: block;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container self-start"
@@ -62,7 +61,6 @@ exports[`Multiple Attempts for login error should render all the required compon
               >
                 <p
                   class="link undefined"
-                  style="display: block;"
                 >
                   Forgot Username/Password?
                 </p>
@@ -155,7 +153,6 @@ exports[`Multiple Attempts for login error should render all the required compon
           <a
             aria-label="Forgot Username/Password?"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container self-start"
@@ -165,7 +162,6 @@ exports[`Multiple Attempts for login error should render all the required compon
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 Forgot Username/Password?
               </p>

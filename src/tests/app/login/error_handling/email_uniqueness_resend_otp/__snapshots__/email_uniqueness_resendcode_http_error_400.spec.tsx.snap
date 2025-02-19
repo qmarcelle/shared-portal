@@ -96,6 +96,7 @@ exports[`Email Uniqueness resend code - Http Error 400 Email uniqueness resend c
                 >
                   <p
                     class="body-1 text-center"
+                    style="display: block;"
                   >
                     Oops! We're sorry. Something went wrong. Please try again.
                   </p>
@@ -111,6 +112,7 @@ exports[`Email Uniqueness resend code - Http Error 400 Email uniqueness resend c
                   />
                   <p
                     class="body-1 title-3 center"
+                    style="display: block;"
                   >
                     Need help?
                   </p>

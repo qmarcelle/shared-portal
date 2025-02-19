@@ -39,6 +39,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Your employer offers even more programs and benefits you can explore here
               </p>
@@ -117,6 +118,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             1-800-456-9876
                           </p>
@@ -168,6 +170,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             1-800-367-9676
                           </p>
@@ -191,6 +194,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 body-bold"
+                            style="display: block;"
                           >
                             Low Pharm
                           </p>
@@ -199,6 +203,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             1-800-834-2465
                           </p>
@@ -222,6 +227,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 body-bold"
+                            style="display: block;"
                           >
                             Quant Labs
                           </p>
@@ -230,6 +236,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             1-800-834-3465
                           </p>
@@ -280,7 +287,6 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
           <a
             aria-label="View Employer Provided Benefits"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container body-bold p-0 sm:p-2"
@@ -290,7 +296,6 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 View Employer Provided Benefits
               </p>
@@ -335,6 +340,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Your employer offers even more programs and benefits you can explore here
             </p>
@@ -413,6 +419,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           1-800-456-9876
                         </p>
@@ -464,6 +471,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           1-800-367-9676
                         </p>
@@ -487,6 +495,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 body-bold"
+                          style="display: block;"
                         >
                           Low Pharm
                         </p>
@@ -495,6 +504,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           1-800-834-2465
                         </p>
@@ -518,6 +528,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 body-bold"
+                          style="display: block;"
                         >
                           Quant Labs
                         </p>
@@ -526,6 +537,7 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           1-800-834-3465
                         </p>
@@ -576,7 +588,6 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
         <a
           aria-label="View Employer Provided Benefits"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container body-bold p-0 sm:p-2"
@@ -586,7 +597,6 @@ exports[`EmployeeProvidedBenefitsTile should render UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View Employer Provided Benefits
             </p>

@@ -40,6 +40,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
               </p>
@@ -48,6 +49,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               />
               <div
                 class="flex flex-col w-fit md:w-[83%]"
@@ -127,6 +129,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             In-network & covered by your plan with no cost to you
                           </p>
@@ -157,6 +160,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Connect anytime 24/7
                           </p>
@@ -192,6 +196,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       You can expect to pay:
                     </p>
@@ -200,6 +205,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $0
                     </p>
@@ -253,6 +259,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Assessing symptoms and advice
                           </p>
@@ -278,6 +285,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             General health information
                           </p>
@@ -303,6 +311,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Education and support on conditions or procedures
                           </p>
@@ -328,6 +337,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Help making decisions for surgery or other treatments
                           </p>
@@ -382,6 +392,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
             </p>
@@ -390,6 +401,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             />
             <div
               class="flex flex-col w-fit md:w-[83%]"
@@ -469,6 +481,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           In-network & covered by your plan with no cost to you
                         </p>
@@ -499,6 +512,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Connect anytime 24/7
                         </p>
@@ -534,6 +548,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     You can expect to pay:
                   </p>
@@ -542,6 +557,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $0
                   </p>
@@ -595,6 +611,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Assessing symptoms and advice
                         </p>
@@ -620,6 +637,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           General health information
                         </p>
@@ -645,6 +663,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Education and support on conditions or procedures
                         </p>
@@ -670,6 +689,7 @@ exports[`TalkToNurseHealthProgram should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Help making decisions for surgery or other treatments
                         </p>

@@ -21,6 +21,7 @@ exports[`AboutPrimaryCareProvider should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             A primary care provider (PCP), a doctor or nurse practitioner that offers routine checkups, vaccines and non-emergency medical care.
           </p>
@@ -89,6 +90,7 @@ exports[`AboutPrimaryCareProvider should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 body-1 m-4"
+                  style="display: block;"
                 >
                   The term primary care provider (PCP) refers to any of the following types of medical professionals:
                 </p>
@@ -168,6 +170,7 @@ exports[`AboutPrimaryCareProvider should render the UI correctly 1`] = `
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           A primary care provider (PCP), a doctor or nurse practitioner that offers routine checkups, vaccines and non-emergency medical care.
         </p>
@@ -236,6 +239,7 @@ exports[`AboutPrimaryCareProvider should render the UI correctly 1`] = `
             <div>
               <p
                 class="body-1 body-1 m-4"
+                style="display: block;"
               >
                 The term primary care provider (PCP) refers to any of the following types of medical professionals:
               </p>

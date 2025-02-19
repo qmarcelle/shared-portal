@@ -19,6 +19,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
         />
         <p
           class="body-1 md:w-2/3 m-4"
+          style="display: block;"
         >
           Choose one option below and follow the instructions to add or update your primary care provider.
         </p>
@@ -54,6 +55,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
                       </p>
@@ -64,7 +66,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                         aria-label="Go to Directory to Find a Doctor"
                         href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
@@ -74,13 +75,11 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Go to Directory to Find a Doctor
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="link"
@@ -151,6 +150,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
                           </p>
@@ -203,6 +203,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                                             >
                                               <p
                                                 class="body-1"
+                                                style="display: block;"
                                               >
                                                 CHRISTMAS HALL
                                               </p>
@@ -467,6 +468,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
                       </p>
@@ -476,7 +478,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                       <a
                         aria-label="Primary Care Provider Change Form"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
@@ -486,13 +487,11 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Primary Care Provider Change Form
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="link"
@@ -553,6 +552,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
         />
         <p
           class="body-1 md:w-2/3 m-4"
+          style="display: block;"
         >
           Choose one option below and follow the instructions to add or update your primary care provider.
         </p>
@@ -588,6 +588,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
                       </p>
@@ -598,7 +599,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                         aria-label="Go to Directory to Find a Doctor"
                         href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
@@ -608,13 +608,11 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Go to Directory to Find a Doctor
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="link"
@@ -685,6 +683,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
                           </p>
@@ -737,6 +736,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                                             >
                                               <p
                                                 class="body-1"
+                                                style="display: block;"
                                               >
                                                 CHRISTMAS HALL
                                               </p>
@@ -1001,6 +1001,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
                       </p>
@@ -1010,7 +1011,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                       <a
                         aria-label="Primary Care Provider Change Form"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
@@ -1020,13 +1020,11 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Primary Care Provider Change Form
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="link"
@@ -1087,6 +1085,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
         />
         <p
           class="body-1 md:w-2/3 m-4"
+          style="display: block;"
         >
           Choose one option below and follow the instructions to add or update your primary care provider.
         </p>
@@ -1122,6 +1121,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
                       </p>
@@ -1132,7 +1132,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                         aria-label="Go to Directory to Find a Doctor"
                         href="https://bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39&locale=en"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
@@ -1142,13 +1141,11 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Go to Directory to Find a Doctor
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="link"
@@ -1219,6 +1216,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
                           </p>
@@ -1271,6 +1269,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                                             >
                                               <p
                                                 class="body-1"
+                                                style="display: block;"
                                               >
                                                 CHRISTMAS HALL
                                               </p>
@@ -1613,6 +1612,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
                       </p>
@@ -1622,7 +1622,6 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                       <a
                         aria-label="Primary Care Provider Change Form"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container !flex pl-0"
@@ -1632,13 +1631,11 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly with validations
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Primary Care Provider Change Form
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="link"

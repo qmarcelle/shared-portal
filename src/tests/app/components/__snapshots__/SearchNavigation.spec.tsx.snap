@@ -55,11 +55,13 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 px-2"
+                  style="display: block;"
                 >
                   See all results for 
                 </p>
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
                   teladoc
                 </p>
@@ -71,6 +73,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 <div>
                   <p
                     class="body-1 title-3 py-2 px-4"
+                    style="display: block;"
                   >
                     teladoc
                   </p>
@@ -80,6 +83,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1 py-2 px-4"
+                    style="display: block;"
                   >
                     teladoc
                   </p>
@@ -170,11 +174,13 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 px-2"
+                style="display: block;"
               >
                 See all results for 
               </p>
               <p
                 class="body-1 font-bold"
+                style="display: block;"
               >
                 teladoc
               </p>
@@ -186,6 +192,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 title-3 py-2 px-4"
+                  style="display: block;"
                 >
                   teladoc
                 </p>
@@ -195,6 +202,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1 py-2 px-4"
+                  style="display: block;"
                 >
                   teladoc
                 </p>
@@ -305,6 +313,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
             <a>
               <p
                 class="body-1 link-row-head"
+                style="display: block;"
               >
                 Search
               </p>
@@ -343,6 +352,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
           <a>
             <p
               class="body-1 link-row-head"
+              style="display: block;"
             >
               Search
             </p>

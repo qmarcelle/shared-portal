@@ -73,6 +73,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   We’ll need to confirm your email address before you can log in.
                 </p>
@@ -81,11 +82,13 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   We’ve sent a code to:
                 </p>
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
                   a**@bcbst.com
                 </p>
@@ -94,6 +97,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Enter the security code to verify your email address.
                 </p>
@@ -107,7 +111,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                     Enter Security Code
                   </p>
                   <div
-                    class="flex flex-row items-center input  "
+                    class="flex flex-row items-center input   "
                   >
                     <input
                       aria-label="Enter Security Code"
@@ -130,6 +134,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1 body-1 text-lime-700"
+                  style="display: block;"
                 >
                   Code resent!
                 </p>
@@ -172,37 +177,35 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
                 <p
-                  class="body-1 pr-5"
+                  class="body-1 pr-1"
+                  style="display: inline;"
                 >
                   Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
                 </p>
-                <section
-                  class="flex flex-row"
+                <a
+                  aria-label="contact us"
+                  href="https://www.bcbst.com/contact-us"
+                  style="display: inline;"
                 >
-                  <a
-                    aria-label="contact us"
-                    href="https://www.bcbst.com/contact-us"
-                    style="display: inline;"
+                  <button
+                    class="flex flex-row link-container p-0"
+                    style="max-width: max-content; height: auto; display: inline;"
+                    tabindex="-1"
+                    type="button"
                   >
-                    <button
-                      class="flex flex-row link-container p-0"
-                      style="max-width: max-content; height: auto; display: inline;"
-                      tabindex="-1"
-                      type="button"
+                    <p
+                      class="link undefined"
                     >
-                      <p
-                        class="link undefined"
-                      >
-                        contact us
-                      </p>
-                    </button>
-                  </a>
-                  <p
-                    class="body-1"
-                  >
-                    .
-                  </p>
-                </section>
+                      contact us
+                    </p>
+                  </button>
+                </a>
+                <p
+                  class="body-1"
+                  style="display: inline;"
+                >
+                  .
+                </p>
               </div>
             </form>
           </div>
@@ -286,6 +289,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   We’ll need to confirm your email address before you can log in.
                 </p>
@@ -294,11 +298,13 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   We’ve sent a code to:
                 </p>
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
                   a**@bcbst.com
                 </p>
@@ -307,6 +313,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Enter the security code to verify your email address.
                 </p>
@@ -320,7 +327,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                     Enter Security Code
                   </p>
                   <div
-                    class="flex flex-row items-center input  "
+                    class="flex flex-row items-center input   "
                   >
                     <input
                       aria-label="Enter Security Code"
@@ -397,37 +404,35 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
                 <p
-                  class="body-1 pr-5"
+                  class="body-1 pr-1"
+                  style="display: inline;"
                 >
                   Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
                 </p>
-                <section
-                  class="flex flex-row"
+                <a
+                  aria-label="contact us"
+                  href="https://www.bcbst.com/contact-us"
+                  style="display: inline;"
                 >
-                  <a
-                    aria-label="contact us"
-                    href="https://www.bcbst.com/contact-us"
-                    style="display: inline;"
+                  <button
+                    class="flex flex-row link-container p-0"
+                    style="max-width: max-content; height: auto; display: inline;"
+                    tabindex="-1"
+                    type="button"
                   >
-                    <button
-                      class="flex flex-row link-container p-0"
-                      style="max-width: max-content; height: auto; display: inline;"
-                      tabindex="-1"
-                      type="button"
+                    <p
+                      class="link undefined"
                     >
-                      <p
-                        class="link undefined"
-                      >
-                        contact us
-                      </p>
-                    </button>
-                  </a>
-                  <p
-                    class="body-1"
-                  >
-                    .
-                  </p>
-                </section>
+                      contact us
+                    </p>
+                  </button>
+                </a>
+                <p
+                  class="body-1"
+                  style="display: inline;"
+                >
+                  .
+                </p>
               </div>
             </form>
           </div>

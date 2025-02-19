@@ -232,11 +232,13 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Set Up Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -324,11 +326,13 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Remove Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -416,11 +420,13 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Remove Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -508,11 +514,13 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Remove Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""

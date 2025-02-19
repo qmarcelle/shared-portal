@@ -232,11 +232,13 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Set Up Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -318,11 +320,13 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Set Up Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -404,11 +408,13 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Set Up Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -490,11 +496,13 @@ exports[`No MFA Devices should render the disabled devices if no devices are con
                         >
                           <p
                             class="link !no-underline"
+                            style="display: flex;"
                           >
                             Set Up Method
                           </p>
                           <p
                             class="ml-1"
+                            style="display: flex;"
                           >
                             <img
                               alt=""

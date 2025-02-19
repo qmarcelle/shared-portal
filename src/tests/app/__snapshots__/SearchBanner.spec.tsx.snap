@@ -24,6 +24,7 @@ exports[`Search Results Page should render all the required components 1`] = `
           />
           <p
             class="body-1 pl-2"
+            style="display: block;"
           >
             Schedule an appointment or get health information 24/7 for non-emergency conditions.
           </p>
@@ -33,7 +34,6 @@ exports[`Search Results Page should render all the required components 1`] = `
           <a
             aria-label="Get Started with Teladoc Health"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container searchBannerLink inline"
@@ -43,13 +43,11 @@ exports[`Search Results Page should render all the required components 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 Get Started with Teladoc Health
               </p>
               <p
                 class="ml-1"
-                style="display: inline-flex;"
               >
                 <img
                   alt="external"
@@ -89,6 +87,7 @@ exports[`Search Results Page should render all the required components 1`] = `
         />
         <p
           class="body-1 pl-2"
+          style="display: block;"
         >
           Schedule an appointment or get health information 24/7 for non-emergency conditions.
         </p>
@@ -98,7 +97,6 @@ exports[`Search Results Page should render all the required components 1`] = `
         <a
           aria-label="Get Started with Teladoc Health"
           style="display: inline-flex;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container searchBannerLink inline"
@@ -108,13 +106,11 @@ exports[`Search Results Page should render all the required components 1`] = `
           >
             <p
               class="link undefined"
-              style="display: inline-flex;"
             >
               Get Started with Teladoc Health
             </p>
             <p
               class="ml-1"
-              style="display: inline-flex;"
             >
               <img
                 alt="external"

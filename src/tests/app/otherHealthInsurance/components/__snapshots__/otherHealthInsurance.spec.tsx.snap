@@ -51,6 +51,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This
              is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by
@@ -79,6 +80,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
                       >
                         Chris Hall
                       </p>
@@ -91,6 +93,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         DOB: 01/01/1978
                       </p>
@@ -117,6 +120,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 body-1"
+                        style="display: block;"
                       >
                         Not covered by other health insurance.
                       </p>
@@ -129,6 +133,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2  body-1"
+                        style="display: block;"
                       >
                         Last Updated: 01/16/2023
                       </p>
@@ -190,6 +195,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
                       >
                         Maddison Hall
                       </p>
@@ -202,6 +208,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         DOB: 01/01/1979
                       </p>
@@ -228,6 +235,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 body-1"
+                        style="display: block;"
                       >
                         Not covered by other health insurance.
                       </p>
@@ -240,6 +248,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2  body-1"
+                        style="display: block;"
                       >
                         Last Updated: 01/16/2023
                       </p>
@@ -301,6 +310,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
                       >
                         Forest Hall
                       </p>
@@ -313,6 +323,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         DOB: 01/01/2001
                       </p>
@@ -339,6 +350,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 body-1"
+                        style="display: block;"
                       >
                         Not covered by other health insurance.
                       </p>
@@ -351,6 +363,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2  body-1"
+                        style="display: block;"
                       >
                         Last Updated: 01/16/2023
                       </p>
@@ -412,6 +425,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
                       >
                         Corey Hall
                       </p>
@@ -424,6 +438,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         DOB: 01/01/2002
                       </p>
@@ -450,6 +465,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 body-1"
+                        style="display: block;"
                       >
                         Not covered by other health insurance.
                       </p>
@@ -462,6 +478,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2  body-1"
+                        style="display: block;"
                       >
                         Last Updated: 01/16/2023
                       </p>
@@ -523,6 +540,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
                       >
                         Telly Hall
                       </p>
@@ -535,6 +553,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         DOB: 01/01/2005
                       </p>
@@ -561,6 +580,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 body-1"
+                        style="display: block;"
                       >
                         Not covered by other health insurance.
                       </p>
@@ -573,6 +593,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2  body-1"
+                        style="display: block;"
                       >
                         Last Updated: 01/16/2023
                       </p>
@@ -634,6 +655,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
                       >
                         Janie Hall
                       </p>
@@ -646,6 +668,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         DOB: 01/01/2015
                       </p>
@@ -672,6 +695,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2 body-1"
+                        style="display: block;"
                       >
                         Not covered by other health insurance.
                       </p>
@@ -684,6 +708,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 ml-2  body-1"
+                        style="display: block;"
                       >
                         Last Updated: 01/16/2023
                       </p>
@@ -786,6 +811,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This
              is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by
@@ -814,6 +840,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 font-bold body-1"
+                      style="display: block;"
                     >
                       Chris Hall
                     </p>
@@ -826,6 +853,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       DOB: 01/01/1978
                     </p>
@@ -852,6 +880,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 body-1"
+                      style="display: block;"
                     >
                       Not covered by other health insurance.
                     </p>
@@ -864,6 +893,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2  body-1"
+                      style="display: block;"
                     >
                       Last Updated: 01/16/2023
                     </p>
@@ -925,6 +955,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 font-bold body-1"
+                      style="display: block;"
                     >
                       Maddison Hall
                     </p>
@@ -937,6 +968,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       DOB: 01/01/1979
                     </p>
@@ -963,6 +995,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 body-1"
+                      style="display: block;"
                     >
                       Not covered by other health insurance.
                     </p>
@@ -975,6 +1008,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2  body-1"
+                      style="display: block;"
                     >
                       Last Updated: 01/16/2023
                     </p>
@@ -1036,6 +1070,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 font-bold body-1"
+                      style="display: block;"
                     >
                       Forest Hall
                     </p>
@@ -1048,6 +1083,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       DOB: 01/01/2001
                     </p>
@@ -1074,6 +1110,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 body-1"
+                      style="display: block;"
                     >
                       Not covered by other health insurance.
                     </p>
@@ -1086,6 +1123,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2  body-1"
+                      style="display: block;"
                     >
                       Last Updated: 01/16/2023
                     </p>
@@ -1147,6 +1185,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 font-bold body-1"
+                      style="display: block;"
                     >
                       Corey Hall
                     </p>
@@ -1159,6 +1198,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       DOB: 01/01/2002
                     </p>
@@ -1185,6 +1225,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 body-1"
+                      style="display: block;"
                     >
                       Not covered by other health insurance.
                     </p>
@@ -1197,6 +1238,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2  body-1"
+                      style="display: block;"
                     >
                       Last Updated: 01/16/2023
                     </p>
@@ -1258,6 +1300,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 font-bold body-1"
+                      style="display: block;"
                     >
                       Telly Hall
                     </p>
@@ -1270,6 +1313,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       DOB: 01/01/2005
                     </p>
@@ -1296,6 +1340,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 body-1"
+                      style="display: block;"
                     >
                       Not covered by other health insurance.
                     </p>
@@ -1308,6 +1353,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2  body-1"
+                      style="display: block;"
                     >
                       Last Updated: 01/16/2023
                     </p>
@@ -1369,6 +1415,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 font-bold body-1"
+                      style="display: block;"
                     >
                       Janie Hall
                     </p>
@@ -1381,6 +1428,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       DOB: 01/01/2015
                     </p>
@@ -1407,6 +1455,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2 body-1"
+                      style="display: block;"
                     >
                       Not covered by other health insurance.
                     </p>
@@ -1419,6 +1468,7 @@ exports[`OtherHealthInsurance should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 ml-2  body-1"
+                      style="display: block;"
                     >
                       Last Updated: 01/16/2023
                     </p>

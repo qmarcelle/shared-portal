@@ -124,6 +124,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                       >
                         <p
                           class="link !no-underline"
+                          style="display: block;"
                         >
                           Cancel
                         </p>

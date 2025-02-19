@@ -342,7 +342,6 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                         <a
                           aria-label="Resend Code"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
@@ -352,7 +351,6 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                           >
                             <p
                               class="link undefined"
-                              style="display: block;"
                             >
                               Resend Code
                             </p>
@@ -377,7 +375,6 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -387,7 +384,6 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>

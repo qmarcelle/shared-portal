@@ -53,6 +53,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
               </p>
@@ -61,6 +62,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             In-network with your plan*
                           </p>
@@ -191,6 +194,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Pay lowest price in network for labs
                           </p>
@@ -221,6 +225,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             No need to change your doctor — just show your QuestSelect card
                           </p>
@@ -251,6 +256,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Get access to your lab results online
                           </p>
@@ -270,6 +276,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-2 mt-8"
+                      style="display: block;"
                     >
                       *If you get lab testing out of state, call the Member Service number on the back of your Member ID card to make sure Quest Diagnostics is in network in that state
                     </p>
@@ -299,6 +306,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Your lab benefits will apply when using QuestSelect.
                     </p>
@@ -307,6 +315,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     />
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -358,6 +367,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Blood samples
                           </p>
@@ -383,6 +393,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Urine samples
                           </p>
@@ -408,6 +419,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Throat cultures
                           </p>
@@ -433,6 +445,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             And more
                           </p>
@@ -500,6 +513,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
             </p>
@@ -508,6 +522,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -608,6 +623,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           In-network with your plan*
                         </p>
@@ -638,6 +654,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Pay lowest price in network for labs
                         </p>
@@ -668,6 +685,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           No need to change your doctor — just show your QuestSelect card
                         </p>
@@ -698,6 +716,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Get access to your lab results online
                         </p>
@@ -717,6 +736,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-2 mt-8"
+                    style="display: block;"
                   >
                     *If you get lab testing out of state, call the Member Service number on the back of your Member ID card to make sure Quest Diagnostics is in network in that state
                   </p>
@@ -746,6 +766,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Your lab benefits will apply when using QuestSelect.
                   </p>
@@ -754,6 +775,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   />
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -805,6 +827,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Blood samples
                         </p>
@@ -830,6 +853,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Urine samples
                         </p>
@@ -855,6 +879,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Throat cultures
                         </p>
@@ -880,6 +905,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           And more
                         </p>

@@ -56,7 +56,6 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
             aria-label="View or Update Primary Care Provider"
             href="/myPrimaryCareProvider"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container !text-left"
@@ -66,7 +65,6 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 View or Update Primary Care Provider
               </p>
@@ -128,7 +126,6 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
           aria-label="View or Update Primary Care Provider"
           href="/myPrimaryCareProvider"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container !text-left"
@@ -138,7 +135,6 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View or Update Primary Care Provider
             </p>
@@ -223,11 +219,13 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-1 font-bold"
+              style="display: block;"
             >
               Louthan, James D.
             </p>
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Primary Care Provider
             </p>
@@ -236,16 +234,19 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-2"
+              style="display: block;"
             >
               Facility Address
             </p>
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               2033 Meadowview Ln Ste 200
             </p>
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Kingsport TN 37660-7432
             </p>
@@ -254,11 +255,13 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-2"
+              style="display: block;"
             >
               Phone
             </p>
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               (423) 857-2260
             </p>
@@ -270,7 +273,6 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             aria-label="View or Update Primary Care Provider"
             href="/myPrimaryCareProvider"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container !text-left"
@@ -280,7 +282,6 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 View or Update Primary Care Provider
               </p>
@@ -308,11 +309,13 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
         >
           <p
             class="body-1 body-1 font-bold"
+            style="display: block;"
           >
             Louthan, James D.
           </p>
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             Primary Care Provider
           </p>
@@ -321,16 +324,19 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-2"
+            style="display: block;"
           >
             Facility Address
           </p>
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             2033 Meadowview Ln Ste 200
           </p>
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             Kingsport TN 37660-7432
           </p>
@@ -339,11 +345,13 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-2"
+            style="display: block;"
           >
             Phone
           </p>
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             (423) 857-2260
           </p>
@@ -355,7 +363,6 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
           aria-label="View or Update Primary Care Provider"
           href="/myPrimaryCareProvider"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container !text-left"
@@ -365,7 +372,6 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View or Update Primary Care Provider
             </p>

@@ -30,6 +30,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 How to keep your information secure, manage your online account and more.
               </p>
@@ -1350,7 +1351,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Benefits & Coverage"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -1360,7 +1360,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Benefits & Coverage
                               </p>
@@ -1382,7 +1381,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Claims"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -1392,7 +1390,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Claims
                               </p>
@@ -1414,7 +1411,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="ID Cards"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -1424,7 +1420,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 ID Cards
                               </p>
@@ -1446,7 +1441,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="My Plan Information"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -1456,7 +1450,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 My Plan Information
                               </p>
@@ -1478,7 +1471,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Pharmacy"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -1488,7 +1480,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Pharmacy
                               </p>
@@ -1510,7 +1501,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Prior Authorization"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -1520,7 +1510,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Prior Authorization
                               </p>
@@ -1542,7 +1531,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Security"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
@@ -1552,7 +1540,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Security
                               </p>
@@ -1599,6 +1586,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               How to keep your information secure, manage your online account and more.
             </p>
@@ -2919,7 +2907,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Benefits & Coverage"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -2929,7 +2916,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Benefits & Coverage
                             </p>
@@ -2951,7 +2937,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Claims"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -2961,7 +2946,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Claims
                             </p>
@@ -2983,7 +2967,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="ID Cards"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -2993,7 +2976,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               ID Cards
                             </p>
@@ -3015,7 +2997,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="My Plan Information"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -3025,7 +3006,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               My Plan Information
                             </p>
@@ -3047,7 +3027,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Pharmacy"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -3057,7 +3036,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Pharmacy
                             </p>
@@ -3079,7 +3057,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Prior Authorization"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -3089,7 +3066,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Prior Authorization
                             </p>
@@ -3111,7 +3087,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Security"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
@@ -3121,7 +3096,6 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Security
                             </p>
