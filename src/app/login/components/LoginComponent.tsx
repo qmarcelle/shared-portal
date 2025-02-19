@@ -75,7 +75,13 @@ export const LoginComponent = () => {
   };
 
   return (
-    <form onSubmit={(e) => loginAnalytics(e)}>
+    <form
+      onSubmit={(e) => {
+        username.length > 0 && password.length > 0
+          ? loginAnalytics(e)
+          : undefined;
+      }}
+    >
       <div id="mainSection" className="dark:text-black">
         <h1 className="self-start">Member Login</h1>
         <Spacer size={32} />

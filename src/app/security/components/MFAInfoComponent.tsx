@@ -133,6 +133,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
                       <TextBox
                         className="underline underline-offset-4 decoration-dashed app-underline font-bold"
                         text="Authenticator App"
+                        tabFocus={0}
                       />
                     </ToolTip>
                   }

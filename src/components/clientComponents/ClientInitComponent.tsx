@@ -5,6 +5,7 @@ import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
+import { AppLink } from '../foundation/AppLink';
 import { AppModal } from '../foundation/AppModal';
 import { SideBarModal } from '../foundation/SideBarModal';
 
@@ -27,6 +28,13 @@ export const ClientInitComponent = () => {
     <>
       {showHeader && (
         <>
+          <AppLink
+            label="SKIP TO CONTENT."
+            className="!no-underline skipButton"
+            linkUnderline="!no-underline"
+            url="#main"
+            type="link"
+          />
           <SideBarModal />
         </>
       )}

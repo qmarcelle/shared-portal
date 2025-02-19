@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Email Verfication Component should render UI correctly 1`] = `
+exports[`Login Email Verification Component should render UI correctly 1`] = `
 <body>
   <div>
     <form>
@@ -10,13 +10,14 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
         <h1
           class="title-1"
         >
-          Let's Verify Your Email
+          Let’s Verify Your Email
         </h1>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           We’ll need to confirm your email address before you can log in.
         </p>
@@ -25,17 +26,20 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           We’ve sent a code to:
         </p>
         <p
           class="body-1 font-bold"
+          style="display: block;"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           Enter the security code to verify your email address.
         </p>
@@ -67,6 +71,9 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
             <div />
           </div>
         </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
@@ -106,12 +113,15 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
-          class="body-1 pr-5"
+          class="body-1 pr-1"
+          style="display: inline;"
         >
           Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
         </p>
-        <section
-          class="flex flex-row"
+        <a
+          aria-label="contact us"
+          href="https://www.bcbst.com/contact-us"
+          style="display: inline;"
         >
           <a
             aria-label="contact us"
@@ -119,11 +129,8 @@ exports[`Login Email Verfication Component should render UI correctly 1`] = `
             style="display: inline;"
             tabindex="-1"
           >
-            <button
-              class="flex flex-row link-container p-0"
-              style="max-width: max-content; height: auto; display: inline;"
-              tabindex="-1"
-              type="button"
+            <p
+              class="link undefined"
             >
               <p
                 class="link undefined"

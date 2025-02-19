@@ -69,6 +69,7 @@
     ),
     linear-gradient(245deg, #067dac 0%, #00497e 70%);
   padding-bottom: 18%;
+  min-height: 100vh;
 }
 
 #logo {
