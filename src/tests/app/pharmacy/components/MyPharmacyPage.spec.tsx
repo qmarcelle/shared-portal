@@ -11,6 +11,11 @@ const renderUI = async () => {
 
 const vRules = {
   user: {
+    currUsr: {
+      plan: {
+        memCk: '123456',
+      },
+    },
     vRules: {
       displayPharmacyTab: true,
       terminated: false,
