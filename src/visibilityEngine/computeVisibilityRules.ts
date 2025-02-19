@@ -39,6 +39,7 @@ export function computeVisibilityRules(
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
   rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
+  rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   groupId = loggedUserInfo.groupData.groupID;
@@ -411,4 +412,11 @@ function computeMemberAge(member: Member, rules: VisibilityRules) {
 
 export function isMatureMinor(rules: VisibilityRules | undefined) {
   return rules?.active && rules?.matureMinor;
+}
+
+export function isSilverAndFitnessEligible(rules: VisibilityRules | undefined) {
+  return (
+    (rules?.medicare || (rules?.individual && rules.isSilverFitClient)) &&
+    activeAndHealthPlanMember(rules)
+  );
 }
