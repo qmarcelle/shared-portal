@@ -27,6 +27,7 @@ exports[`Support Page should render the page correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               We're here to help answer your questions
             </p>
@@ -73,11 +74,13 @@ exports[`Support Page should render the page correctly 1`] = `
                   </h3>
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     8 a.m. - 6 p.m. ET,
                   </p>
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Mon - Fri
                   </p>
@@ -86,11 +89,13 @@ exports[`Support Page should render the page correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Call 
                     </p>
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       1-800-000-0000, TTY 711
                     </p>
@@ -117,11 +122,13 @@ exports[`Support Page should render the page correctly 1`] = `
                   </h3>
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     8 a.m. - 5:15 p.m. ET,
                   </p>
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Mon - Fri
                   </p>
@@ -154,6 +161,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   </h3>
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     If it's after hours or you'd rather send us an email, we're right here.
                   </p>
@@ -161,7 +169,6 @@ exports[`Support Page should render the page correctly 1`] = `
                     aria-label="Send an Email"
                     href="/support/sendAnEmail"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !px-0"
@@ -171,7 +178,6 @@ exports[`Support Page should render the page correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Send an Email
                       </p>
@@ -204,6 +210,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Find answers to your health insurance questions or find a form.
                 </p>
@@ -356,6 +363,7 @@ exports[`Support Page should render the page correctly 1`] = `
               </h2>
               <p
                 class="body-1 text-center"
+                style="display: block;"
               >
                 We want to hear from you. Share your feedback about your experience using our website.
               </p>
@@ -395,6 +403,7 @@ exports[`Support Page should render the page correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             We're here to help answer your questions
           </p>
@@ -441,11 +450,13 @@ exports[`Support Page should render the page correctly 1`] = `
                 </h3>
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   8 a.m. - 6 p.m. ET,
                 </p>
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Mon - Fri
                 </p>
@@ -454,11 +465,13 @@ exports[`Support Page should render the page correctly 1`] = `
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Call 
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     1-800-000-0000, TTY 711
                   </p>
@@ -485,11 +498,13 @@ exports[`Support Page should render the page correctly 1`] = `
                 </h3>
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   8 a.m. - 5:15 p.m. ET,
                 </p>
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Mon - Fri
                 </p>
@@ -522,6 +537,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 </h3>
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   If it's after hours or you'd rather send us an email, we're right here.
                 </p>
@@ -529,7 +545,6 @@ exports[`Support Page should render the page correctly 1`] = `
                   aria-label="Send an Email"
                   href="/support/sendAnEmail"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !px-0"
@@ -539,7 +554,6 @@ exports[`Support Page should render the page correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Send an Email
                     </p>
@@ -572,6 +586,7 @@ exports[`Support Page should render the page correctly 1`] = `
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Find answers to your health insurance questions or find a form.
               </p>
@@ -724,6 +739,7 @@ exports[`Support Page should render the page correctly 1`] = `
             </h2>
             <p
               class="body-1 text-center"
+              style="display: block;"
             >
               We want to hear from you. Share your feedback about your experience using our website.
             </p>

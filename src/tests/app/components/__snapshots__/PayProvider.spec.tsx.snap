@@ -22,11 +22,13 @@ exports[`PayProvider should render the UI correctly 1`] = `
           >
             <p
               class="body-1"
+              style="display: block;"
             >
               Your estimated balance is 
             </p>
             <p
               class="body-1 font-bold"
+              style="display: block;"
             >
               $30.24
             </p>
@@ -103,11 +105,13 @@ exports[`PayProvider should render the UI correctly 1`] = `
         >
           <p
             class="body-1"
+            style="display: block;"
           >
             Your estimated balance is 
           </p>
           <p
             class="body-1 font-bold"
+            style="display: block;"
           >
             $30.24
           </p>

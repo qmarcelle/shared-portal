@@ -18,6 +18,7 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
       </h1>
       <p
         class="body-1 body-1 my-4 mb-0 w-2/3"
+        style="display: block;"
       >
         Your balances show how close you are to meeting your annual plan deductibles and out-of-pocket limits.
       </p>
@@ -147,6 +148,7 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
               >
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   As of
                 </p>
@@ -234,6 +236,7 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Paid
                   </p>
@@ -254,6 +257,7 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Saved
                   </p>
@@ -270,7 +274,6 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
               <a
                 aria-label="View Spending Summary"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -280,7 +283,6 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Summary
                   </p>
@@ -311,7 +313,7 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                 >
                   <p
                     class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    style="display: block;"
                   >
                     HSA
                   </p>
@@ -321,11 +323,13 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Health Saving Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $349.90
                   </p>
@@ -341,8 +345,8 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                   class="flex flex-col"
                 >
                   <p
-                    class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    class="body-1 py-4 px-7 font-bold spending-account-text"
+                    style="display: block;"
                   >
                     FSA
                   </p>
@@ -352,11 +356,13 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Flexible Spending Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $1,009.50
                   </p>
@@ -369,7 +375,6 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                 aria-label="View Spending Accounts"
                 href=""
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -379,7 +384,6 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Accounts
                   </p>

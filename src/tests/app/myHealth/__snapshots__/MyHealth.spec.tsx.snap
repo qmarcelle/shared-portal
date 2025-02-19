@@ -32,11 +32,13 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 font-bold"
+                    style="display: block;"
                   >
                     Louthan, James D.
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Primary Care Provider
                   </p>
@@ -45,16 +47,19 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   />
                   <p
                     class="body-1 body-2"
+                    style="display: block;"
                   >
                     Facility Address
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     2033 Meadowview Ln Ste 200
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Kingsport TN 37660-7432
                   </p>
@@ -63,11 +68,13 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   />
                   <p
                     class="body-1 body-2"
+                    style="display: block;"
                   >
                     Phone
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     (423) 857-2260
                   </p>
@@ -79,7 +86,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   aria-label="View or Update Primary Care Provider"
                   href="/myPrimaryCareProvider"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !text-left"
@@ -89,7 +95,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View or Update Primary Care Provider
                     </p>
@@ -132,6 +137,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <p
                 class="body-1 body-1 mb-0"
+                style="display: block;"
               >
                 Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
               </p>
@@ -181,6 +187,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                               </p>
@@ -217,6 +224,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
                               </p>
@@ -253,6 +261,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                               </p>
@@ -289,6 +298,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
                               </p>
@@ -325,6 +335,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Get a personal action plan, health coaching and a smart scale at no extra cost.
                               </p>
@@ -361,6 +372,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
                               </p>
@@ -397,6 +409,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
                               </p>
@@ -433,6 +446,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                               />
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                               </p>
@@ -483,7 +497,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               <a
                 aria-label="View All Health Programs & Resources"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -493,7 +506,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View All Health Programs & Resources
                   </p>
@@ -537,7 +549,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         aria-label="WellTuned Blog"
                         href=""
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -547,13 +558,11 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             WellTuned Blog
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="external"
@@ -578,6 +587,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <p
                 class="body-1 body-1 ml-11"
+                style="display: block;"
               >
                 Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health.
               </p>
@@ -602,6 +612,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
               </p>
@@ -629,6 +640,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Learning Center
                         </p>
@@ -637,6 +649,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Get more information about specific health terms, topics and conditions to better manage your health.
                         </p>
@@ -662,6 +675,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Interactive Tools
                         </p>
@@ -670,6 +684,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
                         </p>
@@ -695,6 +710,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Health Videos
                         </p>
@@ -703,6 +719,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
                         </p>
@@ -732,6 +749,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Symptom Checker
                         </p>
@@ -740,6 +758,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Get more reliable information about the symptom you’re experiencing to help find the care you need.
                         </p>
@@ -765,6 +784,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Manage Your Diabetes
                         </p>
@@ -773,6 +793,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
                         </p>
@@ -798,6 +819,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Decision Support
                         </p>
@@ -806,6 +828,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
                         </p>
@@ -830,7 +853,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       aria-label="Visit The Health Library"
                       href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -840,13 +862,11 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Visit The Health Library
                         </p>
                         <p
                           class="ml-1"
-                          style="display: block;"
                         >
                           <img
                             alt="external"
@@ -903,7 +923,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         aria-label="Schedule a Biometric Screening"
                         href=""
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -913,13 +932,11 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Schedule a Biometric Screening
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="external"
@@ -944,6 +961,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <p
                 class="body-1 body-1 ml-11"
+                style="display: block;"
               >
                 We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit.
               </p>
@@ -970,6 +988,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.
                 </p>
@@ -1019,6 +1038,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         >
                           <p
                             class="body-1 link-row-head"
+                            style="display: block;"
                           >
                             Your Health Assessment
                           </p>
@@ -1027,6 +1047,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.
                           </p>
@@ -1074,6 +1095,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         >
                           <p
                             class="body-1 link-row-head"
+                            style="display: block;"
                           >
                             Earn Wellness Points
                           </p>
@@ -1082,6 +1104,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.
                           </p>
@@ -1129,6 +1152,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         >
                           <p
                             class="body-1 link-row-head"
+                            style="display: block;"
                           >
                             Interactive Programs
                           </p>
@@ -1137,6 +1161,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!
                           </p>
@@ -1161,7 +1186,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         aria-label="Visit Member Wellness Center"
                         href=""
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -1171,13 +1195,11 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Visit Member Wellness Center
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="external"
@@ -1235,7 +1257,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         aria-label="Dental Health Library"
                         href=""
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -1245,13 +1266,11 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Dental Health Library
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="external"
@@ -1276,6 +1295,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <p
                 class="body-1 body-1 ml-11"
+                style="display: block;"
               >
                 Check dental symptoms and get your dental questions answered.
               </p>

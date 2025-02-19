@@ -184,7 +184,6 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -194,7 +193,6 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -581,7 +579,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -591,7 +588,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -817,7 +813,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -827,7 +822,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>

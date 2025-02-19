@@ -24,13 +24,13 @@ exports[`MyHealthProgramsResources should not render Teladoc Blood Pressure Mana
         />
         <p
           class="body-1 mt-4 inline w-2/3"
+          style="display: block;"
         >
           Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
         </p>
         <a
           aria-label="View all your plan benefits here"
           style="display: inline-flex;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container pr-0"
@@ -40,7 +40,6 @@ exports[`MyHealthProgramsResources should not render Teladoc Blood Pressure Mana
           >
             <p
               class="link undefined"
-              style="display: inline-flex;"
             >
               View all your plan benefits here
             </p>
@@ -94,13 +93,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -110,7 +109,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -138,6 +136,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Mental Health
                     </p>
@@ -161,6 +160,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         AbleTo
                       </p>
@@ -169,6 +169,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                       </p>
@@ -178,6 +179,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -221,7 +223,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       <a
                         aria-label="Learn More About AbleTo"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -231,7 +232,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About AbleTo
                           </p>
@@ -270,13 +270,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -286,7 +286,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -314,6 +313,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Mental Health
                   </p>
@@ -337,6 +337,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       AbleTo
                     </p>
@@ -345,6 +346,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                     </p>
@@ -354,6 +356,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -397,7 +400,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     <a
                       aria-label="Learn More About AbleTo"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -407,7 +409,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About AbleTo
                         </p>
@@ -503,13 +504,13 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -519,7 +520,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -547,6 +547,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Advice & Support
                     </p>
@@ -570,6 +571,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         CareTN One-on-One Health Support
                       </p>
@@ -578,6 +580,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         Did you know you can talk to your very own care team? The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                       </p>
@@ -587,6 +590,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -630,7 +634,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       <a
                         aria-label="Learn More About CareTN"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -640,7 +643,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About CareTN
                           </p>
@@ -679,13 +681,13 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -695,7 +697,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -723,6 +724,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Advice & Support
                   </p>
@@ -746,6 +748,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       CareTN One-on-One Health Support
                     </p>
@@ -754,6 +757,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       Did you know you can talk to your very own care team? The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                     </p>
@@ -763,6 +767,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -806,7 +811,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     <a
                       aria-label="Learn More About CareTN"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -816,7 +820,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About CareTN
                         </p>
@@ -912,13 +915,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -928,7 +931,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -956,6 +958,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Physical Therapy
                     </p>
@@ -979,6 +982,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         Hinge Health Back & Joint Care
                       </p>
@@ -987,6 +991,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                       </p>
@@ -996,6 +1001,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -1039,7 +1045,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       <a
                         aria-label="Learn More About Hinge Health"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -1049,7 +1054,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About Hinge Health
                           </p>
@@ -1088,13 +1092,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -1104,7 +1108,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -1132,6 +1135,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Physical Therapy
                   </p>
@@ -1155,6 +1159,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       Hinge Health Back & Joint Care
                     </p>
@@ -1163,6 +1168,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                     </p>
@@ -1172,6 +1178,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -1215,7 +1222,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     <a
                       aria-label="Learn More About Hinge Health"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -1225,7 +1231,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About Hinge Health
                         </p>
@@ -1321,13 +1326,13 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -1337,7 +1342,6 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -1386,13 +1390,13 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -1402,7 +1406,6 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -1508,13 +1511,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -1524,7 +1527,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -1552,6 +1554,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Urgent Care
                     </p>
@@ -1563,6 +1566,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         Talk to a Nurse
                       </p>
@@ -1571,6 +1575,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                       </p>
@@ -1580,6 +1585,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -1623,7 +1629,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       <a
                         aria-label="Learn More About Nurseline"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -1633,7 +1638,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About Nurseline
                           </p>
@@ -1672,13 +1676,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -1688,7 +1692,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -1716,6 +1719,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Urgent Care
                   </p>
@@ -1727,6 +1731,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       Talk to a Nurse
                     </p>
@@ -1735,6 +1740,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                     </p>
@@ -1744,6 +1750,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -1787,7 +1794,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     <a
                       aria-label="Learn More About Nurseline"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -1797,7 +1803,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About Nurseline
                         </p>
@@ -1890,13 +1895,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
         />
         <p
           class="body-1 mt-4 inline w-2/3"
+          style="display: block;"
         >
           Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
         </p>
         <a
           aria-label="View all your plan benefits here"
           style="display: inline-flex;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container pr-0"
@@ -1906,7 +1911,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
           >
             <p
               class="link undefined"
-              style="display: inline-flex;"
             >
               View all your plan benefits here
             </p>
@@ -1934,6 +1938,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
               >
                 <p
                   class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  style="display: block;"
                 >
                   Blood Pressure
                 </p>
@@ -1957,6 +1962,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                 >
                   <p
                     class="body-1 title-3 !font-bold m-4 mb-0"
+                    style="display: block;"
                   >
                     Teladoc Health Blood Pressure Management Program
                   </p>
@@ -1965,6 +1971,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                   />
                   <p
                     class="body-1 body-1 m-4 mb-0"
+                    style="display: block;"
                   >
                     Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                   </p>
@@ -1974,6 +1981,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                   <div>
                     <p
                       class="body-1 body-1 m-4"
+                      style="display: block;"
                     >
                       Generally good for:
                     </p>
@@ -2009,7 +2017,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                   <a
                     aria-label="Learn More About Blood Pressure Management"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container text-left"
@@ -2019,7 +2026,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Learn More About Blood Pressure Management
                       </p>
@@ -2063,13 +2069,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -2079,7 +2085,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -2107,6 +2112,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Diabetes
                     </p>
@@ -2130,6 +2136,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         Teladoc Health Diabetes Prevention Program
                       </p>
@@ -2138,6 +2145,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         Get a personal action plan, health coaching and a smart scale at no extra cost.
                       </p>
@@ -2147,6 +2155,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -2190,7 +2199,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       <a
                         aria-label="Learn More About Diabetes Prevention"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -2200,7 +2208,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About Diabetes Prevention
                           </p>
@@ -2239,13 +2246,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -2255,7 +2262,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -2283,6 +2289,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Diabetes
                   </p>
@@ -2306,6 +2313,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       Teladoc Health Diabetes Prevention Program
                     </p>
@@ -2314,6 +2322,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       Get a personal action plan, health coaching and a smart scale at no extra cost.
                     </p>
@@ -2323,6 +2332,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -2366,7 +2376,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     <a
                       aria-label="Learn More About Diabetes Prevention"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -2376,7 +2385,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About Diabetes Prevention
                         </p>
@@ -2472,13 +2480,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -2488,7 +2496,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -2516,6 +2523,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Mental Health
                     </p>
@@ -2539,6 +2547,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         Teladoc Mental Health
                       </p>
@@ -2547,6 +2556,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                       </p>
@@ -2556,6 +2566,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -2599,7 +2610,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                       <a
                         aria-label="Learn More About Teladoc Mental Health"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -2609,7 +2619,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About Teladoc Mental Health
                           </p>
@@ -2648,13 +2657,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -2664,7 +2673,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -2692,6 +2700,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Mental Health
                   </p>
@@ -2715,6 +2724,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       Teladoc Mental Health
                     </p>
@@ -2723,6 +2733,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                     </p>
@@ -2732,6 +2743,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -2775,7 +2787,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     <a
                       aria-label="Learn More About Teladoc Mental Health"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -2785,7 +2796,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About Teladoc Mental Health
                         </p>
@@ -2881,13 +2891,13 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -2897,7 +2907,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -2925,6 +2934,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Advice & Support
                     </p>
@@ -2948,6 +2958,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         Teladoc Second Opinion Advice & Support
                       </p>
@@ -2956,6 +2967,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
                       </p>
@@ -2965,6 +2977,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -3008,7 +3021,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                       <a
                         aria-label="Learn More About Second Opinion Advice & Support"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -3018,7 +3030,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About Second Opinion Advice & Support
                           </p>
@@ -3057,13 +3068,13 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -3073,7 +3084,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -3101,6 +3111,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Advice & Support
                   </p>
@@ -3124,6 +3135,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       Teladoc Second Opinion Advice & Support
                     </p>
@@ -3132,6 +3144,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
                     </p>
@@ -3141,6 +3154,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -3184,7 +3198,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     <a
                       aria-label="Learn More About Second Opinion Advice & Support"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -3194,7 +3207,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About Second Opinion Advice & Support
                         </p>
@@ -3290,13 +3302,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
             />
             <p
               class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
             <a
               aria-label="View all your plan benefits here"
               style="display: inline-flex;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container pr-0"
@@ -3306,7 +3318,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
               >
                 <p
                   class="link undefined"
-                  style="display: inline-flex;"
                 >
                   View all your plan benefits here
                 </p>
@@ -3334,6 +3345,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
                     >
                       Primary Care
                     </p>
@@ -3357,6 +3369,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
                       >
                         Teladoc Health Primary Card Provider
                       </p>
@@ -3365,6 +3378,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
                       >
                         With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.
                       </p>
@@ -3374,6 +3388,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                       <div>
                         <p
                           class="body-1 body-1 m-4"
+                          style="display: block;"
                         >
                           Generally good for:
                         </p>
@@ -3417,7 +3432,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                       <a
                         aria-label="Learn More About Teladoc Health Primary Care"
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left"
@@ -3427,7 +3441,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             Learn More About Teladoc Health Primary Care
                           </p>
@@ -3466,13 +3479,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
           />
           <p
             class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
           <a
             aria-label="View all your plan benefits here"
             style="display: inline-flex;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container pr-0"
@@ -3482,7 +3495,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
             >
               <p
                 class="link undefined"
-                style="display: inline-flex;"
               >
                 View all your plan benefits here
               </p>
@@ -3510,6 +3522,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
                   >
                     Primary Care
                   </p>
@@ -3533,6 +3546,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
                     >
                       Teladoc Health Primary Card Provider
                     </p>
@@ -3541,6 +3555,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
                     >
                       With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.
                     </p>
@@ -3550,6 +3565,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                     <div>
                       <p
                         class="body-1 body-1 m-4"
+                        style="display: block;"
                       >
                         Generally good for:
                       </p>
@@ -3593,7 +3609,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                     <a
                       aria-label="Learn More About Teladoc Health Primary Care"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container text-left"
@@ -3603,7 +3618,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teledoc Health
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Learn More About Teladoc Health Primary Care
                         </p>

@@ -81,6 +81,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         A caremark.com account will let you get prescriptions by mail, price a medication and more.
                       </p>
@@ -129,6 +130,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             View or Refill My Prescriptions
                           </p>
@@ -153,6 +155,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             Get My Prescriptions by Mail
                           </p>
@@ -177,6 +180,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             Find Drug Cost & My Coverage
                           </p>
@@ -201,6 +205,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             Find a Pharmacy
                           </p>
@@ -214,7 +219,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                   <a
                     aria-label="Visit CVS Caremark"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !flex p-0"
@@ -224,13 +228,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Visit CVS Caremark
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="download form"
@@ -339,6 +341,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $50.00
                             </p>
@@ -353,6 +356,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 08/10/2023, For Chris Hall
                           </p>
@@ -362,6 +366,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $50.00
                           </p>
@@ -438,6 +443,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $403.98
                             </p>
@@ -452,6 +458,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 07/05/2023, For Chris Hall
                           </p>
@@ -461,6 +468,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $403.98
                           </p>
@@ -537,6 +545,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $33.00
                             </p>
@@ -551,6 +560,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 12/22/2022, For Chris Hall
                           </p>
@@ -560,6 +570,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $33.00
                           </p>
@@ -574,7 +585,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                 <a
                   aria-label="View All Pharmacy Claims"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
@@ -584,7 +594,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View All Pharmacy Claims
                     </p>
@@ -612,6 +621,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   View your annual statement for your pharmacy claims.
                 </p>
@@ -622,7 +632,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                   aria-label="View Pharmacy Spending Summary"
                   href="/spendingSummary?type=Pharmacy"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !flex p-0"
@@ -632,7 +641,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View Pharmacy Spending Summary
                     </p>
@@ -728,6 +736,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1 md:ml-14 ml-2"
+                  style="display: block;"
                 >
                   You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                 </p>
@@ -769,7 +778,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         aria-label="View Covered Drug List (Formulary)"
                         href="/assets/formularies/Choice-DrugFormularyPDF/Drug-Formulary-List.pdf"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -779,13 +787,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             View Covered Drug List (Formulary)
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="download Icon"
@@ -804,6 +810,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Download a list of all the drugs your plan covers.
                       </p>
@@ -829,7 +836,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         aria-label="Prescription Drug Claim Form"
                         href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -839,13 +845,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Prescription Drug Claim Form
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="download Icon"
@@ -864,6 +868,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
                       </p>
@@ -889,7 +894,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         aria-label="Prescription Mail Service Order Form"
                         href="/assets/cvs-mail-order-form.pdf"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -899,13 +903,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Prescription Mail Service Order Form
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="download Icon"
@@ -924,6 +926,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
                       </p>
@@ -948,7 +951,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       <a
                         aria-label="Request for Medicare Prescription Drug Coverage Determination"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -958,13 +960,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Request for Medicare Prescription Drug Coverage Determination
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="right arrow Icon"
@@ -983,6 +983,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         You can request an exception for prescription drug coverage.
                       </p>
@@ -1007,7 +1008,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       <a
                         aria-label="Request for Redetermination of Medicare Prescription Drug Denial"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -1017,13 +1017,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Request for Redetermination of Medicare Prescription Drug Denial
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="right arrow Icon"
@@ -1042,6 +1040,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).
                       </p>
@@ -1461,7 +1460,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         aria-label="Medicare Prescription Payment Plan Sign-up"
                         href="/pharmacy/medicalPrescriptionPaymentPlan"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -1471,13 +1469,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Medicare Prescription Payment Plan Sign-up
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -1580,7 +1576,6 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         aria-label="Social Security Extra Help Program"
                         href="https://www.ssa.gov/medicare/part-d-extra-help"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -1590,13 +1585,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Social Security Extra Help Program
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -1617,6 +1610,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                       />
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
                       </p>
@@ -1750,6 +1744,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $50.00
                             </p>
@@ -1764,6 +1759,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 08/10/2023, For Chris Hall
                           </p>
@@ -1773,6 +1769,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $50.00
                           </p>
@@ -1849,6 +1846,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $403.98
                             </p>
@@ -1863,6 +1861,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 07/05/2023, For Chris Hall
                           </p>
@@ -1872,6 +1871,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $403.98
                           </p>
@@ -1948,6 +1948,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $33.00
                             </p>
@@ -1962,6 +1963,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 12/22/2022, For Chris Hall
                           </p>
@@ -1971,6 +1973,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $33.00
                           </p>
@@ -1985,7 +1988,6 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                 <a
                   aria-label="View All Pharmacy Claims"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
@@ -1995,7 +1997,6 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View All Pharmacy Claims
                     </p>
@@ -2023,6 +2024,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   View your annual statement for your pharmacy claims.
                 </p>
@@ -2033,7 +2035,6 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                   aria-label="View Pharmacy Spending Summary"
                   href="/spendingSummary?type=Pharmacy"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !flex p-0"
@@ -2043,7 +2044,6 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View Pharmacy Spending Summary
                     </p>
@@ -2139,6 +2139,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                 </div>
                 <p
                   class="body-1 body-1 md:ml-14 ml-2"
+                  style="display: block;"
                 >
                   You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                 </p>
@@ -2180,7 +2181,6 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         aria-label="Medicare Prescription Payment Plan Sign-up"
                         href="/pharmacy/medicalPrescriptionPaymentPlan"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -2190,13 +2190,11 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Medicare Prescription Payment Plan Sign-up
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -2299,7 +2297,6 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         aria-label="Social Security Extra Help Program"
                         href="https://www.ssa.gov/medicare/part-d-extra-help"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -2309,13 +2306,11 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Social Security Extra Help Program
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -2336,6 +2331,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                       />
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
                       </p>
@@ -2433,6 +2429,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         A caremark.com account will let you get prescriptions by mail, price a medication and more.
                       </p>
@@ -2481,6 +2478,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             View or Refill My Prescriptions
                           </p>
@@ -2505,6 +2503,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             Get My Prescriptions by Mail
                           </p>
@@ -2529,6 +2528,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             Find Drug Cost & My Coverage
                           </p>
@@ -2553,6 +2553,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                            style="display: block;"
                           >
                             Find a Pharmacy
                           </p>
@@ -2566,7 +2567,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                   <a
                     aria-label="Visit CVS Caremark"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !flex p-0"
@@ -2576,13 +2576,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Visit CVS Caremark
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="download form"
@@ -2691,6 +2689,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $50.00
                             </p>
@@ -2705,6 +2704,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 08/10/2023, For Chris Hall
                           </p>
@@ -2714,6 +2714,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $50.00
                           </p>
@@ -2790,6 +2791,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $403.98
                             </p>
@@ -2804,6 +2806,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 07/05/2023, For Chris Hall
                           </p>
@@ -2813,6 +2816,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $403.98
                           </p>
@@ -2889,6 +2893,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $33.00
                             </p>
@@ -2903,6 +2908,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             Visited on 12/22/2022, For Chris Hall
                           </p>
@@ -2912,6 +2918,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
+                            style="display: block;"
                           >
                             $33.00
                           </p>
@@ -2926,7 +2933,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                 <a
                   aria-label="View All Pharmacy Claims"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
@@ -2936,7 +2942,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View All Pharmacy Claims
                     </p>
@@ -2964,6 +2969,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   View your annual statement for your pharmacy claims.
                 </p>
@@ -2974,7 +2980,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                   aria-label="View Pharmacy Spending Summary"
                   href="/spendingSummary?type=Pharmacy"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !flex p-0"
@@ -2984,7 +2989,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View Pharmacy Spending Summary
                     </p>
@@ -3080,6 +3084,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1 md:ml-14 ml-2"
+                  style="display: block;"
                 >
                   You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                 </p>
@@ -3121,7 +3126,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         aria-label="View Covered Drug List (Formulary)"
                         href="/assets/formularies//Drug-Formulary-List.pdf"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -3131,13 +3135,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             View Covered Drug List (Formulary)
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="download Icon"
@@ -3156,6 +3158,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Download a list of all the drugs your plan covers.
                       </p>
@@ -3181,7 +3184,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         aria-label="Prescription Drug Claim Form"
                         href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -3191,13 +3193,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Prescription Drug Claim Form
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="download Icon"
@@ -3216,6 +3216,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
                       </p>
@@ -3241,7 +3242,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         aria-label="Prescription Mail Service Order Form"
                         href="/assets/cvs-mail-order-form.pdf"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -3251,13 +3251,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Prescription Mail Service Order Form
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="download Icon"
@@ -3276,6 +3274,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
                       </p>
@@ -3300,7 +3299,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       <a
                         aria-label="Request for Medicare Prescription Drug Coverage Determination"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -3310,13 +3308,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Request for Medicare Prescription Drug Coverage Determination
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="right arrow Icon"
@@ -3335,6 +3331,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         You can request an exception for prescription drug coverage.
                       </p>
@@ -3359,7 +3356,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       <a
                         aria-label="Request for Redetermination of Medicare Prescription Drug Denial"
                         style="display: inline;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container text-left pl-0"
@@ -3369,13 +3365,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: inline;"
                           >
                             Request for Redetermination of Medicare Prescription Drug Denial
                           </p>
                           <p
                             class="ml-1"
-                            style="display: inline;"
                           >
                             <img
                               alt="right arrow Icon"
@@ -3394,6 +3388,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       </a>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).
                       </p>
@@ -3813,7 +3808,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         aria-label="Medicare Prescription Payment Plan Sign-up"
                         href="/pharmacy/medicalPrescriptionPaymentPlan"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -3823,13 +3817,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Medicare Prescription Payment Plan Sign-up
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -3932,7 +3924,6 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         aria-label="Social Security Extra Help Program"
                         href="https://www.ssa.gov/medicare/part-d-extra-help"
                         style="display: flex;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container pl-0"
@@ -3942,13 +3933,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                         >
                           <p
                             class="link undefined"
-                            style="display: flex;"
                           >
                             Social Security Extra Help Program
                           </p>
                           <p
                             class="ml-1"
-                            style="display: flex;"
                           >
                             <img
                               alt=""
@@ -3969,6 +3958,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                       />
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
                       </p>

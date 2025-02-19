@@ -297,7 +297,6 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
             aria-label="View Balances"
             href="/balances"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
@@ -307,7 +306,6 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 View Balances
               </p>
@@ -610,7 +608,6 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
           aria-label="View Balances"
           href="/balances"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -620,7 +617,6 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View Balances
             </p>

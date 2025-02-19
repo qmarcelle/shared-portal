@@ -110,7 +110,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input  "
+                            class="flex flex-row items-center input   "
                           >
                             <input
                               aria-label="Email Address"
@@ -121,11 +121,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                             <div
                               class="cursor-pointer"
                             />
-                          </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
                           </div>
                         </div>
                         <div
@@ -141,7 +136,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input  "
+                              class="flex flex-row items-center input   "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -152,11 +147,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                               <div
                                 class="cursor-pointer"
                               />
-                            </div>
-                            <div
-                              class="error-container mt-1 p-1"
-                            >
-                              <div />
                             </div>
                           </div>
                         </div>
@@ -375,7 +365,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                         <a
                           aria-label="Resend Code"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
@@ -385,7 +374,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                           >
                             <p
                               class="link undefined"
-                              style="display: block;"
                             >
                               Resend Code
                             </p>
@@ -410,7 +398,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -420,7 +407,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -734,7 +720,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input  "
+                            class="flex flex-row items-center input   "
                           >
                             <input
                               aria-label="Email Address"
@@ -745,11 +731,6 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             <div
                               class="cursor-pointer"
                             />
-                          </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
                           </div>
                         </div>
                         <div
@@ -765,7 +746,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input  "
+                              class="flex flex-row items-center input   "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -776,11 +757,6 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               <div
                                 class="cursor-pointer"
                               />
-                            </div>
-                            <div
-                              class="error-container mt-1 p-1"
-                            >
-                              <div />
                             </div>
                           </div>
                         </div>
@@ -948,7 +924,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input input-focus "
+                            class="flex flex-row items-center input  input-focus "
                           >
                             <input
                               aria-label="Email Address"
@@ -959,11 +935,6 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             <div
                               class="cursor-pointer"
                             />
-                          </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
                           </div>
                         </div>
                         <div
@@ -979,7 +950,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input  "
+                              class="flex flex-row items-center input   "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -990,11 +961,6 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               <div
                                 class="cursor-pointer"
                               />
-                            </div>
-                            <div
-                              class="error-container mt-1 p-1"
-                            >
-                              <div />
                             </div>
                           </div>
                         </div>
@@ -1019,31 +985,6 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             <p
                               class="body-1 body-1 pt-1.5 ml-2"
                               style="display: block;"
-                            >
-                              Invalid Email Address
-                            </p>
-                          </div>
-                        </div>
-                        <div
-                          class="text-red-500 mt-2"
-                        >
-                          <div
-                            class="flex flex-row"
-                          >
-                            <img
-                              alt="alert"
-                              class="icon mt-1"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                            <p
-                              class="body-1 body-1 pt-1.5 ml-2"
                             >
                               Invalid Email Address
                             </p>
@@ -1120,7 +1061,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1213,7 +1154,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input  "
+                            class="flex flex-row items-center input   "
                           >
                             <input
                               aria-label="Email Address"
@@ -1224,11 +1165,6 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             <div
                               class="cursor-pointer"
                             />
-                          </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
                           </div>
                         </div>
                         <div
@@ -1244,7 +1180,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input  "
+                              class="flex flex-row items-center input   "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -1255,11 +1191,6 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               <div
                                 class="cursor-pointer"
                               />
-                            </div>
-                            <div
-                              class="error-container mt-1 p-1"
-                            >
-                              <div />
                             </div>
                           </div>
                         </div>
@@ -1334,7 +1265,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -1427,7 +1358,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input  "
+                            class="flex flex-row items-center input   "
                           >
                             <input
                               aria-label="Email Address"
@@ -1438,11 +1369,6 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             <div
                               class="cursor-pointer"
                             />
-                          </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
                           </div>
                         </div>
                         <div
@@ -1458,7 +1384,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input input-focus "
+                              class="flex flex-row items-center input  input-focus "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -1469,11 +1395,6 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               <div
                                 class="cursor-pointer"
                               />
-                            </div>
-                            <div
-                              class="error-container mt-1 p-1"
-                            >
-                              <div />
                             </div>
                           </div>
                         </div>

@@ -27,6 +27,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
             />
             <p
               class="body-1 pt-1"
+              style="display: block;"
             >
               Previous
             </p>
@@ -45,6 +46,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
           >
             <p
               class="body-1 pt-1"
+              style="display: block;"
             >
               Next
             </p>
@@ -93,6 +95,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
           />
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             Page: 
           </p>
@@ -163,6 +166,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
           />
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             of 1
           </p>

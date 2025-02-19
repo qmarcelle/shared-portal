@@ -123,29 +123,25 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
           href="https://www.bcbst.com/contact-us"
           style="display: inline;"
         >
-          <a
-            aria-label="contact us"
-            href="https://www.bcbst.com/contact-us"
-            style="display: inline;"
+          <button
+            class="flex flex-row link-container p-0"
+            style="max-width: max-content; height: auto; display: inline;"
             tabindex="-1"
+            type="button"
           >
             <p
               class="link undefined"
             >
-              <p
-                class="link undefined"
-                style="display: inline;"
-              >
-                contact us
-              </p>
-            </button>
-          </a>
-          <p
-            class="body-1"
-          >
-            .
-          </p>
-        </section>
+              contact us
+            </p>
+          </button>
+        </a>
+        <p
+          class="body-1"
+          style="display: inline;"
+        >
+          .
+        </p>
       </div>
     </form>
   </div>

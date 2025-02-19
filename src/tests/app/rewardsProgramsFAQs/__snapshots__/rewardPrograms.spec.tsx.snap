@@ -22,6 +22,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
         />
         <p
           class="body-1 body-1 mb-2"
+          style="display: block;"
         >
           If you need help, call [1-800-000-000] or email help@bcbstrewards.com.
         </p>
@@ -56,6 +57,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         50 Points
                       </p>
@@ -65,11 +67,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Personal Health Assessment (PHA)
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Take your assessment first to start earning rewards points
                       </p>
@@ -87,6 +91,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         100 Points
                       </p>
@@ -96,11 +101,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Annual Preventive Exam
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         1 visit per year max
                       </p>
@@ -118,6 +125,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         50 Points
                       </p>
@@ -127,11 +135,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Register for Teladoc™ Health
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         New registration only | 1 registration per person
                       </p>
@@ -149,6 +159,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         50 Points
                       </p>
@@ -158,11 +169,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Teladoc Health Use
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Per each use | 100 points max per year
                       </p>
@@ -180,6 +193,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         1 Point
                       </p>
@@ -189,11 +203,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Daily Steps
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Per 5,000 steps | 100 points max per year
                       </p>
@@ -211,6 +227,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         50 Points
                       </p>
@@ -220,11 +237,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Flu Shot
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         1 per year max
                       </p>
@@ -242,6 +261,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         50 Points
                       </p>
@@ -251,11 +271,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Chronic Condition/Case Management Engagement (2 Consults)
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         After completing second consult | 1 per quarter | 100 points max per year
                       </p>
@@ -273,6 +295,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         100 Points
                       </p>
@@ -282,11 +305,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Cancer Screenings (Mammogram, Colorectal, Cervical or Prostate)
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Only 1 screening per year
                       </p>
@@ -304,6 +329,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         50 Points
                       </p>
@@ -313,11 +339,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Diabetes Management (A1C, Urine Test and Kidney Function)
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         1 test per year | 150 points max per year
                       </p>
@@ -335,6 +363,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
+                        style="display: block;"
                       >
                         100 Points
                       </p>
@@ -344,11 +373,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
+                        style="display: block;"
                       >
                         Healthy Maternity Completion
                       </p>
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         1 per year max
                       </p>
@@ -361,7 +392,6 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                 <a
                   aria-label="View All Ways to Earn Points"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !flex"
@@ -371,13 +401,11 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View All Ways to Earn Points
                     </p>
                     <p
                       class="ml-1"
-                      style="display: block;"
                     >
                       <img
                         alt="download form"

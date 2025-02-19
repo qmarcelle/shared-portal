@@ -47,6 +47,7 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
           </div>
           <p
             class="body-1 underline underline-offset-4 decoration-dashed app-underline font-bold"
+            style="display: block;"
           >
             Authenticator App
           </p>
@@ -55,44 +56,38 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
           />
           <p
             class="body-1 mb-4"
+            style="display: block;"
           >
             Use your authenticator app's security code
           </p>
-          <a
-            aria-label="Remove Method"
-            style="display: flex;"
-            tabindex="-1"
+          <button
+            class="flex flex-row link-container font-bold primary-color pl-0"
+            style="max-width: max-content; height: auto; display: flex;"
+            type="button"
           >
-            <button
-              class="flex flex-row link-container font-bold primary-color pl-0"
-              style="max-width: max-content; height: auto; display: flex;"
-              tabindex="-1"
-              type="button"
+            <p
+              class="link !no-underline"
+              style="display: flex;"
             >
-              <p
-                class="link linkUnderlineNone"
-                style="display: flex;"
-              >
-                Remove Method
-              </p>
-              <p
-                class="ml-1"
-                style="display: flex;"
-              >
-                <img
-                  alt="link"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </p>
-            </button>
-          </a>
+              Remove Method
+            </p>
+            <p
+              class="ml-1"
+              style="display: flex;"
+            >
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
         </div>
       </div>
       <div
@@ -151,6 +146,7 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
           </div>
           <p
             class="body-1 underline underline-offset-4 decoration-dashed app-underline font-bold"
+            style="display: block;"
           >
             Authenticator App
           </p>
@@ -159,44 +155,38 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
           />
           <p
             class="body-1 mb-4"
+            style="display: block;"
           >
             Use your authenticator app's security code
           </p>
-          <a
-            aria-label="Remove Method"
-            style="display: flex;"
-            tabindex="-1"
+          <button
+            class="flex flex-row link-container font-bold primary-color pl-0"
+            style="max-width: max-content; height: auto; display: flex;"
+            type="button"
           >
-            <button
-              class="flex flex-row link-container font-bold primary-color pl-0"
-              style="max-width: max-content; height: auto; display: flex;"
-              tabindex="-1"
-              type="button"
+            <p
+              class="link !no-underline"
+              style="display: flex;"
             >
-              <p
-                class="link linkUnderlineNone"
-                style="display: flex;"
-              >
-                Remove Method
-              </p>
-              <p
-                class="ml-1"
-                style="display: flex;"
-              >
-                <img
-                  alt="link"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </p>
-            </button>
-          </a>
+              Remove Method
+            </p>
+            <p
+              class="ml-1"
+              style="display: flex;"
+            >
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
         </div>
       </div>
       <div

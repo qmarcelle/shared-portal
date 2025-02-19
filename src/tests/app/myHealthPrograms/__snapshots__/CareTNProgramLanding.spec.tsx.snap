@@ -25,6 +25,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           Did you know you can talk to your very own care team? The CareTN program lets you message a nurse or other health professional for support and answers — at no cost to you.
         </p>
@@ -33,6 +34,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           Download the CareTN app, and we’ll contact you after you register. 
         </p>
@@ -83,6 +85,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               Make Wellness a Habit
             </p>
@@ -91,6 +94,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Create reminders about health-related activities so you never miss a beat. Use a daily checklist to make healthy choices part of your routine.
             </p>
@@ -120,6 +124,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               One-on-One Support
             </p>
@@ -128,6 +133,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Get personalized help, health plan information, answers to your questions or just a little encouragement.
             </p>
@@ -154,6 +160,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               Get Personalized Content
             </p>
@@ -162,6 +169,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Watch videos our nurses recommend just for you.
             </p>
@@ -201,6 +209,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Message your care team anytime it's convenient for you. Got a question at 3 a.m.? Let us know — don't let it slip your mind. If you contact us after hours, we'll get back to you the next business day.
             </p>
@@ -289,6 +298,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Download the App
               </p>
@@ -297,6 +307,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Scan the QR Code with your smartphone’s camera.
               </p>
@@ -382,6 +393,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Enter Access Code
               </p>
@@ -390,6 +402,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Open the app on your device, tap “Sign-up” and enter your access code.
               </p>
@@ -416,6 +429,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
                   />
                   <p
                     class="body-1 mt-3 ml-2"
+                    style="display: block;"
                   >
                     Access code could not load.
                   </p>
@@ -462,6 +476,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Register In The App
               </p>
@@ -470,6 +485,7 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Follow the directions to register in the CareTN app.
               </p>
@@ -508,11 +524,13 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
           >
             <p
               class="body-2"
+              style="display: block;"
             >
               Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
             </p>
             <p
               class="body-2"
+              style="display: block;"
             >
               Participation is optional.
             </p>
@@ -552,6 +570,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           Did you know you can talk to your very own care team? The CareTN program lets you message a nurse or other health professional for support and answers — at no cost to you.
         </p>
@@ -560,6 +579,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           Download the CareTN app, and we’ll contact you after you register. 
         </p>
@@ -610,6 +630,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               Make Wellness a Habit
             </p>
@@ -618,6 +639,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Create reminders about health-related activities so you never miss a beat. Use a daily checklist to make healthy choices part of your routine.
             </p>
@@ -647,6 +669,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               One-on-One Support
             </p>
@@ -655,6 +678,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Get personalized help, health plan information, answers to your questions or just a little encouragement.
             </p>
@@ -681,6 +705,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               Get Personalized Content
             </p>
@@ -689,6 +714,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Watch videos our nurses recommend just for you.
             </p>
@@ -728,6 +754,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Message your care team anytime it's convenient for you. Got a question at 3 a.m.? Let us know — don't let it slip your mind. If you contact us after hours, we'll get back to you the next business day.
             </p>
@@ -816,6 +843,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Download the App
               </p>
@@ -824,6 +852,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Scan the QR Code with your smartphone’s camera.
               </p>
@@ -909,6 +938,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Enter Access Code
               </p>
@@ -917,6 +947,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Open the app on your device, tap “Sign-up” and enter your access code.
               </p>
@@ -943,6 +974,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
                   />
                   <p
                     class="body-1 mt-3 ml-2"
+                    style="display: block;"
                   >
                     Access code could not load.
                   </p>
@@ -989,6 +1021,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Register In The App
               </p>
@@ -997,6 +1030,7 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Follow the directions to register in the CareTN app.
               </p>
@@ -1035,11 +1069,13 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
           >
             <p
               class="body-2"
+              style="display: block;"
             >
               Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
             </p>
             <p
               class="body-2"
+              style="display: block;"
             >
               Participation is optional.
             </p>
@@ -1079,6 +1115,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           Did you know you can talk to your very own care team? The CareTN program lets you message a nurse or other health professional for support and answers — at no cost to you.
         </p>
@@ -1087,6 +1124,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           Download the CareTN app, and we’ll contact you after you register. 
         </p>
@@ -1137,6 +1175,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               Make Wellness a Habit
             </p>
@@ -1145,6 +1184,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Create reminders about health-related activities so you never miss a beat. Use a daily checklist to make healthy choices part of your routine.
             </p>
@@ -1174,6 +1214,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               One-on-One Support
             </p>
@@ -1182,6 +1223,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Get personalized help, health plan information, answers to your questions or just a little encouragement.
             </p>
@@ -1208,6 +1250,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             />
             <p
               class="body-1 font-bold text-lg"
+              style="display: block;"
             >
               Get Personalized Content
             </p>
@@ -1216,6 +1259,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Watch videos our nurses recommend just for you.
             </p>
@@ -1255,6 +1299,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Message your care team anytime it's convenient for you. Got a question at 3 a.m.? Let us know — don't let it slip your mind. If you contact us after hours, we'll get back to you the next business day.
             </p>
@@ -1343,6 +1388,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Download the App
               </p>
@@ -1351,6 +1397,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Scan the QR Code with your smartphone’s camera.
               </p>
@@ -1436,6 +1483,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Enter Access Code
               </p>
@@ -1444,6 +1492,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Open the app on your device, tap “Sign-up” and enter your access code.
               </p>
@@ -1470,6 +1519,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
                   />
                   <p
                     class="body-1 mt-3 ml-2"
+                    style="display: block;"
                   >
                     Access code could not load.
                   </p>
@@ -1516,6 +1566,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
             >
               <p
                 class="body-1 font-bold text-lg"
+                style="display: block;"
               >
                 Register In The App
               </p>
@@ -1524,6 +1575,7 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Follow the directions to register in the CareTN app.
               </p>
@@ -1562,11 +1614,13 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
           >
             <p
               class="body-2"
+              style="display: block;"
             >
               Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
             </p>
             <p
               class="body-2"
+              style="display: block;"
             >
               Participation is optional.
             </p>

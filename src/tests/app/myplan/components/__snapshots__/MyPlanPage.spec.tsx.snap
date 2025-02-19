@@ -112,6 +112,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   >
                     <p
                       class="body-1 id-card-error-msg"
+                      style="display: block;"
                     >
                       Your ID card is not available at this time.
                     </p>
@@ -125,6 +126,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   />
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     All members of your plan use the same ID card.
                   </p>
@@ -136,7 +138,6 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   aria-label="View More ID Card Options"
                   href="/memberIDCard"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container p-0"
@@ -146,7 +147,6 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View More ID Card Options
                     </p>
@@ -260,6 +260,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Payment Due Date
                   </p>
@@ -277,6 +278,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Amount Due
                   </p>
@@ -514,6 +516,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                         </div>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           View what's covered under your plan.
                         </p>
@@ -555,6 +558,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                         </div>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Search for claims and view details or submit a claim.
                         </p>
@@ -596,6 +600,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                         </div>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Check the status of your prior authorizations.
                         </p>
@@ -637,6 +642,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                         </div>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Check your HSA, HRA or FSA accounts.
                         </p>
@@ -678,6 +684,7 @@ exports[`My Plan Page should render Pay Premium Component on My Plan page 1`] = 
                         </div>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Your important plan documents.
                         </p>

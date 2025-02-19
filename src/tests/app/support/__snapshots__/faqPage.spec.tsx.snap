@@ -24,6 +24,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           We’ve answered some of the most common questions about health insurance.
         </p>
@@ -65,6 +66,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Learn more about service limits, deductibles and more.
               </p>
@@ -106,6 +108,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Learn more about claims or how to file a dispute.
               </p>
@@ -147,6 +150,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Do you have questions about your ID cards? We're here to help.
               </p>
@@ -188,6 +192,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 How to update your address, dependents, and more.
               </p>
@@ -229,6 +234,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 How to find pharmacies, find prescription drug coverage and more.
               </p>
@@ -270,6 +276,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Learn more about prior authorizations, statuses and how to make appeals.
               </p>
@@ -311,6 +318,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 How to share your health insurance information, represent a dependent individual and more.
               </p>

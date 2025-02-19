@@ -31,7 +31,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
             Email Address
           </p>
           <div
-            class="flex flex-row items-center input  "
+            class="flex flex-row items-center input   "
           >
             <input
               aria-label="Email Address"
@@ -59,7 +59,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
             Confirm Email Address
           </p>
           <div
-            class="flex flex-row items-center input  "
+            class="flex flex-row items-center input   "
           >
             <input
               aria-label="Confirm Email Address"
@@ -117,7 +117,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI 1`
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <span
-          class="body-1 undefined"
+          class="rich-text body-1 undefined"
         >
           <span>
             Give us a call using the number listed on the back of your Member ID card or
@@ -170,7 +170,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
             Email Address
           </p>
           <div
-            class="flex flex-row items-center input  "
+            class="flex flex-row items-center input   "
           >
             <input
               aria-label="Email Address"
@@ -198,7 +198,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
             Confirm Email Address
           </p>
           <div
-            class="flex flex-row items-center input input-focus error-input"
+            class="flex flex-row items-center input  input-focus error-input"
           >
             <input
               aria-label="Confirm Email Address"
@@ -282,7 +282,7 @@ exports[`Email Unique Verification screen Email Unique Verification screen UI Fi
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <span
-          class="body-1 undefined"
+          class="rich-text body-1 undefined"
         >
           <span>
             Give us a call using the number listed on the back of your Member ID card or

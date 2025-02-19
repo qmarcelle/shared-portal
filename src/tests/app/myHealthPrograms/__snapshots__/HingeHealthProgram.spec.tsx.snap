@@ -53,6 +53,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
               </p>
@@ -61,6 +62,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             In-network & no cost to you
                           </p>
@@ -191,6 +194,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Self-guided or coaching options available
                           </p>
@@ -221,6 +225,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Downloadable app available
                           </p>
@@ -251,6 +256,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Support in pain management
                           </p>
@@ -286,6 +292,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Depending on the type of visit, you can expect to pay:
                     </p>
@@ -294,6 +301,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $15 or less
                     </p>
@@ -347,6 +355,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Back pain
                           </p>
@@ -372,6 +381,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Wrist and ankle pain
                           </p>
@@ -397,6 +407,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Pelvic pain and incontinence
                           </p>
@@ -422,6 +433,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Neck and shoulder pain
                           </p>
@@ -447,6 +459,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Pelvic strengthening
                           </p>
@@ -472,6 +485,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Thighs and knee pain
                           </p>
@@ -497,6 +511,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Shin and calve pain 
                           </p>
@@ -522,6 +537,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Feet pain
                           </p>
@@ -589,6 +605,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
             </p>
@@ -597,6 +614,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -697,6 +715,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           In-network & no cost to you
                         </p>
@@ -727,6 +746,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Self-guided or coaching options available
                         </p>
@@ -757,6 +777,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Downloadable app available
                         </p>
@@ -787,6 +808,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Support in pain management
                         </p>
@@ -822,6 +844,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Depending on the type of visit, you can expect to pay:
                   </p>
@@ -830,6 +853,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $15 or less
                   </p>
@@ -883,6 +907,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Back pain
                         </p>
@@ -908,6 +933,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Wrist and ankle pain
                         </p>
@@ -933,6 +959,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Pelvic pain and incontinence
                         </p>
@@ -958,6 +985,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Neck and shoulder pain
                         </p>
@@ -983,6 +1011,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Pelvic strengthening
                         </p>
@@ -1008,6 +1037,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Thighs and knee pain
                         </p>
@@ -1033,6 +1063,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Shin and calve pain 
                         </p>
@@ -1058,6 +1089,7 @@ exports[`Hinge Health Back & Joint Care should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Feet pain
                         </p>

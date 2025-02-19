@@ -16,6 +16,7 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
            
           <p
             class="body-1 font-bold ml-2"
+            style="display: block;"
           >
             5 Prior Authorizations
           </p>
@@ -48,6 +49,7 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Status (Denied First)
                         </p>

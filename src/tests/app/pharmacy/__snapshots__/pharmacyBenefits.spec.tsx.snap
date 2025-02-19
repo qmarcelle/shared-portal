@@ -49,6 +49,7 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   You have a pharmacy card just for your prescription drugs. Here are some helpful things to know:
                 </p>
@@ -67,6 +68,7 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
                   </div>
                   <p
                     class="body-1 ml-4"
+                    style="display: block;"
                   >
                     Coverage and claims for prescriptions are managed by your pharmacy benefit manager. That’s an independent company that specializes in these services.
                   </p>
@@ -86,6 +88,7 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
                   </div>
                   <p
                     class="body-1 ml-4"
+                    style="display: block;"
                   >
                     If you have questions or need a new card, call 1-888-816-1680.
                   </p>
@@ -104,7 +107,6 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
                       aria-label="visit TennCare’s site for more info"
                       href="https://www.tn.gov/tenncare/members-applicants/pharmacy.html"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container link hover:!underline !flex p-0"
@@ -114,13 +116,11 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           visit TennCare’s site for more info
                         </p>
                         <p
                           class="ml-1"
-                          style="display: block;"
                         >
                           <img
                             alt="external"
@@ -202,6 +202,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                   />
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Your plan does not include Medicare Part D prescription drug coverage. Please consult your Evidence of Coverage (EOC) for more information on medical benefits.
                   </p>
@@ -212,7 +213,6 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                     aria-label="View All Plan Documents"
                     href="/benefits/planDocuments"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link hover:!underline pl-0"
@@ -222,7 +222,6 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View All Plan Documents
                       </p>
@@ -310,6 +309,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                   </div>
                   <p
                     class="body-1 body-1 md:ml-14 ml-2"
+                    style="display: block;"
                   >
                     You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                   </p>
@@ -368,6 +368,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                 />
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Your plan does not include Medicare Part D prescription drug coverage. Please consult your Evidence of Coverage (EOC) for more information on medical benefits.
                 </p>
@@ -378,7 +379,6 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                   aria-label="View All Plan Documents"
                   href="/benefits/planDocuments"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container link hover:!underline pl-0"
@@ -388,7 +388,6 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View All Plan Documents
                     </p>
@@ -476,6 +475,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                 </div>
                 <p
                   class="body-1 body-1 md:ml-14 ml-2"
+                  style="display: block;"
                 >
                   You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                 </p>
