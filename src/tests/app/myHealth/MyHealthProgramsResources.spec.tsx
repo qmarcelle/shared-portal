@@ -204,4 +204,26 @@ describe('MyHealthProgramsResources', () => {
     );
     expect(component).toMatchSnapshot();
   });
+  it('should render the Silver and Fitness card if the pzn rule is true', () => {
+    vRules.medicare = true;
+    vRules.individual = true;
+    vRules.isSilverFitClient = true;
+
+    const component = renderUI(vRules);
+    screen.getByText('Silver&Fit Fitness Program');
+    screen.getByText(
+      'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should not render the Silver and Fitness card if the pzn rule is true', () => {
+    vRules.medicare = false;
+    vRules.individual = true;
+    vRules.isSilverFitClient = false;
+    const component = renderUI(vRules);
+    expect(screen.queryByText('Silver&Fit Fitness Program')).toBeNull();
+
+    expect(component).toMatchSnapshot();
+  });
 });
