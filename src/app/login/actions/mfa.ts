@@ -85,12 +85,14 @@ export async function callSubmitMfaOtp(
     }
     if (resp.data.data?.flowStatus == 'PASSWORD_RESET_REQUIRED') {
       status = SubmitMFAStatus.PASSWORD_RESET_REQUIRED;
+    } else if (resp.data.data?.flowStatus == 'NEW_EMAIL_REQUIRED') {
+      status = SubmitMFAStatus.EMAIL_UNIQUENESS;
     } else {
       authUser = username;
+      await setWebsphereRedirectCookie({
+        ...resp.data.data,
+      });
     }
-    await setWebsphereRedirectCookie({
-      ...resp.data.data,
-    });
     return {
       status: status,
       data: resp.data.data,

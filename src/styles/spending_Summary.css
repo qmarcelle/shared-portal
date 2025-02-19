@@ -45,6 +45,11 @@
   transform: translate(-47%, -50%);
 }
 
+.spending-account-text {
+  background-color: '#e7f6ff';
+  border-radius: '7px';
+}
+
 @media (width>=768px) {
   .statementSummary .chartSection {
     float: left;

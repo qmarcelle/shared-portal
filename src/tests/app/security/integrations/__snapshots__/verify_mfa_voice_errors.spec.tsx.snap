@@ -90,6 +90,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -129,6 +130,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                       />
                       <p
                         class="body-1 mb-8"
+                        style="display: block;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -235,6 +237,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -294,6 +297,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -308,6 +312,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                       >
                         <p
                           class="body-1 font-bold text-center"
+                          style="display: block;"
                         >
                           (111) 111-1111
                         </p>
@@ -472,6 +477,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -549,6 +555,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>
@@ -685,6 +692,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -724,6 +732,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
+                        style="display: block;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -830,6 +839,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -889,6 +899,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -903,6 +914,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
+                          style="display: block;"
                         >
                           (111) 111-1111
                         </p>
@@ -1067,6 +1079,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -1144,6 +1157,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>
@@ -1280,6 +1294,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -1319,6 +1334,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
+                        style="display: block;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -1425,6 +1441,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -1484,6 +1501,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -1498,6 +1516,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
+                          style="display: block;"
                         >
                           (111) 111-1111
                         </p>
@@ -1662,6 +1681,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -1739,6 +1759,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>
@@ -1875,6 +1896,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -1914,6 +1936,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
+                        style="display: block;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -2020,6 +2043,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -2079,6 +2103,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -2093,6 +2118,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
+                          style="display: block;"
                         >
                           (111) 111-1111
                         </p>
@@ -2257,6 +2283,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -2334,6 +2361,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>

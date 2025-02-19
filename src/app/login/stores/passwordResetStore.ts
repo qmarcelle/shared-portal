@@ -1,4 +1,8 @@
-import { isValidPassword, validateDate } from '@/utils/inputValidator';
+import {
+  isSpecialCharactersAvailable,
+  isValidPassword,
+  validateDate,
+} from '@/utils/inputValidator';
 import { logger } from '@/utils/logger';
 import { createWithEqualityFn } from 'zustand/traditional';
 import {
@@ -33,8 +37,13 @@ export const usePasswordResetStore = createWithEqualityFn<PasswordResetStore>(
         password: val.trim(),
       }));
       if (!isValidPassword(val)) {
+        let errorMsg = 'Please enter a valid password.';
+        if (isSpecialCharactersAvailable(val)) {
+          errorMsg =
+            'Your password has an invalid character. Passwords can only use these characters: !@#$%^&*()+=-_';
+        }
         set(() => ({
-          invalidPasswordError: ['Please enter a valid password.'],
+          invalidPasswordError: [errorMsg],
         }));
       } else {
         set(() => ({
@@ -103,7 +112,7 @@ export const usePasswordResetStore = createWithEqualityFn<PasswordResetStore>(
             set(() => ({
               invalidDOBError: [
                 // eslint-disable-next-line quotes
-                "This isn't the birthdate that we have on file for you. Please try again.",
+                "This information doesn't match what we have on file for your account.",
               ],
             }));
             break;

@@ -50,7 +50,10 @@ export async function callResetPassword(
   } catch (error) {
     logger.error('Password Reset API - Failure', error, request.username);
     if (error instanceof AxiosError) {
-      switch (error.response?.data.data?.errorCode) {
+      const errorCode =
+        error.response?.data.data?.errorCode ??
+        error.response?.data.details?.returnCode;
+      switch (errorCode) {
         case 'FPR-400-1':
           status = PasswordResetStatus.PREVIOUS_PASSWORD;
           break;
@@ -68,7 +71,7 @@ export async function callResetPassword(
         status: status,
         data: error.response?.data.data,
         error: {
-          errorCode: error.response?.data.data.errorCode,
+          errorCode: errorCode,
           message: error.response?.data,
         },
       };

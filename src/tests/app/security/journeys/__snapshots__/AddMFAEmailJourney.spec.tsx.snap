@@ -90,6 +90,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -109,7 +110,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input   "
+                            class="flex flex-row items-center input  "
                           >
                             <input
                               aria-label="Email Address"
@@ -120,6 +121,11 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                             <div
                               class="cursor-pointer"
                             />
+                          </div>
+                          <div
+                            class="error-container mt-1 p-1"
+                          >
+                            <div />
                           </div>
                         </div>
                         <div
@@ -135,7 +141,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input   "
+                              class="flex flex-row items-center input  "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -146,6 +152,11 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                               <div
                                 class="cursor-pointer"
                               />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
                             </div>
                           </div>
                         </div>
@@ -256,6 +267,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -315,6 +327,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the security code sent to your email to complete email setup.We've sent a code to:
                     </p>
@@ -329,6 +342,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 body-1 text-center font-bold"
+                          style="display: block;"
                         >
                           chall123@gmail.com
                         </p>
@@ -554,6 +568,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 3`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           The next time you login, you'll receive an email with a security code to:
                         </p>
@@ -562,6 +577,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 3`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           chall123@gmail.com
                         </p>
@@ -698,6 +714,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -717,7 +734,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input   "
+                            class="flex flex-row items-center input  "
                           >
                             <input
                               aria-label="Email Address"
@@ -728,6 +745,11 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             <div
                               class="cursor-pointer"
                             />
+                          </div>
+                          <div
+                            class="error-container mt-1 p-1"
+                          >
+                            <div />
                           </div>
                         </div>
                         <div
@@ -743,7 +765,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input   "
+                              class="flex flex-row items-center input  "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -754,6 +776,11 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               <div
                                 class="cursor-pointer"
                               />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
                             </div>
                           </div>
                         </div>
@@ -901,6 +928,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -920,7 +948,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input  input-focus "
+                            class="flex flex-row items-center input input-focus "
                           >
                             <input
                               aria-label="Email Address"
@@ -931,6 +959,11 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             <div
                               class="cursor-pointer"
                             />
+                          </div>
+                          <div
+                            class="error-container mt-1 p-1"
+                          >
+                            <div />
                           </div>
                         </div>
                         <div
@@ -946,7 +979,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input   "
+                              class="flex flex-row items-center input  "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -958,6 +991,37 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                                 class="cursor-pointer"
                               />
                             </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="text-red-500 mt-2"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <img
+                              alt="alert"
+                              class="icon mt-1"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <p
+                              class="body-1 body-1 pt-1.5 ml-2"
+                              style="display: block;"
+                            >
+                              Invalid Email Address
+                            </p>
                           </div>
                         </div>
                         <div
@@ -1056,7 +1120,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container react-responsive-modal-containerCenter"
+        class="react-responsive-modal-container"
         data-testid="modal-container"
       >
         <div
@@ -1129,6 +1193,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -1148,7 +1213,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input   "
+                            class="flex flex-row items-center input  "
                           >
                             <input
                               aria-label="Email Address"
@@ -1159,6 +1224,11 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             <div
                               class="cursor-pointer"
                             />
+                          </div>
+                          <div
+                            class="error-container mt-1 p-1"
+                          >
+                            <div />
                           </div>
                         </div>
                         <div
@@ -1174,7 +1244,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input   "
+                              class="flex flex-row items-center input  "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -1185,6 +1255,11 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               <div
                                 class="cursor-pointer"
                               />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
                             </div>
                           </div>
                         </div>
@@ -1259,7 +1334,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container react-responsive-modal-containerCenter"
+        class="react-responsive-modal-container"
         data-testid="modal-container"
       >
         <div
@@ -1332,6 +1407,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -1351,7 +1427,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input   "
+                            class="flex flex-row items-center input  "
                           >
                             <input
                               aria-label="Email Address"
@@ -1362,6 +1438,11 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             <div
                               class="cursor-pointer"
                             />
+                          </div>
+                          <div
+                            class="error-container mt-1 p-1"
+                          >
+                            <div />
                           </div>
                         </div>
                         <div
@@ -1377,7 +1458,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input  input-focus "
+                              class="flex flex-row items-center input input-focus "
                             >
                               <input
                                 aria-label="Confirm Email"
@@ -1388,6 +1469,11 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               <div
                                 class="cursor-pointer"
                               />
+                            </div>
+                            <div
+                              class="error-container mt-1 p-1"
+                            >
+                              <div />
                             </div>
                           </div>
                         </div>
@@ -1411,6 +1497,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             />
                             <p
                               class="body-1 body-1 pt-1.5 ml-2"
+                              style="display: block;"
                             >
                               The email addresses must match. Please check and try again.
                             </p>
