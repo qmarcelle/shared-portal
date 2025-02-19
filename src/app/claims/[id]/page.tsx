@@ -3,7 +3,7 @@ import ClaimDetails from '.';
 import { getClaimDetailsData } from '../actions/getClaimsDetails';
 
 export const metadata: Metadata = {
-  title: 'Claims Detail',
+  title: 'Claim Detail',
 };
 
 const ClaimsDetailPage = async ({

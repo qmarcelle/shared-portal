@@ -1,7 +1,7 @@
 import MyClaimsPage from '@/app/claims/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
@@ -13,6 +13,17 @@ jest.mock('src/auth', () => ({
       },
     }),
   ),
+}));
+
+// Mock useRouter:
+const mockPush = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      push: mockPush,
+    };
+  },
 }));
 
 jest
@@ -1514,5 +1525,8 @@ describe('Claims SnapshotList', () => {
     expect(screen.getByText('Viewing 10 of 13 Claims')).toBeVisible();
 
     expect(container).toMatchSnapshot();
+    fireEvent.click(screen.getByText('Stevens, Ashley'));
+
+    expect(mockPush).toHaveBeenCalledWith('/claims/GDCTST300700?type=M');
   });
 });

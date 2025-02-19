@@ -13,9 +13,6 @@ export async function getClaimDetails(
   claimType: string,
 ) {
   try {
-    subscriberCk = '91722400';
-    claimId = 'EXT820200100';
-    claimType = 'M';
     const resp = await portalSvcsApi.get<ClaimDetailResponse>(
       `/memberservice/api/v1/claims/${subscriberCk}/${claimId}/${claimType}`,
     );

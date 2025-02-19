@@ -1,0 +1,692 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Claim Details should show the respective claim details 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <div
+        class="flex flex-col app-content"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row flex flex-row"
+        >
+          <img
+            alt="Medical"
+            class="w-[40px] h-[40px]"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <div
+            class="flex flex-col"
+          >
+            <h1
+              class="title-1 pl-3"
+            >
+              Bhushan, Susan D.
+            </h1>
+            <div
+              class="flex flex-col"
+            >
+              <a
+                aria-label="Review This Provider"
+                style="display: block;"
+                tabindex="-1"
+              >
+                <button
+                  class="flex flex-row link-container link !flex"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <p
+                    class="link undefined"
+                    style="display: block;"
+                  >
+                    Review This Provider
+                  </p>
+                  <p
+                    class="ml-1"
+                    style="display: block;"
+                  >
+                    <img
+                      alt="external"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
+              </a>
+            </div>
+            <section
+              class="ml-2"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <div
+                class="flex flex-row flex flex-col items-start"
+              >
+                <div
+                  class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                >
+                  <div
+                    class="circle rounded-full w-3 h-3 aspect-square"
+                  />
+                  <p
+                    class="font-bold ml-2 body-2"
+                  >
+                    Completed
+                  </p>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <div
+                class="flex flex-row py-1"
+              >
+                <p
+                  class="body-1"
+                >
+                  Visited on 09/03/2024
+                </p>
+              </div>
+              <div
+                class="flex flex-row py-1"
+              >
+                <p
+                  class="body-1"
+                >
+                  For CHRISTMAS HALL
+                </p>
+              </div>
+              <div
+                class="flex flex-row py-1"
+              >
+                <p
+                  class="body-1"
+                >
+                  Claim ID:
+                </p>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                >
+                  EXT820200100
+                </p>
+              </div>
+              <div
+                class="flex flex-row py-1"
+              >
+                <p
+                  class="body-1"
+                >
+                  Network Status:
+                </p>
+                <span
+                  style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                >
+                  In-Network
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <section>
+            <div
+              class="card-main small-section"
+            >
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  Cost Breakdown
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-row justify-between py-1"
+                >
+                  <p
+                    class="body-1"
+                  >
+                    Amount Billed
+                  </p>
+                  <p
+                    class="body-1"
+                  >
+                    $263.00
+                  </p>
+                </div>
+                <div
+                  class="flex flex-row justify-between py-1"
+                >
+                  <p
+                    class="body-1"
+                  >
+                    Plan Discount
+                  </p>
+                  <p
+                    class="body-1"
+                  >
+                    $10.00
+                  </p>
+                </div>
+                <div
+                  class="flex flex-row justify-between py-1"
+                >
+                  <p
+                    class="body-1"
+                  >
+                    Plan Paid
+                  </p>
+                  <p
+                    class="body-1"
+                  >
+                    $187.94
+                  </p>
+                </div>
+                <div
+                  class="flex flex-row justify-between py-1"
+                >
+                  <p
+                    class="body-1 body-1"
+                  >
+                    Other Insurance Paid
+                  </p>
+                  <p
+                    class="body-1"
+                  >
+                    $0.74
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                />
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                />
+                <div
+                  class="flex flex-row justify-between py-1"
+                >
+                  <p
+                    class="body-1 font-bold"
+                  >
+                    Your Share of the Cost
+                  </p>
+                  <p
+                    class="body-1"
+                  >
+                    $0.00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Immunization
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+              />
+              <div
+                class="card-main mb-3"
+              >
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Office Visit
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    >
+                      <div
+                        class="flex flex-row m-1 justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Your share
+                        </p>
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          $30.24
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-main mb-3"
+              >
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Lab Work
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    >
+                      <div
+                        class="flex flex-row m-1 justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Your share
+                        </p>
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          $30.24
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-main mb-3"
+              >
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Immunization
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    >
+                      <div
+                        class="flex flex-row m-1 justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Your share
+                        </p>
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          $30.24
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-main mb-3"
+              >
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Medical Service
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    >
+                      <div
+                        class="flex flex-row m-1 justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          Your share
+                        </p>
+                        <p
+                          class="body-1 font-bold"
+                        >
+                          $30.24
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+        >
+          <main
+            class="flex flex-col justify-end items-end page"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="card-elevated small-section w-[352px] h-[232px] "
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Download Summary
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <span>
+                      You can print your claim summary from the downloaded pdf.
+                    </span>
+                  </span>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <button
+                    aria-label="Claim Summary"
+                    class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
+                    disabled=""
+                    type="button"
+                  >
+                    Claim Summary
+                    <p
+                      class="ml-2"
+                    >
+                      <img
+                        alt=""
+                        class="ml-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </main>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="card-main large-section"
+          >
+            <div>
+              <h2
+                class="title-2"
+              >
+                Pay This Provider
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+              />
+              <div
+                class="flex flex-row"
+              >
+                <p
+                  class="body-1"
+                >
+                  Your estimated balance is 
+                </p>
+                <p
+                  class="body-1 font-bold"
+                >
+                  $30.24
+                </p>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+              />
+              <div
+                class="flex flex-row"
+              >
+                <div
+                  class="flex flex-row gap-2 p-2  checkbox-disabled "
+                >
+                  <label>
+                    <input
+                      id="myCheckbox"
+                      name=""
+                      type="checkbox"
+                    />
+                  </label>
+                  <div
+                    class="flex flex-col"
+                  >
+                    <label
+                      for="myCheckbox"
+                    >
+                      <p>
+                        Mark as Paid
+                      </p>
+                    </label>
+                  </div>
+                </div>
+                <img
+                  alt="info icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+              />
+              <button
+                aria-label="Pay This Provider"
+                class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                type="button"
+              >
+                Pay This Provider
+              </button>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="flex flex-col"
+          >
+            <div
+              class="card-elevated small-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h1
+                  class="title-1 title-2"
+                >
+                  Get Help with Claims
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span>
+                    If you need help, please reach out to us. You can 
+                  </span>
+                  <span
+                    class="link"
+                  >
+                    <a>
+                      start a chat
+                    </a>
+                  </span>
+                  <span>
+                     or call us at [1-800-000-000].
+                  </span>
+                </span>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span>
+                    You can also try our 
+                  </span>
+                  <span
+                    class="link"
+                  >
+                    <a>
+                      Claims FAQ.
+                    </a>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+`;
