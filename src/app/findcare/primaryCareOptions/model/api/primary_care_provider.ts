@@ -11,4 +11,6 @@ export interface PrimaryCareProviderDetails {
   ext: string;
   addressType: string;
   taxId: string;
+  name?: string;
+  dob?: string;
 }
