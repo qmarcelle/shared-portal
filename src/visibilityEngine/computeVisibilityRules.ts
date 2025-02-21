@@ -420,3 +420,15 @@ export function isSilverAndFitnessEligible(rules: VisibilityRules | undefined) {
     activeAndHealthPlanMember(rules)
   );
 }
+
+export function isMedicarePrescriptionPaymentPlanEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    rules?.medicarePrescriptionPaymentPlanEligible &&
+    rules?.displayPharmacyTab &&
+    !rules?.terminated &&
+    !rules?.wellnessOnly &&
+    !rules?.fsaOnly
+  );
+}
