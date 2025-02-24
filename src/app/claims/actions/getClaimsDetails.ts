@@ -3,6 +3,7 @@ import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
 import { portalSvcsApi } from '@/utils/api/portalApi';
+import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { ClaimDetailResponse } from '../models/api/claimsResponse';
 import { ClaimDetailsData } from '../models/app/claimDetailsData';
@@ -25,10 +26,11 @@ export async function getClaimDetails(
 }
 
 export async function getClaimDetailsData(
-  claimId: string,
+  id: string,
   claimType: string,
 ): Promise<ActionResponse<number, ClaimDetailsData>> {
   try {
+    const claimId = decrypt(id);
     const session = await auth();
     // Get Members
     const members = await getMemberAndDependents(

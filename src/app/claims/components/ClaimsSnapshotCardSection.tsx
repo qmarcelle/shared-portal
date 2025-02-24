@@ -96,7 +96,9 @@ export const ClaimsSnapshotCardSection = ({
   };
 
   const navigateToClaimDetails = (claimId: string) => {
-    const claimType = claims.find((claim) => claim.id === claimId)?.type;
+    const claimType = claims.find(
+      (claim) => claim.encryptedClaimId === claimId,
+    )?.type;
     router.push(`/claims/${claimId}?type=${claimType}`);
   };
 

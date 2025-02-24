@@ -2,6 +2,7 @@ import { PlanType } from './plan_type';
 
 export interface ClaimDetails {
   id: string;
+  encryptedClaimId?: string;
   claimType: PlanType;
   type?: string;
   issuer: string;

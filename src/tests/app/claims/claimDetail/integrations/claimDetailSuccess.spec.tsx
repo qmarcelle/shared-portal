@@ -16,6 +16,12 @@ jest.mock('src/auth', () => ({
   ),
 }));
 
+jest.mock('src/utils/encryption', () => ({
+  decrypt: jest.fn(() => {
+    return 'EXT820200100';
+  }),
+}));
+
 describe('Claim Details', () => {
   it('should show the respective claim details', async () => {
     mockedAxios.get
@@ -86,7 +92,9 @@ describe('Claim Details', () => {
     // Render the page
     const result = await ClaimsDetailPage({
       searchParams: { type: 'M' },
-      params: { id: 'EXT820200100' },
+      params: {
+        id: 'aW9pZ0F3V0lwZHlrbnBaeUVtaGk3QT09O2QwY2JmOWQ0ZWNiZjM0OWU=',
+      },
     });
     const { container } = render(result);
 
