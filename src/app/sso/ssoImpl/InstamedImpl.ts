@@ -34,6 +34,7 @@ import {
 
 export default async function generateInstamedSSOMap(
   memberData: LoggedInMember,
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateInstamedSSOMap entered !!!');
   const ssoParamMap = new Map<string, string>();
@@ -43,17 +44,12 @@ export default async function generateInstamedSSOMap(
   }
 
   //Need to get from RequestParam
-  const claimId: string = '';
-  const claimType: string = '';
-  const claimDetails = await getClaimDetails(
-    memberData.subscriberCk,
-    claimId,
-    claimType,
-  );
-  const claimMember: MemberData | undefined = await getMemberDetails(
-    memberData.memeCk,
-    claimDetails.memberCk,
-  );
+  const claimId: string = searchParams?.claimId ?? '';
+  const claimType: string = searchParams?.claimType ?? '';
+  const isInstamedPaymentHistory: boolean =
+    searchParams?.isInstamedPaymentHistory?.toLocaleLowerCase() == 'true'
+      ? true
+      : false;
 
   const userId = memberData.userId;
   ssoParamMap.set(SSO_CANCEL_URL, process.env.INSTAMED_CANCEL_URL ?? '');
@@ -66,43 +62,58 @@ export default async function generateInstamedSSOMap(
     SSO_DEP_SEQ_NUMBER,
     memberData.suffix.toString().padStart(2, '0'),
   );
-  ssoParamMap.set(SSO_PATIENT_FIRST_NAME, claimMember?.firstName ?? '');
-  ssoParamMap.set(SSO_PATIENT_LAST_NAME, claimMember?.lastName ?? '');
-  ssoParamMap.set(SSO_CLAIM_NUMBER, claimDetails.claimId);
-  ssoParamMap.set(
-    SSO_PATIENT_SERVICE_BEGIN_DATE,
-    formatDateString(
-      claimDetails.claimHighServiceCalendarDate,
-      'MM-dd-yyyy',
-      'MM/dd/yyyy',
-    ),
-  );
-  ssoParamMap.set(
-    SSO_PATIENT_SERVICE_END_DATE,
-    formatDateString(
-      claimDetails.claimLowServiceCalendarDate,
-      'MM-dd-yyyy',
-      'MM/dd/yyyy',
-    ),
-  );
-  ssoParamMap.set(SSO_CLAIM_REF_NUMBER, claimDetails.claimId);
-  ssoParamMap.set(
-    SSO_AMOUNT_DUE,
-    (claimDetails.claimPatientOweAmt - claimDetails.vndAmtPaid).toFixed(2),
-  );
-  ssoParamMap.set(SSO_PROVIDER_BILLING_TIN, claimDetails.providerBillingTIN);
-  ssoParamMap.set(SSO_PAY_TO_PROVIDER_NAME, claimDetails.providerName);
-  ssoParamMap.set(SSO_RENDERING_PROVIDER, claimDetails.providerName);
-  ssoParamMap.set(
-    SSO_PAY_TO_PROVIDER_ADDRESS,
-    claimDetails.payToProviderAddress1,
-  );
-  ssoParamMap.set(SSO_PAY_TO_PROVIDER_CITY, claimDetails.payToProviderCity);
-  ssoParamMap.set(SSO_PAY_TO_PROVIDER_STATE, claimDetails.payToProviderState);
-  ssoParamMap.set(SSO_PAY_TO_PROVIDER_ZIP, claimDetails.payToProviderZip);
-  ssoParamMap.set(SSO_PATIENT_ID, claimDetails.patientAccNo);
-  ssoParamMap.set(SSO_TARGET_RESOURCE, process.env.INSTAMED_SSO_TARGET ?? '');
+
+  if (!isInstamedPaymentHistory) {
+    const claimDetails = await getClaimDetails(
+      memberData.subscriberCk,
+      claimId,
+      claimType,
+    );
+    const claimMember: MemberData | undefined = await getMemberDetails(
+      memberData.memeCk,
+      claimDetails.memberCk,
+    );
+    ssoParamMap.set(SSO_PATIENT_FIRST_NAME, claimMember?.firstName ?? '');
+    ssoParamMap.set(SSO_PATIENT_LAST_NAME, claimMember?.lastName ?? '');
+    ssoParamMap.set(SSO_CLAIM_NUMBER, claimDetails.claimId);
+    ssoParamMap.set(
+      SSO_PATIENT_SERVICE_BEGIN_DATE,
+      formatDateString(
+        claimDetails.claimHighServiceCalendarDate,
+        'MM-dd-yyyy',
+        'MM/dd/yyyy',
+      ),
+    );
+    ssoParamMap.set(
+      SSO_PATIENT_SERVICE_END_DATE,
+      formatDateString(
+        claimDetails.claimLowServiceCalendarDate,
+        'MM-dd-yyyy',
+        'MM/dd/yyyy',
+      ),
+    );
+    ssoParamMap.set(SSO_CLAIM_REF_NUMBER, claimDetails.claimId);
+    ssoParamMap.set(
+      SSO_AMOUNT_DUE,
+      (claimDetails.claimPatientOweAmt - claimDetails.vndAmtPaid).toFixed(2),
+    );
+    ssoParamMap.set(SSO_PROVIDER_BILLING_TIN, claimDetails.providerBillingTIN);
+    ssoParamMap.set(SSO_PAY_TO_PROVIDER_NAME, claimDetails.providerName);
+    ssoParamMap.set(SSO_RENDERING_PROVIDER, claimDetails.providerName);
+    ssoParamMap.set(
+      SSO_PAY_TO_PROVIDER_ADDRESS,
+      claimDetails.payToProviderAddress1,
+    );
+    ssoParamMap.set(SSO_PAY_TO_PROVIDER_CITY, claimDetails.payToProviderCity);
+    ssoParamMap.set(SSO_PAY_TO_PROVIDER_STATE, claimDetails.payToProviderState);
+    ssoParamMap.set(SSO_PAY_TO_PROVIDER_ZIP, claimDetails.payToProviderZip);
+    ssoParamMap.set(SSO_PATIENT_ID, claimDetails.patientAccNo);
+  }
+  const targetResource = isInstamedPaymentHistory
+    ? process.env.INSTAMED_PAYMENT_HISTORY_SSO_TARGET
+    : process.env.INSTAMED_SSO_TARGET;
   ssoParamMap.set(SSO_SUBJECT, userId);
+  ssoParamMap.set(SSO_TARGET_RESOURCE, targetResource ?? '');
 
   console.log('generateInstamedSSOMap exited !!!');
   return ssoParamMap;

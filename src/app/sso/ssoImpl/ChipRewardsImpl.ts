@@ -6,6 +6,8 @@ import { SSO_SUBJECT } from '../ssoConstants';
 
 export default async function generateChipRewardsSSOMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateChipRewardsMap entered !!!');
   const ssoParamMap = new Map<string, string>();

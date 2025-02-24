@@ -15,6 +15,8 @@ import {
 
 export default async function generateEyemedSSOMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateEyemedSSOMap entered !!!');
   const ssoParamMap = new Map<string, string>();

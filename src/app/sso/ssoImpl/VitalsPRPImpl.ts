@@ -11,6 +11,7 @@ import {
 
 export default async function generateVitalsPRPSSOMap(
   memberData: LoggedInMember,
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateVitalsPRPSSOMap entered !!!');
   const ssoParamMap = new Map<string, string>();
@@ -20,7 +21,7 @@ export default async function generateVitalsPRPSSOMap(
   }
 
   //Need to get from Request Param
-  const provId = '';
+  const provId = searchParams?.provId ?? '';
   const targetURL = process.env.VITALS_PRP_SSO_TARGET ?? '';
   const finalTargetUrl = targetURL.replace('{PROV_ID}', provId);
 

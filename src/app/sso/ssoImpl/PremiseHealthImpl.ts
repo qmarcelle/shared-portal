@@ -17,6 +17,7 @@ import {
 
 export default async function generatePremiseHealthMap(
   memberData: LoggedInMember,
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generatePremiseHealthMap entered !!!');
   const ssoParamMap = new Map<string, string>();
@@ -26,7 +27,7 @@ export default async function generatePremiseHealthMap(
   }
 
   //Need to get from request param
-  const target = SCHEDULE;
+  const target = searchParams?.target ?? '';
 
   //TO DO: Need to check const value target & schedule doesn't match so it will always falls in else condition
   if (target == SCHEDULE) {

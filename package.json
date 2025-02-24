@@ -20,6 +20,7 @@
     "flowbite": "^2.3.0",
     "focus-trap-react": "^10.2.3",
     "https": "^1.0.0",
+    "https-proxy-agent": "^7.0.6",
     "jest-mock-extended": "^3.0.7",
     "next": "14.2.4",
     "next-auth": "^5.0.0-beta.19",

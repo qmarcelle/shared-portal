@@ -33,6 +33,7 @@ export async function setWebsphereRedirectCookie(
       expires: pingOneExpiryDate,
     };
     const pingFedOptions: Partial<ResponseCookie> = {
+      domain: '.bcbst.com',
       sameSite: 'none',
       httpOnly: true,
       secure: true,
