@@ -14,6 +14,7 @@ import {
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
+  isSilverAndFitnessEligible,
   isTeladocPrimary360Eligible,
   isTeladocSecondOpinionAdviceAndSupportEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -87,6 +88,14 @@ const MyHealthProgramsResources = ({
     );
     if (teladocBpmCard) {
       virtualHealthCareDetails.push(teladocBpmCard);
+    }
+  }
+  if (isSilverAndFitnessEligible(visibilityRules!)) {
+    const silverFitCard = myHealthProgramsandResourcesDetails.get(
+      HealthProgramsResourcesName.SilverAndFitFitnessProgram,
+    );
+    if (silverFitCard) {
+      virtualHealthCareDetails.push(silverFitCard);
     }
   }
 
