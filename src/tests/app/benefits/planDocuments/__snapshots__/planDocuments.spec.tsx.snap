@@ -29,11 +29,13 @@ exports[`planDocuments should render the UI correctly 1`] = `
             />
             <p
               class="body-1 max-w-[650px]"
+              style="display: block;"
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               To request a printed version of any of these materials, please 
             </p>
@@ -55,6 +57,7 @@ exports[`planDocuments should render the UI correctly 1`] = `
             </a>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               .
             </p>
@@ -91,11 +94,13 @@ exports[`planDocuments should render the UI correctly 1`] = `
           />
           <p
             class="body-1 max-w-[650px]"
+            style="display: block;"
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             To request a printed version of any of these materials, please 
           </p>
@@ -117,6 +122,7 @@ exports[`planDocuments should render the UI correctly 1`] = `
           </a>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             .
           </p>
@@ -210,11 +216,13 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
             />
             <p
               class="body-1 max-w-[650px]"
+              style="display: block;"
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               To request a printed version of any of these materials, please 
             </p>
@@ -236,6 +244,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
             </a>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               .
             </p>
@@ -270,6 +279,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Provider Directory
                     </p>
@@ -306,6 +316,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Medication List (Formulary) 2025
                     </p>
@@ -346,6 +357,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Pharmacy Directory
                     </p>
@@ -398,11 +410,13 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
           />
           <p
             class="body-1 max-w-[650px]"
+            style="display: block;"
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             To request a printed version of any of these materials, please 
           </p>
@@ -424,6 +438,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
           </a>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             .
           </p>
@@ -458,6 +473,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Provider Directory
                   </p>
@@ -494,6 +510,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Medication List (Formulary) 2025
                   </p>
@@ -534,6 +551,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Pharmacy Directory
                   </p>
@@ -643,11 +661,13 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
             />
             <p
               class="body-1 max-w-[650px]"
+              style="display: block;"
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               To request a printed version of any of these materials, please 
             </p>
@@ -669,6 +689,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
             </a>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               .
             </p>
@@ -710,6 +731,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                   </div>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Ask us to mail your plan documents to you.
                   </p>
@@ -747,6 +769,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Provider Directory
                     </p>
@@ -783,6 +806,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Medication List (Formulary) 2025
                     </p>
@@ -823,6 +847,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Pharmacy Directory
                     </p>
@@ -882,11 +907,13 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
           />
           <p
             class="body-1 max-w-[650px]"
+            style="display: block;"
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             To request a printed version of any of these materials, please 
           </p>
@@ -908,6 +935,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
           </a>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             .
           </p>
@@ -949,6 +977,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                 </div>
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   Ask us to mail your plan documents to you.
                 </p>
@@ -986,6 +1015,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Provider Directory
                   </p>
@@ -1022,6 +1052,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Medication List (Formulary) 2025
                   </p>
@@ -1062,6 +1093,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Pharmacy Directory
                   </p>
@@ -1178,11 +1210,13 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
             />
             <p
               class="body-1 max-w-[650px]"
+              style="display: block;"
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               To request a printed version of any of these materials, please 
             </p>
@@ -1204,6 +1238,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
             </a>
             <p
               class="body-1 inline"
+              style="display: block;"
             >
               .
             </p>
@@ -1245,6 +1280,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   </div>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Ask us to mail your plan documents to you.
                   </p>
@@ -1282,6 +1318,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Provider Directory
                     </p>
@@ -1318,6 +1355,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Medication List (Formulary) 2025
                     </p>
@@ -1358,6 +1396,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
+                      style="display: block;"
                     >
                       Pharmacy Directory
                     </p>
@@ -1442,11 +1481,13 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
           />
           <p
             class="body-1 max-w-[650px]"
+            style="display: block;"
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             To request a printed version of any of these materials, please 
           </p>
@@ -1468,6 +1509,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
           </a>
           <p
             class="body-1 inline"
+            style="display: block;"
           >
             .
           </p>
@@ -1509,6 +1551,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                 </div>
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   Ask us to mail your plan documents to you.
                 </p>
@@ -1546,6 +1589,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Provider Directory
                   </p>
@@ -1582,6 +1626,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Medication List (Formulary) 2025
                   </p>
@@ -1622,6 +1667,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
+                    style="display: block;"
                   >
                     Pharmacy Directory
                   </p>

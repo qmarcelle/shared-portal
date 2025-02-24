@@ -20,6 +20,7 @@ exports[`DisableMFAWarning should render ui correctly for disabled mfa 1`] = `
         <label
           aria-label="toggle mfa"
           class="switch"
+          tabindex="0"
         >
           <input
             type="checkbox"
@@ -70,6 +71,7 @@ exports[`DisableMFAWarning should render ui correctly for enabled mfa 1`] = `
         <label
           aria-label="toggle mfa"
           class="switch"
+          tabindex="0"
         >
           <input
             checked=""
@@ -93,6 +95,7 @@ exports[`DisableMFAWarning should render ui correctly for enabled mfa 1`] = `
       </div>
       <p
         class="body-1"
+        style="display: block;"
       >
         We'll send a one-time security code to your email by default. Set up   multiple methods for more options when you log in.
       </p>

@@ -28,6 +28,7 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                 </h2>
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Select the account to switch to:
                 </p>
@@ -45,6 +46,7 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2"
+                        style="display: block;"
                       >
                         View as Personal Representative:
                       </p>
@@ -53,6 +55,7 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 !font-bold title-3 text-[--primary-color]"
+                          style="display: block;"
                         >
                           Robert Hall
                         </p>
@@ -73,11 +76,13 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           01/01/1943
                         </p>

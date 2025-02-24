@@ -18,6 +18,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
       </h1>
       <p
         class="body-1 body-1 my-4 mb-0 w-2/3"
+        style="display: block;"
       >
         Your balances show how close you are to meeting your annual plan deductibles and out-of-pocket limits.
       </p>
@@ -333,6 +334,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
               />
               <p
                 class="body-2"
+                style="display: block;"
               >
                 Your policy has separate limits for in- and out-of-network charges. Charges incurred with an in- network provider will apply to your in-network limit; charges incurred with an out-of-network provider will apply toward your out-of-network limit. Please note that individual out of pocket limits only apply if the family limit has not yet been satisfied.
               </p>
@@ -359,17 +361,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       1 Visit Per Calendar Year -- Mammogram
                     </p>
@@ -394,17 +399,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       1 Visit Per Calendar Year -- Gyn
                     </p>
@@ -429,17 +437,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       12 Visits Per Year - Dietary Counseling
                     </p>
@@ -464,17 +475,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       4 Injections Per Year --  Trigger Point Injection
                     </p>
@@ -499,17 +513,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       20 Per Benefit Period - Urine/Serum Drug Testing
                     </p>
@@ -534,17 +551,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       1 Visit Per Calendar Year - Wellcare - Over Age 6
                     </p>
@@ -569,17 +589,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       8 Visits Per Year - Tobacco Cessation Counseling
                     </p>
@@ -604,17 +627,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       8 Visits Per Year - Alcohol Misuse Counseling
                     </p>
@@ -639,17 +665,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $10,000 Per Benefit Period - Organ Transplant -Travel, Meals & Lodging
                     </p>
@@ -674,17 +703,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $1,000 Per Benefit Period û General Travel Benefit
                     </p>
@@ -709,17 +741,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $40,000 Lifetime Max - Infertility Treatment
                     </p>
@@ -886,6 +921,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You do not have any Deductible amounts.
                       </p>
@@ -919,6 +955,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You do not have any Out-of-Pocket amounts.
                       </p>
@@ -949,17 +986,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $3000 Annual Maximum Basic and Major
                     </p>
@@ -984,17 +1024,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $3000 Ortho Lifetime Maximum
                     </p>
@@ -1059,6 +1102,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
               >
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   As of
                 </p>
@@ -1146,6 +1190,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Paid
                   </p>
@@ -1166,6 +1211,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Saved
                   </p>
@@ -1182,7 +1228,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
               <a
                 aria-label="View Spending Summary"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -1192,7 +1237,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Summary
                   </p>
@@ -1223,7 +1267,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    style="display: block;"
                   >
                     HSA
                   </p>
@@ -1233,11 +1277,13 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Health Saving Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $349.90
                   </p>
@@ -1253,8 +1299,8 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   class="flex flex-col"
                 >
                   <p
-                    class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    class="body-1 py-4 px-7 font-bold spending-account-text"
+                    style="display: block;"
                   >
                     FSA
                   </p>
@@ -1264,11 +1310,13 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Flexible Spending Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $1,009.50
                   </p>
@@ -1281,7 +1329,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 aria-label="View Spending Accounts"
                 href=""
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -1291,7 +1338,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Accounts
                   </p>
@@ -1324,6 +1370,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
       </h1>
       <p
         class="body-1 body-1 my-4 mb-0 w-2/3"
+        style="display: block;"
       >
         Your balances show how close you are to meeting your annual plan deductibles and out-of-pocket limits.
       </p>
@@ -1639,6 +1686,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
               />
               <p
                 class="body-2"
+                style="display: block;"
               >
                 Your policy has separate limits for in- and out-of-network charges. Charges incurred with an in- network provider will apply to your in-network limit; charges incurred with an out-of-network provider will apply toward your out-of-network limit. Please note that individual out of pocket limits only apply if the family limit has not yet been satisfied.
               </p>
@@ -1665,17 +1713,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       1 Visit Per Calendar Year -- Mammogram
                     </p>
@@ -1700,17 +1751,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       1 Visit Per Calendar Year -- Gyn
                     </p>
@@ -1735,17 +1789,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       12 Visits Per Year - Dietary Counseling
                     </p>
@@ -1770,17 +1827,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       4 Injections Per Year --  Trigger Point Injection
                     </p>
@@ -1805,17 +1865,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       20 Per Benefit Period - Urine/Serum Drug Testing
                     </p>
@@ -1840,17 +1903,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         0
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       1 Visit Per Calendar Year - Wellcare - Over Age 6
                     </p>
@@ -2017,6 +2083,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You do not have any Deductible amounts.
                       </p>
@@ -2050,6 +2117,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You do not have any Out-of-Pocket amounts.
                       </p>
@@ -2080,17 +2148,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $3000 Annual Maximum Basic and Major
                     </p>
@@ -2115,17 +2186,20 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $3000 Ortho Lifetime Maximum
                     </p>
@@ -2190,6 +2264,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
               >
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   As of
                 </p>
@@ -2277,6 +2352,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Paid
                   </p>
@@ -2297,6 +2373,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Saved
                   </p>
@@ -2313,7 +2390,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
               <a
                 aria-label="View Spending Summary"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -2323,7 +2399,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Summary
                   </p>
@@ -2354,7 +2429,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    style="display: block;"
                   >
                     HSA
                   </p>
@@ -2364,11 +2439,13 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Health Saving Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $349.90
                   </p>
@@ -2384,8 +2461,8 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   class="flex flex-col"
                 >
                   <p
-                    class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    class="body-1 py-4 px-7 font-bold spending-account-text"
+                    style="display: block;"
                   >
                     FSA
                   </p>
@@ -2395,11 +2472,13 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Flexible Spending Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $1,009.50
                   </p>
@@ -2412,7 +2491,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 aria-label="View Spending Accounts"
                 href=""
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -2422,7 +2500,6 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Accounts
                   </p>

@@ -156,6 +156,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Set the level of access for individuals on your health plan.
                       </p>
@@ -176,6 +177,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Plan: 
                         </p>
@@ -278,11 +280,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Maddison Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/1979
                           </p>
@@ -315,6 +319,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
                               Full Sharing
                             </p>
@@ -376,11 +381,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Forest Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2001
                           </p>
@@ -413,6 +420,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
                               Full Sharing
                             </p>
@@ -474,11 +482,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Corey Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2002
                           </p>
@@ -511,6 +521,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
                               Full Sharing
                             </p>
@@ -572,11 +583,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Telly Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2008
                           </p>
@@ -609,6 +622,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
                               Full Sharing
                             </p>
@@ -670,11 +684,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Janie Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2024
                           </p>
@@ -717,6 +733,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                                 >
                                   <p
                                     class="body-1 body-1"
+                                    style="display: block;"
                                   >
                                     This is a minor dependent. Sharing permissions aren’t applicable with this account.
                                   </p>
@@ -734,7 +751,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   <a
                     aria-label="View Benefits & Coverage"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -744,7 +760,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Benefits & Coverage
                       </p>
@@ -910,6 +925,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Set the level of access for individuals on your health plan.
                     </p>
@@ -930,6 +946,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Plan: 
                       </p>
@@ -1032,11 +1049,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Maddison Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/1979
                         </p>
@@ -1069,6 +1088,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Full Sharing
                           </p>
@@ -1130,11 +1150,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Forest Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2001
                         </p>
@@ -1167,6 +1189,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Full Sharing
                           </p>
@@ -1228,11 +1251,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Corey Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2002
                         </p>
@@ -1265,6 +1290,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Full Sharing
                           </p>
@@ -1326,11 +1352,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Telly Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2008
                         </p>
@@ -1363,6 +1391,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Full Sharing
                           </p>
@@ -1424,11 +1453,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Janie Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2024
                         </p>
@@ -1471,6 +1502,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1 body-1"
+                                  style="display: block;"
                                 >
                                   This is a minor dependent. Sharing permissions aren’t applicable with this account.
                                 </p>
@@ -1488,7 +1520,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                 <a
                   aria-label="View Benefits & Coverage"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
@@ -1498,7 +1529,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View Benefits & Coverage
                     </p>

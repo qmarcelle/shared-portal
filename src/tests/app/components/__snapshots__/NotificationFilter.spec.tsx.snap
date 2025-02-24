@@ -67,6 +67,7 @@ exports[`Display Notification Filter should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1"
+                                  style="display: block;"
                                 >
                                   All Members
                                 </p>
@@ -125,6 +126,7 @@ exports[`Display Notification Filter should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1"
+                                  style="display: block;"
                                 >
                                   All Types
                                 </p>
@@ -183,6 +185,7 @@ exports[`Display Notification Filter should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1"
+                                  style="display: block;"
                                 >
                                   Last Two Years
                                 </p>

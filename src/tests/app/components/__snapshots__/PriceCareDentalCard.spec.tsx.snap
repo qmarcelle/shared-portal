@@ -19,11 +19,13 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 body-1 center"
+                style="display: block;"
               >
                 Procedure
               </p>
               <p
                 class="body-1 title-3 center mt-2"
+                style="display: block;"
               >
                 Topical fluoride varnish
               </p>
@@ -33,11 +35,13 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 body-1 decoration-dashed underline center"
+                style="display: block;"
               >
                 Customary Cost
               </p>
               <p
                 class="body-1 title-3 center mt-2"
+                style="display: block;"
               >
                 $48.51
               </p>
@@ -47,11 +51,13 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 body-1 decoration-dashed underline center"
+                style="display: block;"
               >
                 Network Allowance
               </p>
               <p
                 class="body-1 title-3 center mt-2"
+                style="display: block;"
               >
                 $30.00
               </p>
@@ -69,6 +75,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1 center"
+            style="display: block;"
           >
             This cost is only an estimate and may be less based on your   deductible, coinsurance and annual maximum.
           </p>
@@ -114,6 +121,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   Get started searching for a dentist near you.
                 </p>
@@ -139,11 +147,13 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-1 center"
+              style="display: block;"
             >
               Procedure
             </p>
             <p
               class="body-1 title-3 center mt-2"
+              style="display: block;"
             >
               Topical fluoride varnish
             </p>
@@ -153,11 +163,13 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-1 decoration-dashed underline center"
+              style="display: block;"
             >
               Customary Cost
             </p>
             <p
               class="body-1 title-3 center mt-2"
+              style="display: block;"
             >
               $48.51
             </p>
@@ -167,11 +179,13 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-1 decoration-dashed underline center"
+              style="display: block;"
             >
               Network Allowance
             </p>
             <p
               class="body-1 title-3 center mt-2"
+              style="display: block;"
             >
               $30.00
             </p>
@@ -189,6 +203,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
         />
         <p
           class="body-1 body-1 center"
+          style="display: block;"
         >
           This cost is only an estimate and may be less based on your   deductible, coinsurance and annual maximum.
         </p>
@@ -234,6 +249,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Get started searching for a dentist near you.
               </p>

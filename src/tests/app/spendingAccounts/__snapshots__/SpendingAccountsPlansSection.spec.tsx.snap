@@ -27,7 +27,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
               <a
                 aria-label="visit Health Equity"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container link !flex caremark pt-0"
@@ -37,13 +36,11 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     visit Health Equity
                   </p>
                   <p
                     class="ml-1"
-                    style="display: block;"
                   >
                     <img
                       alt="external"
@@ -271,7 +268,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   <a
                     aria-label="View HSA Transactions"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -281,7 +277,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View HSA Transactions
                       </p>
@@ -489,7 +484,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   <a
                     aria-label="View FSA Transactions"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -499,7 +493,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View FSA Transactions
                       </p>
@@ -531,7 +524,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   <a
                     aria-label="Direct Deposit Form  "
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link no-underline !flex caremark"
@@ -541,13 +533,11 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Direct Deposit Form  
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -584,7 +574,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                   <a
                     aria-label="Eligible Expenses "
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link n0-underline !flex caremark"
@@ -594,13 +583,11 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Eligible Expenses 
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -868,7 +855,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
         <a
           aria-label="View FSA Transactions"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -878,7 +864,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View FSA Transactions
             </p>
@@ -907,7 +892,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
         <a
           aria-label="Direct Deposit Form  "
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link no-underline !flex caremark"
@@ -917,13 +901,11 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               Direct Deposit Form  
             </p>
             <p
               class="ml-1"
-              style="display: block;"
             >
               <img
                 alt="external"
@@ -960,7 +942,6 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
         <a
           aria-label="Eligible Expenses "
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link n0-underline !flex caremark"
@@ -970,13 +951,11 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               Eligible Expenses 
             </p>
             <p
               class="ml-1"
-              style="display: block;"
             >
               <img
                 alt="external"
@@ -1034,7 +1013,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
               <a
                 aria-label="visit Health Equity"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container link !flex caremark pt-0"
@@ -1044,13 +1022,11 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     visit Health Equity
                   </p>
                   <p
                     class="ml-1"
-                    style="display: block;"
                   >
                     <img
                       alt="external"
@@ -1278,7 +1254,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   <a
                     aria-label="View HSA Transactions"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -1288,7 +1263,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View HSA Transactions
                       </p>
@@ -1496,7 +1470,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   <a
                     aria-label="View FSA Transactions"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -1506,7 +1479,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View FSA Transactions
                       </p>
@@ -1538,7 +1510,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   <a
                     aria-label="Direct Deposit Form  "
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link no-underline !flex caremark"
@@ -1548,13 +1519,11 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Direct Deposit Form  
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -1591,7 +1560,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                   <a
                     aria-label="Eligible Expenses "
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link n0-underline !flex caremark"
@@ -1601,13 +1569,11 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Eligible Expenses 
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -1875,7 +1841,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
         <a
           aria-label="View FSA Transactions"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -1885,7 +1850,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View FSA Transactions
             </p>
@@ -1914,7 +1878,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
         <a
           aria-label="Direct Deposit Form  "
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link no-underline !flex caremark"
@@ -1924,13 +1887,11 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               Direct Deposit Form  
             </p>
             <p
               class="ml-1"
-              style="display: block;"
             >
               <img
                 alt="external"
@@ -1967,7 +1928,6 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
         <a
           aria-label="Eligible Expenses "
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container link n0-underline !flex caremark"
@@ -1977,13 +1937,11 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               Eligible Expenses 
             </p>
             <p
               class="ml-1"
-              style="display: block;"
             >
               <img
                 alt="external"

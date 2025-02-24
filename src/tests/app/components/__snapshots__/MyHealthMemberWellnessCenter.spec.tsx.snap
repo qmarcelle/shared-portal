@@ -24,6 +24,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.
             </p>
@@ -73,6 +74,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 link-row-head"
+                        style="display: block;"
                       >
                         Your Health Assessment
                       </p>
@@ -81,6 +83,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.
                       </p>
@@ -128,6 +131,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 link-row-head"
+                        style="display: block;"
                       >
                         Earn Wellness Points
                       </p>
@@ -136,6 +140,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.
                       </p>
@@ -183,6 +188,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 link-row-head"
+                        style="display: block;"
                       >
                         Interactive Programs
                       </p>
@@ -191,6 +197,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!
                       </p>
@@ -215,7 +222,6 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     aria-label="Visit Member Wellness Center"
                     href=""
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -225,13 +231,11 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Visit Member Wellness Center
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -275,6 +279,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.
           </p>
@@ -324,6 +329,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
+                      style="display: block;"
                     >
                       Your Health Assessment
                     </p>
@@ -332,6 +338,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.
                     </p>
@@ -379,6 +386,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
+                      style="display: block;"
                     >
                       Earn Wellness Points
                     </p>
@@ -387,6 +395,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.
                     </p>
@@ -434,6 +443,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
+                      style="display: block;"
                     >
                       Interactive Programs
                     </p>
@@ -442,6 +452,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!
                     </p>
@@ -466,7 +477,6 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   aria-label="Visit Member Wellness Center"
                   href=""
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -476,13 +486,11 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Visit Member Wellness Center
                     </p>
                     <p
                       class="ml-1"
-                      style="display: block;"
                     >
                       <img
                         alt="external"

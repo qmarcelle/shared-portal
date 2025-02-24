@@ -19,11 +19,13 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
           >
             <p
               class="body-1"
+              style="display: block;"
             >
               Filter Results:
             </p>
             <p
               class="body-1 font-bold ml-2"
+              style="display: block;"
             >
               1 Documents
             </p>
@@ -33,6 +35,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
           >
             <p
               class="body-1 mr-2"
+              style="display: block;"
             >
               Sort by: 
             </p>
@@ -146,6 +149,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   />
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Received: 01/20/2023
                   </p>
@@ -154,6 +158,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   />
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     For Chris Hall
                   </p>
@@ -183,11 +188,13 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
         >
           <p
             class="body-1"
+            style="display: block;"
           >
             Filter Results:
           </p>
           <p
             class="body-1 font-bold ml-2"
+            style="display: block;"
           >
             1 Documents
           </p>
@@ -197,6 +204,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
         >
           <p
             class="body-1 mr-2"
+            style="display: block;"
           >
             Sort by: 
           </p>
@@ -310,6 +318,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 />
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   Received: 01/20/2023
                 </p>
@@ -318,6 +327,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 />
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   For Chris Hall
                 </p>

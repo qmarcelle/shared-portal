@@ -19,6 +19,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           Below are the apps and websites you’re sharing your information with.
         </p>
@@ -30,6 +31,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
         >
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             Plan: 
           </p>
@@ -133,6 +135,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
                   MyFHR App
                 </p>
@@ -141,44 +144,38 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1 mb-4"
+                  style="display: block;"
                 >
                   Connected On 01/01/2023
                 </p>
-                <a
-                  aria-label="Remove"
-                  style="display: flex;"
-                  tabindex="-1"
+                <button
+                  class="flex flex-row link-container font-bold primary-color pl-0"
+                  style="max-width: max-content; height: auto; display: flex;"
+                  type="button"
                 >
-                  <button
-                    class="flex flex-row link-container font-bold primary-color pl-0"
-                    style="max-width: max-content; height: auto; display: flex;"
-                    tabindex="-1"
-                    type="button"
+                  <p
+                    class="link !no-underline"
+                    style="display: flex;"
                   >
-                    <p
-                      class="link linkUnderlineNone"
-                      style="display: flex;"
-                    >
-                      Remove
-                    </p>
-                    <p
-                      class="ml-1"
-                      style="display: flex;"
-                    >
-                      <img
-                        alt="delete icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </p>
-                  </button>
-                </a>
+                    Remove
+                  </p>
+                  <p
+                    class="ml-1"
+                    style="display: flex;"
+                  >
+                    <img
+                      alt="delete icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
               </div>
             </div>
             <div
@@ -210,6 +207,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
                   Erlanger Hospital
                 </p>
@@ -218,44 +216,38 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1 mb-4"
+                  style="display: block;"
                 >
                   Connected On 01/01/2023
                 </p>
-                <a
-                  aria-label="Remove"
-                  style="display: flex;"
-                  tabindex="-1"
+                <button
+                  class="flex flex-row link-container font-bold primary-color pl-0"
+                  style="max-width: max-content; height: auto; display: flex;"
+                  type="button"
                 >
-                  <button
-                    class="flex flex-row link-container font-bold primary-color pl-0"
-                    style="max-width: max-content; height: auto; display: flex;"
-                    tabindex="-1"
-                    type="button"
+                  <p
+                    class="link !no-underline"
+                    style="display: flex;"
                   >
-                    <p
-                      class="link linkUnderlineNone"
-                      style="display: flex;"
-                    >
-                      Remove
-                    </p>
-                    <p
-                      class="ml-1"
-                      style="display: flex;"
-                    >
-                      <img
-                        alt="delete icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </p>
-                  </button>
-                </a>
+                    Remove
+                  </p>
+                  <p
+                    class="ml-1"
+                    style="display: flex;"
+                  >
+                    <img
+                      alt="delete icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
               </div>
             </div>
           </div>
