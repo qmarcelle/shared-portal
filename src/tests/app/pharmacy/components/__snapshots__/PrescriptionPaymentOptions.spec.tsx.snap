@@ -12,7 +12,6 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
           aria-label="Medicare Prescription Payment Plan Sign-up"
           href="/pharmacy/medicalPrescriptionPaymentPlan"
           style="display: flex;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container pl-0"
@@ -22,13 +21,11 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
           >
             <p
               class="link undefined"
-              style="display: flex;"
             >
               Medicare Prescription Payment Plan Sign-up
             </p>
             <p
               class="ml-1"
-              style="display: flex;"
             >
               <img
                 alt=""
@@ -131,7 +128,6 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
           aria-label="Social Security Extra Help Program"
           href="https://www.ssa.gov/medicare/part-d-extra-help"
           style="display: flex;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container pl-0"
@@ -141,13 +137,11 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
           >
             <p
               class="link undefined"
-              style="display: flex;"
             >
               Social Security Extra Help Program
             </p>
             <p
               class="ml-1"
-              style="display: flex;"
             >
               <img
                 alt=""
@@ -168,6 +162,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
         </p>
@@ -182,7 +177,6 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         aria-label="Medicare Prescription Payment Plan Sign-up"
         href="/pharmacy/medicalPrescriptionPaymentPlan"
         style="display: flex;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container pl-0"
@@ -192,13 +186,11 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         >
           <p
             class="link undefined"
-            style="display: flex;"
           >
             Medicare Prescription Payment Plan Sign-up
           </p>
           <p
             class="ml-1"
-            style="display: flex;"
           >
             <img
               alt=""
@@ -301,7 +293,6 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         aria-label="Social Security Extra Help Program"
         href="https://www.ssa.gov/medicare/part-d-extra-help"
         style="display: flex;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container pl-0"
@@ -311,13 +302,11 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         >
           <p
             class="link undefined"
-            style="display: flex;"
           >
             Social Security Extra Help Program
           </p>
           <p
             class="ml-1"
-            style="display: flex;"
           >
             <img
               alt=""
@@ -338,6 +327,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
       />
       <p
         class="body-1"
+        style="display: block;"
       >
         If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
       </p>

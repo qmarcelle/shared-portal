@@ -88,6 +88,7 @@ export const AuthenticatorAppMfa = () => {
           label="Choose a Different Method"
           callback={() => updateMfaStage(MfaModeState.selection)}
           className="m-auto"
+          type="button"
         />
         <Spacer size={32} />
         <Divider />

@@ -11,11 +11,13 @@ exports[`CareTN Access Code Computation should render AccessCode correctly 1`] =
       >
         <p
           class="body-1 ml-6 mt-3 text-[10px]"
+          style="display: block;"
         >
           Access Code
         </p>
         <p
           class="body-1 ml-3  font-bold text-[15px]"
+          style="display: block;"
         >
           btnbluechat
         </p>
@@ -48,6 +50,7 @@ exports[`CareTN Access Code Computation should render Error Scenario correctly 1
         />
         <p
           class="body-1 mt-3 ml-2"
+          style="display: block;"
         >
           Access code could not load.
         </p>

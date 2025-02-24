@@ -51,6 +51,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Choose Network
                           </p>
@@ -109,6 +110,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Select Category
                           </p>
@@ -167,6 +169,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Select Procedure
                           </p>
@@ -287,6 +290,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Choose Network
                         </p>
@@ -345,6 +349,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Select Category
                         </p>
@@ -403,6 +408,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Select Procedure
                         </p>

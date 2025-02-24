@@ -128,6 +128,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     You do not have any Deductible amounts.
                   </p>
@@ -161,6 +162,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     You do not have any Out-of-Pocket amounts.
                   </p>
@@ -191,17 +193,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     90.0
                   </p>
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Used
                   </p>
                 </div>
                 <p
                   class="body-1 ml-5"
+                  style="display: block;"
                 >
                   Annual Maximum Basic and Major Coverage
                 </p>
@@ -226,17 +231,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     0.0
                   </p>
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Used
                   </p>
                 </div>
                 <p
                   class="body-1 ml-5"
+                  style="display: block;"
                 >
                   Ortho Lifetime Maximum
                 </p>
@@ -406,6 +414,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   You do not have any Deductible amounts.
                 </p>
@@ -439,6 +448,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   You do not have any Out-of-Pocket amounts.
                 </p>
@@ -469,17 +479,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
                   90.0
                 </p>
                 <p
                   class="body-2"
+                  style="display: block;"
                 >
                   Used
                 </p>
               </div>
               <p
                 class="body-1 ml-5"
+                style="display: block;"
               >
                 Annual Maximum Basic and Major Coverage
               </p>
@@ -504,17 +517,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
                   0.0
                 </p>
                 <p
                   class="body-2"
+                  style="display: block;"
                 >
                   Used
                 </p>
               </div>
               <p
                 class="body-1 ml-5"
+                style="display: block;"
               >
                 Ortho Lifetime Maximum
               </p>

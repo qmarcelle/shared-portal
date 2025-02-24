@@ -192,11 +192,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Visited on 08/23/23
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
+                      style="display: block;"
                     >
                       For Chris Hall
                     </p>
@@ -206,16 +208,19 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Visited on
                     </p>
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       08/23/23
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
+                      style="display: block;"
                     >
                       For Chris Hall
                     </p>
@@ -225,11 +230,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 tertiary-color"
+                      style="display: block;"
                     >
                       Total Billed
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
+                      style="display: block;"
                     >
                       $535.00
                     </p>
@@ -239,11 +246,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 tertiary-color"
+                      style="display: block;"
                     >
                       Plan Paid
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
+                      style="display: block;"
                     >
                       --
                     </p>
@@ -253,11 +262,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 tertiary-color"
+                      style="display: block;"
                     >
                       My Share
                     </p>
                     <p
                       class="body-1 body-1 mt-2 font-bold"
+                      style="display: block;"
                     >
                       --
                     </p>
@@ -272,6 +283,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
         >
           <p
             class="body-1 m-2 mt-0"
+            style="display: block;"
           >
             Viewing 1 of 1 Claims
           </p>
@@ -300,6 +312,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1 pt-1"
+                  style="display: block;"
                 >
                   Previous
                 </p>
@@ -318,6 +331,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
               >
                 <p
                   class="body-1 pt-1"
+                  style="display: block;"
                 >
                   Next
                 </p>
@@ -366,6 +380,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Page: 
               </p>
@@ -436,6 +451,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 of 1
               </p>

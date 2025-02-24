@@ -53,6 +53,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
               </p>
@@ -61,6 +62,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -191,6 +194,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Available anytime 24/7
                           </p>
@@ -221,6 +225,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Less expensive than urgent care or the ER
                           </p>
@@ -251,6 +256,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Downloadable app, call or video chat available
                           </p>
@@ -286,6 +292,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Depending on the type of visit, you can expect to pay:
                     </p>
@@ -294,6 +301,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $55 or less
                     </p>
@@ -347,6 +355,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Allergies, cold, fever or flu
                           </p>
@@ -372,6 +381,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Skin condition (rashes or insect bites)
                           </p>
@@ -397,6 +407,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Urinary tract infections
                           </p>
@@ -422,6 +433,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Constipation or diarrhea
                           </p>
@@ -447,6 +459,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Arthritis
                           </p>
@@ -472,6 +485,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Earaches
                           </p>
@@ -497,6 +511,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Nausea or vomiting
                           </p>
@@ -522,6 +537,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Pink eye
                           </p>
@@ -547,6 +563,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Sunburn
                           </p>
@@ -572,6 +589,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Sore throat
                           </p>
@@ -597,6 +615,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Backache
                           </p>
@@ -622,6 +641,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Food poisoning
                           </p>
@@ -647,6 +667,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Nasal congestion
                           </p>
@@ -714,6 +735,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
             </p>
@@ -722,6 +744,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -822,6 +845,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -852,6 +876,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Available anytime 24/7
                         </p>
@@ -882,6 +907,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Less expensive than urgent care or the ER
                         </p>
@@ -912,6 +938,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Downloadable app, call or video chat available
                         </p>
@@ -947,6 +974,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Depending on the type of visit, you can expect to pay:
                   </p>
@@ -955,6 +983,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $55 or less
                   </p>
@@ -1008,6 +1037,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Allergies, cold, fever or flu
                         </p>
@@ -1033,6 +1063,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Skin condition (rashes or insect bites)
                         </p>
@@ -1058,6 +1089,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Urinary tract infections
                         </p>
@@ -1083,6 +1115,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Constipation or diarrhea
                         </p>
@@ -1108,6 +1141,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Arthritis
                         </p>
@@ -1133,6 +1167,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Earaches
                         </p>
@@ -1158,6 +1193,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Nausea or vomiting
                         </p>
@@ -1183,6 +1219,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Pink eye
                         </p>
@@ -1208,6 +1245,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Sunburn
                         </p>
@@ -1233,6 +1271,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Sore throat
                         </p>
@@ -1258,6 +1297,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Backache
                         </p>
@@ -1283,6 +1323,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Food poisoning
                         </p>
@@ -1308,6 +1349,7 @@ exports[`TeladocHealthGeneralUrgentCareHealthProgram should render the UI correc
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Nasal congestion
                         </p>

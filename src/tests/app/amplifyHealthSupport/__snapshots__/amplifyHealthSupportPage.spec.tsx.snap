@@ -41,6 +41,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
               />
               <p
                 class="body-1 max-w-[400px]"
+                style="display: block;"
               >
                 Your advisors are here to answer your questions. Chat online or call   1-866-258-3267, anytime 24/7.
               </p>
@@ -129,6 +130,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                     />
                     <p
                       class="body-1 pl-2"
+                      style="display: block;"
                     >
                       Find providers close to you
                     </p>
@@ -149,6 +151,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                     />
                     <p
                       class="body-1 pl-2"
+                      style="display: block;"
                     >
                       Save you money on health costs
                     </p>
@@ -169,6 +172,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                     />
                     <p
                       class="body-1 pl-2"
+                      style="display: block;"
                     >
                       Help with prior approvals or other complex parts of health care
                     </p>
@@ -193,6 +197,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                     />
                     <p
                       class="body-1 pl-2"
+                      style="display: block;"
                     >
                       Schedule your appointments, tests and procedures
                     </p>
@@ -213,6 +218,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                     />
                     <p
                       class="body-1 pl-2"
+                      style="display: block;"
                     >
                       Give you extra support for health needs and questions
                     </p>
@@ -233,6 +239,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                     />
                     <p
                       class="body-1 pl-2"
+                      style="display: block;"
                     >
                       Recommend programs for healthy living
                     </p>
@@ -291,6 +298,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                     />
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Use the AmplifyHealth app to connect with your health advisors and access your benefits. Getting started is easy. You’ll use the same login information you use to access your account at bcbst.com.
                     </p>
@@ -361,6 +369,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Find answers to your health insurance questions or find a form.
               </p>
@@ -513,6 +522,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
             </h2>
             <p
               class="body-1 text-center"
+              style="display: block;"
             >
               We want to hear from you. Share your feedback about your experience using our website.
             </p>

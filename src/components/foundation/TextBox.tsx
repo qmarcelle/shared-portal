@@ -2,15 +2,17 @@ import { IComponent } from '../IComponent';
 
 interface TextBoxProps extends IComponent {
   text: string;
+  tabFocus?: number;
+  display?: 'block' | 'inline';
   type?: 'title-1' | 'title-2' | 'title-3' | 'body-1' | 'body-2';
-  styleProps?: object;
 }
 
 export const TextBox = ({
   text,
-  styleProps,
   type = 'body-1',
+  tabFocus,
   className = '',
+  display = 'block',
 }: TextBoxProps) => {
   if (type == 'title-1') {
     return <h1 className={`${type} ${className}`.trimEnd()}>{text}</h1>;
@@ -20,7 +22,11 @@ export const TextBox = ({
     return <h3 className={`${type} ${className}`.trimEnd()}>{text}</h3>;
   }
   return (
-    <p style={styleProps} className={`${type} ${className}`.trimEnd()}>
+    <p
+      className={`${type} ${className}`.trimEnd()}
+      tabIndex={tabFocus}
+      style={{ display: display }}
+    >
       {text}
     </p>
   );

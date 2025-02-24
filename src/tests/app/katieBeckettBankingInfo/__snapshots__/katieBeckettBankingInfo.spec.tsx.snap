@@ -16,6 +16,7 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
         </h1>
         <p
           class="body-1 body-1 m-2 ml-0 mb-0 md:w-2/3"
+          style="display: block;"
         >
           Below is the authorization for BlueCare Tennessee to accept bank draft payments for health insurance premiums.
         </p>
@@ -44,6 +45,7 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                 />
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   Update the bank draft details for your form in the plan below.
                 </p>
@@ -353,6 +355,7 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                   >
                     <p
                       class="body-1 mt-4 mb-2"
+                      style="display: block;"
                     >
                       Type of Bank Account:
                     </p>

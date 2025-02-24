@@ -54,6 +54,7 @@ exports[`Non Member Dashboard should render correctly with all avail switch role
                 </h2>
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   Select the account to switch to:
                 </p>
@@ -71,6 +72,7 @@ exports[`Non Member Dashboard should render correctly with all avail switch role
                     >
                       <p
                         class="body-1 body-2"
+                        style="display: block;"
                       >
                         View as Personal Representative:
                       </p>
@@ -79,6 +81,7 @@ exports[`Non Member Dashboard should render correctly with all avail switch role
                       >
                         <p
                           class="body-1 !font-bold title-3 text-[--primary-color]"
+                          style="display: block;"
                         >
                           Raphel Claud
                         </p>
@@ -99,11 +102,13 @@ exports[`Non Member Dashboard should render correctly with all avail switch role
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           11/30/2030
                         </p>
@@ -118,6 +123,7 @@ exports[`Non Member Dashboard should render correctly with all avail switch role
                     >
                       <p
                         class="body-1 body-2"
+                        style="display: block;"
                       >
                         View as Personal Representative:
                       </p>
@@ -126,6 +132,7 @@ exports[`Non Member Dashboard should render correctly with all avail switch role
                       >
                         <p
                           class="body-1 !font-bold title-3 text-[--primary-color]"
+                          style="display: block;"
                         >
                           Robert Cook
                         </p>
@@ -146,11 +153,13 @@ exports[`Non Member Dashboard should render correctly with all avail switch role
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           11/30/2030
                         </p>

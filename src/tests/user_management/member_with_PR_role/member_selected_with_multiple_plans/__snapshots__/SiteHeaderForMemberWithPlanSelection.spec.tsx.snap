@@ -74,11 +74,13 @@ exports[`SiteHeader for Plan Selection Wall for Member should render UI correctl
                   >
                     <p
                       class="body-2 app-base-font-color"
+                      style="display: block;"
                     >
                       View Plan:
                     </p>
                     <p
                       class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                      style="display: block;"
                     >
                       ...
                     </p>
@@ -155,11 +157,13 @@ exports[`SiteHeader for Plan Selection Wall for Member should render UI correctl
             >
               <p
                 class="body-2 app-base-font-color"
+                style="display: block;"
               >
                 View Plan:
               </p>
               <p
                 class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                style="display: block;"
               >
                 ...
               </p>
