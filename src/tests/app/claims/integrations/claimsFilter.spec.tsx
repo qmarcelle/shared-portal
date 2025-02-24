@@ -16,6 +16,15 @@ jest.mock('src/auth', () => ({
   ),
 }));
 
+jest.mock('src/utils/encryption', () => ({
+  decrypt: jest.fn(() => {
+    return 'EXT820200100';
+  }),
+  encrypt: jest.fn(() => {
+    return 'aW9pZ0F3V0lwZHlrbnBaeUVtaGk3QT09O2QwY2JmOWQ0ZWNiZjM0OWU=';
+  }),
+}));
+
 jest
   .useFakeTimers({
     doNotFake: ['nextTick', 'setImmediate'],

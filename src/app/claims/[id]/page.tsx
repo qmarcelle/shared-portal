@@ -15,7 +15,7 @@ const ClaimsDetailPage = async ({
 }) => {
   const { id } = params;
   const claimType = searchParams.type;
-  const result = await getClaimDetailsData(id, claimType);
+  const result = await getClaimDetailsData(decodeURIComponent(id), claimType);
   return <ClaimDetails data={result.data!} />;
 };
 
