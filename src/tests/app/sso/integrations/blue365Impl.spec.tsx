@@ -13,6 +13,7 @@ jest.mock('next/navigation', () => ({
   useSearchParams() {
     return {
       get: mockGet,
+      entries: jest.fn(() => []),
     };
   },
   useRouter() {
@@ -64,11 +65,9 @@ describe('Blue365 SSO', () => {
         {
           alphaprefix: 'QMI',
           birthyear: '08/06/',
-          emailaddress: '',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
-          subject: '',
           targetresource: '',
           zipcode: '37402',
         },
@@ -101,11 +100,9 @@ describe('Blue365 SSO', () => {
         {
           alphaprefix: 'QMI',
           birthyear: '08/06/',
-          emailaddress: '',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
-          subject: '',
           targetresource: '',
           zipcode: '37402',
         },

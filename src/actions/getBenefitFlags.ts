@@ -43,7 +43,7 @@ export async function getBenefitFlags(
       productType = 'V';
     }
     const resp = await portalSvcsApi.get<BenefitResponse>(
-      `memberservice/api/member/v1/members/byMemberCk/${memberData.memeCk}/benefits/flags/${productType}/${planId}/${flagsFor}`,
+      `/memberservice/api/member/v1/members/byMemberCk/${memberData.memeCk}/benefits/flags/${productType}/${planId}/${flagsFor}`,
     );
 
     return resp.data;

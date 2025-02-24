@@ -13,6 +13,7 @@ jest.mock('next/navigation', () => ({
   useSearchParams() {
     return {
       get: mockGet,
+      entries: jest.fn(() => []),
     };
   },
   useRouter() {

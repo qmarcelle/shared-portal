@@ -1,9 +1,17 @@
 'use server';
 
 import axios from 'axios';
+import { HttpsProxyAgent } from 'https-proxy-agent';
+import { getSDKToken } from './getSDKToken';
 
 interface DropOffResp {
   REF: string;
+}
+
+interface ChallengeDropOffResp {
+  additionalProperties: {
+    challenge: string;
+  };
 }
 
 export default async function dropOffToPing(myDataMap: Map<string, string>) {
@@ -42,6 +50,49 @@ export default async function dropOffToPing(myDataMap: Map<string, string>) {
       throw new Error(JSON.stringify(response.data));
     }
     return response.data.REF;
+  } catch (error) {
+    console.log('Error in dropOff:', error);
+    if (error instanceof Error) {
+      console.log(`Error posting information to ping: ${error.message}`);
+    } else {
+      console.log('Issue with PingDropOff', error);
+    }
+  }
+}
+
+export async function challengeDropOffToPing(myDataMap: Map<string, string>) {
+  try {
+    const token = await getSDKToken();
+    const dropOffEndpoint = `${process.env.PING_ONE_BASE_URL}${process.env.NEXT_PUBLIC_ENV_ID}/davinci/policy/${process.env.DROP_OFF_POLICY_ID}/start`;
+    const headers = {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    };
+    console.log(
+      'Drop Off To Ping SSO Param Map :: ' +
+        JSON.stringify(Object.fromEntries(myDataMap)),
+    );
+
+    const proxyUrl = 'http://webgateway.bcbst.com:80/';
+    const agent = new HttpsProxyAgent(proxyUrl);
+    const response = await axios.post<ChallengeDropOffResp>(
+      dropOffEndpoint,
+      Object.fromEntries(myDataMap),
+      {
+        proxy:
+          process.env.NEXT_PUBLIC_PROXY?.toLocaleLowerCase() === 'false'
+            ? false
+            : undefined,
+        headers,
+        httpsAgent: agent,
+      },
+    );
+
+    console.log('Drop off Response :: ', response);
+    if (response.status !== 200) {
+      throw new Error(JSON.stringify(response.data));
+    }
+    return response.data.additionalProperties.challenge;
   } catch (error) {
     console.log('Error in dropOff:', error);
     if (error instanceof Error) {
