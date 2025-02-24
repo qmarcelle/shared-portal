@@ -1,4 +1,5 @@
 import PharmacyPage from '@/app/pharmacy/page';
+import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER = 'https://www.shopbcbstotc.com';
@@ -13,6 +14,27 @@ jest.mock('next/navigation', () => ({
     };
   },
 }));
+
+const vRules = {
+  user: {
+    vRules: {
+      fsaOnly: false,
+      wellnessOnly: false,
+      terminated: false,
+      medicarePrescriptionPaymentPlanEligible: true,
+      displayPharmacyTab: true,
+    },
+  },
+};
+
+jest.mock('src/auth', () => ({
+  auth: jest.fn(),
+}));
+
+const renderUI = async () => {
+  const page = await PharmacyPage();
+  return render(page);
+};
 
 describe('Pharmacy Page', () => {
   it('should render the page correctly', async () => {
@@ -29,5 +51,34 @@ describe('Pharmacy Page', () => {
     fireEvent.click(screen.getByText(/890 Pharmacy/i));
     expect(mockPush).toHaveBeenCalledWith('/pharmacy/pharmacyClaims');
     expect(container).toMatchSnapshot();
+  });
+
+  it('should render the Prescription Payment Plan Options card if the pzn rule is true', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    const component = await renderUI();
+    expect(
+      screen.getByText('Prescription Payment Options'),
+    ).toBeInTheDocument();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should not render the Prescription Payment Plan Options card if the pzn rule is false', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    vRules.user.vRules.medicarePrescriptionPaymentPlanEligible = false;
+    vRules.user.vRules.terminated = true;
+    vRules.user.vRules.wellnessOnly = true;
+    vRules.user.vRules.fsaOnly = true;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    const component = await renderUI();
+    expect(screen.queryByText('Prescription Payment Options')).toBeNull();
+    expect(component).toMatchSnapshot();
   });
 });

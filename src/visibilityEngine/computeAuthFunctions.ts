@@ -138,4 +138,8 @@ export function computeAuthFunctions(
   rules.rxPreferredEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'RX_PREFERRED_ELIGIBLE',
   )?.available;
+
+  rules.medicarePrescriptionPaymentPlanEligible = authFunctionsMap.get(
+    'MEDICARE_PRESCIPTION_PAYMENT_PLAN_ELIGIBLE',
+  );
 }
