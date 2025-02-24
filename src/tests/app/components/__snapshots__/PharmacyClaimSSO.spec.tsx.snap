@@ -22,6 +22,7 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
             />
             <p
               class="body-1 px-1"
+              style="display: block;"
             >
               CVS Caremark is your pharmacy benefit manager. You can find more information about your pharmacy claim on Caremark.
             </p>
@@ -31,7 +32,6 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
             <a
               aria-label="Go to Caremark"
               style="display: block;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container undefined"
@@ -41,13 +41,11 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
               >
                 <p
                   class="link undefined"
-                  style="display: block;"
                 >
                   Go to Caremark
                 </p>
                 <p
                   class="ml-1"
-                  style="display: block;"
                 >
                   <img
                     alt="external"
@@ -86,6 +84,7 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
           />
           <p
             class="body-1 px-1"
+            style="display: block;"
           >
             CVS Caremark is your pharmacy benefit manager. You can find more information about your pharmacy claim on Caremark.
           </p>
@@ -95,7 +94,6 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
           <a
             aria-label="Go to Caremark"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
@@ -105,13 +103,11 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 Go to Caremark
               </p>
               <p
                 class="ml-1"
-                style="display: block;"
               >
                 <img
                   alt="external"

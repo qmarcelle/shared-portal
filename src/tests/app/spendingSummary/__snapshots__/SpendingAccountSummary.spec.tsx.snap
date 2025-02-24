@@ -20,6 +20,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
         >
           <p
             class="body-1"
+            style="display: block;"
           >
             As of
           </p>
@@ -107,6 +108,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
             />
             <p
               class="body-1 ml-2"
+              style="display: block;"
             >
               You Paid
             </p>
@@ -127,6 +129,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
             />
             <p
               class="body-1 ml-2"
+              style="display: block;"
             >
               You Saved
             </p>
@@ -197,11 +200,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       $30.24
                     </p>
@@ -264,11 +269,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       $30.24
                     </p>
@@ -331,11 +338,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       $30.24
                     </p>
@@ -398,11 +407,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       $30.24
                     </p>
@@ -451,7 +462,6 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                 <a
                   aria-label="Download a PDF Statement"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !flex pl-0 manage-underline"
@@ -461,13 +471,11 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Download a PDF Statement
                     </p>
                     <p
                       class="ml-1"
-                      style="display: block;"
                     >
                       <img
                         alt="external"
@@ -539,6 +547,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="body-1"
+                                    style="display: block;"
                                   >
                                     All Members
                                   </p>
@@ -597,6 +606,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="body-1"
+                                    style="display: block;"
                                   >
                                     2023
                                   </p>
@@ -655,6 +665,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="body-1"
+                                    style="display: block;"
                                   >
                                     Pharmacy
                                   </p>
@@ -710,6 +721,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       As of
                     </p>
@@ -797,6 +809,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Paid
                       </p>
@@ -817,6 +830,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Saved
                       </p>
@@ -887,11 +901,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -954,11 +970,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -1021,11 +1039,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -1088,11 +1108,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -1139,7 +1161,6 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
               <a
                 aria-label="Download a PDF Statement"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container !flex pl-0 manage-underline"
@@ -1149,13 +1170,11 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     Download a PDF Statement
                   </p>
                   <p
                     class="ml-1"
-                    style="display: block;"
                   >
                     <img
                       alt="external"
@@ -1227,6 +1246,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               >
                                 <p
                                   class="body-1"
+                                  style="display: block;"
                                 >
                                   All Members
                                 </p>
@@ -1285,6 +1305,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               >
                                 <p
                                   class="body-1"
+                                  style="display: block;"
                                 >
                                   2023
                                 </p>
@@ -1343,6 +1364,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               >
                                 <p
                                   class="body-1"
+                                  style="display: block;"
                                 >
                                   Pharmacy
                                 </p>
@@ -1398,6 +1420,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     As of
                   </p>
@@ -1485,6 +1508,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                     />
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       You Paid
                     </p>
@@ -1505,6 +1529,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                     />
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       You Saved
                     </p>
@@ -1575,11 +1600,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               $30.24
                             </p>
@@ -1642,11 +1669,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               $30.24
                             </p>
@@ -1709,11 +1738,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               $30.24
                             </p>
@@ -1776,11 +1807,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
+                              style="display: block;"
                             >
                               $30.24
                             </p>

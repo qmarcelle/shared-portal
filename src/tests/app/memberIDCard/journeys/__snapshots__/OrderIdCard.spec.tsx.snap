@@ -111,6 +111,7 @@ exports[`OrderId Card should render the screens correctly 1`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           Your new cards will be mailed to your address in 7–14 business days.
                         </p>

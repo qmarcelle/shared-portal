@@ -38,6 +38,7 @@ exports[`UpdateCommunicationEmail displays success message on final page 1`] = `
         >
           <p
             class="body-1 text-center"
+            style="display: block;"
           >
             Your email address is:
           </p>
@@ -46,6 +47,7 @@ exports[`UpdateCommunicationEmail displays success message on final page 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             test@example.com
           </p>
@@ -83,6 +85,7 @@ exports[`UpdateCommunicationEmail renders initial page with email input 1`] = `
       />
       <p
         class="body-1 text-center"
+        style="display: block;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>
@@ -160,6 +163,7 @@ exports[`UpdateCommunicationEmail shows error for invalid email address 1`] = `
       />
       <p
         class="body-1 text-center"
+        style="display: block;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>
@@ -212,6 +216,7 @@ exports[`UpdateCommunicationEmail shows error for invalid email address 1`] = `
               />
               <p
                 class="body-1 body-1 pt-1.5 ml-2"
+                style="display: block;"
               >
                 Please enter a valid address.
               </p>
@@ -262,6 +267,7 @@ exports[`UpdateCommunicationEmail shows error if email addresses do not match 1`
       />
       <p
         class="body-1 text-center"
+        style="display: block;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>
@@ -341,6 +347,7 @@ exports[`UpdateCommunicationEmail shows error if email addresses do not match 1`
               />
               <p
                 class="body-1 body-1 pt-1.5 ml-2"
+                style="display: block;"
               >
                 The email addresses must match. Please check and try again.
               </p>
@@ -391,6 +398,7 @@ exports[`UpdateCommunicationEmail validates email address and shows confirmation
       />
       <p
         class="body-1 text-center"
+        style="display: block;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>

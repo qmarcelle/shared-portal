@@ -147,6 +147,21 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
         if (resp.status == SubmitMFAStatus.PASSWORD_RESET_REQUIRED) {
           useLoginStore.setState({
             forcedPasswordReset: true,
+            interactionData: {
+              interactionId: resp.data!.interactionId,
+              interactionToken: resp.data!.interactionToken,
+            },
+          });
+          return;
+        }
+
+        if (resp.status == SubmitMFAStatus.EMAIL_UNIQUENESS) {
+          useLoginStore.setState({
+            emailUniqueness: true,
+            interactionData: {
+              interactionId: resp.data!.interactionId,
+              interactionToken: resp.data!.interactionToken,
+            },
           });
           return;
         }

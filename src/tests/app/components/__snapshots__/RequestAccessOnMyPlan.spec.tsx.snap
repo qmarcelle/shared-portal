@@ -93,6 +93,7 @@ exports[`Requesting access on my plan Requesting access on my plan 1`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       You're requesting access to:
                     </p>
@@ -107,6 +108,7 @@ exports[`Requesting access on my plan Requesting access on my plan 1`] = `
                       >
                         <p
                           class="body-1 body-1 text-center font-bold"
+                          style="display: block;"
                         >
                           Forest Hall
                         </p>
@@ -115,6 +117,7 @@ exports[`Requesting access on my plan Requesting access on my plan 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           We'll send an email requesting your access to their account to the email address we have on file for this member.
                         </p>
@@ -136,7 +139,6 @@ exports[`Requesting access on my plan Requesting access on my plan 1`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -146,7 +148,6 @@ exports[`Requesting access on my plan Requesting access on my plan 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -294,6 +295,7 @@ exports[`Requesting access on my plan Requesting access on my plan 2`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           We've sent an email requesting your access. They will approve or deny this request and be able to set the level of access you have to their account.
                         </p>

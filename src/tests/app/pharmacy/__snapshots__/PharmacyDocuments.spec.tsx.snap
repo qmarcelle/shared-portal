@@ -16,7 +16,6 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
             aria-label="View Covered Drug List (Formulary)"
             href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
             style="display: inline;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container text-left pl-0"
@@ -26,13 +25,11 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: inline;"
               >
                 View Covered Drug List (Formulary)
               </p>
               <p
                 class="ml-1"
-                style="display: inline;"
               >
                 <img
                   alt="download Icon"
@@ -51,6 +48,7 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           </a>
           <p
             class="body-1"
+            style="display: block;"
           >
             Download a list of all the drugs your plan covers.
           </p>
@@ -76,7 +74,6 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
             aria-label="Prescription Drug Claim Form"
             href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
             style="display: inline;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container text-left pl-0"
@@ -86,13 +83,11 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: inline;"
               >
                 Prescription Drug Claim Form
               </p>
               <p
                 class="ml-1"
-                style="display: inline;"
               >
                 <img
                   alt="download Icon"
@@ -111,6 +106,7 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           </a>
           <p
             class="body-1"
+            style="display: block;"
           >
             We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
           </p>
@@ -135,7 +131,6 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           <a
             aria-label="Prescription Mail Service Order Form"
             style="display: inline;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container text-left pl-0"
@@ -145,13 +140,11 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: inline;"
               >
                 Prescription Mail Service Order Form
               </p>
               <p
                 class="ml-1"
-                style="display: inline;"
               >
                 <img
                   alt="download Icon"
@@ -170,6 +163,7 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           </a>
           <p
             class="body-1"
+            style="display: block;"
           >
             Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
           </p>
@@ -194,7 +188,6 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           <a
             aria-label="Request for Medicare Prescription Drug Coverage Determination"
             style="display: inline;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container text-left pl-0"
@@ -204,13 +197,11 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: inline;"
               >
                 Request for Medicare Prescription Drug Coverage Determination
               </p>
               <p
                 class="ml-1"
-                style="display: inline;"
               >
                 <img
                   alt="right arrow Icon"
@@ -229,6 +220,7 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           </a>
           <p
             class="body-1"
+            style="display: block;"
           >
             You can request an exception for prescription drug coverage.
           </p>
@@ -253,7 +245,6 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           <a
             aria-label="Request for Redetermination of Medicare Prescription Drug Denial"
             style="display: inline;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container text-left pl-0"
@@ -263,13 +254,11 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: inline;"
               >
                 Request for Redetermination of Medicare Prescription Drug Denial
               </p>
               <p
                 class="ml-1"
-                style="display: inline;"
               >
                 <img
                   alt="right arrow Icon"
@@ -288,6 +277,7 @@ exports[`PharmacyDocuments should render UI correctly 1`] = `
           </a>
           <p
             class="body-1"
+            style="display: block;"
           >
             If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).
           </p>

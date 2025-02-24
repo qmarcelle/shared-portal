@@ -40,6 +40,7 @@ exports[`Other Plan Information Component should render UI correctly for Blue Ca
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what's covered under your plan.
               </p>
@@ -81,6 +82,7 @@ exports[`Other Plan Information Component should render UI correctly for Blue Ca
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -122,6 +124,7 @@ exports[`Other Plan Information Component should render UI correctly for Blue Ca
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -174,6 +177,7 @@ exports[`Other Plan Information Component should render UI correctly for Blue Ca
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Look in your member handbook to find your plan details and to help you get the most from your benefits.
               </p>
@@ -226,6 +230,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what's covered under your plan.
               </p>
@@ -267,6 +272,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -308,6 +314,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -349,6 +356,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -390,6 +398,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your annual statement shows claims we received and processed.
               </p>
@@ -431,6 +440,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>
@@ -483,6 +493,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what's covered under your plan.
               </p>
@@ -524,6 +535,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -565,6 +577,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -606,6 +619,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -647,6 +661,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>

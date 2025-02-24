@@ -49,6 +49,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           HSA
                         </p>
@@ -107,6 +108,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Last two Years
                         </p>
@@ -155,6 +157,7 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
            
           <p
             class="body-1 font-bold ml-2"
+            style="display: block;"
           >
             5 Prior Authorizations
           </p>
@@ -194,11 +197,13 @@ exports[`TransactionCardSection should render UI correctly 1`] = `
         >
           <p
             class="body-1 body-1 flex-grow"
+            style="display: block;"
           >
             Health Savings Account Balance
           </p>
           <p
             class="body-1 body-1 flex-end"
+            style="display: block;"
           >
             $3,850.10
           </p>
@@ -413,6 +418,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           HSA
                         </p>
@@ -471,6 +477,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Last two Years
                         </p>
@@ -519,6 +526,7 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
            
           <p
             class="body-1 font-bold ml-2"
+            style="display: block;"
           >
             5 Prior Authorizations
           </p>
@@ -558,11 +566,13 @@ exports[`TransactionCardSection should render UI correctly for mobile device 1`]
         >
           <p
             class="body-1 body-1 flex-grow"
+            style="display: block;"
           >
             Health Savings Account Balance
           </p>
           <p
             class="body-1 body-1 flex-end"
+            style="display: block;"
           >
             $3,850.10
           </p>

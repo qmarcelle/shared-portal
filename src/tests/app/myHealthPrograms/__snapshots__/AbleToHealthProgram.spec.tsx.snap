@@ -53,6 +53,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
               </p>
@@ -61,6 +62,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -191,6 +194,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Self-guided or coaching options available
                           </p>
@@ -221,6 +225,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Work with a therapist or coach
                           </p>
@@ -256,6 +261,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Depending on your plan, you can expect to pay:
                     </p>
@@ -264,6 +270,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $15 – $300
                     </p>
@@ -317,6 +324,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Anxiety
                           </p>
@@ -342,6 +350,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Depression
                           </p>
@@ -367,6 +376,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Grief
                           </p>
@@ -392,6 +402,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Stress
                           </p>
@@ -417,6 +428,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Loneliness
                           </p>
@@ -442,6 +454,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Social anxiety
                           </p>
@@ -467,6 +480,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Self-care improvement
                           </p>
@@ -492,6 +506,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Anxiety related to chronic pain
                           </p>
@@ -517,6 +532,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Building healthier habits
                           </p>
@@ -584,6 +600,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
             </p>
@@ -592,6 +609,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -692,6 +710,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -722,6 +741,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Self-guided or coaching options available
                         </p>
@@ -752,6 +772,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Work with a therapist or coach
                         </p>
@@ -787,6 +808,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Depending on your plan, you can expect to pay:
                   </p>
@@ -795,6 +817,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $15 – $300
                   </p>
@@ -848,6 +871,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Anxiety
                         </p>
@@ -873,6 +897,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Depression
                         </p>
@@ -898,6 +923,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Grief
                         </p>
@@ -923,6 +949,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Stress
                         </p>
@@ -948,6 +975,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Loneliness
                         </p>
@@ -973,6 +1001,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Social anxiety
                         </p>
@@ -998,6 +1027,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Self-care improvement
                         </p>
@@ -1023,6 +1053,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Anxiety related to chronic pain
                         </p>
@@ -1048,6 +1079,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Building healthier habits
                         </p>

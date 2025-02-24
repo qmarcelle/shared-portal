@@ -39,7 +39,6 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                     aria-label="Get One-on-One Health Support"
                     href=""
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -49,13 +48,11 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Get One-on-One Health Support
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -80,6 +77,7 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1 ml-11"
+            style="display: block;"
           >
             We offer a health program that’s designed just for you. Whether you need support for healthy living or help with a long- or short-term illness or injury, you can rely on us.
           </p>
@@ -122,7 +120,6 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                   aria-label="Get One-on-One Health Support"
                   href=""
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -132,13 +129,11 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Get One-on-One Health Support
                     </p>
                     <p
                       class="ml-1"
-                      style="display: block;"
                     >
                       <img
                         alt="external"
@@ -163,6 +158,7 @@ exports[`GetOneOnOneHealthSupport.spec should render the UI correctly 1`] = `
         />
         <p
           class="body-1 body-1 ml-11"
+          style="display: block;"
         >
           We offer a health program that’s designed just for you. Whether you need support for healthy living or help with a long- or short-term illness or injury, you can rely on us.
         </p>

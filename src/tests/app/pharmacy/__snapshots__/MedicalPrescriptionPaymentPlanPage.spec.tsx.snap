@@ -43,7 +43,6 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               <a
                 aria-label=" Social Security Extra Help program"
                 style="display: inline;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container !font-bold inline-flex p-0"
@@ -53,13 +52,11 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                 >
                   <p
                     class="link undefined"
-                    style="display: inline;"
                   >
                      Social Security Extra Help program
                   </p>
                   <p
                     class="ml-1"
-                    style="display: inline;"
                   >
                     <img
                       alt="external icon"
@@ -100,6 +97,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               />
               <p
                 class="body-1 max-w-[650px] font-bold"
+                style="display: block;"
               >
                 Please read the following:
               </p>
@@ -114,6 +112,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 I understand that BlueCross BlueShield of Tennessee, Inc., and its affiliates, will disclose to WIPRO,
                  LLC any and all necessary information about me so that WIPRO, LLC can administer 
@@ -126,6 +125,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 I authorize BlueCross BlueShield of Tennessee, Inc., or any of its affiliates, to redirect me to the WIPRO, LLC 
                 website, an external beneficiary portal, in order for me to apply for, request, opt-in or opt-out of, or otherwise
@@ -269,7 +269,6 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
             <a
               aria-label=" Social Security Extra Help program"
               style="display: inline;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container !font-bold inline-flex p-0"
@@ -279,13 +278,11 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               >
                 <p
                   class="link undefined"
-                  style="display: inline;"
                 >
                    Social Security Extra Help program
                 </p>
                 <p
                   class="ml-1"
-                  style="display: inline;"
                 >
                   <img
                     alt="external icon"
@@ -326,6 +323,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
             />
             <p
               class="body-1 max-w-[650px] font-bold"
+              style="display: block;"
             >
               Please read the following:
             </p>
@@ -340,6 +338,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               I understand that BlueCross BlueShield of Tennessee, Inc., and its affiliates, will disclose to WIPRO,
                  LLC any and all necessary information about me so that WIPRO, LLC can administer 
@@ -352,6 +351,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               I authorize BlueCross BlueShield of Tennessee, Inc., or any of its affiliates, to redirect me to the WIPRO, LLC 
                 website, an external beneficiary portal, in order for me to apply for, request, opt-in or opt-out of, or otherwise

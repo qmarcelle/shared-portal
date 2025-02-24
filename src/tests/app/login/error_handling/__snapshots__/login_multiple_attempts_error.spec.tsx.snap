@@ -95,6 +95,7 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
               >
                 <p
                   class="body-1 text-center"
+                  style="display: block;"
                 >
                   You have attempted to log in too many times. Please wait 10 minutes to try again.
                 </p>
@@ -104,7 +105,6 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
                 <a
                   aria-label="Forgot Username/Password?"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container self-start"
@@ -114,7 +114,6 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Forgot Username/Password?
                     </p>
@@ -132,6 +131,7 @@ exports[`Multiple Login Attempts Error should render Multiple Login Attempts Err
                 />
                 <p
                   class="body-1 title-3 center"
+                  style="display: block;"
                 >
                   Need help?
                 </p>

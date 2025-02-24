@@ -74,11 +74,13 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
                   >
                     <p
                       class="body-2 app-base-font-color"
+                      style="display: block;"
                     >
                       View Plan:
                     </p>
                     <p
                       class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                      style="display: block;"
                     >
                       BlueCross BlueShield of Tennessee
                     </p>
@@ -444,6 +446,7 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
                   <a>
                     <p
                       class="body-1 link-row-head"
+                      style="display: block;"
                     >
                       Search
                     </p>
@@ -582,11 +585,13 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
             >
               <p
                 class="body-2 app-base-font-color"
+                style="display: block;"
               >
                 View Plan:
               </p>
               <p
                 class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                style="display: block;"
               >
                 BlueCross BlueShield of Tennessee
               </p>

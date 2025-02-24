@@ -44,7 +44,7 @@ export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
               className="flex flex-row justify-center items-center toptooltip pl-2"
               label="To change your username, you will need to delete your registered account and create a new account. This will not affect your health plan information."
             >
-              <Image className="icon" src={infoIcon} alt="Info" />
+              <Image className="icon" src={infoIcon} alt="" tabIndex={0} />
             </ToolTip>
           }
         />
