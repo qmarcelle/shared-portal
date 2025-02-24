@@ -22,6 +22,7 @@ import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
   isFreedomMaBlueAdvantage,
+  isMedicarePrescriptionPaymentPlanEligible,
   isPharmacyBenefitsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -470,20 +471,27 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                   </Column>
                 </Card>
               )}
-              <Card className="large-section flex flex-row items-start app-body ">
-                <Column>
-                  <TextBox type="title-2" text="Prescription Payment Options" />
-                  <Spacer size={32} />
-                  <section className="flex flex-row items-start app-body">
-                    <Column className="flex-grow">
-                      <PrescriptionPaymentsOptions
-                        isMedicare={true}
-                        isBlueCarePlus={false}
-                      />
-                    </Column>
-                  </section>
-                </Column>
-              </Card>
+              {isMedicarePrescriptionPaymentPlanEligible(
+                data.visibilityRules,
+              ) && (
+                <Card className="large-section flex flex-row items-start app-body ">
+                  <Column>
+                    <TextBox
+                      type="title-2"
+                      text="Prescription Payment Options"
+                    />
+                    <Spacer size={32} />
+                    <section className="flex flex-row items-start app-body">
+                      <Column className="flex-grow">
+                        <PrescriptionPaymentsOptions
+                          isMedicare={true}
+                          isBlueCarePlus={false}
+                        />
+                      </Column>
+                    </section>
+                  </Column>
+                </Card>
+              )}
             </Column>
           </section>
         </Column>
