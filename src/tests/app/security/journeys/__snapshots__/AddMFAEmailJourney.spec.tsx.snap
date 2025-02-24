@@ -90,6 +90,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -256,6 +257,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -315,6 +317,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the security code sent to your email to complete email setup.We've sent a code to:
                     </p>
@@ -329,6 +332,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 body-1 text-center font-bold"
+                          style="display: block;"
                         >
                           chall123@gmail.com
                         </p>
@@ -361,7 +365,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                         <a
                           aria-label="Resend Code"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
@@ -371,7 +374,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                           >
                             <p
                               class="link undefined"
-                              style="display: block;"
                             >
                               Resend Code
                             </p>
@@ -396,7 +398,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -406,7 +407,6 @@ exports[`Add Mfa Email Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -554,6 +554,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 3`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           The next time you login, you'll receive an email with a security code to:
                         </p>
@@ -562,6 +563,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 3`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           chall123@gmail.com
                         </p>
@@ -698,6 +700,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -901,6 +904,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -980,6 +984,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                             />
                             <p
                               class="body-1 body-1 pt-1.5 ml-2"
+                              style="display: block;"
                             >
                               Invalid Email Address
                             </p>
@@ -1129,6 +1134,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -1332,6 +1338,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -1411,6 +1418,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             />
                             <p
                               class="body-1 body-1 pt-1.5 ml-2"
+                              style="display: block;"
                             >
                               The email addresses must match. Please check and try again.
                             </p>

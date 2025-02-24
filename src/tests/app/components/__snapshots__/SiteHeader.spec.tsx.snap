@@ -78,11 +78,13 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -451,6 +453,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -658,7 +661,6 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <a
                       aria-label="Health Programs & Resources"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -668,7 +670,6 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Health Programs & Resources
                         </p>
@@ -826,11 +827,13 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -932,11 +935,13 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     >
                       <p
                         class="body-2 app-base-font-color"
+                        style="display: block;"
                       >
                         View Plan:
                       </p>
                       <p
                         class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        style="display: block;"
                       >
                         BlueCross BlueShield of Tennessee
                       </p>
@@ -1305,6 +1310,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     <a>
                       <p
                         class="body-1 link-row-head"
+                        style="display: block;"
                       >
                         Search
                       </p>
@@ -1452,7 +1458,6 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   <a
                     aria-label="Frequently Asked Questions"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -1462,7 +1467,6 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Frequently Asked Questions
                       </p>
@@ -1517,7 +1521,6 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   <a
                     aria-label="Share Website Feedback"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -1527,7 +1530,6 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Share Website Feedback
                       </p>
@@ -1573,11 +1575,13 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
               >
                 <p
                   class="body-2 app-base-font-color"
+                  style="display: block;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  style="display: block;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
@@ -1681,11 +1685,13 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -2054,6 +2060,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -2202,7 +2209,6 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       aria-label="My Primary Care Provider"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -2212,7 +2218,6 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           My Primary Care Provider
                         </p>
@@ -2257,7 +2262,6 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     <a
                       aria-label="Health Programs & Resources"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -2267,7 +2271,6 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Health Programs & Resources
                         </p>
@@ -2425,11 +2428,13 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -2534,11 +2539,13 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -2907,6 +2914,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -3008,7 +3016,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Benefits & Coverage"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3018,7 +3025,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Benefits & Coverage
                         </p>
@@ -3027,7 +3033,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Plan Documents"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3037,7 +3042,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Plan Documents
                         </p>
@@ -3046,7 +3050,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Services Used"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3056,7 +3059,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Services Used
                         </p>
@@ -3078,7 +3080,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="View Claims"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3088,7 +3089,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Claims
                         </p>
@@ -3097,7 +3097,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Prior Authorizations"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3107,7 +3106,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Prior Authorizations
                         </p>
@@ -3116,7 +3114,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Submit a Claim"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3126,7 +3123,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Submit a Claim
                         </p>
@@ -3148,7 +3144,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Balances"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3158,7 +3153,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Balances
                         </p>
@@ -3167,7 +3161,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Spending Accounts (HSA, FSA)"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3177,7 +3170,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Spending Accounts (HSA, FSA)
                         </p>
@@ -3186,7 +3178,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Spending Summary"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3196,7 +3187,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Spending Summary
                         </p>
@@ -3264,7 +3254,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Manage My Policy"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3274,7 +3263,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Manage My Policy
                         </p>
@@ -3283,7 +3271,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Report Other Health Insurance"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3293,7 +3280,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Report Other Health Insurance
                         </p>
@@ -3302,7 +3288,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <a
                       aria-label="Update Katie Beckett Banking Info"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3312,7 +3297,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Update Katie Beckett Banking Info
                         </p>
@@ -3347,11 +3331,13 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -3456,11 +3442,13 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -3829,6 +3817,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -3975,7 +3964,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       aria-label="Mental Health Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -3985,7 +3973,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Mental Health Options
                         </p>
@@ -3994,7 +3981,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       aria-label="Virtual Care Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -4004,7 +3990,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Virtual Care Options
                         </p>
@@ -4049,7 +4034,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       aria-label="Price Dental Care"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -4059,7 +4043,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Price Dental Care
                         </p>
@@ -4196,11 +4179,13 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -4305,11 +4290,13 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -4678,6 +4665,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -4824,7 +4812,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       aria-label="Mental Health Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -4834,7 +4821,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Mental Health Options
                         </p>
@@ -4843,7 +4829,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       aria-label="Virtual Care Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -4853,7 +4838,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Virtual Care Options
                         </p>
@@ -4898,7 +4882,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <a
                       aria-label="Price Dental Care"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -4908,7 +4891,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Price Dental Care
                         </p>
@@ -5045,11 +5027,13 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -5154,11 +5138,13 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -5527,6 +5513,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -5628,7 +5615,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Benefits & Coverage"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5638,7 +5624,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Benefits & Coverage
                         </p>
@@ -5647,7 +5632,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Plan Documents"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5657,7 +5641,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Plan Documents
                         </p>
@@ -5666,7 +5649,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Services Used"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5676,7 +5658,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Services Used
                         </p>
@@ -5698,7 +5679,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="View Claims"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5708,7 +5688,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Claims
                         </p>
@@ -5717,7 +5696,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Prior Authorizations"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5727,7 +5705,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Prior Authorizations
                         </p>
@@ -5736,7 +5713,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Submit a Claim"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5746,7 +5722,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Submit a Claim
                         </p>
@@ -5768,7 +5743,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Balances"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5778,7 +5752,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Balances
                         </p>
@@ -5787,7 +5760,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Spending Accounts (HSA, FSA)"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5797,7 +5769,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Spending Accounts (HSA, FSA)
                         </p>
@@ -5806,7 +5777,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Spending Summary"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5816,7 +5786,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Spending Summary
                         </p>
@@ -5861,7 +5830,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Manage My Policy"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5871,7 +5839,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Manage My Policy
                         </p>
@@ -5880,7 +5847,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Report Other Health Insurance"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5890,7 +5856,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Report Other Health Insurance
                         </p>
@@ -5899,7 +5864,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <a
                       aria-label="Update Katie Beckett Banking Info"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -5909,7 +5873,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Update Katie Beckett Banking Info
                         </p>
@@ -5944,11 +5907,13 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -6053,11 +6018,13 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -6426,6 +6393,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -6573,7 +6541,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                     <a
                       aria-label="Frequently Asked Questions"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -6583,7 +6550,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Frequently Asked Questions
                         </p>
@@ -6615,7 +6581,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                     <a
                       aria-label="Find a Form"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -6625,7 +6590,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Find a Form
                         </p>
@@ -6634,7 +6598,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                     <a
                       aria-label="Share Website Feedback"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -6644,7 +6607,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Share Website Feedback
                         </p>
@@ -6690,11 +6652,13 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -6796,11 +6760,13 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                     >
                       <p
                         class="body-2 app-base-font-color"
+                        style="display: block;"
                       >
                         View Plan:
                       </p>
                       <p
                         class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        style="display: block;"
                       >
                         BlueCross BlueShield of Tennessee
                       </p>
@@ -7166,6 +7132,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                     <a>
                       <p
                         class="body-1 link-row-head"
+                        style="display: block;"
                       >
                         Search
                       </p>
@@ -7221,11 +7188,13 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
               >
                 <p
                   class="body-2 app-base-font-color"
+                  style="display: block;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  style="display: block;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
@@ -7329,11 +7298,13 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -7702,6 +7673,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -7848,7 +7820,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     <a
                       aria-label="Virtual Care Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -7858,7 +7829,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Virtual Care Options
                         </p>
@@ -7903,7 +7873,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     <a
                       aria-label="Price Dental Care"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -7913,7 +7882,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Price Dental Care
                         </p>
@@ -8050,11 +8018,13 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -8159,11 +8129,13 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -8532,6 +8504,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -8678,7 +8651,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     <a
                       aria-label="Virtual Care Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -8688,7 +8660,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Virtual Care Options
                         </p>
@@ -8733,7 +8704,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     <a
                       aria-label="Price Dental Care"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -8743,7 +8713,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Price Dental Care
                         </p>
@@ -8880,11 +8849,13 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -8989,11 +8960,13 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -9362,6 +9335,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -9508,7 +9482,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <a
                       aria-label="Primary Care Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -9518,7 +9491,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Primary Care Options
                         </p>
@@ -9527,7 +9499,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <a
                       aria-label="Virtual Care Options"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -9537,7 +9508,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Virtual Care Options
                         </p>
@@ -9582,7 +9552,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <a
                       aria-label="Price Dental Care"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -9592,7 +9561,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Price Dental Care
                         </p>
@@ -9729,11 +9697,13 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -9835,11 +9805,13 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     >
                       <p
                         class="body-2 app-base-font-color"
+                        style="display: block;"
                       >
                         View Plan:
                       </p>
                       <p
                         class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                        style="display: block;"
                       >
                         BlueCross BlueShield of Tennessee
                       </p>
@@ -10208,6 +10180,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     <a>
                       <p
                         class="body-1 link-row-head"
+                        style="display: block;"
                       >
                         Search
                       </p>
@@ -10355,7 +10328,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                   <a
                     aria-label="Frequently Asked Questions"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -10365,7 +10337,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Frequently Asked Questions
                       </p>
@@ -10397,7 +10368,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                   <a
                     aria-label="Find a Form"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -10407,7 +10377,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Find a Form
                       </p>
@@ -10416,7 +10385,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                   <a
                     aria-label="Share Website Feedback"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -10426,7 +10394,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Share Website Feedback
                       </p>
@@ -10472,11 +10439,13 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
               >
                 <p
                   class="body-2 app-base-font-color"
+                  style="display: block;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  style="display: block;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
@@ -10580,11 +10549,13 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -10953,6 +10924,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -11054,7 +11026,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     <a
                       aria-label="Benefits & Coverage"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -11064,7 +11035,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Benefits & Coverage
                         </p>
@@ -11109,7 +11079,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     <a
                       aria-label="View Claims"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -11119,7 +11088,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Claims
                         </p>
@@ -11128,7 +11096,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     <a
                       aria-label="Prior Authorizations"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -11138,7 +11105,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Prior Authorizations
                         </p>
@@ -11147,7 +11113,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     <a
                       aria-label="Submit a Claim"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -11157,7 +11122,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Submit a Claim
                         </p>
@@ -11186,7 +11150,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     <a
                       aria-label="Update Katie Beckett Banking Info"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
@@ -11196,7 +11159,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Update Katie Beckett Banking Info
                         </p>
@@ -11231,11 +11193,13 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -11338,11 +11302,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -11708,6 +11674,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -11763,11 +11730,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -11872,11 +11841,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -12242,6 +12213,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -12297,11 +12269,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -12424,6 +12398,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                     >
                                       <p
                                         class="body-2 font-light"
+                                        style="display: block;"
                                       >
                                         My Profile
                                       </p>
@@ -12434,6 +12409,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                       </h3>
                                       <p
                                         class="body-1 font-light"
+                                        style="display: block;"
                                       >
                                         DOB: 08/07/2002
                                       </p>
@@ -12464,7 +12440,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                               <a
                                 aria-label="All Profile Settings"
                                 style="display: block;"
-                                tabindex="-1"
                               >
                                 <button
                                   class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
@@ -12474,13 +12449,11 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="link undefined"
-                                    style="display: block;"
                                   >
                                     All Profile Settings
                                   </p>
                                   <p
                                     class="ml-1"
-                                    style="display: block;"
                                   >
                                     <img
                                       alt="link"
@@ -12506,7 +12479,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                               <a
                                 aria-label="Communication Settings"
                                 style="display: block;"
-                                tabindex="-1"
                               >
                                 <button
                                   class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
@@ -12516,7 +12488,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="link undefined"
-                                    style="display: block;"
                                   >
                                     Communication Settings
                                   </p>
@@ -12528,7 +12499,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                               <a
                                 aria-label="Security Settings"
                                 style="display: block;"
-                                tabindex="-1"
                               >
                                 <button
                                   class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
@@ -12538,7 +12508,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="link undefined"
-                                    style="display: block;"
                                   >
                                     Security Settings
                                   </p>
@@ -12665,11 +12634,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-2 app-base-font-color"
+                          style="display: block;"
                         >
                           View Plan:
                         </p>
                         <p
                           class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -13035,6 +13006,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       <a>
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Search
                         </p>
@@ -13090,11 +13062,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>

@@ -27,14 +27,7 @@ export const SpendingAccountSection = ({
         <Spacer size={32} />
         <Row>
           <Column>
-            <TextBox
-              text="HSA"
-              className="py-4 px-7 font-bold"
-              styleProps={{
-                'background-color': '#e7f6ff',
-                'border-radius': '7px',
-              }}
-            />
+            <TextBox text="HSA" className="py-4 px-7 font-bold" />
           </Column>
           <Column className="ml-4">
             <TextBox type="body-2" text="Health Saving Account Balance" />
@@ -49,11 +42,7 @@ export const SpendingAccountSection = ({
           <Column>
             <TextBox
               text="FSA"
-              className="py-4 px-7 font-bold"
-              styleProps={{
-                'background-color': '#e7f6ff',
-                'border-radius': '7px',
-              }}
+              className="py-4 px-7 font-bold spending-account-text"
             />
           </Column>
           <Column className="ml-4">

@@ -51,6 +51,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   A caremark.com account will let you get prescriptions by mail, price a medication and more.
                 </p>
@@ -99,6 +100,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                      style="display: block;"
                     >
                       View or Refill My Prescriptions
                     </p>
@@ -123,6 +125,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                      style="display: block;"
                     >
                       Get My Prescriptions by Mail
                     </p>
@@ -147,6 +150,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                      style="display: block;"
                     >
                       Find Drug Cost & My Coverage
                     </p>
@@ -171,6 +175,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                      style="display: block;"
                     >
                       Find a Pharmacy
                     </p>
@@ -184,7 +189,6 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
             <a
               aria-label="Visit CVS Caremark"
               style="display: block;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container !flex p-0"
@@ -194,13 +198,11 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
               >
                 <p
                   class="link undefined"
-                  style="display: block;"
                 >
                   Visit CVS Caremark
                 </p>
                 <p
                   class="ml-1"
-                  style="display: block;"
                 >
                   <img
                     alt="download form"
@@ -268,6 +270,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 A caremark.com account will let you get prescriptions by mail, price a medication and more.
               </p>
@@ -316,6 +319,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                    style="display: block;"
                   >
                     View or Refill My Prescriptions
                   </p>
@@ -340,6 +344,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                    style="display: block;"
                   >
                     Get My Prescriptions by Mail
                   </p>
@@ -364,6 +369,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                    style="display: block;"
                   >
                     Find Drug Cost & My Coverage
                   </p>
@@ -388,6 +394,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
+                    style="display: block;"
                   >
                     Find a Pharmacy
                   </p>
@@ -401,7 +408,6 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
           <a
             aria-label="Visit CVS Caremark"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container !flex p-0"
@@ -411,13 +417,11 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 Visit CVS Caremark
               </p>
               <p
                 class="ml-1"
-                style="display: block;"
               >
                 <img
                   alt="download form"

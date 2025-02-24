@@ -48,6 +48,7 @@ exports[`BenefitsFilterSection should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Chris Hall
                       </p>
@@ -106,6 +107,7 @@ exports[`BenefitsFilterSection should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         All Types
                       </p>
@@ -191,6 +193,7 @@ exports[`BenefitsFilterSection should render the UI correctly 2`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Chris Hall
                       </p>
@@ -249,6 +252,7 @@ exports[`BenefitsFilterSection should render the UI correctly 2`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         All Types
                       </p>

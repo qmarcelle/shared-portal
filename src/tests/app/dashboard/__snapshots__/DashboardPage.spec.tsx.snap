@@ -27,6 +27,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Plan: BlueCross BlueShield of Tennessee
           </p>
@@ -35,6 +36,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Subscriber ID: 902218823
           </p>
@@ -43,6 +45,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Group ID: 100000
           </p>
@@ -51,6 +54,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Policies: Medical, Dental, Vision
           </p>
@@ -169,6 +173,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $67
                               </p>
@@ -183,6 +188,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 02/06/2024, For Chris James
                             </p>
@@ -192,6 +198,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $67
                             </p>
@@ -268,6 +275,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -282,6 +290,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/06/2024, For Aly Jame
                             </p>
@@ -291,6 +300,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $30.24
                             </p>
@@ -367,6 +377,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $65.61
                               </p>
@@ -381,6 +392,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/16/2024, For Aly Jame
                             </p>
@@ -390,6 +402,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $65.61
                             </p>
@@ -404,7 +417,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   <a
                     aria-label="View Claims"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -414,7 +426,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Claims
                       </p>
@@ -714,7 +725,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     aria-label="View Balances"
                     href="/balances"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -724,7 +734,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Balances
                       </p>
@@ -753,6 +762,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Payment Due Date
                     </p>
@@ -770,6 +780,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Amount Due
                     </p>
@@ -824,6 +835,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       As of
                     </p>
@@ -911,6 +923,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Paid
                       </p>
@@ -931,6 +944,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Saved
                       </p>
@@ -947,7 +961,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   <a
                     aria-label="View Spending Summary"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -957,7 +970,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Spending Summary
                       </p>
@@ -1048,7 +1060,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   <a
                     aria-label="View Prior Authorizations"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -1058,7 +1069,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Prior Authorizations
                       </p>
@@ -1369,7 +1379,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   <a
                     aria-label="View Benefits & Coverage"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -1379,7 +1388,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Benefits & Coverage
                       </p>
@@ -1685,6 +1693,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   </h2>
                   <p
                     class="body-1 mt-4 mb-8"
+                    style="display: block;"
                   >
                     Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
                   </p>
@@ -1779,6 +1788,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Plan: BlueCross BlueShield of Tennessee
             </p>
@@ -1787,6 +1797,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Subscriber ID: 902218823
             </p>
@@ -1795,6 +1806,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Group ID: 100000
             </p>
@@ -1803,6 +1815,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Policies: Medical, Dental, Vision
             </p>
@@ -1921,6 +1934,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1 body-1 font-bold mt-2"
+                                  style="display: block;"
                                 >
                                   $67
                                 </p>
@@ -1935,6 +1949,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 mt-2"
+                                style="display: block;"
                               >
                                 Visited on 02/06/2024, For Chris James
                               </p>
@@ -1944,6 +1959,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $67
                               </p>
@@ -2020,6 +2036,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1 body-1 font-bold mt-2"
+                                  style="display: block;"
                                 >
                                   $30.24
                                 </p>
@@ -2034,6 +2051,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 mt-2"
+                                style="display: block;"
                               >
                                 Visited on 01/06/2024, For Aly Jame
                               </p>
@@ -2043,6 +2061,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -2119,6 +2138,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1 body-1 font-bold mt-2"
+                                  style="display: block;"
                                 >
                                   $65.61
                                 </p>
@@ -2133,6 +2153,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 mt-2"
+                                style="display: block;"
                               >
                                 Visited on 01/16/2024, For Aly Jame
                               </p>
@@ -2142,6 +2163,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $65.61
                               </p>
@@ -2156,7 +2178,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     <a
                       aria-label="View Claims"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -2166,7 +2187,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Claims
                         </p>
@@ -2466,7 +2486,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       aria-label="View Balances"
                       href="/balances"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -2476,7 +2495,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Balances
                         </p>
@@ -2505,6 +2523,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Payment Due Date
                       </p>
@@ -2522,6 +2541,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Amount Due
                       </p>
@@ -2576,6 +2596,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         As of
                       </p>
@@ -2663,6 +2684,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         />
                         <p
                           class="body-1 ml-2"
+                          style="display: block;"
                         >
                           You Paid
                         </p>
@@ -2683,6 +2705,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         />
                         <p
                           class="body-1 ml-2"
+                          style="display: block;"
                         >
                           You Saved
                         </p>
@@ -2699,7 +2722,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     <a
                       aria-label="View Spending Summary"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -2709,7 +2731,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Spending Summary
                         </p>
@@ -2800,7 +2821,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     <a
                       aria-label="View Prior Authorizations"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -2810,7 +2830,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Prior Authorizations
                         </p>
@@ -3121,7 +3140,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     <a
                       aria-label="View Benefits & Coverage"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -3131,7 +3149,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           View Benefits & Coverage
                         </p>
@@ -3437,6 +3454,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     </h2>
                     <p
                       class="body-1 mt-4 mb-8"
+                      style="display: block;"
                     >
                       Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
                     </p>
@@ -3525,6 +3543,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Plan: BlueCross BlueShield of Tennessee
           </p>
@@ -3533,6 +3552,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Subscriber ID: 902218823
           </p>
@@ -3541,6 +3561,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Group ID: 100000
           </p>
@@ -3549,6 +3570,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Policies: Medical, Dental, Vision
           </p>
@@ -3667,6 +3689,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $67
                               </p>
@@ -3681,6 +3704,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 02/06/2024, For Chris James
                             </p>
@@ -3690,6 +3714,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $67
                             </p>
@@ -3766,6 +3791,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -3780,6 +3806,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/06/2024, For Aly Jame
                             </p>
@@ -3789,6 +3816,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $30.24
                             </p>
@@ -3865,6 +3893,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $65.61
                               </p>
@@ -3879,6 +3908,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/16/2024, For Aly Jame
                             </p>
@@ -3888,6 +3918,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $65.61
                             </p>
@@ -3902,7 +3933,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   <a
                     aria-label="View Claims"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -3912,7 +3942,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Claims
                       </p>
@@ -4212,7 +4241,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     aria-label="View Balances"
                     href="/balances"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -4222,7 +4250,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Balances
                       </p>
@@ -4251,6 +4278,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Payment Due Date
                     </p>
@@ -4268,6 +4296,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Amount Due
                     </p>
@@ -4322,6 +4351,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       As of
                     </p>
@@ -4409,6 +4439,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Paid
                       </p>
@@ -4429,6 +4460,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Saved
                       </p>
@@ -4445,7 +4477,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   <a
                     aria-label="View Spending Summary"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -4455,7 +4486,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Spending Summary
                       </p>
@@ -4546,7 +4576,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   <a
                     aria-label="View Prior Authorizations"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -4556,7 +4585,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Prior Authorizations
                       </p>
@@ -4867,7 +4895,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   <a
                     aria-label="View Benefits & Coverage"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -4877,7 +4904,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Benefits & Coverage
                       </p>
@@ -5183,6 +5209,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   </h2>
                   <p
                     class="body-1 mt-4 mb-8"
+                    style="display: block;"
                   >
                     Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
                   </p>
@@ -5326,6 +5353,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Plan: BlueCross BlueShield of Tennessee
           </p>
@@ -5334,6 +5362,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Subscriber ID: 902218823
           </p>
@@ -5342,6 +5371,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Group ID: 100000
           </p>
@@ -5350,6 +5380,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Policies: Medical, Dental, Vision
           </p>
@@ -5468,6 +5499,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $67
                               </p>
@@ -5482,6 +5514,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 02/06/2024, For Chris James
                             </p>
@@ -5491,6 +5524,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $67
                             </p>
@@ -5567,6 +5601,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -5581,6 +5616,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/06/2024, For Aly Jame
                             </p>
@@ -5590,6 +5626,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $30.24
                             </p>
@@ -5666,6 +5703,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $65.61
                               </p>
@@ -5680,6 +5718,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/16/2024, For Aly Jame
                             </p>
@@ -5689,6 +5728,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $65.61
                             </p>
@@ -5703,7 +5743,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   <a
                     aria-label="View Claims"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -5713,7 +5752,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Claims
                       </p>
@@ -6013,7 +6051,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     aria-label="View Balances"
                     href="/balances"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -6023,7 +6060,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Balances
                       </p>
@@ -6052,6 +6088,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Payment Due Date
                     </p>
@@ -6069,6 +6106,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Amount Due
                     </p>
@@ -6123,6 +6161,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       As of
                     </p>
@@ -6210,6 +6249,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Paid
                       </p>
@@ -6230,6 +6270,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                       />
                       <p
                         class="body-1 ml-2"
+                        style="display: block;"
                       >
                         You Saved
                       </p>
@@ -6246,7 +6287,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   <a
                     aria-label="View Spending Summary"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -6256,7 +6296,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Spending Summary
                       </p>
@@ -6347,7 +6386,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   <a
                     aria-label="View Prior Authorizations"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -6357,7 +6395,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Prior Authorizations
                       </p>
@@ -6668,7 +6705,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   <a
                     aria-label="View Benefits & Coverage"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -6678,7 +6714,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Benefits & Coverage
                       </p>
@@ -6984,6 +7019,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   </h2>
                   <p
                     class="body-1 mt-4 mb-8"
+                    style="display: block;"
                   >
                     Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
                   </p>

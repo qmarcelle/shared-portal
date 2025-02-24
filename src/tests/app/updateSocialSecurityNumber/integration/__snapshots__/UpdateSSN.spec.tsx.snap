@@ -21,6 +21,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           You can update the Social Security Number (SSN) we have on file here.
         </p>
@@ -49,6 +50,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1 mb-0"
+                  style="display: block;"
                 >
                   For privacy and security, we will not display the current social security number we have on file.
                 </p>
@@ -57,6 +59,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1 mb-0"
+                  style="display: block;"
                 >
                   Your SSN is used to process important tax related documents. Adding or updating your SSN will ensure that your documents are accurate and timely.
                 </p>
@@ -86,11 +89,13 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2 font-bold title-3"
+                      style="display: block;"
                     >
                       CHRISTMAS HALL
                     </p>
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       DOB: 06/29/2009
                     </p>
@@ -106,6 +111,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       A SSN was found on file.
                     </p>
@@ -152,11 +158,13 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2 font-bold title-3"
+                      style="display: block;"
                     >
                       KRISSY HALL
                     </p>
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       DOB: 06/15/2009
                     </p>
@@ -172,6 +180,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       A SSN was found on file.
                     </p>
@@ -218,11 +227,13 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2 font-bold title-3"
+                      style="display: block;"
                     >
                       CHRISTIAN HALL
                     </p>
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       DOB: 10/31/2011
                     </p>
@@ -238,6 +249,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2"
+                      style="display: block;"
                     >
                       A SSN was found on file.
                     </p>

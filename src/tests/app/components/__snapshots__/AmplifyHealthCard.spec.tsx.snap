@@ -18,6 +18,7 @@ exports[`AmplifyHealth Card should render the UI correctly 1`] = `
         </h2>
         <p
           class="body-1 mt-4 mb-8"
+          style="display: block;"
         >
           Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
         </p>

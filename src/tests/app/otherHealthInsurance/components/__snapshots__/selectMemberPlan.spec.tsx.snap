@@ -19,6 +19,7 @@ exports[` 1`] = `
           />
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             The policy you've entered is:
           </p>
@@ -30,16 +31,19 @@ exports[` 1`] = `
           >
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               [Company Name]
             </p>
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               [Policy Identification #]
             </p>
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               [Policy Start Date]
             </p>
@@ -49,6 +53,7 @@ exports[` 1`] = `
           />
           <p
             class="body-1 body-1 w-[130%] text-center"
+            style="display: block;"
           >
             Do other members of your plan have this other health insurance policy?
           </p>
@@ -110,6 +115,7 @@ exports[` 1`] = `
           >
             <p
               class="body-1 body-1 text-left"
+              style="display: block;"
             >
               Check all that apply:
             </p>
@@ -284,6 +290,7 @@ exports[` 1`] = `
         />
         <p
           class="body-1 body-1"
+          style="display: block;"
         >
           The policy you've entered is:
         </p>
@@ -295,16 +302,19 @@ exports[` 1`] = `
         >
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             [Company Name]
           </p>
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             [Policy Identification #]
           </p>
           <p
             class="body-1 body-1"
+            style="display: block;"
           >
             [Policy Start Date]
           </p>
@@ -314,6 +324,7 @@ exports[` 1`] = `
         />
         <p
           class="body-1 body-1 w-[130%] text-center"
+          style="display: block;"
         >
           Do other members of your plan have this other health insurance policy?
         </p>
@@ -375,6 +386,7 @@ exports[` 1`] = `
         >
           <p
             class="body-1 body-1 text-left"
+            style="display: block;"
           >
             Check all that apply:
           </p>

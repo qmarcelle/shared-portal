@@ -99,6 +99,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 text-center"
+                          style="display: block;"
                         >
                           Are you sure you want to turn off the email method of mutli-factor authentication?
                         </p>
@@ -116,25 +117,18 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                       <span
                         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                       />
-                      <a
-                        aria-label="Cancel"
-                        style="display: block;"
-                        tabindex="-1"
+                      <button
+                        class="flex flex-row link-container undefined"
+                        style="max-width: max-content; height: auto; display: block;"
+                        type="button"
                       >
-                        <button
-                          class="flex flex-row link-container undefined"
-                          style="max-width: max-content; height: auto; display: block;"
-                          tabindex="-1"
-                          type="button"
+                        <p
+                          class="link !no-underline"
+                          style="display: block;"
                         >
-                          <p
-                            class="link undefined"
-                            style="display: block;"
-                          >
-                            Cancel
-                          </p>
-                        </button>
-                      </a>
+                          Cancel
+                        </p>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -278,6 +272,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           You've Successfully turned off the email method of multi-factor authentication.
                         </p>

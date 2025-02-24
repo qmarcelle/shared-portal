@@ -18,6 +18,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
       </h1>
       <p
         class="body-1 body-1 my-4 mb-0 w-2/3"
+        style="display: block;"
       >
         Your balances show how close you are to meeting your annual plan deductibles and out-of-pocket limits.
       </p>
@@ -201,6 +202,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                     >
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You do not have any Deductible amounts.
                       </p>
@@ -234,6 +236,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                     >
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         You do not have any Out-of-Pocket amounts.
                       </p>
@@ -264,17 +267,20 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $3000 Annual Maximum Basic and Major
                     </p>
@@ -299,17 +305,20 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                     >
                       <p
                         class="body-1 font-bold"
+                        style="display: block;"
                       >
                         $0.00
                       </p>
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         Used
                       </p>
                     </div>
                     <p
                       class="body-1 ml-5"
+                      style="display: block;"
                     >
                       $3000 Ortho Lifetime Maximum
                     </p>
@@ -374,6 +383,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
               >
                 <p
                   class="body-1"
+                  style="display: block;"
                 >
                   As of
                 </p>
@@ -461,6 +471,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Paid
                   </p>
@@ -481,6 +492,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                   />
                   <p
                     class="body-1 ml-2"
+                    style="display: block;"
                   >
                     You Saved
                   </p>
@@ -497,7 +509,6 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
               <a
                 aria-label="View Spending Summary"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -507,7 +518,6 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Summary
                   </p>
@@ -538,7 +548,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                 >
                   <p
                     class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    style="display: block;"
                   >
                     HSA
                   </p>
@@ -548,11 +558,13 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Health Saving Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $349.90
                   </p>
@@ -568,8 +580,8 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                   class="flex flex-col"
                 >
                   <p
-                    class="body-1 py-4 px-7 font-bold"
-                    style="background-color: rgb(231, 246, 255); border-radius: 7px;"
+                    class="body-1 py-4 px-7 font-bold spending-account-text"
+                    style="display: block;"
                   >
                     FSA
                   </p>
@@ -579,11 +591,13 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                 >
                   <p
                     class="body-2"
+                    style="display: block;"
                   >
                     Flexible Spending Account Balance
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     $1,009.50
                   </p>
@@ -596,7 +610,6 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                 aria-label="View Spending Accounts"
                 href=""
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container undefined"
@@ -606,7 +619,6 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     View Spending Accounts
                   </p>

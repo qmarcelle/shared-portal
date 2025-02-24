@@ -19,6 +19,7 @@ exports[`UserSwitchFilter should render UI correctly when click on personal repr
             >
               <p
                 class="body-2 font-light"
+                style="display: block;"
               >
                 Viewing as Authorized User
               </p>
@@ -29,6 +30,7 @@ exports[`UserSwitchFilter should render UI correctly when click on personal repr
               </h3>
               <p
                 class="body-1 font-light"
+                style="display: block;"
               >
                 DOB: 01/01/1943
               </p>
@@ -79,6 +81,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             >
               <p
                 class="body-2 font-light"
+                style="display: block;"
               >
                 My Profile
               </p>
@@ -89,6 +92,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
               </h3>
               <p
                 class="body-1 font-light"
+                style="display: block;"
               >
                 DOB: 11/03/2000
               </p>
@@ -119,7 +123,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <a
         aria-label="All Profile Settings"
         style="display: block;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
@@ -129,13 +132,11 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
         >
           <p
             class="link undefined"
-            style="display: block;"
           >
             All Profile Settings
           </p>
           <p
             class="ml-1"
-            style="display: block;"
           >
             <img
               alt="link"
@@ -161,7 +162,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <a
         aria-label="Communication Settings"
         style="display: block;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
@@ -171,7 +171,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
         >
           <p
             class="link undefined"
-            style="display: block;"
           >
             Communication Settings
           </p>
@@ -183,7 +182,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <a
         aria-label="Security Settings"
         style="display: block;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
@@ -193,7 +191,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
         >
           <p
             class="link undefined"
-            style="display: block;"
           >
             Security Settings
           </p>
@@ -226,6 +223,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             >
               <p
                 class="body-2 font-light"
+                style="display: block;"
               >
                 My Profile
               </p>
@@ -236,6 +234,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
               </h3>
               <p
                 class="body-1 font-light"
+                style="display: block;"
               >
                 DOB: 11/03/2000
               </p>
@@ -307,6 +306,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                     >
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         My Profile
                       </p>
@@ -333,6 +333,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       </div>
                       <p
                         class="body-1 text-base"
+                        style="display: block;"
                       >
                         DOB: 01/01/1978
                       </p>
@@ -362,6 +363,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                     >
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         View as Personal Representative
                       </p>
@@ -388,6 +390,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       </div>
                       <p
                         class="body-1 text-base"
+                        style="display: block;"
                       >
                         DOB: 01/01/1943
                       </p>
@@ -417,6 +420,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                     >
                       <p
                         class="body-2"
+                        style="display: block;"
                       >
                         View as Authorized User
                       </p>
@@ -443,6 +447,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       </div>
                       <p
                         class="body-1 text-base"
+                        style="display: block;"
                       >
                         DOB: 01/01/1943
                       </p>
@@ -465,7 +470,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <a
         aria-label="All Profile Settings"
         style="display: block;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
@@ -475,13 +479,11 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
         >
           <p
             class="link undefined"
-            style="display: block;"
           >
             All Profile Settings
           </p>
           <p
             class="ml-1"
-            style="display: block;"
           >
             <img
               alt="link"
@@ -507,7 +509,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <a
         aria-label="Communication Settings"
         style="display: block;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
@@ -517,7 +518,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
         >
           <p
             class="link undefined"
-            style="display: block;"
           >
             Communication Settings
           </p>
@@ -529,7 +529,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       <a
         aria-label="Security Settings"
         style="display: block;"
-        tabindex="-1"
       >
         <button
           class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
@@ -539,7 +538,6 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
         >
           <p
             class="link undefined"
-            style="display: block;"
           >
             Security Settings
           </p>

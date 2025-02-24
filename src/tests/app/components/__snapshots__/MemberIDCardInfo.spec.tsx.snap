@@ -24,6 +24,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               All members of your plan use the same ID card.
             </p>
@@ -95,6 +96,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
+                                  style="display: block;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -142,6 +144,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
+                                  style="display: block;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -189,6 +192,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
+                                  style="display: block;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -236,6 +240,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
+                                  style="display: block;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -283,6 +288,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
+                                  style="display: block;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -337,6 +343,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             <section>
               <p
                 class="body-1 title-3"
+                style="display: block;"
               >
                 Download ID Cards
               </p>
@@ -345,6 +352,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 mt-4 mb-2"
+                  style="display: block;"
                 >
                   Select the card you want to download:
                 </p>
@@ -418,6 +426,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 title-3"
+                style="display: block;"
               >
                 Order New ID Cards
               </p>
@@ -426,6 +435,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Order a printed Member ID card(s) for your current plan.
               </p>
@@ -480,6 +490,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   View your plan details.
                 </p>
@@ -521,6 +532,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   View what's covered under your plan.
                 </p>
@@ -597,6 +609,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
+                            style="display: block;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -644,6 +657,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
+                            style="display: block;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -691,6 +705,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
+                            style="display: block;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -738,6 +753,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
+                            style="display: block;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -785,6 +801,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
+                            style="display: block;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -855,6 +872,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             All members of your plan use the same ID card.
           </p>
@@ -926,6 +944,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
+                                style="display: block;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -973,6 +992,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
+                                style="display: block;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1020,6 +1040,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
+                                style="display: block;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1067,6 +1088,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
+                                style="display: block;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1114,6 +1136,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
+                                style="display: block;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1168,6 +1191,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           <section>
             <p
               class="body-1 title-3"
+              style="display: block;"
             >
               Download ID Cards
             </p>
@@ -1176,6 +1200,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 mt-4 mb-2"
+                style="display: block;"
               >
                 Select the card you want to download:
               </p>
@@ -1249,6 +1274,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             />
             <p
               class="body-1 title-3"
+              style="display: block;"
             >
               Order New ID Cards
             </p>
@@ -1257,6 +1283,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Order a printed Member ID card(s) for your current plan.
             </p>
@@ -1311,6 +1338,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View your plan details.
               </p>
@@ -1352,6 +1380,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what's covered under your plan.
               </p>
@@ -1428,6 +1457,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1475,6 +1505,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1522,6 +1553,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1569,6 +1601,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1616,6 +1649,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
