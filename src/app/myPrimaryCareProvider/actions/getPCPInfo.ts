@@ -40,7 +40,7 @@ export async function getDependentPCPInfo(
     const responsePromises = loggedUserInfo.members
       .filter(
         (item) =>
-          Number(memberDetails!.user.currUsr!.plan.memCk) != item.memberCk,
+          Number(memberDetails?.user.currUsr?.plan?.memCk) != item.memberCk,
       )
       .map((member) => {
         console.log('Inside Map', member.memberCk);
@@ -52,7 +52,7 @@ export async function getDependentPCPInfo(
     const membersInfo = loggedUserInfo.members
       .filter(
         (item) =>
-          Number(memberDetails!.user.currUsr!.plan.memCk) != item.memberCk,
+          Number(memberDetails?.user.currUsr?.plan?.memCk) != item.memberCk,
       )
       .map((member) => {
         return {
