@@ -75,6 +75,7 @@ describe('Eyemed SSO', () => {
             dob: '19590806',
             firstname: 'CHRIS',
             lastname: 'HALL',
+            targetresource: '',
           },
           {
             headers: {
@@ -110,6 +111,7 @@ describe('Eyemed SSO', () => {
           dob: '19590806',
           firstname: 'CHRIS',
           lastname: 'HALL',
+          targetresource: '',
         },
         {
           headers: {

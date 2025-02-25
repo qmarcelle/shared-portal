@@ -1,5 +1,139 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`FindMedicalProvidersComponent should navigate to Sapphire SSO 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main large-section undefined"
+    >
+      <section
+        class="gap-8"
+      >
+        <div
+          class="flex flex-row align-top items-center"
+        >
+          <img
+            alt=""
+            class="w-[40px] h-[40px]"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+          />
+          <h3
+            class="title-3 !font-bold"
+          >
+            Find Medical Providers
+          </h3>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="rich-text body-1 undefined"
+        >
+          <span>
+            Use the employer-provided Embold Health search tool to
+             
+          </span>
+          <span
+            class="font-bold"
+          >
+            find medical providers.
+             
+          </span>
+          <span>
+            If you need to 
+          </span>
+          <span
+            class="font-bold"
+          >
+            find other care
+          </span>
+          <span>
+            , like dental or vision, use our find care search tool.
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col flex flex-col space-y-2"
+        >
+          <button
+            aria-label="Find Medical Providers"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+            type="button"
+          >
+            Find Medical Providers
+            <p
+              class="ml-2"
+            >
+              <img
+                alt="external icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <button
+            aria-label="Find Other Care"
+            class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null relative group"
+            type="button"
+          >
+            Find Other Care
+            <p
+              class="ml-2"
+            >
+              <img
+                alt="external icon"
+                class="group-hover:hidden"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <img
+                alt="external icon"
+                class="hidden group-hover:block absolute top-2"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`FindMedicalProvidersComponent should render UI correctly 1`] = `
 <body>
   <div>
