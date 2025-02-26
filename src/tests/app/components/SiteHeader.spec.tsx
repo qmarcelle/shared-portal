@@ -137,7 +137,10 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
-    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=CVS`);
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&target=CHECK_DRUG_COST_FAST`,
+    );
     expect(
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
     ).toHaveProperty('target', '');

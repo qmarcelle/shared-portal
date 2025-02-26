@@ -197,3 +197,10 @@ export const BOA_PARTNER_KEY_SIGNATURE = new Map<string, string>([
   ['6722658679', '276NDQW2LXC6QYJC'],
   ['6660677689', 'WNTZ16QVCWJQ7PZY'],
 ]);
+
+//Target Resource
+export const EYEMED_PROVIDER_DIRECTORY = '';
+export const EYEMED_VISION = '';
+export const CVS_PHARMACY_SEARCH_FAST = 'PHARMACY_SEARCH_FAST';
+export const CVS_DRUG_SEARCH_INIT = 'CHECK_DRUG_COST_FAST';
+export const CVS_REFILL_RX = 'ICE_VIEW_RX';

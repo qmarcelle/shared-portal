@@ -11,6 +11,12 @@ import findCareIcon from '../../../public/assets/find_care_search.svg';
 import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 import { FindMedicalProvidersComponent } from '../dashboard/components/FindMedicalProvidersComponent';
+import {
+  CVS_DRUG_SEARCH_INIT,
+  CVS_PHARMACY_SEARCH_FAST,
+  EYEMED_PROVIDER_DIRECTORY,
+  EYEMED_VISION,
+} from '../sso/ssoConstants';
 import { FindCarePillBox } from './components/FindCarePillBox';
 
 const FindCare = () => {
@@ -63,15 +69,16 @@ const FindCare = () => {
                 {
                   label: 'Eye Doctor',
                   callback: () => {
-                    console.log('Clicked Pill Eye Doctor');
+                    router.push(
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_PROVIDER_DIRECTORY}`,
+                    );
                   },
                 },
                 {
                   label: 'Pharmacy',
                   callback: () => {
                     router.push(
-                      '/sso/launch?PartnerSpId=' +
-                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_PHARMACY_SEARCH_FAST}`,
                     );
                   },
                 },
@@ -113,15 +120,16 @@ const FindCare = () => {
                   label: 'Prescription Drugs',
                   callback: () => {
                     router.push(
-                      '/sso/launch?PartnerSpId=' +
-                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_DRUG_SEARCH_INIT}`,
                     );
                   },
                 },
                 {
                   label: 'Vision',
                   callback: () => {
-                    console.log('Clicked Pill Vision');
+                    router.push(
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_VISION}`,
+                    );
                   },
                 },
               ]}
