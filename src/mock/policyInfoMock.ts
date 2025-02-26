@@ -1,20 +1,24 @@
 import { PolicyInfo } from '@/models/policy_info_details';
 
 export const policyInfoMock = {
-  policyInfo: [
+  currentPolicies: [
     {
-      memberCk: '502622001',
-      subscriberName: 'REBEKAH WILSON',
-      groupName: 'Radio Systems Corporation',
-      memberId: '90447969100',
-      activePlanTypes: ['M', 'R', 'S'],
+      memberCk: 54363202,
+      subscriberName: 'DOUGLAS CATT',
+      groupName: 'TLD Logistics Services Inc',
+      memberId: '90196616100',
+      planTypes: ['S', 'M'],
+      amplifyMember: false,
     },
+  ],
+  pastPolicies: [
     {
-      memberCk: '846239401',
-      subscriberName: 'JOHNATHAN ANDERL',
-      groupName: 'Ruby Tuesday Operations LLC',
-      memberId: '90865577900',
-      activePlanTypes: ['D', 'R', 'S', 'M', 'V'],
+      memberCk: 147235702,
+      subscriberName: 'DOUGLAS CATT',
+      groupName: 'TLD Logistics Services Inc',
+      memberId: '90196616101',
+      planTypes: ['S', 'D', 'M'],
+      amplifyMember: false,
     },
   ],
 } as PolicyInfo;

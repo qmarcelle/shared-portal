@@ -1,3 +1,4 @@
+import { PlanDetails } from '@/models/plan_details';
 import { PolicyInfo } from '@/models/policy_info_details';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
 
@@ -9,11 +10,27 @@ export const computePolicyName = (policyTypes: string[]): string => {
 };
 
 export const transformPolicyToPlans = (policyInfo: PolicyInfo) => {
-  return policyInfo.policyInfo.map((item) => ({
-    id: item.memberId,
-    planName: item.groupName,
-    policies: computePolicyName(item.activePlanTypes),
-    subscriberName: item.subscriberName,
-    memeCk: item.memberCk,
-  }));
+  const planDetails: PlanDetails[] = [];
+  policyInfo.currentPolicies?.map((item) =>
+    planDetails.push({
+      id: item.memberId,
+      planName: item.groupName,
+      policies: computePolicyName(item.planTypes),
+      subscriberName: item.subscriberName,
+      memeCk: item.memberCk?.toString(),
+      termedPlan: false,
+    }),
+  );
+  policyInfo.pastPolicies?.map((item) =>
+    planDetails.push({
+      id: item.memberId,
+      planName: item.groupName,
+      policies: computePolicyName(item.planTypes),
+      subscriberName: item.subscriberName,
+      memeCk: item.memberCk?.toString(),
+      termedPlan: true,
+      endedOn: item.termDate?.split('-')[3],
+    }),
+  );
+  return planDetails;
 };

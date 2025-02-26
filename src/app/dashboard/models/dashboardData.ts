@@ -20,4 +20,5 @@ export interface DashboardMemberDetails {
   subscriberId?: string;
   groupId?: string;
   plans?: PlanDetails[];
+  selectedPlan?: PlanDetails;
 }
