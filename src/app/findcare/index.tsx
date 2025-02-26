@@ -11,12 +11,6 @@ import findCareIcon from '../../../public/assets/find_care_search.svg';
 import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 import { FindMedicalProvidersComponent } from '../dashboard/components/FindMedicalProvidersComponent';
-import {
-  CVS_DRUG_SEARCH_INIT,
-  CVS_PHARMACY_SEARCH_FAST,
-  EYEMED_PROVIDER_DIRECTORY,
-  EYEMED_VISION,
-} from '../sso/ssoConstants';
 import { FindCarePillBox } from './components/FindCarePillBox';
 
 const FindCare = () => {
@@ -69,16 +63,15 @@ const FindCare = () => {
                 {
                   label: 'Eye Doctor',
                   callback: () => {
-                    router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_PROVIDER_DIRECTORY}`,
-                    );
+                    console.log('Clicked Pill Eye Doctor');
                   },
                 },
                 {
                   label: 'Pharmacy',
                   callback: () => {
                     router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_PHARMACY_SEARCH_FAST}`,
+                      '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
                     );
                   },
                 },
@@ -120,16 +113,15 @@ const FindCare = () => {
                   label: 'Prescription Drugs',
                   callback: () => {
                     router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_DRUG_SEARCH_INIT}`,
+                      '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
                     );
                   },
                 },
                 {
                   label: 'Vision',
                   callback: () => {
-                    router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_VISION}`,
-                    );
+                    console.log('Clicked Pill Vision');
                   },
                 },
               ]}

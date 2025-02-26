@@ -1,12 +1,5 @@
 'use client';
 import Link from 'next/link';
-import {
-  CVS_DRUG_SEARCH_INIT,
-  CVS_PHARMACY_SEARCH_FAST,
-  CVS_REFILL_RX,
-  EYEMED_PROVIDER_DIRECTORY,
-  EYEMED_VISION,
-} from '../ssoConstants';
 
 const DummyPage = () => {
   return (
@@ -30,20 +23,6 @@ const DummyPage = () => {
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_VISION}`}
-          >
-            EYEMED Vision
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_PROVIDER_DIRECTORY}`}
-          >
-            EYEMED Eye Doctor
-          </Link>
-        </li>
-        <li>
-          <Link
             href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HEALTH_EQUITY}`}
           >
             Health Equity
@@ -61,27 +40,6 @@ const DummyPage = () => {
             href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
           >
             CVS Caremark
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_DRUG_SEARCH_INIT}`}
-          >
-            CVS Caremark Drug Search
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_PHARMACY_SEARCH_FAST}`}
-          >
-            CVS Caremark Pharmacy Search
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_REFILL_RX}`}
-          >
-            CVS Caremark Refill RX
           </Link>
         </li>
         <li>

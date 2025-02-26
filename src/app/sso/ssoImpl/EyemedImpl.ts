@@ -11,11 +11,11 @@ import {
   SSO_LAST_NAME,
   SSO_MEMBER_ID,
   SSO_SUBJECT,
-  SSO_TARGET_RESOURCE,
 } from '../ssoConstants';
 
 export default async function generateEyemedSSOMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateEyemedSSOMap entered !!!');
@@ -25,7 +25,6 @@ export default async function generateEyemedSSOMap(
     throw new Error('Member not found');
   }
 
-  const target = searchParams?.target ?? '';
   // change the map keys value to all lower case
   const memId = formatMemberId(memberData.subscriberId, memberData.suffix);
   ssoParamMap.set(SSO_MEMBER_ID, memId);
@@ -37,7 +36,6 @@ export default async function generateEyemedSSOMap(
   );
   ssoParamMap.set(SSO_CLIENT_ID, EYEMED_SSO_CLIENT_ID_VALUE);
   ssoParamMap.set(SSO_SUBJECT, memId);
-  ssoParamMap.set(SSO_TARGET_RESOURCE, target);
 
   console.log('generateEyemedSSOMap exited !!!');
   return ssoParamMap;
