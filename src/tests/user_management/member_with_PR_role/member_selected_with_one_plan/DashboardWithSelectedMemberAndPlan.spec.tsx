@@ -49,7 +49,37 @@ mockedAxios.get.mockResolvedValueOnce({
     ],
   },
 });
-
+mockedAxios.get.mockResolvedValueOnce({
+  data: {
+    physicianId: '3118777',
+    physicianName: 'Louthan, James D.',
+    address1: '2033 Meadowview Ln Ste 200',
+    address2: '',
+    address3: '',
+    city: 'Kingsport',
+    state: 'TN',
+    zip: '376607432',
+    phone: '4238572260',
+    ext: '',
+    addressType: '1',
+    taxId: '621388079',
+  },
+});
+mockedAxios.get.mockResolvedValueOnce({
+  data: {
+    currentPolicies: [
+      {
+        memberCk: '502622001',
+        subscriberName: 'REBEKAH WILSON',
+        groupName: 'Radio Systems Corporation',
+        memberId: '90447969100',
+        planTypes: ['M', 'R', 'S'],
+        amplifyMember: false,
+      },
+    ],
+    pastPolicies: [],
+  },
+});
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
@@ -74,7 +104,7 @@ jest.mock('src/auth', () => ({
 }));
 
 describe('Dashboard when PR is selected', () => {
-  let containerSnap;
+  let containerSnap: HTMLElement;
   beforeAll(async () => {
     const component = await DashboardPage();
     const { container } = render(component);

@@ -145,8 +145,10 @@ export const PlanSwitcher = ({
 }: PlanSwitcherProps) => {
   const router = useRouter();
   const [selected, setSelected] = useState(selectedPlan);
+  const isMultiplePlan = plans.length > 1;
+  const isTermedPlanExist = plans.some((item) => item.termedPlan);
   const [plansToShow, setPlanToShow] = useState(
-    plans.filter((x) => !x.endedOn),
+    plans.filter((x) => !x.termedPlan),
   );
   const [isCurrentPlan, setIsCurrentPlan] = useState(true);
   const { dismissModal } = useAppModalStore();
@@ -155,7 +157,7 @@ export const PlanSwitcher = ({
       setPlanToShow(plans);
       setIsCurrentPlan(false);
     } else {
-      setPlanToShow(plans.filter((x) => !x.endedOn));
+      setPlanToShow(plans.filter((x) => !x.termedPlan));
       setIsCurrentPlan(true);
     }
   };
@@ -173,6 +175,7 @@ export const PlanSwitcher = ({
             isModalView={isModal}
           />
         )}
+        isMultipleItem={isMultiplePlan}
         selected={selected}
         onSelectItem={(val) => {
           setSelected(val);
@@ -186,10 +189,12 @@ export const PlanSwitcher = ({
         divider={false}
         dropdownHeader={<PlanDropDownHead isModalView={isModal} />}
         dropdownFooter={
-          <PlanDropDownFooter
-            isCurrentPlan={isCurrentPlan}
-            isModalView={isModal}
-          />
+          isTermedPlanExist ? (
+            <PlanDropDownFooter
+              isCurrentPlan={isCurrentPlan}
+              isModalView={isModal}
+            />
+          ) : undefined
         }
         onClickFooter={() => showPastPlans()}
       />
