@@ -1,4 +1,3 @@
-import { CVS_DRUG_SEARCH_INIT } from '@/app/sso/ssoConstants';
 import {
   isBiometricScreening,
   isBlueCareAndPrimaryCarePhysicianEligible,
@@ -125,7 +124,8 @@ export const getMenuNavigation = (
         description: 'This is Price a Medication',
         category: 'Estimate Costs',
         showOnMenu: isBlueCareNotEligible,
-        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_DRUG_SEARCH_INIT}`,
+        url:
+          '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
         external: true,
         openInNewWindow: false,
       },

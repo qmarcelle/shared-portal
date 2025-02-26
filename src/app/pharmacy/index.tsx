@@ -27,7 +27,6 @@ import {
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { CVS_DRUG_SEARCH_INIT } from '../sso/ssoConstants';
 import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation';
 import PharmacyBenefits from './components/PharmacyBenefits';
 import { PharmacyDocuments } from './components/PharmacyDocuments';
@@ -107,7 +106,9 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                         />
                       ),
                       serviceLabel: 'Get My Prescriptions by Mail',
-                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_DRUG_SEARCH_INIT}`,
+                      url:
+                        '/sso/launch?PartnerSpId=' +
+                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
                     },
                     {
                       serviceIcon: <Image src={costIcon} alt="Cost Icon" />,
