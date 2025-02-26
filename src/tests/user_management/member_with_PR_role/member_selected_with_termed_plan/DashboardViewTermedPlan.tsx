@@ -9,37 +9,43 @@ const renderUI = async () => {
   return render(page);
 };
 
-jest.mock('../../../auth', () => ({
-  auth: jest.fn(() =>
-    Promise.resolve({
-      user: {
-        currUsr: {
-          firstName: 'Chris',
-          role: UserRole.MEMBER,
-          plan: {
-            planName: 'BlueCross BlueShield of Tennessee',
-            subId: '123456',
-            grpId: '100000',
-            memCk: '123456789',
-            coverageType: ['Medical', 'Dental', 'Vision'],
-          },
-        },
-        vRules: {
-          futureEffective: false,
-          fsaOnly: false,
-          wellnessOnly: false,
-          terminated: false,
-          katieBeckNoBenefitsElig: false,
-          blueCare: true,
-          myPCPElig: true,
-        },
+const vRules = {
+  user: {
+    currUsr: {
+      firstName: 'Chris',
+      role: UserRole.MEMBER,
+      plan: {
+        planName: 'BlueCross BlueShield of Tennessee',
+        subId: '123456',
+        grpId: '100000',
+        memCk: '123456789',
+        coverageType: ['Medical', 'Dental', 'Vision'],
       },
-    }),
-  ),
+    },
+    vRules: {
+      futureEffective: false,
+      fsaOnly: false,
+      wellnessOnly: false,
+      terminated: false,
+      katieBeckNoBenefitsElig: false,
+      blueCare: false,
+      myPCPElig: false,
+      subscriber: true,
+      payMyPremiumElig: true,
+    },
+  },
+};
+
+jest.mock('src/auth', () => ({
+  auth: jest.fn(),
 }));
 
-describe('Dashboard Page for BlueCare', () => {
-  it('should render Welcome Banner UI correctly', async () => {
+describe('Dashboard Page', () => {
+  it('should render UI correctly for Pay Premium component', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+
+    mockAuth.mockResolvedValueOnce(vRules);
+
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         groupData: {
@@ -102,19 +108,10 @@ describe('Dashboard Page for BlueCare', () => {
     });
     mockedAxios.get.mockResolvedValueOnce({
       data: {
-        currentPolicies: [
-          {
-            memberCk: '502622001',
-            subscriberName: 'REBEKAH WILSON',
-            groupName: 'Radio Systems Corporation',
-            memberId: '90447969100',
-            planTypes: ['M', 'R', 'S'],
-            amplifyMember: false,
-          },
-        ],
+        currentPolicies: [],
         pastPolicies: [
           {
-            memberCk: '846239401',
+            memberCk: '123456789',
             subscriberName: 'JOHNATHAN ANDERL',
             groupName: 'Ruby Tuesday Operations LLC',
             memberId: '90865577900',
@@ -128,18 +125,12 @@ describe('Dashboard Page for BlueCare', () => {
     expect(mockedAxios.get).toHaveBeenCalledWith(
       '/api/member/v1/members/byMemberCk/123456789',
     );
-    expect(
-      screen.getByText('Plan: BlueCross BlueShield of Tennessee'),
-    ).toBeVisible();
-    expect(screen.getByText('Estimate Costs')).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        'Plan your upcoming care costs before you make an appointment.',
-      ),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('View or Update Primary Care Provider'),
-    ).toBeVisible();
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      '/memberservice/api/v1/policyInfo?members=123456789',
+    );
+    expect(screen.getByText('Recent Claims')).toBeVisible();
+    expect(screen.getByText('Spending Summary')).toBeVisible();
+    expect(screen.queryByText('Pay Premium')).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

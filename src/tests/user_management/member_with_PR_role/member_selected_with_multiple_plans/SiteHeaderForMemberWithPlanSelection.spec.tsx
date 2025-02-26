@@ -226,22 +226,25 @@ mockedAxios.get.mockResolvedValueOnce({
 // Policy Info Call
 mockedAxios.get.mockResolvedValueOnce({
   data: {
-    policyInfo: [
+    currentPolicies: [
       {
         memberCk: '502622001',
         subscriberName: 'REBEKAH WILSON',
         groupName: 'Radio Systems Corporation',
         memberId: '90447969100',
-        activePlanTypes: ['M', 'R', 'S'],
+        planTypes: ['M', 'R', 'S'],
+        amplifyMember: false,
       },
       {
         memberCk: '846239401',
         subscriberName: 'JOHNATHAN ANDERL',
         groupName: 'Ruby Tuesday Operations LLC',
         memberId: '90865577900',
-        activePlanTypes: ['D', 'R', 'S', 'M', 'V'],
+        planTypes: ['D', 'R', 'S', 'M', 'V'],
+        amplifyMember: false,
       },
     ],
+    pastPolicies: [],
   },
 });
 
@@ -262,7 +265,7 @@ jest.mock('src/auth', () => ({
 }));
 
 describe('SiteHeader for Plan Selection Wall for Member', () => {
-  let containerSnap;
+  let containerSnap: HTMLElement;
   beforeAll(async () => {
     const SiteHeader = await SiteHeaderServerWrapper();
     const { container } = render(SiteHeader);

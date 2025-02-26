@@ -1,8 +1,9 @@
+import { unstable_update } from '@/auth';
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 // PBE Call
 mockedAxios.get.mockResolvedValueOnce({
@@ -32,6 +33,70 @@ mockedAxios.get.mockResolvedValueOnce({
           email: 'sub.m@gmail.com',
           relationshipInfo: [
             {
+              personRoleType: 'Dependent',
+              org: 'bcbst_facets',
+              roleTermDate: '2030-11-30T00:00:00.0000000+00:00',
+              nativeId: '38922455201-100000',
+              primaryPlanFlag: false,
+              patientFHIRID: '30345928-abcd-ef01-2345-6789abcdef52',
+              userName: 'Testuser553',
+              memeCk: '502622001',
+              clientId: '194',
+              multiPlanConfirmed: false,
+              multiPlanConfirmedDate: '2030-11-30T00:00:00.0000000+00:00',
+              approvalRequestId: '38922455201-1123456787',
+              relatedPersons: [
+                {
+                  relatedPersonUMPID: '57c85test3ebd23c7db88244',
+                  relatedPersonFirstName: 'AM',
+                  relatedPersonLastName: 'Dep',
+                  relatedPersonMiddleName: 'S',
+                  relatedPersonSuffix: 'Mr.',
+                  relatedPersonNativeId: '38922455200-100000',
+                  relatedPersonFHIRID: '',
+                  relatedPersonPatientFHIRID: '',
+                  relatedPersonRelationshipTermDate:
+                    '2030-11-30T00:00:00.0000000+00:00',
+                  relatedPersonRoleType: 'Subscriber',
+                  relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
+                  relatedPersonApprovalRequestId: '',
+                  relatedPersonMemeCk: '6765454',
+                },
+              ],
+            },
+            {
+              personRoleType: 'Subscriber',
+              org: 'bcbst_facets',
+              roleTermDate: '2030-11-30T00:00:00.0000000+00:00',
+              nativeId: '38922455201-100000',
+              primaryPlanFlag: false,
+              patientFHIRID: '30345928-abcd-ef01-2345-6789abcdef52',
+              userName: 'Testuser553',
+              memeCk: '846239401',
+              clientId: '194',
+              multiPlanConfirmed: false,
+              multiPlanConfirmedDate: '2030-11-30T00:00:00.0000000+00:00',
+              approvalRequestId: '38922455201-1123456787',
+              relatedPersons: [
+                {
+                  relatedPersonUMPID: '57c85test3ebd23c7db88244',
+                  relatedPersonFirstName: 'AM',
+                  relatedPersonLastName: 'Dep',
+                  relatedPersonMiddleName: 'S',
+                  relatedPersonSuffix: 'Mr.',
+                  relatedPersonNativeId: '38922455200-100000',
+                  relatedPersonFHIRID: '',
+                  relatedPersonPatientFHIRID: '',
+                  relatedPersonRelationshipTermDate:
+                    '2030-11-30T00:00:00.0000000+00:00',
+                  relatedPersonRoleType: 'Dependent',
+                  relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
+                  relatedPersonApprovalRequestId: '',
+                  relatedPersonMemeCk: '6765454',
+                },
+              ],
+            },
+            {
               personRoleType: 'PR',
               org: 'bcbst_facets',
               roleTermDate: '2030-11-30T00:00:00.0000000+00:00',
@@ -47,8 +112,8 @@ mockedAxios.get.mockResolvedValueOnce({
               relatedPersons: [
                 {
                   relatedPersonUMPID: '57c85test3ebd23c7db88244',
-                  relatedPersonFirstName: 'AMDS',
-                  relatedPersonLastName: 'Deped',
+                  relatedPersonFirstName: 'Raphel',
+                  relatedPersonLastName: 'Claud',
                   relatedPersonMiddleName: 'S',
                   relatedPersonSuffix: 'Mr.',
                   relatedPersonNativeId: '38922455200-100000',
@@ -91,7 +156,7 @@ mockedAxios.get.mockResolvedValueOnce({
                   relatedPersonRoleType: 'Subscriber',
                   relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
                   relatedPersonApprovalRequestId: '',
-                  relatedPersonMemeCk: '6765458',
+                  relatedPersonMemeCk: '502622001',
                 },
               ],
             },
@@ -160,6 +225,30 @@ mockedAxios.get.mockResolvedValueOnce({
 });
 
 // Policy Info Call
+mockedAxios.get.mockResolvedValueOnce({
+  data: {
+    currentPolicies: [
+      {
+        memberCk: '502622001',
+        subscriberName: 'REBEKAH WILSON',
+        groupName: 'Radio Systems Corporation',
+        memberId: '90447969100',
+        planTypes: ['M', 'R', 'S'],
+        amplifyMember: false,
+      },
+    ],
+    pastPolicies: [
+      {
+        memberCk: '846239401',
+        subscriberName: 'JOHNATHAN ANDERL',
+        groupName: 'Ruby Tuesday Operations LLC',
+        memberId: '90865577900',
+        planTypes: ['D', 'R', 'S', 'M', 'V'],
+        amplifyMember: false,
+      },
+    ],
+  },
+});
 
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
@@ -168,30 +257,66 @@ jest.mock('src/auth', () => ({
         id: 'testUser',
         currUsr: {
           umpi: '57c85test3ebd23c7db88245',
-          role: UserRole.NON_MEM,
-          plan: undefined,
+          role: UserRole.MEMBER,
+          plan: {
+            fhirId: '654543434',
+            grgrCk: '7678765456',
+            grpId: '65654323',
+            memCk: '502622001',
+            sbsbCk: '5654566',
+            subId: '56543455',
+          },
         },
         vRules: {},
       },
     }),
   ),
+  unstable_update: jest.fn(),
 }));
 
-describe('SiteHeader for Non Member with PR Role', () => {
-  let containerSnap: HTMLElement;
+const mockRefresh = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      replace: () => null,
+      push: () => null,
+      refresh: mockRefresh,
+    };
+  },
+  useSearchParams() {
+    return {
+      get: jest.fn(),
+    };
+  },
+  usePathname() {
+    return '/dashboard';
+  },
+}));
+
+describe('Switch Plan from SiteHeader for Termed Plan', () => {
   beforeAll(async () => {
     const SiteHeader = await SiteHeaderServerWrapper();
-    const { container } = render(SiteHeader);
-    containerSnap = container;
+    render(SiteHeader);
   });
 
-  it('should render UI correctly with no nav menu, plan selector and action buttons', () => {
+  it('should call update from NextAuth correctly followed by router.refresh()', async () => {
+    const selectedPlan = screen.getAllByText('Radio Systems Corporation')[0];
+    expect(screen.getByText('My Profile:')).toBeVisible();
     expect(screen.getByText('Alpha Beta')).toBeVisible();
-    expect(screen.queryByText('View Plan:')).toBeNull();
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/searchMemberLookupDetails/getPBEConsentDetails',
-      { params: { isPBERequired: true, userName: 'testUser' } },
-    );
-    expect(containerSnap).toMatchSnapshot();
+    expect(screen.getAllByText('View Plan:')[0]).toBeVisible();
+    expect(selectedPlan).toBeVisible();
+    fireEvent.click(selectedPlan);
+    fireEvent.click(screen.getByText('View Past Plans'));
+    const planToSelect = screen.getByText('Ruby Tuesday Operations LLC');
+    fireEvent.click(planToSelect);
+
+    await waitFor(() => {
+      expect(unstable_update).toHaveBeenCalledWith({
+        planId: '846239401',
+        userId: '57c85test3ebd23c7db88245',
+      });
+      expect(mockRefresh).toHaveBeenCalled();
+    });
   });
 });

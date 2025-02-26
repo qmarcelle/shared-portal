@@ -4,7 +4,7 @@ import { AppModal } from '@/components/foundation/AppModal';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 jest.mock('src/auth', () => ({
@@ -277,6 +277,8 @@ describe('Select Plan from Dashboard Modal Wall', () => {
             planTypes: ['M', 'R', 'S'],
             amplifyMember: false,
           },
+        ],
+        pastPolicies: [
           {
             memberCk: '846239401',
             subscriberName: 'JOHNATHAN ANDERL',
@@ -286,7 +288,6 @@ describe('Select Plan from Dashboard Modal Wall', () => {
             amplifyMember: false,
           },
         ],
-        pastPolicies: [],
       },
     });
 
@@ -299,8 +300,9 @@ describe('Select Plan from Dashboard Modal Wall', () => {
     );
   });
 
-  it('should call the update method of NextAuth correctly then router.refresh on Plan2 selection', async () => {
+  it('should call the update method of NextAuth correctly then router.refresh on Plan2 selection(Termed Plan)', async () => {
     const plan1 = screen.getByText('Radio Systems Corporation');
+    fireEvent.click(screen.getByText('View Past Plans'));
     const plan2 = screen.getByText('Ruby Tuesday Operations LLC');
 
     expect(screen.getByText('Which Plan do you want to view today?'));
@@ -321,8 +323,9 @@ describe('Select Plan from Dashboard Modal Wall', () => {
     expect(plan1).not.toBeInTheDocument();
   });
 
-  it('should call the update method of NextAuth correctly then router.refresh on Plan1 selection', async () => {
+  it('should call the update method of NextAuth correctly then router.refresh on Plan1 selection(Active Plan)', async () => {
     const plan1 = screen.getByText('Radio Systems Corporation');
+    fireEvent.click(screen.getByText('View Past Plans'));
     const plan2 = screen.getByText('Ruby Tuesday Operations LLC');
 
     expect(screen.getByText('Which Plan do you want to view today?'));

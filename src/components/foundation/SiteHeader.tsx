@@ -11,6 +11,7 @@ import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
 import { getMenuNavigation } from '../menuNavigation';
+import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 import { AlertBar } from './AlertBar';
 import {
@@ -41,7 +42,9 @@ export default function SiteHeader({
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
 
-  const menuNavigation = getMenuNavigation(visibilityRules);
+  const menuNavigation = selectedPlan?.termedPlan
+    ? getMenuNavigationTermedPlan(visibilityRules)
+    : getMenuNavigation(visibilityRules);
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -121,7 +124,7 @@ export default function SiteHeader({
             </Link>
             {selectedProfile?.type != UserRole.NON_MEM && (
               <PlanSwitcher
-                key={selectedProfile.id + selectedPlan?.id ?? '#ran'}
+                key={selectedProfile.id + selectedPlan?.id}
                 className="mx-4 w-[268px] hidden md:block"
                 plans={plans}
                 selectedPlan={
@@ -131,6 +134,7 @@ export default function SiteHeader({
                     planName: '...',
                     id: 'ABC1234567890',
                     memeCk: '',
+                    termedPlan: false,
                   }
                 }
                 onSelectionChange={() => {}}
@@ -142,20 +146,29 @@ export default function SiteHeader({
             icon={<Image src={profileWhiteIcon} alt="Profile Icon"></Image>}
             items={
               selectedPlan
-                ? [
-                    {
-                      title: 'Inbox',
-                      label: 'inbox',
-                      icon: <Image src={inboxIcon} alt="Inbox" />,
-                      url: 'inbox',
-                    },
-                    {
-                      title: 'ID Card',
-                      label: 'id card',
-                      icon: <Image src={globalIdCardIcon} alt="ID Card" />,
-                      url: '/memberIDCard',
-                    },
-                  ]
+                ? selectedPlan.termedPlan
+                  ? [
+                      {
+                        title: 'Inbox',
+                        label: 'inbox',
+                        icon: <Image src={inboxIcon} alt="Inbox" />,
+                        url: 'inbox',
+                      },
+                    ]
+                  : [
+                      {
+                        title: 'Inbox',
+                        label: 'inbox',
+                        icon: <Image src={inboxIcon} alt="Inbox" />,
+                        url: 'inbox',
+                      },
+                      {
+                        title: 'ID Card',
+                        label: 'id card',
+                        icon: <Image src={globalIdCardIcon} alt="ID Card" />,
+                        url: '/memberIDCard',
+                      },
+                    ]
                 : []
             }
           />
@@ -221,7 +234,7 @@ export default function SiteHeader({
       </nav>
       {selectedProfile.type != UserRole.NON_MEM && (
         <PlanSwitcher
-          key={selectedProfile.id + selectedPlan?.id ?? '#ran'}
+          key={selectedProfile.id + selectedPlan?.id}
           className="mx-2 py-2 block md:hidden"
           plans={plans}
           selectedPlan={
@@ -231,6 +244,7 @@ export default function SiteHeader({
               planName: '...',
               id: 'ABC1234567890',
               memeCk: '',
+              termedPlan: false,
             }
           }
           onSelectionChange={() => {}}

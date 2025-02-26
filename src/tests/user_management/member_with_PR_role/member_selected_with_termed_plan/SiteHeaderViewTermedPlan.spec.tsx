@@ -49,7 +49,7 @@ const plans: PlanDetails[] = [
     planName: 'BlueCross BlueShield of Tennessee',
     policies: 'Medical, Dental, Vision',
     subscriberName: 'Chris Hall',
-    termedPlan: false,
+    termedPlan: true,
   },
 ];
 
@@ -60,7 +60,7 @@ const vRules: VisibilityRules = {
 };
 
 describe('SiteHeader', () => {
-  it('should render the UI correctly with AlertBar', async () => {
+  it('should render the dashboard UI correctly with limited features for termed plan', async () => {
     const { container } = render(
       <SiteHeader
         profiles={mockUserProfiles}
@@ -70,14 +70,9 @@ describe('SiteHeader', () => {
         visibilityRules={vRules}
       />,
     );
-
-    expect(
-      screen.getByText('There is a planned system outage on July 23-25'),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('Another type of message that effects'),
-    ).toBeInTheDocument();
-
+    expect(screen.getByText('Inbox')).toBeVisible();
+    expect(screen.queryByText('ID Card')).not.toBeInTheDocument();
+    expect(screen.queryByText('My Health')).not.toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 });

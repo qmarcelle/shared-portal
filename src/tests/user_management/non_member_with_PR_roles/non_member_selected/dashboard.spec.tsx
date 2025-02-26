@@ -177,7 +177,7 @@ jest.mock('src/auth', () => ({
 }));
 
 describe('Non Member Dashboard', () => {
-  let containerSnap;
+  let containerSnap: HTMLElement;
   beforeAll(async () => {
     const component = await DashboardPage();
     const { container } = render(component);
