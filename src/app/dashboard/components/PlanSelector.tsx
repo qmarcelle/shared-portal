@@ -25,6 +25,7 @@ export const PlanSelector = ({ plans }: PlanSelectorProps) => {
             planName: '',
             id: '',
             memeCk: '',
+            termedPlan: false,
           }}
           onSelectionChange={() => {}}
           isModal={true}

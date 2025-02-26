@@ -9,7 +9,7 @@ import { CoverageType } from '@/models/member/api/loggedInUserInfo';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
-import { computePolicyName } from '@/utils/policy_computer';
+import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
 import { DashboardData } from '../models/dashboardData';
@@ -50,23 +50,18 @@ export const getDashboardData = async (): Promise<
           memberDetails: {
             firstName: selectedProfile!.firstName,
             lastName: selectedProfile!.lastName,
-            plans: plans.policyInfo.map((item) => ({
-              id: item.memberId,
-              planName: item.groupName,
-              policies: computePolicyName(item.activePlanTypes),
-              subscriberName: item.subscriberName,
-              memeCk: item.memberCk,
-            })),
+            plans: transformPolicyToPlans(plans),
           },
           role: session!.user.currUsr.role,
         },
       };
     }
 
-    const [loggedUserDetails, primaryCareProviderData] =
+    const [loggedUserDetails, primaryCareProviderData, planDetails] =
       await Promise.allSettled([
         getLoggedInUserInfo(session?.user.currUsr?.plan.memCk ?? ''),
         getPCPInfo(session),
+        getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
       ]);
 
     let loggedUserInfo;
@@ -83,6 +78,10 @@ export const getDashboardData = async (): Promise<
           coverageType: computeCoverageType(loggedUserInfo.coverageTypes),
           subscriberId: loggedUserInfo.subscriberID,
           groupId: loggedUserInfo.groupData.groupID,
+          selectedPlan:
+            planDetails.status === 'fulfilled'
+              ? transformPolicyToPlans(planDetails.value)[0]
+              : undefined,
         },
         primaryCareProvider:
           primaryCareProviderData.status === 'fulfilled'

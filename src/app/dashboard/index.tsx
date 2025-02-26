@@ -7,6 +7,7 @@ import { UserRole } from '@/userManagement/models/sessionUser';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Link from 'next/link';
 import MemberDashboard from './components/MemberDashboard';
+import MemberDashboardTermedPlan from './components/MemberDashboardTermedPlan';
 import NonMemberDashboard from './components/NonMemberDashboard';
 import { PlanSelector } from './components/PlanSelector';
 import { DashboardData } from './models/dashboardData';
@@ -74,10 +75,16 @@ const Dashboard = ({ data }: DashboardProps) => {
       />
       <Spacer size={32}></Spacer>
       {data.role != UserRole.NON_MEM ? (
-        <MemberDashboard
-          visibilityRules={data.visibilityRules}
-          primaryCareProviderData={data.primaryCareProvider!}
-        />
+        <>
+          {!data.memberDetails?.selectedPlan?.termedPlan ? (
+            <MemberDashboard
+              visibilityRules={data.visibilityRules}
+              primaryCareProviderData={data.primaryCareProvider!}
+            />
+          ) : (
+            <MemberDashboardTermedPlan data={data} />
+          )}
+        </>
       ) : (
         <NonMemberDashboard profiles={data.profiles!} />
       )}

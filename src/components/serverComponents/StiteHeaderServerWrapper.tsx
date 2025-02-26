@@ -13,7 +13,7 @@ export const SiteHeaderServerWrapper = async () => {
       (item) => item.selected == true,
     )?.memCK;
     const policyInfo =
-      selectedProfile!.plans.length > 0
+      selectedProfile!.plans?.length > 0
         ? await getPolicyInfo(selectedProfile!.plans.map((item) => item.memCK))
         : null;
     const plans = policyInfo ? transformPolicyToPlans(policyInfo) : [];

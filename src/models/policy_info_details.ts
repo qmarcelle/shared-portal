@@ -1,10 +1,13 @@
 export interface PolicyInfoDetail {
-  memberCk: string;
+  memberCk: number;
   subscriberName: string;
   groupName: string;
   memberId: string;
-  activePlanTypes: string[];
+  planTypes: string[];
+  amplifyMember: boolean;
+  termDate?: string;
 }
 export interface PolicyInfo {
-  policyInfo: PolicyInfoDetail[];
+  currentPolicies: PolicyInfoDetail[];
+  pastPolicies: PolicyInfoDetail[];
 }
