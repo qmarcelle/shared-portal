@@ -82,6 +82,7 @@ const LaunchSSO = () => {
           <Image src={leftIcon} alt="back" className="inline" />
           <TextBox
             text="Go Back"
+            display="inline"
             className="primary-color underline pt-1 inline"
           />
         </Link>

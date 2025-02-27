@@ -26,7 +26,7 @@ describe('Find Care Page', () => {
     expect(screen.getByText(/Pharmacy/i));
     fireEvent.click(screen.getByText(/Pharmacy/i));
     expect(mockPush).toHaveBeenCalledWith(
-      '/sso/launch?PartnerSpId=CVS&target=PHARMACY_SEARCH_FAST',
+      '/sso/launch?PartnerSpId=CVS&target=CVS_PHARMACY_SEARCH_FAST',
     );
   });
 
@@ -38,7 +38,7 @@ describe('Find Care Page', () => {
     fireEvent.click(screen.getByText(/Prescription Drugs/i));
     await waitFor(() => {
       expect(mockPush).toHaveBeenCalledWith(
-        '/sso/launch?PartnerSpId=CVS&target=CHECK_DRUG_COST_FAST',
+        '/sso/launch?PartnerSpId=CVS&target=CVS_DRUG_SEARCH_INIT',
       );
     });
   });
@@ -51,7 +51,7 @@ describe('Find Care Page', () => {
     fireEvent.click(screen.getByRole('button', { name: /Vision/i }));
     await waitFor(() => {
       expect(mockPush).toHaveBeenCalledWith(
-        '/sso/launch?PartnerSpId=EyeMed&target=',
+        '/sso/launch?PartnerSpId=EyeMed&target=EYEMED_VISION',
       );
     });
   });
@@ -64,7 +64,7 @@ describe('Find Care Page', () => {
     fireEvent.click(screen.getByText(/Eye Doctor/i));
     await waitFor(() => {
       expect(mockPush).toHaveBeenCalledWith(
-        '/sso/launch?PartnerSpId=EyeMed&target=',
+        '/sso/launch?PartnerSpId=EyeMed&target=EYEMED_PROVIDER_DIRECTORY',
       );
     });
   });

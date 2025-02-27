@@ -97,7 +97,7 @@ describe('Pharmacy Page', () => {
     fireEvent.click(screen.getByText('Get My Prescriptions by Mail'));
 
     expect(mockWindow).toHaveBeenCalledWith(
-      '/sso/launch?PartnerSpId=CVS&target=CHECK_DRUG_COST_FAST',
+      '/sso/launch?PartnerSpId=CVS&target=CVS_DRUG_SEARCH_INIT',
     );
   });
   it('should download Choice formulary correctly', async () => {

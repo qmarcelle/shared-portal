@@ -4,6 +4,7 @@ import { LoggedInMember } from '@/models/app/loggedin_member';
 import { formatDateString } from '@/utils/date_formatter';
 import { formatMemberId } from '@/utils/member_utils';
 import {
+  EYEMED_DEEPLINK_MAP,
   EYEMED_SSO_CLIENT_ID_VALUE,
   SSO_CLIENT_ID,
   SSO_DOB,
@@ -25,7 +26,12 @@ export default async function generateEyemedSSOMap(
     throw new Error('Member not found');
   }
 
-  const target = searchParams?.target ?? '';
+  let target = '';
+  const targetURL = process.env.EYEMED_SSO_TARGET ?? '';
+  if (searchParams?.target) {
+    const deepLink = EYEMED_DEEPLINK_MAP.get(searchParams?.target) ?? '';
+    target = targetURL.replace('{DEEPLINK}', deepLink);
+  }
   // change the map keys value to all lower case
   const memId = formatMemberId(memberData.subscriberId, memberData.suffix);
   ssoParamMap.set(SSO_MEMBER_ID, memId);

@@ -139,7 +139,7 @@ describe('SiteHeader And Navigation Menu', () => {
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
     ).toHaveProperty(
       'href',
-      `${baseUrl}/sso/launch?PartnerSpId=CVS&target=CHECK_DRUG_COST_FAST`,
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&target=CVS_DRUG_SEARCH_INIT`,
     );
     expect(
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
