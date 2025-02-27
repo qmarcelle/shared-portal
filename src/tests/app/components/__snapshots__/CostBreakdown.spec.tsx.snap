@@ -6,9 +6,6 @@ exports[`CostBreakdown CostBreakdown 1`] = `
   "baseElement": <body>
     <div>
       <section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
         <div
           class="card-main small-section"
         >
@@ -120,9 +117,6 @@ exports[`CostBreakdown CostBreakdown 1`] = `
   </body>,
   "container": <div>
     <section>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
       <div
         class="card-main small-section"
       >

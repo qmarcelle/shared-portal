@@ -12,6 +12,7 @@ import { IComponent } from '@/components/IComponent';
 import { ClaimDetails } from '@/models/claim_details';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
 import DownloadIcon from '../../../../public/assets/download.svg';
@@ -29,6 +30,7 @@ export const ClaimsSnapshotCardSection = ({
   sortby,
   filter,
 }: ClaimsSnapshotCardSectionProps) => {
+  const router = useRouter();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchItem, setSearchItem] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -93,6 +95,13 @@ export const ClaimsSnapshotCardSection = ({
     setFilteredUsers(filteredItems);
   };
 
+  const navigateToClaimDetails = (claimId: string) => {
+    const claimType = claims.find(
+      (claim) => claim.encryptedClaimId === claimId,
+    )?.type;
+    router.push(`/claims/${claimId}?type=${claimType}`);
+  };
+
   return (
     <Column>
       <section className={'card-main max-sm:my-4 md:my-8'}>
@@ -150,7 +159,12 @@ export const ClaimsSnapshotCardSection = ({
           pageSize={10}
           wrapperBuilder={(items) => <Column>{items}</Column>}
           itemsBuilder={(item) => (
-            <ClaimItem key={item.id} className="mb-4" claimInfo={item} />
+            <ClaimItem
+              key={item.id}
+              className="mb-4"
+              claimInfo={item}
+              callBack={navigateToClaimDetails}
+            />
           )}
           label="Claims"
           totalCount={claims.length}
