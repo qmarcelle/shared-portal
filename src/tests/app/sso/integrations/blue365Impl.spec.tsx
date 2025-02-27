@@ -70,6 +70,7 @@ describe('Blue365 SSO', () => {
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {
@@ -105,6 +106,7 @@ describe('Blue365 SSO', () => {
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {

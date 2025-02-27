@@ -9,6 +9,7 @@ import {
   SSO_FIRST_NAME,
   SSO_GENDER,
   SSO_LAST_NAME,
+  SSO_SUBJECT,
   SSO_TARGET_RESOURCE,
   SSO_ZIP_CODE,
 } from '../ssoConstants';
@@ -39,7 +40,7 @@ export default async function generateBlue365Map(
   ssoParamMap.set(SSO_GENDER, memberData.gender);
   ssoParamMap.set(SSO_BIRTH_YEAR, memberData.dateOfBirth.substring(0, 6));
   ssoParamMap.set(SSO_TARGET_RESOURCE, target);
-  //ssoParamMap.set(SSO_SUBJECT, email);
+  ssoParamMap.set(SSO_SUBJECT, memberData.userId);
 
   console.log('generateBlue365Map exited !!!');
   return ssoParamMap;
