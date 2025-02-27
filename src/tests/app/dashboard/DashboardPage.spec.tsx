@@ -32,6 +32,7 @@ const vRules = {
       myPCPElig: false,
       subscriber: true,
       payMyPremiumElig: true,
+      isEmboldHealth: true,
     },
   },
 };
@@ -245,5 +246,116 @@ describe('Dashboard Page', () => {
     expect(screen.getByText('Pay Premium')).toBeVisible();
     expect(screen.getByText('Payment Due Date')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should render the Find Medical Providers card if the pzn rule is true', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        groupData: {
+          groupID: '100000',
+          groupCK: '21908',
+          groupName: 'BlueCross BlueShield of Tennessee',
+          parentGroupID: '100001',
+          subGroupID: '0001',
+          subGroupCK: 28951,
+          subGroupName: 'BlueCross BlueShield of Tennessee',
+          clientID: 'EI',
+          policyType: 'INT',
+          groupEIN: '620427913',
+        },
+        networkPrefix: 'QMI',
+        subscriberID: '902218823',
+        subscriberCK: '91722400',
+        subscriberFirstName: 'CHRIS',
+        subscriberLastName: 'HALL',
+        coverageTypes: [
+          {
+            productType: 'M',
+            coverageLevel: 'A',
+            exchange: false,
+            indvGroupInd: '',
+            pedAdultInd: '',
+          },
+          {
+            productType: 'D',
+            coverageLevel: 'A',
+            exchange: true,
+            indvGroupInd: 'Group',
+            pedAdultInd: 'Adult',
+          },
+          {
+            productType: 'V',
+            coverageLevel: '*',
+            exchange: true,
+            indvGroupInd: 'Group',
+            pedAdultInd: 'Adult',
+          },
+        ],
+      },
+    });
+    const component = await renderUI();
+    expect(
+      screen.getByText(
+        'Use the employer-provided Embold Health search tool to',
+      ),
+    ).toBeVisible();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render the Find Medical Providers card if the pzn rule is false', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    vRules.user.vRules.fsaOnly = true;
+    vRules.user.vRules.isEmboldHealth = false;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        groupData: {
+          groupID: '100000',
+          groupCK: '21908',
+          groupName: 'BlueCross BlueShield of Tennessee',
+          parentGroupID: '100001',
+          subGroupID: '0001',
+          subGroupCK: 28951,
+          subGroupName: 'BlueCross BlueShield of Tennessee',
+          clientID: 'EI',
+          policyType: 'INT',
+          groupEIN: '620427913',
+        },
+        networkPrefix: 'QMI',
+        subscriberID: '902218823',
+        subscriberCK: '91722400',
+        subscriberFirstName: 'CHRIS',
+        subscriberLastName: 'HALL',
+        coverageTypes: [
+          {
+            productType: 'M',
+            coverageLevel: 'A',
+            exchange: false,
+            indvGroupInd: '',
+            pedAdultInd: '',
+          },
+          {
+            productType: 'D',
+            coverageLevel: 'A',
+            exchange: true,
+            indvGroupInd: 'Group',
+            pedAdultInd: 'Adult',
+          },
+          {
+            productType: 'V',
+            coverageLevel: '*',
+            exchange: true,
+            indvGroupInd: 'Group',
+            pedAdultInd: 'Adult',
+          },
+        ],
+      },
+    });
+    const component = await renderUI();
+
+    expect(screen.queryByText('Find Medical Providers')).toBeNull();
+    expect(component).toMatchSnapshot();
   });
 });

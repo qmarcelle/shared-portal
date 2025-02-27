@@ -432,3 +432,6 @@ export function isMedicarePrescriptionPaymentPlanEligible(
     !rules?.fsaOnly
   );
 }
+export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
+  return isActiveAndNotFSAOnly(rules) && rules?.isEmboldHealth;
+}

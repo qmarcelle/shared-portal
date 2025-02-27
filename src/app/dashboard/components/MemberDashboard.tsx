@@ -18,6 +18,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import {
   isAHAdvisorpage,
   isBlueCareEligible,
+  isEmboldHealthEligible,
   isPayMyPremiumEligible,
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
@@ -217,53 +218,57 @@ const MemberDashboard = ({
             )}
           </Column>
           <Column className="page-section-36_67 items-stretch">
-            {!isBlueCareEligible(visibilityRules) && (
-              <FindMedicalProvidersComponent />
+            {!isBlueCareEligible(visibilityRules) &&
+              isEmboldHealthEligible(visibilityRules) && (
+                <FindMedicalProvidersComponent />
+              )}
+            {!isEmboldHealthEligible(visibilityRules) && (
+              <PillBox
+                title="Looking for Care? Find A:"
+                icon={
+                  <Image src={FindCare} className="w-[50px] h-[50px]" alt="" />
+                }
+                pillObjects={[
+                  {
+                    label: 'Primary Care Provider',
+                    callback: () => {
+                      console.log('Clicked Pill PCP');
+                    },
+                  },
+                  {
+                    label: 'Dentist',
+                    callback: () => {
+                      console.log('Clicked Pill Dentist');
+                    },
+                  },
+                  {
+                    label: 'Mental Health Provider',
+                    callback: () => {
+                      console.log('Clicked Pill Mental Health Provider');
+                    },
+                  },
+                  {
+                    label: 'Eye Doctor',
+                    callback: () => {
+                      console.log('Clicked Pill Eye Doctor');
+                    },
+                  },
+                  {
+                    label: 'Pharmacy',
+                    callback: () => {
+                      console.log('Clicked Pill Pharmacy');
+                    },
+                  },
+                  {
+                    label: 'Virtual Care',
+                    callback: () => {
+                      console.log('Clicked Pill Virtual Care');
+                    },
+                  },
+                ]}
+              ></PillBox>
             )}
-            <PillBox
-              title="Looking for Care? Find A:"
-              icon={
-                <Image src={FindCare} className="w-[50px] h-[50px]" alt="" />
-              }
-              pillObjects={[
-                {
-                  label: 'Primary Care Provider',
-                  callback: () => {
-                    console.log('Clicked Pill PCP');
-                  },
-                },
-                {
-                  label: 'Dentist',
-                  callback: () => {
-                    console.log('Clicked Pill Dentist');
-                  },
-                },
-                {
-                  label: 'Mental Health Provider',
-                  callback: () => {
-                    console.log('Clicked Pill Mental Health Provider');
-                  },
-                },
-                {
-                  label: 'Eye Doctor',
-                  callback: () => {
-                    console.log('Clicked Pill Eye Doctor');
-                  },
-                },
-                {
-                  label: 'Pharmacy',
-                  callback: () => {
-                    console.log('Clicked Pill Pharmacy');
-                  },
-                },
-                {
-                  label: 'Virtual Care',
-                  callback: () => {
-                    console.log('Clicked Pill Virtual Care');
-                  },
-                },
-              ]}
-            ></PillBox>
+
             {isBlueCareEligible(visibilityRules) && (
               <InfoCard
                 label="Estimate Costs"
