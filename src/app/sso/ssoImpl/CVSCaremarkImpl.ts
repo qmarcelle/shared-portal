@@ -6,6 +6,7 @@ import { formatDateString } from '@/utils/date_formatter';
 import { getPrefix } from '@/utils/member_utils';
 import {
   CVS_ClientID_130449,
+  CVS_DEEPLINK_MAP,
   CVS_DEFAULT_CLIENT_ID_VALUE,
   SSO_CLIENT_ID,
   SSO_DOB,
@@ -28,7 +29,12 @@ export default async function generateCVSCaremarkSSOMap(
     throw new Error('Member not found');
   }
 
-  const target = searchParams?.target ?? '';
+  let target = '';
+  const targetURL = process.env.CVS_SSO_TARGET ?? '';
+  if (searchParams?.target) {
+    const deepLink = CVS_DEEPLINK_MAP.get(searchParams?.target) ?? '';
+    target = targetURL.replace('{DEEPLINK}', deepLink);
+  }
   const subId = getCVSSubID(memberData);
   ssoParamMap.set(SSO_FIRST_NAME, memberData.firstName);
   ssoParamMap.set(SSO_LAST_NAME, memberData.lastName);

@@ -16,6 +16,7 @@ import {
 } from '@/utils/member_utils';
 import { formatZip } from '@/utils/zipcode_formatter';
 import {
+  PROV_DIR_DEEPLINK_MAP,
   SSO_COPAY,
   SSO_DED,
   SSO_DOB,
@@ -65,11 +66,15 @@ export default async function generateProviderDirectorySSOMap(
         ? true
         : false;
     let target = process.env.PROVIDER_DIRECTORY_VITALS_SSO_TARGET ?? '';
+    let deepLink = '';
     if (redirectLink) {
       target += decodeURI(redirectLink);
     } else if (pcpSearch) {
       target = process.env.PROVIDER_DIRECTORY_PCP_SSO_TARGET ?? '';
+    } else if (searchParams?.target) {
+      deepLink = PROV_DIR_DEEPLINK_MAP.get(searchParams?.target) ?? '';
     }
+    target = target.replace('{DEEPLINK}', deepLink);
 
     ssoParamMap.set(SSO_SUBSCRIBER_ID, subscriberId);
     ssoParamMap.set(

@@ -199,8 +199,50 @@ export const BOA_PARTNER_KEY_SIGNATURE = new Map<string, string>([
 ]);
 
 //Target Resource
-export const EYEMED_PROVIDER_DIRECTORY = '';
-export const EYEMED_VISION = '';
-export const CVS_PHARMACY_SEARCH_FAST = 'PHARMACY_SEARCH_FAST';
-export const CVS_DRUG_SEARCH_INIT = 'CHECK_DRUG_COST_FAST';
-export const CVS_REFILL_RX = 'ICE_VIEW_RX';
+export const EYEMED_PROVIDER_DIRECTORY = 'EYEMED_PROVIDER_DIRECTORY';
+export const EYEMED_VISION = 'EYEMED_VISION';
+export const CVS_PHARMACY_SEARCH_FAST = 'CVS_PHARMACY_SEARCH_FAST';
+export const CVS_DRUG_SEARCH_INIT = 'CVS_DRUG_SEARCH_INIT';
+export const CVS_REFILL_RX = 'CVS_REFILL_RX';
+export const PROV_DIR_MEDICAL = 'PROV_DIR_MEDICAL';
+export const PROV_DIR_DENTAL = 'PROV_DIR_DENTAL';
+export const PROV_DIR_VISION = 'PROV_DIR_VISION';
+export const PROV_DIR_MENTAL_HEALTH = 'PROV_DIR_MENTAL_HEALTH';
+export const BLUE_365_FOOTWEAR = 'BLUE_365_FOOTWEAR';
+export const BLUE_365_FITNESS = 'BLUE_365_FITNESS';
+export const BLUE_365_HEARING_VISION = 'BLUE_365_HEARING_VISION';
+export const BLUE_365_HOME_FAMILY = 'BLUE_365_HOME_FAMILY';
+export const BLUE_365_NUTRITION = 'BLUE_365_NUTRITION';
+export const BLUE_365_PERSONAL_CARE = 'BLUE_365_PERSONAL_CARE';
+export const BLUE_365_TRAVEL = 'BLUE_365_TRAVEL';
+
+export const CVS_DEEPLINK_MAP: Map<string, string> = new Map([
+  ['CVS_REFILL_RX', 'refillRx'],
+  ['CVS_DRUG_SEARCH_INIT', 'drugSearchInit.do'],
+  ['CVS_PHARMACY_SEARCH_FAST', 'pharmacySearchFast'],
+]);
+
+export const EYEMED_DEEPLINK_MAP: Map<string, string> = new Map([
+  ['EYEMED_VISION', 'know-before-you-go'],
+  ['EYEMED_PROVIDER_DIRECTORY', 'provider-locator'],
+]);
+
+export const PROV_DIR_DEEPLINK_MAP: Map<string, string> = new Map([
+  ['PROV_DIR_MEDICAL', '?guided_search=wayfinding_home_findCost_header'],
+  ['PROV_DIR_DENTAL', '?guided_search=wayfinding_home_DentalCare_header'],
+  ['PROV_DIR_VISION', '?guided_search=wayfinding_tile_cost_vision_health'],
+  [
+    'PROV_DIR_MENTAL_HEALTH',
+    '?guided_search=wayfinding_tile_cost_behavioral_health',
+  ],
+]);
+
+export const BLUE_365_DEEPLINK_MAP: Map<string, string> = new Map([
+  ['BLUE_365_FOOTWEAR', 'offer-category-apparel-footwear'],
+  ['BLUE_365_FITNESS', 'offer-category-fitness'],
+  ['BLUE_365_HEARING_VISION', 'offer-category-hearing-vision'],
+  ['BLUE_365_HOME_FAMILY', 'offer-category-home-family'],
+  ['BLUE_365_NUTRITION', 'offer-category-nutrition'],
+  ['BLUE_365_PERSONAL_CARE', 'offer-category-personal-care'],
+  ['BLUE_365_TRAVEL', 'offer-category-travel'],
+]);
