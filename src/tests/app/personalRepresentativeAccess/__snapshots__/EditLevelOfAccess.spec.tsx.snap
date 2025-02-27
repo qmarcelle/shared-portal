@@ -27,19 +27,19 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
             class="body-1 text-center"
             style="display: block;"
           >
-            You're changing access for:
+            You’re changing access for:
           </p>
           <span
-            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <p
-            class="body-1 text-center bold"
+            class="body-1 text-center font-bold"
             style="display: block;"
           >
-            Chris Hall
+            Chris
           </p>
           <span
-            style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
             class="flex flex-col"
@@ -69,6 +69,9 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
                 </p>
               </div>
             </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
             <div
               class="flex flex-row gap-1 "
             >
@@ -93,6 +96,9 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
                 </p>
               </div>
             </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
           </div>
         </div>
         <span
@@ -105,8 +111,7 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
             class="body-1 body-2"
             style="display: block;"
           >
-            Disclaimer: BlueCross BlueShield of Tennessee is not responsible for your personal representative or any third parties authorized by you or your personal representative to have access to your health information. 
-  BlueCross BlueShield of Tennessee does not warrant that information provided with be accurate, timely, or complete.
+            Disclaimer: BlueCross BlueShield of Tennessee is not responsible for your personal representative or any third parties authorized by you or your personal representative to hae access to your health information. BlueCross BlueShield of Tennessee does not warrant that the information provided will be accurate, timely or complete.
           </p>
         </div>
         <button

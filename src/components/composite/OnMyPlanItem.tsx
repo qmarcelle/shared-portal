@@ -1,7 +1,9 @@
+import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
 import Image from 'next/image';
 import editIcon from '../../../public/assets/edit.svg';
 import infoIcon from '../../../public/assets/info.svg';
 import { IComponent } from '../IComponent';
+import { useAppModalStore } from '../foundation/AppModal';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Divider } from '../foundation/Divider';
@@ -17,6 +19,8 @@ interface OnMyPlanItemProps extends IComponent {
   isMinor: boolean;
   icon?: JSX.Element;
   infoButton: boolean;
+  requestorType?: string;
+  targetType?: string;
 }
 
 export const OnMyPlanItem = ({
@@ -28,7 +32,10 @@ export const OnMyPlanItem = ({
   className,
   infoButton,
   icon = <Image src={editIcon} alt="link" />,
+  requestorType,
+  targetType,
 }: OnMyPlanItemProps) => {
+  const { showAppModal } = useAppModalStore();
   function getMinorContent() {
     return (
       <Column>
@@ -62,7 +69,7 @@ export const OnMyPlanItem = ({
           )}
         </Row>
         {!infoButton && (
-          <div>
+          <>
             {' '}
             <Spacer size={16} />
             <Row>
@@ -71,10 +78,22 @@ export const OnMyPlanItem = ({
                 className="font-bold primary-color"
                 text="Update"
                 suffix={icon}
+                callback={() => {
+                  showAppModal({
+                    content: (
+                      <EditLevelOfAccess
+                        currentAccessType="basic"
+                        memberName={memberName}
+                        requestorType={requestorType ?? ''}
+                        targetType={targetType ?? ''}
+                      />
+                    ),
+                  });
+                }}
               />
               <Spacer size={40} />
             </Row>
-          </div>
+          </>
         )}
       </Column>
     );
