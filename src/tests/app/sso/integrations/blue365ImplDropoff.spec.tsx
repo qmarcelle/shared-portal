@@ -126,6 +126,7 @@ describe('Blue365 SSO using Drop off API', () => {
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {
@@ -182,6 +183,7 @@ describe('Blue365 SSO using Drop off API', () => {
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {
