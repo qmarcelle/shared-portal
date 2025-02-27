@@ -88,6 +88,10 @@ body {
   color: var(--tertiary-color-3);
 }
 
+.tertiary-color-1 {
+  color: var(--tertiary-color-1);
+}
+
 .primary-bg-color {
   background-color: var(--primary-color);
 }

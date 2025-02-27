@@ -3,4 +3,6 @@ export interface OnMyPlanDetails {
   DOB: string;
   sharingType: string;
   isMinor: boolean;
+  requestorType?: string;
+  targetType?: string;
 }

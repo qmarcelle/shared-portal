@@ -100,7 +100,13 @@ export const MembersRepresentativeItem = ({
                   suffix={icon}
                   callback={() =>
                     showAppModal({
-                      content: <EditLevelOfAccess memberName={memberName} />,
+                      content: (
+                        <EditLevelOfAccess
+                          memberName={memberName}
+                          isMaturedMinor
+                          currentAccessType="basic"
+                        />
+                      ),
                     })
                   }
                 />
