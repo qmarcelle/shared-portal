@@ -44,6 +44,8 @@ export const OnMyPlanComponent = ({
             sharingType={item.sharingType}
             isMinor={item.isMinor}
             infoButton={infoIcon}
+            requestorType={item.requestorType}
+            targetType={item.targetType}
           />
         ))}
       </Column>

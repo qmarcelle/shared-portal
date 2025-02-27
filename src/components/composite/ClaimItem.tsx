@@ -184,7 +184,7 @@ export const ClaimItem = ({
     <Card
       className={`cursor-pointer ${className}`}
       type="button"
-      onClick={() => callBack?.(claimInfo.id)}
+      onClick={() => callBack?.(claimInfo.encryptedClaimId ?? '')}
     >
       {getClaimItem()}
     </Card>

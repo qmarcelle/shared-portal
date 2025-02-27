@@ -5,7 +5,12 @@ import { render, screen } from '@testing-library/react';
 describe('Edit Level Of Access Component', () => {
   it('should render the UI correctly', () => {
     const component = render(
-      <EditLevelOfAccess memberName="Chris" pageIndex={0} />,
+      <EditLevelOfAccess
+        memberName="Chris"
+        pageIndex={0}
+        currentAccessType="full"
+        isMaturedMinor
+      />,
     );
     expect(screen.getByText('Edit Level Of Access')).toBeInTheDocument();
     expect(screen.getByText('Full Access')).toBeInTheDocument();

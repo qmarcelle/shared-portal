@@ -1,4 +1,4 @@
-import { ServiceDetails } from '@/app/claimServiceRendered/models/service_details';
+import { ServiceDetails } from '@/app/claims/models/app/service_details';
 import { IComponent } from '@/components/IComponent';
 import { Accordion } from '@/components/foundation/Accordion';
 import { Card } from '@/components/foundation/Card';
