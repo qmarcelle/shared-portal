@@ -39,4 +39,6 @@ export interface LoggedInMember {
   dateOfBirth: string;
   isAmplifyMem?: boolean;
   cmCondition: string;
+  groupKey: string;
+  lineOfBusiness: string;
 }
