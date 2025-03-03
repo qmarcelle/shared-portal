@@ -396,6 +396,12 @@ export function isTeladocSecondOpinionAdviceAndSupportEligible(
   return isActiveAndNotFSAOnly(rules) && rules?.consumerMedicalEligible;
 }
 
+export function isIndividualMaBlueAdvantageEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.active && rules.otcEnable && rules.displayPharmacyTab;
+}
+
 function computeMemberAge(member: Member, rules: VisibilityRules) {
   console.log('Birth Date', member.birthDate);
   const birthDate = new Date(member.birthDate);
