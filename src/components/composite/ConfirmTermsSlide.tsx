@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { IComponent } from '../IComponent';
 import { AppLink } from '../foundation/AppLink';
 import { Button } from '../foundation/Button';
@@ -23,10 +24,22 @@ export const ConfirmTermsSlide = ({
   subLabel,
   linkLabel,
   checkboxLabel,
-  buttonLabel = 'Next',
+  buttonLabel = 'Save Changes',
   nextCallback,
   cancelCallback,
 }: ConfirmTermsSlideProps) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  const handleButtonClick = () => {
+    if (isChecked) {
+      nextCallback();
+    }
+  };
+
   return (
     <Column className="items-center">
       <Spacer size={32} />
@@ -34,17 +47,19 @@ export const ConfirmTermsSlide = ({
       <Spacer size={16} />
       <TextBox text={subLabel} />
       <Spacer size={32} />
-      <Checkbox label={checkboxLabel} checkProps="self-baseline ml-12 mt-1" />
-      <Column className="items-center  w-[358px]">
+      <Checkbox
+        label={checkboxLabel}
+        checkProps="self-baseline ml-12 mt-1"
+        callback={handleCheckboxChange}
+      />
+      <Column className="items-center w-[358px]">
         <Spacer size={32} />
         <Button
-          className="font-bold primary-color"
+          className={`font-bold primary-color ${!isChecked ? 'opacity-50' : ''}`}
           label={buttonLabel}
           type="primary"
-          callback={() => {
-            nextCallback();
-          }}
-        ></Button>
+          callback={handleButtonClick}
+        />
         <Spacer size={16} />
         <AppLink
           label={linkLabel}

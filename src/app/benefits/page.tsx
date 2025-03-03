@@ -44,6 +44,7 @@ const BenefitsAndCoveragePage = async () => {
         benefitsBean={loadBenefitsData.data}
         otherBenefitItems={generateOtherBenefitsForUser(session.user.vRules!)}
         userGroupId={userInfoData.groupData.groupID}
+        visibilityRules={session.user.vRules}
       />
     );
   } catch (error) {

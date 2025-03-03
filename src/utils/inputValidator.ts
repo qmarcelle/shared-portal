@@ -41,7 +41,7 @@ export const isValidMobileNumber = (mobileNumber: string): boolean => {
 export const isValidEmailAddress = (email: string): boolean => {
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   let validEmail = isValidEmail.test(email);
-  if (validEmail == false && email.length == 0) {
+  if (validEmail == false && (!email || email.length === 0)) {
     validEmail = true;
   }
   return validEmail;
