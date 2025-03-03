@@ -21,6 +21,8 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
+  isMedicareDsnpEligible,
+  isMedicareEligible,
   isFreedomMaBlueAdvantage,
   isIndividualMaBlueAdvantageEligible,
   isMedicarePrescriptionPaymentPlanEligible,
@@ -272,6 +274,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                               className="inline"
                             />
                           ),
+                          isHidden: !isMedicareEligible(data.visibilityRules),
                         },
                         {
                           linkTitle:
@@ -284,6 +287,9 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                               alt="right arrow Icon"
                               className="inline"
                             />
+                          ),
+                          isHidden: !isMedicareDsnpEligible(
+                            data.visibilityRules,
                           ),
                         },
                       ]}

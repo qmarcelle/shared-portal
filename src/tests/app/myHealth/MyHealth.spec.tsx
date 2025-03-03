@@ -10,6 +10,13 @@ const renderUI = async () => {
   return render(page);
 };
 
+const vRules = {
+  myPCPElig: true,
+  ohdEligible: true,
+  commercial: true,
+  medicare: true,
+};
+
 jest.mock('../../../auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
@@ -21,10 +28,7 @@ jest.mock('../../../auth', () => ({
             memCk: '123456789',
           },
         },
-        vRules: {
-          myPCPElig: true,
-          ohdEligible: true,
-        },
+        vRules: vRules,
       },
     }),
   ),
@@ -77,5 +81,38 @@ describe('My Health Page', () => {
     ).toBeVisible();
     expect(screen.getByText('Visit Member Wellness Center')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should show Health Programs & Resources page when it is Commercial or Medicare lob', async () => {
+    const component = await renderUI();
+    screen.getByRole('heading', {
+      name: 'Health Programs & Resources',
+    });
+    screen.getByText(
+      'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+    );
+    screen.getByText('View All Health Programs & Resources');
+
+    expect(component).toMatchSnapshot();
+  });
+  it('should not show Health Programs & Resources page when it is Commercial or Medicare lob', async () => {
+    vRules.commercial = false;
+    vRules.medicare = false;
+    const component = await renderUI();
+    expect(
+      screen.queryByRole('heading', {
+        name: 'Health Programs & Resources',
+      }),
+    ).not.toBeInTheDocument();
+
+    expect(
+      screen.queryByText(
+        'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
+      ),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('View All Health Programs & Resources'),
+    ).not.toBeInTheDocument();
+
+    expect(component).toMatchSnapshot();
   });
 });
