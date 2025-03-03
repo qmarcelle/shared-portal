@@ -11,9 +11,10 @@ interface PharmacyDocumentsProps extends IComponent {
 }
 
 export const PharmacyDocuments = ({ linkDetails }: PharmacyDocumentsProps) => {
+  const pharmacyDocumentDetails = linkDetails.filter((item) => !item.isHidden);
   return (
     <Column>
-      {linkDetails.slice(0, linkDetails.length).map((item, index) => (
+      {pharmacyDocumentDetails.map((item, index) => (
         <Column key={index}>
           <Column className="items-stretch">
             <AppLink
@@ -25,7 +26,7 @@ export const PharmacyDocuments = ({ linkDetails }: PharmacyDocumentsProps) => {
             />
             <TextBox text={item.linkDescription} />
             <Spacer size={18} />
-            {index != linkDetails.length - 1 && <Divider />}
+            {index != pharmacyDocumentDetails.length - 1 && <Divider />}
             <Spacer size={18} />
           </Column>
         </Column>
