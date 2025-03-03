@@ -187,7 +187,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -438,10 +438,10 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -1027,7 +1027,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
         class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
       />
       <div
-        class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+        class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
         data-accordion="collapse"
         id="menu-bar"
       >
@@ -1278,10 +1278,10 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
               </div>
             </div>
             <div
-              class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+              class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
             >
               <div
-                class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
               >
                 <div
                   class="flex flex-row align-top"
@@ -1777,7 +1777,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -2028,10 +2028,10 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -2614,7 +2614,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -2865,10 +2865,10 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -3517,7 +3517,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -3768,10 +3768,10 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -4354,7 +4354,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -4605,10 +4605,10 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -5202,7 +5202,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -5453,10 +5453,10 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -6050,7 +6050,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -6301,10 +6301,10 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -6930,7 +6930,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -7181,10 +7181,10 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -7669,7 +7669,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
         </div>
       </div>
       <div
-        class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto hidden"
+        class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 hidden"
         data-accordion="collapse"
         id="menu-bar"
       >
@@ -7920,10 +7920,10 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
               </div>
             </div>
             <div
-              class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+              class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
             >
               <div
-                class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
               >
                 <div
                   class="flex flex-row align-top"
@@ -8210,7 +8210,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -8461,10 +8461,10 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -9041,7 +9041,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -9292,10 +9292,10 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -9872,7 +9872,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -10123,10 +10123,10 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -10717,7 +10717,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
         class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
       />
       <div
-        class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+        class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
         data-accordion="collapse"
         id="menu-bar"
       >
@@ -10968,10 +10968,10 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
               </div>
             </div>
             <div
-              class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+              class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
             >
               <div
-                class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
               >
                 <div
                   class="flex flex-row align-top"
@@ -11461,7 +11461,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -11712,10 +11712,10 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -12281,7 +12281,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
           class="fixed inset-0 top-[72px] bg-black bg-opacity-40 z-20"
         />
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto block"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 block"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -12532,10 +12532,10 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -13031,7 +13031,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
           </div>
         </div>
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto hidden"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 hidden"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -13282,10 +13282,10 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -13570,7 +13570,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
           </div>
         </div>
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto hidden"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 hidden"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -13821,10 +13821,10 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
@@ -14363,7 +14363,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
           </div>
         </div>
         <div
-          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto hidden"
+          class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 hidden"
           data-accordion="collapse"
           id="menu-bar"
         >
@@ -14614,10 +14614,10 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 </div>
               </div>
               <div
-                class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+                class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
               >
                 <div
-                  class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+                  class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
                 >
                   <div
                     class="flex flex-row align-top"
