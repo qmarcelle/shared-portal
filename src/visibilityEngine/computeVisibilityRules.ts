@@ -39,6 +39,7 @@ export function computeVisibilityRules(
   rules.individual = INDIVIDUAL_LOB.includes(loggedUserInfo.lob);
   rules.blueCare = MEDICAID_LOB.includes(loggedUserInfo.lob);
   rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
+  rules.dsnpGrpInd = loggedUserInfo.groupData.clientID === 'ES';
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
@@ -382,6 +383,14 @@ export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {
   );
 }
 
+export function isMedicareDsnpEligible(rules: VisibilityRules | undefined) {
+  return rules?.medicare;
+}
+
+export function isMedicareEligible(rules: VisibilityRules | undefined) {
+  return isActiveAndNotFSAOnly(rules) && rules?.medicare && !rules.dsnpGrpInd;
+}
+
 export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
   return rules?.active && rules.otcEnable && !rules.displayPharmacyTab;
 }
@@ -426,7 +435,11 @@ export function isSilverAndFitnessEligible(rules: VisibilityRules | undefined) {
     activeAndHealthPlanMember(rules)
   );
 }
-
+export function isHealthProgamAndResourceEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.commercial || rules?.medicare;
+}
 export function isMedicarePrescriptionPaymentPlanEligible(
   rules: VisibilityRules | undefined,
 ) {
