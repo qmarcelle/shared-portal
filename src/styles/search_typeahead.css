@@ -1,11 +1,9 @@
 .searchSuggestion {
   position: absolute;
-  top: 114px;
-  right: 49px;
+  top: 50px;
   z-index: 10;
   background-color: white;
   border: 1px solid var(--tertiary-color-5);
-  width: 487px;
   height: 435px;
 }
 
@@ -20,11 +18,10 @@
 
 @media (width <= 820px) {
   .searchSuggestion {
-    width: 86%;
-    height: 100%;
+    height: fit-content;
+    max-height: calc(100vh - 200px);
     top: 0;
     margin-top: 13%;
-    right: 10%;
   }
 }
 
