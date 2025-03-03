@@ -64,6 +64,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'fsaHraEligible',
   'flexibleSpendingAccount',
   'healthReimbursementAccount',
+  'dsnpGrpInd',
   'rxChoiceEligible',
   'rxEssentialEligible',
   'rxEssentialPlusEligible',

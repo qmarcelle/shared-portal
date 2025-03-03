@@ -5,4 +5,5 @@ export interface LinkDetails {
   linkDescription: string;
   linkTitle: string;
   linkURL?: string;
+  isHidden?: boolean;
 }
