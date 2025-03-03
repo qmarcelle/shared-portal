@@ -251,6 +251,7 @@ describe('Dashboard Page', () => {
   it('should render the Find Medical Providers card if the pzn rule is true', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
+
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         groupData: {
@@ -291,6 +292,46 @@ describe('Dashboard Page', () => {
             exchange: true,
             indvGroupInd: 'Group',
             pedAdultInd: 'Adult',
+          },
+        ],
+      },
+    });
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        physicianId: '3118777',
+        physicianName: 'Louthan, James D.',
+        address1: '2033 Meadowview Ln Ste 200',
+        address2: '',
+        address3: '',
+        city: 'Kingsport',
+        state: 'TN',
+        zip: '376607432',
+        phone: '4238572260',
+        ext: '',
+        addressType: '1',
+        taxId: '621388079',
+      },
+    });
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        currentPolicies: [
+          {
+            memberCk: '502622001',
+            subscriberName: 'REBEKAH WILSON',
+            groupName: 'Radio Systems Corporation',
+            memberId: '90447969100',
+            planTypes: ['M', 'R', 'S'],
+            amplifyMember: false,
+          },
+        ],
+        pastPolicies: [
+          {
+            memberCk: '846239401',
+            subscriberName: 'JOHNATHAN ANDERL',
+            groupName: 'Ruby Tuesday Operations LLC',
+            memberId: '90865577900',
+            planTypes: ['D', 'R', 'S', 'M', 'V'],
+            amplifyMember: false,
           },
         ],
       },
@@ -349,6 +390,46 @@ describe('Dashboard Page', () => {
             exchange: true,
             indvGroupInd: 'Group',
             pedAdultInd: 'Adult',
+          },
+        ],
+      },
+    });
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        physicianId: '3118777',
+        physicianName: 'Louthan, James D.',
+        address1: '2033 Meadowview Ln Ste 200',
+        address2: '',
+        address3: '',
+        city: 'Kingsport',
+        state: 'TN',
+        zip: '376607432',
+        phone: '4238572260',
+        ext: '',
+        addressType: '1',
+        taxId: '621388079',
+      },
+    });
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        currentPolicies: [
+          {
+            memberCk: '502622001',
+            subscriberName: 'REBEKAH WILSON',
+            groupName: 'Radio Systems Corporation',
+            memberId: '90447969100',
+            planTypes: ['M', 'R', 'S'],
+            amplifyMember: false,
+          },
+        ],
+        pastPolicies: [
+          {
+            memberCk: '846239401',
+            subscriberName: 'JOHNATHAN ANDERL',
+            groupName: 'Ruby Tuesday Operations LLC',
+            memberId: '90865577900',
+            planTypes: ['D', 'R', 'S', 'M', 'V'],
+            amplifyMember: false,
           },
         ],
       },
