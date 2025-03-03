@@ -4,6 +4,7 @@ import {
   isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
+  isHealthProgamAndResourceEligible,
   isMentalHealthMenuOption,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
@@ -376,9 +377,7 @@ export const getMenuNavigation = (
         title: 'Health Programs & Resources',
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isHealthProgamAndResourceEligible,
         url: '/myHealth/healthProgramsResources',
         external: false,
       },

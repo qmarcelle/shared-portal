@@ -213,11 +213,6 @@ describe('SiteHeader And Navigation Menu', () => {
     /**** Nav Links For My Health  */
 
     fireEvent.click(screen.getAllByText('My Health')[0]);
-    expect(
-      screen.getByRole('button', {
-        name: /Health Programs & Resources/i,
-      }),
-    ).toBeInTheDocument();
 
     expect(
       screen.getAllByRole('link', {
@@ -487,5 +482,26 @@ describe('SiteHeader And Navigation Menu', () => {
       screen.queryByRole('link', { name: 'Find a Form External Link' }),
     ).toBeNull();
     expect(component.container).toMatchSnapshot();
+  });
+  it('should navigate the Health Programs & Resources menu link correctly', async () => {
+    vRules.commercial = true;
+    vRules.medicare = true;
+    const component = renderUI(vRules);
+
+    fireEvent.click(screen.getAllByText('My Health')[0]);
+    expect(screen.getByText('Health Programs & Resources')).toBeInTheDocument();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should not navigate to the Health Programs & Resources menu link', async () => {
+    vRules.commercial = false;
+    vRules.medicare = false;
+    const component = renderUI(vRules);
+
+    fireEvent.click(screen.getAllByText('My Health')[0]);
+    expect(
+      screen.queryByText('Health Programs & Resources'),
+    ).not.toBeInTheDocument();
+    expect(component.baseElement).toMatchSnapshot();
   });
 });

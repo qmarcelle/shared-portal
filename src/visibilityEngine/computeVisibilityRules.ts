@@ -426,7 +426,11 @@ export function isSilverAndFitnessEligible(rules: VisibilityRules | undefined) {
     activeAndHealthPlanMember(rules)
   );
 }
-
+export function isHealthProgamAndResourceEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.commercial || rules?.medicare;
+}
 export function isMedicarePrescriptionPaymentPlanEligible(
   rules: VisibilityRules | undefined,
 ) {
