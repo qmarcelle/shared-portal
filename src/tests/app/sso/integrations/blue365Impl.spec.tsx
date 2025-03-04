@@ -64,7 +64,7 @@ describe('Blue365 SSO', () => {
         `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
@@ -100,7 +100,7 @@ describe('Blue365 SSO', () => {
         `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
