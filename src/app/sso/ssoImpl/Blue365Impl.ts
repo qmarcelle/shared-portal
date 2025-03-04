@@ -38,7 +38,7 @@ export default async function generateBlue365Map(
   ssoParamMap.set(SSO_FIRST_NAME, memberData.firstName.substring(0, 63));
   ssoParamMap.set(SSO_LAST_NAME, memberData.lastName.substring(0, 63));
   ssoParamMap.set(SSO_GENDER, memberData.gender);
-  ssoParamMap.set(SSO_BIRTH_YEAR, memberData.dateOfBirth.substring(0, 6));
+  ssoParamMap.set(SSO_BIRTH_YEAR, memberData.dateOfBirth.substring(6));
   ssoParamMap.set(SSO_TARGET_RESOURCE, target);
   ssoParamMap.set(SSO_SUBJECT, memberData.userId);
 
