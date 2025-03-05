@@ -1,4 +1,4 @@
-export const MEMBER_ATTRIBUTES_LIST = [
+export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'active',
   'termed',
   'futureEffective',
