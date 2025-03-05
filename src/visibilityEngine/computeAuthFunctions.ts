@@ -143,4 +143,8 @@ export function computeAuthFunctions(
     'MEDICARE_PRESCIPTION_PAYMENT_PLAN_ELIGIBLE',
   );
   rules.isEmboldHealth = authFunctionsMap.get('EMBOLD_HEALTH');
+
+  rules.teladocEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'TELADOC',
+  )?.available;
 }
