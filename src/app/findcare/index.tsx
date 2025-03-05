@@ -4,6 +4,15 @@ import { VirtualCareOptions } from '@/app/findcare/components/VirtualCareOptions
 import { Column } from '@/components/foundation/Column';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
+import {
+  isHingeHealthEligible,
+  isNewMentalHealthSupportAbleToEligible,
+  isNewMentalHealthSupportMyStrengthCompleteEligible,
+  isNurseChatEligible,
+  isTeladocEligible,
+  isTeledocPrimary360Eligible,
+} from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import EstimateCost from '../../../public/assets/estimate_cost.svg';
@@ -12,8 +21,11 @@ import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 import { FindMedicalProvidersComponent } from '../dashboard/components/FindMedicalProvidersComponent';
 import { FindCarePillBox } from './components/FindCarePillBox';
+export type FindCareProps = {
+  visibilityRules?: VisibilityRules;
+};
 
-const FindCare = () => {
+const FindCare = ({ visibilityRules }: FindCareProps) => {
   const router = useRouter();
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -163,41 +175,48 @@ const FindCare = () => {
           </Column>
         </section>
         <Spacer size={32} />
-        <section>
-          <VirtualCareOptions
-            className="p-8"
-            options={[
-              {
-                id: '1',
-                title: 'AbleTo',
-                description:
-                  // eslint-disable-next-line quotes
-                  "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.",
-                url: 'null',
-              },
-              {
-                id: '2',
-                title: 'Blue of Tennessee Medical Centers Virtual Visits ',
-                description:
-                  'At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. ',
-                url: 'null',
-              },
-              {
-                id: '3',
-                title: 'Hinge Health Back & Joint Care',
-                description:
-                  'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
-                url: 'null',
-              },
-              {
-                id: '4',
-                title: 'yyt',
-                description: 'xxx',
-                url: 'null',
-              },
-            ]}
-          />
-        </section>
+        {isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules) &&
+          isNewMentalHealthSupportAbleToEligible(visibilityRules) &&
+          isHingeHealthEligible(visibilityRules) &&
+          isTeledocPrimary360Eligible(visibilityRules) &&
+          isTeladocEligible(visibilityRules) &&
+          isNurseChatEligible(visibilityRules) && (
+            <section>
+              <VirtualCareOptions
+                className="p-8"
+                options={[
+                  {
+                    id: '1',
+                    title: 'AbleTo',
+                    description:
+                      // eslint-disable-next-line quotes
+                      "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.",
+                    url: 'null',
+                  },
+                  {
+                    id: '2',
+                    title: 'Blue of Tennessee Medical Centers Virtual Visits ',
+                    description:
+                      'At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. ',
+                    url: 'null',
+                  },
+                  {
+                    id: '3',
+                    title: 'Hinge Health Back & Joint Care',
+                    description:
+                      'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
+                    url: 'null',
+                  },
+                  {
+                    id: '4',
+                    title: 'yyt',
+                    description: 'xxx',
+                    url: 'null',
+                  },
+                ]}
+              />
+            </section>
+          )}
       </Column>
       <Spacer size={32}></Spacer>
     </main>
