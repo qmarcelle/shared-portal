@@ -7,12 +7,16 @@ import { Row } from '@/components/foundation/Row';
 import { AddMemberDetails } from '@/models/add_member_details';
 import { AboutOtherInsurance } from './components/AboutOtherInsurance';
 import { OtherHealthInsuranceCard } from './components/OtherHealthInsuranceCard';
+import { OtherInsuranceData } from './models/app/other_insurance_data';
+
 export type ReportOtherHealthInsuranceProps = {
   data: AddMemberDetails[];
+  cobData: OtherInsuranceData;
 };
 
 const ReportOtherHealthInsurance = ({
   data,
+  cobData,
 }: ReportOtherHealthInsuranceProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -43,38 +47,7 @@ const ReportOtherHealthInsurance = ({
 
           <Column className="flex-grow page-section-63_33 items-stretch">
             <OtherHealthInsuranceCard
-              otherHealthInsuranceDetails={[
-                {
-                  memberName: 'Chris Hall',
-                  DOB: '01/01/1978',
-                  updatedDate: '01/16/2023',
-                },
-                {
-                  memberName: 'Maddison Hall',
-                  DOB: '01/01/1979',
-                  updatedDate: '01/16/2023',
-                },
-                {
-                  memberName: 'Forest Hall',
-                  DOB: '01/01/2001',
-                  updatedDate: '01/16/2023',
-                },
-                {
-                  memberName: 'Corey Hall',
-                  DOB: '01/01/2002',
-                  updatedDate: '01/16/2023',
-                },
-                {
-                  memberName: 'Telly Hall',
-                  DOB: '01/01/2005',
-                  updatedDate: '01/16/2023',
-                },
-                {
-                  memberName: 'Janie Hall',
-                  DOB: '01/01/2015',
-                  updatedDate: '01/16/2023',
-                },
-              ]}
+              otherHealthInsuranceDetails={cobData}
               memberDetails={data}
             />
           </Column>
