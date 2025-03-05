@@ -155,7 +155,7 @@ describe('MyHealthProgramsResources', () => {
     screen.getByText(
       'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
     );
-    screen.getByText('Learn More About Diabetes Prevention');
+    screen.getByText('Learn More About Diabetes Management');
     screen.getByText('Generally good for:');
     screen.getByText('Living with diabetes');
     screen.getByText('Receiving diabetes supplies');
