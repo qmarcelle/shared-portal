@@ -22,6 +22,7 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
   const initialFilter = useMemo(() => {
     return filters;
   }, []);
+  const [searchText, setSearchText] = useState('');
   const initialClaims = useMemo(() => claimsList ?? [], []);
   const [filter, setFilter] = useState(filters);
   const [claims, setClaims] = useState(filterClaims(filter));
@@ -94,6 +95,28 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
   function resetFilter() {
     setFilter(initialFilter);
     setClaims(initialClaims);
+  }
+
+  function refineClaimsWithSearch() {
+    if (searchText.length <= 3) {
+      return claims;
+    }
+
+    const searchTerm = searchText.toLowerCase();
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const filteredItems = claims.filter(
+      (claim) =>
+        claim.memberName.toLowerCase().includes(searchTerm) ||
+        claim.issuer.toLowerCase().includes(searchTerm) ||
+        claim.id.toLowerCase().includes(searchTerm),
+    );
+
+    return filteredItems;
+  }
+
+  function updateSearchTerm(text: string) {
+    setSearchText(text);
   }
 
   return (
@@ -171,8 +194,10 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
                     value: '0',
                   },
                 ]}
+                updateSearchTerm={updateSearchTerm}
                 onSelectedDateChange={() => {}}
-                claims={claims}
+                searchTerm={searchText}
+                claims={refineClaimsWithSearch()}
               />
             </Column>
           </section>
