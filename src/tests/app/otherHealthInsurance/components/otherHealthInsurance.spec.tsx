@@ -1,44 +1,211 @@
-import ReportOtherHealthInsurance from '@/app/reportOtherHealthInsurance';
+import OtherHealthInsurancePage from '@/app/reportOtherHealthInsurance/page';
+import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
-const mockMemberDetails = {
-  member: [
+const setupUI = async () => {
+  const page = await OtherHealthInsurancePage();
+  render(page);
+};
+
+const vRules = { user: { currUsr: { plan: { memCk: '91722407' } } } };
+
+jest.mock('src/auth', () => ({ auth: jest.fn() }));
+
+const loggedinUser = {
+  isActive: true,
+  subscriberLoggedIn: true,
+  lob: 'REGL',
+  groupData: {
+    groupID: '100000',
+    groupCK: '21908',
+    groupName: 'Chris B Hall Enterprises',
+    parentGroupID: '100001',
+    subGroupID: '0001',
+    subGroupCK: 28951,
+    subGroupName: 'Chris B Hall Enterprises',
+    clientID: 'EI',
+    policyType: 'INT',
+    groupEIN: '620427913',
+  },
+  networkPrefix: 'QMI',
+  subscriberID: '902218823',
+  subscriberCK: '91722400',
+  subscriberFirstName: 'CHRIS',
+  subscriberLastName: 'HALL',
+  subscriberTitle: '',
+  subscriberDateOfBirth: '08/06/1959',
+  subscriberOriginalEffectiveDate: '01/01/2001',
+  members: [
     {
-      id: 1,
-      dob: '08/06/1959',
+      isActive: true,
+      memberOrigEffDt: '06/29/2009',
+      memberCk: 91722407,
+      firstName: 'CHRISTMAS',
+      middleInitial: '',
+      lastName: 'HALL',
+      title: '',
+      memRelation: 'M',
+      birthDate: '06/29/2009',
+      gender: 'M',
+      memberSuffix: 6,
+      mailAddressType: 'H',
+      workPhone: '',
+      otherInsurance: [],
+      inXPermissions: true,
+      futureEffective: false,
+      loggedIn: false,
+      hasSocial: true,
+      esipharmacyEligible: true,
     },
   ],
-};
-const renderUI = () => {
-  return render(
-    <>
-      <ReportOtherHealthInsurance data={mockMemberDetails.member} />
-    </>,
-  );
+  authFunctions: [
+    { functionName: 'MULTITIER', available: true },
+    { functionName: 'MULTITIER', available: true },
+    { functionName: 'MULTITIER', available: true },
+    { functionName: 'MULTITIER', available: true },
+    { functionName: 'MULTITIER', available: true },
+    { functionName: 'MULTITIER', available: true },
+    { functionName: 'MDLIVE', available: false },
+    { functionName: 'OHDELIGIBLE', available: false },
+    { functionName: 'MedicareAdvantageGroupIndicator', available: false },
+    { functionName: 'AllMedicareAdvantage', available: false },
+    { functionName: 'TELEHEALTH_BEHAVIORAL', available: true },
+    { functionName: 'QUEST_SELECT', available: false },
+    { functionName: 'TELADOC', available: false },
+    { functionName: 'TELADOC_PRIMARY360', available: false },
+    { functionName: 'TELADOC_MYSTRENGTHCOMPLETE', available: false },
+    { functionName: 'TELADOC_DIABETESPREVENTION', available: false },
+    { functionName: 'TELADOC_DIABETESMGMT', available: false },
+    { functionName: 'TELADOC_HYPERTENSIONMGMT', available: false },
+    { functionName: 'MedicalWellnesswithIncentives', available: false },
+    { functionName: 'PHACommercialEligible', available: true },
+    { functionName: 'HealthReimbursementAccount', available: false },
+    { functionName: 'FlexibleSpendingAccount', available: false },
+    { functionName: 'UpdateSSNIneligible', available: false },
+    { functionName: 'PBP_INELIGIBLE', available: false },
+    { functionName: 'PHARMACYINTEGRATEDGROUP', available: true },
+    { functionName: 'CLAIMSHOLD', available: false },
+    { functionName: 'DELINQUENCY', available: false },
+    { functionName: 'COBUPDATEELIGIBLE', available: true },
+    { functionName: 'COBRAELIGIBLE', available: true },
+    { functionName: 'HEALTHCOACHELIGIBLE', available: true },
+    { functionName: 'BLUEHEALTHREWARDS', available: false },
+    { functionName: 'CHIPELIGIBLE', available: false },
+    { functionName: 'PHSELIGIBLE', available: true },
+    { functionName: 'CHAT_ELIGIBLE', available: true },
+    { functionName: 'PCAWELLNESSELIGIBLE', available: false },
+    { functionName: 'HEALTHYMATERNITY', available: true },
+    { functionName: 'LIVONGO', available: true },
+    { functionName: 'LIVONGODMP', available: true },
+    { functionName: 'ONLIFEWELLNESSELIGIBLE', available: true },
+    { functionName: 'BLUEPRKS', available: true },
+    { functionName: 'TEMPIDEXCLUSION', available: false },
+    { functionName: 'MYPCPELIGIBLE', available: true },
+    { functionName: 'IDPROTECTELIGIBLE', available: true },
+    { functionName: 'ENROLLELIGIBLE', available: true },
+    { functionName: 'FSAHRAELIGIBLE', available: true },
+    { functionName: 'DENTALCOSTELIGIBLE', available: true },
+    { functionName: 'ENABLE_COST_TOOLS', available: true },
+    { functionName: 'ENABLE_COST_EST_TOOL', available: true },
+    { functionName: 'INDIVIDUAL_SBC_ELIGIBLE', available: false },
+    { functionName: 'ENABLE_BENEFIT_CHANGE_TAB', available: false },
+    { functionName: 'SOLERAELIGIBLE', available: false },
+    { functionName: 'ENABLE_PHAR_TAB', available: true },
+    { functionName: 'RX_MEDICARE', available: false },
+    { functionName: 'RX_PREFERRED_ELIGIBLE', available: true },
+    { functionName: 'SANITAS_ELIGIBLE', available: false },
+    { functionName: 'CONDENSED_EXPERIENCE', available: false },
+    { functionName: 'HINGE_HEALTH_ELIGIBLE', available: true },
+    { functionName: 'OTCEnable', available: false },
+    { functionName: 'careManagementExclusion', available: true },
+    { functionName: 'COBUPDATEREMINDER', available: true },
+    { functionName: 'EMBOLD_HEALTH', available: false },
+    { functionName: 'GROUP_RENEWAL_DATE_BEFORE_TODAY', available: true },
+  ],
+  healthCareAccounts: [],
+  esigroupNum: '100000MBPX0806',
+  cmcondition: [],
 };
 
 describe('OtherHealthInsurance', () => {
+  beforeEach(() => {
+    mockedAxios.get.mockResolvedValueOnce({ data: loggedinUser });
+  });
   it('should render the UI correctly', async () => {
-    const component = renderUI();
-    screen.getByRole('heading', { name: 'Report Other Health Insurance' });
-
-    expect(screen.getByText('Chris Hall')).toBeInTheDocument();
-    expect(screen.getByText('DOB: 01/01/1978')).toBeInTheDocument();
-    expect(screen.getAllByText('Last Updated: 01/16/2023'));
-    expect(
-      screen.getByRole('heading', { name: 'About Other Insurance' }),
-    ).toBeVisible();
-    expect(
-      screen.getByText(
-        "Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by the selections you make here.",
-      ),
-    );
-    const updateButtons = screen.getAllByText(/Update/i);
-    fireEvent.click(updateButtons[0]);
-    await waitFor(() => {
-      expect(screen.getAllByText(/Other Health Insurance/i));
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: [
+        {
+          medicalBean: {
+            otherInsuranceCompanyName: 'METLIFE (VISION COVERAGE ONLY)',
+            otherInsurancePhoneNum: '8005439150',
+            policyIdNum: 'VISION ONLY',
+            policyHolderFirstName: '',
+            policyHolderLastName: '',
+            policyEffectiveDate: '01/01/2006',
+            policyCancelDate: '12/31/9999',
+            otherInsuranceCompanyCode: 'METLIFE',
+            noOtherInsurance: false,
+          },
+          dentalBean: {
+            otherInsuranceCompanyName: 'Not Assigned',
+            otherInsurancePhoneNum: '',
+            policyIdNum: '621239891',
+            policyHolderFirstName: '',
+            policyHolderLastName: '',
+            policyEffectiveDate: '07/01/2007',
+            policyCancelDate: '12/31/9999',
+            otherInsuranceCompanyCode: '',
+            noOtherInsurance: false,
+          },
+          memeCK: '91722407',
+          forAllDependents: false,
+          noOtherInsurance: false,
+        },
+      ],
     });
-    expect(component).toMatchSnapshot();
+
+    await setupUI();
+    await waitFor(async () => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        '/memberservice/api/COBService?memeCKs=91722407&isMedAdv=false',
+      );
+
+      screen.getByRole('heading', { name: 'Report Other Health Insurance' });
+
+      expect(screen.getByText('VISION ONLY')).toBeInTheDocument();
+      expect(screen.getByText('DOB: 06/29/2009')).toBeInTheDocument();
+      expect(
+        screen.getByText('METLIFE (VISION COVERAGE ONLY)'),
+      ).toBeInTheDocument();
+      expect(screen.getByText('621239891')).toBeInTheDocument();
+      expect(
+        screen.getByRole('heading', { name: 'About Other Insurance' }),
+      ).toBeVisible();
+      expect(
+        screen.getByText(
+          "Even if you don't have other coverage, we still need to know that so we can process your claims correctly. This is called your Coordination of Benefits (COB). We will automatically reprocess or adjust any claims affected by the selections you make here.",
+        ),
+      );
+    });
+  });
+  it('Should test 200 HttpStatus flow of other insurance with empty data', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: [
+        { memeCK: '91722407', forAllDependents: true, noOtherInsurance: true },
+      ],
+    });
+
+    await setupUI();
+    await waitFor(async () => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        '/memberservice/api/COBService?memeCKs=91722407&isMedAdv=false',
+      );
+      screen.getByText('Not covered by other health insurance.');
+    });
   });
 });
