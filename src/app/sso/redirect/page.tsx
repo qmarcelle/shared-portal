@@ -42,6 +42,9 @@ const SSORedirect = () => {
 
         router.push(url);
       } catch (error) {
+        window.dispatchEvent(
+          new CustomEvent('SSOError', { detail: 'Error in SSO' }),
+        );
         console.error('Error in sendSSO:', error);
       }
     };
