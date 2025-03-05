@@ -327,6 +327,11 @@ export function isDiabetesPreventionEligible(
 ) {
   return rules?.diabetesPreventionEligible && activeAndHealthPlanMember(rules);
 }
+export function isDiabetesManagementEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.diabetesManagementEligible && activeAndHealthPlanMember(rules);
+}
 export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
   return (
     rules?.commercial &&

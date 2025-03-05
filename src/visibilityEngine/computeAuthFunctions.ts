@@ -147,4 +147,8 @@ export function computeAuthFunctions(
   rules.teladocEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName == 'TELADOC',
   )?.available;
+
+  rules.diabetesManagementEligible = authFunctionsMap.get(
+    'TELADOC_DIABETESMGMT',
+  );
 }
