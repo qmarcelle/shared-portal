@@ -9,6 +9,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import {
   isBloodPressureManagementEligible,
   isCareManagementEligiblity,
+  isDiabetesManagementEligible,
   isDiabetesPreventionEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
@@ -61,6 +62,12 @@ const MyHealthProgramsResources = ({
       HealthProgramsResourcesName.TalkToNurse,
     );
     if (nurseChat) virtualHealthCareDetails.push(nurseChat);
+  }
+  if (isDiabetesManagementEligible(visibilityRules)) {
+    const diabetesManagement = myHealthProgramsandResourcesDetails.get(
+      HealthProgramsResourcesName.TeladocHealthDiabetesManagementProgram,
+    );
+    if (diabetesManagement) virtualHealthCareDetails.push(diabetesManagement);
   }
   if (isDiabetesPreventionEligible(visibilityRules)) {
     const diabetesPrevention = myHealthProgramsandResourcesDetails.get(
