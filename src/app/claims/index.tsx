@@ -147,7 +147,7 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
               spans={[
                 <span key={0}>Need to submit a claim? </span>,
                 <span className="link font-bold" key={1}>
-                  Get the form you need
+                  <a href="/claims/submitAClaim">Get the form you need</a>
                 </span>,
                 <span key={2}>.</span>,
               ]}
