@@ -2227,6 +2227,417 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
 </div>
 `;
 
+exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health Diabetes Management Program 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 mt-4"
+          >
+            Health Programs & Resources
+          </h1>
+          <div
+            class="w-3/4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 mt-4 inline w-2/3"
+              style="display: block;"
+            >
+              Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+            </p>
+            <a
+              aria-label="View all your plan benefits here"
+              style="display: inline-flex;"
+            >
+              <button
+                class="flex flex-row link-container pr-0"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="link undefined"
+                >
+                  View all your plan benefits here
+                </p>
+              </button>
+            </a>
+            .
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="gap-4 flex flex-wrap"
+              >
+                <div
+                  class="card-elevated cursor-pointer \${className} md:w-80"
+                >
+                  <div
+                    class="flex flex-row flex flex-col align-top m-4 mt-8"
+                  >
+                    <p
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      style="display: block;"
+                    >
+                      Diabetes
+                    </p>
+                    <img
+                      alt="TelaDoc"
+                      class="w-1/2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1 title-3 !font-bold m-4 mb-0"
+                        style="display: block;"
+                      >
+                        Teladoc Health Diabetes Management Program
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 body-1 m-4 mb-0"
+                        style="display: block;"
+                      >
+                        Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div>
+                        <p
+                          class="body-1 body-1 m-4"
+                          style="display: block;"
+                        >
+                          Generally good for:
+                        </p>
+                        <ul
+                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        >
+                          <div>
+                            <li>
+                              Living with diabetes
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Receiving diabetes supplies
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Monitoring glucose
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                          <div>
+                            <li>
+                              Building healthy habits
+                            </li>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                            />
+                          </div>
+                        </ul>
+                      </div>
+                      <a
+                        aria-label="Learn More About Diabetes Management"
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container text-left"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <p
+                            class="link undefined"
+                          >
+                            Learn More About Diabetes Management
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 mt-4"
+        >
+          Health Programs & Resources
+        </h1>
+        <div
+          class="w-3/4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1 mt-4 inline w-2/3"
+            style="display: block;"
+          >
+            Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+          </p>
+          <a
+            aria-label="View all your plan benefits here"
+            style="display: inline-flex;"
+          >
+            <button
+              class="flex flex-row link-container pr-0"
+              style="max-width: max-content; height: auto; display: inline-flex;"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="link undefined"
+              >
+                View all your plan benefits here
+              </p>
+            </button>
+          </a>
+          .
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="gap-4 flex flex-wrap"
+            >
+              <div
+                class="card-elevated cursor-pointer \${className} md:w-80"
+              >
+                <div
+                  class="flex flex-row flex flex-col align-top m-4 mt-8"
+                >
+                  <p
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    style="display: block;"
+                  >
+                    Diabetes
+                  </p>
+                  <img
+                    alt="TelaDoc"
+                    class="w-1/2"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col flex-grow"
+                  >
+                    <p
+                      class="body-1 title-3 !font-bold m-4 mb-0"
+                      style="display: block;"
+                    >
+                      Teladoc Health Diabetes Management Program
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1 m-4 mb-0"
+                      style="display: block;"
+                    >
+                      Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4"
+                        style="display: block;"
+                      >
+                        Generally good for:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Living with diabetes
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Receiving diabetes supplies
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Monitoring glucose
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Building healthy habits
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <a
+                      aria-label="Learn More About Diabetes Management"
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container text-left"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                        >
+                          Learn More About Diabetes Management
+                        </p>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health Diabetes Prevention Program 1`] = `
 {
   "asFragment": [Function],
