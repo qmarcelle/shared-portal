@@ -270,29 +270,6 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
-            <div
-              class="flex flex-col w-full text-field"
-            >
-              <p>
-                Type Your Full Name
-              </p>
-              <div
-                class="flex flex-row items-center input   "
-              >
-                <input
-                  aria-label="Type Your Full Name"
-                  class=""
-                  type="text"
-                  value=""
-                />
-                <div
-                  class="cursor-pointer"
-                />
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
           </div>
         </main>
         <button
@@ -664,29 +641,6 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
             </div>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <div
-              class="flex flex-col w-full text-field"
-            >
-              <p>
-                Type Your Full Name
-              </p>
-              <div
-                class="flex flex-row items-center input   "
-              >
-                <input
-                  aria-label="Type Your Full Name"
-                  class=""
-                  type="text"
-                  value=""
-                />
-                <div
-                  class="cursor-pointer"
-                />
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
           </div>
         </main>
