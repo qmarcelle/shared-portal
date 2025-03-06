@@ -66,6 +66,72 @@ exports[`MyHealthProgramsResources should not render Teladoc Blood Pressure Mana
 </div>
 `;
 
+exports[`MyHealthProgramsResources should not render Teladoc Health Diabetes MANAGEMENT Program Card when rule is false 1`] = `
+<div>
+  <div
+    class="flex flex-col justify-center items-center page"
+  >
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+    />
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <h1
+        class="title-1 mt-4"
+      >
+        Health Programs & Resources
+      </h1>
+      <div
+        class="w-3/4"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 mt-4 inline w-2/3"
+          style="display: block;"
+        >
+          Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
+        </p>
+        <a
+          aria-label="View all your plan benefits here"
+          style="display: inline-flex;"
+        >
+          <button
+            class="flex flex-row link-container pr-0"
+            style="max-width: max-content; height: auto; display: inline-flex;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+            >
+              View all your plan benefits here
+            </p>
+          </button>
+        </a>
+        .
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="gap-4 flex flex-wrap"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`MyHealthProgramsResources should not render the Silver and Fitness card if the pzn rule is true 1`] = `
 {
   "asFragment": [Function],
@@ -2227,7 +2293,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
 </div>
 `;
 
-exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health Diabetes Management Program 1`] = `
+exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health Diabetes MANAGEMENT Program when rule is true 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -2638,7 +2704,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
 }
 `;
 
-exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health Diabetes Prevention Program 1`] = `
+exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health Diabetes PREVENTION Program when rule is true 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
