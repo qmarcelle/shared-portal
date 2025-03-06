@@ -234,7 +234,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '',
+        url: '/claims/submitAClaim',
         external: false,
       },
       {
