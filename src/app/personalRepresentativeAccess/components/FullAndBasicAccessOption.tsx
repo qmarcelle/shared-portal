@@ -5,7 +5,6 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { TextField } from '@/components/foundation/TextField';
 import { AccessType } from '../journeys/EditLevelOfAccess';
 
 const FullAndBasicAccessOption = ({
@@ -39,12 +38,13 @@ const FullAndBasicAccessOption = ({
              Mauris porttitor"
               selected={true}
             ></Checkbox>
-            <Spacer size={32} />
+            {/* TO Do:Removed this filed from UI as part of US-46981 */}
+            {/* <Spacer size={32} />
             <TextField
               type="text"
               label="Type Your Full Name"
               value="[Mature Minor Name]"
-            ></TextField>
+            ></TextField> */}
             <Spacer size={32} />
           </>
         ) : (
@@ -411,8 +411,9 @@ const FullAndBasicAccessOption = ({
               selected={true}
             ></Checkbox>
             <Spacer size={16} />
-            <TextField type="text" label="Type Your Full Name"></TextField>
-            <Spacer size={32} />
+            {/* TO Do:Removed this filed from UI as part of US-46981 */}
+            {/* <TextField type="text" label="Type Your Full Name"></TextField>
+            <Spacer size={32} /> */}
           </>
         )}
       </Column>

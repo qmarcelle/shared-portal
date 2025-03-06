@@ -347,29 +347,6 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
-        <div
-          class="flex flex-col w-full text-field"
-        >
-          <p>
-            Type Your Full Name
-          </p>
-          <div
-            class="flex flex-row items-center input   "
-          >
-            <input
-              aria-label="Type Your Full Name"
-              class=""
-              type="text"
-              value=""
-            />
-            <div
-              class="cursor-pointer"
-            />
-          </div>
-        </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
       </div>
     </main>
   </div>
@@ -418,29 +395,6 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
               <p />
             </label>
             I Agree. Lorem ipsum dolor sit amet, consectetur adipiscing elit.   Sed sodales, orci vitae ullamcorper dignissim,    ligula nulla condimentum lectus, feugiat interdum dui turpis eget nisl.    Duis at lectus vitae augue pulvinar dictum eu nec neque. Pellentesque maximus mattis justo id tincidunt.   Mauris porttitor
-          </div>
-        </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
-        <div
-          class="flex flex-col w-full text-field"
-        >
-          <p>
-            Type Your Full Name
-          </p>
-          <div
-            class="flex flex-row items-center input   "
-          >
-            <input
-              aria-label="Type Your Full Name"
-              class=""
-              type="text"
-              value="[Mature Minor Name]"
-            />
-            <div
-              class="cursor-pointer"
-            />
           </div>
         </div>
         <span
