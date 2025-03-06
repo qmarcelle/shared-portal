@@ -116,13 +116,13 @@ describe('computeAuthFunctions', () => {
 
     computeAuthFunctions(loggedUserInfo, rules);
 
-    expect(rules.delinquent).toBeUndefined();
-    expect(rules.katieBeckNoBenefitsElig).toBeUndefined();
-    expect(rules.myPCPElig).toBeUndefined();
-    expect(rules.identityProtectionServices).toBeUndefined();
-    expect(rules.otcEnable).toBeUndefined();
-    expect(rules.bluePerksElig).toBeUndefined();
-    expect(rules.showPharmacyTab).toBeUndefined();
-    expect(rules.diabetesManagementEligible).toBeUndefined();
+    expect(rules.delinquent).toBe(false);
+    expect(rules.katieBeckNoBenefitsElig).toBe(false);
+    expect(rules.myPCPElig).toBe(false);
+    expect(rules.identityProtectionServices).toBe(false);
+    expect(rules.otcEnable).toBe(false);
+    expect(rules.bluePerksElig).toBe(false);
+    expect(rules.showPharmacyTab).toBe(false);
+    expect(rules.diabetesManagementEligible).toBe(false);
   });
 });
