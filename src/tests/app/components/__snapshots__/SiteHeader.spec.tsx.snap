@@ -16422,7 +16422,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                         My Profile
                                       </p>
                                       <h3
-                                        class="title-3 font-bold"
+                                        class="title-3 font-bold primary-color"
                                       >
                                         Chris Hall
                                       </h3>
@@ -16458,6 +16458,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                             >
                               <a
                                 aria-label="All Profile Settings"
+                                href="/profileSettings"
                                 style="display: block;"
                               >
                                 <button
@@ -16497,6 +16498,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                               />
                               <a
                                 aria-label="Communication Settings"
+                                href="/communicationSettings"
                                 style="display: block;"
                               >
                                 <button
@@ -16517,6 +16519,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                               />
                               <a
                                 aria-label="Security Settings"
+                                href="/security"
                                 style="display: block;"
                               >
                                 <button
