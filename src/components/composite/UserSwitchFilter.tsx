@@ -47,7 +47,7 @@ const UserProfileTile = ({
             <Header
               text={`${user.firstName} ${user.lastName}`}
               type="title-3"
-              className={`font-bold text-xl py-1 ${!isSelected ? 'primary-color' : ''}`}
+              className={`font-bold text-xl py-1 ${isSelected ? '' : 'primary-color'}`}
             />
             <Image
               alt="selected"
@@ -83,7 +83,7 @@ const UserSwitchHead = ({ user }: { user: UserProfile }) => {
         <Header
           text={`${user.firstName} ${user.lastName}`}
           type="title-3"
-          className="font-bold"
+          className="font-bold primary-color"
         />
         <TextBox
           type="body-1"
@@ -133,10 +133,12 @@ export const UserSwitchFilter = ({
         label: 'Communication Settings',
         className:
           'font-bold primary-color body-bold body-1 manage-underline mt-4',
+        url: '/communicationSettings',
       },
       {
         label: 'Security Settings',
         className: 'font-bold primary-color body-bold body-1 manage-underline',
+        url: '/security',
       },
     ],
     [UserRole.PERSONAL_REP]: [
@@ -152,6 +154,7 @@ export const UserSwitchFilter = ({
         label: 'Sharing & Permissions',
         className:
           'font-bold primary-color body-bold body-1 mt-4 manage-underline',
+        url: '/sharingPermissions',
       },
     ],
     [UserRole.AUTHORIZED_USER]: [],
@@ -183,6 +186,7 @@ export const UserSwitchFilter = ({
               className={link.className}
               label={link.label}
               icon={link.icon}
+              url={link.url}
             />
             <Spacer size={8} />
             {link.label === 'All Profile Settings' && <Divider />}
