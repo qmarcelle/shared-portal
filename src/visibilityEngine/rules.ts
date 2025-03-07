@@ -78,6 +78,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'medicarePrescriptionPaymentPlanEligible',
   'isEmboldHealth',
   'teladocEligible',
+  'questSelectEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

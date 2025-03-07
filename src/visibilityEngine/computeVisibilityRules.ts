@@ -456,6 +456,10 @@ export function isMedicarePrescriptionPaymentPlanEligible(
     !rules?.fsaOnly
   );
 }
+
+export const isQuestSelectEligible = (rules: VisibilityRules | undefined) =>
+  rules?.questSelectEligible && rules?.active;
+
 export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
   return isActiveAndNotFSAOnly(rules) && rules?.isEmboldHealth;
 }

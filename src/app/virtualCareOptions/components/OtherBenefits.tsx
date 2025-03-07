@@ -30,16 +30,18 @@ export const OtherBenefits = ({
         ></TextBox>
         <Spacer size={32} />
         <SlidingCarousel>
-          {options.map((item) => (
-            <VirtualCareOptionsCard
-              key={item.id}
-              id={item.id}
-              className={`mr-4 shrink-0 ${cardClassName}`}
-              description={item.description}
-              title={item.title}
-              url={item.url}
-            />
-          ))}
+          {options
+            .filter((val) => !val.isHidden)
+            .map((item) => (
+              <VirtualCareOptionsCard
+                key={item.id}
+                id={item.id}
+                className={`mr-4 shrink-0 ${cardClassName}`}
+                description={item.description}
+                title={item.title}
+                url={item.url}
+              />
+            ))}
         </SlidingCarousel>
         <Spacer size={23} />
         <AppLink label="View All Health Programs & Resources" />
