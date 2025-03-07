@@ -186,7 +186,7 @@ export default function SiteHeader({
         {selectedPlan && (
           <div
             id="menu-bar"
-            className={`fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto ${activeSubNavId !== null ? 'block' : 'hidden'}`}
+            className={`fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 ${activeSubNavId !== null ? 'block' : 'hidden'}`}
             data-accordion="collapse"
           >
             <div className="flex font-bold">

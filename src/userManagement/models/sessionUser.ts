@@ -21,6 +21,7 @@ export type SessionUser = {
           grpId: string;
           subId: string;
           fhirId: string;
+          ntwkId: string;
         }
       | undefined;
   };

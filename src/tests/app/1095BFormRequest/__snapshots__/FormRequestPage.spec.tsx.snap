@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1095BFormRequest Page should render FormRequest Page UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="flex justify-start self-start"
+        >
+          <h1
+            class="title-1"
+          >
+            1095-B Form Request
+          </h1>
+        </section>
+        <section
+          class="flex flex-col flex-grow page-section-63_33 items-stretch "
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col flex flex-col"
+            >
+              <p
+                class="body-1 title-2"
+                style="display: block;"
+              >
+                Request a 1095-B Form
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                We’re sorry, but we don’t supply a 1095-B form for the type of coverage you have.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                If you had coverage last year through the Health Insurance Marketplace, Medicare Advantage, BlueCare or CoverKids Medicaid or CHIP, those organizations will provide your form. 
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <span
+                class="rich-text body-2 undefined"
+              >
+                <span>
+                  If you have questions, talk to your employer or tax preparer. If you think we made a mistake please
+                   
+                </span>
+                <span
+                  class="font-bold link"
+                >
+                  <a
+                    href=""
+                  >
+                    contact us
+                     
+                  </a>
+                </span>
+                <span>
+                  by phone, email or chat. 
+                </span>
+              </span>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                 Or write to us at:
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                 BlueCross BlueShield of Tennessee
+              </p>
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                Attn: 1095-B Request
+              </p>
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                3.2 - Membership Administration
+              </p>
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                1 Cameron Hill Circle
+              </p>
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                Chattanooga, TN 37402
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+`;

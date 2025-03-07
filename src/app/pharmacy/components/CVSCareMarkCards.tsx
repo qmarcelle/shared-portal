@@ -19,9 +19,7 @@ export const CVSCaremarkCard = ({
       className={`cursor-pointer ${className}`}
       type="elevated"
       onClick={() => {
-        if (url) {
-          router.push(url);
-        }
+        if (url) router.push(url);
       }}
     >
       <Row className="p-2">

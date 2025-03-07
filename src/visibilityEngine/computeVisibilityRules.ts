@@ -269,9 +269,10 @@ export function isTeladocPrimary360Eligible(
 
 export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
   return (
-    rules?.hingeHealthEligible ||
-    (rules?.groupRenewalDateBeforeTodaysDate &&
-      (rules?.fullyInsured || rules?.levelFunded))
+    (rules?.hingeHealthEligible ||
+      (rules?.groupRenewalDateBeforeTodaysDate &&
+        (rules?.fullyInsured || rules?.levelFunded))) &&
+    isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly'
   );
 }
 
@@ -285,7 +286,11 @@ function nurseChatEnabler(rules: VisibilityRules | undefined) {
 }
 
 export function isNurseChatEligible(rules: VisibilityRules | undefined) {
-  if (nurseChatEnabler(rules) === 'enabled') return true;
+  if (
+    nurseChatEnabler(rules) === 'enabled' &&
+    isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly'
+  )
+    return true;
   else return false;
 }
 
@@ -451,6 +456,20 @@ export function isMedicarePrescriptionPaymentPlanEligible(
     !rules?.fsaOnly
   );
 }
+
+export const isQuestSelectEligible = (rules: VisibilityRules | undefined) =>
+  rules?.questSelectEligible && rules?.active;
+
 export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
   return isActiveAndNotFSAOnly(rules) && rules?.isEmboldHealth;
+}
+
+function isCityOfMemphisWellnessOnlyProfiler(
+  rules: VisibilityRules | undefined,
+) {
+  if (rules?.wellnessOnly && groupId == '130447') return 'IsWellnessOnly';
+}
+
+export function isTeladocEligible(rules: VisibilityRules | undefined) {
+  return rules?.teladoc && activeAndHealthPlanMember(rules);
 }
