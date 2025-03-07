@@ -65,6 +65,7 @@ export const CVSCaremarkInformationCard = ({
             label={linkText}
             icon={linkIcon}
             callback={() => null}
+            url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
           />
         </Column>
       </Card>
