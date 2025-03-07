@@ -474,3 +474,7 @@ function isCityOfMemphisWellnessOnlyProfiler(
 export function isTeladocEligible(rules: VisibilityRules | undefined) {
   return rules?.teladoc && activeAndHealthPlanMember(rules);
 }
+
+export function isNCQAEligible(rules: VisibilityRules | undefined) {
+  return groupId == '125000' || groupId == '155000' || groupId == '119002';
+}
