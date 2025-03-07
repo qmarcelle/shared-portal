@@ -40,4 +40,7 @@ export const AUTH_FUNCTION_MAP = {
   medicarePrescriptionPaymentPlanEligible:
     'MEDICARE_PRESCRIPTION_PAYMENT_PLAN_ELIGIBLE',
   diabetesManagementEligible: 'TELADOC_DIABETESMGMT',
+  questSelectEligible: 'QUEST_SELECT',
+  isEmboldHealth: 'EMBOLD_HEALTH',
+  teladocEligible: 'TELADOC',
 };

@@ -22,7 +22,7 @@ const vRules = {
       wellnessOnly: false,
       terminated: false,
       medicarePrescriptionPaymentPlanEligible: true,
-      displayPharmacyTab: true,
+      showPharmacyTab: true,
     },
   },
 };

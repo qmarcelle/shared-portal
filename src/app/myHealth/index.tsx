@@ -25,6 +25,7 @@ import {
   isBlueCareEligible,
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
+  isQuestSelectEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
@@ -275,6 +276,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
                   description:
                     'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
                   url: 'null',
+                  isHidden: !isQuestSelectEligible(data.visibilityRules),
                 },
                 {
                   id: '8',

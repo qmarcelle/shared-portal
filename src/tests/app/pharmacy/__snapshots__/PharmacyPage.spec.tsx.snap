@@ -1181,6 +1181,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                     />
                     <a
                       aria-label="Visit CVS Caremark"
+                      href="/sso/launch?PartnerSpId=undefined"
                       style="display: block;"
                     >
                       <button
@@ -2612,6 +2613,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                   />
                   <a
                     aria-label="Visit CVS Caremark"
+                    href="/sso/launch?PartnerSpId=undefined"
                     style="display: block;"
                   >
                     <button

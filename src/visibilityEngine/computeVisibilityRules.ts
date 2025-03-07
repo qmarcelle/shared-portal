@@ -132,7 +132,7 @@ export function isBlue365FitnessYourWayEligible(
 }
 
 export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
-  return rules?.condensedPortalExperienceGroups;
+  return rules?.isCondensedExperience;
 }
 
 export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
@@ -346,7 +346,7 @@ export function isBiometricScreening(rules: VisibilityRules | undefined) {
 
 export function isPharmacyBenefitsEligible(rules: VisibilityRules | undefined) {
   return (
-    rules?.displayPharmacyTab &&
+    rules?.showPharmacyTab &&
     !rules?.terminated &&
     !rules?.wellnessOnly &&
     !rules?.fsaOnly
@@ -385,7 +385,7 @@ export function isBlueCareAndPrimaryCarePhysicianEligible(
 export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {
   return (
     rules?.subscriber &&
-    !rules?.memberNotEligibleForPHS &&
+    rules?.phsEligible &&
     (rules?.individual ||
       rules?.commercial ||
       rules?.allMedicareAdvantageEligible) &&
@@ -402,7 +402,7 @@ export function isMedicareEligible(rules: VisibilityRules | undefined) {
 }
 
 export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
-  return rules?.active && rules.otcEnable && !rules.displayPharmacyTab;
+  return rules?.active && rules.otcEnable && !rules.showPharmacyTab;
 }
 
 export function isBloodPressureManagementEligible(rules: VisibilityRules) {
@@ -418,7 +418,7 @@ export function isTeladocSecondOpinionAdviceAndSupportEligible(
 export function isIndividualMaBlueAdvantageEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return rules?.active && rules.otcEnable && rules.displayPharmacyTab;
+  return rules?.active && rules.otcEnable && rules.showPharmacyTab;
 }
 
 function computeMemberAge(member: Member, rules: VisibilityRules) {
@@ -455,12 +455,16 @@ export function isMedicarePrescriptionPaymentPlanEligible(
 ) {
   return (
     rules?.medicarePrescriptionPaymentPlanEligible &&
-    rules?.displayPharmacyTab &&
+    rules?.showPharmacyTab &&
     !rules?.terminated &&
     !rules?.wellnessOnly &&
     !rules?.fsaOnly
   );
 }
+
+export const isQuestSelectEligible = (rules: VisibilityRules | undefined) =>
+  rules?.questSelectEligible && rules?.active;
+
 export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
   return isActiveAndNotFSAOnly(rules) && rules?.isEmboldHealth;
 }
