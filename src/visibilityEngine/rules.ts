@@ -79,7 +79,6 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'isEmboldHealth',
   'teladocEligible',
   'diabetesManagementEligible',
-  'ncqaEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

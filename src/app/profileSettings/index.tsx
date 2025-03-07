@@ -20,6 +20,7 @@ const ProfileSettings = ({ data }: ProfileSettingsProps) => {
               DOB={data.memberDetails.dob}
               phoneNumber={data.phone}
               email={data.email}
+              visibilityRules={data.visibilityRules}
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
