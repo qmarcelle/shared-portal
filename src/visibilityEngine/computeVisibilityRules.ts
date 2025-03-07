@@ -31,6 +31,7 @@ export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
   //TODO: Update the rules computation logic with the current implementation
+  groupId = loggedUserInfo.groupData.groupID;
   const rules: VisibilityRules = {};
   rules.active = loggedUserInfo.isActive;
   rules.subscriber = loggedUserInfo.subscriberLoggedIn;
@@ -43,7 +44,6 @@ export function computeVisibilityRules(
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
-  groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -476,5 +476,10 @@ export function isTeladocEligible(rules: VisibilityRules | undefined) {
 }
 
 export function isNCQAEligible(rules: VisibilityRules | undefined) {
-  return groupId == '125000' || groupId == '155000' || groupId == '119002';
+  return (
+    rules?.blueCare ||
+    groupId == '125000' ||
+    groupId == '155000' ||
+    groupId == '119002'
+  );
 }
