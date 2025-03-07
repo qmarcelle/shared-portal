@@ -12,6 +12,7 @@ import { IComponent } from '@/components/IComponent';
 import { ClaimDetails } from '@/models/claim_details';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
 import DownloadIcon from '../../../../public/assets/download.svg';
@@ -20,6 +21,8 @@ interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];
   sortby: RichSelectItem[];
   filter: FilterItem[];
+  searchTerm: string;
+  updateSearchTerm: (val: string) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSelectedDateChange: () => any;
 }
@@ -28,11 +31,10 @@ export const ClaimsSnapshotCardSection = ({
   claims,
   sortby,
   filter,
+  searchTerm,
+  updateSearchTerm,
 }: ClaimsSnapshotCardSectionProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [searchItem, setSearchItem] = useState('');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [filteredUsers, setFilteredUsers] = useState(claims);
+  const router = useRouter();
 
   const [selectedSort, setSelectedSort] = useState(sortby[0]);
 
@@ -81,16 +83,15 @@ export const ClaimsSnapshotCardSection = ({
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSearch = (searchTerm: any) => {
-    const searchTerm1 = searchTerm;
-    setSearchItem(searchTerm1);
+  const handleSearch = (text: string) => {
+    updateSearchTerm(text);
+  };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const filteredItems = claims.filter((claims: any) =>
-      claims.memberName.toLowerCase().includes(searchTerm1.toLowerCase()),
-    );
-
-    setFilteredUsers(filteredItems);
+  const navigateToClaimDetails = (claimId: string) => {
+    const claimType = claims.find(
+      (claim) => claim.encryptedClaimId === claimId,
+    )?.type;
+    router.push(`/claims/${claimId}?type=${claimType}`);
   };
 
   return (
@@ -145,12 +146,17 @@ export const ClaimsSnapshotCardSection = ({
       <div className={'flex flex-col max-sm:my-4'}>
         <Spacer size={12} />
         <Pagination<ClaimDetails>
-          key={selectedSort.id + JSON.stringify(filter)}
+          key={selectedSort.id + JSON.stringify(filter) + searchTerm}
           initialList={sortItems(selectedSort)}
           pageSize={10}
           wrapperBuilder={(items) => <Column>{items}</Column>}
           itemsBuilder={(item) => (
-            <ClaimItem key={item.id} className="mb-4" claimInfo={item} />
+            <ClaimItem
+              key={item.id}
+              className="mb-4"
+              claimInfo={item}
+              callBack={navigateToClaimDetails}
+            />
           )}
           label="Claims"
           totalCount={claims.length}

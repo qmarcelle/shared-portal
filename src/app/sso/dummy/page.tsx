@@ -23,13 +23,6 @@ const DummyPage = () => {
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PCA}`}
-          >
-            PCA
-          </Link>
-        </li>
-        <li>
-          <Link
             href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HEALTH_EQUITY}`}
           >
             Health Equity
@@ -47,13 +40,6 @@ const DummyPage = () => {
             href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
           >
             CVS Caremark
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_MDLIVE}`}
-          >
-            MD LIVE
           </Link>
         </li>
         <li>
@@ -79,23 +65,23 @@ const DummyPage = () => {
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_INSTAMED_PAYMENT_HISTORY}`}
-          >
-            Instamed Payment History
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_OHD}`}
-          >
-            OHD
-          </Link>
-        </li>
-        <li>
-          <Link
             href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`}
           >
             ON Life
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}&target=Challenge`}
+          >
+            ON Life Challenge
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}&target='PHA'`}
+          >
+            ON Life PHA
           </Link>
         </li>
         <li>
@@ -114,37 +100,51 @@ const DummyPage = () => {
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_LIVONGO}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}&target=schedule`}
           >
-            LIVONGO
+            Premise Health Schedule
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&PCPSearchRedirect=PCPSearchRedirect`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`}
           >
             Provider Directory
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_INSTAMED}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&isPCPSearchRedirect=true`}
+          >
+            Provider Directory PCP Search
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&redirectLink=PCPSearchRedirect`}
+          >
+            Provider Directory Redirect Link
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_INSTAMED}&claimId=EXT820200100&claimType=M`}
           >
             Instamed
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_VITALSPRP}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_INSTAMED}&alternateText=Instamed Payment History&isInstamedPaymentHistory=true`}
           >
-            Vitals PRP
+            Instamed Payment History
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ESI}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_VITALSPRP}&provId=4165326`}
           >
-            ESI
+            Vitals PRP
           </Link>
         </li>
         <li>
@@ -152,6 +152,13 @@ const DummyPage = () => {
             href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ELECTRONIC_PAYMENT_BOA}`}
           >
             Electronic Payment BOA
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_M3P}`}
+          >
+            M3P
           </Link>
         </li>
       </ul>

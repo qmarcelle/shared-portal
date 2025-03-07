@@ -11,6 +11,8 @@ import {
 } from '../ssoConstants';
 export default async function generateEmboldSSOMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateEmboldSSOMap entered !!!');
   const ssoParamMap = new Map<string, string>();

@@ -24,11 +24,13 @@ exports[`PlanSwitcher Component should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -72,11 +74,13 @@ exports[`PlanSwitcher Component should render the UI correctly 1`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
+                  style="display: block;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  style="display: block;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
@@ -177,11 +181,13 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -252,6 +258,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             BlueCross BlueShield of Tennessee
                           </p>
@@ -273,16 +280,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Subscriber: Chris Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             ID: ABC1234567890
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
@@ -312,6 +322,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1 font-bold primary-color"
+                            style="display: block;"
                           >
                             Tennessee Valley Authority
                           </p>
@@ -333,16 +344,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Subscriber: Maddison Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             ID: ABC000000000
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Policies: Dental
                           </p>
@@ -369,6 +383,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                   />
                   <p
                     class="body-1 mx-1"
+                    style="display: block;"
                   >
                     View Past Plans
                   </p>
@@ -400,11 +415,13 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
+                  style="display: block;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  style="display: block;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
@@ -475,6 +492,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -496,16 +514,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Subscriber: Chris Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ID: ABC1234567890
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
@@ -535,6 +556,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1 font-bold primary-color"
+                          style="display: block;"
                         >
                           Tennessee Valley Authority
                         </p>
@@ -556,16 +578,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Subscriber: Maddison Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ID: ABC000000000
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Policies: Dental
                         </p>
@@ -592,6 +617,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                 />
                 <p
                   class="body-1 mx-1"
+                  style="display: block;"
                 >
                   View Past Plans
                 </p>
@@ -680,11 +706,13 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -755,6 +783,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             BlueCross BlueShield of Tennessee
                           </p>
@@ -776,16 +805,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Subscriber: Chris Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             ID: ABC1234567890
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
@@ -815,6 +847,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1 font-bold primary-color"
+                            style="display: block;"
                           >
                             Tennessee Valley Authority
                           </p>
@@ -836,16 +869,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Subscriber: Maddison Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             ID: ABC000000000
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Policies: Dental
                           </p>
@@ -875,6 +911,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1 font-bold primary-color"
+                            style="display: block;"
                           >
                             Dollar General
                           </p>
@@ -896,16 +933,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Subscriber: Chris Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             ID: ABC1234567891
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
@@ -915,6 +955,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Ended 2023
                           </p>
@@ -941,6 +982,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                   />
                   <p
                     class="body-1 mx-1"
+                    style="display: block;"
                   >
                     Hide Past Plans
                   </p>
@@ -972,11 +1014,13 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
+                  style="display: block;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  style="display: block;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
@@ -1047,6 +1091,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
@@ -1068,16 +1113,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Subscriber: Chris Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ID: ABC1234567890
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
@@ -1107,6 +1155,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1 font-bold primary-color"
+                          style="display: block;"
                         >
                           Tennessee Valley Authority
                         </p>
@@ -1128,16 +1177,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Subscriber: Maddison Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ID: ABC000000000
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Policies: Dental
                         </p>
@@ -1167,6 +1219,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1 font-bold primary-color"
+                          style="display: block;"
                         >
                           Dollar General
                         </p>
@@ -1188,16 +1241,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Subscriber: Chris Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           ID: ABC1234567891
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
@@ -1207,6 +1263,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Ended 2023
                         </p>
@@ -1233,6 +1290,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                 />
                 <p
                   class="body-1 mx-1"
+                  style="display: block;"
                 >
                   Hide Past Plans
                 </p>
@@ -1321,11 +1379,13 @@ exports[`PlanSwitcher Component should render the UI correctly 4`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
+                    style="display: block;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                    style="display: block;"
                   >
                     Tennessee Valley Authority
                   </p>
@@ -1369,11 +1429,13 @@ exports[`PlanSwitcher Component should render the UI correctly 4`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
+                  style="display: block;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                  style="display: block;"
                 >
                   Tennessee Valley Authority
                 </p>

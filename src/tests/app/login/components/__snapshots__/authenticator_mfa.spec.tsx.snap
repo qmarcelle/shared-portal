@@ -68,25 +68,18 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
-      <a
-        aria-label="Choose a Different Method"
-        style="display: block;"
-        tabindex="-1"
+      <button
+        class="flex flex-row link-container m-auto"
+        style="max-width: max-content; height: auto; display: block;"
+        type="button"
       >
-        <button
-          class="flex flex-row link-container m-auto"
-          style="max-width: max-content; height: auto; display: block;"
-          tabindex="-1"
-          type="button"
+        <p
+          class="link undefined"
+          style="display: block;"
         >
-          <p
-            class="link undefined"
-            style="display: block;"
-          >
-            Choose a Different Method
-          </p>
-        </button>
-      </a>
+          Choose a Different Method
+        </p>
+      </button>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
@@ -107,7 +100,6 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
           aria-label="contact us"
           href="https://www.bcbst.com/contact-us"
           style="display: inline;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container pl-0 pt-0"
@@ -117,7 +109,6 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: inline;"
             >
               contact us
             </p>

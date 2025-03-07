@@ -17,7 +17,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -93,6 +93,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       We'll stop sharing your health plan information with:
                     </p>
@@ -107,6 +108,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           Apple Health
                         </p>
@@ -115,6 +117,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           This will mean this app or website can't see your health information. Any information you already shared may still be available to them.
                         </p>
@@ -136,7 +139,6 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -146,7 +148,6 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -200,7 +201,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -236,6 +237,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -313,6 +315,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           You are no longer sharing with:
                         </p>
@@ -321,6 +324,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                         />
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           Apple Health
                         </p>

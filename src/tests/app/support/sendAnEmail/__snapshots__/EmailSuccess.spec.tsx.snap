@@ -39,6 +39,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
           >
             <p
               class="body-1 text-center"
+              style="display: block;"
             >
               We’re reading your message and will get back to you at:
             </p>
@@ -47,6 +48,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
             />
             <p
               class="body-1 text-center font-bold"
+              style="display: block;"
             >
               test@bcbst.com
             </p>
@@ -55,6 +57,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
             />
             <p
               class="body-1 text-center"
+              style="display: block;"
             >
               If it’s a weekend or holiday, please give us a little extra time to reply.
             </p>
@@ -101,6 +104,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
         >
           <p
             class="body-1 text-center"
+            style="display: block;"
           >
             We’re reading your message and will get back to you at:
           </p>
@@ -109,6 +113,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
           />
           <p
             class="body-1 text-center font-bold"
+            style="display: block;"
           >
             test@bcbst.com
           </p>
@@ -117,6 +122,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
           />
           <p
             class="body-1 text-center"
+            style="display: block;"
           >
             If it’s a weekend or holiday, please give us a little extra time to reply.
           </p>

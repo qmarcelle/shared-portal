@@ -8,18 +8,26 @@ import { SSO_IMPL_MAP } from '../ssoConstants';
 const SSORedirect = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const connectionId = searchParams.get('connectionId');
+  const connectionId = decodeURIComponent(
+    searchParams.get('connectionId') ?? '',
+  );
   const ssoImpl =
     connectionId != null ? SSO_IMPL_MAP.get(connectionId) : 'Not Found';
   console.log(ssoImpl + ' PAGE !!!');
+  const paramsObject = Object.fromEntries(searchParams.entries());
   useEffect(() => {
     const sendSSO = async () => {
       try {
         console.log('Entered Send SSO !!!!');
         // Pass the object directly to postToPing
-        const ref: string = await postToPing(ssoImpl != null ? ssoImpl : '');
+        const ref: string = await postToPing(
+          ssoImpl != null ? ssoImpl : '',
+          paramsObject,
+        );
 
-        const resumePath = searchParams.get('resumePath');
+        const resumePath = decodeURIComponent(
+          searchParams.get('resumePath') ?? '',
+        );
 
         const sanitizedResumePath =
           resumePath != null

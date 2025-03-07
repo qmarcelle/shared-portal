@@ -12,11 +12,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import alertErrorSvg from '@/public/assets/alert_error_red.svg';
-import {
-  isValidEmailAddress,
-  isValidEmailDomain,
-  validateLength,
-} from '@/utils/inputValidator';
+import { isValidEmailAddress, validateLength } from '@/utils/inputValidator';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { invokeUpdateEmailAddress } from '../actions/emailUniquenessAction';
@@ -73,6 +69,11 @@ export const UpdateCommunicationEmail = ({
           'The email address entered is already in use by another account. Please choose a different email address.',
         );
         setNextDisabled(true); // Disable the Next button if there's an error
+      } else if (response.errorCode === '2999') {
+        setError(
+          'The email address you provided is invalid or it’s from a domain we don’t allow. Please choose another email address.',
+        );
+        setNextDisabled(true); // Disable the Next button if there's an error
       } else {
         changePage?.(1, true);
         setShowConfirmEmail(false);
@@ -110,17 +111,9 @@ export const UpdateCommunicationEmail = ({
       return;
     }
 
-    if (isValidEmailDomain(value)) {
-      setShowConfirmEmail(true);
-      setError('');
-    } else {
-      setShowConfirmEmail(false);
-      setError(
-        'The email address you provided is invalid or it’s from a domain we don’t allow. Please choose another email address.',
-      );
-    }
+    setShowConfirmEmail(true);
+    setError('');
   };
-
   const handleConfirmEmailChange = (val: string) => {
     setConfirmEmail(val);
     if (val === '') {
@@ -137,11 +130,7 @@ export const UpdateCommunicationEmail = ({
     confirmEmail: string,
     initNewDevice: () => void,
   ): (() => void) | undefined => {
-    if (
-      isValidEmailAddress(newAuthDevice) &&
-      isValidEmailDomain(newAuthDevice) &&
-      newAuthDevice === confirmEmail
-    ) {
+    if (isValidEmailAddress(newAuthDevice) && newAuthDevice === confirmEmail) {
       return () => initNewDevice();
     }
     return undefined;

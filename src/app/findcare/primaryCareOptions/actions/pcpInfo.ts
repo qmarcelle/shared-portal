@@ -16,7 +16,7 @@ export async function getPCPInfo(
   try {
     const memberDetails = session ?? (await auth());
     const response = await portalSvcsApi.get(
-      `/memberservice/PCPhysicianService/pcPhysician/${memberDetails?.user.currUsr?.plan.memCk}`,
+      `/memberservice/PCPhysicianService/pcPhysician/${memberDetails?.user.currUsr?.plan!.memCk}`,
     );
     logger.info('Get PCP Physician Data', response?.data);
     return response?.data;
@@ -32,9 +32,9 @@ export async function updatePCPhysician(
   try {
     const session = await auth();
     const loggedInUserInfo = await getLoggedInUserInfo(
-      `${session?.user.currUsr?.plan.memCk}`,
+      `${session?.user.currUsr?.plan!.memCk}`,
     );
-    request.memberCK = session?.user.currUsr?.plan.memCk ?? '';
+    request.memberCK = session?.user.currUsr?.plan!.memCk ?? '';
     request.subscriberID = loggedInUserInfo.subscriberID;
     request.subscriberName =
       loggedInUserInfo.subscriberFirstName +
@@ -47,7 +47,7 @@ export async function updatePCPhysician(
     }
 
     const apiResponse = await portalSvcsApi.post(
-      `/memberservice/PCPhysicianService/pcPhysician/${session?.user.currUsr?.plan.memCk}`,
+      `/memberservice/PCPhysicianService/pcPhysician/${session?.user.currUsr?.plan!.memCk}`,
       request,
     );
     return { status: 200, data: { message: apiResponse?.data?.message } };

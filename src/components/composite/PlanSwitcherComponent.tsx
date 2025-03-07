@@ -1,7 +1,10 @@
 import { PlanDetails } from '@/models/plan_details';
+import { switchUser } from '@/userManagement/actions/switchUser';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useAppModalStore } from '../foundation/AppModal';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
@@ -53,7 +56,7 @@ const PlanDetailTile = ({
           />
         </Row>
         <Column>
-          <TextBox text={`Subscriber: ${plan.subscriberName}`} />
+          <TextBox text={`Subscriber: ${toPascalCase(plan.subscriberName)}`} />
           <TextBox text={`ID: ${plan.id}`} />
           <TextBox text={`Policies: ${plan.policies}`} />
         </Column>
@@ -142,21 +145,21 @@ export const PlanSwitcher = ({
 }: PlanSwitcherProps) => {
   const router = useRouter();
   const [selected, setSelected] = useState(selectedPlan);
+  const isMultiplePlan = plans.length > 1;
+  const isTermedPlanExist = plans.some((item) => item.termedPlan);
   const [plansToShow, setPlanToShow] = useState(
-    plans.filter((x) => !x.endedOn),
+    plans.filter((x) => !x.termedPlan),
   );
   const [isCurrentPlan, setIsCurrentPlan] = useState(true);
+  const { dismissModal } = useAppModalStore();
   const showPastPlans = () => {
     if (isCurrentPlan) {
       setPlanToShow(plans);
       setIsCurrentPlan(false);
     } else {
-      setPlanToShow(plans.filter((x) => !x.endedOn));
+      setPlanToShow(plans.filter((x) => !x.termedPlan));
       setIsCurrentPlan(true);
     }
-  };
-  const selectItem = () => {
-    router.replace('/dashboard');
   };
   return (
     <div className={`${className}`}>
@@ -172,16 +175,26 @@ export const PlanSwitcher = ({
             isModalView={isModal}
           />
         )}
+        isMultipleItem={isMultiplePlan}
         selected={selected}
-        onSelectItem={!isModal ? (val) => setSelected(val) : selectItem}
+        onSelectItem={(val) => {
+          setSelected(val);
+          switchUser(undefined, val.memeCk);
+          if (isModal) {
+            dismissModal();
+          }
+          router.refresh();
+        }}
         showSelected={false}
         divider={false}
         dropdownHeader={<PlanDropDownHead isModalView={isModal} />}
         dropdownFooter={
-          <PlanDropDownFooter
-            isCurrentPlan={isCurrentPlan}
-            isModalView={isModal}
-          />
+          isTermedPlanExist ? (
+            <PlanDropDownFooter
+              isCurrentPlan={isCurrentPlan}
+              isModalView={isModal}
+            />
+          ) : undefined
         }
         onClickFooter={() => showPastPlans()}
       />

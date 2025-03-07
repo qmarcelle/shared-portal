@@ -14,11 +14,17 @@ import {
   INVALID_CODE_LENGTH,
   MIN_CODE_LENGTH,
 } from '../models/app/login_constants';
+import { LoginEmailVerificationText } from '../models/app/verify_text';
 import { useLoginStore } from '../stores/loginStore';
 import { useVerifyEmailStore } from '../stores/verifyEmailStore';
 
 export const LoginEmailVerification = () => {
-  const { emailId } = useLoginStore();
+  const [verifyUniqueEmail, emailId, inactive] = useLoginStore((state) => [
+    state.verifyUniqueEmail,
+    state.emailId,
+    state.inactive,
+  ]);
+
   const {
     resetApiErrors,
     updateCode,
@@ -26,22 +32,26 @@ export const LoginEmailVerification = () => {
     code,
     completeVerifyEmailProg,
     submitVerifyEmailAuth,
-  } = useVerifyEmailStore((state) => ({
-    resetApiErrors: state.resetApiErrors,
-    updateCode: state.updateCode,
-    apiErrors: state.apiErrors,
-    code: state.code,
-    completeVerifyEmailProg: state.completeVerifyEmailProg,
-    submitVerifyEmailAuth: state.submitVerifyEmailAuth,
-  }));
+    isResentSuccessCode,
+    handleResendCode,
+  } = useVerifyEmailStore((state) => state);
+
   const updateSecurityCode = (value: string) => {
-    updateCode(value);
     if (apiErrors.length) {
       resetApiErrors();
     }
+    updateCode(value);
   };
-  const validateSecurityCode = () =>
-    code.length > INVALID_CODE_LENGTH ? submitVerifyEmailAuth : undefined;
+
+  const updateResendCode = () => {
+    if (apiErrors.length) {
+      resetApiErrors();
+    }
+    handleResendCode();
+  };
+
+  const validateSecurityCode = () => code.length > INVALID_CODE_LENGTH;
+
   const showTooltip = code.length < MIN_CODE_LENGTH;
 
   const trackContactUsAnalytics = () => {
@@ -56,26 +66,57 @@ export const LoginEmailVerification = () => {
     googleAnalytics(analytics);
   };
 
+  const interfaceText: LoginEmailVerificationText = inactive
+    ? {
+        title: 'Welcome Back!',
+        line1:
+          'It looks like it has been a while since you logged in to your account. For security purposes, we’ve sent a code to:',
+        lowerTitle: 'Need help?',
+        lowerText:
+          'Give us a call using the number listed on the back of your Member ID card or',
+      }
+    : {
+        title: 'Let’s Verify Your Email',
+        line1:
+          'We’ll need to confirm your email address before you can log in.',
+        line2: 'We’ve sent a code to:',
+        line3: 'Enter the security code to verify your email address.',
+        lowerTitle: 'Don’t see your confirmation email?',
+        lowerText:
+          'Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or',
+      };
+
   return (
-    <form onSubmit={validateSecurityCode()}>
+    <form onSubmit={validateSecurityCode() ? submitVerifyEmailAuth : undefined}>
       <div id="mainSection">
-        <Header text="Let's Verify Your Email" />
+        <Header text={interfaceText.title} />
         <Spacer size={16} />
-        <TextBox text="We’ll need to confirm your email address before you can log in." />
-        <Spacer size={16} />
-        <TextBox text="We’ve sent a code to:" />
+        <TextBox text={interfaceText.line1} />
+        {interfaceText.line2 && <Spacer size={16} />}
+        {interfaceText.line2 && <TextBox text={interfaceText.line2} />}
         <TextBox
           text={emailId ? maskEmail(emailId) : ''}
           className="font-bold"
         />
-        <Spacer size={16} />
-        <TextBox text="Enter the security code to verify your email address." />
+        {interfaceText.line3 && <Spacer size={16} />}
+        {interfaceText.line3 && <TextBox text={interfaceText.line3} />}
         <Spacer size={32} />
         <TextField
           label="Enter Security Code"
           valueCallback={(val) => updateSecurityCode(val)}
           errors={apiErrors}
         />
+        <Spacer size={16} />
+        {isResentSuccessCode && verifyUniqueEmail && (
+          <TextBox className="body-1 text-lime-700" text="Code resent!" />
+        )}
+        {!isResentSuccessCode && verifyUniqueEmail && (
+          <AppLink
+            className="self-start !pl-0"
+            callback={updateResendCode}
+            label="Resend Code"
+          />
+        )}
         <Spacer size={16} />
         <ToolTip
           showTooltip={showTooltip}
@@ -84,7 +125,9 @@ export const LoginEmailVerification = () => {
         >
           <Button
             style="submit"
-            callback={validateSecurityCode()}
+            callback={
+              validateSecurityCode() ? submitVerifyEmailAuth : undefined
+            }
             label={
               completeVerifyEmailProg == AppProg.loading
                 ? 'Confirming...'
@@ -93,24 +136,24 @@ export const LoginEmailVerification = () => {
           />
         </ToolTip>
         <Spacer size={32} />
+
         <Divider />
         <Spacer size={16} />
-        <Header text="Don’t see your confirmation email?" type="title-3" />
+        <Header text={interfaceText.lowerTitle} type="title-3" />
         <Spacer size={16} />
         <TextBox
-          className="pr-5"
-          text="Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or"
+          className="pr-1"
+          text={interfaceText.lowerText}
+          display="inline"
         />
-        <section className="flex flex-row">
-          <AppLink
-            className="p-0"
-            url="https://www.bcbst.com/contact-us"
-            label="contact us"
-            displayStyle="inline"
-            callback={trackContactUsAnalytics}
-          />
-          <TextBox text="." />
-        </section>
+        <AppLink
+          className="p-0"
+          url="https://www.bcbst.com/contact-us"
+          label="contact us"
+          displayStyle="inline"
+          callback={trackContactUsAnalytics}
+        />
+        <TextBox text="." display="inline" />
       </div>
     </form>
   );

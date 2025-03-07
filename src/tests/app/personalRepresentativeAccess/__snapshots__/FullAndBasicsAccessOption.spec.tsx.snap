@@ -5,7 +5,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
   <div>
     <main>
       <div
-        class="flex flex-col items-center"
+        class="flex flex-col items-center teritary-color-1"
       >
         <span
           class="rich-text body-1 undefined"
@@ -16,7 +16,8 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           <span
             class="font-bold"
           >
-            Full Access
+            Full
+             Access
              
           </span>
           <span>
@@ -43,7 +44,8 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           <b>
             Member Name :
           </b>
-           [Mature Minor Name]
+           
+          [Mature Minor Name]
         </span>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -51,7 +53,8 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         <div
           class="flex flex-row font-bold"
         >
-          HIPAA Authorization for Full Portal Access and Interoperability APIs
+          HIPAA Authorization for Full Portal Access and Interoperability
+              APIs
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -110,7 +113,9 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
              "I Agree" 
           </span>
           <span>
-            button after reading this, you authorize BlueCross BlueShield of Tennessee to share the following health information about you with your Personal Representative and any people, companies or other third parties authorized by your Personal Representative, if we maintain it:
+            button after reading this, you authorize BlueCross BlueShield of
+                Tennessee to share the following health information about you with your Personal Representative and any people, companies or
+                other third parties authorized by your Personal Representative,if we maintain it:
           </span>
         </span>
         <span
@@ -120,7 +125,6 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           class="rich-text body-1 undefined"
         >
           <span>
-             
             <ul
               class="list-outside list-disc pl-5"
             >
@@ -146,15 +150,36 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <span
+          class="block"
+        >
+          The information they will have access to may reveal highly
+                sensitive health information about you, including information
+                about yours treatment or care for reproductive health (e.g.,
+                family planning, contraception, miscarriage, abortion,
+                maternity, infertility), substance use disorders (e.g., drugs
+                and alcohol), mental or behavioral health disorders, HIV/AIDS,
+                sexually transmitted diseases (STDs), communicable diseases,
+                developmental or intellectual disabilities, genetic disorders,
+                (including genetic testing for such disorders and genetic
+                history), abuse (e.g., sexual, physical or mental), brain or
+                other cognitive disorders, or other sensitive information. By
+                clicking on the “I AGREE” button you are specifically
+                authorizing the disclosure of this highly sensitive health
+                information.
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
           class="rich-text body-1 undefined"
         >
-          <span>
-            The information they will have access to may reveal highly sensitive health information about you, including information about your treatment or care for reproductive health (e.g., family planning, contraception, miscarriage, abortion, maternity, infertility), substance use disorders (e.g., drugs and alcohol), mental or behavioral health disorders, HIV/AIDS, sexually transmitted diseases (STDs), communicable diseases, developmental or intellectual disabilities, genetic disorders, (including genetic testing for such disorders and genetic history), abuse (e.g., sexual, physical or mental), brain or other cognitive disorders, or other sensitive information. By clicking on the “I AGREE” button you are specifically authorizing the disclosure of this highly sensitive health information.
-          </span>
           <span
-            class="!block mb-4 pt-4"
+            class="!block mb-4"
           >
-            We are making this disclosure at your request, with your approval and at your direction. The intended purposes of the use and disclosure of your health information, including your highly sensitive health information, are to:
+            We are making this disclosure at your request, with your
+                approval and at your direction. The 
+                intended purposes of the use and disclosure of your health information, 
+                including your highly sensitive health information, are to:
           </span>
           <span
             class="inline-block mb-4"
@@ -171,20 +196,36 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
                 class="pb-2 marker:text-blue-500"
               >
                 Give your Personal Representative the ability to use our interoperability APIs to disclose your highly sensitive health information to other people, companies and third parties authorized by your Personal Representative without needing further authorization from you to do so; and
-                 
               </li>
               <li
                 class="pb-2 marker:text-blue-500"
               >
                 Support treatment, payment and certain health care operations activities, including care coordination and case management among your care team, including family members, friends and others involved in your care.
-                 
               </li>
             </ul>
           </span>
           <span
             class="!block mb-4 pt-2"
           >
-            You acknowledge that your Personal Representative and the people, companies and other third parties that they authorize to receive your health information may not be subject to state or federal health information privacy laws, such as the federal Health Information Portability and Accountability Act and its implementing regulations (collectively, called “HIPAA”), 42 U.S.C. § 290dd-2 and its implementing regulations at 42 CFR Part 2 (collectively, called “Part 2”) for certain substance use disorder records, or state health information confidentiality laws. If your Personal Representative or someone that they have authorized to have access to your Part 2 substance use disorder records is a HIPAA covered entity or business associate (collectively, called a “HIPAA-regulated entity”) that is receiving your records to support treatment, payment or health care operations activities, the HIPAA-regulated entity recipient may redisclose those substance use disorder records for any purpose permitted by HIPAA, except for uses and disclosures for civil, criminal, administrative, and legislative proceedings against you.
+            You acknowledge that your Personal Representative
+                 and the people, companies and other third parties that they authorize to receive your health information 
+                may not be subject to state or
+                federal health information privacy laws, such as the federal
+                Health Information Portability and Accountability Act and its
+                implementing regulations (collectively, called “HIPAA”) , 42
+                U.S.C. § 290dd-2 and its implementing regulations at 42 CFR Part
+                2 (collectively, called “Part 2”) for certain substance use
+                disorder records, or state health information confidentiality
+                laws. If your Personal Representative or someone that they have
+                authorized to have access to your Part 2 substance use disorder
+                records is a HIPAA covered entity or business associate
+                (collectively, called a “HIPAA-regulated entity”) that is
+                receiving your records to support treatment, payment or health
+                care operations activities, the HIPAA-regulated entity recipient
+                may redisclose those substance use disorder records for any
+                purpose permitted by HIPAA, except for uses and disclosures for
+                civil, criminal, administrative, and legislative proceedings
+                against you.
           </span>
           <span
             class="inline-block pt-4"
@@ -210,7 +251,11 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
               <li
                 class="mb-2 marker:text-blue-500"
               >
-                We reasonably determine that allowing the user you have designated as your Personal Representative to link to your account through our portal and APIs would present an unacceptable security risk.
+                We reasonably determine that allowing 
+                    the user you have
+                    designated as your Personal Representative to link to yours 
+                     account through our portal and APIs would present an
+                    unacceptable security risk.
               </li>
               <li
                 class="mb-2 marker:text-blue-500"
@@ -224,11 +269,21 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           >
             You understand that BlueCross BlueShield of Tennessee will not condition the provision of treatment, payment for treatment, enrollment in a health plan, or eligibility for benefits on your agreement to this authorization. You may take back this authorization in writing at any time, except to the extent the information has already been disclosed in reliance on this authorization. You may take back this authorization by sending a request to us the Contact Us page on bcbst.com or by sending us your written cancellation to BlueCross BlueShield of Tennessee, Privacy; 1 Cameron Hill Circle; Building 1, 5th Floor; Chattanooga, Tennessee 37402. If you decide to take back this authorization, it will not affect any disclosure BlueCross BlueShield made in reliance on this authorization before the cancellation.
           </span>
+        </span>
+        <span
+          class="rich-text body-1 undefined"
+        >
           <span
             class="!block mb-4 pt-4"
           >
-             
-            Please note that your Personal Representative will not have Full Access to your health information or the ability to use our APIs to disclose your information to other people, companies or third parties if you do not sign this authorization. If you do not sign this authorization, your Personal Representative will continue to have Basic Access to your health information in accordance with the laws that apply to BlueCross BlueShield of Tennessee.
+            Please note that your Personal Representative will not have Full
+                Access to your health information or the ability to use our APIs
+                to disclose your information to other people, companies or third
+                parties if you do not sign this authorization. If you do not
+                sign this authorization, your Personal Representative will
+                continue to have Basic Access to your health information in
+                accordance with the laws that apply to BlueCross BlueShield of
+                Tennessee.
           </span>
           <span
             class="font-bold"
@@ -280,9 +335,8 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
               <span>
                  Clicking “I Agree” means that you have read, understand, and
                     agree to this authorization. You are giving your permission
-                    for BlueCross BlueShield of Tennessee to give your Personal
-                    Representative, and any person, company or other third party
-                    authorized by your Personal Representative, access to your
+                    for BlueCross BlueShield of Tennessee to give your Personal Representative, and any person, company or other third party
+                    authorized by your Personal Representative, access to yours
                     health information, including your highly sensitive health
                     information. You understand that you can contact BlueCross
                     BlueShield of Tennessee for a copy of this authorization.
@@ -292,29 +346,6 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <div
-          class="flex flex-col w-full text-field"
-        >
-          <p>
-            Type Your Full Name
-          </p>
-          <div
-            class="flex flex-row items-center input   "
-          >
-            <input
-              aria-label="Type Your Full Name"
-              class=""
-              type="text"
-              value=""
-            />
-            <div
-              class="cursor-pointer"
-            />
-          </div>
-        </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
       </div>
     </main>
@@ -327,7 +358,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
   <div>
     <main>
       <div
-        class="flex flex-col items-center"
+        class="flex flex-col items-center teritary-color-1"
       >
         <div
           class="flex flex-row body-1 text-center"
@@ -364,29 +395,6 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
               <p />
             </label>
             I Agree. Lorem ipsum dolor sit amet, consectetur adipiscing elit.   Sed sodales, orci vitae ullamcorper dignissim,    ligula nulla condimentum lectus, feugiat interdum dui turpis eget nisl.    Duis at lectus vitae augue pulvinar dictum eu nec neque. Pellentesque maximus mattis justo id tincidunt.   Mauris porttitor
-          </div>
-        </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
-        <div
-          class="flex flex-col w-full text-field"
-        >
-          <p>
-            Type Your Full Name
-          </p>
-          <div
-            class="flex flex-row items-center input   "
-          >
-            <input
-              aria-label="Type Your Full Name"
-              class=""
-              type="text"
-              value="[Mature Minor Name]"
-            />
-            <div
-              class="cursor-pointer"
-            />
           </div>
         </div>
         <span

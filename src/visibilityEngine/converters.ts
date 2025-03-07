@@ -48,7 +48,7 @@ export function decodeVisibilityRules(encoded: string): VisibilityRules {
 
   //TODO: Remove this logging once we have tested the PZN implementation
   // with enough test data for a while.
-  console.log('Decode VRules', visibilityRules);
+  //console.log('Decode VRules', visibilityRules);
 
   return visibilityRules;
 }

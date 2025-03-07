@@ -1,4 +1,4 @@
-import { pbeResponseMock } from '@/mock/pbeResponse';
+import { pbeWithMemberMultiplePRMultiplePlans } from '@/mock/pbe/pbeWithMemberMultiplePRMultiplePlans';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { PBEData } from '@/models/member/api/pbeData';
 import { logger } from '@/utils/logger';
@@ -25,6 +25,6 @@ export async function getPersonBusinessEntity(
     logger.error('PBE Api Error', err);
     //TODO: Remove returning the mocked pbe Response and rethrow error
     //once we have enough test data.
-    return pbeResponseMock.data;
+    return pbeWithMemberMultiplePRMultiplePlans.data;
   }
 }

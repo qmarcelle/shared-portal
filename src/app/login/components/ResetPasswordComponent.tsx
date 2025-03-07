@@ -20,7 +20,7 @@ export const ResetPasswordComponent = () => {
     'At least one lowercase letter',
     'At least one number',
     '8-30 characters long',
-    'At least one special character (! @ # $ % ^ & ( ) - _ + = )',
+    'At least one special character (! @ # $ % ^ & * ( ) - _ + = )',
     'Cannot be any of your last 10 passwords',
     'Cannot be a commonly used password',
   ];

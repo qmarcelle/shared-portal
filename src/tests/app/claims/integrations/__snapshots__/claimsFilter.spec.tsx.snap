@@ -47,7 +47,11 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .
@@ -111,6 +115,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 CHRISTMAS HALL
                               </p>
@@ -169,6 +174,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 All Types
                               </p>
@@ -227,6 +233,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Last Two Years
                               </p>
@@ -472,11 +479,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 09/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTMAS HALL
                           </p>
@@ -486,16 +495,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             09/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTMAS HALL
                           </p>
@@ -505,11 +517,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -519,11 +533,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -533,11 +549,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             $100.00
                           </p>
@@ -552,6 +570,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
               >
                 <p
                   class="body-1 m-2 mt-0"
+                  style="display: block;"
                 >
                   Viewing 1 of 1 Claims
                 </p>
@@ -580,6 +599,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                       />
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Previous
                       </p>
@@ -598,6 +618,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                     >
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Next
                       </p>
@@ -646,6 +667,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Page: 
                     </p>
@@ -716,6 +738,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       of 1
                     </p>
@@ -800,7 +823,11 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .
@@ -864,6 +891,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 CHRISTOCLAIM HALL
                               </p>
@@ -922,6 +950,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 All Types
                               </p>
@@ -980,6 +1009,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Last Two Years
                               </p>
@@ -1225,11 +1255,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/12/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1239,16 +1271,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/12/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1258,11 +1293,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1272,11 +1309,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1286,11 +1325,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1372,11 +1413,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/10/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1386,16 +1429,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/10/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1405,11 +1451,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1419,11 +1467,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1433,11 +1483,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1519,11 +1571,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/09/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1533,16 +1587,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/09/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1552,11 +1609,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1566,11 +1625,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1580,11 +1641,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1666,11 +1729,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1680,16 +1745,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1699,11 +1767,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1713,11 +1783,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1727,11 +1799,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1813,11 +1887,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1827,16 +1903,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1846,11 +1925,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1860,11 +1941,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1874,11 +1957,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1960,11 +2045,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1974,16 +2061,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1993,11 +2083,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2007,11 +2099,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2021,11 +2115,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2107,11 +2203,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2121,16 +2219,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2140,11 +2241,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2154,11 +2257,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2168,11 +2273,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2254,11 +2361,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/04/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2268,16 +2377,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/04/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2287,11 +2399,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2301,11 +2415,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2315,11 +2431,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2401,11 +2519,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2415,16 +2535,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2434,11 +2557,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2448,11 +2573,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2462,11 +2589,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2548,11 +2677,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 09/29/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2562,16 +2693,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             09/29/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -2581,11 +2715,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2595,11 +2731,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2609,11 +2747,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -2628,6 +2768,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
               >
                 <p
                   class="body-1 m-2 mt-0"
+                  style="display: block;"
                 >
                   Viewing 10 of 12 Claims
                 </p>
@@ -2656,6 +2797,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                       />
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Previous
                       </p>
@@ -2679,6 +2821,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                     >
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Next
                       </p>
@@ -2740,6 +2883,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Page: 
                     </p>
@@ -2824,6 +2968,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       of 2
                     </p>
@@ -2921,7 +3066,11 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .
@@ -2985,6 +3134,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 CHRISTOCLAIM HALL
                               </p>
@@ -3043,6 +3193,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 All Types
                               </p>
@@ -3101,6 +3252,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Last 90 Days
                               </p>
@@ -3346,11 +3498,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/12/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3360,16 +3514,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/12/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3379,11 +3536,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3393,11 +3552,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3407,11 +3568,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3493,11 +3656,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/10/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3507,16 +3672,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/10/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3526,11 +3694,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3540,11 +3710,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3554,11 +3726,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3640,11 +3814,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/09/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3654,16 +3830,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/09/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3673,11 +3852,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3687,11 +3868,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3701,11 +3884,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3787,11 +3972,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3801,16 +3988,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3820,11 +4010,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3834,11 +4026,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3848,11 +4042,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3934,11 +4130,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3948,16 +4146,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -3967,11 +4168,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3981,11 +4184,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -3995,11 +4200,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4081,11 +4288,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4095,16 +4304,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4114,11 +4326,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4128,11 +4342,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4142,11 +4358,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4228,11 +4446,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4242,16 +4462,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4261,11 +4484,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4275,11 +4500,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4289,11 +4516,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4375,11 +4604,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/04/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4389,16 +4620,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/04/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4408,11 +4642,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4422,11 +4658,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4436,11 +4674,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4522,11 +4762,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4536,16 +4778,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -4555,11 +4800,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4569,11 +4816,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4583,11 +4832,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -4602,6 +4853,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
               >
                 <p
                   class="body-1 m-2 mt-0"
+                  style="display: block;"
                 >
                   Viewing 9 of 9 Claims
                 </p>
@@ -4630,6 +4882,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                       />
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Previous
                       </p>
@@ -4648,6 +4901,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                     >
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Next
                       </p>
@@ -4696,6 +4950,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Page: 
                     </p>
@@ -4766,6 +5021,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       of 1
                     </p>
@@ -4850,7 +5106,11 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .
@@ -4914,6 +5174,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 CHRISTOCLAIM HALL
                               </p>
@@ -4972,6 +5233,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Dental
                               </p>
@@ -5030,6 +5292,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Last Two Years
                               </p>
@@ -5275,11 +5538,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 08/06/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -5289,16 +5554,19 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             08/06/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -5308,11 +5576,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -5322,11 +5592,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -5336,11 +5608,13 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             $50.00
                           </p>
@@ -5355,6 +5629,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
               >
                 <p
                   class="body-1 m-2 mt-0"
+                  style="display: block;"
                 >
                   Viewing 1 of 1 Claims
                 </p>
@@ -5383,6 +5658,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                       />
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Previous
                       </p>
@@ -5401,6 +5677,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                     >
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Next
                       </p>
@@ -5449,6 +5726,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Page: 
                     </p>
@@ -5519,6 +5797,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       of 1
                     </p>

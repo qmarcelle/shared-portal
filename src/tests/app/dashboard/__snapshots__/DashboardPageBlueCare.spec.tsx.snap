@@ -7,7 +7,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
       class="flex flex-col justify-center items-center page"
     >
       <div
-        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 min-h-[250px]"
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
       >
         <div
           class="flex flex-col items-start w-full app-content px-4"
@@ -27,6 +27,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Plan: BlueCross BlueShield of Tennessee
           </p>
@@ -35,6 +36,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Subscriber ID: 902218823
           </p>
@@ -43,6 +45,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Group ID: 100000
           </p>
@@ -51,6 +54,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Policies: Medical, Dental, Vision
           </p>
@@ -169,6 +173,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $67
                               </p>
@@ -183,6 +188,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 02/06/2024, For Chris James
                             </p>
@@ -192,6 +198,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $67
                             </p>
@@ -268,6 +275,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $30.24
                               </p>
@@ -282,6 +290,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/06/2024, For Aly Jame
                             </p>
@@ -291,6 +300,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $30.24
                             </p>
@@ -367,6 +377,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
+                                style="display: block;"
                               >
                                 $65.61
                               </p>
@@ -381,6 +392,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                           >
                             <p
                               class="body-1 body-1 mt-2"
+                              style="display: block;"
                             >
                               Visited on 01/16/2024, For Aly Jame
                             </p>
@@ -390,6 +402,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
+                              style="display: block;"
                             >
                               $65.61
                             </p>
@@ -404,7 +417,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   <a
                     aria-label="View Claims"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -414,7 +426,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Claims
                       </p>
@@ -435,36 +446,56 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
                   <div
-                    class="card-main neutral container mt-4"
+                    class="card-main large-section"
                   >
-                    <div
-                      class="flex flex-row flex flex-row align-top m-4"
+                    <p
+                      class="body-1 body-1 font-bold"
+                      style="display: block;"
                     >
-                      <img
-                        alt="alert"
-                        class="icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-row flex flex-col flex-grow"
-                      >
-                        <p
-                          class="body-1"
-                        >
-                          Oops, it looks like something went wrong. Try again later.
-                        </p>
-                      </div>
-                    </div>
+                      Louthan, James D.
+                    </p>
+                    <p
+                      class="body-1 body-1"
+                      style="display: block;"
+                    >
+                      Primary Care Provider
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-2"
+                      style="display: block;"
+                    >
+                      Facility Address
+                    </p>
+                    <p
+                      class="body-1 body-1"
+                      style="display: block;"
+                    >
+                      2033 Meadowview Ln Ste 200
+                    </p>
+                    <p
+                      class="body-1 body-1"
+                      style="display: block;"
+                    >
+                      Kingsport TN 37660-7432
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-2"
+                      style="display: block;"
+                    >
+                      Phone
+                    </p>
+                    <p
+                      class="body-1 body-1"
+                      style="display: block;"
+                    >
+                      (423) 857-2260
+                    </p>
                   </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -473,7 +504,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     aria-label="View or Update Primary Care Provider"
                     href="/myPrimaryCareProvider"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container !text-left"
@@ -483,7 +513,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View or Update Primary Care Provider
                       </p>
@@ -575,7 +604,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   <a
                     aria-label="View Prior Authorizations"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -585,7 +613,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Prior Authorizations
                       </p>
@@ -896,7 +923,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   <a
                     aria-label="View Benefits & Coverage"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -906,7 +932,6 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Benefits & Coverage
                       </p>
@@ -1033,6 +1058,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                       </div>
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Plan your upcoming care costs before you make an appointment.
                       </p>

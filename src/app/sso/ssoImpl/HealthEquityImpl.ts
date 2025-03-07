@@ -5,6 +5,8 @@ import { SSO_INSURED_ID, SSO_SUBJECT } from '../ssoConstants';
 
 export default async function generateHealthEquitySSOMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateHealthEquitySSOMap entered !!!');
   const ssoParamMap = new Map<string, string>();

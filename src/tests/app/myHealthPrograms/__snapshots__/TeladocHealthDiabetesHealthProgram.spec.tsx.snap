@@ -53,6 +53,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost to you.
               </p>
@@ -61,6 +62,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             If eligible, covered by your plan at no extra cost
                           </p>
@@ -191,6 +194,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Personalized tips, action plans and coaching
                           </p>
@@ -221,6 +225,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Free smart meter and unlimited strips and lancets
                           </p>
@@ -256,6 +261,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       If you have been diagnosed with type 1 or type 2 diabetes, you can expect to pay:
                     </p>
@@ -264,6 +270,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $0
                     </p>
@@ -317,6 +324,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Living with diabetes
                           </p>
@@ -342,6 +350,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Receiving diabetes supplies
                           </p>
@@ -367,6 +376,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Monitoring glucose
                           </p>
@@ -392,6 +402,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Building healthy habits 
                           </p>
@@ -459,6 +470,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost to you.
             </p>
@@ -467,6 +479,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -567,6 +580,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           If eligible, covered by your plan at no extra cost
                         </p>
@@ -597,6 +611,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Personalized tips, action plans and coaching
                         </p>
@@ -627,6 +642,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Free smart meter and unlimited strips and lancets
                         </p>
@@ -662,6 +678,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     If you have been diagnosed with type 1 or type 2 diabetes, you can expect to pay:
                   </p>
@@ -670,6 +687,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $0
                   </p>
@@ -723,6 +741,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Living with diabetes
                         </p>
@@ -748,6 +767,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Receiving diabetes supplies
                         </p>
@@ -773,6 +793,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Monitoring glucose
                         </p>
@@ -798,6 +819,7 @@ exports[`TeladocHealthDiabetesHealthProgram should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Building healthy habits 
                         </p>

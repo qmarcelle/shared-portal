@@ -49,7 +49,7 @@ export const Button = ({
       className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`}
       type={style}
       id={id}
-      disabled={callback == undefined}
+      disabled={!callback ? true : false}
     >
       {computeContent()}
     </button>

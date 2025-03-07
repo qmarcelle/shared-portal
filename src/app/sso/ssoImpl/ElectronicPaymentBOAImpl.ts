@@ -25,6 +25,8 @@ import {
 
 export default async function generateElectronicPaymentBOAMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateElectronicPaymentBOAMap entered !!!');
   const ssoParamMap = new Map<string, string>();

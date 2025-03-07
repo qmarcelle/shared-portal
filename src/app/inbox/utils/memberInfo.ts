@@ -11,7 +11,7 @@ export async function getMembersInfoList(): Promise<
   try {
     const session = await auth();
     const loggedInMemberInfoReq = await getLoggedInUserInfo(
-      session!.user.currUsr!.plan.memCk,
+      session!.user.currUsr!.plan!.memCk,
     );
 
     const loggedInUserInfo: LoggedInUserInfo = loggedInMemberInfoReq;

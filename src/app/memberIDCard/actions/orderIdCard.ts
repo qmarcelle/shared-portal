@@ -17,12 +17,12 @@ export async function orderIdCard(
 
     if (memberDetails.memRelation == 'M') {
       const response = await portalSvcsApi.post(
-        `/IDCardService/Order?subscriberCk=${session?.user.currUsr?.plan.sbsbCk}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
+        `/IDCardService/Order?subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
       );
       return response.data;
     } else {
       const response = await portalSvcsApi.post(
-        `/IDCardService/Order?memberCk=${session?.user.currUsr?.plan.memCk}&groupId=${session?.user.currUsr?.plan.grpId}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
+        `/IDCardService/Order?memberCk=${session?.user.currUsr?.plan!.memCk}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&numOfCards=${noOfCards}`,
       );
       return response.data;
     }

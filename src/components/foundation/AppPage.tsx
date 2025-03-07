@@ -13,6 +13,7 @@ export const AppPage = ({
 }: PageProps) => {
   return (
     <main
+      id="main"
       tabIndex={tabIndex}
       className={`flex flex-col justify-center items-center page ${className}`.trimEnd()}
       onClick={onClick}

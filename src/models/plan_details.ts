@@ -4,4 +4,6 @@ export interface PlanDetails {
   planName: string;
   id: string;
   endedOn?: string;
+  memeCk: string;
+  termedPlan: boolean;
 }

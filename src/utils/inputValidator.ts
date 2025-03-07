@@ -41,7 +41,7 @@ export const isValidMobileNumber = (mobileNumber: string): boolean => {
 export const isValidEmailAddress = (email: string): boolean => {
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   let validEmail = isValidEmail.test(email);
-  if (validEmail == false && email.length == 0) {
+  if (validEmail == false && (!email || email.length === 0)) {
     validEmail = true;
   }
   return validEmail;
@@ -49,7 +49,12 @@ export const isValidEmailAddress = (email: string): boolean => {
 
 export const isValidPassword = (password: string): boolean => {
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[!@#$%^&*()\-=_+])(?!.*[\[\]{};':"\\|,.`<>\/?~*]).{8,30}$/g;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*?[!@#$%^&*()\-=_+])(?!.*[\[\]{};':"\\|,.`<>\/?~]).{8,30}$/g;
+  return passwordRegex.test(password);
+};
+
+export const isSpecialCharactersAvailable = (password: string): boolean => {
+  const passwordRegex = /.*[\[\]{};':"\\|,.`<>\/?~].*/;
   return passwordRegex.test(password);
 };
 

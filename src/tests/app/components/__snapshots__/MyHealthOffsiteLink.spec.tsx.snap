@@ -39,7 +39,6 @@ exports[`MyHealthOffsiteLinkCard should render the  Biometric UI correctly 1`] =
                     aria-label="Schedule a Biometric Screening"
                     href=""
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -49,13 +48,11 @@ exports[`MyHealthOffsiteLinkCard should render the  Biometric UI correctly 1`] =
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Schedule a Biometric Screening
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="external"
@@ -80,6 +77,7 @@ exports[`MyHealthOffsiteLinkCard should render the  Biometric UI correctly 1`] =
           />
           <p
             class="body-1 body-1 ml-11"
+            style="display: block;"
           >
             We will help you schedule this important health screening and walk you through the steps to prepare for your doctor visit.
           </p>
@@ -122,7 +120,6 @@ exports[`MyHealthOffsiteLinkCard should render the  Biometric UI correctly 1`] =
                   aria-label="Schedule a Biometric Screening"
                   href=""
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -132,13 +129,11 @@ exports[`MyHealthOffsiteLinkCard should render the  Biometric UI correctly 1`] =
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Schedule a Biometric Screening
                     </p>
                     <p
                       class="ml-1"
-                      style="display: block;"
                     >
                       <img
                         alt="external"
@@ -163,6 +158,7 @@ exports[`MyHealthOffsiteLinkCard should render the  Biometric UI correctly 1`] =
         />
         <p
           class="body-1 body-1 ml-11"
+          style="display: block;"
         >
           We will help you schedule this important health screening and walk you through the steps to prepare for your doctor visit.
         </p>

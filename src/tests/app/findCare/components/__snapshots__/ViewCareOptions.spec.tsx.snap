@@ -51,11 +51,13 @@ exports[`ViewCareOptions should render UI correctly 1`] = `
             >
               <p
                 class="body-1 font-bold primary-color"
+                style="display: block;"
               >
                 Primary Care Options
               </p>
               <p
                 class="body-1 mt-2"
+                style="display: block;"
               >
                 Learn more about Primary Care Providers and view your options.
               </p>
@@ -92,11 +94,13 @@ exports[`ViewCareOptions should render UI correctly 1`] = `
             >
               <p
                 class="body-1 font-bold primary-color"
+                style="display: block;"
               >
                 Mental Care Options
               </p>
               <p
                 class="body-1 mt-2"
+                style="display: block;"
               >
                 Learn more about Mental Health Providers and view your options.
               </p>

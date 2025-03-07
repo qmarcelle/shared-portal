@@ -122,4 +122,31 @@ export function computeAuthFunctions(
   rules.allMedicareAdvantageEligible = loggedUserInfo.authFunctions.find(
     (f) => f.functionName === 'AllMedicareAdvantage',
   )?.available;
+
+  rules.rxChoiceEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_CHOICE_ELIGIBLE',
+  )?.available;
+
+  rules.rxEssentialEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_ESSENTIAL_ELIGIBLE',
+  )?.available;
+
+  rules.rxEssentialPlusEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_ESSENTIAL_PLUS_ELIGIBLE',
+  )?.available;
+
+  rules.rxPreferredEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'RX_PREFERRED_ELIGIBLE',
+  )?.available;
+
+  rules.medicarePrescriptionPaymentPlanEligible = authFunctionsMap.get(
+    'MEDICARE_PRESCIPTION_PAYMENT_PLAN_ELIGIBLE',
+  );
+
+  rules.questSelectEligible = authFunctionsMap.get('QUEST_SELECT');
+  rules.isEmboldHealth = authFunctionsMap.get('EMBOLD_HEALTH');
+
+  rules.teladocEligible = loggedUserInfo.authFunctions.find(
+    (f) => f.functionName == 'TELADOC',
+  )?.available;
 }

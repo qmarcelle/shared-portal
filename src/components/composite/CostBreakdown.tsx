@@ -1,11 +1,11 @@
+import { formatCurrency } from '@/utils/currency_formatter';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
+import { Divider } from '../foundation/Divider';
 import { Header } from '../foundation/Header';
 import { Row } from '../foundation/Row';
 import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
-import { Divider } from '../foundation/Divider';
-import { formatCurrency } from '@/utils/currency_formatter';
 
 export interface CostBreakdownProps {
   amountBilled: number;
@@ -24,7 +24,6 @@ export const CostBreakdown = ({
 }: CostBreakdownProps) => {
   return (
     <section>
-      <Spacer size={32} />
       <Card className="small-section">
         <Column className="flex flex-col">
           <Header className="title-2" text="Cost Breakdown" />

@@ -21,7 +21,11 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
+  isMedicareDsnpEligible,
+  isMedicareEligible,
   isFreedomMaBlueAdvantage,
+  isIndividualMaBlueAdvantageEligible,
+  isMedicarePrescriptionPaymentPlanEligible,
   isPharmacyBenefitsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -205,7 +209,8 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                 className="title-1 ml-4 md:mt-12"
                 text="Resources & Support"
               />
-              {getOtcContent()}{' '}
+              {isIndividualMaBlueAdvantageEligible(data.visibilityRules) &&
+                getOtcContent()}
             </Column>
           </section>
           <section className="flex flex-row items-start app-body">
@@ -221,7 +226,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                           linkTitle: 'View Covered Drug List (Formulary)',
                           linkDescription:
                             'Download a list of all the drugs your plan covers.',
-                          linkURL: `/assets/formularies/${data}/Drug-Formulary-List.pdf`,
+                          linkURL: `/assets/formularies/${data.formularyURL}/Drug-Formulary-List.pdf`,
                           linkIcon: (
                             <Image
                               src={downloadIcon}
@@ -270,6 +275,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                               className="inline"
                             />
                           ),
+                          isHidden: !isMedicareEligible(data.visibilityRules),
                         },
                         {
                           linkTitle:
@@ -282,6 +288,9 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                               alt="right arrow Icon"
                               className="inline"
                             />
+                          ),
+                          isHidden: !isMedicareDsnpEligible(
+                            data.visibilityRules,
                           ),
                         },
                       ]}
@@ -471,20 +480,27 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                   </Column>
                 </Card>
               )}
-              <Card className="large-section flex flex-row items-start app-body ">
-                <Column>
-                  <TextBox type="title-2" text="Prescription Payment Options" />
-                  <Spacer size={32} />
-                  <section className="flex flex-row items-start app-body">
-                    <Column className="flex-grow">
-                      <PrescriptionPaymentsOptions
-                        isMedicare={true}
-                        isBlueCarePlus={false}
-                      />
-                    </Column>
-                  </section>
-                </Column>
-              </Card>
+              {isMedicarePrescriptionPaymentPlanEligible(
+                data.visibilityRules,
+              ) && (
+                <Card className="large-section flex flex-row items-start app-body ">
+                  <Column>
+                    <TextBox
+                      type="title-2"
+                      text="Prescription Payment Options"
+                    />
+                    <Spacer size={32} />
+                    <section className="flex flex-row items-start app-body">
+                      <Column className="flex-grow">
+                        <PrescriptionPaymentsOptions
+                          isMedicare={true}
+                          isBlueCarePlus={false}
+                        />
+                      </Column>
+                    </section>
+                  </Column>
+                </Card>
+              )}
             </Column>
           </section>
         </Column>

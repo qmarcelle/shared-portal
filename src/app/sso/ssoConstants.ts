@@ -1,64 +1,48 @@
 export const SSO_IMPL_MAP: Map<string, string> = new Map([
   [`${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`, 'ChipRewardsImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_EYEMED}`, 'EyemedImpl'],
-  [`${process.env.NEXT_PUBLIC_IDP_PCA}`, 'PCAImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_HEALTH_EQUITY}`, 'HealthEquityImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_EMBOLD}`, 'EmboldImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`, 'CVSCaremarkImpl'],
-  [`${process.env.NEXT_PUBLIC_IDP_MDLIVE}`, 'MDLiveImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_TELADOC}`, 'TeladocImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_PINNACLE_BANK}`, 'PinnacleBankImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_HSA_BANK}`, 'HSABankImpl'],
-  [
-    `${process.env.NEXT_PUBLIC_IDP_INSTAMED_PAYMENT_HISTORY}`,
-    'InstamedPaymentHistoryImpl',
-  ],
-  [`${process.env.NEXT_PUBLIC_IDP_OHD}`, 'OHDImpl'],
+  [`${process.env.NEXT_PUBLIC_IDP_INSTAMED}`, 'InstamedImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`, 'OnLifeImpl'],
   [`${process.env.NEXT_PUBLIC_IDP_BLUE_365}`, 'Blue365Impl'],
   [`${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}`, 'PremiseHealthImpl'],
-  [`${process.env.NEXT_PUBLIC_IDP_LIVONGO}`, 'LivongoImpl'],
   [
     `${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`,
     'ProviderDirectoryImpl',
   ],
-  [`${process.env.NEXT_PUBLIC_IDP_INSTAMED}`, 'InstamedImpl'],
-  [`${process.env.NEXT_PUBLIC_IDP_VITALSPRP}`, 'ViatlsPRPImpl'],
-  [`${process.env.NEXT_PUBLIC_IDP_ESI}`, 'ESIImpl'],
+  [`${process.env.NEXT_PUBLIC_IDP_VITALSPRP}`, 'VitalsPRPImpl'],
   [
     `${process.env.NEXT_PUBLIC_IDP_ELECTRONIC_PAYMENT_BOA}`,
     'ElectronicPaymentBOAImpl',
   ],
+  [`${process.env.NEXT_PUBLIC_IDP_M3P}`, 'M3PImpl'],
 ]);
 
 export const SSO_TEXT_MAP = new Map<string, string>([
   [`${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`, 'Chip Rewards'],
   [`${process.env.NEXT_PUBLIC_IDP_EYEMED}`, 'Eyemed'],
-  [`${process.env.NEXT_PUBLIC_IDP_PCA}`, 'PCA'],
   [`${process.env.NEXT_PUBLIC_IDP_HEALTH_EQUITY}`, 'Health Equity'],
   [`${process.env.NEXT_PUBLIC_IDP_EMBOLD}`, 'Embold'],
   [`${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`, 'CVS Caremark'],
-  [`${process.env.NEXT_PUBLIC_IDP_MDLIVE}`, 'MD Live'],
   [`${process.env.NEXT_PUBLIC_IDP_TELADOC}`, 'Teladoc'],
   [`${process.env.NEXT_PUBLIC_IDP_PINNACLE_BANK}`, 'Pinnacle Bank'],
   [`${process.env.NEXT_PUBLIC_IDP_HSA_BANK}`, 'HSA Bank'],
-  [
-    `${process.env.NEXT_PUBLIC_IDP_INSTAMED_PAYMENT_HISTORY}`,
-    'Instamed Payment History',
-  ],
-  [`${process.env.NEXT_PUBLIC_IDP_OHD}`, 'OHD'],
   [`${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`, 'On Life'],
   [`${process.env.NEXT_PUBLIC_IDP_BLUE_365}`, 'Blue 365'],
   [`${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}`, 'Premise Health'],
-  [`${process.env.NEXT_PUBLIC_IDP_LIVONGO}`, 'Livongo'],
   [`${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`, 'Provider Directory'],
   [`${process.env.NEXT_PUBLIC_IDP_INSTAMED}`, 'Instamed'],
-  [`${process.env.NEXT_PUBLIC_IDP_VITALSPRP}`, 'Viatls PRP'],
-  [`${process.env.NEXT_PUBLIC_IDP_ESI}`, 'ESI'],
+  [`${process.env.NEXT_PUBLIC_IDP_VITALSPRP}`, 'Vitals PRP'],
   [
     `${process.env.NEXT_PUBLIC_IDP_ELECTRONIC_PAYMENT_BOA}`,
     'Electronic Paymnet BOA',
   ],
+  [`${process.env.NEXT_PUBLIC_IDP_M3P}`, 'M3P'],
 ]);
 
 export const SSO_SUBJECT = 'subject';
@@ -132,6 +116,7 @@ export const SSO_CURRENT_STATEMENT_BALANCE = 'currstmtbal';
 export const SSO_PAYMENT_DUE_DATE = 'pmtduedt';
 export const SSO_PARTNER_SESSION_ID = 'pcsid';
 export const SSO_TIME_STAMP = 'ts';
+export const SSO_CUSTOMER_ID = 'customerid';
 
 export const MD_LIVE_OU = 'ou';
 export const PCA_MEME_CK = 'externalMemberId_CareAdvance';
@@ -148,6 +133,7 @@ export const ON_LIFE_CHALLENGE = 'Challenge';
 export const ON_LIFE_PHA = 'PHA';
 export const ON_LIFE_CHALLENGE_DETAILS_PATH = '/ChallengeDetails';
 export const ON_LIFE_ELIGIBLE_GROUPS = '82040';
+export const WIPRO_CUSTOMER_ID = 'HCF0314';
 // try to move below properties to config
 export const CVS_ClientID_130449 = '1589';
 export const MD_LIVE_OU_GROUPS = '87898';

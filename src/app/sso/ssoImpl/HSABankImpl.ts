@@ -5,6 +5,8 @@ import { SSO_FED_ID, SSO_KEY, SSO_SUBJECT } from '../ssoConstants';
 
 export default async function generateHSABankMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateHSABankMap entered !!!');
   const ssoParamMap = new Map<string, string>();

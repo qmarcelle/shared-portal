@@ -7,6 +7,7 @@ interface Props {
   hint: string;
   classValue?: string;
   searchText?: string;
+  autoFocus?: boolean;
 }
 
 const SearchField: React.FC<Props> = ({
@@ -14,6 +15,7 @@ const SearchField: React.FC<Props> = ({
   hint,
   classValue,
   searchText,
+  autoFocus,
 }) => {
   const [searchTerm, setSearchTerm] = useState(searchText ?? '');
 
@@ -57,6 +59,7 @@ const SearchField: React.FC<Props> = ({
         placeholder={hint}
         type="text"
         onKeyDown={_handleKeyDown}
+        autoFocus={autoFocus}
       />
       <div className="flex flex-col items-end">
         <button

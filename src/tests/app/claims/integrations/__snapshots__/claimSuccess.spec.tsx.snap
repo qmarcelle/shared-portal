@@ -47,7 +47,11 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .
@@ -111,6 +115,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 All Members
                               </p>
@@ -169,6 +174,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 All Types
                               </p>
@@ -227,6 +233,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Last Two Years
                               </p>
@@ -454,11 +461,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/12/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -468,16 +477,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/12/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -487,11 +499,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -501,11 +515,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -515,11 +531,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -601,11 +619,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/10/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -615,16 +635,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/10/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -634,11 +657,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -648,11 +673,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -662,11 +689,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -748,11 +777,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/09/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -762,16 +793,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/09/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -781,11 +815,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -795,11 +831,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -809,11 +847,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -895,11 +935,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -909,16 +951,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -928,11 +973,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -942,11 +989,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -956,11 +1005,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1042,11 +1093,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1056,16 +1109,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/07/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1075,11 +1131,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1089,11 +1147,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1103,11 +1163,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1189,11 +1251,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1203,16 +1267,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1222,11 +1289,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1236,11 +1305,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1250,11 +1321,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1336,11 +1409,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1350,16 +1425,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/05/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1369,11 +1447,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1383,11 +1463,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1397,11 +1479,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1483,11 +1567,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/04/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1497,16 +1583,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/04/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1516,11 +1605,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1530,11 +1621,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1544,11 +1637,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1630,11 +1725,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 10/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1644,16 +1741,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             10/03/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1663,11 +1763,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1677,11 +1779,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1691,11 +1795,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1777,11 +1883,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on 09/29/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1791,16 +1899,19 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Visited on
                           </p>
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             09/29/2024
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             For CHRISTOCLAIM HALL
                           </p>
@@ -1810,11 +1921,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Total Billed
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1824,11 +1937,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             Plan Paid
                           </p>
                           <p
                             class="body-1 body-1 mt-2"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1838,11 +1953,13 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                         >
                           <p
                             class="body-1 body-1 tertiary-color"
+                            style="display: block;"
                           >
                             My Share
                           </p>
                           <p
                             class="body-1 body-1 mt-2 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
@@ -1857,6 +1974,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
               >
                 <p
                   class="body-1 m-2 mt-0"
+                  style="display: block;"
                 >
                   Viewing 10 of 13 Claims
                 </p>
@@ -1885,6 +2003,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                       />
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Previous
                       </p>
@@ -1908,6 +2027,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                     >
                       <p
                         class="body-1 pt-1"
+                        style="display: block;"
                       >
                         Next
                       </p>
@@ -1969,6 +2089,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Page: 
                     </p>
@@ -2053,6 +2174,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                     />
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       of 2
                     </p>

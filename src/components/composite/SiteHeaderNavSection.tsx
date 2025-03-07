@@ -62,7 +62,7 @@ export const SiteHeaderNavSection = ({
           </div>
         </div>
       ))}
-      <div className="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5">
+      <div className="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5">
         <SearchNavigation></SearchNavigation>
       </div>
     </div>

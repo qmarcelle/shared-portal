@@ -6,14 +6,13 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+        class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full"
       >
         <div
-          class="flex flex-row align-top m-2 hover:bg-white searchBar undefined"
+          class="flex flex-row align-top m-2 hover:bg-white w-full undefined"
         >
           <div
-            class="flex flex-col flex-grow "
-            style="height: 40px;"
+            class="flex flex-col flex-grow relative"
           >
             <div
               class="flex flex-row items-center input search-textfield-input input-focus "
@@ -23,7 +22,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 name="search-Field"
                 placeholder="Search for claims, documents, and more..."
                 type="text"
-                value="teladoc"
+                value="heal"
               />
               <div
                 class="flex flex-col items-end"
@@ -48,20 +47,22 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               </div>
             </div>
             <div
-              class="searchSuggestion scroll"
+              class="searchSuggestion font-medium text-black scroll w-full"
             >
               <div
                 class="flex flex-row searchForField title-3 px-4 py-2"
               >
                 <p
                   class="body-1 px-2"
+                  style="display: block;"
                 >
                   See all results for 
                 </p>
                 <p
                   class="body-1 font-bold"
+                  style="display: block;"
                 >
-                  teladoc
+                  heal
                 </p>
               </div>
               <span
@@ -71,18 +72,337 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 <div>
                   <p
                     class="body-1 title-3 py-2 px-4"
+                    style="display: block;"
                   >
-                    teladoc
+                    Results
                   </p>
                   <div
                     class=""
                     style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
-                  <p
-                    class="body-1 body-1 py-2 px-4"
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="https://members.bcbst.com/wps/myportal/member/home/managingyourhealth/healthmanagementtoolkit/"
+                    target="_blank"
                   >
-                    teladoc
+                    <p>
+                      <span>
+                        BlueCross BlueShield of Tennessee - 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Library
+                    </p>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="https://members.bcbst.com/wps/myportal/member/home/managingyourhealth/healthymaternity/"
+                    target="_blank"
+                  >
+                    <p>
+                      <span>
+                        BlueCross BlueShield of Tennessee - 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      thy Maternity
+                    </p>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="https://members.bcbst.com/wps/myportal/member/home/managingyourhealth/"
+                    target="_blank"
+                  >
+                    <p>
+                      <span>
+                        BlueCross BlueShield of Tennessee - Managing Your 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th
+                    </p>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="https://members.bcbst.com/wps/myportal/member/home/benefitscoverage/enrollhealthplan/"
+                    target="_blank"
+                  >
+                    <p>
+                      <span>
+                        BlueCross BlueShield of Tennessee - Enroll in a 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Plan
+                    </p>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="https://members.bcbst.com/wps/myportal/member/home/findcare/comparehealthplans/"
+                    target="_blank"
+                  >
+                    <p>
+                      <span>
+                        BlueCross BlueShield of Tennessee - Compare 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Plans
+                    </p>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="body-1 title-3 py-2 px-4"
+                    style="display: block;"
+                  >
+                    Names
                   </p>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/profile/f1000037167/27002595527/%7B%22name%22:%22Accurate%20Healthcare%20Inc%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <span
+                      class="rich-text body-1 undefined"
+                    >
+                      <p>
+                        <span>
+                          Accurate 
+                        </span>
+                        <span>
+                          <span
+                            class="font-bold "
+                          >
+                            Heal
+                          </span>
+                        </span>
+                        thcare Inc | 
+                      </p>
+                      <p
+                        class="italic"
+                      >
+                        Durable Medical Equipment & Medical Supplies
+                      </p>
+                    </span>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/profile/f1000048623/27000337527/%7B%22name%22:%22Mental%20Health%20Cooperative%20Inc%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <span
+                      class="rich-text body-1 undefined"
+                    >
+                      <p>
+                        <span>
+                          Mental 
+                        </span>
+                        <span>
+                          <span
+                            class="font-bold "
+                          >
+                            Heal
+                          </span>
+                        </span>
+                        th Cooperative Inc | 
+                      </p>
+                      <p
+                        class="italic"
+                      >
+                        <span>
+                          Adult Mental 
+                        </span>
+                        <span>
+                          <span
+                            class="font-bold "
+                          >
+                            Heal
+                          </span>
+                        </span>
+                        th Clinic/Center
+                      </p>
+                    </span>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/profile/f1000048863/27000304027/%7B%22name%22:%22Mental%20Health%20Cooperative%20Inc%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <span
+                      class="rich-text body-1 undefined"
+                    >
+                      <p>
+                        <span>
+                          Mental 
+                        </span>
+                        <span>
+                          <span
+                            class="font-bold "
+                          >
+                            Heal
+                          </span>
+                        </span>
+                        th Cooperative Inc | 
+                      </p>
+                      <p
+                        class="italic"
+                      >
+                        Psychiatric Hospital
+                      </p>
+                    </span>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/profile/f1000060250/27000365427/%7B%22name%22:%22Tennessee%20Mental%20Health%20Consumers%20Association%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <span
+                      class="rich-text body-1 undefined"
+                    >
+                      <p>
+                        <span>
+                          Tennessee Mental 
+                        </span>
+                        <span>
+                          <span
+                            class="font-bold "
+                          >
+                            Heal
+                          </span>
+                        </span>
+                        th Consumers Association | 
+                      </p>
+                      <p
+                        class="italic"
+                      >
+                        <span>
+                          Mental 
+                        </span>
+                        <span>
+                          <span
+                            class="font-bold "
+                          >
+                            Heal
+                          </span>
+                        </span>
+                        <span>
+                          th Clinic/Center (Including Community Mental 
+                        </span>
+                        <span>
+                          <span
+                            class="font-bold "
+                          >
+                            Heal
+                          </span>
+                        </span>
+                        th Center)
+                      </p>
+                    </span>
+                  </a>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="body-1 title-3 py-2 px-4"
+                    style="display: block;"
+                  >
+                    Specialties
+                  </p>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/search/search_specialties/270005100/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <p>
+                      Hearing Aid Dispensers
+                    </p>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/search/search_specialties/270005099/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <p>
+                      <span />
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Department
+                    </p>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/search/search_specialties/270005023/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <p>
+                      <span>
+                        Behavioral 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Facility
+                    </p>
+                  </a>
+                  <a
+                    class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                    href="/search/search_specialties/270005105/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                  >
+                    <p>
+                      <span>
+                        Home 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Agency
+                    </p>
+                  </a>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -121,14 +441,13 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+      class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full"
     >
       <div
-        class="flex flex-row align-top m-2 hover:bg-white searchBar undefined"
+        class="flex flex-row align-top m-2 hover:bg-white w-full undefined"
       >
         <div
-          class="flex flex-col flex-grow "
-          style="height: 40px;"
+          class="flex flex-col flex-grow relative"
         >
           <div
             class="flex flex-row items-center input search-textfield-input input-focus "
@@ -138,7 +457,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               name="search-Field"
               placeholder="Search for claims, documents, and more..."
               type="text"
-              value="teladoc"
+              value="heal"
             />
             <div
               class="flex flex-col items-end"
@@ -163,20 +482,22 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
             </div>
           </div>
           <div
-            class="searchSuggestion scroll"
+            class="searchSuggestion font-medium text-black scroll w-full"
           >
             <div
               class="flex flex-row searchForField title-3 px-4 py-2"
             >
               <p
                 class="body-1 px-2"
+                style="display: block;"
               >
                 See all results for 
               </p>
               <p
                 class="body-1 font-bold"
+                style="display: block;"
               >
-                teladoc
+                heal
               </p>
             </div>
             <span
@@ -186,18 +507,337 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 title-3 py-2 px-4"
+                  style="display: block;"
                 >
-                  teladoc
+                  Results
                 </p>
                 <div
                   class=""
                   style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                 />
-                <p
-                  class="body-1 body-1 py-2 px-4"
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="https://members.bcbst.com/wps/myportal/member/home/managingyourhealth/healthmanagementtoolkit/"
+                  target="_blank"
                 >
-                  teladoc
+                  <p>
+                    <span>
+                      BlueCross BlueShield of Tennessee - 
+                    </span>
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    th Library
+                  </p>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="https://members.bcbst.com/wps/myportal/member/home/managingyourhealth/healthymaternity/"
+                  target="_blank"
+                >
+                  <p>
+                    <span>
+                      BlueCross BlueShield of Tennessee - 
+                    </span>
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    thy Maternity
+                  </p>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="https://members.bcbst.com/wps/myportal/member/home/managingyourhealth/"
+                  target="_blank"
+                >
+                  <p>
+                    <span>
+                      BlueCross BlueShield of Tennessee - Managing Your 
+                    </span>
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    th
+                  </p>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="https://members.bcbst.com/wps/myportal/member/home/benefitscoverage/enrollhealthplan/"
+                  target="_blank"
+                >
+                  <p>
+                    <span>
+                      BlueCross BlueShield of Tennessee - Enroll in a 
+                    </span>
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    th Plan
+                  </p>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="https://members.bcbst.com/wps/myportal/member/home/findcare/comparehealthplans/"
+                  target="_blank"
+                >
+                  <p>
+                    <span>
+                      BlueCross BlueShield of Tennessee - Compare 
+                    </span>
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    th Plans
+                  </p>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+              </div>
+              <div>
+                <p
+                  class="body-1 title-3 py-2 px-4"
+                  style="display: block;"
+                >
+                  Names
                 </p>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/profile/f1000037167/27002595527/%7B%22name%22:%22Accurate%20Healthcare%20Inc%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <p>
+                      <span>
+                        Accurate 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      thcare Inc | 
+                    </p>
+                    <p
+                      class="italic"
+                    >
+                      Durable Medical Equipment & Medical Supplies
+                    </p>
+                  </span>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/profile/f1000048623/27000337527/%7B%22name%22:%22Mental%20Health%20Cooperative%20Inc%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <p>
+                      <span>
+                        Mental 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Cooperative Inc | 
+                    </p>
+                    <p
+                      class="italic"
+                    >
+                      <span>
+                        Adult Mental 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Clinic/Center
+                    </p>
+                  </span>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/profile/f1000048863/27000304027/%7B%22name%22:%22Mental%20Health%20Cooperative%20Inc%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <p>
+                      <span>
+                        Mental 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Cooperative Inc | 
+                    </p>
+                    <p
+                      class="italic"
+                    >
+                      Psychiatric Hospital
+                    </p>
+                  </span>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/profile/f1000060250/27000365427/%7B%22name%22:%22Tennessee%20Mental%20Health%20Consumers%20Association%22,%22client_canonical_id%22:null%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <p>
+                      <span>
+                        Tennessee Mental 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Consumers Association | 
+                    </p>
+                    <p
+                      class="italic"
+                    >
+                      <span>
+                        Mental 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      <span>
+                        th Clinic/Center (Including Community Mental 
+                      </span>
+                      <span>
+                        <span
+                          class="font-bold "
+                        >
+                          Heal
+                        </span>
+                      </span>
+                      th Center)
+                    </p>
+                  </span>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+              </div>
+              <div>
+                <p
+                  class="body-1 title-3 py-2 px-4"
+                  style="display: block;"
+                >
+                  Specialties
+                </p>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/search/search_specialties/270005100/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <p>
+                    Hearing Aid Dispensers
+                  </p>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/search/search_specialties/270005099/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <p>
+                    <span />
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    th Department
+                  </p>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/search/search_specialties/270005023/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <p>
+                    <span>
+                      Behavioral 
+                    </span>
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    th Facility
+                  </p>
+                </a>
+                <a
+                  class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
+                  href="/search/search_specialties/270005105/1/%7B"limit":10,"radius":"25","sort":"has_sntx%20desc,%20distance%20asc","sort_translation":"app_global_sort_distance"%7D?network_id=39&geo_location=36.1816,-86.7306&locale=en_us&ci=DFT"
+                >
+                  <p>
+                    <span>
+                      Home 
+                    </span>
+                    <span>
+                      <span
+                        class="font-bold "
+                      >
+                        Heal
+                      </span>
+                    </span>
+                    th Agency
+                  </p>
+                </a>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -293,7 +933,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+        class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
       >
         <div
           class="flex flex-row align-top"
@@ -305,6 +945,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
             <a>
               <p
                 class="body-1 link-row-head"
+                style="display: block;"
               >
                 Search
               </p>
@@ -331,7 +972,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+      class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
     >
       <div
         class="flex flex-row align-top"
@@ -343,6 +984,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
           <a>
             <p
               class="body-1 link-row-head"
+              style="display: block;"
             >
               Search
             </p>

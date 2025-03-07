@@ -53,6 +53,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
               </p>
@@ -61,6 +62,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             If eligible, covered by your plan at no extra cost
                           </p>
@@ -191,6 +194,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Personalized tips, action plans and 1-on-1 coaching
                           </p>
@@ -221,6 +225,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Free smart blood pressure monitor
                           </p>
@@ -251,6 +256,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Tips on nutrition, activity and more
                           </p>
@@ -286,6 +292,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       If you have been diagnosed with high blood pressure, you can expect to pay: 
                     </p>
@@ -294,6 +301,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $0
                     </p>
@@ -347,6 +355,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             High blood pressure management
                           </p>
@@ -372,6 +381,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Meal planning
                           </p>
@@ -397,6 +407,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Building healthy habits
                           </p>
@@ -464,6 +475,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
             </p>
@@ -472,6 +484,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -572,6 +585,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           If eligible, covered by your plan at no extra cost
                         </p>
@@ -602,6 +616,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Personalized tips, action plans and 1-on-1 coaching
                         </p>
@@ -632,6 +647,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Free smart blood pressure monitor
                         </p>
@@ -662,6 +678,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Tips on nutrition, activity and more
                         </p>
@@ -697,6 +714,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     If you have been diagnosed with high blood pressure, you can expect to pay: 
                   </p>
@@ -705,6 +723,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $0
                   </p>
@@ -758,6 +777,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           High blood pressure management
                         </p>
@@ -783,6 +803,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Meal planning
                         </p>
@@ -808,6 +829,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Building healthy habits
                         </p>

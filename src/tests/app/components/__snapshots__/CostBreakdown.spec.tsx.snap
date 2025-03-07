@@ -6,9 +6,6 @@ exports[`CostBreakdown CostBreakdown 1`] = `
   "baseElement": <body>
     <div>
       <section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
         <div
           class="card-main small-section"
         >
@@ -28,11 +25,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Amount Billed
               </p>
               <p
                 class="body-1"
+                style="display: block;"
               >
                 $263.00
               </p>
@@ -42,11 +41,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Plan Discount
               </p>
               <p
                 class="body-1"
+                style="display: block;"
               >
                 --
               </p>
@@ -56,11 +57,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1"
+                style="display: block;"
               >
                 Plan Paid
               </p>
               <p
                 class="body-1"
+                style="display: block;"
               >
                 $187.94
               </p>
@@ -70,11 +73,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Other Insurance Paid
               </p>
               <p
                 class="body-1"
+                style="display: block;"
               >
                 $0.74
               </p>
@@ -94,11 +99,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1 font-bold"
+                style="display: block;"
               >
                 Your Share of the Cost
               </p>
               <p
                 class="body-1"
+                style="display: block;"
               >
                 $0.00
               </p>
@@ -110,9 +117,6 @@ exports[`CostBreakdown CostBreakdown 1`] = `
   </body>,
   "container": <div>
     <section>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
       <div
         class="card-main small-section"
       >
@@ -132,11 +136,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1"
+              style="display: block;"
             >
               Amount Billed
             </p>
             <p
               class="body-1"
+              style="display: block;"
             >
               $263.00
             </p>
@@ -146,11 +152,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1"
+              style="display: block;"
             >
               Plan Discount
             </p>
             <p
               class="body-1"
+              style="display: block;"
             >
               --
             </p>
@@ -160,11 +168,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1"
+              style="display: block;"
             >
               Plan Paid
             </p>
             <p
               class="body-1"
+              style="display: block;"
             >
               $187.94
             </p>
@@ -174,11 +184,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Other Insurance Paid
             </p>
             <p
               class="body-1"
+              style="display: block;"
             >
               $0.74
             </p>
@@ -198,11 +210,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1 font-bold"
+              style="display: block;"
             >
               Your Share of the Cost
             </p>
             <p
               class="body-1"
+              style="display: block;"
             >
               $0.00
             </p>

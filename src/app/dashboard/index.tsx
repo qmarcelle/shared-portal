@@ -7,7 +7,9 @@ import { UserRole } from '@/userManagement/models/sessionUser';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Link from 'next/link';
 import MemberDashboard from './components/MemberDashboard';
+import MemberDashboardTermedPlan from './components/MemberDashboardTermedPlan';
 import NonMemberDashboard from './components/NonMemberDashboard';
+import { PlanSelector } from './components/PlanSelector';
 import { DashboardData } from './models/dashboardData';
 
 export type DashboardProps = {
@@ -15,13 +17,24 @@ export type DashboardProps = {
 };
 
 const Dashboard = ({ data }: DashboardProps) => {
+  function getWelcomeText() {
+    if ([UserRole.MEMBER, UserRole.NON_MEM].includes(data.role!)) {
+      return 'Welcome, ';
+    } else {
+      return 'Viewing as ';
+    }
+  }
+
+  if (data.role != UserRole.NON_MEM && data.memberDetails?.planName == null) {
+    return <PlanSelector plans={data.memberDetails!.plans!} />;
+  }
+
   return (
     <div className="flex flex-col justify-center items-center page">
       <WelcomeBanner
         className="px-4"
-        titleText="Welcome, "
+        titleText={getWelcomeText()}
         name={toPascalCase(data.memberDetails?.firstName ?? '')}
-        minHeight="min-h-[250px]"
         body={
           <>
             {data.memberDetails?.planName && (
@@ -52,20 +65,28 @@ const Dashboard = ({ data }: DashboardProps) => {
                 <Spacer size={16} />
               </>
             )}
-            <Link href="/myPlan" className="link-white-text">
-              <p className="pb-2 pt-2">View Plan Details</p>
-            </Link>
+            {data.memberDetails?.planName && (
+              <Link href="/myPlan" className="link-white-text">
+                <p className="pb-2 pt-2">View Plan Details</p>
+              </Link>
+            )}
           </>
         }
       />
       <Spacer size={32}></Spacer>
-      {data.role == UserRole.MEMBER ? (
-        <MemberDashboard
-          visibilityRules={data.visibilityRules}
-          primaryCareProviderData={data.primaryCareProvider}
-        />
+      {data.role != UserRole.NON_MEM ? (
+        <>
+          {!data.memberDetails?.selectedPlan?.termedPlan ? (
+            <MemberDashboard
+              visibilityRules={data.visibilityRules}
+              primaryCareProviderData={data.primaryCareProvider!}
+            />
+          ) : (
+            <MemberDashboardTermedPlan data={data} />
+          )}
+        </>
       ) : (
-        <NonMemberDashboard />
+        <NonMemberDashboard profiles={data.profiles!} />
       )}
     </div>
   );

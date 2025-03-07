@@ -32,11 +32,13 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                 >
                   <p
                     class="body-1 body-1 font-bold"
+                    style="display: block;"
                   >
                     Louthan, James D.
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Primary Care Provider
                   </p>
@@ -45,16 +47,19 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   />
                   <p
                     class="body-1 body-2"
+                    style="display: block;"
                   >
                     Facility Address
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     2033 Meadowview Ln Ste 200
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Kingsport TN 37660-7432
                   </p>
@@ -63,11 +68,13 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   />
                   <p
                     class="body-1 body-2"
+                    style="display: block;"
                   >
                     Phone
                   </p>
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     (423) 857-2260
                   </p>
@@ -79,7 +86,6 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   aria-label="View or Update Primary Care Provider"
                   href="/myPrimaryCareProvider"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container !text-left"
@@ -89,7 +95,6 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View or Update Primary Care Provider
                     </p>
@@ -138,7 +143,6 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                             aria-label="Fill-out The Health History & Needs Survey"
                             href=""
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -148,13 +152,11 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                             >
                               <p
                                 class="link undefined"
-                                style="display: block;"
                               >
                                 Fill-out The Health History & Needs Survey
                               </p>
                               <p
                                 class="ml-1"
-                                style="display: block;"
                               >
                                 <img
                                   alt="external"
@@ -179,6 +181,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   />
                   <p
                     class="body-1 body-1 ml-11"
+                    style="display: block;"
                   >
                     Help us get a clear picture of your health needs. We need this info once a year from all our members. Please take a few minutes to complete this survey.
                   </p>
@@ -218,7 +221,6 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                             aria-label="Get One-on-One Health Support"
                             href=""
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -228,13 +230,11 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                             >
                               <p
                                 class="link undefined"
-                                style="display: block;"
                               >
                                 Get One-on-One Health Support
                               </p>
                               <p
                                 class="ml-1"
-                                style="display: block;"
                               >
                                 <img
                                   alt="external"
@@ -259,6 +259,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                   />
                   <p
                     class="body-1 body-1 ml-11"
+                    style="display: block;"
                   >
                     We offer a health program that’s designed just for you. Whether you need support for healthy living or help with a long- or short-term illness or injury, you can rely on us.
                   </p>
@@ -278,395 +279,6 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
-        <section
-          class="flex-row items-start app-body"
-        >
-          <div
-            class="card-main large-section"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <h1
-                class="title-1 mb-0 title-2"
-              >
-                Health Programs & Resources
-              </h1>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <p
-                class="body-1 body-1 mb-0"
-              >
-                Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <div
-                class="slider-container carousel flex flex-col"
-              >
-                <div
-                  class="slick-slider slick-initialized"
-                  dir="ltr"
-                >
-                  <div
-                    class="slick-list"
-                  >
-                    <div
-                      class="slick-track"
-                      style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
-                    >
-                      <div
-                        aria-hidden="false"
-                        class="slick-slide slick-active slick-current"
-                        data-index="0"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  CareTN One-on-One Health Support 
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="false"
-                        class="slick-slide slick-active"
-                        data-index="1"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Healthy Maternity
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="false"
-                        class="slick-slide slick-active"
-                        data-index="2"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Teladoc Health Blood Pressure Management Program
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="3"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Teladoc Health Diabetes Management Program
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="4"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Teladoc Health Diabetes Prevention Program
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                Get a personal action plan, health coaching and a smart scale at no extra cost.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="5"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Teladoc Second Opinion Advice & Support
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="6"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  QuestSelect™ Low-Cost Lab Testing
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="7"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Silver&Fit Fitness Program
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                              >
-                                Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="slick-arrow slick-next"
-                  >
-                    <button
-                      class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
-                      type="button"
-                    >
-                      <img
-                        alt="scroll right"
-                        class="icon-sm"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </button>
-                    ,
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <div
-                  class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
-                >
-                  <div
-                    class="primary-bg-color h-1.5 rounded-full"
-                    style="width: 38%;"
-                  />
-                </div>
-              </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
-              />
-              <a
-                aria-label="View All Health Programs & Resources"
-                style="display: block;"
-                tabindex="-1"
-              >
-                <button
-                  class="flex flex-row link-container undefined"
-                  style="max-width: max-content; height: auto; display: block;"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <p
-                    class="link undefined"
-                    style="display: block;"
-                  >
-                    View All Health Programs & Resources
-                  </p>
-                </button>
-              </a>
-            </div>
-          </div>
-        </section>
         <section>
           <div
             class="card-main large-section skip-underscore"
@@ -702,7 +314,6 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         aria-label="WellTuned Blog"
                         href=""
                         style="display: block;"
-                        tabindex="-1"
                       >
                         <button
                           class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -712,13 +323,11 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         >
                           <p
                             class="link undefined"
-                            style="display: block;"
                           >
                             WellTuned Blog
                           </p>
                           <p
                             class="ml-1"
-                            style="display: block;"
                           >
                             <img
                               alt="external"
@@ -743,6 +352,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
               />
               <p
                 class="body-1 body-1 ml-11"
+                style="display: block;"
               >
                 Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health.
               </p>
@@ -767,6 +377,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
               />
               <p
                 class="body-1"
+                style="display: block;"
               >
                 From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
               </p>
@@ -794,6 +405,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Learning Center
                         </p>
@@ -802,6 +414,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Get more information about specific health terms, topics and conditions to better manage your health.
                         </p>
@@ -827,6 +440,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Interactive Tools
                         </p>
@@ -835,6 +449,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
                         </p>
@@ -860,6 +475,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Health Videos
                         </p>
@@ -868,6 +484,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
                         </p>
@@ -897,6 +514,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Symptom Checker
                         </p>
@@ -905,6 +523,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Get more reliable information about the symptom you’re experiencing to help find the care you need.
                         </p>
@@ -930,6 +549,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Manage Your Diabetes
                         </p>
@@ -938,6 +558,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
                         </p>
@@ -963,6 +584,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       >
                         <p
                           class="body-1 link-row-head"
+                          style="display: block;"
                         >
                           Decision Support
                         </p>
@@ -971,6 +593,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
                         </p>
@@ -995,7 +618,6 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       aria-label="Visit The Health Library"
                       href="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
@@ -1005,13 +627,11 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Visit The Health Library
                         </p>
                         <p
                           class="ml-1"
-                          style="display: block;"
                         >
                           <img
                             alt="external"
