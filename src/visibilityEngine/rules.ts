@@ -33,7 +33,6 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'chipRewardsEligible',
   'blueHealthRewardsEligible',
   'bluePerksElig',
-  'condensedPortalExperienceGroups',
   'amplifyMember',
   'primary360Eligible',
   'mentalHealthSupport',
@@ -59,7 +58,6 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'diabetesPreventionEligible',
   'cmEnable',
   'ohdEligible',
-  'displayPharmacyTab',
   'otcEnable',
   'fsaHraEligible',
   'flexibleSpendingAccount',
@@ -69,7 +67,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'rxEssentialEligible',
   'rxEssentialPlusEligible',
   'rxPreferredEligible',
-  'memberNotEligibleForPHS',
+  'phsEligible',
   'allMedicareAdvantageEligible',
   'hypertensionMgmt',
   'consumerMedicalEligible',
@@ -79,6 +77,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'isEmboldHealth',
   'teladocEligible',
   'diabetesManagementEligible',
+  'questSelectEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

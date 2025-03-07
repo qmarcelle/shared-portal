@@ -452,7 +452,7 @@ export const getMenuNavigation = (
           get prescriptions by mail, price a medication and more.
         </p>
       ),
-      link: '/pharmacy',
+      link: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`,
     },
     shortLinks: [
       { title: 'Pharmacy Claims', link: '/claimSnapshotList' },

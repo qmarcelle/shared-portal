@@ -218,6 +218,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                   />
                   <a
                     aria-label="Visit CVS Caremark"
+                    href="/sso/launch?PartnerSpId=CVS"
                     style="display: block;"
                   >
                     <button
@@ -1923,6 +1924,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                   />
                   <a
                     aria-label="Visit CVS Caremark"
+                    href="/sso/launch?PartnerSpId=CVS"
                     style="display: block;"
                   >
                     <button

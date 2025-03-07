@@ -100,6 +100,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                         <Image src={prescriptionIcon} alt="Prescription Icon" />
                       ),
                       serviceLabel: 'View or Refill My Prescriptions',
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`,
                     },
                     {
                       serviceIcon: (

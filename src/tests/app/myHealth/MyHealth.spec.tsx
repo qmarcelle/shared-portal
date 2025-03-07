@@ -80,6 +80,9 @@ describe('My Health Page', () => {
       ),
     ).toBeVisible();
     expect(screen.getByText('Visit Member Wellness Center')).toBeVisible();
+    expect(
+      screen.queryByText('QuestSelect™ Low-Cost Lab Testing'),
+    ).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should show Health Programs & Resources page when it is Commercial or Medicare lob', async () => {
