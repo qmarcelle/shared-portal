@@ -1,4 +1,5 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { getMemberNetworkId } from '@/actions/memberNetwork';
 import { PBEData } from '@/models/member/api/pbeData';
 import { UserProfile } from '@/models/user_profile';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
@@ -76,8 +77,9 @@ async function computeTokenWithPlan(
   userId: string,
   currentUser: UserProfile,
   planId: string,
-) {
+): Promise<SessionUser> {
   const loggedUserInfo = await getLoggedInUserInfo(planId);
+  const memberNetworks = await getMemberNetworkId(loggedUserInfo.networkPrefix);
   return {
     id: userId,
     currUsr: {
@@ -92,6 +94,7 @@ async function computeTokenWithPlan(
         memCk: planId,
         sbsbCk: loggedUserInfo.subscriberCK,
         subId: loggedUserInfo.subscriberID,
+        ntwkId: memberNetworks[0].allowable_networks.default[0].id.toString(),
       },
     },
     rules: computeVisibilityRules(loggedUserInfo),

@@ -21,6 +21,8 @@ interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];
   sortby: RichSelectItem[];
   filter: FilterItem[];
+  searchTerm: string;
+  updateSearchTerm: (val: string) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSelectedDateChange: () => any;
 }
@@ -29,12 +31,10 @@ export const ClaimsSnapshotCardSection = ({
   claims,
   sortby,
   filter,
+  searchTerm,
+  updateSearchTerm,
 }: ClaimsSnapshotCardSectionProps) => {
   const router = useRouter();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [searchItem, setSearchItem] = useState('');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [filteredUsers, setFilteredUsers] = useState(claims);
 
   const [selectedSort, setSelectedSort] = useState(sortby[0]);
 
@@ -83,16 +83,8 @@ export const ClaimsSnapshotCardSection = ({
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSearch = (searchTerm: any) => {
-    const searchTerm1 = searchTerm;
-    setSearchItem(searchTerm1);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const filteredItems = claims.filter((claims: any) =>
-      claims.memberName.toLowerCase().includes(searchTerm1.toLowerCase()),
-    );
-
-    setFilteredUsers(filteredItems);
+  const handleSearch = (text: string) => {
+    updateSearchTerm(text);
   };
 
   const navigateToClaimDetails = (claimId: string) => {
@@ -154,7 +146,7 @@ export const ClaimsSnapshotCardSection = ({
       <div className={'flex flex-col max-sm:my-4'}>
         <Spacer size={12} />
         <Pagination<ClaimDetails>
-          key={selectedSort.id + JSON.stringify(filter)}
+          key={selectedSort.id + JSON.stringify(filter) + searchTerm}
           initialList={sortItems(selectedSort)}
           pageSize={10}
           wrapperBuilder={(items) => <Column>{items}</Column>}

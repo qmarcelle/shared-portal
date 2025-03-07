@@ -21,7 +21,10 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
+  isMedicareDsnpEligible,
+  isMedicareEligible,
   isFreedomMaBlueAdvantage,
+  isIndividualMaBlueAdvantageEligible,
   isMedicarePrescriptionPaymentPlanEligible,
   isPharmacyBenefitsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -98,6 +101,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                         <Image src={prescriptionIcon} alt="Prescription Icon" />
                       ),
                       serviceLabel: 'View or Refill My Prescriptions',
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`,
                     },
                     {
                       serviceIcon: (
@@ -204,7 +208,8 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                 className="title-1 ml-4 md:mt-12"
                 text="Resources & Support"
               />
-              {getOtcContent()}{' '}
+              {isIndividualMaBlueAdvantageEligible(data.visibilityRules) &&
+                getOtcContent()}
             </Column>
           </section>
           <section className="flex flex-row items-start app-body">
@@ -269,6 +274,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                               className="inline"
                             />
                           ),
+                          isHidden: !isMedicareEligible(data.visibilityRules),
                         },
                         {
                           linkTitle:
@@ -281,6 +287,9 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                               alt="right arrow Icon"
                               className="inline"
                             />
+                          ),
+                          isHidden: !isMedicareDsnpEligible(
+                            data.visibilityRules,
                           ),
                         },
                       ]}
