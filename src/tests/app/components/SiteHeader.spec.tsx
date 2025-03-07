@@ -131,12 +131,6 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(
       screen.getByRole('button', {
-        name: /Virtual Care Options/i,
-      }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole('button', {
         name: /Price Dental Care/i,
       }),
     ).toBeInTheDocument();
@@ -509,5 +503,56 @@ describe('SiteHeader And Navigation Menu', () => {
       screen.queryByText('Health Programs & Resources'),
     ).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should render Virtual Care options menu when PZN rule is true', async () => {
+    vRules = {};
+    vRules.blueCare = false;
+    vRules.myStrengthCompleteEligible = true;
+    vRules.individual = true;
+    vRules.fullyInsured = true;
+    vRules.medical = true;
+    vRules.groupRenewalDateBeforeTodaysDate = true;
+    vRules.primary360Eligible = true;
+    vRules.teladoc = true;
+    vRules.futureEffective = false;
+    vRules.fsaOnly = false;
+    vRules.wellnessOnly = false;
+    vRules.terminated = false;
+    vRules.katieBeckNoBenefitsElig = false;
+    vRules.healthCoachElig = true;
+    vRules.mentalHealthSupport = true;
+    vRules.hingeHealthEligible = true;
+    vRules.levelFunded = true;
+
+    const component = renderUI(vRules);
+
+    // Show Nav links for Find Care & Costs
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+
+    expect(
+      screen.getByRole('button', {
+        name: /Virtual Care Options/i,
+      }),
+    ).toBeInTheDocument();
+    expect(component.container).toMatchSnapshot();
+  });
+
+  it('should render Virtual Care options menu when PZN rule is false', async () => {
+    vRules = {};
+    vRules.groupRenewalDateBeforeTodaysDate = false;
+    vRules.fsaOnly = true;
+    vRules.terminated = true;
+
+    const component = renderUI(vRules);
+
+    // Show Nav links for Find Care & Costs
+    fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
+    expect(component.container).toMatchSnapshot();
+    expect(
+      screen.queryByRole('link', { name: 'Virtual Care Options' }),
+    ).toBeNull();
+
+    expect(component.container).toMatchSnapshot();
   });
 });

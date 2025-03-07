@@ -47,7 +47,11 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .
@@ -2223,7 +2227,11 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .

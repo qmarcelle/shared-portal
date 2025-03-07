@@ -1,8 +1,10 @@
 export interface SearchDetails {
   header: string;
-  content: string[];
+  content: SearchItem[];
 }
 
-export interface searchGroup {
-  content: string;
-}
+export type SearchItem = {
+  label: string;
+  url: string;
+  metadata?: string;
+};

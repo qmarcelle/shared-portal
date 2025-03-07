@@ -188,6 +188,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
             />
             <a
               aria-label="Visit CVS Caremark"
+              href="/sso/launch?PartnerSpId=undefined"
               style="display: block;"
             >
               <button
@@ -407,6 +408,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
           />
           <a
             aria-label="Visit CVS Caremark"
+            href="/sso/launch?PartnerSpId=undefined"
             style="display: block;"
           >
             <button

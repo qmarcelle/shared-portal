@@ -5,11 +5,17 @@ import {
   isBlueCareNotEligible,
   isEnrollEligible,
   isHealthProgamAndResourceEligible,
+  isHingeHealthEligible,
   isMentalHealthMenuOption,
+  isNewMentalHealthSupportAbleToEligible,
+  isNewMentalHealthSupportMyStrengthCompleteEligible,
+  isNurseChatEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
   isSpendingAccountsMenuOptions,
+  isTeladocEligible,
+  isTeledocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -86,7 +92,20 @@ export const getMenuNavigation = (
         title: 'Virtual Care Options',
         description: 'This is Virtual Care Options',
         category: 'Find Care',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: () => {
+          if (
+            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) &&
+            isNewMentalHealthSupportAbleToEligible(rules) &&
+            isHingeHealthEligible(rules) &&
+            isTeledocPrimary360Eligible(rules) &&
+            isTeladocEligible(rules) &&
+            isNurseChatEligible(rules)
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        },
         url: '/virtualCareOptions',
         external: false,
       },
@@ -216,7 +235,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '',
+        url: '/claims/submitAClaim',
         external: false,
       },
       {
@@ -434,7 +453,7 @@ export const getMenuNavigation = (
           get prescriptions by mail, price a medication and more.
         </p>
       ),
-      link: '/pharmacy',
+      link: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`,
     },
     shortLinks: [
       { title: 'Pharmacy Claims', link: '/claimSnapshotList' },
