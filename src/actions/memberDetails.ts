@@ -30,6 +30,8 @@ export async function getLoggedInMember(
     member.networkPrefix = loggedUserInfo.networkPrefix;
     member.groupId = loggedUserInfo.groupData.groupID;
     member.groupEIN = loggedUserInfo.groupData.groupEIN;
+    member.groupKey = loggedUserInfo.groupData.groupCK;
+    member.lineOfBusiness = loggedUserInfo.lob;
     member.cmCondition = loggedUserInfo.cmcondition.join(',');
     const loggedMember = loggedUserInfo.members.find(
       (x) => x.memRelation == 'M',

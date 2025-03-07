@@ -64,6 +64,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'fsaHraEligible',
   'flexibleSpendingAccount',
   'healthReimbursementAccount',
+  'dsnpGrpInd',
   'rxChoiceEligible',
   'rxEssentialEligible',
   'rxEssentialPlusEligible',
@@ -75,6 +76,9 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'matureMinor',
   'isSilverFitClient',
   'medicarePrescriptionPaymentPlanEligible',
+  'isEmboldHealth',
+  'teladocEligible',
+  'questSelectEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

@@ -16,6 +16,8 @@ import { RichText } from '@/components/foundation/RichText';
 import { Filter } from '@/components/foundation/Filter';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import { Member } from '@/models/member/api/loggedInUserInfo';
+import { isBlue365FitnessYourWayEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
@@ -39,6 +41,7 @@ interface BenefitsProps {
   benefitsBean: MemberBenefitsBean;
   otherBenefitItems: ManageBenefitsItems[];
   userGroupId: string;
+  visibilityRules?: VisibilityRules;
 }
 
 const Benefits = ({
@@ -46,6 +49,7 @@ const Benefits = ({
   benefitsBean,
   otherBenefitItems,
   userGroupId,
+  visibilityRules,
 }: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
@@ -343,17 +347,18 @@ const Benefits = ({
                   ]}
                 />
               )}
-            {[
-              BenefitType.OTHER.toString(),
-              BenefitType.ALL.toString(),
-            ].includes(currentSelectedBenefitType) && (
-              <MedicalPharmacyDentalCard
-                className="small-section w-[672px] "
-                heading="Other Benefits"
-                cardIcon={<Image src={OtherBenefit} alt="link" />}
-                manageBenefitItems={otherBenefitItems}
-              />
-            )}
+            {isBlue365FitnessYourWayEligible(visibilityRules) &&
+              [
+                BenefitType.OTHER.toString(),
+                BenefitType.ALL.toString(),
+              ].includes(currentSelectedBenefitType) && (
+                <MedicalPharmacyDentalCard
+                  className="small-section w-[672px] "
+                  heading="Other Benefits"
+                  cardIcon={<Image src={OtherBenefit} alt="link" />}
+                  manageBenefitItems={otherBenefitItems}
+                />
+              )}
           </Column>
         </section>
       </Column>

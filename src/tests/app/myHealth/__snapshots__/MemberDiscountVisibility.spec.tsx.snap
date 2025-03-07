@@ -313,43 +313,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  QuestSelect™ Low-Cost Lab Testing
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                                style="display: block;"
-                              >
-                                As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="7"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
                                   Silver&Fit Fitness Program
                                 </p>
                               </div>
@@ -399,7 +362,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 >
                   <div
                     class="primary-bg-color h-1.5 rounded-full"
-                    style="width: 38%;"
+                    style="width: 43%;"
                   />
                 </div>
               </div>

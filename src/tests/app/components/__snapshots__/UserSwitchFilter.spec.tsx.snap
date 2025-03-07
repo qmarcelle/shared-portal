@@ -24,7 +24,7 @@ exports[`UserSwitchFilter should render UI correctly when click on personal repr
                 Viewing as Authorized User
               </p>
               <h3
-                class="title-3 font-bold"
+                class="title-3 font-bold primary-color"
               >
                 Ellie Williams
               </h3>
@@ -86,7 +86,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                 My Profile
               </p>
               <h3
-                class="title-3 font-bold"
+                class="title-3 font-bold primary-color"
               >
                 Chris Hall
               </h3>
@@ -122,6 +122,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
     >
       <a
         aria-label="All Profile Settings"
+        href="/profileSettings"
         style="display: block;"
       >
         <button
@@ -161,6 +162,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Communication Settings"
+        href="/communicationSettings"
         style="display: block;"
       >
         <button
@@ -181,6 +183,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Security Settings"
+        href="/security"
         style="display: block;"
       >
         <button
@@ -228,7 +231,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                 My Profile
               </p>
               <h3
-                class="title-3 font-bold"
+                class="title-3 font-bold primary-color"
               >
                 Chris Hall
               </h3>
@@ -469,6 +472,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
     >
       <a
         aria-label="All Profile Settings"
+        href="/profileSettings"
         style="display: block;"
       >
         <button
@@ -508,6 +512,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Communication Settings"
+        href="/communicationSettings"
         style="display: block;"
       >
         <button
@@ -528,6 +533,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Security Settings"
+        href="/security"
         style="display: block;"
       >
         <button

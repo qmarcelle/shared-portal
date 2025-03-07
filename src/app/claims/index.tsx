@@ -22,6 +22,7 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
   const initialFilter = useMemo(() => {
     return filters;
   }, []);
+  const [searchText, setSearchText] = useState('');
   const initialClaims = useMemo(() => claimsList ?? [], []);
   const [filter, setFilter] = useState(filters);
   const [claims, setClaims] = useState(filterClaims(filter));
@@ -96,6 +97,28 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
     setClaims(initialClaims);
   }
 
+  function refineClaimsWithSearch() {
+    if (searchText.length <= 3) {
+      return claims;
+    }
+
+    const searchTerm = searchText.toLowerCase();
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const filteredItems = claims.filter(
+      (claim) =>
+        claim.memberName.toLowerCase().includes(searchTerm) ||
+        claim.issuer.toLowerCase().includes(searchTerm) ||
+        claim.id.toLowerCase().includes(searchTerm),
+    );
+
+    return filteredItems;
+  }
+
+  function updateSearchTerm(text: string) {
+    setSearchText(text);
+  }
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -124,7 +147,7 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
               spans={[
                 <span key={0}>Need to submit a claim? </span>,
                 <span className="link font-bold" key={1}>
-                  Get the form you need
+                  <a href="/claims/submitAClaim">Get the form you need</a>
                 </span>,
                 <span key={2}>.</span>,
               ]}
@@ -171,8 +194,10 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
                     value: '0',
                   },
                 ]}
+                updateSearchTerm={updateSearchTerm}
                 onSelectedDateChange={() => {}}
-                claims={claims}
+                searchTerm={searchText}
+                claims={refineClaimsWithSearch()}
               />
             </Column>
           </section>

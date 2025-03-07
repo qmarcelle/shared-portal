@@ -1,4 +1,6 @@
+import { auth } from '@/auth';
 import { Metadata } from 'next';
+import { Session } from 'next-auth';
 import FindCare from '.';
 
 export const metadata: Metadata = {
@@ -6,7 +8,8 @@ export const metadata: Metadata = {
 };
 
 const FindCarePage = async () => {
-  return <FindCare />;
+  const session: Session | null = await auth();
+  return <FindCare visibilityRules={session?.user.vRules} />;
 };
 
 export default FindCarePage;

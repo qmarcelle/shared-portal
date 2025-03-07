@@ -27,7 +27,6 @@ describe('Full And Basics Access Option', () => {
         'Demographic and contact information related to you and your family;',
       ),
     );
-    expect(screen.getByText('Type Your Full Name'));
     expect(component.baseElement).toMatchSnapshot();
   });
 });

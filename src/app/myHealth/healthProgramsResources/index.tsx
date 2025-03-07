@@ -14,6 +14,7 @@ import {
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
+  isQuestSelectEligible,
   isSilverAndFitnessEligible,
   isTeladocPrimary360Eligible,
   isTeladocSecondOpinionAdviceAndSupportEligible,
@@ -21,6 +22,53 @@ import {
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { myHealthProgramsandResourcesDetails } from './models/health_programs_resources_details';
 import { HealthProgramsResourcesName } from './models/health_programs_resources_names';
+
+const healthPrograms = [
+  {
+    checkFunction: isNewMentalHealthSupportAbleToEligible,
+    key: HealthProgramsResourcesName.AbleTo,
+  },
+  {
+    checkFunction: isNewMentalHealthSupportMyStrengthCompleteEligible,
+    key: HealthProgramsResourcesName.TeladocMentalHealth,
+  },
+  {
+    checkFunction: isTeladocPrimary360Eligible,
+    key: HealthProgramsResourcesName.TeladocHealthPrimaryCardProvider,
+  },
+  {
+    checkFunction: isHingeHealthEligible,
+    key: HealthProgramsResourcesName.HingeHealthBackAndJointCare,
+  },
+  {
+    checkFunction: isNurseChatEligible,
+    key: HealthProgramsResourcesName.TalkToNurse,
+  },
+  {
+    checkFunction: isDiabetesPreventionEligible,
+    key: HealthProgramsResourcesName.TeladocHealthDiabetesPreventionProgram,
+  },
+  {
+    checkFunction: isCareManagementEligiblity,
+    key: HealthProgramsResourcesName.CareTNOneOnOneHealthSupport,
+  },
+  {
+    checkFunction: isTeladocSecondOpinionAdviceAndSupportEligible,
+    key: HealthProgramsResourcesName.TeladocSecondOpinionAdviceAndSupport,
+  },
+  {
+    checkFunction: isBloodPressureManagementEligible,
+    key: HealthProgramsResourcesName.TeladocHealthBloodPressureManagementProgram,
+  },
+  {
+    checkFunction: isSilverAndFitnessEligible,
+    key: HealthProgramsResourcesName.SilverAndFitFitnessProgram,
+  },
+  {
+    checkFunction: isQuestSelectEligible,
+    key: HealthProgramsResourcesName.QuestSelectLowCostLabTesting,
+  },
+];
 
 export type MyHealthProgramsResourcesProps = {
   visibilityRules?: VisibilityRules;
@@ -30,75 +78,12 @@ const MyHealthProgramsResources = ({
 }: MyHealthProgramsResourcesProps) => {
   const virtualHealthCareDetails: VirtualHealthCareDetails[] = [];
 
-  if (isNewMentalHealthSupportAbleToEligible(visibilityRules)) {
-    const ableTo = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.AbleTo,
-    );
-    if (ableTo) virtualHealthCareDetails.push(ableTo);
-  }
-  if (isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules)) {
-    const teladocMentalHealth = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.TeladocMentalHealth,
-    );
-    if (teladocMentalHealth) virtualHealthCareDetails.push(teladocMentalHealth);
-  }
-  if (isTeladocPrimary360Eligible(visibilityRules)) {
-    const teladocHealthPrimaryCardProvider =
-      myHealthProgramsandResourcesDetails.get(
-        HealthProgramsResourcesName.TeladocHealthPrimaryCardProvider,
-      );
-    if (teladocHealthPrimaryCardProvider)
-      virtualHealthCareDetails.push(teladocHealthPrimaryCardProvider);
-  }
-  if (isHingeHealthEligible(visibilityRules)) {
-    const hingeHealth = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.HingeHealthBackAndJointCare,
-    );
-    if (hingeHealth) virtualHealthCareDetails.push(hingeHealth);
-  }
-  if (isNurseChatEligible(visibilityRules)) {
-    const nurseChat = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.TalkToNurse,
-    );
-    if (nurseChat) virtualHealthCareDetails.push(nurseChat);
-  }
-  if (isDiabetesPreventionEligible(visibilityRules)) {
-    const diabetesPrevention = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.TeladocHealthDiabetesPreventionProgram,
-    );
-    if (diabetesPrevention) virtualHealthCareDetails.push(diabetesPrevention);
-  }
-  if (isCareManagementEligiblity(visibilityRules)) {
-    const careManagement = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.CareTNOneOnOneHealthSupport,
-    );
-    if (careManagement) virtualHealthCareDetails.push(careManagement);
-  }
-  if (isTeladocSecondOpinionAdviceAndSupportEligible(visibilityRules)) {
-    const teladocSecondOpinion = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.TeladocSecondOpinionAdviceAndSupport,
-    );
-    if (teladocSecondOpinion)
-      virtualHealthCareDetails.push(teladocSecondOpinion);
-  }
-
-  if (isBloodPressureManagementEligible(visibilityRules!)) {
-    const teladocBpmCard = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.TeladocHealthBloodPressureManagementProgram,
-    );
-    if (teladocBpmCard) {
-      virtualHealthCareDetails.push(teladocBpmCard);
+  healthPrograms.forEach(({ checkFunction, key }) => {
+    if (visibilityRules && checkFunction(visibilityRules)) {
+      const resource = myHealthProgramsandResourcesDetails.get(key);
+      if (resource) virtualHealthCareDetails.push(resource);
     }
-  }
-  if (isSilverAndFitnessEligible(visibilityRules!)) {
-    const silverFitCard = myHealthProgramsandResourcesDetails.get(
-      HealthProgramsResourcesName.SilverAndFitFitnessProgram,
-    );
-    if (silverFitCard) {
-      virtualHealthCareDetails.push(silverFitCard);
-    }
-  }
-
+  });
   return (
     <div className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
