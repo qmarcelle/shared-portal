@@ -3,7 +3,6 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import postToPing from '../actions/postToPing';
-import { PingRedirect } from '../models/app/pingToRedirect';
 import { SSO_IMPL_MAP } from '../ssoConstants';
 
 const SSORedirect = () => {
@@ -21,7 +20,7 @@ const SSORedirect = () => {
       try {
         console.log('Entered Send SSO !!!!');
         // Pass the object directly to postToPing
-        const pingToRedirect: PingRedirect = await postToPing(
+        const ref: string = await postToPing(
           ssoImpl != null ? ssoImpl : '',
           paramsObject,
         );
@@ -34,11 +33,7 @@ const SSORedirect = () => {
           resumePath != null
             ? resumePath.replace(/[\n\r\t]/g, '_')
             : resumePath;
-        let targetParam;
-        if (searchParams.get('target') && pingToRedirect.target) {
-          targetParam = `&TargetResource=${pingToRedirect.target}`;
-        }
-        const url = `${process.env.NEXT_PUBLIC_PING_REST_URL}${sanitizedResumePath}?REF=${pingToRedirect.ref}${targetParam ?? ''}`;
+        const url = `${process.env.NEXT_PUBLIC_PING_REST_URL}${sanitizedResumePath}?REF=${ref}`;
 
         router.push(url);
       } catch (error) {

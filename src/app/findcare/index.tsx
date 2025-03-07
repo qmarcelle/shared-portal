@@ -21,8 +21,10 @@ import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 import { FindMedicalProvidersComponent } from '../dashboard/components/FindMedicalProvidersComponent';
 import {
+  CVS_DEEPLINK_MAP,
   CVS_DRUG_SEARCH_INIT,
   CVS_PHARMACY_SEARCH_FAST,
+  EYEMED_DEEPLINK_MAP,
   EYEMED_PROVIDER_DIRECTORY,
   EYEMED_VISION,
 } from '../sso/ssoConstants';
@@ -82,7 +84,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   label: 'Eye Doctor',
                   callback: () => {
                     router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_PROVIDER_DIRECTORY}`,
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
                     );
                   },
                 },
@@ -90,7 +92,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   label: 'Pharmacy',
                   callback: () => {
                     router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_PHARMACY_SEARCH_FAST}`,
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
                     );
                   },
                 },
@@ -132,7 +134,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   label: 'Prescription Drugs',
                   callback: () => {
                     router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_DRUG_SEARCH_INIT}`,
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
                     );
                   },
                 },
@@ -140,7 +142,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   label: 'Vision',
                   callback: () => {
                     router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&target=${EYEMED_VISION}`,
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_VISION)!)}`,
                     );
                   },
                 },

@@ -21,16 +21,20 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
-  isMedicareDsnpEligible,
-  isMedicareEligible,
   isFreedomMaBlueAdvantage,
   isIndividualMaBlueAdvantageEligible,
+  isMedicareDsnpEligible,
+  isMedicareEligible,
   isMedicarePrescriptionPaymentPlanEligible,
   isPharmacyBenefitsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { CVS_DRUG_SEARCH_INIT } from '../sso/ssoConstants';
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_DRUG_SEARCH_INIT,
+  CVS_REFILL_RX,
+} from '../sso/ssoConstants';
 import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation';
 import PharmacyBenefits from './components/PharmacyBenefits';
 import { PharmacyDocuments } from './components/PharmacyDocuments';
@@ -101,7 +105,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                         <Image src={prescriptionIcon} alt="Prescription Icon" />
                       ),
                       serviceLabel: 'View or Refill My Prescriptions',
-                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`,
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`,
                     },
                     {
                       serviceIcon: (
@@ -111,7 +115,7 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                         />
                       ),
                       serviceLabel: 'Get My Prescriptions by Mail',
-                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&target=${CVS_DRUG_SEARCH_INIT}`,
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
                     },
                     {
                       serviceIcon: <Image src={costIcon} alt="Cost Icon" />,

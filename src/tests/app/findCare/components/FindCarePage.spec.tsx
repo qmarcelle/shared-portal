@@ -20,6 +20,10 @@ jest.mock('next/navigation', () => ({
 
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
 process.env.NEXT_PUBLIC_IDP_EYEMED = 'EyeMed';
+process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
+  'https://caremark/{DEEPLINK}?newLogin=yes';
+process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET =
+  'https://eyemedvisioncare/bcbst/en/private/{DEEPLINK}';
 
 const vRules = {
   user: {
@@ -57,7 +61,7 @@ describe('Find Care Page', () => {
     expect(screen.getByText(/Pharmacy/i));
     fireEvent.click(screen.getByText(/Pharmacy/i));
     expect(mockPush).toHaveBeenCalledWith(
-      '/sso/launch?PartnerSpId=CVS&target=CVS_PHARMACY_SEARCH_FAST',
+      '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes',
     );
   });
 
@@ -69,7 +73,7 @@ describe('Find Care Page', () => {
     fireEvent.click(screen.getByText(/Prescription Drugs/i));
     await waitFor(() => {
       expect(mockPush).toHaveBeenCalledWith(
-        '/sso/launch?PartnerSpId=CVS&target=CVS_DRUG_SEARCH_INIT',
+        '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes',
       );
     });
   });
@@ -82,7 +86,7 @@ describe('Find Care Page', () => {
     fireEvent.click(screen.getByRole('button', { name: /Vision/i }));
     await waitFor(() => {
       expect(mockPush).toHaveBeenCalledWith(
-        '/sso/launch?PartnerSpId=EyeMed&target=EYEMED_VISION',
+        '/sso/launch?PartnerSpId=EyeMed&TargetResource=https://eyemedvisioncare/bcbst/en/private/know-before-you-go',
       );
     });
   });
@@ -95,7 +99,7 @@ describe('Find Care Page', () => {
     fireEvent.click(screen.getByText(/Eye Doctor/i));
     await waitFor(() => {
       expect(mockPush).toHaveBeenCalledWith(
-        '/sso/launch?PartnerSpId=EyeMed&target=EYEMED_PROVIDER_DIRECTORY',
+        '/sso/launch?PartnerSpId=EyeMed&TargetResource=https://eyemedvisioncare/bcbst/en/private/provider-locator',
       );
     });
   });

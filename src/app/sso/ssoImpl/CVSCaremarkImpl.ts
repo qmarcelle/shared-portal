@@ -6,7 +6,6 @@ import { formatDateString } from '@/utils/date_formatter';
 import { getPrefix } from '@/utils/member_utils';
 import {
   CVS_ClientID_130449,
-  CVS_DEEPLINK_MAP,
   CVS_DEFAULT_CLIENT_ID_VALUE,
   SSO_CLIENT_ID,
   SSO_DOB,
@@ -15,11 +14,11 @@ import {
   SSO_LAST_NAME,
   SSO_PERSON_ID,
   SSO_SUBJECT,
-  SSO_TARGET_RESOURCE,
 } from '../ssoConstants';
 
 export default async function generateCVSCaremarkSSOMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateCVSCaremarkSSOMap entered !!!');
@@ -29,12 +28,6 @@ export default async function generateCVSCaremarkSSOMap(
     throw new Error('Member not found');
   }
 
-  let target = '';
-  const targetURL = process.env.CVS_SSO_TARGET ?? '';
-  if (searchParams?.target) {
-    const deepLink = CVS_DEEPLINK_MAP.get(searchParams?.target) ?? '';
-    target = targetURL.replace('{DEEPLINK}', deepLink);
-  }
   const subId = getCVSSubID(memberData);
   ssoParamMap.set(SSO_FIRST_NAME, memberData.firstName);
   ssoParamMap.set(SSO_LAST_NAME, memberData.lastName);
@@ -46,7 +39,6 @@ export default async function generateCVSCaremarkSSOMap(
   ssoParamMap.set(SSO_PERSON_ID, subId);
   ssoParamMap.set(SSO_CLIENT_ID, getCVSClient(memberData));
   ssoParamMap.set(SSO_SUBJECT, subId);
-  ssoParamMap.set(SSO_TARGET_RESOURCE, target);
 
   console.log('generateCVSCaremarkSSOMap exited !!!');
   return ssoParamMap;

@@ -78,7 +78,6 @@ describe('CVSCaremark SSO', () => {
             lastname: 'HALL',
             personid: '902218823',
             subject: '902218823',
-            targetresource: '',
           },
           {
             headers: {
@@ -116,7 +115,6 @@ describe('CVSCaremark SSO', () => {
           lastname: 'HALL',
           personid: '902218823',
           subject: '902218823',
-          targetresource: '',
         },
         {
           headers: {
