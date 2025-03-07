@@ -220,6 +220,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                     />
                     <a
                       aria-label="Visit CVS Caremark"
+                      href="/sso/launch?PartnerSpId=undefined"
                       style="display: block;"
                     >
                       <button
@@ -1465,6 +1466,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                   />
                   <a
                     aria-label="Visit CVS Caremark"
+                    href="/sso/launch?PartnerSpId=undefined"
                     style="display: block;"
                   >
                     <button
@@ -2767,6 +2769,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     />
                     <a
                       aria-label="Visit CVS Caremark"
+                      href="/sso/launch?PartnerSpId=undefined"
                       style="display: block;"
                     >
                       <button
@@ -4089,6 +4092,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   />
                   <a
                     aria-label="Visit CVS Caremark"
+                    href="/sso/launch?PartnerSpId=undefined"
                     style="display: block;"
                   >
                     <button
