@@ -3,13 +3,11 @@ import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { logger } from '@/utils/logger';
 import dropOffToPing from '../actions/pingDropOff';
-import { PingRedirect } from '../models/app/pingToRedirect';
-import { SSO_TARGET_RESOURCE } from '../ssoConstants';
 
 export default async function ssoToPing(
   ssoImpl: string,
   searchParams: { [k: string]: string },
-): Promise<PingRedirect> {
+): Promise<string> {
   console.log('ssoToPing !!!');
 
   const session = await auth();
@@ -35,5 +33,5 @@ export default async function ssoToPing(
   }
 
   // build the redirect url and do the redirect
-  return { ref, target: ssoParamMap.get(SSO_TARGET_RESOURCE) ?? '' };
+  return ref;
 }
