@@ -142,6 +142,8 @@ export function computeAuthFunctions(
   rules.medicarePrescriptionPaymentPlanEligible = authFunctionsMap.get(
     'MEDICARE_PRESCIPTION_PAYMENT_PLAN_ELIGIBLE',
   );
+
+  rules.questSelectEligible = authFunctionsMap.get('QUEST_SELECT');
   rules.isEmboldHealth = authFunctionsMap.get('EMBOLD_HEALTH');
 
   rules.teladocEligible = loggedUserInfo.authFunctions.find(
