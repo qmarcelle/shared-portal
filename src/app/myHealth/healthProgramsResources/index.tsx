@@ -9,6 +9,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import {
   isBloodPressureManagementEligible,
   isCareManagementEligiblity,
+  isDiabetesManagementEligible,
   isDiabetesPreventionEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
@@ -43,6 +44,10 @@ const healthPrograms = [
   {
     checkFunction: isNurseChatEligible,
     key: HealthProgramsResourcesName.TalkToNurse,
+  },
+  {
+    checkFunction: isDiabetesManagementEligible,
+    key: HealthProgramsResourcesName.TeladocHealthDiabetesManagementProgram,
   },
   {
     checkFunction: isDiabetesPreventionEligible,
