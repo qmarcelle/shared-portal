@@ -43,7 +43,7 @@ describe('Other Plan Information Component', () => {
   it('should render UI correctly for Commercial groups', () => {
     vRules.blueCare = false;
     vRules.subscriber = true;
-    vRules.memberNotEligibleForPHS = false;
+    vRules.phsEligible = true;
     vRules.commercial = true;
     vRules.wellnessOnly = false;
 

@@ -17,7 +17,7 @@ const vRules = {
       },
     },
     vRules: {
-      displayPharmacyTab: true,
+      showPharmacyTab: true,
       terminated: false,
       wellnessOnly: false,
       fsaOnly: false,
@@ -73,7 +73,7 @@ describe('Pharmacy Page', () => {
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should not render Pharmacy benefits if visibility rule evaluates false', async () => {
-    vRules.user.vRules.displayPharmacyTab = false;
+    vRules.user.vRules.showPharmacyTab = false;
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
@@ -90,7 +90,7 @@ describe('Pharmacy Page', () => {
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should redirect to SSO launch page when we click on View or Refill My Prescriptions card', async () => {
-    vRules.user.vRules.displayPharmacyTab = true;
+    vRules.user.vRules.showPharmacyTab = true;
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
@@ -105,7 +105,7 @@ describe('Pharmacy Page', () => {
     expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
   });
   it('should redirect to SSO launch page when we click on Get My Prescriptions by Mail card', async () => {
-    vRules.user.vRules.displayPharmacyTab = true;
+    vRules.user.vRules.showPharmacyTab = true;
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
@@ -120,7 +120,7 @@ describe('Pharmacy Page', () => {
     expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
   });
   it('should download Choice formulary correctly', async () => {
-    vRules.user.vRules.displayPharmacyTab = true;
+    vRules.user.vRules.showPharmacyTab = true;
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
