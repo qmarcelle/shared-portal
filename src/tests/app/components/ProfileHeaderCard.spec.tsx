@@ -1,5 +1,5 @@
 import { ProfileHeaderCardItem } from '@/components/composite/ProfileHeaderCardItem';
-import { UserType } from '@/models/user_profile';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
@@ -9,21 +9,31 @@ const renderUI = () => {
       profiles={[
         {
           id: '456',
-          name: 'JENNIE RAMAGE',
+          firstName: 'JENNIE',
+          lastName: 'RAMAGE',
           dob: '01/27/1931',
-          type: UserType.Primary,
+          type: UserRole.MEMBER,
+          personFhirId: 'njhgg',
+          plans: [],
+          selected: true,
         },
         {
           id: '457',
-          name: 'Robert Hall',
+          firstName: 'Robert',
+          lastName: 'Hall',
           dob: '01/01/1943',
-          type: UserType.PersonalRepresentative,
+          type: UserRole.PERSONAL_REP,
+          personFhirId: 'nhgvgd',
+          plans: [],
         },
         {
           id: '458',
-          name: 'Ellie Williams',
+          firstName: 'Ellie',
+          lastName: 'Williams',
           dob: '01/01/1943',
-          type: UserType.AuthorizedUser,
+          type: UserRole.AUTHORIZED_USER,
+          personFhirId: 'bhfksbkjs',
+          plans: [],
         },
       ]}
     />,

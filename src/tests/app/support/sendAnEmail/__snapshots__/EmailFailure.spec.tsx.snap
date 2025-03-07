@@ -39,6 +39,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
           >
             <p
               class="body-1 text-center"
+              style="display: block;"
             >
               We're sorry, something went wrong. Please try again later.
             </p>
@@ -85,6 +86,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
         >
           <p
             class="body-1 text-center"
+            style="display: block;"
           >
             We're sorry, something went wrong. Please try again later.
           </p>

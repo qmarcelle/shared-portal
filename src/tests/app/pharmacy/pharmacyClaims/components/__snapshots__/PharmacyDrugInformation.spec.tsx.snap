@@ -64,11 +64,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     Supply
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     30 Days
                   </p>

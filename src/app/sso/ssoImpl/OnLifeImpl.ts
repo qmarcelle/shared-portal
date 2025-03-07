@@ -16,6 +16,7 @@ import {
 
 export default async function generateOnLifeMap(
   memberData: LoggedInMember,
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateOnLifeMap entered !!!');
   const ssoParamMap = new Map<string, string>();
@@ -25,8 +26,8 @@ export default async function generateOnLifeMap(
   }
 
   //Need to get from Request Param
-  const reqTarget = '';
-  const challengeIdValue = '';
+  const reqTarget = searchParams?.target ?? '';
+  const challengeIdValue = searchParams?.challengeIdValue ?? '';
   const subscriberSuffix = getSubscriberSuffix(
     memberData.subscriberId,
     memberData.suffix,

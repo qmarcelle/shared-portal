@@ -19,7 +19,7 @@ const BenefitsAndCoveragePage = async () => {
       return <BenefitsError />;
     }
     const userInfoData = await getLoggedInUserInfo(
-      session!.user!.currUsr!.plan.memCk,
+      session!.user!.currUsr!.plan!.memCk,
     );
 
     const firstMember = userInfoData.members[0];
@@ -31,7 +31,7 @@ const BenefitsAndCoveragePage = async () => {
       return <BenefitsError />;
     }
     const isDelinquent =
-      session.user?.currUsr?.plan.grpId == '127600' &&
+      session.user?.currUsr?.plan!.grpId == '127600' &&
       session.user?.vRules?.delinquent;
 
     if (isDelinquent) {
@@ -44,6 +44,7 @@ const BenefitsAndCoveragePage = async () => {
         benefitsBean={loadBenefitsData.data}
         otherBenefitItems={generateOtherBenefitsForUser(session.user.vRules!)}
         userGroupId={userInfoData.groupData.groupID}
+        visibilityRules={session.user.vRules}
       />
     );
   } catch (error) {

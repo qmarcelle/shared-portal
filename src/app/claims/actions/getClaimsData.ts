@@ -7,6 +7,7 @@ import {
   formatDateToIntlLocale,
   getDateTwoYearsAgoFormatted,
 } from '@/utils/date_formatter';
+import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { ClaimsResponse } from '../models/api/claimsResponse';
 import { ClaimsData } from '../models/app/claimsData';
@@ -45,12 +46,12 @@ export async function getAllClaimsData(): Promise<
 
     // Get Members
     const members = await getMemberAndDependents(
-      session!.user.currUsr!.plan.memCk,
+      session!.user.currUsr!.plan!.memCk,
     );
 
     // Get Claims for M,D,V,P
     const claims = await getClaimsForPlans({
-      memberId: session!.user.currUsr!.plan.memCk,
+      memberId: session!.user.currUsr!.plan!.memCk,
       fromDate: getDateTwoYearsAgoFormatted(),
       toDate: formatDateToIntlLocale(new Date()),
       plans: 'MDV',
@@ -65,9 +66,11 @@ export async function getAllClaimsData(): Promise<
           );
           return {
             id: claim.claimId,
+            encryptedClaimId: encrypt(claim.claimId),
             claimStatus: claim.claimStatusDescription,
             claimStatusCode: parseInt(claim.claimStatusCode.slice(-1)),
             claimType: CoverageTypes.get(claim.claimType)!,
+            type: claim.claimType,
             claimTotal: null,
             issuer: claim.providerName,
             memberId: member!.id,

@@ -40,6 +40,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Update your alert preferences.
               </p>
@@ -81,6 +82,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Change your password and edit your account security.
               </p>
@@ -122,6 +124,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View or edit access to plan information.
               </p>
@@ -174,6 +177,7 @@ exports[`Profile Settings Card Component should render UI correctly for Terminat
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View or edit access to plan information.
               </p>

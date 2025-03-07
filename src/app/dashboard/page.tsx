@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Dashboard from '.';
 import { getDashboardData } from './actions/getDashboardData';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Dashboard',
 };

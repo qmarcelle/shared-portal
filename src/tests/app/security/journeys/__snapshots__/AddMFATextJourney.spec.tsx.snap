@@ -17,7 +17,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -90,6 +90,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the phone number you'd like to use for Communications and Security Settings
                     </p>
@@ -129,6 +130,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
+                        style="display: block;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -199,7 +201,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -235,6 +237,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
+                    style="display: block;"
                   >
                     Back
                   </p>
@@ -294,6 +297,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       Enter the security code sent to you phone number to complete text message setup. We've sent a code to:
                     </p>
@@ -308,6 +312,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
+                          style="display: block;"
                         >
                           (123) 456-7891
                         </p>
@@ -337,7 +342,6 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                         <a
                           aria-label="Resend Code"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container self-start"
@@ -347,7 +351,6 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                           >
                             <p
                               class="link undefined"
-                              style="display: block;"
                             >
                               Resend Code
                             </p>
@@ -372,7 +375,6 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -382,7 +384,6 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -436,7 +437,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -530,6 +531,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           The next time you login, you'll receive a text message with a security code to:
                         </p>
@@ -538,6 +540,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 3`] = `
                         />
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           (123) 456-7891
                         </p>

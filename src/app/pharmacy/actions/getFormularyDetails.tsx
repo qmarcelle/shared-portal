@@ -1,5 +1,5 @@
 'use server';
-import { getMemberDetails } from '@/actions/memberDetails';
+import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
@@ -13,11 +13,14 @@ export async function getFormularyDetails(): Promise<
   const session = await auth();
   try {
     let formularyURL = '';
-    const memberDetails = await getMemberDetails();
+    const memberDetails = await getLoggedInMember(session);
     let componentname = '';
 
     if (memberDetails != null) {
-      const formularyType = await getFormularyFilter(memberDetails);
+      const formularyType = await getFormularyFilter(
+        memberDetails,
+        session?.user.vRules,
+      );
       componentname = formularyType + '-DrugFormularyPDF';
 
       console.log('formularytype' + componentname);

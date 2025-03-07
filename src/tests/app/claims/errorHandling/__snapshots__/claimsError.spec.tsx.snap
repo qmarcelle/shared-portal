@@ -47,7 +47,11 @@ exports[`Claims SnapshotList Error Handling should show the error message when a
             <span
               class="link font-bold"
             >
-              Get the form you need
+              <a
+                href="/claims/submitAClaim"
+              >
+                Get the form you need
+              </a>
             </span>
             <span>
               .

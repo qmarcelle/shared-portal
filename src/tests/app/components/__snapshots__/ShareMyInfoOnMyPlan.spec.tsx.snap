@@ -156,6 +156,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
+                        style="display: block;"
                       >
                         Set the level of access for individuals on your health plan.
                       </p>
@@ -176,6 +177,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Plan: 
                         </p>
@@ -278,11 +280,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Maddison Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/1979
                           </p>
@@ -315,49 +319,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
-                              Full Sharing
+                              Basic Sharing
                             </p>
                           </div>
-                          <div>
-                             
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
                             <span
-                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                             <div
                               class="flex flex-row"
                             >
-                              <span
-                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                              />
-                              <div
-                                class="flex flex-row"
+                              <p
+                                class="font-bold primary-color"
                               >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Update
-                                </p>
-                                <div
-                                  class="ml-2"
-                                >
-                                  <img
-                                    alt="link"
-                                    data-nimg="1"
-                                    decoding="async"
-                                    height="40"
-                                    loading="lazy"
-                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                    style="color: transparent;"
-                                    width="40"
-                                  />
-                                </div>
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
                               </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                              />
                             </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
                           </div>
                         </div>
                       </div>
@@ -376,11 +379,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Forest Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2001
                           </p>
@@ -413,49 +418,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
-                              Full Sharing
+                              Basic Sharing
                             </p>
                           </div>
-                          <div>
-                             
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
                             <span
-                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                             <div
                               class="flex flex-row"
                             >
-                              <span
-                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                              />
-                              <div
-                                class="flex flex-row"
+                              <p
+                                class="font-bold primary-color"
                               >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Update
-                                </p>
-                                <div
-                                  class="ml-2"
-                                >
-                                  <img
-                                    alt="link"
-                                    data-nimg="1"
-                                    decoding="async"
-                                    height="40"
-                                    loading="lazy"
-                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                    style="color: transparent;"
-                                    width="40"
-                                  />
-                                </div>
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
                               </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                              />
                             </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
                           </div>
                         </div>
                       </div>
@@ -474,11 +478,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Corey Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2002
                           </p>
@@ -511,49 +517,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
-                              Full Sharing
+                              Basic Sharing
                             </p>
                           </div>
-                          <div>
-                             
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
                             <span
-                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                             <div
                               class="flex flex-row"
                             >
-                              <span
-                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                              />
-                              <div
-                                class="flex flex-row"
+                              <p
+                                class="font-bold primary-color"
                               >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Update
-                                </p>
-                                <div
-                                  class="ml-2"
-                                >
-                                  <img
-                                    alt="link"
-                                    data-nimg="1"
-                                    decoding="async"
-                                    height="40"
-                                    loading="lazy"
-                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                    style="color: transparent;"
-                                    width="40"
-                                  />
-                                </div>
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
                               </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                              />
                             </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
                           </div>
                         </div>
                       </div>
@@ -572,11 +577,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Telly Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2008
                           </p>
@@ -609,49 +616,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             />
                             <p
                               class="body-1 body-1"
+                              style="display: block;"
                             >
                               Full Sharing
                             </p>
                           </div>
-                          <div>
-                             
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
                             <span
-                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                             <div
                               class="flex flex-row"
                             >
-                              <span
-                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                              />
-                              <div
-                                class="flex flex-row"
+                              <p
+                                class="font-bold primary-color"
                               >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Update
-                                </p>
-                                <div
-                                  class="ml-2"
-                                >
-                                  <img
-                                    alt="link"
-                                    data-nimg="1"
-                                    decoding="async"
-                                    height="40"
-                                    loading="lazy"
-                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                    style="color: transparent;"
-                                    width="40"
-                                  />
-                                </div>
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
                               </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                              />
                             </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
                           </div>
                         </div>
                       </div>
@@ -670,11 +676,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
                           >
                             Janie Hall
                           </p>
                           <p
                             class="body-1"
+                            style="display: block;"
                           >
                             DOB: 01/01/2024
                           </p>
@@ -717,6 +725,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                                 >
                                   <p
                                     class="body-1 body-1"
+                                    style="display: block;"
                                   >
                                     This is a minor dependent. Sharing permissions aren’t applicable with this account.
                                   </p>
@@ -734,7 +743,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   <a
                     aria-label="View Benefits & Coverage"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container undefined"
@@ -744,7 +752,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         View Benefits & Coverage
                       </p>
@@ -910,6 +917,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Set the level of access for individuals on your health plan.
                     </p>
@@ -930,6 +938,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Plan: 
                       </p>
@@ -1032,11 +1041,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Maddison Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/1979
                         </p>
@@ -1069,49 +1080,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
-                            Full Sharing
+                            Basic Sharing
                           </p>
                         </div>
-                        <div>
-                           
+                         
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
                             class="flex flex-row"
                           >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="flex flex-row"
+                            <p
+                              class="font-bold primary-color"
                             >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
-                              <div
-                                class="ml-2"
-                              >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                              </div>
+                              Update
+                            </p>
+                            <div
+                              class="ml-2"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
                             </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
                           </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1130,11 +1140,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Forest Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2001
                         </p>
@@ -1167,49 +1179,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
-                            Full Sharing
+                            Basic Sharing
                           </p>
                         </div>
-                        <div>
-                           
+                         
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
                             class="flex flex-row"
                           >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="flex flex-row"
+                            <p
+                              class="font-bold primary-color"
                             >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
-                              <div
-                                class="ml-2"
-                              >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                              </div>
+                              Update
+                            </p>
+                            <div
+                              class="ml-2"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
                             </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
                           </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1228,11 +1239,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Corey Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2002
                         </p>
@@ -1265,49 +1278,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
-                            Full Sharing
+                            Basic Sharing
                           </p>
                         </div>
-                        <div>
-                           
+                         
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
                             class="flex flex-row"
                           >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="flex flex-row"
+                            <p
+                              class="font-bold primary-color"
                             >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
-                              <div
-                                class="ml-2"
-                              >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                              </div>
+                              Update
+                            </p>
+                            <div
+                              class="ml-2"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
                             </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
                           </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1326,11 +1338,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Telly Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2008
                         </p>
@@ -1363,49 +1377,48 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
+                            style="display: block;"
                           >
                             Full Sharing
                           </p>
                         </div>
-                        <div>
-                           
+                         
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
                           <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                           <div
                             class="flex flex-row"
                           >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="flex flex-row"
+                            <p
+                              class="font-bold primary-color"
                             >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
-                              <div
-                                class="ml-2"
-                              >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                              </div>
+                              Update
+                            </p>
+                            <div
+                              class="ml-2"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
                             </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
                           </div>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1424,11 +1437,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
                         >
                           Janie Hall
                         </p>
                         <p
                           class="body-1"
+                          style="display: block;"
                         >
                           DOB: 01/01/2024
                         </p>
@@ -1471,6 +1486,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1 body-1"
+                                  style="display: block;"
                                 >
                                   This is a minor dependent. Sharing permissions aren’t applicable with this account.
                                 </p>
@@ -1488,7 +1504,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                 <a
                   aria-label="View Benefits & Coverage"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container undefined"
@@ -1498,7 +1513,6 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       View Benefits & Coverage
                     </p>

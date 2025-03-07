@@ -30,6 +30,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Do you have questions about your ID cards? We’re here to help.
               </p>
@@ -264,7 +265,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Benefits & Coverage"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -274,7 +274,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Benefits & Coverage
                               </p>
@@ -296,7 +295,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Claims"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -306,7 +304,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Claims
                               </p>
@@ -328,7 +325,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="ID Cards"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
@@ -338,7 +334,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 ID Cards
                               </p>
@@ -360,7 +355,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="My Plan Information"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -370,7 +364,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 My Plan Information
                               </p>
@@ -392,7 +385,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Pharmacy"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -402,7 +394,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Pharmacy
                               </p>
@@ -424,7 +415,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Prior Authorization"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -434,7 +424,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Prior Authorization
                               </p>
@@ -456,7 +445,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           <a
                             aria-label="Security"
                             style="display: block;"
-                            tabindex="-1"
                           >
                             <button
                               class="flex flex-row link-container p-0 "
@@ -466,7 +454,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                             >
                               <p
                                 class="link !no-underline manage-faq"
-                                style="display: block;"
                               >
                                 Security
                               </p>
@@ -513,6 +500,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               Do you have questions about your ID cards? We’re here to help.
             </p>
@@ -747,7 +735,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Benefits & Coverage"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -757,7 +744,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Benefits & Coverage
                             </p>
@@ -779,7 +765,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Claims"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -789,7 +774,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Claims
                             </p>
@@ -811,7 +795,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="ID Cards"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container border-l-4  focus:outline-none border-primary font-bold p-0 pl-1"
@@ -821,7 +804,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               ID Cards
                             </p>
@@ -843,7 +825,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="My Plan Information"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -853,7 +834,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               My Plan Information
                             </p>
@@ -875,7 +855,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Pharmacy"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -885,7 +864,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Pharmacy
                             </p>
@@ -907,7 +885,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Prior Authorization"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -917,7 +894,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Prior Authorization
                             </p>
@@ -939,7 +915,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                         <a
                           aria-label="Security"
                           style="display: block;"
-                          tabindex="-1"
                         >
                           <button
                             class="flex flex-row link-container p-0 "
@@ -949,7 +924,6 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                           >
                             <p
                               class="link !no-underline manage-faq"
-                              style="display: block;"
                             >
                               Security
                             </p>

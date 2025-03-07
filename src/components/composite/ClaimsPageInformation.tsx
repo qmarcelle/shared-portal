@@ -20,7 +20,11 @@ interface ClaimDetailsProps {
 export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
   function getSuccessStatus() {
     console.log(claimInfo.claimStatus);
-    if (claimInfo.claimStatus == 'Processed') {
+    if (
+      claimInfo.claimStatus == 'Processed' ||
+      claimInfo.claimStatus == 'Approved' ||
+      claimInfo.claimStatus == 'Completed'
+    ) {
       return 'success';
     } else if (claimInfo.claimStatus == 'Denied') {
       return 'error';
@@ -48,7 +52,7 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
         <Column>
           <AppLink
             label="Review This Provider"
-            className="link flex "
+            className="link !flex"
             icon={<Image src={externalIcon} alt="external" />}
           />
         </Column>

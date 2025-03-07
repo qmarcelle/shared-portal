@@ -1,5 +1,6 @@
 import { UserSwitchFilter } from '@/components/composite/UserSwitchFilter';
-import { UserProfile, UserType } from '@/models/user_profile';
+import { UserProfile } from '@/models/user_profile';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 // Mock useRouter:
@@ -19,9 +20,12 @@ const renderUI = (profiles: UserProfile[], selectedProfile: UserProfile) => {
       userProfiles={profiles}
       selectedUser={{
         id: '456',
-        name: 'Chris Hall',
+        firstName: 'Chris',
+        lastName: 'Hall',
         dob: '11/03/2000',
-        type: UserType.Primary,
+        type: UserRole.MEMBER,
+        personFhirId: 'jhbb',
+        plans: [],
       }}
       onSelectionChange={() => {}}
     />,
@@ -34,28 +38,40 @@ describe('UserSwitchFilter', () => {
       [
         {
           id: '456',
-          name: 'Chris Hall',
+          firstName: 'Chris',
+          lastName: 'Hall',
           dob: '01/01/1978',
-          type: UserType.Primary,
+          type: UserRole.MEMBER,
+          personFhirId: 'bghvb',
+          plans: [],
         },
         {
           id: '457',
-          name: 'Robert Hall',
+          firstName: 'Robert',
+          lastName: 'Hall',
           dob: '01/01/1943',
-          type: UserType.PersonalRepresentative,
+          type: UserRole.PERSONAL_REP,
+          personFhirId: 'bhgcdsa',
+          plans: [],
         },
         {
           id: '458',
-          name: 'Ellie Williams',
+          firstName: 'Ellie',
+          lastName: 'Williams',
           dob: '01/01/1943',
-          type: UserType.AuthorizedUser,
+          type: UserRole.AUTHORIZED_USER,
+          personFhirId: 'mckdsca',
+          plans: [],
         },
       ],
       {
         id: '456',
-        name: 'Chris Hall',
+        firstName: 'Chris',
+        lastName: 'Hall',
         dob: '01/01/1978',
-        type: UserType.Primary,
+        type: UserRole.MEMBER,
+        personFhirId: 'nhgvbg',
+        plans: [],
       },
     );
 
@@ -71,8 +87,8 @@ describe('UserSwitchFilter', () => {
 
     // Should show all profiles
     expect(screen.getByText('Robert Hall')).toBeVisible();
-    expect(screen.getByText('view as Personal Representative')).toBeVisible();
-    expect(screen.getByText('view as Authorized User')).toBeVisible();
+    expect(screen.getByText('View as Personal Representative')).toBeVisible();
+    expect(screen.getByText('View as Authorized User')).toBeVisible();
     expect(screen.getByText('Ellie Williams')).toBeVisible();
     expect(container).toMatchSnapshot();
   });
@@ -83,35 +99,47 @@ describe('UserSwitchFilter', () => {
       [
         {
           id: '456',
-          name: 'Chris Hall',
+          firstName: 'Chris',
+          lastName: 'Hall',
           dob: '01/01/1978',
-          type: UserType.Primary,
+          type: UserRole.MEMBER,
+          personFhirId: 'bhgvsfg',
+          plans: [],
         },
         {
           id: '457',
-          name: 'Robert Hall',
+          firstName: 'Robert',
+          lastName: 'Hall',
           dob: '01/01/1943',
-          type: UserType.PersonalRepresentative,
+          type: UserRole.PERSONAL_REP,
+          personFhirId: 'hcsda',
+          plans: [],
         },
         {
           id: '458',
-          name: 'Ellie Williams',
+          firstName: 'Ellie',
+          lastName: 'Williams',
           dob: '01/01/1943',
-          type: UserType.AuthorizedUser,
+          type: UserRole.AUTHORIZED_USER,
+          personFhirId: 'bhcgbdh',
+          plans: [],
         },
       ],
       {
         id: '456',
-        name: 'Chris Hall',
+        firstName: 'Chris',
+        lastName: 'Hall',
         dob: '01/01/1978',
-        type: UserType.Primary,
+        type: UserRole.MEMBER,
+        personFhirId: 'hgbhh',
+        plans: [],
       },
     );
     fireEvent.click(screen.getByText('My Profile'));
-    expect(screen.getByText('view as Personal Representative')).toBeVisible();
+    expect(screen.getByText('View as Personal Representative')).toBeVisible();
 
-    fireEvent.click(screen.getByText('view as Authorized User'));
-    expect(screen.getByText('viewing as Authorized User')).toBeVisible();
+    fireEvent.click(screen.getByText('View as Authorized User'));
+    expect(screen.getByText('Viewing as Authorized User')).toBeVisible();
 
     expect(container).toMatchSnapshot();
   });

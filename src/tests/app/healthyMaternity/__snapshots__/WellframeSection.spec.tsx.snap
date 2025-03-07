@@ -28,11 +28,13 @@ exports[`WellframeSection should render the UI correctly 1`] = `
         >
           <p
             class="body-2"
+            style="display: block;"
           >
             Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
           </p>
           <p
             class="body-2"
+            style="display: block;"
           >
             Participation is optional.
           </p>
@@ -64,11 +66,13 @@ exports[`WellframeSection should render the UI correctly 1`] = `
       >
         <p
           class="body-2"
+          style="display: block;"
         >
           Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
         </p>
         <p
           class="body-2"
+          style="display: block;"
         >
           Participation is optional.
         </p>

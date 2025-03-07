@@ -19,7 +19,7 @@ export async function getLoggedInMember(
     const member: LoggedInMember = {} as LoggedInMember;
     const session = sessionData ?? (await auth());
     const loggedUserInfo = await getLoggedInUserInfo(
-      session?.user.currUsr?.plan.memCk ?? '',
+      session!.user.currUsr!.plan!.memCk,
     );
     member.userId = session?.user.id ?? '';
     member.subscriberId = loggedUserInfo.subscriberID;
@@ -30,6 +30,8 @@ export async function getLoggedInMember(
     member.networkPrefix = loggedUserInfo.networkPrefix;
     member.groupId = loggedUserInfo.groupData.groupID;
     member.groupEIN = loggedUserInfo.groupData.groupEIN;
+    member.groupKey = loggedUserInfo.groupData.groupCK;
+    member.lineOfBusiness = loggedUserInfo.lob;
     member.cmCondition = loggedUserInfo.cmcondition.join(',');
     const loggedMember = loggedUserInfo.members.find(
       (x) => x.memRelation == 'M',

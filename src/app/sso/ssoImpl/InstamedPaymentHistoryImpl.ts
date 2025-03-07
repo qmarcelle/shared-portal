@@ -13,8 +13,11 @@ import {
   SSO_USER_NAME,
 } from '../ssoConstants';
 
+//Need to Delete this file once it's tested by Request Param Object
 export default async function generateInstamedPaymentHistoryMap(
   memberData: LoggedInMember,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
   console.log('generateInstamedPaymentHistoryMap entered !!!');
   const ssoParamMap = new Map<string, string>();

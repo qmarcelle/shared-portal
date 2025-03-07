@@ -27,7 +27,6 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
             <a
               aria-label="Start a chat"
               style="display: block;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container link !flex caremark pt-0"
@@ -37,7 +36,6 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
               >
                 <p
                   class="link undefined"
-                  style="display: block;"
                 >
                   Start a chat
                 </p>
@@ -53,7 +51,6 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
             <a
               aria-label="caremark.com account"
               style="display: block;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container link !flex caremark pt-0"
@@ -63,13 +60,11 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
               >
                 <p
                   class="link undefined"
-                  style="display: block;"
                 >
                   caremark.com account
                 </p>
                 <p
                   class="ml-1"
-                  style="display: block;"
                 >
                   <img
                     alt="external"
@@ -141,6 +136,7 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 All Members
                               </p>
@@ -199,6 +195,7 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Last 90 days
                               </p>
@@ -268,6 +265,7 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                  
                 <p
                   class="body-1 font-bold ml-2"
+                  style="display: block;"
                 >
                   5 Prior Authorizations
                 </p>
@@ -300,6 +298,7 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                             >
                               <p
                                 class="body-1"
+                                style="display: block;"
                               >
                                 Date (Most Recent)
                               </p>
@@ -404,11 +403,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Visited on 06/30/2023
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           For ANITA
                         </p>
@@ -418,16 +419,19 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Visited on
                         </p>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           06/30/2023
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           For ANITA
                         </p>
@@ -437,11 +441,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 tertiary-color"
+                          style="display: block;"
                         >
                           Referred by
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           Looney, Colin G.
                         </p>
@@ -451,11 +457,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 tertiary-color"
+                          style="display: block;"
                         >
                           Referred to
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           Williamson Medical Center
                         </p>
@@ -535,11 +543,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Visited on 05/10/2023
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           For ANITA
                         </p>
@@ -549,16 +559,19 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Visited on
                         </p>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           05/10/2023
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           For ANITA
                         </p>
@@ -568,11 +581,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 tertiary-color"
+                          style="display: block;"
                         >
                           Referred by
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           Hunter, Samuel F.
                         </p>
@@ -582,11 +597,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 tertiary-color"
+                          style="display: block;"
                         >
                           Referred to
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           TwelveStone Medical Inc
                         </p>
@@ -666,11 +683,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Visited on 10/07/2022
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           For ANITA
                         </p>
@@ -680,16 +699,19 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           Visited on
                         </p>
                         <p
                           class="body-1 body-1"
+                          style="display: block;"
                         >
                           10/07/2022
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           For ANITA
                         </p>
@@ -699,11 +721,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 tertiary-color"
+                          style="display: block;"
                         >
                           Referred by
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           Looney, Colin G.
                         </p>
@@ -713,11 +737,13 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 tertiary-color"
+                          style="display: block;"
                         >
                           Referred to
                         </p>
                         <p
                           class="body-1 body-1 mt-2"
+                          style="display: block;"
                         >
                           Bone and Joint Institute of Tennessee Inc
                         </p>

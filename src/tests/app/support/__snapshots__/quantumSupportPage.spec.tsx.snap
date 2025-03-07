@@ -27,6 +27,7 @@ exports[`Support Page should render the page correctly 1`] = `
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               We're here to help answer your questions
             </p>
@@ -74,11 +75,13 @@ exports[`Support Page should render the page correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                       Call 
                     </p>
                     <p
                       class="body-1 font-bold"
+                      style="display: block;"
                     >
                        [1-800-000-0000]
                     </p>
@@ -88,6 +91,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Anytime, 24/7 
                     </p>
@@ -113,6 +117,7 @@ exports[`Support Page should render the page correctly 1`] = `
               </h2>
               <p
                 class="body-1 text-center"
+                style="display: block;"
               >
                 We want to hear from you. Share your feedback about your experience using our website.
               </p>
@@ -152,6 +157,7 @@ exports[`Support Page should render the page correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             We're here to help answer your questions
           </p>
@@ -199,11 +205,13 @@ exports[`Support Page should render the page correctly 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                     Call 
                   </p>
                   <p
                     class="body-1 font-bold"
+                    style="display: block;"
                   >
                      [1-800-000-0000]
                   </p>
@@ -213,6 +221,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Anytime, 24/7 
                   </p>
@@ -238,6 +247,7 @@ exports[`Support Page should render the page correctly 1`] = `
             </h2>
             <p
               class="body-1 text-center"
+              style="display: block;"
             >
               We want to hear from you. Share your feedback about your experience using our website.
             </p>

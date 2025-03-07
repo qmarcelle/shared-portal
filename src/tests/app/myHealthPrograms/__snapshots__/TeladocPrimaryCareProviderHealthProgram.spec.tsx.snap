@@ -53,6 +53,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
               </p>
@@ -61,6 +62,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
               />
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -161,6 +163,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -191,6 +194,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             See a PCP as early as the next day
                           </p>
@@ -221,6 +225,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
+                            style="display: block;"
                           >
                             Downloadable app, call or video chat available
                           </p>
@@ -256,6 +261,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                   >
                     <p
                       class="body-1"
+                      style="display: block;"
                     >
                       Depending on the type of visit, you can expect to pay:
                     </p>
@@ -264,6 +270,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                     />
                     <p
                       class="body-1 font-bold text-xl"
+                      style="display: block;"
                     >
                       $99 or less
                     </p>
@@ -317,6 +324,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Annual checkups and preventive care
                           </p>
@@ -342,6 +350,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Prescriptions
                           </p>
@@ -367,6 +376,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Lab orders and recommended screenings
                           </p>
@@ -392,6 +402,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Referrals to in-network specialists
                           </p>
@@ -417,6 +428,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
+                            style="display: block;"
                           >
                             Support with long-term conditions like diabetes, hypertension and mental health
                           </p>
@@ -484,6 +496,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
             </p>
@@ -492,6 +505,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
             />
             <p
               class="body-1 body-1"
+              style="display: block;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -592,6 +606,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -622,6 +637,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           See a PCP as early as the next day
                         </p>
@@ -652,6 +668,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
+                          style="display: block;"
                         >
                           Downloadable app, call or video chat available
                         </p>
@@ -687,6 +704,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                 >
                   <p
                     class="body-1"
+                    style="display: block;"
                   >
                     Depending on the type of visit, you can expect to pay:
                   </p>
@@ -695,6 +713,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                   />
                   <p
                     class="body-1 font-bold text-xl"
+                    style="display: block;"
                   >
                     $99 or less
                   </p>
@@ -748,6 +767,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Annual checkups and preventive care
                         </p>
@@ -773,6 +793,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Prescriptions
                         </p>
@@ -798,6 +819,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Lab orders and recommended screenings
                         </p>
@@ -823,6 +845,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Referrals to in-network specialists
                         </p>
@@ -848,6 +871,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
+                          style="display: block;"
                         >
                           Support with long-term conditions like diabetes, hypertension and mental health
                         </p>

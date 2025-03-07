@@ -24,6 +24,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1  mb-0 w-2/3"
+            style="display: block;"
           >
             Below is a list of common services, the maximum amount covered by your plan and how many you've used.
           </p>
@@ -52,6 +53,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
+                    style="display: block;"
                   >
                     Some services have limits on how many are covered. You may still have a cost for them. If you reach maximum, you can still get them, but your plan won't cover them.
                   </p>
@@ -243,17 +245,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           $3,000.00 Out of Pocket - Individual  - In Network
                         </p>
@@ -278,17 +283,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             --
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           $6,000.00 Out of Pocket - Individual  - Out of Network
                         </p>
@@ -313,17 +321,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           1 Visit Per Calendar Year -- Mammogram
                         </p>
@@ -348,17 +359,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           1 Visit Per Calendar Year -- Gyn
                         </p>
@@ -383,17 +397,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           12 Visits Per Year - Dietary Counseling
                         </p>
@@ -418,17 +435,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           4 Injections Per Year --  Trigger Point Injection
                         </p>
@@ -453,17 +473,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           20 Per Benefit Period - Urine/Serum Drug Testing
                         </p>
@@ -488,17 +511,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           1 Visit Per Calendar Year - Wellcare - Over Age 6
                         </p>
@@ -523,17 +549,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           8 Visits Per Year - Tobacco Cessation Counseling
                         </p>
@@ -558,17 +587,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             0
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           8 Visits Per Year - Alcohol Misuse Counseling
                         </p>
@@ -593,17 +625,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             $0.00
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           $10,000 Per Benefit Period - Organ Transplant -Travel, Meals & Lodging
                         </p>
@@ -628,17 +663,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             $0.00
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           $1,000 Per Benefit Period û General Travel Benefit
                         </p>
@@ -663,17 +701,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1 font-bold"
+                            style="display: block;"
                           >
                             $0.00
                           </p>
                           <p
                             class="body-2"
+                            style="display: block;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
+                          style="display: block;"
                         >
                           $40,000 Lifetime Max - Infertility Treatment
                         </p>
@@ -755,6 +796,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       </div>
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Find a health care provider near you, or plan your upcoming care costs before you make an appointment.
                       </p>
@@ -796,6 +838,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       </div>
                       <p
                         class="body-1 body-1"
+                        style="display: block;"
                       >
                         Search for claims and view details or submit a claim.
                       </p>
@@ -883,6 +926,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
         />
         <p
           class="body-1 body-1  mb-0 w-2/3"
+          style="display: block;"
         >
           Below is a list of common services, the maximum amount covered by your plan and how many you've used.
         </p>
@@ -911,6 +955,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1"
+                  style="display: block;"
                 >
                   Some services have limits on how many are covered. You may still have a cost for them. If you reach maximum, you can still get them, but your plan won't cover them.
                 </p>
@@ -1102,17 +1147,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           --
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         $3,000.00 Out of Pocket - Individual  - In Network
                       </p>
@@ -1137,17 +1185,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           --
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         $6,000.00 Out of Pocket - Individual  - Out of Network
                       </p>
@@ -1172,17 +1223,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         1 Visit Per Calendar Year -- Mammogram
                       </p>
@@ -1207,17 +1261,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         1 Visit Per Calendar Year -- Gyn
                       </p>
@@ -1242,17 +1299,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         12 Visits Per Year - Dietary Counseling
                       </p>
@@ -1277,17 +1337,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         4 Injections Per Year --  Trigger Point Injection
                       </p>
@@ -1312,17 +1375,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         20 Per Benefit Period - Urine/Serum Drug Testing
                       </p>
@@ -1347,17 +1413,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         1 Visit Per Calendar Year - Wellcare - Over Age 6
                       </p>
@@ -1382,17 +1451,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         8 Visits Per Year - Tobacco Cessation Counseling
                       </p>
@@ -1417,17 +1489,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           0
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         8 Visits Per Year - Alcohol Misuse Counseling
                       </p>
@@ -1452,17 +1527,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           $0.00
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         $10,000 Per Benefit Period - Organ Transplant -Travel, Meals & Lodging
                       </p>
@@ -1487,17 +1565,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           $0.00
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         $1,000 Per Benefit Period û General Travel Benefit
                       </p>
@@ -1522,17 +1603,20 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
+                          style="display: block;"
                         >
                           $0.00
                         </p>
                         <p
                           class="body-2"
+                          style="display: block;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
+                        style="display: block;"
                       >
                         $40,000 Lifetime Max - Infertility Treatment
                       </p>
@@ -1614,6 +1698,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                     </div>
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Find a health care provider near you, or plan your upcoming care costs before you make an appointment.
                     </p>
@@ -1655,6 +1740,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                     </div>
                     <p
                       class="body-1 body-1"
+                      style="display: block;"
                     >
                       Search for claims and view details or submit a claim.
                     </p>

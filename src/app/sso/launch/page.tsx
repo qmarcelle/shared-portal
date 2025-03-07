@@ -10,38 +10,69 @@ import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import buildSSOLink from '../actions/buildSSOPing';
-import { SSO_TEXT_MAP } from '../ssoConstants';
+import { useEffect, useRef, useState } from 'react';
+import buildSSOLink, { buildDropOffSSOLink } from '../actions/buildSSOPing';
+import ssoDropOffToPing from '../actions/dropOffToPing';
+import { SSO_IMPL_MAP, SSO_TEXT_MAP } from '../ssoConstants';
 
 const LaunchSSO = () => {
   const searchParams = useSearchParams();
   const partnerId = searchParams.get('PartnerSpId');
+  const alternateSSOText = searchParams.get('alternateText');
   const [ssoUrl, setSSOUrl] = useState('');
   const [isError, setIsError] = useState(false);
-  const sso = SSO_TEXT_MAP.get(partnerId ?? '');
+  const sso = alternateSSOText
+    ? decodeURIComponent(alternateSSOText)
+    : SSO_TEXT_MAP.get(partnerId ?? '');
+  const ssoImpl = partnerId != null ? SSO_IMPL_MAP.get(partnerId) : 'Not Found';
+  const initialized = useRef(false);
   const router = useRouter();
+
+  const isDropOffSSO = (partnerId: string): boolean => {
+    const isDropOffSSONeeded =
+      process.env.NEXT_PUBLIC_PINGONE_SSO_ENABLED?.toLocaleLowerCase() ===
+      'true'
+        ? true
+        : undefined;
+    const listOfIdp = process.env.NEXT_PUBLIC_DROP_OFF_IDP?.split(',') || [];
+    const isDropOffIdp = listOfIdp.includes(partnerId);
+    return (isDropOffSSONeeded && isDropOffIdp) ?? false;
+  };
 
   const handleGoBack = () => {
     router.back();
   };
   useEffect(() => {
-    const url = buildSSOLink(searchParams.toString());
-    try {
-      setIsError(false);
-      const ssoWindow = window.open(url, '_blank');
-      if (
-        !ssoWindow ||
-        ssoWindow?.closed ||
-        typeof ssoWindow.closed == 'undefined'
-      ) {
-        setIsError(true);
+    (async () => {
+      if (!initialized.current) {
+        initialized.current = true;
+        let url: string = '';
+        try {
+          setIsError(false);
+          if (isDropOffSSO(partnerId ?? '')) {
+            const ref: string = await ssoDropOffToPing(
+              ssoImpl != null ? ssoImpl : '',
+            );
+
+            url = buildDropOffSSOLink(partnerId ?? '', ref);
+          } else {
+            url = buildSSOLink(searchParams.toString());
+          }
+          const ssoWindow = window.open(url, '_blank');
+          if (ssoWindow) {
+            ssoWindow.onload = () => {
+              if (ssoWindow.status === '500') {
+                setIsError(true);
+              }
+            };
+          }
+        } catch (error) {
+          console.log('catch block', error);
+          setIsError(true);
+        }
+        setSSOUrl(url);
       }
-    } catch (error) {
-      console.log('catch block', error);
-      setIsError(true);
-    }
-    setSSOUrl(url);
+    })();
   }, [partnerId, searchParams]);
 
   return (

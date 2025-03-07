@@ -17,7 +17,7 @@ exports[`OrderId Card should render the screens correctly 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -111,6 +111,7 @@ exports[`OrderId Card should render the screens correctly 1`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           Your new cards will be mailed to your address in 7–14 business days.
                         </p>

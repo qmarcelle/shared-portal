@@ -1,11 +1,21 @@
-export enum UserType {
-  Primary = 'Primary',
-  PersonalRepresentative = 'Personal Representative',
-  AuthorizedUser = 'Authorized User',
-}
+import { UserRole } from '@/userManagement/models/sessionUser';
+
 export interface UserProfile {
   id: string;
-  name: string;
+  personFhirId: string;
+  firstName: string;
+  lastName: string;
   dob: string;
-  type?: UserType;
+  type: UserRole;
+  selected?: boolean;
+  plans: Plan[];
 }
+
+type Plan = {
+  memCK: string;
+  subscriberId?: string;
+  patientFhirId: string;
+  name?: string;
+  policies?: string[];
+  selected: boolean;
+};

@@ -4,11 +4,18 @@ import {
   isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
+  isHealthProgamAndResourceEligible,
+  isHingeHealthEligible,
   isMentalHealthMenuOption,
+  isNewMentalHealthSupportAbleToEligible,
+  isNewMentalHealthSupportMyStrengthCompleteEligible,
+  isNurseChatEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
   isSpendingAccountsMenuOptions,
+  isTeladocEligible,
+  isTeledocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -84,7 +91,20 @@ export const getMenuNavigation = (
         title: 'Virtual Care Options',
         description: 'This is Virtual Care Options',
         category: 'Find Care',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: () => {
+          if (
+            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) &&
+            isNewMentalHealthSupportAbleToEligible(rules) &&
+            isHingeHealthEligible(rules) &&
+            isTeledocPrimary360Eligible(rules) &&
+            isTeladocEligible(rules) &&
+            isNurseChatEligible(rules)
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        },
         url: '/virtualCareOptions',
         external: false,
       },
@@ -214,7 +234,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '',
+        url: '/claims/submitAClaim',
         external: false,
       },
       {
@@ -376,9 +396,7 @@ export const getMenuNavigation = (
         title: 'Health Programs & Resources',
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isHealthProgamAndResourceEligible,
         url: '/myHealth/healthProgramsResources',
         external: false,
       },

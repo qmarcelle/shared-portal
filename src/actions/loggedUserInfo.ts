@@ -24,7 +24,7 @@ export async function getLoggedInUserInfo(
 
     return resp.data;
   } catch (err: any) {
-    console.error('LoggedInUserInfo API error');
+    console.error('LoggedInUserInfo API error', err);
     //TODO: Remove returning the mock response and throw error instead
     // once we have enough test data.
     if (err?.response?.data?.desc == 'Mocked Error') {

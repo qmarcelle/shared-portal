@@ -204,4 +204,54 @@ describe('MyHealthProgramsResources', () => {
     );
     expect(component).toMatchSnapshot();
   });
+  it('should render the Silver and Fitness card if the pzn rule is true', () => {
+    vRules.medicare = true;
+    vRules.individual = true;
+    vRules.isSilverFitClient = true;
+
+    const component = renderUI(vRules);
+    screen.getByText('Silver&Fit Fitness Program');
+    screen.getByText(
+      'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should not render the Silver and Fitness card if the pzn rule is true', () => {
+    vRules.medicare = false;
+    vRules.individual = true;
+    vRules.isSilverFitClient = false;
+    const component = renderUI(vRules);
+    expect(screen.queryByText('Silver&Fit Fitness Program')).toBeNull();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render the Quest Select Lab if the pzn rule is true', () => {
+    vRules.questSelectEligible = true;
+    vRules.active = true;
+
+    const component = renderUI(vRules);
+    expect(
+      screen.getByText('QuestSelect Low-Cost Lab Testing'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+      ),
+    ).toBeInTheDocument();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should not render the Quest Select Lab card if the pzn rule is false', () => {
+    const component = renderUI(vRules);
+    expect(screen.queryByText('QuestSelect Low-Cost Lab Testing')).toBeNull();
+    expect(
+      screen.queryByText(
+        'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+      ),
+    ).toBeNull;
+
+    expect(component).toMatchSnapshot();
+  });
 });

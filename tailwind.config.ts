@@ -33,6 +33,8 @@ const config: Config = {
         secondary: '#5DC1FD',
         'secondary-focus': '#E7F6FF',
         'secondary-content': '#ffffff',
+        'tertiary-4': '#cccccc',
+        'tertiary-5': '#f2f2f2',
         neutral: '#333333',
         'base-100': '#FFFFFF',
         'base-200': '#F2F2F2',

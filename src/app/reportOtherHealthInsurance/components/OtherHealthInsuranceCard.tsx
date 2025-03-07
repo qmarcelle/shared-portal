@@ -1,11 +1,11 @@
 import { Column } from '@/components/foundation/Column';
 import { AddMemberDetails } from '@/models/add_member_details';
 import { IComponent } from '../../../components/IComponent';
-import { OtherHealthInsuranceDetails } from '../models/otherhealthinsurance_details';
+import { OtherInsuranceData } from '../models/app/other_insurance_data';
 import { OtherHealthInsuranceCardItem } from './OtherHealthInsuranceCardItem';
 
 interface OtherHealthInsuranceCardProps extends IComponent {
-  otherHealthInsuranceDetails: OtherHealthInsuranceDetails[];
+  otherHealthInsuranceDetails: OtherInsuranceData;
   memberDetails: AddMemberDetails[];
 }
 
@@ -15,17 +15,15 @@ export const OtherHealthInsuranceCard = ({
 }: OtherHealthInsuranceCardProps) => {
   return (
     <Column className="flex flex-col m-4 md:mt-0">
-      {otherHealthInsuranceDetails.map((item, index) => (
-        <OtherHealthInsuranceCardItem
-          key={index}
-          className="mb-4"
-          memberName={item.memberName}
-          DOB={item.DOB}
-          updatedDate={item.updatedDate}
-          memberDetails={memberDetails}
-        />
-      ))}
-      ,
+      {otherHealthInsuranceDetails.cobList &&
+        otherHealthInsuranceDetails.cobList.map((item, index) => (
+          <OtherHealthInsuranceCardItem
+            key={index}
+            className="mb-4"
+            memberDetails={memberDetails}
+            cobDetails={item}
+          />
+        ))}
     </Column>
   );
 };

@@ -8,6 +8,7 @@ import {
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { formatDateString } from '@/utils/date_formatter';
+import { logger } from '@/utils/logger';
 import {
   getPlanId,
   getSubscriberSuffix,
@@ -40,67 +41,76 @@ import {
 
 export default async function generateProviderDirectorySSOMap(
   memberData: LoggedInMember,
+  searchParams?: { [k: string]: string },
 ): Promise<Map<string, string>> {
-  console.log('generateProviderDirectorySSOMap entered !!!');
-  const ssoParamMap = new Map<string, string>();
+  try {
+    console.log('generateProviderDirectorySSOMap entered !!!');
+    const ssoParamMap = new Map<string, string>();
 
-  if (memberData == null || memberData == undefined) {
-    throw new Error('Member not found');
+    if (memberData == null || memberData == undefined) {
+      throw new Error('Member not found');
+    }
+
+    const pcpID = await getPCPInfo();
+    const { network, copay, deductible } = await getCopayDeductible(memberData);
+    const subscriberId = getSubscriberSuffix(
+      memberData.subscriberId,
+      memberData.suffix,
+    );
+
+    //Need to get from RequestParam
+    const redirectLink = decodeURIComponent(searchParams?.redirectLink ?? '');
+    const pcpSearch =
+      searchParams?.isPCPSearchRedirect?.toLocaleLowerCase() == 'true'
+        ? true
+        : false;
+    let target = process.env.PROVIDER_DIRECTORY_VITALS_SSO_TARGET ?? '';
+    if (redirectLink) {
+      target += decodeURI(redirectLink);
+    } else if (pcpSearch) {
+      target = process.env.PROVIDER_DIRECTORY_PCP_SSO_TARGET ?? '';
+    }
+
+    ssoParamMap.set(SSO_SUBSCRIBER_ID, subscriberId);
+    ssoParamMap.set(
+      SSO_FIRST_NAME,
+      memberData.firstName.toLocaleUpperCase().trim(),
+    );
+    ssoParamMap.set(
+      SSO_LAST_NAME,
+      memberData.lastName.toLocaleUpperCase().trim(),
+    );
+    ssoParamMap.set(SSO_PREFIX, memberData.networkPrefix);
+    ssoParamMap.set(SSO_NETWORK, network);
+    ssoParamMap.set(SSO_PLAN_ID, getPlanId(memberData));
+    ssoParamMap.set(SSO_GROUP_NUMBER, memberData.groupId);
+    ssoParamMap.set(SSO_ZIP_CODE, formatZip(memberData.contact.zipcode));
+    ssoParamMap.set(SSO_COPAY, copay);
+    ssoParamMap.set(SSO_DED, deductible);
+    ssoParamMap.set(
+      SSO_SANITAS,
+      isEligible(memberData, 'SANITAS_ELIGIBLE') ? 'Y' : 'N',
+    );
+
+    ssoParamMap.set(SSO_PCP_PHYSICIAN_ID, pcpID.physicianId);
+
+    ssoParamMap.set(
+      SSO_DOB,
+      formatDateString(memberData.dateOfBirth, 'MM/dd/yyyy', 'yyyy-MM-dd'),
+    );
+    ssoParamMap.set(SSO_MEMBER_ID, subscriberId);
+
+    ssoParamMap.set(SSO_TELEHEALTH, addTeladocHealthParams(memberData));
+
+    ssoParamMap.set(SSO_TARGET_RESOURCE, target);
+    ssoParamMap.set(SSO_SUBJECT, subscriberId);
+
+    console.log('generateProviderDirectorySSOMap exited !!!');
+    return ssoParamMap;
+  } catch (error) {
+    logger.error('Error Response from Provider Directory IMpl', error);
+    throw error;
   }
-
-  const pcpID = await getPCPInfo();
-  const { network, copay, deductible } = await getCopayDeductible(memberData);
-  const subscriberId = getSubscriberSuffix(
-    memberData.subscriberId,
-    memberData.suffix,
-  );
-
-  //Need to get from RequestParam
-  const redirectLink = '';
-  const pcpSearch = '';
-  let target = process.env.PROVIDER_DIRECTORY_VITALS_SSO_TARGET ?? '';
-  if (redirectLink) {
-    target += decodeURI(redirectLink);
-  } else if (pcpSearch) {
-    target = process.env.PROVIDER_DIRECTORY_PCP_SSO_TARGET ?? '';
-  }
-
-  ssoParamMap.set(SSO_SUBSCRIBER_ID, subscriberId);
-  ssoParamMap.set(
-    SSO_FIRST_NAME,
-    memberData.firstName.toLocaleUpperCase().trim(),
-  );
-  ssoParamMap.set(
-    SSO_LAST_NAME,
-    memberData.lastName.toLocaleUpperCase().trim(),
-  );
-  ssoParamMap.set(SSO_PREFIX, memberData.networkPrefix);
-  ssoParamMap.set(SSO_NETWORK, network);
-  ssoParamMap.set(SSO_PLAN_ID, getPlanId(memberData));
-  ssoParamMap.set(SSO_GROUP_NUMBER, memberData.groupId);
-  ssoParamMap.set(SSO_ZIP_CODE, formatZip(memberData.contact.zipcode));
-  ssoParamMap.set(SSO_COPAY, copay);
-  ssoParamMap.set(SSO_DED, deductible);
-  ssoParamMap.set(
-    SSO_SANITAS,
-    isEligible(memberData, 'SANITAS_ELIGIBLE') ? 'Y' : 'N',
-  );
-
-  ssoParamMap.set(SSO_PCP_PHYSICIAN_ID, pcpID.physicianId);
-
-  ssoParamMap.set(
-    SSO_DOB,
-    formatDateString(memberData.dateOfBirth, 'MM/dd/yyyy', 'yyyy-MM-dd'),
-  );
-  ssoParamMap.set(SSO_MEMBER_ID, subscriberId);
-
-  ssoParamMap.set(SSO_TELEHEALTH, addTeladocHealthParams(memberData));
-
-  ssoParamMap.set(SSO_TARGET_RESOURCE, target);
-  ssoParamMap.set(SSO_SUBJECT, subscriberId);
-
-  console.log('generateProviderDirectorySSOMap exited !!!');
-  return ssoParamMap;
 }
 
 const addTeladocHealthParams = (memberData: LoggedInMember): string => {

@@ -51,18 +51,20 @@ export async function getDedAndOOPBalanceForSubscriberAndDep(): Promise<
   try {
     // Get dental balance
     const respForDental = callGetDedAndOOPBalance({
-      memberId: session!.user.currUsr!.plan.sbsbCk,
+      memberId: session!.user.currUsr!.plan!.sbsbCk,
       productType: 'D',
     });
 
     // Get medical balance
     const respForMedical = callGetDedAndOOPBalance({
-      memberId: session!.user.currUsr!.plan.sbsbCk,
+      memberId: session!.user.currUsr!.plan!.sbsbCk,
       productType: 'M',
     });
 
     // Get all dependents
-    const loggedInUser = getLoggedInUserInfo(session!.user.currUsr!.plan.memCk);
+    const loggedInUser = getLoggedInUserInfo(
+      session!.user.currUsr!.plan!.memCk,
+    );
 
     const result = await Promise.allSettled([
       respForDental,

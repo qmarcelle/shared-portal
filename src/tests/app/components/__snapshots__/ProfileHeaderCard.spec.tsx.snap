@@ -32,16 +32,18 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                         >
                           <p
                             class="body-2 font-light"
+                            style="display: block;"
                           >
                             My Profile
                           </p>
                           <h3
-                            class="title-3 font-bold p-1"
+                            class="title-3 font-bold primary-color"
                           >
                             JENNIE RAMAGE
                           </h3>
                           <p
                             class="body-1 font-light"
+                            style="display: block;"
                           >
                             DOB: 01/27/1931
                           </p>
@@ -113,6 +115,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 >
                                   <p
                                     class="body-2"
+                                    style="display: block;"
                                   >
                                     My Profile
                                   </p>
@@ -139,6 +142,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                   </div>
                                   <p
                                     class="body-1 text-base"
+                                    style="display: block;"
                                   >
                                     DOB: 01/27/1931
                                   </p>
@@ -168,8 +172,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 >
                                   <p
                                     class="body-2"
+                                    style="display: block;"
                                   >
-                                    view as Personal Representative 
+                                    View as Personal Representative
                                   </p>
                                   <div
                                     class="flex flex-row justify-between"
@@ -194,6 +199,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                   </div>
                                   <p
                                     class="body-1 text-base"
+                                    style="display: block;"
                                   >
                                     DOB: 01/01/1943
                                   </p>
@@ -223,8 +229,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 >
                                   <p
                                     class="body-2"
+                                    style="display: block;"
                                   >
-                                    view as Authorized User 
+                                    View as Authorized User
                                   </p>
                                   <div
                                     class="flex flex-row justify-between"
@@ -249,6 +256,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                   </div>
                                   <p
                                     class="body-1 text-base"
+                                    style="display: block;"
                                   >
                                     DOB: 01/01/1943
                                   </p>
@@ -270,8 +278,8 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 >
                   <a
                     aria-label="All Profile Settings"
+                    href="/profileSettings"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
@@ -281,13 +289,11 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         All Profile Settings
                       </p>
                       <p
                         class="ml-1"
-                        style="display: block;"
                       >
                         <img
                           alt="link"
@@ -312,8 +318,8 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   />
                   <a
                     aria-label="Communication Settings"
+                    href="/communicationSettings"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
@@ -323,7 +329,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Communication Settings
                       </p>
@@ -334,8 +339,8 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   />
                   <a
                     aria-label="Security Settings"
+                    href="/security"
                     style="display: block;"
-                    tabindex="-1"
                   >
                     <button
                       class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
@@ -345,7 +350,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                     >
                       <p
                         class="link undefined"
-                        style="display: block;"
                       >
                         Security Settings
                       </p>
@@ -393,16 +397,18 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                       >
                         <p
                           class="body-2 font-light"
+                          style="display: block;"
                         >
                           My Profile
                         </p>
                         <h3
-                          class="title-3 font-bold p-1"
+                          class="title-3 font-bold primary-color"
                         >
                           JENNIE RAMAGE
                         </h3>
                         <p
                           class="body-1 font-light"
+                          style="display: block;"
                         >
                           DOB: 01/27/1931
                         </p>
@@ -474,6 +480,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-2"
+                                  style="display: block;"
                                 >
                                   My Profile
                                 </p>
@@ -500,6 +507,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 </div>
                                 <p
                                   class="body-1 text-base"
+                                  style="display: block;"
                                 >
                                   DOB: 01/27/1931
                                 </p>
@@ -529,8 +537,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-2"
+                                  style="display: block;"
                                 >
-                                  view as Personal Representative 
+                                  View as Personal Representative
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"
@@ -555,6 +564,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 </div>
                                 <p
                                   class="body-1 text-base"
+                                  style="display: block;"
                                 >
                                   DOB: 01/01/1943
                                 </p>
@@ -584,8 +594,9 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-2"
+                                  style="display: block;"
                                 >
-                                  view as Authorized User 
+                                  View as Authorized User
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"
@@ -610,6 +621,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                                 </div>
                                 <p
                                   class="body-1 text-base"
+                                  style="display: block;"
                                 >
                                   DOB: 01/01/1943
                                 </p>
@@ -631,8 +643,8 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
               >
                 <a
                   aria-label="All Profile Settings"
+                  href="/profileSettings"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
@@ -642,13 +654,11 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       All Profile Settings
                     </p>
                     <p
                       class="ml-1"
-                      style="display: block;"
                     >
                       <img
                         alt="link"
@@ -673,8 +683,8 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 />
                 <a
                   aria-label="Communication Settings"
+                  href="/communicationSettings"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
@@ -684,7 +694,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Communication Settings
                     </p>
@@ -695,8 +704,8 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 />
                 <a
                   aria-label="Security Settings"
+                  href="/security"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
@@ -706,7 +715,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Security Settings
                     </p>
@@ -809,16 +817,18 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                       >
                         <p
                           class="body-2 font-light"
+                          style="display: block;"
                         >
                           My Profile
                         </p>
                         <h3
-                          class="title-3 font-bold p-1"
+                          class="title-3 font-bold primary-color"
                         >
                           JENNIE RAMAGE
                         </h3>
                         <p
                           class="body-1 font-light"
+                          style="display: block;"
                         >
                           DOB: 01/27/1931
                         </p>
@@ -890,6 +900,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                               >
                                 <p
                                   class="body-2"
+                                  style="display: block;"
                                 >
                                   My Profile
                                 </p>
@@ -916,6 +927,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                                 </div>
                                 <p
                                   class="body-1 text-base"
+                                  style="display: block;"
                                 >
                                   DOB: 01/27/1931
                                 </p>
@@ -945,8 +957,9 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                               >
                                 <p
                                   class="body-2"
+                                  style="display: block;"
                                 >
-                                  view as Personal Representative 
+                                  View as Personal Representative
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"
@@ -971,6 +984,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                                 </div>
                                 <p
                                   class="body-1 text-base"
+                                  style="display: block;"
                                 >
                                   DOB: 01/01/1943
                                 </p>
@@ -1000,8 +1014,9 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                               >
                                 <p
                                   class="body-2"
+                                  style="display: block;"
                                 >
-                                  view as Authorized User 
+                                  View as Authorized User
                                 </p>
                                 <div
                                   class="flex flex-row justify-between"
@@ -1026,6 +1041,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                                 </div>
                                 <p
                                   class="body-1 text-base"
+                                  style="display: block;"
                                 >
                                   DOB: 01/01/1943
                                 </p>
@@ -1047,8 +1063,8 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
               >
                 <a
                   aria-label="All Profile Settings"
+                  href="/profileSettings"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold !flex primary-color underline underline-offset-3 title-3 "
@@ -1058,13 +1074,11 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       All Profile Settings
                     </p>
                     <p
                       class="ml-1"
-                      style="display: block;"
                     >
                       <img
                         alt="link"
@@ -1089,8 +1103,8 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                 />
                 <a
                   aria-label="Communication Settings"
+                  href="/communicationSettings"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline mt-4"
@@ -1100,7 +1114,6 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Communication Settings
                     </p>
@@ -1111,8 +1124,8 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                 />
                 <a
                   aria-label="Security Settings"
+                  href="/security"
                   style="display: block;"
-                  tabindex="-1"
                 >
                   <button
                     class="flex flex-row link-container font-bold primary-color body-bold body-1 manage-underline"
@@ -1122,7 +1135,6 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                   >
                     <p
                       class="link undefined"
-                      style="display: block;"
                     >
                       Security Settings
                     </p>

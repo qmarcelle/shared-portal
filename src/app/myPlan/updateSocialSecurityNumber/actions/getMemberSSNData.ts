@@ -12,7 +12,7 @@ export async function getMemberSSNData(): Promise<
   try {
     const session = await auth();
     const resp = await getLoggedInUserInfo(
-      session?.user.currUsr?.plan.memCk ?? '',
+      session?.user.currUsr?.plan!.memCk ?? '',
     );
     return {
       status: 200,

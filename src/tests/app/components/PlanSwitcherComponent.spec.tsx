@@ -1,15 +1,6 @@
 import { PlanSwitcher } from '@/components/composite/PlanSwitcherComponent';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, within } from '@testing-library/react';
-// Mock useRouter:
-jest.mock('next/navigation', () => ({
-  useRouter() {
-    return {
-      prefetch: () => null,
-      replace: () => null,
-    };
-  },
-}));
 
 const renderUI = () => {
   return render(
@@ -21,12 +12,16 @@ const renderUI = () => {
           policies: 'Medical, Vision, Dental',
           planName: 'BlueCross BlueShield of Tennessee',
           id: 'ABC1234567890',
+          memeCk: '67654543',
+          termedPlan: false,
         },
         {
           subscriberName: 'Maddison Hall',
           policies: 'Dental',
           planName: 'Tennessee Valley Authority',
           id: 'ABC000000000',
+          memeCk: '565434987',
+          termedPlan: false,
         },
         {
           subscriberName: 'Chris Hall',
@@ -34,6 +29,8 @@ const renderUI = () => {
           planName: 'Dollar General',
           id: 'ABC1234567891',
           endedOn: '2023',
+          memeCk: '652398677',
+          termedPlan: true,
         },
       ]}
       selectedPlan={{
@@ -41,6 +38,8 @@ const renderUI = () => {
         policies: 'Medical, Vision, Dental',
         planName: 'BlueCross BlueShield of Tennessee',
         id: 'ABC1234567890',
+        memeCk: '67654543',
+        termedPlan: false,
       }}
       onSelectionChange={() => {}}
     />,

@@ -38,12 +38,14 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
             />
             <p
               class="body-1"
+              style="display: block;"
             >
               Once you've enrolled, download the CareTN app. You can use the app to message a maternity nurse and access program resources.
             </p>
             <div>
               <p
                 class="body-1 body-1 m-4"
+                style="display: block;"
               >
                 In the app you can:
               </p>
@@ -161,12 +163,14 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Once you've enrolled, download the CareTN app. You can use the app to message a maternity nurse and access program resources.
           </p>
           <div>
             <p
               class="body-1 body-1 m-4"
+              style="display: block;"
             >
               In the app you can:
             </p>

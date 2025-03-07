@@ -62,7 +62,7 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
             class="rich-dropdown"
           >
             <div
-              class="flex flex-col switch-filter default"
+              class="flex flex-col switch-filter disabled"
               tabindex="1"
             >
               <div>
@@ -74,11 +74,13 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
                   >
                     <p
                       class="body-2 app-base-font-color"
+                      style="display: block;"
                     >
                       View Plan:
                     </p>
                     <p
                       class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                      style="display: block;"
                     >
                       BlueCross BlueShield of Tennessee
                     </p>
@@ -168,15 +170,17 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
             <span
               class="text-xs"
             >
-              My Profile
+              My Profile:
             </span>
-            <p />
+            <p>
+              Chris Hall
+            </p>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 overflow-auto hidden"
+      class="fixed top-[72px] h-full md:h-fit shadow-lg transition-transform duration-300 ease-in-out lg:block w-full md:w-1/2 lg:w-full bg-white z-20 hidden"
       data-accordion="collapse"
       id="menu-bar"
     >
@@ -427,10 +431,10 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
             </div>
           </div>
           <div
-            class="order-first lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
+            class="order-first md:flex md:justify-end md:grow lg:order-last px-0 mx-0 lg:mx-auto lg:mr-0 lg:pl-5"
           >
             <div
-              class="flex flex-col self-stretch font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-full  items-end h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] "
+              class="flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color w-fit"
             >
               <div
                 class="flex flex-row align-top"
@@ -442,6 +446,7 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
                   <a>
                     <p
                       class="body-1 link-row-head"
+                      style="display: block;"
                     >
                       Search
                     </p>
@@ -568,7 +573,7 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
       class="rich-dropdown"
     >
       <div
-        class="flex flex-col switch-filter default"
+        class="flex flex-col switch-filter disabled"
         tabindex="1"
       >
         <div>
@@ -580,11 +585,13 @@ exports[`SiteHeader should render the UI correctly with AlertBar 1`] = `
             >
               <p
                 class="body-2 app-base-font-color"
+                style="display: block;"
               >
                 View Plan:
               </p>
               <p
                 class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
+                style="display: block;"
               >
                 BlueCross BlueShield of Tennessee
               </p>

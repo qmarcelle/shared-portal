@@ -1,5 +1,6 @@
 import SSORedirect from '@/app/sso/redirect/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
+import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
 import axios from 'axios';
@@ -12,6 +13,7 @@ jest.mock('next/navigation', () => ({
   useSearchParams() {
     return {
       get: mockGet,
+      entries: jest.fn(() => []),
     };
   },
   useRouter() {
@@ -21,25 +23,24 @@ jest.mock('next/navigation', () => ({
   },
 }));
 
+const session = {
+  user: {
+    currUsr: {
+      plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
+    },
+  },
+};
+
 jest.mock('src/auth', () => ({
-  auth: jest.fn(() =>
-    Promise.resolve({
-      user: {
-        currUsr: {
-          plan: { memCk: '123456789', grpId: '87898', sbsbCk: '654567656' },
-        },
-      },
-    }),
-  ),
+  auth: jest.fn(),
 }));
+
+const localAxios = axios as jest.Mocked<typeof axios>;
 
 jest.mock('src/app/sso/ssoConstants', () => ({
   ...jest.requireActual('src/app/sso/ssoConstants'),
   SSO_IMPL_MAP: new Map([['Chip_Rewards', 'ChipRewardsImpl']]),
 }));
-
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 jest.setTimeout(30000);
 
@@ -51,13 +52,16 @@ describe('Chip Rewards SSO', () => {
     jest.resetAllMocks();
     mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
   });
+
   it('Should not route to Chip Rewards SSO when drop off service is failing', async () => {
     mockGet.mockReturnValueOnce('Chip_Rewards');
     mockGet.mockReturnValueOnce('');
-    mockedAxios.post.mockRejectedValueOnce({});
+    localAxios.post.mockRejectedValueOnce({});
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(session);
     await setupUI();
     await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith(
+      expect(localAxios.post).toHaveBeenCalledWith(
         `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
         {
           subject: '90221882300',
@@ -76,15 +80,17 @@ describe('Chip Rewards SSO', () => {
   it('Should route to Chip Rewards SSO when we click SSO Link', async () => {
     mockGet.mockReturnValueOnce('Chip_Rewards');
     mockGet.mockReturnValueOnce('');
-    mockedAxios.post.mockResolvedValueOnce({
+    localAxios.post.mockResolvedValueOnce({
       status: 200,
       data: {
         REF: 'abcdef_l12345',
       },
     });
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(session);
     await setupUI();
     await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith(
+      expect(localAxios.post).toHaveBeenCalledWith(
         `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
         {
           subject: '90221882300',

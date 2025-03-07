@@ -16,6 +16,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+              style="display: block;"
             >
               Mental Health
             </p>
@@ -39,6 +40,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 title-3 !font-bold m-4 mb-0"
+                style="display: block;"
               >
                 Teladoc Mental Health
               </p>
@@ -47,6 +49,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1 m-4 mb-0"
+                style="display: block;"
               >
                 Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
               </p>
@@ -56,6 +59,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 body-1 m-4"
+                  style="display: block;"
                 />
                 <ul
                   class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
@@ -113,7 +117,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               <a
                 aria-label="Learn More About Teladoc Mental Health"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container text-left"
@@ -123,7 +126,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     Learn More About Teladoc Mental Health
                   </p>
@@ -140,6 +142,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+              style="display: block;"
             />
             <img
               alt="AbleToIcon"
@@ -161,6 +164,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 title-3 !font-bold m-4 mb-0"
+                style="display: block;"
               >
                 AbleTo
               </p>
@@ -169,6 +173,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1 m-4 mb-0"
+                style="display: block;"
               >
                 AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
               </p>
@@ -178,6 +183,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 body-1 m-4"
+                  style="display: block;"
                 >
                   Generally good for:
                 </p>
@@ -205,7 +211,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               <a
                 aria-label="Learn More About AbleTo"
                 style="display: block;"
-                tabindex="-1"
               >
                 <button
                   class="flex flex-row link-container text-left"
@@ -215,7 +220,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
                 >
                   <p
                     class="link undefined"
-                    style="display: block;"
                   >
                     Learn More About AbleTo
                   </p>
@@ -239,6 +243,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
         >
           <p
             class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            style="display: block;"
           >
             Mental Health
           </p>
@@ -262,6 +267,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 title-3 !font-bold m-4 mb-0"
+              style="display: block;"
             >
               Teladoc Mental Health
             </p>
@@ -270,6 +276,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1 m-4 mb-0"
+              style="display: block;"
             >
               Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
             </p>
@@ -279,6 +286,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             <div>
               <p
                 class="body-1 body-1 m-4"
+                style="display: block;"
               />
               <ul
                 class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
@@ -336,7 +344,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             <a
               aria-label="Learn More About Teladoc Mental Health"
               style="display: block;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container text-left"
@@ -346,7 +353,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               >
                 <p
                   class="link undefined"
-                  style="display: block;"
                 >
                   Learn More About Teladoc Mental Health
                 </p>
@@ -363,6 +369,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
         >
           <p
             class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            style="display: block;"
           />
           <img
             alt="AbleToIcon"
@@ -384,6 +391,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 title-3 !font-bold m-4 mb-0"
+              style="display: block;"
             >
               AbleTo
             </p>
@@ -392,6 +400,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1 m-4 mb-0"
+              style="display: block;"
             >
               AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
             </p>
@@ -401,6 +410,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             <div>
               <p
                 class="body-1 body-1 m-4"
+                style="display: block;"
               >
                 Generally good for:
               </p>
@@ -428,7 +438,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             <a
               aria-label="Learn More About AbleTo"
               style="display: block;"
-              tabindex="-1"
             >
               <button
                 class="flex flex-row link-container text-left"
@@ -438,7 +447,6 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               >
                 <p
                   class="link undefined"
-                  style="display: block;"
                 >
                   Learn More About AbleTo
                 </p>

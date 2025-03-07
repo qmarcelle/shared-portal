@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditAlertPreferncesSection matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="card-main "
+  >
+    <div>
+      <h2
+        class="title-2 pl-3"
+      >
+        Edit Alert Preferences
+      </h2>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+      />
+      <p
+        class="body-1 pl-3"
+        style="display: block;"
+      >
+        Sign up for email and text alerts.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+      />
+      <div
+        class="card-main "
+      >
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row gap-2 p-2   "
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p
+                  class="font-bold"
+                >
+                  Receive Text Alerts
+                </p>
+              </label>
+              <p
+                class="body-1 mt-2"
+                style="display: block;"
+              >
+                Get text alerts with plan updates and personalized health notifications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card-main "
+      >
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row gap-2 p-2   "
+          >
+            <label>
+              <input
+                id="myCheckbox"
+                name=""
+                type="checkbox"
+              />
+            </label>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                for="myCheckbox"
+              >
+                <p
+                  class="font-bold"
+                >
+                  Receive Email Alerts
+                </p>
+              </label>
+              <p
+                class="body-1 mt-2"
+                style="display: block;"
+              >
+                Get important plan updates, claims information and/or health and wellness topics sent to your email.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

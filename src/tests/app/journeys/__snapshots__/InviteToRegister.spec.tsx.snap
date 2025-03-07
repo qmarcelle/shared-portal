@@ -17,7 +17,7 @@ exports[`Invite to Register Invite to Register 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -93,6 +93,7 @@ exports[`Invite to Register Invite to Register 1`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
+                      style="display: block;"
                     >
                       You're inviting:
                     </p>
@@ -107,6 +108,7 @@ exports[`Invite to Register Invite to Register 1`] = `
                       >
                         <p
                           class="body-1 body-1 text-center font-bold"
+                          style="display: block;"
                         >
                           Corey Hall
                         </p>
@@ -115,6 +117,7 @@ exports[`Invite to Register Invite to Register 1`] = `
                         />
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           We'll send an email inviting them to register an account. We just need their email.
                         </p>
@@ -159,7 +162,6 @@ exports[`Invite to Register Invite to Register 1`] = `
                     <a
                       aria-label="Cancel"
                       style="display: block;"
-                      tabindex="-1"
                     >
                       <button
                         class="flex flex-row link-container undefined"
@@ -169,7 +171,6 @@ exports[`Invite to Register Invite to Register 1`] = `
                       >
                         <p
                           class="link undefined"
-                          style="display: block;"
                         >
                           Cancel
                         </p>
@@ -223,7 +224,7 @@ exports[`Invite to Register Invite to Register 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -317,6 +318,7 @@ exports[`Invite to Register Invite to Register 2`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           We've sent an email inviting this member to register. Once they've completed registration, you'll be able to request access to their information
                         </p>
@@ -380,7 +382,7 @@ exports[`Invite to Register Invite to Register 3`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container"
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
         data-testid="modal-container"
       >
         <div
@@ -474,6 +476,7 @@ exports[`Invite to Register Invite to Register 3`] = `
                       >
                         <p
                           class="body-1 text-center"
+                          style="display: block;"
                         >
                           We've sent an email inviting this member to register. Once they've completed registration, you'll be able to request access to their information
                         </p>

@@ -88,4 +88,5 @@ export type RelatedPerson = {
   relatedPersonRoleType: string;
   relatedPersonDob: string;
   relatedPersonApprovalRequestId: string;
+  relatedPersonMemeCk: string;
 };

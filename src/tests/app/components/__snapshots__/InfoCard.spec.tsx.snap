@@ -36,6 +36,7 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what&apos;s covered under your plan.
               </p>
@@ -77,6 +78,7 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -118,6 +120,7 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -159,6 +162,7 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -200,6 +204,7 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your annual statement shows claims we received and processed.
               </p>
@@ -241,6 +246,7 @@ exports[`View Other Plan Information should render UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>
@@ -289,6 +295,7 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what&apos;s covered under your plan.
               </p>
@@ -330,6 +337,7 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -371,6 +379,7 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -412,6 +421,7 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -453,6 +463,7 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your annual statement shows claims we received and processed.
               </p>
@@ -494,6 +505,7 @@ exports[`View Other Plan Information should render UI correctly 2`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>
@@ -542,6 +554,7 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what&apos;s covered under your plan.
               </p>
@@ -583,6 +596,7 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -624,6 +638,7 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -665,6 +680,7 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -706,6 +722,7 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your annual statement shows claims we received and processed.
               </p>
@@ -747,6 +764,7 @@ exports[`View Other Plan Information should render UI correctly 3`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>
@@ -795,6 +813,7 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what&apos;s covered under your plan.
               </p>
@@ -836,6 +855,7 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -877,6 +897,7 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -918,6 +939,7 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -959,6 +981,7 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your annual statement shows claims we received and processed.
               </p>
@@ -1000,6 +1023,7 @@ exports[`View Other Plan Information should render UI correctly 4`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>
@@ -1048,6 +1072,7 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what&apos;s covered under your plan.
               </p>
@@ -1089,6 +1114,7 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -1130,6 +1156,7 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -1171,6 +1198,7 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -1212,6 +1240,7 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your annual statement shows claims we received and processed.
               </p>
@@ -1253,6 +1282,7 @@ exports[`View Other Plan Information should render UI correctly 5`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>
@@ -1301,6 +1331,7 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 View what&apos;s covered under your plan.
               </p>
@@ -1342,6 +1373,7 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Search for claims and view details or submit a claim.
               </p>
@@ -1383,6 +1415,7 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check the status of your prior authorizations.
               </p>
@@ -1424,6 +1457,7 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Check your HSA, HRA or FSA accounts.
               </p>
@@ -1465,6 +1499,7 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your annual statement shows claims we received and processed.
               </p>
@@ -1506,6 +1541,7 @@ exports[`View Other Plan Information should render UI correctly 6`] = `
               </div>
               <p
                 class="body-1 body-1"
+                style="display: block;"
               >
                 Your important plan documents.
               </p>

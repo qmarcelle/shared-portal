@@ -19,6 +19,7 @@ exports[`AboutEnrollmentSection should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             Complete the enrollment form to get your access code to the CareTN app.
           </p>
@@ -27,6 +28,7 @@ exports[`AboutEnrollmentSection should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
+            style="display: block;"
           >
             After enrollment, a nurse will call to welcome you and provide more details on program benefits such as the free breast pump or customized resources.
           </p>
@@ -49,6 +51,7 @@ exports[`AboutEnrollmentSection should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           Complete the enrollment form to get your access code to the CareTN app.
         </p>
@@ -57,6 +60,7 @@ exports[`AboutEnrollmentSection should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
+          style="display: block;"
         >
           After enrollment, a nurse will call to welcome you and provide more details on program benefits such as the free breast pump or customized resources.
         </p>

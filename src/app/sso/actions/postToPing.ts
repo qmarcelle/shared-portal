@@ -4,7 +4,10 @@ import { auth } from '@/auth';
 import { logger } from '@/utils/logger';
 import dropOffToPing from '../actions/pingDropOff';
 
-export default async function ssoToPing(ssoImpl: string): Promise<string> {
+export default async function ssoToPing(
+  ssoImpl: string,
+  searchParams: { [k: string]: string },
+): Promise<string> {
   console.log('ssoToPing !!!');
 
   const session = await auth();
@@ -13,8 +16,10 @@ export default async function ssoToPing(ssoImpl: string): Promise<string> {
   const handlerModule = await import(`../ssoImpl/${ssoImpl}`);
   console.log('SSO HANDLER ', handlerModule);
   console.log('SSO HANDLER Default ', handlerModule.default);
-  const ssoParamMap: Map<string, string> =
-    await handlerModule.default(memberDetails);
+  const ssoParamMap: Map<string, string> = await handlerModule.default(
+    memberDetails,
+    searchParams,
+  );
   console.log('SSO PARAM MAP DATA Is --', ssoParamMap);
   logger.info('TEST DATA MAP -- ', ssoParamMap);
   // Initiate Ping flow with myDataMap;

@@ -6,22 +6,20 @@ import { Divider } from '@/components/foundation/Divider';
 import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
+import { UserProfile } from '@/models/user_profile';
 import { SwitchAccountComponent } from './SwitchAccountComponent';
 
-const NonMemberDashboard = () => {
+type NonMemberDashboardProps = {
+  profiles: UserProfile[];
+};
+
+const NonMemberDashboard = ({ profiles }: NonMemberDashboardProps) => {
   return (
     <div className="flex flex-col justify-center w-full items-center page">
       <Column className="app-content app-base-font-color">
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <SwitchAccountComponent
-              switchAccountDetails={[
-                {
-                  memberName: 'Robert Hall',
-                  dateOfBirth: '01/01/1943',
-                },
-              ]}
-            />
+            <SwitchAccountComponent switchAccountDetails={profiles.slice(1)} />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <Card className="large-section">

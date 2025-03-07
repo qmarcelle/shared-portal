@@ -13,7 +13,7 @@ export async function updateSSNData(
   try {
     const session = await auth();
     const apiResponse = await portalSvcsApi.post(
-      `/memberservice/api/member/v1/members/byMemberCk/${session?.user.currUsr?.plan.memCk}/updateSSN`,
+      `/memberservice/api/member/v1/members/byMemberCk/${session?.user.currUsr?.plan!.memCk}/updateSSN`,
       request,
     );
     return { status: 200, data: { message: apiResponse?.data?.message } };

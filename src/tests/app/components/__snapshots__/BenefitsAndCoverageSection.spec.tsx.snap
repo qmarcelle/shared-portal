@@ -295,7 +295,6 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
           <a
             aria-label="View Benefits & Coverage"
             style="display: block;"
-            tabindex="-1"
           >
             <button
               class="flex flex-row link-container undefined"
@@ -305,7 +304,6 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             >
               <p
                 class="link undefined"
-                style="display: block;"
               >
                 View Benefits & Coverage
               </p>
@@ -606,7 +604,6 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
         <a
           aria-label="View Benefits & Coverage"
           style="display: block;"
-          tabindex="-1"
         >
           <button
             class="flex flex-row link-container undefined"
@@ -616,7 +613,6 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
           >
             <p
               class="link undefined"
-              style="display: block;"
             >
               View Benefits & Coverage
             </p>
