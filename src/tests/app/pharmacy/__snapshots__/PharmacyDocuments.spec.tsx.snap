@@ -218,6 +218,7 @@ exports[`PharmacyDocuments should render UI correctly - for Medicare Groups 1`] 
                   />
                   <a
                     aria-label="Visit CVS Caremark"
+                    href="/sso/launch?PartnerSpId=undefined"
                     style="display: block;"
                   >
                     <button
@@ -1581,6 +1582,7 @@ exports[`PharmacyDocuments should render UI correctly - for Non Medicare Groups 
                   />
                   <a
                     aria-label="Visit CVS Caremark"
+                    href="/sso/launch?PartnerSpId=undefined"
                     style="display: block;"
                   >
                     <button
