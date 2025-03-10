@@ -21,7 +21,6 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'amplifyHealth',
   'premiumHealth',
   'benefitBooklet',
-  'employerProvidedBenefits',
   'fsaOnly',
   'terminated',
   'katieBeckNoBenefitsElig',
