@@ -2,7 +2,7 @@ import { getMemberAndDependents } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import {
   formatDateToIntlLocale,
   getDateTwoYearsAgoFormatted,
@@ -24,8 +24,8 @@ export async function getClaimsForPlans({
   toDate: string;
 }) {
   try {
-    const resp = await portalSvcsApi.get<ClaimsResponse>(
-      `/memberservice/api/member/v1/members/byMemberCk/${memberId}/claims?from=${fromDate}&to=${toDate}&type=${plans}&includeDependents=true`,
+    const resp = await memberService.get<ClaimsResponse>(
+      `/api/member/v1/members/byMemberCk/${memberId}/claims?from=${fromDate}&to=${toDate}&type=${plans}&includeDependents=true`,
     );
     return resp.data.claims;
   } catch (err) {

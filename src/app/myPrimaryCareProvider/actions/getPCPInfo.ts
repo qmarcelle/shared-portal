@@ -4,7 +4,7 @@ import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
 import { auth } from '@/auth';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { pcpService } from '@/utils/api/pcpService';
 import { logger } from '@/utils/logger';
 import { Session } from 'next-auth';
 
@@ -44,8 +44,8 @@ export async function getDependentPCPInfo(
       )
       .map((member) => {
         console.log('Inside Map', member.memberCk);
-        return portalSvcsApi.get<PrimaryCareProviderDetails>(
-          `/memberservice/PCPhysicianService/pcPhysician/${member.memberCk}`,
+        return pcpService.get<PrimaryCareProviderDetails>(
+          `/pcPhysician/${member.memberCk}`,
         );
       });
 

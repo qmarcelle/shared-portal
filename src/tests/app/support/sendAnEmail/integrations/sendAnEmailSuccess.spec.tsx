@@ -26,7 +26,7 @@ describe('Send Email  API Integration', () => {
     fireEvent.click(screen.getByText('Send Email'));
     await waitFor(() => {
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        '/memberservice/api/v1/contactusemail',
+        '/api/v1/contactusemail',
         {
           memberEmail: '',
           contactNumber: '1-800-565-9140',

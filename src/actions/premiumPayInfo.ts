@@ -1,6 +1,6 @@
 'use server';
 
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 
 export interface PremiumPayResponse {
@@ -13,8 +13,8 @@ export async function getPremiumPayInfo(
   memberCk: string,
 ): Promise<PremiumPayResponse> {
   try {
-    const resp = await portalSvcsApi.get<PremiumPayResponse>(
-      `memberservice/api/member/v1/members/byMemberCk/${memberCk}/premiumPayInfo`,
+    const resp = await memberService.get<PremiumPayResponse>(
+      `/api/member/v1/members/byMemberCk/${memberCk}/premiumPayInfo`,
     );
 
     return resp.data;

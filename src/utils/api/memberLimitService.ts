@@ -2,10 +2,10 @@ import axios from 'axios';
 import { logger } from '../logger';
 import { getAuthToken } from './getToken';
 
-const memSvcURL = `${process.env.PORTAL_SERVICES_URL}${process.env.MEMBERSERVICE_CONTEXT_ROOT}`;
+const memberLimitSvcURL = `${process.env.PORTAL_SERVICES_URL}${process.env.MEMBERLIMITSERVICE_CONTEXT_ROOT}`;
 
-export const memberService = axios.create({
-  baseURL: memSvcURL,
+export const memberLimitService = axios.create({
+  baseURL: memberLimitSvcURL,
   proxy:
     process.env.NEXT_PUBLIC_PROXY?.toLocaleLowerCase() === 'false'
       ? false
@@ -15,11 +15,10 @@ export const memberService = axios.create({
   },
 });
 
-memberService.interceptors.request?.use(
+memberLimitService.interceptors.request?.use(
   async (config) => {
     try {
-      logger.info(`Request URL: ${memSvcURL}${config.url}`);
-
+      logger.info(`Request URL: ${memberLimitSvcURL}${config.url}`);
       //Get Bearer Token from PING and add it in headers for ES service request.
       const token = await getAuthToken();
       if (token) {

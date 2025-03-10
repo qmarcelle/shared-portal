@@ -1,6 +1,6 @@
 'use server';
 
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 
 interface MedicareInfo {
@@ -10,8 +10,8 @@ interface MedicareInfo {
 export async function getMedicareId(memberCk: string): Promise<string> {
   let medicareId = '';
   try {
-    const resp = await portalSvcsApi.get<MedicareInfo>(
-      `/memberservice/api/v1/medicareInfo?memberCk=${memberCk}`,
+    const resp = await memberService.get<MedicareInfo>(
+      `/api/v1/medicareInfo?memberCk=${memberCk}`,
     );
 
     medicareId = resp.data.medicareId;
