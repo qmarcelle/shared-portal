@@ -66,7 +66,6 @@ export function computeVisibilityRules(
     }
   }
 
-  rules['employerProvidedBenefits'] = false;
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
   rules['teladoc'] = true;

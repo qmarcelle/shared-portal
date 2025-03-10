@@ -6,6 +6,7 @@ import loadBenefits from './actions/loadBenefits';
 import Benefits from './benefits';
 import { BenefitsError } from './components/BenefitsError';
 import { Delinquent } from './components/Delinquent';
+import { getEmployerProvidedBenefits } from './employerProvidedBenefits/actions/getEmployerProvidedBenefits';
 import { generateOtherBenefitsForUser } from './utils/createOtherBenefits';
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 const BenefitsAndCoveragePage = async () => {
   try {
     const session: Session | null = await auth();
+    let enableEmployerBenefits = false;
     if (session === null) {
       return <BenefitsError />;
     }
@@ -37,12 +39,19 @@ const BenefitsAndCoveragePage = async () => {
     if (isDelinquent) {
       return <Delinquent />;
     }
-
+    //To check the Eligibility Criteria for Employer Provided Benefits
+    const employerProvidedBenefits = await getEmployerProvidedBenefits(
+      session!.user.currUsr!.plan!.memCk,
+    );
+    if (employerProvidedBenefits.data?.length) enableEmployerBenefits = true;
     return (
       <Benefits
         memberInfo={userInfoData.members}
         benefitsBean={loadBenefitsData.data}
-        otherBenefitItems={generateOtherBenefitsForUser(session.user.vRules!)}
+        otherBenefitItems={generateOtherBenefitsForUser(
+          session.user.vRules!,
+          enableEmployerBenefits,
+        )}
         userGroupId={userInfoData.groupData.groupID}
         visibilityRules={session.user.vRules}
       />
