@@ -54,8 +54,9 @@ export const getMenuNavigation = (
         description: 'This is Find a Provider',
         category: 'Find Care',
         showOnMenu: isBlueCareNotEligible,
-        url: '/findprovider',
+        url: '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_EMBOLD,
         external: true,
+        openInNewWindow: false,
       },
       {
         id: 93,
@@ -353,13 +354,13 @@ export const getMenuNavigation = (
       },
       {
         id: 84,
-        title: 'Member Wellness Canter',
-        description: 'This is Member Wellness Canter',
+        title: 'Member Wellness Center',
+        description: 'This is Member Wellness Center',
         category: 'Wellness',
         showOnMenu: () => {
           return true;
         },
-        url: '/memberwellnesscenter',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`,
         external: true,
       },
       {

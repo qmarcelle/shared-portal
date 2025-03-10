@@ -3,7 +3,7 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { pcpService } from '@/utils/api/pcpService';
 import { logger } from '@/utils/logger';
 import { Session } from 'next-auth';
 import { PrimaryCareProviderDetails } from '../model/api/primary_care_provider';
@@ -15,8 +15,8 @@ export async function getPCPInfo(
 ): Promise<PrimaryCareProviderDetails> {
   try {
     const memberDetails = session ?? (await auth());
-    const response = await portalSvcsApi.get(
-      `/memberservice/PCPhysicianService/pcPhysician/${memberDetails?.user.currUsr?.plan!.memCk}`,
+    const response = await pcpService.get(
+      `/pcPhysician/${memberDetails?.user.currUsr?.plan!.memCk}`,
     );
     logger.info('Get PCP Physician Data', response?.data);
     return response?.data;
@@ -46,8 +46,8 @@ export async function updatePCPhysician(
       request.contactRelation = 'Dependent';
     }
 
-    const apiResponse = await portalSvcsApi.post(
-      `/memberservice/PCPhysicianService/pcPhysician/${session?.user.currUsr?.plan!.memCk}`,
+    const apiResponse = await pcpService.post(
+      `/pcPhysician/${session?.user.currUsr?.plan!.memCk}`,
       request,
     );
     return { status: 200, data: { message: apiResponse?.data?.message } };

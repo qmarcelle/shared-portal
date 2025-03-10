@@ -54,7 +54,7 @@ describe('Send Email Request API Integration', () => {
     fireEvent.click(submitButton);
     await waitFor(() => {
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/641613650',
+        '/pcPhysician/641613650',
         {
           physicianName: 'James Louthan',
           physicianAddress: '2033 Meadowview Ln Ste 300',

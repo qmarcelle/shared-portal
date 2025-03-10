@@ -2,6 +2,7 @@
 
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { getEmployerProvidedBenefits } from '@/app/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
@@ -57,12 +58,17 @@ export const getDashboardData = async (): Promise<
       };
     }
 
-    const [loggedUserDetails, primaryCareProviderData, planDetails] =
-      await Promise.allSettled([
-        getLoggedInUserInfo(session?.user.currUsr?.plan.memCk ?? ''),
-        getPCPInfo(session),
-        getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
-      ]);
+    const [
+      loggedUserDetails,
+      primaryCareProviderData,
+      employerProvidedBenefits,
+      planDetails,
+    ] = await Promise.allSettled([
+      getLoggedInUserInfo(session?.user.currUsr?.plan.memCk ?? ''),
+      getPCPInfo(session),
+      getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
+      getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
+    ]);
 
     let loggedUserInfo;
     if (loggedUserDetails.status === 'fulfilled')
@@ -86,6 +92,11 @@ export const getDashboardData = async (): Promise<
         primaryCareProvider:
           primaryCareProviderData.status === 'fulfilled'
             ? primaryCareProviderData.value
+            : null,
+        employerProvidedBenefits:
+          employerProvidedBenefits.status === 'fulfilled' &&
+          employerProvidedBenefits.value.status === 200
+            ? employerProvidedBenefits.value.data
             : null,
         role: session?.user.currUsr?.role,
         visibilityRules: session?.user.vRules,

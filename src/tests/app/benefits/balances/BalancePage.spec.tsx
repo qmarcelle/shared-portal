@@ -82,7 +82,7 @@ describe('Balances Page', () => {
 
     const component = await renderUI();
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
+      '/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
     );
     expect(screen.getByText('Dental Balance')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();

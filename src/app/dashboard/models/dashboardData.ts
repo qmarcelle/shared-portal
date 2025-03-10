@@ -3,6 +3,7 @@ import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
+import { BenefitsProviderInfo } from './BenefitsProviderInfo';
 
 export type DashboardData = {
   memberDetails: DashboardMemberDetails | null;
@@ -10,6 +11,7 @@ export type DashboardData = {
   role: UserRole | null;
   profiles?: UserProfile[];
   visibilityRules?: VisibilityRules;
+  employerProvidedBenefits?: BenefitsProviderInfo[] | null;
 };
 
 export interface DashboardMemberDetails {

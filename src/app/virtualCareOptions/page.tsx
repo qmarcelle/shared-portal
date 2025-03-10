@@ -159,7 +159,7 @@ const VirtualCareOptions = () => {
             options={[
               {
                 id: '1',
-                title: 'Alight Second Opinion Advice & Support',
+                title: 'Teladoc Health Second Opinion Advice & Support',
                 description:
                   'Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. ',
                 url: 'null',
