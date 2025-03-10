@@ -48,7 +48,7 @@ describe('Claim Details Error Handling', () => {
     );
     // Claim Detail APi was called
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberservice/api/v1/claims/654567656/EXT820200100/M',
+      '/api/v1/claims/654567656/EXT820200100/M',
     );
     expect(
       screen.getByText(

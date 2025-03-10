@@ -67,7 +67,7 @@ describe('Download Member ID Card Pdf', () => {
     await waitFor(() => {
       // Api is called with required values
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        'IDCardService/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=02/01/2024',
+        '/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=02/01/2024',
         {
           responseType: 'arraybuffer',
         },
@@ -125,7 +125,7 @@ describe('Download Member ID Card Pdf', () => {
     await waitFor(() => {
       // Api is called with required values for selected date
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        'IDCardService/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=12/05/2025',
+        '/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=12/05/2025',
         {
           responseType: 'arraybuffer',
         },

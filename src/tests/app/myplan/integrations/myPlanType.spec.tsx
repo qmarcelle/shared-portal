@@ -66,12 +66,12 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
+        '/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText(
         'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
@@ -94,12 +94,12 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
+        '/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText(
         'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
@@ -117,7 +117,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
+        '/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical HDHP plan with EPO');
     });
@@ -134,7 +134,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
+        '/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical HDHP plan');
     });
@@ -150,7 +150,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
+        '/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical PPO plan with EPO');
     });
@@ -166,7 +166,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
+        '/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       screen.getByText('Medical PPO plan');
     });
@@ -183,7 +183,7 @@ describe('Plan Type Details', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/91722407/eligibility',
+        '/api/member/v1/members/byMemberCk/91722407/eligibility',
       );
       expect(screen.queryByText('Plan Type:')).not.toBeInTheDocument();
     });

@@ -1,7 +1,7 @@
 'use server';
 
 import { auth } from '@/auth';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import {
   MEDICAL_HDHP,
   MEDICAL_HDHP_EPO,
@@ -14,8 +14,8 @@ import { logger } from '@/utils/logger';
 export async function getPlanTypeData(): Promise<string | null> {
   try {
     const memberDetails = await auth();
-    const response = await portalSvcsApi.get(
-      `/memberservice/api/member/v1/members/byMemberCk/${memberDetails?.user.currUsr?.plan!.memCk}/eligibility`,
+    const response = await memberService.get(
+      `/api/member/v1/members/byMemberCk/${memberDetails?.user.currUsr?.plan!.memCk}/eligibility`,
     );
     const planData = response?.data?.plans?.find(
       (plan: { planType: string; eligInd: boolean }) =>
