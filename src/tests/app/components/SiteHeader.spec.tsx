@@ -83,6 +83,7 @@ const renderUI = (vRules: VisibilityRules) => {
 };
 
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+process.env.NEXT_PUBLIC_IDP_EMBOLD = 'EMBOLD';
 
 describe('SiteHeader And Navigation Menu', () => {
   beforeEach(() => {
@@ -122,6 +123,11 @@ describe('SiteHeader And Navigation Menu', () => {
     ).toBeVisible();
 
     expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', {
+        name: 'Find a Medical Provider External Link',
+      }),
+    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=EMBOLD`);
 
     expect(
       screen.getByRole('button', {
