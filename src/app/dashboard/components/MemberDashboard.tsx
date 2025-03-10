@@ -140,8 +140,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            {!isBlueCareEligible(visibilityRules) &&
-              !isQuantumHealthEligible(visibilityRules) &&
+            {!isQuantumHealthEligible(visibilityRules) &&
               isPayMyPremiumEligible(visibilityRules) && (
                 <PayPremiumSection
                   className="large-section"
