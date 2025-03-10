@@ -54,8 +54,9 @@ export const getMenuNavigation = (
         description: 'This is Find a Provider',
         category: 'Find Care',
         showOnMenu: isBlueCareNotEligible,
-        url: '/findprovider',
+        url: '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_EMBOLD,
         external: true,
+        openInNewWindow: false,
       },
       {
         id: 93,
