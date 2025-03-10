@@ -2,7 +2,7 @@
 
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { idCardService } from '@/utils/api/idCardService';
 import { formatDateToLocale } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
 
@@ -11,8 +11,8 @@ export async function getIDCardPdf(
 ): Promise<ActionResponse<number, string>> {
   try {
     const session = await auth();
-    const resp = await portalSvcsApi.get(
-      `IDCardService/PDF?subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveDate}`,
+    const resp = await idCardService.get(
+      `/PDF?subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveDate}`,
       {
         responseType: 'arraybuffer',
       },

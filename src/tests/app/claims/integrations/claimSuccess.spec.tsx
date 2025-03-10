@@ -1523,7 +1523,7 @@ describe('Claims SnapshotList', () => {
     );
     // Claims List APi was called
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberservice/api/member/v1/members/byMemberCk/123456789/claims?from=11-28-2022&to=11-28-2024&type=MDV&includeDependents=true',
+      '/api/member/v1/members/byMemberCk/123456789/claims?from=11-28-2022&to=11-28-2024&type=MDV&includeDependents=true',
     );
     expect(screen.getAllByText('All Members')[0]).toBeVisible();
     expect(screen.getByText('All Types')).toBeVisible();

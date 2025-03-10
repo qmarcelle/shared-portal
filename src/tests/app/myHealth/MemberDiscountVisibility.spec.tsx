@@ -55,7 +55,7 @@ describe('My Health Page', () => {
     });
     const component = await renderUI();
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberservice/PCPhysicianService/pcPhysician/123456789',
+      '/pcPhysician/123456789',
     );
 
     screen.getByText('WellTuned Blog');

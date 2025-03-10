@@ -176,7 +176,7 @@ describe('Profile Information API Integration', () => {
     setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
+        `/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
       );
     });
   });
@@ -192,7 +192,7 @@ describe('Profile Information API Integration', () => {
 
     await waitFor(() => {
       const response = expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
+        `/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
       );
       expect(response).toBeNull;
     });

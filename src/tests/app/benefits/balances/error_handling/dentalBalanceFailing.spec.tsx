@@ -916,10 +916,10 @@ describe('Medical and Dental Balances Error Handling', () => {
 
     // Medical, Dental Balance, LoggedInUserInfo Api calls were called
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/D',
+      '/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/D',
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
+      '/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
       '/api/member/v1/members/byMemberCk/123456789',

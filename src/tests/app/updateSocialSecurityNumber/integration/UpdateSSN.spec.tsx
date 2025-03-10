@@ -121,7 +121,7 @@ describe('Update SSN', () => {
 
     await waitFor(() => {
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/123456789/updateSSN',
+        '/api/member/v1/members/byMemberCk/123456789/updateSSN',
         {
           ssn: '111223344',
         },

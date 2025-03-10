@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { logger } from '../logger';
+import { getServerSideUserId } from '../server_session';
 import { getAuthToken } from './getToken';
 
-const memSvcURL = `${process.env.PORTAL_SERVICES_URL}${process.env.MEMBERSERVICE_CONTEXT_ROOT}`;
+const idCardSvcURL = `${process.env.PORTAL_SERVICES_URL}${process.env.IDCARDSERVICE_CONTEXT_ROOT}`;
 
-export const memberService = axios.create({
-  baseURL: memSvcURL,
+export const idCardService = axios.create({
+  baseURL: idCardSvcURL,
   proxy:
     process.env.NEXT_PUBLIC_PROXY?.toLocaleLowerCase() === 'false'
       ? false
@@ -15,16 +16,22 @@ export const memberService = axios.create({
   },
 });
 
-memberService.interceptors.request?.use(
+idCardService.interceptors.request?.use(
   async (config) => {
     try {
-      logger.info(`Request URL: ${memSvcURL}${config.url}`);
-
+      logger.info(`Request URL: ${idCardSvcURL}${config.url}`);
       //Get Bearer Token from PING and add it in headers for ES service request.
+      logger.info(
+        `Portal Service API Endpoint:
+            ${process.env.ES_PORTAL_SVCS_API_URL}`,
+      );
       const token = await getAuthToken();
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
       }
+      logger.info('token' + token);
+      config.headers['consumer'] = 'member';
+      config.headers['portaluser'] = await getServerSideUserId();
     } catch (error) {
       logger.error(`GetAuthToken ${error}`);
     }

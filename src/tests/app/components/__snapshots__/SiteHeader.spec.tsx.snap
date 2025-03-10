@@ -578,13 +578,13 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/memberwellnesscenter"
+                      href="/sso/launch?PartnerSpId=OnLife"
                       target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
-                        Member Wellness Canter
+                        Member Wellness Center
                       </p>
                       <img
                         alt="External Link"
@@ -2168,13 +2168,13 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/memberwellnesscenter"
+                      href="/sso/launch?PartnerSpId=OnLife"
                       target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
-                        Member Wellness Canter
+                        Member Wellness Center
                       </p>
                       <img
                         alt="External Link"
@@ -3908,13 +3908,13 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/memberwellnesscenter"
+                      href="/sso/launch?PartnerSpId=OnLife"
                       target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
-                        Member Wellness Canter
+                        Member Wellness Center
                       </p>
                       <img
                         alt="External Link"
@@ -4720,7 +4720,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </h1>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/findprovider"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
                       target=""
                     >
                       <p
@@ -5551,7 +5551,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </h1>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/findprovider"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
                       target=""
                     >
                       <p
@@ -8542,7 +8542,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     </h1>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/findprovider"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
                       target=""
                     >
                       <p
@@ -9356,7 +9356,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     </h1>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/findprovider"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
                       target=""
                     >
                       <p
@@ -10170,7 +10170,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     </h1>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/findprovider"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
                       target=""
                     >
                       <p
@@ -11767,13 +11767,13 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/memberwellnesscenter"
+                      href="/sso/launch?PartnerSpId=OnLife"
                       target=""
                     >
                       <p
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
-                        Member Wellness Canter
+                        Member Wellness Center
                       </p>
                       <img
                         alt="External Link"
@@ -13314,7 +13314,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </h1>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/findprovider"
+                    href="/sso/launch?PartnerSpId=EMBOLD"
                     target=""
                   >
                     <p
@@ -14124,7 +14124,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </h1>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/findprovider"
+                    href="/sso/launch?PartnerSpId=EMBOLD"
                     target=""
                   >
                     <p
@@ -14934,7 +14934,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </h1>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/findprovider"
+                    href="/sso/launch?PartnerSpId=EMBOLD"
                     target=""
                   >
                     <p

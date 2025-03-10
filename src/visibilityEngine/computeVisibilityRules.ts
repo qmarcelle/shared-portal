@@ -66,7 +66,6 @@ export function computeVisibilityRules(
     }
   }
 
-  rules['employerProvidedBenefits'] = false;
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
   rules['teladoc'] = true;
@@ -242,7 +241,12 @@ export function isPriceDentalCareMenuOptions(
   );
 }
 export function isPayMyPremiumEligible(rules: VisibilityRules | undefined) {
-  return rules?.subscriber && !rules?.wellnessOnly && rules?.payMyPremiumElig;
+  return (
+    rules?.subscriber &&
+    !rules?.wellnessOnly &&
+    rules?.payMyPremiumElig &&
+    !rules?.blueCare
+  );
 }
 
 export function isNewMentalHealthSupportAbleToEligible(

@@ -53,7 +53,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/123456789',
+        '/pcPhysician/123456789',
       );
       screen.getByText('Louthan, James D.');
       screen.getByText('Primary Care Provider');
@@ -72,7 +72,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/123456789',
+        '/pcPhysician/123456789',
       );
       screen.getByText(
         'Oops, it looks like something went wrong. Try again later.',
@@ -87,7 +87,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/123456789',
+        '/pcPhysician/123456789',
       );
       screen.getByText(
         'Oops, it looks like something went wrong. Try again later.',
@@ -107,7 +107,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/123456789',
+        '/pcPhysician/123456789',
       );
       screen.getByText(
         'Oops, it looks like something went wrong. Try again later.',
@@ -139,7 +139,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/123456789',
+        '/pcPhysician/123456789',
       );
       expect(screen.queryByText('Louthan, James D.')).not.toBeInTheDocument();
     });
