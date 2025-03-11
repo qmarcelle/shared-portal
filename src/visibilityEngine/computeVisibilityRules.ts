@@ -43,6 +43,8 @@ export function computeVisibilityRules(
   rules.dsnpGrpInd = loggedUserInfo.groupData.clientID === 'ES';
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
 
+  rules.offMarketGrp = loggedUserInfo.groupData.groupID == '129800';
+
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
@@ -490,4 +492,18 @@ export function isNCQAEligible(rules: VisibilityRules | undefined) {
     groupId == '155000' ||
     groupId == '119002'
   );
+}
+
+export function isTaxDocument1095BRequestEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    rules?.prevYearMedical && rules?.prevYearFullyInsured && rules?.offMarketGrp
+  );
+}
+
+export function isTaxDocument1095BRequestVisible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.prevYearMedical || rules?.prevYearFullyInsured;
 }
