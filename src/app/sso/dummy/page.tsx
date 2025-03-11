@@ -248,7 +248,7 @@ const DummyPage = () => {
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&isPCPSearchRedirect=true`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`}
           >
             Provider Directory PCP Search
           </Link>
@@ -276,7 +276,7 @@ const DummyPage = () => {
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_VITALSPRP}&provId=4165326`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_VITALSPRP}&TargetResource=${process.env.NEXT_PUBLIC_VITALS_PRP_SSO_TARGET!.replace('{PROV_ID}', '4165326')}&provId=4165326`}
           >
             Vitals PRP
           </Link>

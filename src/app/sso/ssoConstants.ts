@@ -35,7 +35,7 @@ export const SSO_TEXT_MAP = new Map<string, string>([
   [`${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`, 'On Life'],
   [`${process.env.NEXT_PUBLIC_IDP_BLUE_365}`, 'Blue 365'],
   [`${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}`, 'Premise Health'],
-  [`${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`, 'Provider Directory'],
+  [`${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`, 'Find a Doctor'],
   [`${process.env.NEXT_PUBLIC_IDP_INSTAMED}`, 'Instamed'],
   [`${process.env.NEXT_PUBLIC_IDP_VITALSPRP}`, 'Vitals PRP'],
   [
