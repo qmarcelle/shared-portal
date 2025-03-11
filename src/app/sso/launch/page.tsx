@@ -68,6 +68,7 @@ const LaunchSSO = () => {
           }
           ssoWindow?.addEventListener('SSOError', () => {
             setIsError(true);
+            ssoWindow?.close();
           });
         } catch (error) {
           console.log('catch block', error);
