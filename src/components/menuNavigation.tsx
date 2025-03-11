@@ -84,7 +84,7 @@ export const getMenuNavigation = (
         description: 'This is Mental Health Option',
         category: 'Find Care',
         showOnMenu: isMentalHealthMenuOption,
-        url: 'findcare/mentalHealthOptions',
+        url: '/mentalHealthOptions',
         external: false,
       },
       {
