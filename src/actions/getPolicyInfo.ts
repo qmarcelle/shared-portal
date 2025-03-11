@@ -10,7 +10,7 @@ export async function getPolicyInfo(memCks: string[]): Promise<PolicyInfo> {
     const response = await memberService.get(
       `/api/v1/policyInfo?members=${memCks.join(',')}`,
     );
-    logger.info('Get Policy Info Data', response?.data?.policyInfo);
+    logger.info('Get Policy Info Data', response?.data);
     return response?.data;
   } catch (error) {
     logger.error('Error Response from Policy Info API', error);
