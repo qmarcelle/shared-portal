@@ -42,10 +42,10 @@ describe('Member ID Card ', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
   });
@@ -59,10 +59,10 @@ describe('Member ID Card ', () => {
 
     await waitFor(() => {
       const responseFront = expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       const responseBack = expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       expect(responseFront).toBeNull;
       expect(responseBack).toBeNull;
@@ -81,10 +81,10 @@ describe('Member ID Card ', () => {
 
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       //expect(response).not.toBeInTheDocument;
       expect(
@@ -108,10 +108,10 @@ describe('Member ID Card ', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=1/1/9999&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=1/1/9999&fileExtension=${ExtensionType.Svg}`,
       );
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=1/1/9999&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=1/1/9999&fileExtension=${ExtensionType.Svg}`,
       );
     });
   });
@@ -131,10 +131,10 @@ describe('Member ID Card ', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?memberCk=91722407&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?memberCk=91722407&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?memberCk=91722407&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?memberCk=91722407&cardType=${CardType.CardTypeBack}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
   });

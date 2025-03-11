@@ -397,7 +397,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(async () => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/91722407',
+        '/pcPhysician/91722407',
       );
 
       screen.getByText('Louthan, James D.');
@@ -451,7 +451,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(async () => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/91722407',
+        '/pcPhysician/91722407',
       );
 
       screen.getByText('Louthan, James D.');
@@ -472,7 +472,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/91722407',
+        '/pcPhysician/91722407',
       );
       screen.getAllByText(
         'Oops, it looks like something went wrong. Try again later.',
@@ -511,7 +511,7 @@ describe('Primary Care Options', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/91722407',
+        '/pcPhysician/91722407',
       );
       screen.getByText(
         "We don't have a Primary Care Provider listed for you or someone on your plan. If you already have a doctor or need to find one, we'll help you get set up.",

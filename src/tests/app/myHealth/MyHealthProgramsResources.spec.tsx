@@ -145,7 +145,40 @@ describe('MyHealthProgramsResources', () => {
     screen.getByText('Mental health');
     expect(component).toMatchSnapshot();
   });
-  it('should render UI correctly for Teladoc Health Diabetes Prevention Program', () => {
+  it('should render UI correctly for Teladoc Health Diabetes MANAGEMENT Program when rule is true', () => {
+    vRules.diabetesManagementEligible = true;
+    activeAndHealthPlanMemberProfiler(vRules);
+
+    const component = renderUI(vRules);
+    screen.getByText('Diabetes');
+    screen.getByText('Teladoc Health Diabetes Management Program');
+    screen.getByText(
+      'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
+    );
+    screen.getByText('Learn More About Diabetes Management');
+    screen.getByText('Generally good for:');
+    screen.getByText('Living with diabetes');
+    screen.getByText('Receiving diabetes supplies');
+    screen.getByText('Monitoring glucose');
+    screen.getByText('Building healthy habits');
+    expect(component).toMatchSnapshot();
+  });
+  it('should not render Teladoc Health Diabetes MANAGEMENT Program Card when rule is false', () => {
+    vRules.diabetesManagementEligible = false;
+    const component = renderUI(vRules);
+
+    expect(
+      screen.queryByText('Teladoc Health Diabetes Management Program'),
+    ).toBeNull();
+    expect(
+      screen.queryByText(
+        'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
+      ),
+    ).toBeNull();
+
+    expect(component.container).toMatchSnapshot();
+  });
+  it('should render UI correctly for Teladoc Health Diabetes PREVENTION Program when rule is true', () => {
     vRules.diabetesPreventionEligible = true;
     activeAndHealthPlanMemberProfiler(vRules);
 

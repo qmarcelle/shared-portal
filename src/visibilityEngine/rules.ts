@@ -1,4 +1,4 @@
-export const MEMBER_ATTRIBUTES_LIST = [
+export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'active',
   'termed',
   'futureEffective',
@@ -21,7 +21,6 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'amplifyHealth',
   'premiumHealth',
   'benefitBooklet',
-  'employerProvidedBenefits',
   'fsaOnly',
   'terminated',
   'katieBeckNoBenefitsElig',
@@ -33,7 +32,6 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'chipRewardsEligible',
   'blueHealthRewardsEligible',
   'bluePerksElig',
-  'condensedPortalExperienceGroups',
   'amplifyMember',
   'primary360Eligible',
   'mentalHealthSupport',
@@ -59,7 +57,6 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'diabetesPreventionEligible',
   'cmEnable',
   'ohdEligible',
-  'displayPharmacyTab',
   'otcEnable',
   'fsaHraEligible',
   'flexibleSpendingAccount',
@@ -69,7 +66,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'rxEssentialEligible',
   'rxEssentialPlusEligible',
   'rxPreferredEligible',
-  'memberNotEligibleForPHS',
+  'phsEligible',
   'allMedicareAdvantageEligible',
   'hypertensionMgmt',
   'consumerMedicalEligible',
@@ -78,6 +75,7 @@ export const MEMBER_ATTRIBUTES_LIST = [
   'medicarePrescriptionPaymentPlanEligible',
   'isEmboldHealth',
   'teladocEligible',
+  'diabetesManagementEligible',
   'questSelectEligible',
 ] as const;
 

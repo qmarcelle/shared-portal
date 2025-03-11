@@ -77,10 +77,7 @@ const Dashboard = ({ data }: DashboardProps) => {
       {data.role != UserRole.NON_MEM ? (
         <>
           {!data.memberDetails?.selectedPlan?.termedPlan ? (
-            <MemberDashboard
-              visibilityRules={data.visibilityRules}
-              primaryCareProviderData={data.primaryCareProvider!}
-            />
+            <MemberDashboard data={data} />
           ) : (
             <MemberDashboardTermedPlan data={data} />
           )}

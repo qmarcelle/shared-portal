@@ -917,7 +917,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Alight Second Opinion Advice & Support
+                                    Teladoc Health Second Opinion Advice & Support
                                   </p>
                                 </div>
                                 <span
@@ -2021,7 +2021,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Alight Second Opinion Advice & Support
+                                  Teladoc Health Second Opinion Advice & Support
                                 </p>
                               </div>
                               <span

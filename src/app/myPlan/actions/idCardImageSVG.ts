@@ -3,7 +3,7 @@
 import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { LoggedInMember } from '@/models/app/loggedin_member';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { idCardService } from '@/utils/api/idCardService';
 import { logger } from '@/utils/logger';
 import { Session } from 'next-auth';
 
@@ -30,12 +30,12 @@ export async function invokeIDCardData(
       : new Date().toLocaleDateString();
 
     if (memberDetails?.memRelation == 'M') {
-      idCardImageResponse = await portalSvcsApi.get(
-        `/IDCardService/Image?subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
+      idCardImageResponse = await idCardService.get(
+        `/Image?subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
       );
     } else {
-      idCardImageResponse = await portalSvcsApi.get(
-        `/IDCardService/Image?memberCk=${session?.user.currUsr?.plan!.memCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
+      idCardImageResponse = await idCardService.get(
+        `/Image?memberCk=${session?.user.currUsr?.plan!.memCk}&cardType=${svgCardType}&groupId=${session?.user.currUsr?.plan!.grpId}&effectiveDate=${effectiveIdCardDate}&fileExtension=${imageExtension}`,
       );
     }
 

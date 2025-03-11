@@ -10,7 +10,7 @@ const renderUI = async () => {
 
 const vRules = {
   user: {
-    vRules: { medicare: true, dsnpGrpInd: false, displayPharmacyTab: true },
+    vRules: { medicare: true, dsnpGrpInd: false, showPharmacyTab: true },
   },
 };
 

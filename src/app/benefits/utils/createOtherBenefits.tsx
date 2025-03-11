@@ -5,6 +5,7 @@ import { ManageBenefitsItems } from '../components/MedicalPharmacyDentalCard';
 
 export const generateOtherBenefitsForUser = (
   vRules: VisibilityRules,
+  enableEmployerBenefits: boolean,
 ): ManageBenefitsItems[] => {
   const otherBenefitItems: ManageBenefitsItems[] = [];
   if (vRules === undefined) {
@@ -42,7 +43,7 @@ export const generateOtherBenefitsForUser = (
     });
   }
 
-  if (vRules.employerProvidedBenefits) {
+  if (enableEmployerBenefits) {
     otherBenefitItems.push({
       title: 'Employer Provided Benefits',
       body: 'Your employer offers even more programs and benefits you can explore here.',

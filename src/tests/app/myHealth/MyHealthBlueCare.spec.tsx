@@ -58,7 +58,7 @@ describe('My Health Page for BlueCare', () => {
     });
     const component = await renderUI();
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberservice/PCPhysicianService/pcPhysician/123456789',
+      '/pcPhysician/123456789',
     );
     expect(screen.getByText('Louthan, James D.')).toBeVisible();
     expect(screen.getByText('2033 Meadowview Ln Ste 200')).toBeVisible();
