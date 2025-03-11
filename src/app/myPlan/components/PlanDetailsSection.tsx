@@ -56,7 +56,16 @@ export const PlanDetailsSection = ({
     <Card className={className}>
       <div className="flex flex-col">
         <h2 className="title-2">Plan Details</h2>
-        {planType ? (
+        {isBlueCareEligible(visibilityRules) ? (
+          <>
+            <Spacer size={32} />
+            <Row>
+              <TextBox text="Plan Type:"></TextBox>
+              <Spacer size={16} axis="horizontal" />
+              <TextBox text="BlueCare Medicaid" className="font-bold" />
+            </Row>
+          </>
+        ) : planType ? (
           <>
             {!planType?.includes(NOT_AVAILABLE) && (
               <>
@@ -68,11 +77,6 @@ export const PlanDetailsSection = ({
                 </Row>
               </>
             )}
-          </>
-        ) : isBlueCareEligible(visibilityRules) ? (
-          <>
-            <Spacer size={32} />
-            <TextBox text="BlueCare Medicaid" className="font-bold"></TextBox>
           </>
         ) : (
           <>

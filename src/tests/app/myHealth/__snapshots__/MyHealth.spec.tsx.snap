@@ -586,7 +586,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                   >
                     <a
                       class="my-health-card my-health-card-link"
-                      href="#path-1"
+                      href="/sso/launch?PartnerSpId=undefined"
                     >
                       <div
                         class="card-main my-health-card-member-wellness"
@@ -643,7 +643,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                     </a>
                     <a
                       class="my-health-card my-health-card-link"
-                      href="#path-1"
+                      href="/sso/launch?PartnerSpId=undefined"
                     >
                       <div
                         class="card-main my-health-card-member-wellness"
@@ -700,7 +700,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                     </a>
                     <a
                       class="my-health-card my-health-card-link"
-                      href="#path-1"
+                      href="/sso/launch?PartnerSpId=undefined"
                     >
                       <div
                         class="card-main my-health-card-member-wellness"
@@ -770,7 +770,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                       >
                         <a
                           aria-label="Visit Member Wellness Center"
-                          href=""
+                          href="/sso/launch?PartnerSpId=undefined"
                           style="display: block;"
                         >
                           <button
@@ -1474,7 +1474,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                 >
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -1531,7 +1531,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -1588,7 +1588,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -1658,7 +1658,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                     >
                       <a
                         aria-label="Visit Member Wellness Center"
-                        href=""
+                        href="/sso/launch?PartnerSpId=undefined"
                         style="display: block;"
                       >
                         <button
@@ -2796,7 +2796,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 >
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -2853,7 +2853,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -2910,7 +2910,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -2980,7 +2980,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                     >
                       <a
                         aria-label="Visit Member Wellness Center"
-                        href=""
+                        href="/sso/launch?PartnerSpId=undefined"
                         style="display: block;"
                       >
                         <button
@@ -4049,7 +4049,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                   >
                     <a
                       class="my-health-card my-health-card-link"
-                      href="#path-1"
+                      href="/sso/launch?PartnerSpId=undefined"
                     >
                       <div
                         class="card-main my-health-card-member-wellness"
@@ -4106,7 +4106,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                     </a>
                     <a
                       class="my-health-card my-health-card-link"
-                      href="#path-1"
+                      href="/sso/launch?PartnerSpId=undefined"
                     >
                       <div
                         class="card-main my-health-card-member-wellness"
@@ -4163,7 +4163,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                     </a>
                     <a
                       class="my-health-card my-health-card-link"
-                      href="#path-1"
+                      href="/sso/launch?PartnerSpId=undefined"
                     >
                       <div
                         class="card-main my-health-card-member-wellness"
@@ -4233,7 +4233,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                       >
                         <a
                           aria-label="Visit Member Wellness Center"
-                          href=""
+                          href="/sso/launch?PartnerSpId=undefined"
                           style="display: block;"
                         >
                           <button
@@ -5296,7 +5296,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                 >
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -5353,7 +5353,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -5410,7 +5410,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -5480,7 +5480,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                     >
                       <a
                         aria-label="Visit Member Wellness Center"
-                        href=""
+                        href="/sso/launch?PartnerSpId=undefined"
                         style="display: block;"
                       >
                         <button

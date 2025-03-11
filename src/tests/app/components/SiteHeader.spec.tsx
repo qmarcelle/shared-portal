@@ -85,6 +85,8 @@ const renderUI = (vRules: VisibilityRules) => {
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
 process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
   'https://caremark/{DEEPLINK}?newLogin=yes';
+process.env.NEXT_PUBLIC_IDP_ON_LIFE = 'OnLife';
+process.env.NEXT_PUBLIC_IDP_EMBOLD = 'EMBOLD';
 
 describe('SiteHeader And Navigation Menu', () => {
   beforeEach(() => {
@@ -124,6 +126,11 @@ describe('SiteHeader And Navigation Menu', () => {
     ).toBeVisible();
 
     expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', {
+        name: 'Find a Medical Provider External Link',
+      }),
+    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=EMBOLD`);
 
     expect(
       screen.getByRole('button', {
@@ -212,6 +219,12 @@ describe('SiteHeader And Navigation Menu', () => {
     /**** Nav Links For My Health  */
 
     fireEvent.click(screen.getAllByText('My Health')[0]);
+
+    expect(
+      screen.getByRole('link', {
+        name: 'Member Wellness Center External Link',
+      }),
+    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=OnLife`);
 
     expect(
       screen.getAllByRole('link', {

@@ -90,7 +90,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -134,7 +134,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -175,7 +175,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -217,7 +217,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -263,7 +263,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?memberCk=91722407,&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?memberCk=91722407,&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });

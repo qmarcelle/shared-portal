@@ -13,6 +13,7 @@ describe('computeAuthFunctions', () => {
         { functionName: 'OTCEnable', available: true },
         { functionName: 'ENABLE_PHAR_TAB', available: false },
         { functionName: 'BLUEPRKS', available: true },
+        { functionName: 'TELADOC_DIABETESMGMT', available: false },
       ],
       isActive: false,
       subscriberLoggedIn: false,
@@ -53,6 +54,7 @@ describe('computeAuthFunctions', () => {
       otcEnable: false,
       bluePerksElig: false,
       showPharmacyTab: false,
+      diabetesManagementEligible: false,
     };
 
     computeAuthFunctions(loggedUserInfo, rules);
@@ -64,6 +66,7 @@ describe('computeAuthFunctions', () => {
     expect(rules.otcEnable).toBe(true);
     expect(rules.showPharmacyTab).toBe(false);
     expect(rules.bluePerksElig).toBe(true);
+    expect(rules.diabetesManagementEligible).toBe(false);
   });
 
   it('should handle missing auth functions gracefully', () => {
@@ -108,16 +111,18 @@ describe('computeAuthFunctions', () => {
       otcEnable: false,
       bluePerksElig: false,
       showPharmacyTab: false,
+      diabetesManagementEligible: false,
     };
 
     computeAuthFunctions(loggedUserInfo, rules);
 
-    expect(rules.delinquent).toBeUndefined();
-    expect(rules.katieBeckNoBenefitsElig).toBeUndefined();
-    expect(rules.myPCPElig).toBeUndefined();
-    expect(rules.identityProtectionServices).toBeUndefined();
-    expect(rules.otcEnable).toBeUndefined();
-    expect(rules.bluePerksElig).toBeUndefined();
-    expect(rules.showPharmacyTab).toBeUndefined();
+    expect(rules.delinquent).toBe(false);
+    expect(rules.katieBeckNoBenefitsElig).toBe(false);
+    expect(rules.myPCPElig).toBe(false);
+    expect(rules.identityProtectionServices).toBe(false);
+    expect(rules.otcEnable).toBe(false);
+    expect(rules.bluePerksElig).toBe(false);
+    expect(rules.showPharmacyTab).toBe(false);
+    expect(rules.diabetesManagementEligible).toBe(false);
   });
 });

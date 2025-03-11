@@ -1,0 +1,532 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My Plan Page for BlueCare member should render My Plan page UI features for Bluecare member 1`] = `
+<body>
+  <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            My Plan
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              If you have questions, 
+            </span>
+            <span
+              class="link !text-white"
+            >
+              <a>
+                start a chat
+              </a>
+            </span>
+            <span>
+               or call us at [1-800-000-000].
+            </span>
+          </span>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Plan Details
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-row"
+                >
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Plan Type:
+                  </p>
+                  <span
+                    style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                  />
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    BlueCare Medicaid
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col m-2 mb-10"
+                  >
+                    <p
+                      class="body-1 id-card-error-msg"
+                      style="display: block;"
+                    >
+                      Your ID card is not available at this time.
+                    </p>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <a
+                  aria-label="View More ID Card Options"
+                  href="/memberIDCard"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container p-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      View More ID Card Options
+                    </p>
+                  </button>
+                </a>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+                />
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="card-main undefined"
+                >
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          View Who's Covered
+                        </p>
+                        <img
+                          alt="Down Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="mr-2 flex-grow"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="card-main undefined"
+                >
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          View Plan Contact Information
+                        </p>
+                        <img
+                          alt="Down Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="mr-2 flex-grow"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main small-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Manage My Plan
+                </h2>
+                <div
+                  class="flex flex-col"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col p-1 false cursor-pointer link-row-container"
+                  >
+                    <div
+                      class="flex flex-row m-2"
+                    >
+                      <p
+                        class="link-row-head mr-2"
+                        tabindex="0"
+                      >
+                        Katie Beckett Banking Info
+                      </p>
+                      <img
+                        alt="link"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="m-2"
+                    >
+                      <div
+                        class="body-1 flex flex-row"
+                      >
+                        Find and update your bank draft details for your plan here.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              href="/profileSettings"
+            >
+              <div
+                class="card-elevated small-section"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <img
+                    alt="link"
+                    class="size-10"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <div
+                    class="flex flex-col ml-4"
+                  >
+                    <div
+                      class="flex flex-row link-row-head"
+                    >
+                      Profile Settings
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                    </div>
+                    <p
+                      class="body-1 body-1"
+                      style="display: block;"
+                    >
+                      Update your security and communication settings or share permissions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+        <div
+          class="flex flex-col"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <div
+            class="flex flex-row"
+          >
+            <p
+              class="title-1"
+            >
+              View Other Plan Information
+            </p>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <a
+                  href="/benefits"
+                >
+                  <div
+                    class="card-elevated small-section"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <img
+                        alt="link"
+                        class="size-10"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <div
+                        class="flex flex-col ml-4"
+                      >
+                        <div
+                          class="flex flex-row link-row-head"
+                        >
+                          Benefits & Coverage
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <p
+                          class="body-1 body-1"
+                          style="display: block;"
+                        >
+                          View what's covered under your plan.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="/claims"
+                >
+                  <div
+                    class="card-elevated small-section"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <img
+                        alt="link"
+                        class="size-10"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <div
+                        class="flex flex-col ml-4"
+                      >
+                        <div
+                          class="flex flex-row link-row-head"
+                        >
+                          Claims
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <p
+                          class="body-1 body-1"
+                          style="display: block;"
+                        >
+                          Search for claims and view details or submit a claim.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="/priorAuth"
+                >
+                  <div
+                    class="card-elevated small-section"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <img
+                        alt="link"
+                        class="size-10"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <div
+                        class="flex flex-col ml-4"
+                      >
+                        <div
+                          class="flex flex-row link-row-head"
+                        >
+                          Prior Authorizations
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <p
+                          class="body-1 body-1"
+                          style="display: block;"
+                        >
+                          Check the status of your prior authorizations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href="/url"
+                >
+                  <div
+                    class="card-elevated small-section"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <img
+                        alt="link"
+                        class="size-10"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <div
+                        class="flex flex-col ml-4"
+                      >
+                        <div
+                          class="flex flex-row link-row-head"
+                        >
+                          Member Handbook
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <img
+                            alt="external"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <p
+                          class="body-1 body-1"
+                          style="display: block;"
+                        >
+                          Look in your member handbook to find your plan details and to help you get the most from your benefits.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+`;

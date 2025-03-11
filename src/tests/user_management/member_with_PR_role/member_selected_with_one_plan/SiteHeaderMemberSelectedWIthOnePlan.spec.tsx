@@ -252,7 +252,7 @@ describe('SiteHeader when PR is selected with one plan', () => {
 
     // Policy Info called
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberservice/api/v1/policyInfo?members=502622001',
+      '/api/v1/policyInfo?members=502622001',
     );
 
     expect(containerSnap).toMatchSnapshot();

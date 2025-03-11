@@ -12,6 +12,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import FindCare from '../../../../public/assets/find_care_map.svg';
 
 interface FindMedicalProvidersComponentProps extends IComponent {
@@ -23,6 +24,7 @@ export const FindMedicalProvidersComponent = ({
   isButtonHorizontal,
   className,
 }: FindMedicalProvidersComponentProps) => {
+  const router = useRouter();
   return (
     <Card className={`large-section ${className}`}>
       <section className="gap-8">
@@ -60,7 +62,11 @@ export const FindMedicalProvidersComponent = ({
           <Button
             icon={<Image alt="external icon" src={externalOffsiteWhiteIcon} />}
             label="Find Medical Providers"
-            callback={() => null}
+            callback={() => {
+              router.push(
+                '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_EMBOLD,
+              );
+            }}
           />
           <Spacer size={16} />
           <Button
@@ -81,7 +87,12 @@ export const FindMedicalProvidersComponent = ({
               </>
             }
             label="Find Other Care"
-            callback={() => null}
+            callback={() => {
+              router.push(
+                '/sso/launch?PartnerSpId=' +
+                  process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY,
+              );
+            }}
           />
         </Column>
       </section>

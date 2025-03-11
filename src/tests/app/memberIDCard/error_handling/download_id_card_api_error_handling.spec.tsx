@@ -70,7 +70,7 @@ describe('Download Member ID Card Pdf API Error Handling', () => {
     // Api is called with required values
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        'IDCardService/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=02/01/2024',
+        '/PDF?subscriberCk=91722400&groupId=100000&effectiveDate=02/01/2024',
         {
           responseType: 'arraybuffer',
         },

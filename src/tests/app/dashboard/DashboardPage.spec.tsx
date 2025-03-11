@@ -32,6 +32,7 @@ const vRules = {
       myPCPElig: false,
       subscriber: true,
       payMyPremiumElig: true,
+      condensedPortalExperienceGroups: false,
       isEmboldHealth: true,
     },
   },
@@ -104,6 +105,32 @@ describe('Dashboard Page', () => {
         addressType: '1',
         taxId: '621388079',
       },
+    });
+    mockedAxios.get.mockResolvedValueOnce({
+      data: [
+        {
+          id: '45',
+          providedBy: 'Davis Vision',
+          contact: '1-800-456-9876',
+          url: 'https://davis-vision.com',
+        },
+        {
+          id: '87',
+          providedBy: 'Nirmal Dental',
+          contact: '1-800-367-9676',
+          url: 'https://nirmaldental.com',
+        },
+        {
+          id: '25',
+          providedBy: 'Low Pharm',
+          contact: '1-800-834-2465',
+        },
+        {
+          id: '289',
+          providedBy: 'Quant Labs',
+          contact: '1-800-834-3465',
+        },
+      ],
     });
     mockedAxios.get.mockResolvedValueOnce({
       data: {
@@ -215,6 +242,32 @@ describe('Dashboard Page', () => {
       },
     });
     mockedAxios.get.mockResolvedValueOnce({
+      data: [
+        {
+          id: '45',
+          providedBy: 'Davis Vision',
+          contact: '1-800-456-9876',
+          url: 'https://davis-vision.com',
+        },
+        {
+          id: '87',
+          providedBy: 'Nirmal Dental',
+          contact: '1-800-367-9676',
+          url: 'https://nirmaldental.com',
+        },
+        {
+          id: '25',
+          providedBy: 'Low Pharm',
+          contact: '1-800-834-2465',
+        },
+        {
+          id: '289',
+          providedBy: 'Quant Labs',
+          contact: '1-800-834-3465',
+        },
+      ],
+    });
+    mockedAxios.get.mockResolvedValueOnce({
       data: {
         currentPolicies: [
           {
@@ -313,6 +366,33 @@ describe('Dashboard Page', () => {
       },
     });
     mockedAxios.get.mockResolvedValueOnce({
+      data: [
+        {
+          id: '45',
+          providedBy: 'Davis Vision',
+          contact: '1-800-456-9876',
+          url: 'https://davis-vision.com',
+        },
+        {
+          id: '87',
+          providedBy: 'Nirmal Dental',
+          contact: '1-800-367-9676',
+          url: 'https://nirmaldental.com',
+        },
+        {
+          id: '25',
+          providedBy: 'Low Pharm',
+          contact: '1-800-834-2465',
+        },
+        {
+          id: '289',
+          providedBy: 'Quant Labs',
+          contact: '1-800-834-3465',
+        },
+      ],
+    });
+
+    mockedAxios.get.mockResolvedValueOnce({
       data: {
         currentPolicies: [
           {
@@ -409,6 +489,32 @@ describe('Dashboard Page', () => {
         addressType: '1',
         taxId: '621388079',
       },
+    });
+    mockedAxios.get.mockResolvedValueOnce({
+      data: [
+        {
+          id: '45',
+          providedBy: 'Davis Vision',
+          contact: '1-800-456-9876',
+          url: 'https://davis-vision.com',
+        },
+        {
+          id: '87',
+          providedBy: 'Nirmal Dental',
+          contact: '1-800-367-9676',
+          url: 'https://nirmaldental.com',
+        },
+        {
+          id: '25',
+          providedBy: 'Low Pharm',
+          contact: '1-800-834-2465',
+        },
+        {
+          id: '289',
+          providedBy: 'Quant Labs',
+          contact: '1-800-834-3465',
+        },
+      ],
     });
     mockedAxios.get.mockResolvedValueOnce({
       data: {

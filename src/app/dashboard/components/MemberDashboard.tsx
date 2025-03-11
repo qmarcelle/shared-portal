@@ -8,7 +8,6 @@ import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { PrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/PrimaryCareProvider';
-import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
@@ -23,23 +22,20 @@ import {
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import EstimateCost from '../../../../public/assets/estimate_cost.svg';
 import FindCare from '../../../../public/assets/find_care_search.svg';
 import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBanner';
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
+import { DashboardData } from '../models/dashboardData';
 import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
 
 export type DashboardProps = {
-  visibilityRules?: VisibilityRules;
-  primaryCareProviderData: PrimaryCareProviderDetails | null;
+  data: DashboardData;
 };
 
-const MemberDashboard = ({
-  visibilityRules,
-  primaryCareProviderData,
-}: DashboardProps) => {
+const MemberDashboard = ({ data }: DashboardProps) => {
+  const { visibilityRules, primaryCareProvider } = data;
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -104,7 +100,7 @@ const MemberDashboard = ({
               !isQuantumHealthEligible(visibilityRules) && (
                 <PrimaryCareProvider
                   className="large-section"
-                  providerDetails={primaryCareProviderData}
+                  providerDetails={primaryCareProvider ?? null}
                   label="Primary Care Provider"
                   linkLabel="View or Update Primary Care Provider"
                   title="My Primary Care Provider"
@@ -144,8 +140,7 @@ const MemberDashboard = ({
               )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            {!isBlueCareEligible(visibilityRules) &&
-              !isQuantumHealthEligible(visibilityRules) &&
+            {!isQuantumHealthEligible(visibilityRules) &&
               isPayMyPremiumEligible(visibilityRules) && (
                 <PayPremiumSection
                   className="large-section"
@@ -322,7 +317,7 @@ const MemberDashboard = ({
             !isQuantumHealthEligible(visibilityRules) && <AmplifyHealthCard />}
         </section>
         <section>
-          {visibilityRules?.employerProvidedBenefits &&
+          {data.employerProvidedBenefits?.length &&
             !isQuantumHealthEligible(visibilityRules) && (
               <EmployeeProvidedBenefitsTile
                 className="large-section"
