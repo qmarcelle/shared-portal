@@ -25,11 +25,11 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
-let groupId: string;
 let healthCareAccountEligible: any[] | null;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
+  const groupId = loggedUserInfo.groupData.groupID;
   //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
   rules.active = loggedUserInfo.isActive;
@@ -43,7 +43,6 @@ export function computeVisibilityRules(
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
-  groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -55,6 +54,18 @@ export function computeVisibilityRules(
   );
 
   computeAuthFunctions(loggedUserInfo, rules);
+
+  rules.isCondensedExperienceProfileHorizon =
+    rules?.isCondensedExperience && groupId == '130430';
+
+  rules.isWellnessProfileWellnessOnly =
+    rules?.wellnessOnly && groupId == '130447';
+
+  rules.ncqaEligible =
+    rules?.blueCare ||
+    groupId == '125000' ||
+    groupId == '155000' ||
+    groupId == '119002';
 
   for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
@@ -134,8 +145,14 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
   return rules?.isCondensedExperience;
 }
 
-export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
-  return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
+export function isAHAdvisorpage(
+  rules: VisibilityRules | undefined,
+  session: Session | null,
+) {
+  return (
+    (rules?.active && rules?.amplifyMember) ||
+    isAHAdvisorEnabled(session?.user.currUsr?.plan!.grpId)
+  );
 }
 
 function isAHAdvisorEnabled(groupId: string | undefined) {
@@ -195,8 +212,7 @@ export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
 }
 
 function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
-  if (rules?.isCondensedExperience && groupId == '130430')
-    return 'FirstHorizon';
+  if (rules?.isCondensedExperienceProfileHorizon) return 'FirstHorizon';
   if (rules?.isCondensedExperience) return 'Quantum';
 }
 
@@ -476,9 +492,13 @@ export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
 function isCityOfMemphisWellnessOnlyProfiler(
   rules: VisibilityRules | undefined,
 ) {
-  if (rules?.wellnessOnly && groupId == '130447') return 'IsWellnessOnly';
+  if (rules?.isWellnessProfileWellnessOnly) return 'IsWellnessOnly';
 }
 
 export function isTeladocEligible(rules: VisibilityRules | undefined) {
   return rules?.teladoc && activeAndHealthPlanMember(rules);
+}
+
+export function isNCQAEligible(rules: VisibilityRules | undefined) {
+  return rules?.ncqaEligible && rules?.active;
 }
