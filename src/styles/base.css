@@ -30,6 +30,7 @@
 @import './loader.css';
 @import './calendar.css';
 @import './plan_selector.css';
+@import '../assets/genesys/widgets.min.css';
 
 :root {
   --primary-color: #005eb9;
