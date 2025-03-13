@@ -3,6 +3,7 @@
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { memberService } from '@/utils/api/memberService';
+import { logger } from '@/utils/logger';
 
 export type MemberData = {
   id: string;
@@ -18,6 +19,7 @@ export async function getLoggedInUserInfo(
   memberCk: string,
 ): Promise<LoggedInUserInfo> {
   try {
+    logger.info('Calling LoggedIn User Info API');
     const resp = await memberService.get<LoggedInUserInfo>(
       `/api/member/v1/members/byMemberCk/${memberCk}`,
     );

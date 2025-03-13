@@ -96,7 +96,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                             <h3
                               class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
-                              123 Pharmacy
+                              CVS PHARMACY 04428
                             </h3>
                           </section>
                           <section
@@ -111,7 +111,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                               <p
                                 class="font-bold ml-2 body-2"
                               >
-                                Processed
+                                Paid
                               </p>
                             </div>
                             <div
@@ -121,7 +121,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                                 class="body-1 body-1 font-bold mt-2"
                                 style="display: block;"
                               >
-                                $50.00
+                                $32.99
                               </p>
                             </div>
                           </section>
@@ -136,7 +136,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                               class="body-1 body-1 mt-2"
                               style="display: block;"
                             >
-                              Visited on 08/10/2023, For Chris Hall
+                              Visited on 2024-11-06, For JOHN DOE
                             </p>
                           </div>
                           <div
@@ -146,7 +146,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $50.00
+                              $32.99
                             </p>
                           </div>
                         </div>
@@ -198,7 +198,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                             <h3
                               class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
-                              565 Pharmacy
+                              CVS PHARMACY 04428
                             </h3>
                           </section>
                           <section
@@ -223,7 +223,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                                 class="body-1 body-1 font-bold mt-2"
                                 style="display: block;"
                               >
-                                $403.98
+                                $52.99
                               </p>
                             </div>
                           </section>
@@ -238,7 +238,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                               class="body-1 body-1 mt-2"
                               style="display: block;"
                             >
-                              Visited on 07/05/2023, For Chris Hall
+                              Visited on 2024-11-06, For Jane DOE
                             </p>
                           </div>
                           <div
@@ -248,109 +248,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $403.98
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                  <div
-                    class="card-button cursor-pointer mb-4"
-                  >
-                    <section
-                      class="md:flex md:flex-row align-top m-4"
-                    >
-                      <img
-                        alt="Pharmacy"
-                        class="icon max-md:hidden"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col min-w-[95%]"
-                      >
-                        <section
-                          class="md:flex md:flex-row md:justify-between"
-                        >
-                          <section
-                            class="flex flex-row mb-[10px] md:flex-col"
-                          >
-                            <img
-                              alt="Pharmacy"
-                              class="icon md:hidden"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                            <h3
-                              class="title-3 body-bold primary-color max-md:ml-[5px]"
-                            >
-                              890 Pharmacy
-                            </h3>
-                          </section>
-                          <section
-                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                          >
-                            <div
-                              class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                            >
-                              <div
-                                class="circle rounded-full w-3 h-3 aspect-square"
-                              />
-                              <p
-                                class="font-bold ml-2 body-2"
-                              >
-                                Pending
-                              </p>
-                            </div>
-                            <div
-                              class="flex flex-col md:hidden"
-                            >
-                              <p
-                                class="body-1 body-1 font-bold mt-2"
-                                style="display: block;"
-                              >
-                                $33.00
-                              </p>
-                            </div>
-                          </section>
-                        </section>
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <div
-                            class="flex flex-col"
-                          >
-                            <p
-                              class="body-1 body-1 mt-2"
-                              style="display: block;"
-                            >
-                              Visited on 12/22/2022, For Chris Hall
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col max-md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $33.00
+                              $52.99
                             </p>
                           </div>
                         </div>
@@ -362,6 +260,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
+                    href="/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -548,7 +447,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                           <h3
                             class="title-3 body-bold primary-color max-md:ml-[5px]"
                           >
-                            123 Pharmacy
+                            CVS PHARMACY 04428
                           </h3>
                         </section>
                         <section
@@ -563,7 +462,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                             <p
                               class="font-bold ml-2 body-2"
                             >
-                              Processed
+                              Paid
                             </p>
                           </div>
                           <div
@@ -573,7 +472,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $50.00
+                              $32.99
                             </p>
                           </div>
                         </section>
@@ -588,7 +487,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                             class="body-1 body-1 mt-2"
                             style="display: block;"
                           >
-                            Visited on 08/10/2023, For Chris Hall
+                            Visited on 2024-11-06, For JOHN DOE
                           </p>
                         </div>
                         <div
@@ -598,7 +497,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                             class="body-1 body-1 font-bold mt-2"
                             style="display: block;"
                           >
-                            $50.00
+                            $32.99
                           </p>
                         </div>
                       </div>
@@ -650,7 +549,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                           <h3
                             class="title-3 body-bold primary-color max-md:ml-[5px]"
                           >
-                            565 Pharmacy
+                            CVS PHARMACY 04428
                           </h3>
                         </section>
                         <section
@@ -675,7 +574,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $403.98
+                              $52.99
                             </p>
                           </div>
                         </section>
@@ -690,7 +589,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                             class="body-1 body-1 mt-2"
                             style="display: block;"
                           >
-                            Visited on 07/05/2023, For Chris Hall
+                            Visited on 2024-11-06, For Jane DOE
                           </p>
                         </div>
                         <div
@@ -700,109 +599,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                             class="body-1 body-1 font-bold mt-2"
                             style="display: block;"
                           >
-                            $403.98
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div
-                  class="card-button cursor-pointer mb-4"
-                >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
-                  >
-                    <img
-                      alt="Pharmacy"
-                      class="icon max-md:hidden"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
-                    >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Pharmacy"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            890 Pharmacy
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Pending
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $33.00
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 12/22/2022, For Chris Hall
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $33.00
+                            $52.99
                           </p>
                         </div>
                       </div>
@@ -814,6 +611,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
+                  href="/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1282,7 +1080,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                             <h3
                               class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
-                              123 Pharmacy
+                              CVS PHARMACY 04428
                             </h3>
                           </section>
                           <section
@@ -1297,7 +1095,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                               <p
                                 class="font-bold ml-2 body-2"
                               >
-                                Processed
+                                Paid
                               </p>
                             </div>
                             <div
@@ -1307,7 +1105,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                                 class="body-1 body-1 font-bold mt-2"
                                 style="display: block;"
                               >
-                                $50.00
+                                $32.99
                               </p>
                             </div>
                           </section>
@@ -1322,7 +1120,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                               class="body-1 body-1 mt-2"
                               style="display: block;"
                             >
-                              Visited on 08/10/2023, For Chris Hall
+                              Visited on 2024-11-06, For JOHN DOE
                             </p>
                           </div>
                           <div
@@ -1332,7 +1130,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $50.00
+                              $32.99
                             </p>
                           </div>
                         </div>
@@ -1384,7 +1182,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                             <h3
                               class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
-                              565 Pharmacy
+                              CVS PHARMACY 04428
                             </h3>
                           </section>
                           <section
@@ -1409,7 +1207,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                                 class="body-1 body-1 font-bold mt-2"
                                 style="display: block;"
                               >
-                                $403.98
+                                $52.99
                               </p>
                             </div>
                           </section>
@@ -1424,7 +1222,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                               class="body-1 body-1 mt-2"
                               style="display: block;"
                             >
-                              Visited on 07/05/2023, For Chris Hall
+                              Visited on 2024-11-06, For Jane DOE
                             </p>
                           </div>
                           <div
@@ -1434,109 +1232,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $403.98
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                  <div
-                    class="card-button cursor-pointer mb-4"
-                  >
-                    <section
-                      class="md:flex md:flex-row align-top m-4"
-                    >
-                      <img
-                        alt="Pharmacy"
-                        class="icon max-md:hidden"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col min-w-[95%]"
-                      >
-                        <section
-                          class="md:flex md:flex-row md:justify-between"
-                        >
-                          <section
-                            class="flex flex-row mb-[10px] md:flex-col"
-                          >
-                            <img
-                              alt="Pharmacy"
-                              class="icon md:hidden"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                            <h3
-                              class="title-3 body-bold primary-color max-md:ml-[5px]"
-                            >
-                              890 Pharmacy
-                            </h3>
-                          </section>
-                          <section
-                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                          >
-                            <div
-                              class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                            >
-                              <div
-                                class="circle rounded-full w-3 h-3 aspect-square"
-                              />
-                              <p
-                                class="font-bold ml-2 body-2"
-                              >
-                                Pending
-                              </p>
-                            </div>
-                            <div
-                              class="flex flex-col md:hidden"
-                            >
-                              <p
-                                class="body-1 body-1 font-bold mt-2"
-                                style="display: block;"
-                              >
-                                $33.00
-                              </p>
-                            </div>
-                          </section>
-                        </section>
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <div
-                            class="flex flex-col"
-                          >
-                            <p
-                              class="body-1 body-1 mt-2"
-                              style="display: block;"
-                            >
-                              Visited on 12/22/2022, For Chris Hall
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col max-md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $33.00
+                              $52.99
                             </p>
                           </div>
                         </div>
@@ -1548,6 +1244,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
+                    href="/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -2714,7 +2411,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                           <h3
                             class="title-3 body-bold primary-color max-md:ml-[5px]"
                           >
-                            123 Pharmacy
+                            CVS PHARMACY 04428
                           </h3>
                         </section>
                         <section
@@ -2729,7 +2426,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                             <p
                               class="font-bold ml-2 body-2"
                             >
-                              Processed
+                              Paid
                             </p>
                           </div>
                           <div
@@ -2739,7 +2436,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $50.00
+                              $32.99
                             </p>
                           </div>
                         </section>
@@ -2754,7 +2451,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                             class="body-1 body-1 mt-2"
                             style="display: block;"
                           >
-                            Visited on 08/10/2023, For Chris Hall
+                            Visited on 2024-11-06, For JOHN DOE
                           </p>
                         </div>
                         <div
@@ -2764,7 +2461,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                             class="body-1 body-1 font-bold mt-2"
                             style="display: block;"
                           >
-                            $50.00
+                            $32.99
                           </p>
                         </div>
                       </div>
@@ -2816,7 +2513,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                           <h3
                             class="title-3 body-bold primary-color max-md:ml-[5px]"
                           >
-                            565 Pharmacy
+                            CVS PHARMACY 04428
                           </h3>
                         </section>
                         <section
@@ -2841,7 +2538,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $403.98
+                              $52.99
                             </p>
                           </div>
                         </section>
@@ -2856,7 +2553,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                             class="body-1 body-1 mt-2"
                             style="display: block;"
                           >
-                            Visited on 07/05/2023, For Chris Hall
+                            Visited on 2024-11-06, For Jane DOE
                           </p>
                         </div>
                         <div
@@ -2866,109 +2563,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                             class="body-1 body-1 font-bold mt-2"
                             style="display: block;"
                           >
-                            $403.98
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div
-                  class="card-button cursor-pointer mb-4"
-                >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
-                  >
-                    <img
-                      alt="Pharmacy"
-                      class="icon max-md:hidden"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
-                    >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Pharmacy"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            890 Pharmacy
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Pending
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $33.00
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 12/22/2022, For Chris Hall
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $33.00
+                            $52.99
                           </p>
                         </div>
                       </div>
@@ -2980,6 +2575,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
+                  href="/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -3978,7 +3574,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             <h3
                               class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
-                              123 Pharmacy
+                              CVS PHARMACY 04428
                             </h3>
                           </section>
                           <section
@@ -3993,7 +3589,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                               <p
                                 class="font-bold ml-2 body-2"
                               >
-                                Processed
+                                Paid
                               </p>
                             </div>
                             <div
@@ -4003,7 +3599,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                                 class="body-1 body-1 font-bold mt-2"
                                 style="display: block;"
                               >
-                                $50.00
+                                $32.99
                               </p>
                             </div>
                           </section>
@@ -4018,7 +3614,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                               class="body-1 body-1 mt-2"
                               style="display: block;"
                             >
-                              Visited on 08/10/2023, For Chris Hall
+                              Visited on 2024-11-06, For JOHN DOE
                             </p>
                           </div>
                           <div
@@ -4028,7 +3624,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $50.00
+                              $32.99
                             </p>
                           </div>
                         </div>
@@ -4080,7 +3676,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             <h3
                               class="title-3 body-bold primary-color max-md:ml-[5px]"
                             >
-                              565 Pharmacy
+                              CVS PHARMACY 04428
                             </h3>
                           </section>
                           <section
@@ -4105,7 +3701,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                                 class="body-1 body-1 font-bold mt-2"
                                 style="display: block;"
                               >
-                                $403.98
+                                $52.99
                               </p>
                             </div>
                           </section>
@@ -4120,7 +3716,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                               class="body-1 body-1 mt-2"
                               style="display: block;"
                             >
-                              Visited on 07/05/2023, For Chris Hall
+                              Visited on 2024-11-06, For Jane DOE
                             </p>
                           </div>
                           <div
@@ -4130,109 +3726,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $403.98
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                  <div
-                    class="card-button cursor-pointer mb-4"
-                  >
-                    <section
-                      class="md:flex md:flex-row align-top m-4"
-                    >
-                      <img
-                        alt="Pharmacy"
-                        class="icon max-md:hidden"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col min-w-[95%]"
-                      >
-                        <section
-                          class="md:flex md:flex-row md:justify-between"
-                        >
-                          <section
-                            class="flex flex-row mb-[10px] md:flex-col"
-                          >
-                            <img
-                              alt="Pharmacy"
-                              class="icon md:hidden"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                            <h3
-                              class="title-3 body-bold primary-color max-md:ml-[5px]"
-                            >
-                              890 Pharmacy
-                            </h3>
-                          </section>
-                          <section
-                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                          >
-                            <div
-                              class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                            >
-                              <div
-                                class="circle rounded-full w-3 h-3 aspect-square"
-                              />
-                              <p
-                                class="font-bold ml-2 body-2"
-                              >
-                                Pending
-                              </p>
-                            </div>
-                            <div
-                              class="flex flex-col md:hidden"
-                            >
-                              <p
-                                class="body-1 body-1 font-bold mt-2"
-                                style="display: block;"
-                              >
-                                $33.00
-                              </p>
-                            </div>
-                          </section>
-                        </section>
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <div
-                            class="flex flex-col"
-                          >
-                            <p
-                              class="body-1 body-1 mt-2"
-                              style="display: block;"
-                            >
-                              Visited on 12/22/2022, For Chris Hall
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col max-md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $33.00
+                              $52.99
                             </p>
                           </div>
                         </div>
@@ -4244,6 +3738,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
+                    href="/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -4430,7 +3925,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           <h3
                             class="title-3 body-bold primary-color max-md:ml-[5px]"
                           >
-                            123 Pharmacy
+                            CVS PHARMACY 04428
                           </h3>
                         </section>
                         <section
@@ -4445,7 +3940,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             <p
                               class="font-bold ml-2 body-2"
                             >
-                              Processed
+                              Paid
                             </p>
                           </div>
                           <div
@@ -4455,7 +3950,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $50.00
+                              $32.99
                             </p>
                           </div>
                         </section>
@@ -4470,7 +3965,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             class="body-1 body-1 mt-2"
                             style="display: block;"
                           >
-                            Visited on 08/10/2023, For Chris Hall
+                            Visited on 2024-11-06, For JOHN DOE
                           </p>
                         </div>
                         <div
@@ -4480,7 +3975,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             class="body-1 body-1 font-bold mt-2"
                             style="display: block;"
                           >
-                            $50.00
+                            $32.99
                           </p>
                         </div>
                       </div>
@@ -4532,7 +4027,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                           <h3
                             class="title-3 body-bold primary-color max-md:ml-[5px]"
                           >
-                            565 Pharmacy
+                            CVS PHARMACY 04428
                           </h3>
                         </section>
                         <section
@@ -4557,7 +4052,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                               class="body-1 body-1 font-bold mt-2"
                               style="display: block;"
                             >
-                              $403.98
+                              $52.99
                             </p>
                           </div>
                         </section>
@@ -4572,7 +4067,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             class="body-1 body-1 mt-2"
                             style="display: block;"
                           >
-                            Visited on 07/05/2023, For Chris Hall
+                            Visited on 2024-11-06, For Jane DOE
                           </p>
                         </div>
                         <div
@@ -4582,109 +4077,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                             class="body-1 body-1 font-bold mt-2"
                             style="display: block;"
                           >
-                            $403.98
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div
-                  class="card-button cursor-pointer mb-4"
-                >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
-                  >
-                    <img
-                      alt="Pharmacy"
-                      class="icon max-md:hidden"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
-                    >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Pharmacy"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            890 Pharmacy
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Pending
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $33.00
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 12/22/2022, For Chris Hall
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $33.00
+                            $52.99
                           </p>
                         </div>
                       </div>
@@ -4696,6 +4089,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
+                  href="/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
