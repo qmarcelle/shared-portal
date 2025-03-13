@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-async-client-component */
 'use client';
 
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
@@ -19,17 +20,17 @@ import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { ClaimDetails } from '@/models/claim_details';
 import {
   isBlueCareEligible,
-  isMedicareDsnpEligible,
-  isMedicareEligible,
   isFreedomMaBlueAdvantage,
   isIndividualMaBlueAdvantageEligible,
+  isMedicareDsnpEligible,
+  isMedicareEligible,
   isMedicarePrescriptionPaymentPlanEligible,
   isPharmacyBenefitsEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation';
 import PharmacyBenefits from './components/PharmacyBenefits';
 import { PharmacyDocuments } from './components/PharmacyDocuments';
@@ -41,16 +42,10 @@ import { PharmacyData } from './models/app/pharmacyData';
 
 export type PharmacyProps = {
   data: PharmacyData;
+  claims: ClaimDetails[];
 };
 
-const Pharmacy = ({ data }: PharmacyProps) => {
-  const router = useRouter();
-  //To Do Remove Below EsLint once integrated with API
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const redirectToPharmacyClaims = (claimId: string) => {
-    router.push('/pharmacy/pharmacyClaims');
-  };
-
+const Pharmacy = ({ data, claims }: PharmacyProps) => {
   const getOtcContent = () => (
     <ShopOverCounterItemsCard
       icon={shoppingCreditIcon}
@@ -138,59 +133,8 @@ const Pharmacy = ({ data }: PharmacyProps) => {
                 className="large-section"
                 title="My Recent Pharmacy Claims"
                 linkText="View All Pharmacy Claims"
-                linkCallBack={() => {
-                  router.push('/claimSnapshotList');
-                }}
-                claims={[
-                  {
-                    id: 'Claim01',
-                    claimStatus: 'Processed',
-                    claimType: 'Pharmacy',
-                    claimTotal: '50.00',
-                    issuer: '123 Pharmacy',
-                    memberName: 'Chris Hall',
-                    serviceDate: '08/10/2023',
-                    claimInfo: {},
-                    isMiniCard: true,
-                    callBack: (claimId: string) => {
-                      redirectToPharmacyClaims(claimId);
-                    },
-                    memberId: '23',
-                    claimStatusCode: 2,
-                  },
-                  {
-                    id: 'Claim02',
-                    claimStatus: 'Denied',
-                    claimType: 'Pharmacy',
-                    claimTotal: '403.98',
-                    issuer: '565 Pharmacy',
-                    memberName: 'Chris Hall',
-                    serviceDate: '07/05/2023',
-                    claimInfo: {},
-                    isMiniCard: true,
-                    callBack: (claimId: string) => {
-                      redirectToPharmacyClaims(claimId);
-                    },
-                    memberId: '2',
-                    claimStatusCode: 3,
-                  },
-                  {
-                    id: 'Claim03',
-                    claimStatus: 'Pending',
-                    claimType: 'Pharmacy',
-                    claimTotal: '33.00',
-                    issuer: '890 Pharmacy',
-                    memberName: 'Chris Hall',
-                    serviceDate: '12/22/2022',
-                    claimInfo: {},
-                    isMiniCard: true,
-                    callBack: (claimId: string) => {
-                      redirectToPharmacyClaims(claimId);
-                    },
-                    memberId: '23',
-                    claimStatusCode: 1,
-                  },
-                ]}
+                claims={claims}
+                linkUrl="/claims?type=pharmacy"
               />
             </Column>
             <Column className=" flex-grow page-section-36_67 items-stretch">

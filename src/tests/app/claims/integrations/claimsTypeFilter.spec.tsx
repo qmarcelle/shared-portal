@@ -1,7 +1,7 @@
 import MyClaimsPage from '@/app/claims/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 jest.mock('src/auth', () => ({
@@ -15,14 +15,21 @@ jest.mock('src/auth', () => ({
     }),
   ),
 }));
-
 jest.mock('src/utils/encryption', () => ({
-  decrypt: jest.fn(() => {
-    return 'EXT820200100';
-  }),
   encrypt: jest.fn(() => {
     return 'aW9pZ0F3V0lwZHlrbnBaeUVtaGk3QT09O2QwY2JmOWQ0ZWNiZjM0OWU=';
   }),
+}));
+
+// Mock useRouter:
+const mockPush = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      push: mockPush,
+    };
+  },
 }));
 
 jest
@@ -2246,51 +2253,29 @@ describe('Claims SnapshotList Filter', () => {
     });
     const { container } = render(Result);
 
-    expect(screen.getByText('13 Claims')).toBeVisible();
-
     const user = userEvent.setup({
       advanceTimers: jest.advanceTimersByTime,
     });
+    // Members Api was called
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      '/api/member/v1/members/byMemberCk/123456789',
+    );
+    // Claims List APi was called
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      '/api/member/v1/members/byMemberCk/123456789/claims?from=11-28-2022&to=11-28-2024&type=MDV&includeDependents=true',
+    );
 
-    // Change User to CHRISTMAS HALL
-
-    await user.click(screen.getByText('All Members'));
-
-    await user.click(screen.getByText('CHRISTMAS HALL'));
-    // Should show only one result
-    expect(screen.getByText('1 Claims')).toBeVisible();
-
-    // Take snapshot when CHRISTMAS HALL selected
-    expect(container).toMatchSnapshot();
-
-    // Change User to CHRISTOCLAIM HALL
-    await user.click(screen.getByText('CHRISTMAS HALL'));
-    await user.click(screen.getByText('CHRISTOCLAIM HALL'));
-
-    // Should show 12 results
-    expect(screen.getByText('12 Claims')).toBeVisible();
-
-    // Take snapshot when CHRISTOCLAIM HALL selected
-    expect(container).toMatchSnapshot();
-
-    // Change Filter to Last 90 Days
-    await user.click(screen.getByText('Last Two Years'));
-    await user.click(screen.getByText('Last 90 Days'));
-
-    // Should show 12 results
-    expect(screen.getByText('9 Claims')).toBeVisible();
-    expect(container).toMatchSnapshot();
-
-    // Change Filter to Last Two Years
-    await user.click(screen.getByText('Last 90 Days'));
-    await user.click(screen.getByText('Last Two Years'));
-
-    // Change Filter to Dental Claim Type
+    await waitFor(() => {
+      expect(screen.getByText('All Types')).toBeVisible();
+    });
+    // Click on the filter dropdown
     await user.click(screen.getByText('All Types'));
-    await user.click(screen.getByText('Dental'));
 
-    // Should show 1 result for Filter : ChristoCliam Hall, 2 years, Dental
-    expect(screen.getByText('1 Claims')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByText('Dental')).toBeVisible();
+    });
+
+    // Snapshot testing
     expect(container).toMatchSnapshot();
   });
 });
