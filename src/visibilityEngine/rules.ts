@@ -80,6 +80,9 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'prevYearMedical',
   'prevYearFullyInsured',
   'offMarketGrp',
+  'isCondensedExperienceProfileHorizon',
+  'isWellnessProfileWellnessOnly',
+  'ncqaEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];
