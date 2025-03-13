@@ -147,11 +147,11 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
 
 export function isAHAdvisorpage(
   rules: VisibilityRules | undefined,
-  session: Session | null,
+  groupId: string | undefined
 ) {
   return (
     (rules?.active && rules?.amplifyMember) ||
-    isAHAdvisorEnabled(session?.user.currUsr?.plan!.grpId)
+    isAHAdvisorEnabled(groupId)
   );
 }
 
