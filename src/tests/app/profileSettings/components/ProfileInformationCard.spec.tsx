@@ -21,7 +21,9 @@ describe('ProfileInformationCard', () => {
     vRules = {};
   });
   it('should render UI correctly with Other Profile Settings when NCQA Eligible is true', () => {
-    vRules.blueCare = true;
+    vRules.ncqaEligible = true;
+    vRules.active = true;
+    
     const component = renderUI(vRules);
 
     screen.getByText('Profile Information');
@@ -44,7 +46,6 @@ describe('ProfileInformationCard', () => {
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should render UI correctly without Other Profile Settings when NCQA Eligible is false', () => {
-    vRules.blueCare = false;
     const component = renderUI(vRules);
 
     screen.getByText('Profile Information');

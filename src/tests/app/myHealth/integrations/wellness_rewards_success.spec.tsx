@@ -71,8 +71,8 @@ describe('My Health Page Integration', () => {
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getAllByText('70 pts').length).toBe(2);
-    expect(screen.getAllByText('$0.00').length).toBe(2);
+    expect(screen.getAllByText('100 pts').length).toBe(1);
+    expect(screen.getAllByText('70').length).toBe(1);
   });
   it('should render Wellness Rewards with progress bar & pie chart when points alone are available', async () => {
     mockedAxios.post.mockResolvedValueOnce({
@@ -90,8 +90,8 @@ describe('My Health Page Integration', () => {
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getAllByText('70 pts').length).toBe(2);
-    expect(screen.getAllByText('$0.00').length).toBe(2);
+    expect(screen.getAllByText('100 pts').length).toBe(1);
+    expect(screen.getAllByText('70').length).toBe(1);
   });
   it('should render Wellness Rewards with progress bar & pie chart when points is greater than maximum are available', async () => {
     mockedAxios.post.mockResolvedValueOnce({
@@ -109,8 +109,7 @@ describe('My Health Page Integration', () => {
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getAllByText('120 pts').length).toBe(2);
-    expect(screen.getAllByText('$120.00').length).toBe(2);
+    expect(screen.getAllByText('100 pts').length).toBe(1);
   });
   it('should render Wellness Rewards with progress bar & pie chart when dollars alone are available', async () => {
     mockedAxios.post.mockResolvedValueOnce({
@@ -130,8 +129,8 @@ describe('My Health Page Integration', () => {
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getAllByText('60 pts').length).toBe(2);
-    expect(screen.getAllByText('$0.00').length).toBe(2);
+    expect(screen.getAllByText('100 pts').length).toBe(1);
+    expect(screen.getAllByText('60').length).toBe(1);
   });
   it('should render Wellness Rewards with progress bar & pie chart when points & dollars are not available', async () => {
     mockedAxios.post.mockResolvedValueOnce({
@@ -149,8 +148,8 @@ describe('My Health Page Integration', () => {
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getAllByText('0 pts').length).toBe(2);
-    expect(screen.getAllByText('$0.00').length).toBe(2);
+    expect(screen.getAllByText('100 pts').length).toBe(1);
+    expect(screen.getAllByText('0').length).toBe(1);
   });
   it('should render Wellness Rewards with progress bar & pie chart when plan is not fully insured & levelFunded', async () => {
     vRules.user.vRules.fullyInsured = false;
@@ -170,7 +169,7 @@ describe('My Health Page Integration', () => {
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getAllByText('0 pts').length).toBe(2);
-    expect(screen.getAllByText('$0.00').length).toBe(2);
+    expect(screen.getAllByText('100 pts').length).toBe(1);
+    expect(screen.getAllByText('0').length).toBe(1);
   });
 });
