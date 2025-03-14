@@ -97,6 +97,9 @@ const ShareMyInformation = () => {
                     isMinor: false,
                     requestorType: 'subscriber',
                     targetType: 'dependent',
+                    medicalEffectiveDate: '',
+                    dentalEffectiveDate: '',
+                    visionEffectiveDate: '',
                   },
                   {
                     memberName: 'Forest Hall',
@@ -105,6 +108,9 @@ const ShareMyInformation = () => {
                     isMinor: false,
                     targetType: 'dependent',
                     requestorType: 'dependent',
+                    medicalEffectiveDate: '',
+                    dentalEffectiveDate: '',
+                    visionEffectiveDate: '',
                   },
                   {
                     memberName: 'Corey Hall',
@@ -113,18 +119,27 @@ const ShareMyInformation = () => {
                     isMinor: false,
                     targetType: 'subscriber',
                     requestorType: 'dependent',
+                    medicalEffectiveDate: '',
+                    dentalEffectiveDate: '',
+                    visionEffectiveDate: '',
                   },
                   {
                     memberName: 'Telly Hall',
                     DOB: '01/01/2008',
                     sharingType: 'Full Sharing',
                     isMinor: false,
+                    medicalEffectiveDate: '',
+                    dentalEffectiveDate: '',
+                    visionEffectiveDate: '',
                   },
                   {
                     memberName: 'Janie Hall',
                     DOB: '01/01/2024',
                     sharingType: 'Full Sharing',
                     isMinor: true,
+                    medicalEffectiveDate: '',
+                    dentalEffectiveDate: '',
+                    visionEffectiveDate: '',
                   },
                 ]}
               />

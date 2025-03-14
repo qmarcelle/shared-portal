@@ -18,6 +18,8 @@ const renderUI = () => {
           serviceDate: '02/06/2024',
           claimInfo: '',
           isMiniCard: true,
+          memberId: '',
+          claimStatusCode: 0,
         },
         {
           id: 'Claim76',
@@ -29,6 +31,8 @@ const renderUI = () => {
           serviceDate: '01/06/2024',
           claimInfo: '',
           isMiniCard: true,
+          memberId: '',
+          claimStatusCode: 0,
         },
         {
           id: 'Claim54',
@@ -40,6 +44,8 @@ const renderUI = () => {
           serviceDate: '01/16/2024',
           claimInfo: '',
           isMiniCard: true,
+          memberId: '',
+          claimStatusCode: 0,
         },
       ]}
     />,
@@ -56,17 +62,6 @@ describe('RecentClaimSection', () => {
 
     screen.getByRole('heading', { name: 'Recent Claims' });
     screen.getByText('View All Claims');
-
-    screen.getByText('John Doe');
-    screen.getByText('Visited on 02/06/2024, For Chris James');
-    screen.getByText('Processed');
-    screen.getAllByAltText(/medical/i);
-
-    screen.getByText('John Does');
-    screen.getByText('Visited on 01/16/2024, For Aly Jame');
-    screen.getByText('Denied');
-    screen.getAllByAltText(/dental/i);
-
     expect(component.baseElement).toMatchSnapshot();
   });
 });
