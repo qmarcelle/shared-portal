@@ -24,9 +24,11 @@ export async function getClaimsForPlans({
   toDate: string;
 }) {
   try {
+    logger.info('Calling Claims API');
     const resp = await memberService.get<ClaimsResponse>(
       `/api/member/v1/members/byMemberCk/${memberId}/claims?from=${fromDate}&to=${toDate}&type=${plans}&includeDependents=true`,
     );
+    console.log('claims', resp.data.claims);
     return resp.data.claims;
   } catch (err) {
     // if (plans.includes('M')) {
@@ -109,6 +111,7 @@ export async function getAllClaimsData(): Promise<
       },
     };
   } catch (err) {
+    console.error(err);
     logger.error('Claims Retrieval Action Failed', err);
     return {
       status: 400,

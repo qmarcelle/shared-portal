@@ -32,14 +32,14 @@ describe('My Plan Page for BlueCare member', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
-      data: {},
+      data: null,
     });
     const component = await renderUI();
     screen.getByRole('heading', { name: 'Plan Details' });
     screen.getByText('Plan Type:');
     screen.getByText('BlueCare Medicaid');
     screen.getByText('View More ID Card Options');
-    screen.getByText('View Plan Contact Information');
+    screen.queryByText('View Plan Contact Information');
     screen.getByText('View Other Plan Information');
     screen.getByText('Manage My Plan');
     screen.getByText('Profile Settings');

@@ -416,6 +416,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   />
                   <a
                     aria-label="View Claims"
+                    href="/claims"
                     style="display: block;"
                   >
                     <button

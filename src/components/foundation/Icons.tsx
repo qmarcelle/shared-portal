@@ -1,4 +1,5 @@
 import alertBlueSvg from '@/../public/assets/alert_blue.svg';
+import alertGray from '@/../public/assets/alert_gray.svg';
 import showPasswordSvg from '@/../public/assets/show_password.svg';
 import showPasswordSelectedSvg from '@/../public/assets/show_password_selected.svg';
 import amplifyHealthAppPromo from '@/public/assets/amplify_health_app.png';
@@ -130,6 +131,7 @@ export const extrenalIcon = externalSvg;
 export const alertErrorIcon = alertErrorSvg;
 export const externalOffsiteWhiteIcon = externaloffsitewhiteSvg;
 export const alertBlueIcon = alertBlueSvg;
+export const alertGrayIcon = alertGray;
 export const showPasswordIcon = showPasswordSvg;
 export const showPasswordSelectedIcon = showPasswordSelectedSvg;
 export const downloadIcon = downloadIconSvg;

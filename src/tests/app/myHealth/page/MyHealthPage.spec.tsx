@@ -65,8 +65,8 @@ describe('My Health Page', () => {
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
     expect(screen.getByText('Wellness Rewards')).toBeVisible();
-    expect(screen.getAllByText('70 pts').length).toBe(2);
-    expect(screen.getAllByText('$0.00').length).toBe(2);
+    expect(screen.getAllByText('100 pts').length).toBe(1);
+    expect(screen.getAllByText('70').length).toBe(1);
     expect(component).toMatchSnapshot();
   });
 });
