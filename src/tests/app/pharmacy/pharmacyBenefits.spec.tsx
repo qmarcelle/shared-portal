@@ -56,7 +56,7 @@ describe('Pharmacy Benefits', () => {
     );
     expect(
       screen.getAllByRole('link', {
-        name: 'visit TennCare’s site for more info',
+        name: 'TennCare’s site for more info',
       })[0],
     ).toHaveProperty(
       'href',

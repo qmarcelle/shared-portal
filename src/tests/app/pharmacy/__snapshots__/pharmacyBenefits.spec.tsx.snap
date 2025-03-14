@@ -100,11 +100,11 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
                   class="rich-text body-1 md:!inline-flex"
                 >
                   <span>
-                    You can also 
+                    You can also visit  
                   </span>
                   <span>
                     <a
-                      aria-label="visit TennCare’s site for more info"
+                      aria-label="TennCare’s site for more info"
                       href="https://www.tn.gov/tenncare/members-applicants/pharmacy.html"
                       style="display: block;"
                     >
@@ -117,7 +117,7 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
                         <p
                           class="link undefined"
                         >
-                          visit TennCare’s site for more info
+                          TennCare’s site for more info
                         </p>
                         <p
                           class="ml-1"
