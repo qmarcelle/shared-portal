@@ -31,7 +31,7 @@ interface MembersRepresentativeItemProps extends IComponent {
 export const MembersRepresentativeItem = ({
   memberName,
   DOB,
-  isOnline,
+  isOnline = true,
   onClick,
   className,
   fullAccess,
