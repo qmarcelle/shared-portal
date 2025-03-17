@@ -1,15 +1,17 @@
-import { auth } from '@/auth';
 import { Metadata } from 'next';
 import PersonalRepresentativeAccess from '.';
+import { getPersonalRepresentativeData } from './actions/getPersonalRepresentativeData';
 
 export const metadata: Metadata = {
   title: 'My Plan',
 };
 
 const PersonalRepresentativePage = async () => {
-  const session = await auth();
+  const representativeDetails = await getPersonalRepresentativeData();
   return (
-    <PersonalRepresentativeAccess visibilityRules={session?.user.vRules} />
+    <PersonalRepresentativeAccess
+      representativeDetails={representativeDetails?.data}
+    />
   );
 };
 
