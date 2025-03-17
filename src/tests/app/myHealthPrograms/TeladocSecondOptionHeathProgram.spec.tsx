@@ -7,20 +7,20 @@ const renderUI = () => {
   return render(
     <HealthProgramsResources
       healthProgramDetails={healthProgramsandResourcesDetails.get(
-        HealthProgramType.Alight,
+        HealthProgramType.TeladocSecondOption,
       )}
     />,
   );
 };
 
-describe('AlightSecondOption', () => {
+describe('TeladocSecondOption', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
     screen.getByRole('heading', {
-      name: 'Alight Second Opinion Advice & Support',
+      name: 'Teladoc Second Opinion Advice & Support',
     });
     screen.getByText(
-      'Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost.',
+      'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
     );
     screen.getByText(
       'The first time using this service, you’ll need to create an account.',
@@ -28,11 +28,11 @@ describe('AlightSecondOption', () => {
     screen.getByRole('heading', {
       name: 'Why Use This Option',
     });
-    screen.getByText('In-network & covered by your plan at no cost to you');
+    screen.getByText('In-network & covered by your plan at no cost');
     screen.getByText(
-      'Earn a $400 gift card if your doctor has suggested certain surgeries',
+      'Start your case by phone, online or on the Teladoc Health app',
     );
-    screen.getByText('Call, chat or email available');
+
     screen.getByRole('heading', {
       name: 'Your Cost for This Option',
     });
@@ -40,10 +40,12 @@ describe('AlightSecondOption', () => {
     screen.getByRole('heading', {
       name: 'This Option is Generally Good for:',
     });
-    screen.getByText('Speaking with an expert about your diagnosis');
-    screen.getByText('Rare or life-threatening condition support');
-    screen.getByText('Considering risky or complicated treatment');
-    screen.getByText('Compare costs of treatment or tests');
+    screen.getByText('Confirming a diagnosis');
+    screen.getByText('Deciding on a treatment plan');
+    screen.getByText('Getting expert guidance on a surgery');
+    screen.getByText(
+      'Providing answers to your questions about your diagnosis or recommended treatment',
+    );
     expect(component).toMatchSnapshot();
   });
 });
