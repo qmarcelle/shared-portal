@@ -25,6 +25,7 @@ import {
   isBlueCareEligible,
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
+  isMemberWellnessCenterEligible,
   isQuestSelectEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -328,12 +329,14 @@ const MyHealth = ({ data }: MyHealthProps) => {
         )}
         {!isBlueCareMember && (
           <>
-            <section>
-              <MemberWellnessCenterOptions
-                className="large-section"
-                options={memberWellnessCenterDetails}
-              />
-            </section>
+            {isMemberWellnessCenterEligible(data.visibilityRules) && (
+              <section>
+                <MemberWellnessCenterOptions
+                  className="large-section"
+                  options={memberWellnessCenterDetails}
+                />
+              </section>
+            )}
             <section>
               <MyHealthOffsiteLinkCard
                 icon={dentalHealthLibraryIcon}
