@@ -50,7 +50,7 @@ export const ManageMyPlan = ({
         title: 'Manage My Policy',
         body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
         externalLink: false,
-        url: 'url',
+        url: '/myPlan/manageMyPolicy',
       },
     ];
   else
