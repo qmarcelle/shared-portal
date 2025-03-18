@@ -5,6 +5,7 @@ import { Column } from '@/components/foundation/Column';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
+  isEmboldHealthEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
@@ -38,63 +39,67 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
         </section>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <FindMedicalProvidersComponent
-              className="!mt-8"
-              isButtonHorizontal={true}
-            />
-            <FindCarePillBox
-              className="my-8  p-4"
-              // className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
-              title="Looking for care? Find a:"
-              icon={
-                <Image
-                  src={findCareIcon}
-                  className="w-[40px] h-[40px]"
-                  alt=""
-                />
-              }
-              pillObjects={[
-                {
-                  label: 'Primary Care Provider',
-                  callback: () => {
-                    console.log('Clicked Pill PCP');
+            {isEmboldHealthEligible(visibilityRules) && (
+              <FindMedicalProvidersComponent
+                className="!mt-8"
+                isButtonHorizontal={true}
+              />
+            )}
+            {!isEmboldHealthEligible(visibilityRules) && (
+              <FindCarePillBox
+                className="my-8  p-4"
+                // className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
+                title="Looking for care? Find a:"
+                icon={
+                  <Image
+                    src={findCareIcon}
+                    className="w-[40px] h-[40px]"
+                    alt=""
+                  />
+                }
+                pillObjects={[
+                  {
+                    label: 'Primary Care Provider',
+                    callback: () => {
+                      console.log('Clicked Pill PCP');
+                    },
                   },
-                },
-                {
-                  label: 'Dentist',
-                  callback: () => {
-                    console.log('Clicked Pill Dentist');
+                  {
+                    label: 'Dentist',
+                    callback: () => {
+                      console.log('Clicked Pill Dentist');
+                    },
                   },
-                },
-                {
-                  label: 'Mental Health Provider',
-                  callback: () => {
-                    console.log('Clicked Pill Mental Health Provider');
+                  {
+                    label: 'Mental Health Provider',
+                    callback: () => {
+                      console.log('Clicked Pill Mental Health Provider');
+                    },
                   },
-                },
-                {
-                  label: 'Eye Doctor',
-                  callback: () => {
-                    console.log('Clicked Pill Eye Doctor');
+                  {
+                    label: 'Eye Doctor',
+                    callback: () => {
+                      console.log('Clicked Pill Eye Doctor');
+                    },
                   },
-                },
-                {
-                  label: 'Pharmacy',
-                  callback: () => {
-                    router.push(
-                      '/sso/launch?PartnerSpId=' +
-                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
-                    );
+                  {
+                    label: 'Pharmacy',
+                    callback: () => {
+                      router.push(
+                        '/sso/launch?PartnerSpId=' +
+                          process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+                      );
+                    },
                   },
-                },
-                {
-                  label: 'Virtual Care',
-                  callback: () => {
-                    console.log('Clicked Pill Virtual Care');
+                  {
+                    label: 'Virtual Care',
+                    callback: () => {
+                      console.log('Clicked Pill Virtual Care');
+                    },
                   },
-                },
-              ]}
-            />
+                ]}
+              />
+            )}
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
             <FindCarePillBox
