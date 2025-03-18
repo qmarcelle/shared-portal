@@ -51,6 +51,7 @@ export const SSO_LAST_NAME = 'lastname';
 export const SSO_DOB = 'dob';
 export const SSO_CLIENT_ID = 'clientid';
 export const SSO_MEMBER_ID = 'memberid';
+export const SSO_MEMBER_IDENTIFICATION = 'memberidentification';
 export const SSO_GENDER = 'gender';
 export const SSO_PERSON_ID = 'personid';
 export const SSO_INSURED_ID = 'insuredid';
