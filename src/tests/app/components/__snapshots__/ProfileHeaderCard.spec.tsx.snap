@@ -66,6 +66,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   </div>
                   <div
                     class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+                    tabindex="1"
                   >
                     <div>
                       <div>
@@ -431,6 +432,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 </div>
                 <div
                   class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+                  tabindex="1"
                 >
                   <div>
                     <div>
@@ -851,6 +853,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                 </div>
                 <div
                   class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+                  tabindex="1"
                 >
                   <div>
                     <div>

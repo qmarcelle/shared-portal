@@ -209,6 +209,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
           </div>
           <div
             class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+            tabindex="1"
           >
             <div>
               <div>
@@ -443,6 +444,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
         </div>
         <div
           class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+          tabindex="1"
         >
           <div>
             <div>
@@ -734,6 +736,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
           </div>
           <div
             class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+            tabindex="1"
           >
             <div>
               <div>
@@ -1042,6 +1045,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
         </div>
         <div
           class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+          tabindex="1"
         >
           <div>
             <div>

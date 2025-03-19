@@ -44,7 +44,7 @@ describe('MedicalBalanceSection', () => {
     screen.getByText('Network Status :');
     screen.getAllByText('Out-of-Network');
     screen.getByText('Deductible');
-    screen.getAllByLabelText('bar chart');
+    screen.getAllByLabelText('$1800 used of $2000');
     screen.getAllByText('Spent');
     screen.getAllByText('Limit');
     screen.getByText('View Balances');
