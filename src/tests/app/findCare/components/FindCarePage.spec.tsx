@@ -9,17 +9,22 @@ const renderUI = async () => {
 };
 
 // Mock useRouter:
-const mockWindow = jest.fn();
+const mockPush = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
       prefetch: () => null,
-      push: mockWindow,
+      push: mockPush,
     };
   },
 }));
 
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+process.env.NEXT_PUBLIC_IDP_EYEMED = 'EyeMed';
+process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
+  'https://caremark/{DEEPLINK}?newLogin=yes';
+process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET =
+  'https://eyemedvisioncare/bcbst/en/private/{DEEPLINK}';
 
 const vRules = {
   user: {
@@ -57,8 +62,9 @@ describe('Find Care Page', () => {
     await renderUI();
     expect(screen.getByText(/Pharmacy/i));
     fireEvent.click(screen.getByText(/Pharmacy/i));
-    expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
-    process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+    expect(mockPush).toHaveBeenCalledWith(
+      '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes',
+    );
   });
 
   it('should redirect to SSO launch page when we click on Prescription Drugs Pill', async () => {
@@ -68,7 +74,35 @@ describe('Find Care Page', () => {
     });
     fireEvent.click(screen.getByText(/Prescription Drugs/i));
     await waitFor(() => {
-      expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
+      expect(mockPush).toHaveBeenCalledWith(
+        '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes',
+      );
+    });
+  });
+
+  it('should redirect to SSO launch page when we click on Vision Pill', async () => {
+    await renderUI();
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: /Vision/i }));
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Vision/i }));
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith(
+        '/sso/launch?PartnerSpId=EyeMed&TargetResource=https://eyemedvisioncare/bcbst/en/private/know-before-you-go',
+      );
+    });
+  });
+
+  it('should redirect to SSO launch page when we click on Eye Doctor Pill', async () => {
+    await renderUI();
+    await waitFor(() => {
+      expect(screen.getByText(/Eye Doctor/i));
+    });
+    fireEvent.click(screen.getByText(/Eye Doctor/i));
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith(
+        '/sso/launch?PartnerSpId=EyeMed&TargetResource=https://eyemedvisioncare/bcbst/en/private/provider-locator',
+      );
     });
   });
 

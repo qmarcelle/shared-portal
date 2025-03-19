@@ -120,12 +120,13 @@ describe('Blue365 SSO using Drop off API', () => {
         `${process.env.PING_ONE_BASE_URL}${process.env.NEXT_PUBLIC_ENV_ID}/davinci/policy/${process.env.DROP_OFF_POLICY_ID}/start`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {
@@ -176,12 +177,13 @@ describe('Blue365 SSO using Drop off API', () => {
         `${process.env.PING_ONE_BASE_URL}${process.env.NEXT_PUBLIC_ENV_ID}/davinci/policy/${process.env.DROP_OFF_POLICY_ID}/start`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {
