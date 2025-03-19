@@ -49,7 +49,13 @@ export const Dropdown = ({
     <div className="relative">
       <div
         className="flex flex-row link"
-        onClick={() => setShowDrop(!showDrop)}
+        onClick={() => setShowDrop((prev) => !prev)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            setShowDrop((prev) => !prev);
+          }
+        }}
+        tabIndex={0}
       >
         <p className="body-bold">{mappedItems.get(selectedVal)}</p>
         <Spacer axis="horizontal" size={8} />

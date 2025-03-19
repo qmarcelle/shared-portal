@@ -61,6 +61,7 @@ exports[`My Health Page should render page correctly when we have valid session 
                   <div>
                     <div
                       aria-label="bar chart"
+                      role="img"
                       style="height: 10px; width: 70%;"
                     />
                   </div>
@@ -168,6 +169,7 @@ exports[`My Health Page should render page correctly when we have valid session 
                 <div>
                   <div
                     aria-label="bar chart"
+                    role="img"
                     style="height: 10px; width: 70%;"
                   />
                 </div>
@@ -766,6 +768,7 @@ exports[`My Health Page should render page correctly when we have valid session 
                 <div>
                   <div
                     aria-label="bar chart"
+                    role="img"
                     style="height: 10px; width: 70%;"
                   />
                 </div>
@@ -873,6 +876,7 @@ exports[`My Health Page should render page correctly when we have valid session 
               <div>
                 <div
                   aria-label="bar chart"
+                  role="img"
                   style="height: 10px; width: 70%;"
                 />
               </div>
