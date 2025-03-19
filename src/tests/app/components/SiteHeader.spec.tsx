@@ -242,17 +242,30 @@ describe('SiteHeader And Navigation Menu', () => {
     fireEvent.click(screen.getAllByText('Pharmacy')[0]);
     expect(
       screen.getByRole('link', { name: 'My Prescriptions External Link' }),
-    ).toHaveProperty('href', 'https://www.caremark.com/refillRx?newLogin=yes');
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/refillRx?newLogin=yes`,
+    );
 
     expect(
       screen.getByRole('link', { name: 'Mail Order External Link' }),
-    ).toHaveProperty('href', 'https://www.caremark.com/refillRx?newLogin=yes');
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/refillRx?newLogin=yes`,
+    );
 
     expect(
       screen.getByRole('link', { name: 'Find a Pharmacy External Link' }),
     ).toHaveProperty(
       'href',
-      'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes`,
+    );
+
+    expect(
+      screen.getByRole('link', { name: 'Price a Medication External Link' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes`,
     );
 
     expect(
