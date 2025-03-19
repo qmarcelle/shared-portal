@@ -1,4 +1,9 @@
-import { CVS_DEEPLINK_MAP, CVS_DRUG_SEARCH_INIT } from '@/app/sso/ssoConstants';
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_DRUG_SEARCH_INIT,
+  CVS_PHARMACY_SEARCH_FAST,
+  CVS_REFILL_RX,
+} from '@/app/sso/ssoConstants';
 import {
   isBiometricScreening,
   isBlueCareAndPrimaryCarePhysicianEligible,
@@ -474,7 +479,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: 'https://www.caremark.com/refillRx?newLogin=yes',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`,
         external: true,
       },
       {
@@ -485,8 +490,9 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: 'https://www.caremark.com/drugSearchInit.do?newLogin=yes',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
         external: true,
+        openInNewWindow: false,
       },
       {
         id: 70,
@@ -496,8 +502,9 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: 'https://www.caremark.com/refillRx?newLogin=yes',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`,
         external: true,
+        openInNewWindow: false,
       },
       {
         id: 100,
@@ -507,8 +514,9 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: 'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
         external: true,
+        openInNewWindow: false,
       },
       {
         id: 69,
