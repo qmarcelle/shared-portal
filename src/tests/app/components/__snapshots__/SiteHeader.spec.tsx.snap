@@ -4871,7 +4871,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                       target=""
                     >
                       <p
@@ -5704,7 +5704,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                       target=""
                     >
                       <p
@@ -8684,7 +8684,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                       target=""
                     >
                       <p
@@ -9500,7 +9500,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                       target=""
                     >
                       <p
@@ -10333,7 +10333,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                       target=""
                     >
                       <p
@@ -13467,7 +13467,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </a>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=CVS"
+                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                     target=""
                   >
                     <p
@@ -14279,7 +14279,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </a>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=CVS"
+                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                     target=""
                   >
                     <p
@@ -15142,7 +15142,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </a>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=CVS"
+                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
                     target=""
                   >
                     <p

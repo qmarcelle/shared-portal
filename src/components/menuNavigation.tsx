@@ -1,3 +1,4 @@
+import { CVS_DEEPLINK_MAP, CVS_DRUG_SEARCH_INIT } from '@/app/sso/ssoConstants';
 import {
   isBiometricScreening,
   isBlueCareAndPrimaryCarePhysicianEligible,
@@ -144,8 +145,7 @@ export const getMenuNavigation = (
         description: 'This is Price a Medication',
         category: 'Estimate Costs',
         showOnMenu: isBlueCareNotEligible,
-        url:
-          '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
         external: true,
         openInNewWindow: false,
       },
@@ -244,7 +244,7 @@ export const getMenuNavigation = (
         description: 'This is Balances',
         category: 'Spending',
         showOnMenu: isBlueCareNotEligible,
-        url: '/balances',
+        url: '/benefits/balances',
         external: false,
       },
       {

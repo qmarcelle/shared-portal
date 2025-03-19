@@ -83,6 +83,8 @@ const renderUI = (vRules: VisibilityRules) => {
 };
 
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
+  'https://caremark/{DEEPLINK}?newLogin=yes';
 process.env.NEXT_PUBLIC_IDP_ON_LIFE = 'OnLife';
 process.env.NEXT_PUBLIC_IDP_EMBOLD = 'EMBOLD';
 
@@ -138,7 +140,10 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
-    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=CVS`);
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes`,
+    );
     expect(
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
     ).toHaveProperty('target', '');

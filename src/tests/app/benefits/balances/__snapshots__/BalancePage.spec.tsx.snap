@@ -384,7 +384,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                 </p>
                 <a
                   aria-label="visit EyeMed"
-                  href=""
+                  href="/sso/launch?PartnerSpId=Eyemed"
                   style="display: inline-flex;"
                 >
                   <button
@@ -839,7 +839,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                 </p>
                 <a
                   aria-label="visit EyeMed"
-                  href=""
+                  href="/sso/launch?PartnerSpId=Eyemed"
                   style="display: inline-flex;"
                 >
                   <button
