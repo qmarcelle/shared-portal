@@ -266,11 +266,11 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h1
-                  class="title-1 title-2"
+                <h2
+                  class="title-2"
                 >
                   My Recent Pharmacy Claims
-                </h1>
+                </h2>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -1190,11 +1190,11 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
               <div
                 class="flex flex-col"
               >
-                <h1
-                  class="title-1 title-2"
+                <h2
+                  class="title-2"
                 >
                   My Recent Pharmacy Claims
-                </h1>
+                </h2>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -1770,11 +1770,11 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h1
-                  class="title-1 title-2"
+                <h2
+                  class="title-2"
                 >
                   My Recent Pharmacy Claims
-                </h1>
+                </h2>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />

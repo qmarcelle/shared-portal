@@ -268,11 +268,11 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     My Recent Pharmacy Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -1413,11 +1413,11 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
               <div
                 class="flex flex-col"
               >
-                <h1
-                  class="title-1 title-2"
+                <h2
+                  class="title-2"
                 >
                   My Recent Pharmacy Claims
-                </h1>
+                </h2>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -2615,11 +2615,11 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     My Recent Pharmacy Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -3837,11 +3837,11 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
               <div
                 class="flex flex-col"
               >
-                <h1
-                  class="title-1 title-2"
+                <h2
+                  class="title-2"
                 >
                   My Recent Pharmacy Claims
-                </h1>
+                </h2>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />

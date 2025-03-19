@@ -41,6 +41,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
             class="flex flex-col doughnut-img mx-auto"
           >
             <canvas
+              aria-hidden="true"
               class="spendingSummaryChart"
               height="150"
               role="img"
@@ -742,6 +743,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                       class="flex flex-col doughnut-img mx-auto"
                     >
                       <canvas
+                        aria-hidden="true"
                         class="spendingSummaryChart"
                         height="150"
                         role="img"
@@ -1441,6 +1443,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                     class="flex flex-col doughnut-img mx-auto"
                   >
                     <canvas
+                      aria-hidden="true"
                       class="spendingSummaryChart"
                       height="150"
                       role="img"

@@ -197,6 +197,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                     </div>
                     <div
                       class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+                      tabindex="1"
                     >
                       <div>
                         <div>
@@ -2214,6 +2215,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
