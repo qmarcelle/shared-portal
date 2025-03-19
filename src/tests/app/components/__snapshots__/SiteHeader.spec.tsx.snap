@@ -548,11 +548,12 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Wellness
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/wellnessrewards"
@@ -653,11 +654,12 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Advice & Support
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bcbstwelltuned.com/"
@@ -2138,11 +2140,12 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Wellness
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/wellnessrewards"
@@ -2237,11 +2240,12 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Advice & Support
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bcbstwelltuned.com/"
@@ -2974,11 +2978,12 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Plan Details
-                    </h1>
+                    </p>
                     <a
                       aria-label="Benefits & Coverage"
                       style="display: block;"
@@ -3038,11 +3043,12 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Claims
-                    </h1>
+                    </p>
                     <a
                       aria-label="View Claims"
                       style="display: block;"
@@ -3102,11 +3108,12 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Spending
-                    </h1>
+                    </p>
                     <a
                       aria-label="Balances"
                       style="display: block;"
@@ -3166,11 +3173,12 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Manage My Plan
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/balances"
@@ -3878,11 +3886,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Wellness
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/wellnessrewards"
@@ -3960,11 +3969,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Advice & Support
-                    </h1>
+                    </p>
                     <a
                       aria-label="Health Programs & Resources"
                       style="display: block;"
@@ -4713,11 +4723,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Find Care
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=EMBOLD"
@@ -4789,11 +4800,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Estimate Costs
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
@@ -5544,11 +5556,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Find Care
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=EMBOLD"
@@ -5620,11 +5633,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Estimate Costs
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
@@ -6376,11 +6390,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Plan Details
-                    </h1>
+                    </p>
                     <a
                       aria-label="Benefits & Coverage"
                       style="display: block;"
@@ -6440,11 +6455,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Claims
-                    </h1>
+                    </p>
                     <a
                       aria-label="View Claims"
                       style="display: block;"
@@ -6504,11 +6520,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Spending
-                    </h1>
+                    </p>
                     <a
                       aria-label="Balances"
                       style="display: block;"
@@ -6568,11 +6585,12 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Manage My Plan
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/balances"
@@ -8535,11 +8553,12 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Find Care
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=EMBOLD"
@@ -8594,11 +8613,12 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Estimate Costs
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
@@ -9349,11 +9369,12 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Find Care
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=EMBOLD"
@@ -9408,11 +9429,12 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Estimate Costs
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
@@ -10163,11 +10185,12 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Find Care
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=EMBOLD"
@@ -10239,11 +10262,12 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Estimate Costs
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/pricemedicalcare"
@@ -11737,11 +11761,12 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Wellness
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/wellnessrewards"
@@ -11819,11 +11844,12 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Advice & Support
-                    </h1>
+                    </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="https://bcbstwelltuned.com/"
@@ -12556,11 +12582,12 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Plan Details
-                    </h1>
+                    </p>
                     <a
                       aria-label="Benefits & Coverage"
                       style="display: block;"
@@ -12609,11 +12636,12 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Claims
-                    </h1>
+                    </p>
                     <a
                       aria-label="View Claims"
                       style="display: block;"
@@ -12680,11 +12708,12 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                   <div
                     class="lg:grid-rows-4"
                   >
-                    <h1
-                      class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                    <p
+                      class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                      style="display: block;"
                     >
                       Manage My Plan
-                    </h1>
+                    </p>
                     <a
                       aria-label="Update Katie Beckett Banking Info"
                       style="display: block;"
@@ -13307,11 +13336,12 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 <div
                   class="lg:grid-rows-4"
                 >
-                  <h1
-                    class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                  <p
+                    class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                    style="display: block;"
                   >
                     Find Care
-                  </h1>
+                  </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=EMBOLD"
@@ -13366,11 +13396,12 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 <div
                   class="lg:grid-rows-4"
                 >
-                  <h1
-                    class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                  <p
+                    class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                    style="display: block;"
                   >
                     Estimate Costs
-                  </h1>
+                  </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/pricemedicalcare"
@@ -14117,11 +14148,12 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 <div
                   class="lg:grid-rows-4"
                 >
-                  <h1
-                    class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                  <p
+                    class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                    style="display: block;"
                   >
                     Find Care
-                  </h1>
+                  </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=EMBOLD"
@@ -14176,11 +14208,12 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 <div
                   class="lg:grid-rows-4"
                 >
-                  <h1
-                    class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                  <p
+                    class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                    style="display: block;"
                   >
                     Estimate Costs
-                  </h1>
+                  </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/pricemedicalcare"
@@ -14927,11 +14960,12 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 <div
                   class="lg:grid-rows-4"
                 >
-                  <h1
-                    class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                  <p
+                    class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                    style="display: block;"
                   >
                     Find Care
-                  </h1>
+                  </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=EMBOLD"
@@ -15037,11 +15071,12 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 <div
                   class="lg:grid-rows-4"
                 >
-                  <h1
-                    class="title-1 py-2 tertiary-color font-thin !text-2xl"
+                  <p
+                    class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
+                    style="display: block;"
                   >
                     Estimate Costs
-                  </h1>
+                  </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/pricemedicalcare"
