@@ -482,3 +482,8 @@ function isCityOfMemphisWellnessOnlyProfiler(
 export function isTeladocEligible(rules: VisibilityRules | undefined) {
   return rules?.teladoc && activeAndHealthPlanMember(rules);
 }
+export function isMemberWellnessCenterEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return isActiveAndNotFSAOnly(rules) && rules?.phaMemberEligible;
+}

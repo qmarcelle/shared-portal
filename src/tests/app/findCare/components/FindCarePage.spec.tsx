@@ -1,5 +1,6 @@
 import FindCarePage from '@/app/findcare/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 const renderUI = async () => {
@@ -47,6 +48,7 @@ const vRules = {
       mentalHealthSupport: true,
       hingeHealthEligible: true,
       levelFunded: true,
+      isEmboldHealth: true,
     },
   },
 };
@@ -126,6 +128,41 @@ describe('Find Care Page', () => {
     });
     const component = await renderUI();
     expect(screen.queryByText('Virtual Care Options')).toBeNull();
+    expect(component).toMatchSnapshot();
+  });
+  it('should render the Find Medical Providers card if isEmboldHealthEligible pzn rule is true', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    vRules.user.vRules.isEmboldHealth = true;
+    vRules.user.vRules.futureEffective = false;
+    vRules.user.vRules.fsaOnly = false;
+    vRules.user.vRules.terminated = false;
+    vRules.user.vRules.katieBeckNoBenefitsElig = false;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    const component = await renderUI();
+    expect(
+      screen.getByText(
+        'Use the employer-provided Embold Health search tool to',
+      ),
+    ).toBeVisible();
+    expect(component).toMatchSnapshot();
+  });
+  it('should not render the Looking for care card if isEmboldHealthEligible pzn rule is false', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    vRules.user.vRules.fsaOnly = true;
+    vRules.user.vRules.futureEffective = true;
+    vRules.user.vRules.terminated = true;
+    vRules.user.vRules.katieBeckNoBenefitsElig = true;
+    vRules.user.vRules.isEmboldHealth = false;
+
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {},
+    });
+    const component = await renderUI();
+    expect(screen.getByText('Looking for care? Find a:')).toBeVisible();
     expect(component).toMatchSnapshot();
   });
 });
