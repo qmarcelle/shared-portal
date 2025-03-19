@@ -69,6 +69,7 @@ exports[`Search Results Page should render all the required components 1`] = `
               >
                 <div
                   class="flex flex-row link"
+                  tabindex="0"
                 >
                   <p
                     class="body-bold"
@@ -636,6 +637,7 @@ exports[`Search Results Page should render all the required components 1`] = `
             >
               <div
                 class="flex flex-row link"
+                tabindex="0"
               >
                 <p
                   class="body-bold"

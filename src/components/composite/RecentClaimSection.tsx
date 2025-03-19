@@ -80,7 +80,7 @@ export const RecentClaimSection = ({
   return (
     <Card className={className}>
       <div className="flex flex-col">
-        <Header className="title-2" text={title} />
+        <Header type="title-2" text={title} />
         <Spacer size={32} />
 
         {renderSection(claims)}

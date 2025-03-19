@@ -97,11 +97,11 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     Recent Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -460,6 +460,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -546,6 +547,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -631,7 +633,8 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1800 used of $2000"
+                        role="img"
                         style="height: 10px; width: 90%;"
                       />
                     </div>
@@ -683,7 +686,8 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1500 used of $3000"
+                        role="img"
                         style="height: 10px; width: 50%;"
                       />
                     </div>
@@ -857,6 +861,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                       class="flex flex-col doughnut-img mx-auto"
                     >
                       <canvas
+                        aria-hidden="true"
                         class="spendingSummaryChart"
                         height="150"
                         role="img"
@@ -995,6 +1000,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   />
                   <div
                     class="card-elevated cursor-pointer"
+                    tabindex="0"
                   >
                     <div
                       class=" flex-row align-top m-4"
@@ -1094,11 +1100,11 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                 class="card-main large-section"
               >
                 <div>
-                  <h2
+                  <h3
                     class="title-2"
                   >
                     Benefits & Coverage
-                  </h2>
+                  </h3>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -1173,7 +1179,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -1218,7 +1224,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -1263,7 +1269,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -1308,7 +1314,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -1353,7 +1359,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -1778,11 +1784,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   <div
                     class="flex flex-col"
                   >
-                    <h1
-                      class="title-1 title-2"
+                    <h2
+                      class="title-2"
                     >
                       Recent Claims
-                    </h1>
+                    </h2>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
@@ -2141,6 +2147,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"
@@ -2227,6 +2234,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"
@@ -2312,7 +2320,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <div>
                         <div
-                          aria-label="bar chart"
+                          aria-label="$1800 used of $2000"
+                          role="img"
                           style="height: 10px; width: 90%;"
                         />
                       </div>
@@ -2364,7 +2373,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <div>
                         <div
-                          aria-label="bar chart"
+                          aria-label="$1500 used of $3000"
+                          role="img"
                           style="height: 10px; width: 50%;"
                         />
                       </div>
@@ -2538,6 +2548,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-col doughnut-img mx-auto"
                       >
                         <canvas
+                          aria-hidden="true"
                           class="spendingSummaryChart"
                           height="150"
                           role="img"
@@ -2676,6 +2687,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <div
                       class="card-elevated cursor-pointer"
+                      tabindex="0"
                     >
                       <div
                         class=" flex-row align-top m-4"
@@ -2775,11 +2787,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   class="card-main large-section"
                 >
                   <div>
-                    <h2
+                    <h3
                       class="title-2"
                     >
                       Benefits & Coverage
-                    </h2>
+                    </h3>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
@@ -2854,7 +2866,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -2899,7 +2911,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -2944,7 +2956,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -2989,7 +3001,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -3034,7 +3046,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -3453,11 +3465,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     Recent Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -3816,6 +3828,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -3902,6 +3915,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -3987,7 +4001,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1800 used of $2000"
+                        role="img"
                         style="height: 10px; width: 90%;"
                       />
                     </div>
@@ -4039,7 +4054,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1500 used of $3000"
+                        role="img"
                         style="height: 10px; width: 50%;"
                       />
                     </div>
@@ -4213,6 +4229,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       class="flex flex-col doughnut-img mx-auto"
                     >
                       <canvas
+                        aria-hidden="true"
                         class="spendingSummaryChart"
                         height="150"
                         role="img"
@@ -4351,6 +4368,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   />
                   <div
                     class="card-elevated cursor-pointer"
+                    tabindex="0"
                   >
                     <div
                       class=" flex-row align-top m-4"
@@ -4450,11 +4468,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                 class="card-main large-section"
               >
                 <div>
-                  <h2
+                  <h3
                     class="title-2"
                   >
                     Benefits & Coverage
-                  </h2>
+                  </h3>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -4529,7 +4547,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -4574,7 +4592,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -4619,7 +4637,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -4664,7 +4682,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -4709,7 +4727,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -5183,11 +5201,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     Recent Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -5546,6 +5564,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -5632,6 +5651,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -5717,7 +5737,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1800 used of $2000"
+                        role="img"
                         style="height: 10px; width: 90%;"
                       />
                     </div>
@@ -5769,7 +5790,8 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1500 used of $3000"
+                        role="img"
                         style="height: 10px; width: 50%;"
                       />
                     </div>
@@ -5943,6 +5965,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                       class="flex flex-col doughnut-img mx-auto"
                     >
                       <canvas
+                        aria-hidden="true"
                         class="spendingSummaryChart"
                         height="150"
                         role="img"
@@ -6081,6 +6104,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   />
                   <div
                     class="card-elevated cursor-pointer"
+                    tabindex="0"
                   >
                     <div
                       class=" flex-row align-top m-4"
@@ -6180,11 +6204,11 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                 class="card-main large-section"
               >
                 <div>
-                  <h2
+                  <h3
                     class="title-2"
                   >
                     Benefits & Coverage
-                  </h2>
+                  </h3>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -6259,7 +6283,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -6304,7 +6328,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -6349,7 +6373,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -6394,7 +6418,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -6439,7 +6463,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -6864,11 +6888,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   <div
                     class="flex flex-col"
                   >
-                    <h1
-                      class="title-1 title-2"
+                    <h2
+                      class="title-2"
                     >
                       Recent Claims
-                    </h1>
+                    </h2>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
@@ -7227,6 +7251,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"
@@ -7313,6 +7338,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"
@@ -7398,7 +7424,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <div>
                         <div
-                          aria-label="bar chart"
+                          aria-label="$1800 used of $2000"
+                          role="img"
                           style="height: 10px; width: 90%;"
                         />
                       </div>
@@ -7450,7 +7477,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <div>
                         <div
-                          aria-label="bar chart"
+                          aria-label="$1500 used of $3000"
+                          role="img"
                           style="height: 10px; width: 50%;"
                         />
                       </div>
@@ -7624,6 +7652,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col doughnut-img mx-auto"
                       >
                         <canvas
+                          aria-hidden="true"
                           class="spendingSummaryChart"
                           height="150"
                           role="img"
@@ -7762,6 +7791,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <div
                       class="card-elevated cursor-pointer"
+                      tabindex="0"
                     >
                       <div
                         class=" flex-row align-top m-4"
@@ -7861,11 +7891,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   class="card-main large-section"
                 >
                   <div>
-                    <h2
+                    <h3
                       class="title-2"
                     >
                       Benefits & Coverage
-                    </h2>
+                    </h3>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
@@ -7940,7 +7970,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -7985,7 +8015,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -8030,7 +8060,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -8075,7 +8105,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -8120,7 +8150,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -8493,11 +8523,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     Recent Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -8856,6 +8886,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -8942,6 +8973,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -9027,7 +9059,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1800 used of $2000"
+                        role="img"
                         style="height: 10px; width: 90%;"
                       />
                     </div>
@@ -9079,7 +9112,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1500 used of $3000"
+                        role="img"
                         style="height: 10px; width: 50%;"
                       />
                     </div>
@@ -9253,6 +9287,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       class="flex flex-col doughnut-img mx-auto"
                     >
                       <canvas
+                        aria-hidden="true"
                         class="spendingSummaryChart"
                         height="150"
                         role="img"
@@ -9391,6 +9426,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   />
                   <div
                     class="card-elevated cursor-pointer"
+                    tabindex="0"
                   >
                     <div
                       class=" flex-row align-top m-4"
@@ -9490,11 +9526,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                 class="card-main large-section"
               >
                 <div>
-                  <h2
+                  <h3
                     class="title-2"
                   >
                     Benefits & Coverage
-                  </h2>
+                  </h3>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -9569,7 +9605,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -9614,7 +9650,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -9659,7 +9695,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -9704,7 +9740,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -9749,7 +9785,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -10179,11 +10215,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   <div
                     class="flex flex-col"
                   >
-                    <h1
-                      class="title-1 title-2"
+                    <h2
+                      class="title-2"
                     >
                       Recent Claims
-                    </h1>
+                    </h2>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
@@ -10542,6 +10578,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"
@@ -10628,6 +10665,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"
@@ -10713,7 +10751,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <div>
                         <div
-                          aria-label="bar chart"
+                          aria-label="$1800 used of $2000"
+                          role="img"
                           style="height: 10px; width: 90%;"
                         />
                       </div>
@@ -10765,7 +10804,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <div>
                         <div
-                          aria-label="bar chart"
+                          aria-label="$1500 used of $3000"
+                          role="img"
                           style="height: 10px; width: 50%;"
                         />
                       </div>
@@ -10939,6 +10979,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col doughnut-img mx-auto"
                       >
                         <canvas
+                          aria-hidden="true"
                           class="spendingSummaryChart"
                           height="150"
                           role="img"
@@ -11077,6 +11118,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <div
                       class="card-elevated cursor-pointer"
+                      tabindex="0"
                     >
                       <div
                         class=" flex-row align-top m-4"
@@ -11176,11 +11218,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   class="card-main large-section"
                 >
                   <div>
-                    <h2
+                    <h3
                       class="title-2"
                     >
                       Benefits & Coverage
-                    </h2>
+                    </h3>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
@@ -11255,7 +11297,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -11300,7 +11342,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -11345,7 +11387,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -11390,7 +11432,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -11435,7 +11477,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                           class="flex flex-col "
                         >
                           <img
-                            alt="Next"
+                            alt=""
                             class="icon mt-2"
                             data-nimg="1"
                             decoding="async"
@@ -11854,11 +11896,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     Recent Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -12217,6 +12259,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -12303,6 +12346,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -12388,7 +12432,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1800 used of $2000"
+                        role="img"
                         style="height: 10px; width: 90%;"
                       />
                     </div>
@@ -12440,7 +12485,8 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <div>
                       <div
-                        aria-label="bar chart"
+                        aria-label="$1500 used of $3000"
+                        role="img"
                         style="height: 10px; width: 50%;"
                       />
                     </div>
@@ -12614,6 +12660,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       class="flex flex-col doughnut-img mx-auto"
                     >
                       <canvas
+                        aria-hidden="true"
                         class="spendingSummaryChart"
                         height="150"
                         role="img"
@@ -12752,6 +12799,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   />
                   <div
                     class="card-elevated cursor-pointer"
+                    tabindex="0"
                   >
                     <div
                       class=" flex-row align-top m-4"
@@ -12851,11 +12899,11 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                 class="card-main large-section"
               >
                 <div>
-                  <h2
+                  <h3
                     class="title-2"
                   >
                     Benefits & Coverage
-                  </h2>
+                  </h3>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -12930,7 +12978,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -12975,7 +13023,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -13020,7 +13068,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -13065,7 +13113,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -13110,7 +13158,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"

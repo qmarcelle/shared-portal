@@ -108,6 +108,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                   >
                     <div
                       class="flex flex-row link"
+                      tabindex="0"
                     >
                       <p
                         class="body-bold"
@@ -459,6 +460,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                     class="flex flex-col doughnut-img mx-auto"
                   >
                     <canvas
+                      aria-hidden="true"
                       class="spendingSummaryChart"
                       height="150"
                       role="img"
@@ -913,6 +915,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                     class="flex flex-col doughnut-img mx-auto"
                   >
                     <canvas
+                      aria-hidden="true"
                       class="spendingSummaryChart"
                       height="150"
                       role="img"

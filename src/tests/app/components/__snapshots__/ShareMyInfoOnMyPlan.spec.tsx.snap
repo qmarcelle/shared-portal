@@ -189,6 +189,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         >
                           <div
                             class="flex flex-row link"
+                            tabindex="0"
                           >
                             <p
                               class="body-bold"
@@ -950,6 +951,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"

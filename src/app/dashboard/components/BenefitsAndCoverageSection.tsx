@@ -3,11 +3,11 @@ import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Divider } from '@/components/foundation/Divider';
+import { rightIcon } from '@/components/foundation/Icons';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import { useState } from 'react';
-import RightIcon from '../../../../public/assets/right.svg';
 
 interface BenefitsAndCoverageSectionProps extends IComponent {
   benefits: BenefitDetails[];
@@ -35,7 +35,7 @@ export const BenefitsAndCoverageSection = ({
   return (
     <Card className={className}>
       <div>
-        <h2 className="title-2">Benefits & Coverage</h2>
+        <h3 className="title-2">Benefits & Coverage</h3>
         <Spacer size={32} />
         <SearchField onSearch={handleSearch} hint="Search Benefits" />
         <Spacer size={32} />
@@ -43,8 +43,8 @@ export const BenefitsAndCoverageSection = ({
           <label className="body-1">Browse your benefits by category:</label>
           <Spacer size={32} />
         </div>
-        {filteredUsers.slice(0, filteredUsers.length).map((item, index) => (
-          <div key={index}>
+        {filteredUsers.slice(0, filteredUsers.length).map((item) => (
+          <div key={item.benefitName}>
             <Spacer size={16} />
             <a
               href={item.benefitURL}
@@ -61,7 +61,7 @@ export const BenefitsAndCoverageSection = ({
                 <Spacer axis="horizontal" size={8} />
               </div>
               <div className="flex flex-col ">
-                <Image src={RightIcon} className="icon mt-2" alt="Next" />
+                <Image src={rightIcon} className="icon mt-2" alt="" />
               </div>
             </a>
             <Spacer size={16} />

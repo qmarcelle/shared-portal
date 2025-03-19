@@ -169,6 +169,7 @@ exports[`Medical and Dental Balances API Failing should call Balances api and re
                   class="flex flex-col doughnut-img mx-auto"
                 >
                   <canvas
+                    aria-hidden="true"
                     class="spendingSummaryChart"
                     height="150"
                     role="img"
