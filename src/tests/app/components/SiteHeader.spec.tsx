@@ -143,9 +143,14 @@ describe('SiteHeader And Navigation Menu', () => {
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
     ).toHaveProperty('target', '');
 
+    const estimateCostsElement = screen.getByText(/Estimate Costs/i);
+    expect(estimateCostsElement.tagName).toBe('P');
     /**** Nav Links For My Plan  */
 
     fireEvent.click(screen.getAllByText('My Plan')[0]);
+
+    const findCareElement = screen.getByText(/Plan Details/i);
+    expect(findCareElement.tagName).toBe('P');
 
     expect(
       screen.getByRole('button', {
