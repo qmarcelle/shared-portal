@@ -5,15 +5,19 @@ import {
   securityIcon,
   sharePermissionsIcon,
 } from '@/components/foundation/Icons';
+import { UserRole } from '@/userManagement/models/sessionUser';
+import { checkPersonalRepAccess } from '@/utils/getRole';
 import { isCommunicationSettingsEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 
 export type ProfileSettingsSectionProps = {
   visibilityRules?: VisibilityRules;
+  userRole: UserRole | undefined;
 };
 
 export const ProfileSettingsSection = ({
   visibilityRules,
+  userRole,
 }: ProfileSettingsSectionProps) => {
   let profileSettingDetails;
   if (isCommunicationSettingsEligible(visibilityRules)) {
@@ -47,6 +51,15 @@ export const ProfileSettingsSection = ({
         link: '/sharingPermissions',
       },
     ];
+  }
+
+  // Filter out settings based on user role
+  if (userRole && !checkPersonalRepAccess(userRole)) {
+    profileSettingDetails = profileSettingDetails.filter(
+      (profileSetting) =>
+        profileSetting.label !== 'Communication Settings' &&
+        profileSetting.label !== 'Security Settings',
+    );
   }
 
   return (
