@@ -13,6 +13,7 @@ import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcompon
 import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
+import { PrimaryAccountSelection } from './components/PrimaryAccountSelection';
 import { ResetPasswordComponent } from './components/ResetPasswordComponent';
 import { useLoginStore } from './stores/loginStore';
 import { useMfaStore } from './stores/mfaStore';
@@ -29,6 +30,7 @@ export default function LogIn() {
     forcedPasswordReset,
     emailUniqueness,
     verifyUniqueEmail,
+    duplicateAccount,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
@@ -40,6 +42,7 @@ export default function LogIn() {
     state.forcedPasswordReset,
     state.emailUniqueness,
     state.verifyUniqueEmail,
+    state.duplicateAccount,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
@@ -76,6 +79,9 @@ export default function LogIn() {
     }
     if (emailUniqueness == true) {
       return <EmailUniquenessVerification />;
+    }
+    if (duplicateAccount == true) {
+      return <PrimaryAccountSelection />;
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;

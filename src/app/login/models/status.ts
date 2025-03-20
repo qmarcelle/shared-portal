@@ -10,6 +10,7 @@ export enum LoginStatus {
   PASSWORD_RESET_REQUIRED,
   EMAIL_UNIQUENESS,
   REACTIVATION_REQUIRED,
+  DUPLICATE_ACCOUNT,
 }
 
 export enum SelectMFAStatus {
@@ -25,6 +26,7 @@ export enum SubmitMFAStatus {
   GENERIC_OR_INLINE_ERROR,
   PASSWORD_RESET_REQUIRED,
   EMAIL_UNIQUENESS,
+  DUPLICATE_ACCOUNT,
 }
 
 export enum PasswordResetStatus {
