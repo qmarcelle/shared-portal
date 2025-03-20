@@ -163,14 +163,14 @@ function isAHAdvisorEnabled(groupId: string | undefined) {
   return false;
 }
 
-export function isTeledocPrimary360Eligible(
+export function isTeladocPrimary360Eligible(
   rules: VisibilityRules | undefined,
 ) {
   return rules?.primary360Eligible && activeAndHealthPlanMember(rules);
 }
 
 export function isPrimaryCareMenuOption(rules: VisibilityRules | undefined) {
-  return isBlueCareEligible(rules) || isTeledocPrimary360Eligible(rules);
+  return isBlueCareEligible(rules) || isTeladocPrimary360Eligible(rules);
 }
 export function isMentalHealthMenuOption(rules: VisibilityRules | undefined) {
   return (
@@ -263,12 +263,6 @@ export function isNewMentalHealthSupportMyStrengthCompleteEligible(
   rules: VisibilityRules | undefined,
 ) {
   return rules?.myStrengthCompleteEligible && activeAndHealthPlanMember(rules);
-}
-
-export function isTeladocPrimary360Eligible(
-  rules: VisibilityRules | undefined,
-) {
-  return rules?.primary360Eligible && activeAndHealthPlanMember(rules);
 }
 
 export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
@@ -466,6 +460,9 @@ export function isMedicarePrescriptionPaymentPlanEligible(
   );
 }
 
+export const isTeladocEligible = (rules: VisibilityRules | undefined) =>
+  rules?.teladocEligible && activeAndHealthPlanMember(rules);
+
 export const isQuestSelectEligible = (rules: VisibilityRules | undefined) =>
   rules?.questSelectEligible && rules?.active;
 
@@ -479,9 +476,6 @@ function isCityOfMemphisWellnessOnlyProfiler(
   if (rules?.wellnessOnly && groupId == '130447') return 'IsWellnessOnly';
 }
 
-export function isTeladocEligible(rules: VisibilityRules | undefined) {
-  return rules?.teladoc && activeAndHealthPlanMember(rules);
-}
 export function isMemberWellnessCenterEligible(
   rules: VisibilityRules | undefined,
 ) {

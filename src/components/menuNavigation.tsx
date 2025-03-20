@@ -21,7 +21,7 @@ import {
   isPrimaryCareMenuOption,
   isSpendingAccountsMenuOptions,
   isTeladocEligible,
-  isTeledocPrimary360Eligible,
+  isTeladocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -103,7 +103,7 @@ export const getMenuNavigation = (
             isNewMentalHealthSupportMyStrengthCompleteEligible(rules) &&
             isNewMentalHealthSupportAbleToEligible(rules) &&
             isHingeHealthEligible(rules) &&
-            isTeledocPrimary360Eligible(rules) &&
+            isTeladocPrimary360Eligible(rules) &&
             isTeladocEligible(rules) &&
             isNurseChatEligible(rules)
           ) {

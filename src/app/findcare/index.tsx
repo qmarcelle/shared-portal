@@ -11,7 +11,7 @@ import {
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
   isTeladocEligible,
-  isTeledocPrimary360Eligible,
+  isTeladocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
@@ -193,7 +193,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
         {isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules) &&
           isNewMentalHealthSupportAbleToEligible(visibilityRules) &&
           isHingeHealthEligible(visibilityRules) &&
-          isTeledocPrimary360Eligible(visibilityRules) &&
+          isTeladocPrimary360Eligible(visibilityRules) &&
           isTeladocEligible(visibilityRules) &&
           isNurseChatEligible(visibilityRules) && (
             <section>

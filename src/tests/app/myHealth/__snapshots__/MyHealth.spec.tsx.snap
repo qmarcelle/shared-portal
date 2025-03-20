@@ -3617,6 +3617,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <a
                 aria-label="View All Health Programs & Resources"
+                href="/myHealth/healthProgramsResources"
                 style="display: block;"
               >
                 <button
@@ -4870,6 +4871,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                 />
                 <a
                   aria-label="View All Health Programs & Resources"
+                  href="/myHealth/healthProgramsResources"
                   style="display: block;"
                 >
                   <button
@@ -6117,6 +6119,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
               />
               <a
                 aria-label="View All Health Programs & Resources"
+                href="/myHealth/healthProgramsResources"
                 style="display: block;"
               >
                 <button
