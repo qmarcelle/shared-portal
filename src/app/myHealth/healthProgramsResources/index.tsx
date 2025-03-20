@@ -17,6 +17,7 @@ import {
   isNurseChatEligible,
   isQuestSelectEligible,
   isSilverAndFitnessEligible,
+  isTeladocEligible,
   isTeladocPrimary360Eligible,
   isTeladocSecondOpinionAdviceAndSupportEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -73,6 +74,10 @@ const healthPrograms = [
     checkFunction: isQuestSelectEligible,
     key: HealthProgramsResourcesName.QuestSelectLowCostLabTesting,
   },
+  {
+    checkFunction: isTeladocEligible,
+    key: HealthProgramsResourcesName.TeladocHealthGeneralAndUrgentCare,
+  },
 ];
 
 export type MyHealthProgramsResourcesProps = {
@@ -89,6 +94,7 @@ const MyHealthProgramsResources = ({
       if (resource) virtualHealthCareDetails.push(resource);
     }
   });
+
   return (
     <div className="flex flex-col justify-center items-center page">
       <Spacer size={32} />

@@ -44,7 +44,10 @@ export const OtherBenefits = ({
             ))}
         </SlidingCarousel>
         <Spacer size={23} />
-        <AppLink label="View All Health Programs & Resources" />
+        <AppLink
+          label="View All Health Programs & Resources"
+          url="/myHealth/healthProgramsResources"
+        />
       </Column>
     </Card>
   );
