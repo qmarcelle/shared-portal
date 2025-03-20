@@ -35,7 +35,7 @@ jest.mock('src/utils/date_formatter', () => ({
 describe('Personal Representative Access Page', () => {
   it('should show personal representatives associated to slected plan for a loggedin user', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
-    mockAuth.mockResolvedValueOnce(vRules);
+    mockAuth.mockResolvedValue(vRules);
     const mockFormatDate = jest.requireMock(
       'src/utils/date_formatter',
     ).formatDateToLocale;

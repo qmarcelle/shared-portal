@@ -1,0 +1,1626 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Communication accessOtherInformation should render accessOtherInformation if user role is not PERSONAL_REP 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1"
+          >
+            Access Others' Information
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main  large-section"
+              >
+                <div
+                  class="flex flex-col items-stretch"
+                >
+                  <div>
+                    <h1
+                      class="title-1 title-2"
+                    >
+                      Understanding Access On My Plan
+                    </h1>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <div
+                        class="mr-1"
+                      >
+                        <img
+                          alt="success"
+                          class="size-[20px]"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Access Granted
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    />
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Request Access
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    />
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        Special Permissions
+                      </p>
+                      <img
+                        alt="Down Chevron"
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <div
+                    class="flex flex-col"
+                  >
+                    <h2
+                      class="title-2"
+                    >
+                      On My Plan
+                    </h2>
+                  </div>
+                  <div>
+                     
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        Below is the access you've been granted by other members on your plan.
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      class="flex flex-col flex flex-row"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <p
+                          class="body-1 body-1"
+                          style="display: block;"
+                        >
+                          Plan: 
+                        </p>
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class="relative"
+                        >
+                          <div
+                            class="flex flex-row link"
+                          >
+                            <p
+                              class="body-bold"
+                            >
+                              Subscriber ID ABC000000000
+                            </p>
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                            <img
+                              alt="down icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                          <section
+                            class="card-elevated z-20 dropdown-section"
+                            style="display: none; position: absolute;"
+                          >
+                            <div
+                              class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                            >
+                              <div
+                                class="size-5 mx-2"
+                              />
+                              <div>
+                                <p
+                                  class="whitespace-nowrap mx-2"
+                                >
+                                  Subscriber ID ABC123456789
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                            >
+                              <div
+                                class="size-5 mx-2 "
+                              >
+                                <img
+                                  alt="selcted"
+                                  class="size-5"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <div>
+                                <p
+                                  class="whitespace-nowrap mx-2"
+                                >
+                                  Subscriber ID ABC000000000
+                                </p>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col flex flex-col"
+                  >
+                    <div
+                      class="card-elevated cursor-pointer mb-4"
+                    >
+                      <div
+                        class="flex flex-col m-4"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
+                          >
+                            Maddison Hall
+                          </p>
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            DOB: 01/01/1979
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <div
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                          </div>
+                          <div>
+                             
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Update
+                                </p>
+                                <div
+                                  class="ml-2"
+                                >
+                                  <img
+                                    alt="link"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="card-elevated cursor-pointer mb-4"
+                    >
+                      <div
+                        class="flex flex-col m-4"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
+                          >
+                            Forest Hall
+                          </p>
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            DOB: 01/01/2001
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <div
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                          </div>
+                          <div>
+                             
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Update
+                                </p>
+                                <div
+                                  class="ml-2"
+                                >
+                                  <img
+                                    alt="link"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="card-elevated cursor-pointer mb-4"
+                    >
+                      <div
+                        class="flex flex-col m-4"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
+                          >
+                            Corey Hall
+                          </p>
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            DOB: 01/01/2002
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <div
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                            <div
+                              class="card-main undefined"
+                              style="background-color: rgba(0, 0, 0, 0.05);"
+                            >
+                              <div
+                                class="flex flex-col m-4"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="body-1 body-1"
+                                    style="display: block;"
+                                  >
+                                    This member has not created an online profile.
+                                  </p>
+                                </div>
+                                <a
+                                  aria-label="Invite to Register"
+                                  style="display: block;"
+                                >
+                                  <button
+                                    class="flex flex-row link-container undefined"
+                                    style="max-width: max-content; height: auto; display: block;"
+                                    tabindex="-1"
+                                    type="button"
+                                  >
+                                    <p
+                                      class="link undefined"
+                                    >
+                                      Invite to Register
+                                    </p>
+                                    <p
+                                      class="ml-1"
+                                    >
+                                      <img
+                                        alt="link"
+                                        data-nimg="1"
+                                        decoding="async"
+                                        height="40"
+                                        loading="lazy"
+                                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                        style="color: transparent;"
+                                        width="40"
+                                      />
+                                    </p>
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="card-elevated cursor-pointer mb-4"
+                    >
+                      <div
+                        class="flex flex-col m-4"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
+                          >
+                            Telly Hall
+                          </p>
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            DOB: 01/01/2008
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <div
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                          </div>
+                          <div>
+                             
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Update
+                                </p>
+                                <div
+                                  class="ml-2"
+                                >
+                                  <img
+                                    alt="link"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="card-elevated cursor-pointer mb-4"
+                    >
+                      <div
+                        class="flex flex-col m-4"
+                      >
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <p
+                            class="body-1 ml-2 font-bold body-1"
+                            style="display: block;"
+                          >
+                            Janie Hall
+                          </p>
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            DOB: 01/01/2024
+                          </p>
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <div
+                            class=""
+                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                          />
+                        </div>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                          </div>
+                          <div>
+                             
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <span
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                              />
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Update
+                                </p>
+                                <div
+                                  class="ml-2"
+                                >
+                                  <img
+                                    alt="link"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <h1
+          class="title-1"
+        >
+          Access Others' Information
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main  large-section"
+            >
+              <div
+                class="flex flex-col items-stretch"
+              >
+                <div>
+                  <h1
+                    class="title-1 title-2"
+                  >
+                    Understanding Access On My Plan
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <div
+                      class="mr-1"
+                    >
+                      <img
+                        alt="success"
+                        class="size-[20px]"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      Access Granted
+                    </p>
+                    <img
+                      alt="Down Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="mr-2 flex-grow"
+                  />
+                </div>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      Request Access
+                    </p>
+                    <img
+                      alt="Down Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="mr-2 flex-grow"
+                  />
+                </div>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      Special Permissions
+                    </p>
+                    <img
+                      alt="Down Chevron"
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="mr-2 flex-grow"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    On My Plan
+                  </h2>
+                </div>
+                <div>
+                   
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1"
+                      style="display: block;"
+                    >
+                      Below is the access you've been granted by other members on your plan.
+                    </p>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+                <div>
+                  <div
+                    class="flex flex-col flex flex-row"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <p
+                        class="body-1 body-1"
+                        style="display: block;"
+                      >
+                        Plan: 
+                      </p>
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="relative"
+                      >
+                        <div
+                          class="flex flex-row link"
+                        >
+                          <p
+                            class="body-bold"
+                          >
+                            Subscriber ID ABC000000000
+                          </p>
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <img
+                            alt="down icon"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <section
+                          class="card-elevated z-20 dropdown-section"
+                          style="display: none; position: absolute;"
+                        >
+                          <div
+                            class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                          >
+                            <div
+                              class="size-5 mx-2"
+                            />
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                Subscriber ID ABC123456789
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                          >
+                            <div
+                              class="size-5 mx-2 "
+                            >
+                              <img
+                                alt="selcted"
+                                class="size-5"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                            <div>
+                              <p
+                                class="whitespace-nowrap mx-2"
+                              >
+                                Subscriber ID ABC000000000
+                              </p>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          Maddison Hall
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 01/01/1979
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div>
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          Forest Hall
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 01/01/2001
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div>
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          Corey Hall
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 01/01/2002
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <div
+                            class="card-main undefined"
+                            style="background-color: rgba(0, 0, 0, 0.05);"
+                          >
+                            <div
+                              class="flex flex-col m-4"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="body-1 body-1"
+                                  style="display: block;"
+                                >
+                                  This member has not created an online profile.
+                                </p>
+                              </div>
+                              <a
+                                aria-label="Invite to Register"
+                                style="display: block;"
+                              >
+                                <button
+                                  class="flex flex-row link-container undefined"
+                                  style="max-width: max-content; height: auto; display: block;"
+                                  tabindex="-1"
+                                  type="button"
+                                >
+                                  <p
+                                    class="link undefined"
+                                  >
+                                    Invite to Register
+                                  </p>
+                                  <p
+                                    class="ml-1"
+                                  >
+                                    <img
+                                      alt="link"
+                                      data-nimg="1"
+                                      decoding="async"
+                                      height="40"
+                                      loading="lazy"
+                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                      style="color: transparent;"
+                                      width="40"
+                                    />
+                                  </p>
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          Telly Hall
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 01/01/2008
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div>
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          Janie Hall
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 01/01/2024
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div>
+                           
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                          />
+                          <div
+                            class="flex flex-row"
+                          >
+                            <span
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

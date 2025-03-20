@@ -1,13 +1,29 @@
 import { ProfileSettingsSection } from '@/app/profileSettings/components/ProfileSettingsSection';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 let vRules: VisibilityRules = {};
 const renderUI = (vRules: VisibilityRules) => {
-  return render(<ProfileSettingsSection visibilityRules={vRules} />);
+  return render(
+    <ProfileSettingsSection visibilityRules={vRules} userRole={''} />,
+  );
 };
-
+jest.mock('next/navigation', () => ({
+  redirect: jest.fn(),
+}));
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          role: UserRole.PERSONAL_REP,
+        },
+      },
+    }),
+  ),
+}));
 describe('Profile Settings Card Component', () => {
   beforeEach(() => {
     vRules = {};
@@ -33,5 +49,13 @@ describe('Profile Settings Card Component', () => {
     screen.getByText('Sharing & Permissions');
     screen.getByText('View or edit access to plan information.');
     expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should hide the if user role is PERSONAL_REP', async () => {
+    render(<ProfileSettingsSection userRole={UserRole.PERSONAL_REP} />);
+    expect(
+      screen.queryByText('Communication Settings'),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Security Settings')).not.toBeInTheDocument();
   });
 });
