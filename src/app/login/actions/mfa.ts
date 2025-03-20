@@ -87,6 +87,8 @@ export async function callSubmitMfaOtp(
       status = SubmitMFAStatus.PASSWORD_RESET_REQUIRED;
     } else if (resp.data.data?.flowStatus == 'NEW_EMAIL_REQUIRED') {
       status = SubmitMFAStatus.EMAIL_UNIQUENESS;
+    } else if (resp.data.data?.message == 'Duplicate_Account') {
+      status = SubmitMFAStatus.DUPLICATE_ACCOUNT;
     } else {
       authUser = username;
       await setWebsphereRedirectCookie({
