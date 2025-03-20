@@ -216,6 +216,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         >
                           <div
                             class="flex flex-row link"
+                            tabindex="0"
                           >
                             <p
                               class="body-bold"
@@ -1000,6 +1001,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       >
                         <div
                           class="flex flex-row link"
+                          tabindex="0"
                         >
                           <p
                             class="body-bold"

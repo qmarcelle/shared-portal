@@ -38,7 +38,7 @@ const vRules = {
       medical: true,
       groupRenewalDateBeforeTodaysDate: true,
       primary360Eligible: true,
-      teladoc: true,
+      teladocEligible: true,
       futureEffective: false,
       fsaOnly: false,
       wellnessOnly: false,
