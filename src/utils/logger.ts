@@ -2,7 +2,7 @@ import { AxiosError, AxiosHeaders, AxiosResponse } from 'axios';
 import { isObject } from './object_utils';
 
 export const ES_TRANSACTION_ID = 'ES-transactionId';
-const FIELDS_TO_BE_MASKED = ['password'];
+const FIELDS_TO_BE_MASKED = ['password', 'newPassword'];
 /* eslint-disable @typescript-eslint/no-explicit-any */
 class Logger {
   private sequence = 0;

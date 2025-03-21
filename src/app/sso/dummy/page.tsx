@@ -143,56 +143,56 @@ const DummyPage = () => {
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`}
           >
             Blue 365
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FOOTWEAR)!)}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FOOTWEAR)!))}`}
           >
             Blue 365 FootWear
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FITNESS)!)}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FITNESS)!))}`}
           >
             Blue 365 Fitness
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HEARING_VISION)!)}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HEARING_VISION)!))}`}
           >
             Blue 365 Hearing & Vision
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HOME_FAMILY)!)}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HOME_FAMILY)!))}`}
           >
             Blue 365 Home & Family
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_NUTRITION)!)}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_NUTRITION)!))}`}
           >
             Blue 365 Nutrition
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_PERSONAL_CARE)!)}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_PERSONAL_CARE)!))}`}
           >
             Blue 365 Personal Care
           </Link>
         </li>
         <li>
           <Link
-            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_TRAVEL)!)}`}
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_TRAVEL)!))}`}
           >
             Blue 365 Travel
           </Link>
