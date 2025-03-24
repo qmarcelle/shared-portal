@@ -1,6 +1,8 @@
 import MyPlanPage from '@/app/myPlan/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
@@ -33,16 +35,19 @@ describe('PlanDetailsSection', () => {
   });
 
   test('renders plan details correctly on click of view who is covered', async () => {
-    mockedAxios.get.mockResolvedValueOnce({
-      data: loggedInUserInfoMockResp,
-    });
+    mockedFetch.mockResolvedValue(fetchRespWrapper(loggedInUserInfoMockResp));
 
     const component = await renderUI();
 
     // Members Api was called
     await waitFor(() => {
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/api/member/v1/members/byMemberCk/91722407',
+      expect(mockedFetch).toHaveBeenCalledWith(
+        'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/91722407',
+        {
+          cache: undefined,
+          headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+          next: { revalidate: 1800, tags: ['91722407'] },
+        },
       );
     });
 
@@ -56,13 +61,16 @@ describe('PlanDetailsSection', () => {
     expect(component).toMatchSnapshot();
   });
   test('renders plan details correctly on click of view contact Information', async () => {
+    mockedFetch.mockResolvedValue(fetchRespWrapper(loggedInUserInfoMockResp));
     mockedAxios.get.mockResolvedValueOnce({
       data: {
-        email: 'demo@bcbst.com',
-        email_verified_flag: true,
-        phone: '7654387656',
-        phone_verified_flag: true,
-        umpi: 'pool5',
+        data: {
+          email: 'demo@bcbst.com',
+          email_verified_flag: true,
+          phone: '7654387656',
+          phone_verified_flag: true,
+          umpi: 'pool5',
+        },
       },
     });
     const component = await renderUI();
@@ -79,18 +87,20 @@ describe('PlanDetailsSection', () => {
     expect(component).toMatchSnapshot();
   });
   test('planDetails not displayed when plan type is not available', async () => {
-    mockedAxios.get
-      .mockResolvedValueOnce({
-        data: {},
-      })
-      .mockResolvedValueOnce({
-        data: null,
-      });
+    mockedFetch.mockResolvedValue(fetchRespWrapper({}));
+    mockedAxios.get.mockResolvedValueOnce({
+      data: null,
+    });
 
     const component = await renderUI();
     await waitFor(() => {
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/api/member/v1/members/byMemberCk/91722407',
+      expect(mockedFetch).toHaveBeenCalledWith(
+        'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/91722407',
+        {
+          cache: undefined,
+          headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+          next: { revalidate: 1800, tags: ['91722407'] },
+        },
       );
     });
 

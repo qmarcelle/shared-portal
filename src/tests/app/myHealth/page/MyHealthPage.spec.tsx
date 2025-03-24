@@ -1,6 +1,8 @@
 import MyHealthPage from '@/app/myHealth/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -44,7 +46,9 @@ jest.mock('src/auth', () => ({
 
 describe('My Health Page', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   it('should render page correctly when we have valid session', async () => {
     mockedAxios.post.mockResolvedValueOnce({

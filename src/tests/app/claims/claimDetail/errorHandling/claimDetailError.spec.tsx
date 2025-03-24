@@ -1,7 +1,8 @@
 import ClaimsDetailPage from '@/app/claims/[id]/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
+import { mockedFetch } from '@/tests/setup';
+import { createAxiosErrorForTest, fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -25,14 +26,12 @@ jest.mock('src/utils/encryption', () => ({
 
 describe('Claim Details Error Handling', () => {
   it('should show the Error Info Card on claim details page when api throws 400', async () => {
-    mockedAxios.get
+    mockedFetch
       // LoggedIn User Info
-      .mockResolvedValueOnce({
-        data: loggedInUserInfoMockResp,
-      })
-      .mockRejectedValueOnce(
-        createAxiosErrorForTest({ status: 400, errorObject: {} }),
-      );
+      .mockResolvedValueOnce(fetchRespWrapper(loggedInUserInfoMockResp));
+    mockedAxios.get.mockRejectedValueOnce(
+      createAxiosErrorForTest({ status: 400, errorObject: {} }),
+    );
     // Render the page
     const result = await ClaimsDetailPage({
       searchParams: { type: 'M' },
@@ -43,8 +42,13 @@ describe('Claim Details Error Handling', () => {
     const { container } = render(result);
 
     // Members Api was called
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/api/member/v1/members/byMemberCk/123456789',
+    expect(mockedFetch).toHaveBeenCalledWith(
+      'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/123456789',
+      {
+        cache: undefined,
+        headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+        next: { revalidate: 1800, tags: ['123456789'] },
+      },
     );
     // Claim Detail APi was called
     expect(mockedAxios.get).toHaveBeenCalledWith(

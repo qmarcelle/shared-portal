@@ -1,6 +1,9 @@
 import { OrderIdCard } from '@/app/memberIDCard/journeys/OrderIdCard';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import {
@@ -67,6 +70,9 @@ describe('OrderId Card', () => {
   const showAppModal = useAppModalStore.getState().showAppModal;
   const dismissAppModal = useAppModalStore.getState().dismissModal;
   beforeEach(() => {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     dismissAppModal();
     component = renderUI();
 

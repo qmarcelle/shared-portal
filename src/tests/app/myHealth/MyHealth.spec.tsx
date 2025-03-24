@@ -1,6 +1,8 @@
 import MyHealthPage from '@/app/myHealth/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';
@@ -44,7 +46,9 @@ jest.mock('../../../auth', () => ({
 
 describe('My Health Page', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   it('should render My Health Page correctly', async () => {
     mockedAxios.get.mockResolvedValueOnce({

@@ -3,7 +3,8 @@ import { ExtensionType } from '@/app/myPlan/model/api/extension_type';
 import MyPlanPage from '@/app/myPlan/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
+import { mockedFetch } from '@/tests/setup';
+import { createAxiosErrorForTest, fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -34,7 +35,9 @@ describe('Plan Type Details', () => {
   });
 
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
 
   const planDetails = [

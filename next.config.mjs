@@ -28,5 +28,10 @@ const nextConfig = {
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
 };
 export default nextConfig;

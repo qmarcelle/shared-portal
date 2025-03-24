@@ -1,6 +1,8 @@
 import SSORedirect from '@/app/sso/redirect/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
 import axios from 'axios';
@@ -50,7 +52,9 @@ const setupUI = () => {
 
 describe('ElectronicPaymentBOA SSO', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         currentBalance: '200.00',

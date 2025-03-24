@@ -1369,41 +1369,6 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    class="card-neutral  neutral container undefined"
-                  >
-                    <div
-                      class="flex flex-row flex flex-row align-top m-4"
-                    >
-                      <img
-                        alt="alert"
-                        class="icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-row flex flex-col flex-grow"
-                      >
-                        <p
-                          class="body-1"
-                        >
-                          There was a problem loading your information. Please try refreshing the page or returning to this page later.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
                     class="flex flex-col"
                   >
                     <div
@@ -2357,41 +2322,6 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                 >
                   Plan Details
                 </h2>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="card-neutral  neutral container undefined"
-                >
-                  <div
-                    class="flex flex-row flex flex-row align-top m-4"
-                  >
-                    <img
-                      alt="alert"
-                      class="icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-row flex flex-col flex-grow"
-                    >
-                      <p
-                        class="body-1"
-                      >
-                        There was a problem loading your information. Please try refreshing the page or returning to this page later.
-                      </p>
-                    </div>
-                  </div>
-                </div>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />

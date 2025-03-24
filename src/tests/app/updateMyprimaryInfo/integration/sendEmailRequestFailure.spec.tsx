@@ -1,5 +1,8 @@
 import UpdateMyPrimaryCareProviderPage from '@/app/updateMyPrimaryCareProvider/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -22,6 +25,9 @@ const setupUI = async () => {
 };
 
 describe('Send Email Request API Integration', () => {
+  beforeEach(() => {
+    mockedFetch.mockResolvedValue(fetchRespWrapper(loggedInUserInfoMockResp));
+  });
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -53,23 +59,20 @@ describe('Send Email Request API Integration', () => {
     await userEvent.type(inputPhoneNumber, '1234567890');
     fireEvent.click(submitButton);
     await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith(
-        '/pcPhysician/641613650',
-        {
-          physicianName: 'James Louthan',
-          physicianAddress: '2033 Meadowview Ln Ste 300',
-          physicianCity: 'KINGSPORT',
-          physicianState: 'TN',
-          physicianZip: '12345',
-          physicianCounty: 'Shleby',
-          contactName: 'CHRISTMAS HALL',
-          contactPhone: '1234567890',
-          contactRelation: 'Self',
-          subscriberID: '902218823',
-          subscriberName: 'CHRIS HALL',
-          memberCK: '641613650',
-        },
-      );
+      expect(mockedAxios.post).toHaveBeenCalledWith('/pcPhysician/641613650', {
+        physicianName: 'James Louthan',
+        physicianAddress: '2033 Meadowview Ln Ste 300',
+        physicianCity: 'KINGSPORT',
+        physicianState: 'TN',
+        physicianZip: '12345',
+        physicianCounty: 'Shleby',
+        contactName: 'CHRISTMAS HALL',
+        contactPhone: '1234567890',
+        contactRelation: 'Self',
+        subscriberID: '902218823',
+        subscriberName: 'CHRIS HALL',
+        memberCK: '641613650',
+      });
     });
     screen.getByText('Try Again Later');
   });

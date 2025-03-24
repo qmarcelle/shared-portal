@@ -4,6 +4,8 @@ import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import {
   act,
@@ -74,7 +76,9 @@ describe('communication Information API Integration', () => {
   beforeEach(() => {});
   let component: RenderResult;
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     act(() => {
       dismissAppModal();
       component = renderUI();
