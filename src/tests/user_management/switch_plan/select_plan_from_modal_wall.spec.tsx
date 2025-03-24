@@ -2,6 +2,8 @@ import DashboardPage from '@/app/dashboard/page';
 import { unstable_update } from '@/auth';
 import { AppModal } from '@/components/foundation/AppModal';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
@@ -47,8 +49,8 @@ jest.mock('next/navigation', () => ({
 describe('Select Plan from Dashboard Modal Wall', () => {
   beforeEach(async () => {
     // PBE Call
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockReturnValueOnce(
+      fetchRespWrapper({
         data: {
           getPBEmessage: 'Person Record fetched Successfully ',
           getConsentmessage: 'Person Record fetched Successfully ',
@@ -262,8 +264,8 @@ describe('Select Plan from Dashboard Modal Wall', () => {
             ],
           },
         },
-      },
-    });
+      }),
+    );
 
     // Policy Info Call
     mockedAxios.get.mockResolvedValueOnce({

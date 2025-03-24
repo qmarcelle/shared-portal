@@ -1,12 +1,14 @@
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 // PBE Call
-mockedAxios.get.mockResolvedValueOnce({
-  data: {
+mockedFetch.mockResolvedValueOnce(
+  fetchRespWrapper({
     data: {
       getPBEmessage: 'Person Record fetched Successfully ',
       getConsentmessage: 'Person Record fetched Successfully ',
@@ -220,8 +222,8 @@ mockedAxios.get.mockResolvedValueOnce({
         ],
       },
     },
-  },
-});
+  }),
+);
 
 // Policy Info Call
 mockedAxios.get.mockResolvedValueOnce({

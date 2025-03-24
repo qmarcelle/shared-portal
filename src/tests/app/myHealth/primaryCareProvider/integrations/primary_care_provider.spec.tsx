@@ -1,5 +1,7 @@
 import PrimaryCareOptionsPage from '@/app/myPrimaryCareProvider/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -352,7 +354,7 @@ const loggedinUser = {
 
 describe('Primary Care Options', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedinUser });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
   });
   it('Should test success flow of pcPhysician', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
@@ -396,9 +398,7 @@ describe('Primary Care Options', () => {
 
     await setupUI();
     await waitFor(async () => {
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/pcPhysician/91722407',
-      );
+      expect(mockedAxios.get).toHaveBeenCalledWith('/pcPhysician/91722407');
 
       screen.getByText('Louthan, James D.');
       screen.getAllByText('2033 Meadowview Ln Ste 200');
@@ -450,9 +450,7 @@ describe('Primary Care Options', () => {
 
     await setupUI();
     await waitFor(async () => {
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/pcPhysician/91722407',
-      );
+      expect(mockedAxios.get).toHaveBeenCalledWith('/pcPhysician/91722407');
 
       screen.getByText('Louthan, James D.');
       screen.getByText('Louthan, Wolverine');
@@ -471,9 +469,7 @@ describe('Primary Care Options', () => {
 
     await setupUI();
     await waitFor(() => {
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/pcPhysician/91722407',
-      );
+      expect(mockedAxios.get).toHaveBeenCalledWith('/pcPhysician/91722407');
       screen.getAllByText(
         'Oops, it looks like something went wrong. Try again later.',
       );
@@ -510,9 +506,7 @@ describe('Primary Care Options', () => {
 
     await setupUI();
     await waitFor(() => {
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/pcPhysician/91722407',
-      );
+      expect(mockedAxios.get).toHaveBeenCalledWith('/pcPhysician/91722407');
       screen.getByText(
         "We don't have a Primary Care Provider listed for you or someone on your plan. If you already have a doctor or need to find one, we'll help you get set up.",
       );

@@ -9,6 +9,8 @@ import LogInPage from '@/app/login/page';
 import { useLoginStore } from '@/app/login/stores/loginStore';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -54,8 +56,8 @@ describe('Log In User whose status is Duplicate Account', () => {
   });
 
   it('User should see redirect to dashboard page after success of account deactivation', async () => {
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         data: {
           getPBEmessage: 'Person Record fetched Successfully ',
           getConsentmessage: 'Person Record fetched Successfully ',
@@ -269,8 +271,8 @@ describe('Log In User whose status is Duplicate Account', () => {
             ],
           },
         },
-      },
-    });
+      }),
+    );
 
     mockedAxios.post.mockResolvedValueOnce({
       data: {

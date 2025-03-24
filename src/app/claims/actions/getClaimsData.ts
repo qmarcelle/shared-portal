@@ -28,7 +28,6 @@ export async function getClaimsForPlans({
     const resp = await memberService.get<ClaimsResponse>(
       `/api/member/v1/members/byMemberCk/${memberId}/claims?from=${fromDate}&to=${toDate}&type=${plans}&includeDependents=true`,
     );
-    console.log('claims', resp.data.claims);
     return resp.data.claims;
   } catch (err) {
     // if (plans.includes('M')) {

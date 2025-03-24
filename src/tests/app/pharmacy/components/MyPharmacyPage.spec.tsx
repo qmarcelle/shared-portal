@@ -1,6 +1,8 @@
 import PharmacyPage from '@/app/pharmacy/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
@@ -129,9 +131,9 @@ describe('Pharmacy Page', () => {
     vRules.user.vRules.showPharmacyTab = true;
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
-    mockedAxios.get.mockResolvedValueOnce({
-      data: loggedInUserInfoMockResp,
-    });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     const mockSync = jest.requireMock('fs').existsSync;
     mockSync.mockReturnValue(true);
     const component = await renderUI();

@@ -1,5 +1,6 @@
 import PersonalRepresentativePage from '@/app/personalRepresentativeAccess/page';
-import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -41,8 +42,8 @@ describe('Personal Representative Access Page', () => {
     ).formatDateToLocale;
     mockFormatDate.mockReturnValueOnce('07/19/1964');
 
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         data: {
           getPBEmessage: 'Person Record fetched Successfully ',
           getConsentmessage: 'Person Record fetched Successfully ',
@@ -160,8 +161,8 @@ describe('Personal Representative Access Page', () => {
             ],
           },
         },
-      },
-    });
+      }),
+    );
     const component = await renderUI();
 
     expect(screen.getByText('Personal Representative Access')).toBeVisible();
