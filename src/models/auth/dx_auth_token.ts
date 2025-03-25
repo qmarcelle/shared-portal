@@ -1,7 +1,7 @@
 export interface DXAuthToken {
   user: string;
   time: number;
-  memberCk?: number;
+  memberCk?: string;
   subscriberId?: string;
   constituent?: 'member' | 'broker' | 'employer' | 'sharedhealth';
 }
