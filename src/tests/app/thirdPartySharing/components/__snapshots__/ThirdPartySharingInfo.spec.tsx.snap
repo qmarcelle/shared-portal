@@ -19,7 +19,6 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
         >
           Below are the apps and websites you’re sharing your information with.
         </p>
@@ -31,7 +30,6 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
         >
           <p
             class="body-1 body-1"
-            style="display: block;"
           >
             Plan: 
           </p>
@@ -43,11 +41,8 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
           >
             <div
               class="flex flex-row link"
-              tabindex="0"
             >
-              <p
-                class="body-bold"
-              >
+              <p>
                 Subscriber ID ABC123456789
               </p>
               <span
@@ -66,49 +61,26 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
               />
             </div>
             <section
-              class="card-elevated z-20 dropdown-section"
+              class="card-elevated py-2 z-20"
               style="display: none; position: absolute;"
             >
               <div
-                class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                class="selected-dropdown-item cursor-pointer"
               >
-                <div
-                  class="size-5 mx-2 "
+                <p
+                  class="whitespace-nowrap mx-2"
                 >
-                  <img
-                    alt="selcted"
-                    class="size-5"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </div>
-                <div>
-                  <p
-                    class="whitespace-nowrap mx-2"
-                  >
-                    Subscriber ID ABC123456789
-                  </p>
-                </div>
+                  Subscriber ID ABC123456789
+                </p>
               </div>
               <div
-                class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                class="dropdown-item cursor-pointer"
               >
-                <div
-                  class="size-5 mx-2"
-                />
-                <div>
-                  <p
-                    class="whitespace-nowrap mx-2"
-                  >
-                    Subscriber ID ABC000000000
-                  </p>
-                </div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  Subscriber ID ABC000000000
+                </p>
               </div>
             </section>
           </div>
@@ -136,7 +108,6 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
                 >
                   MyFHR App
                 </p>
@@ -145,24 +116,19 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1 mb-4"
-                  style="display: block;"
                 >
                   Connected On 01/01/2023
                 </p>
-                <button
-                  class="flex flex-row link-container font-bold primary-color pl-0"
-                  style="max-width: max-content; height: auto; display: flex;"
-                  type="button"
+                <div
+                  class="flex flex-row"
                 >
                   <p
-                    class="link !no-underline"
-                    style="display: flex;"
+                    class="font-bold primary-color"
                   >
                     Remove
                   </p>
-                  <p
-                    class="ml-1"
-                    style="display: flex;"
+                  <div
+                    class="ml-2"
                   >
                     <img
                       alt="delete icon"
@@ -175,11 +141,12 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                       style="color: transparent;"
                       width="40"
                     />
-                  </p>
-                </button>
+                  </div>
+                </div>
               </div>
             </div>
             <div
+              aria-label="divider"
               class="mt-8"
               style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
             />
@@ -208,7 +175,6 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
                 >
                   Erlanger Hospital
                 </p>
@@ -217,24 +183,19 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1 mb-4"
-                  style="display: block;"
                 >
                   Connected On 01/01/2023
                 </p>
-                <button
-                  class="flex flex-row link-container font-bold primary-color pl-0"
-                  style="max-width: max-content; height: auto; display: flex;"
-                  type="button"
+                <div
+                  class="flex flex-row"
                 >
                   <p
-                    class="link !no-underline"
-                    style="display: flex;"
+                    class="font-bold primary-color"
                   >
                     Remove
                   </p>
-                  <p
-                    class="ml-1"
-                    style="display: flex;"
+                  <div
+                    class="ml-2"
                   >
                     <img
                       alt="delete icon"
@@ -247,8 +208,8 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                       style="color: transparent;"
                       width="40"
                     />
-                  </p>
-                </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

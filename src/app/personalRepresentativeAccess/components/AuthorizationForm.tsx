@@ -6,13 +6,13 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import DownloadIcon from '../../../../public/assets/download.svg';
+import DownloadIcon from '../../../../public/assets/Download.svg';
 
 interface AuthorizationFormProps extends IComponent {
   linkLabel: string;
   linkURL?: string;
   isMatureMinor: boolean;
-  isRepresentative: boolean | undefined;
+  isRepresentative: boolean;
   fullAccess: boolean;
 }
 

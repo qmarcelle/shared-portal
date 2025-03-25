@@ -13,7 +13,7 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
           class="flex flex-col"
         >
           <div
-            class="on-off justify-center items-center body-2 onOff-desktop"
+            class="on-off justify-center items-center body-2 flex flex-row onOff-desktop"
             style="min-width: 40px; height: 24px; background-color: rgb(242, 242, 242); color: rgb(51, 51, 51); border-color: gray; border-radius: 5px; font-weight: 500;"
           >
             <div>
@@ -33,7 +33,7 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
           class="flex flex-col"
         >
           <div
-            class="on-off justify-center items-center body-2 onOff-mobile"
+            class="on-off justify-center items-center body-2 flex flex-row onOff-mobile"
             style="min-width: 40px; height: 24px; background-color: rgb(242, 242, 242); color: rgb(51, 51, 51); border-color: gray; border-radius: 5px; font-weight: 500;"
           >
             <div>
@@ -47,7 +47,6 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
           </div>
           <p
             class="body-1 underline underline-offset-4 decoration-dashed app-underline font-bold"
-            style="display: block;"
           >
             Authenticator App
           </p>
@@ -56,24 +55,19 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
           />
           <p
             class="body-1 mb-4"
-            style="display: block;"
           >
             Use your authenticator app's security code
           </p>
-          <button
-            class="flex flex-row link-container font-bold primary-color pl-0"
-            style="max-width: max-content; height: auto; display: flex;"
-            type="button"
+          <div
+            class="flex flex-row"
           >
             <p
-              class="link !no-underline"
-              style="display: flex;"
+              class="font-bold primary-color"
             >
               Remove Method
             </p>
-            <p
-              class="ml-1"
-              style="display: flex;"
+            <div
+              class="ml-2"
             >
               <img
                 alt="link"
@@ -86,11 +80,12 @@ exports[`Update Row With Status should render the UI correctly OFF 1`] = `
                 style="color: transparent;"
                 width="40"
               />
-            </p>
-          </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
+        aria-label="divider"
         class="mt-8"
         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
       />
@@ -112,7 +107,7 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
           class="flex flex-col"
         >
           <div
-            class="on-off justify-center items-center body-2 onOff-desktop"
+            class="on-off justify-center items-center body-2 flex flex-row onOff-desktop"
             style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
           >
             <div>
@@ -132,7 +127,7 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
           class="flex flex-col"
         >
           <div
-            class="on-off justify-center items-center body-2 onOff-mobile"
+            class="on-off justify-center items-center body-2 flex flex-row onOff-mobile"
             style="min-width: 40px; height: 24px; background-color: rgb(226, 240, 211); color: rgb(80, 131, 22); border-radius: 5px; font-weight: 500;"
           >
             <div>
@@ -146,7 +141,6 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
           </div>
           <p
             class="body-1 underline underline-offset-4 decoration-dashed app-underline font-bold"
-            style="display: block;"
           >
             Authenticator App
           </p>
@@ -155,24 +149,19 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
           />
           <p
             class="body-1 mb-4"
-            style="display: block;"
           >
             Use your authenticator app's security code
           </p>
-          <button
-            class="flex flex-row link-container font-bold primary-color pl-0"
-            style="max-width: max-content; height: auto; display: flex;"
-            type="button"
+          <div
+            class="flex flex-row"
           >
             <p
-              class="link !no-underline"
-              style="display: flex;"
+              class="font-bold primary-color"
             >
               Remove Method
             </p>
-            <p
-              class="ml-1"
-              style="display: flex;"
+            <div
+              class="ml-2"
             >
               <img
                 alt="link"
@@ -185,11 +174,12 @@ exports[`Update Row With Status should render the UI with ON 1`] = `
                 style="color: transparent;"
                 width="40"
               />
-            </p>
-          </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
+        aria-label="divider"
         class="mt-8"
         style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
       />

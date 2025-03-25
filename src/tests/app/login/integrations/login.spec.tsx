@@ -15,11 +15,6 @@ jest.mock('next/navigation', () => ({
       replace: () => null,
     };
   },
-  useSearchParams() {
-    return {
-      get: jest.fn(),
-    };
-  },
 }));
 
 jest.setTimeout(30000);

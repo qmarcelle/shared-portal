@@ -6,8 +6,7 @@ type ButtonType =
   | 'ghost'
   | 'rounded'
   | 'pill'
-  | 'elevated'
-  | 'card';
+  | 'elevated';
 
 type ButtonStyle = 'button' | 'submit' | 'reset';
 
@@ -17,7 +16,7 @@ interface ButtonProps extends IComponent {
   id?: string;
   label?: string;
   icon?: ReactNode;
-  callback?: () => void | Promise<void> | null | Promise<string>;
+  callback?: () => void | Promise<void> | null;
 }
 
 export const Button = ({
@@ -49,7 +48,6 @@ export const Button = ({
       className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`}
       type={style}
       id={id}
-      disabled={!callback ? true : false}
     >
       {computeContent()}
     </button>

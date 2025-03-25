@@ -22,7 +22,6 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
             />
             <p
               class="body-1 px-1"
-              style="display: block;"
             >
               CVS Caremark is your pharmacy benefit manager. You can find more information about your pharmacy claim on Caremark.
             </p>
@@ -30,17 +29,15 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
             <a
-              aria-label="Go to Caremark"
-              style="display: block;"
+              class="block undefined"
             >
               <button
-                class="flex flex-row link-container undefined"
-                style="max-width: max-content; height: auto; display: block;"
-                tabindex="-1"
-                type="button"
+                class="flex flex-row link-container"
+                style="max-width: max-content; height: auto;"
+                tabindex="0"
               >
                 <p
-                  class="link undefined"
+                  class="link"
                 >
                   Go to Caremark
                 </p>
@@ -84,7 +81,6 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
           />
           <p
             class="body-1 px-1"
-            style="display: block;"
           >
             CVS Caremark is your pharmacy benefit manager. You can find more information about your pharmacy claim on Caremark.
           </p>
@@ -92,17 +88,15 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <a
-            aria-label="Go to Caremark"
-            style="display: block;"
+            class="block undefined"
           >
             <button
-              class="flex flex-row link-container undefined"
-              style="max-width: max-content; height: auto; display: block;"
-              tabindex="-1"
-              type="button"
+              class="flex flex-row link-container"
+              style="max-width: max-content; height: auto;"
+              tabindex="0"
             >
               <p
-                class="link undefined"
+                class="link"
               >
                 Go to Caremark
               </p>

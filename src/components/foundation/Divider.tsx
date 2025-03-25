@@ -13,7 +13,7 @@ export const Divider = ({
   className,
 }: DividerProps) => {
   const width = axis === 'vertical' ? '100%' : size;
-  const height = axis === 'horizontal' ? 'auto' : size;
+  const height = axis === 'horizontal' ? '100%' : size;
   return (
     <div
       className={className || ''}

@@ -6,22 +6,19 @@ import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
-import { VisibilityRules } from '@/visibilityEngine/rules';
-import { RepresentativeData } from '../models/representativeDetails';
+import { RepresentativeAccessDetails } from '../models/representativeaccess_details';
 import { MembersRepresentativeItem } from './MembersRepresentativeItem';
 
 interface MembersRepresentedProps extends IComponent {
-  representativesData: RepresentativeData[] | null;
-  isRepresentative: boolean | undefined;
+  representativeAccessDetails: RepresentativeAccessDetails[];
+  isRepresentative: boolean;
   isRegistered: boolean;
-  visibilityRules?: VisibilityRules;
 }
 
 export const MembersRepresented = ({
-  representativesData,
+  representativeAccessDetails,
   isRepresentative,
   isRegistered,
-  visibilityRules,
 }: MembersRepresentedProps) => {
   function representingMembers() {
     return (
@@ -30,11 +27,11 @@ export const MembersRepresented = ({
           <Header type="title-2" text="Members You Represent" />
         )}
         {!isRepresentative && (
-          <Header type="title-2" text="Your Representative(s)" />
+          <Header type="title-2" text="Your Representatives" />
         )}
         <Spacer size={32} />
         <Column className="flex flex-col">
-          {representativesData?.map((item, index) => (
+          {representativeAccessDetails.map((item, index) => (
             <MembersRepresentativeItem
               key={index}
               className="mb-4"
@@ -43,7 +40,6 @@ export const MembersRepresented = ({
               isOnline={item.isOnline}
               fullAccess={item.fullAccess}
               isRepresentative={isRepresentative}
-              visibilityRules={visibilityRules}
             />
           ))}
         </Column>

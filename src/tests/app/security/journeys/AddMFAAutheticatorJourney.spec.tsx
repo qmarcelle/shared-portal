@@ -110,7 +110,7 @@ describe('Authenticator App Setup', () => {
       ).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
-  }, 10000);
+  });
 
   it('should render the screens without error when we close the modal previously with error', async () => {
     // Init Screen is rendered correctly

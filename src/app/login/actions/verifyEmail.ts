@@ -15,16 +15,14 @@ import { LoginStatus } from '../models/status';
 
 export async function callVerifyEmailOtp(
   request: VerifyEmailOtpRequest,
-  verifyEmailEndPoint: string,
 ): Promise<ActionResponse<LoginStatus, PortalLoginResponse>> {
   let authUser: string | null = null;
   let status: LoginStatus;
   try {
     request.policyId = process.env.ES_API_POLICY_ID;
     request.appId = process.env.ES_API_APP_ID;
-
     const resp = await esApi.post<ESResponse<PortalLoginResponse>>(
-      `/mfAuthentication/loginAuthentication/${verifyEmailEndPoint}`,
+      '/mfAuthentication/loginAuthentication/verifyEmailOtp',
       request,
     );
 
@@ -45,12 +43,6 @@ export async function callVerifyEmailOtp(
         break;
       case 'DEVICE_SELECTION_REQUIRED':
         status = LoginStatus.MFA_REQUIRED_MULTIPLE_DEVICES;
-        break;
-      case 'PASSWORD_RESET_REQUIRED':
-        status = LoginStatus.PASSWORD_RESET_REQUIRED;
-        break;
-      case 'Duplicate_Account':
-        status = LoginStatus.DUPLICATE_ACCOUNT;
         break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line

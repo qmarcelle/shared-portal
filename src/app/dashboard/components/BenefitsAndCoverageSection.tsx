@@ -3,11 +3,11 @@ import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Divider } from '@/components/foundation/Divider';
-import { rightIcon } from '@/components/foundation/Icons';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import { useState } from 'react';
+import RightIcon from '../../../../public/assets/right.svg';
 
 interface BenefitsAndCoverageSectionProps extends IComponent {
   benefits: BenefitDetails[];
@@ -35,7 +35,7 @@ export const BenefitsAndCoverageSection = ({
   return (
     <Card className={className}>
       <div>
-        <h3 className="title-2">Benefits & Coverage</h3>
+        <h2 className="title-2">Benefits & Coverage</h2>
         <Spacer size={32} />
         <SearchField onSearch={handleSearch} hint="Search Benefits" />
         <Spacer size={32} />
@@ -43,25 +43,25 @@ export const BenefitsAndCoverageSection = ({
           <label className="body-1">Browse your benefits by category:</label>
           <Spacer size={32} />
         </div>
-        {filteredUsers.slice(0, filteredUsers.length).map((item) => (
-          <div key={item.benefitName}>
+        {filteredUsers.slice(0, filteredUsers.length).map((item, index) => (
+          <div key={index}>
             <Spacer size={16} />
             <a
               href={item.benefitURL}
-              className="flex flex-row w-fit"
+              className="flex flex-row"
               key={item.benefitName}
             >
-              <div className="flex flex-col">
+              <div className="flex flex-col flex-grow">
                 <button
-                  className="body-bold"
+                  className="font-bold"
                   style={{ color: 'var(--primary-color)' }}
                 >
                   {item.benefitName}
                 </button>
                 <Spacer axis="horizontal" size={8} />
               </div>
-              <div className="flex flex-col ">
-                <Image src={rightIcon} className="icon mt-2" alt="" />
+              <div className="flex flex-col items-end">
+                <Image src={RightIcon} className="icon items-end" alt="Next" />
               </div>
             </a>
             <Spacer size={16} />
@@ -69,7 +69,7 @@ export const BenefitsAndCoverageSection = ({
           </div>
         ))}
         <Spacer size={32} />
-        <AppLink label="View Benefits & Coverage" />
+        <AppLink label="View All Benefits & Coverage" />
       </div>
     </Card>
   );

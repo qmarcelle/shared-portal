@@ -27,7 +27,7 @@ export const UpdateRowWithStatus = ({
   methodName,
   enabled = false,
   onOffLabelEnabled = true,
-  icon = <Image src={editIcon} alt="" />,
+  icon = <Image src={editIcon} alt="link" />,
   divider = false,
   onClick,
 }: UpdateRowWithStatusProps) => {
@@ -50,10 +50,9 @@ export const UpdateRowWithStatus = ({
           <AppLink
             className="font-bold primary-color pl-0"
             displayStyle="flex"
-            linkUnderline="!no-underline"
+            linkUnderline="linkUnderlineNone"
             label={methodName}
             icon={icon}
-            type="button"
           />
         </Column>
       </Row>

@@ -1,25 +1,16 @@
 import { Filter } from '@/components/foundation/Filter';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react'; // Mock useRouter:
-jest.mock('next/navigation', () => ({
-  useRouter() {
-    return {
-      prefetch: () => null,
-      replace: () => null,
-    };
-  },
-}));
+import { render, screen } from '@testing-library/react';
 
 const renderUI = () => {
   return render(
     <Filter
       className="large-section px-0 m-0"
       filterHeading="Filter Summary"
-      filterItems={[
+      dropDown={[
         {
-          type: 'dropdown',
-          label: 'Member',
-          value: [
+          dropNownName: 'Member',
+          dropDownval: [
             {
               label: 'All Members',
               value: '1',
@@ -54,9 +45,8 @@ const renderUI = () => {
           selectedValue: { label: 'All Members', value: '1', id: '1' },
         },
         {
-          type: 'dropdown',
-          label: 'Date Range',
-          value: [
+          dropNownName: 'Date Range',
+          dropDownval: [
             {
               label: '2023',
               value: '1',
@@ -76,9 +66,8 @@ const renderUI = () => {
           selectedValue: { label: '2023', value: '1', id: '1' },
         },
         {
-          type: 'dropdown',
-          label: 'Claim Type',
-          value: [
+          dropNownName: 'Claim Type',
+          dropDownval: [
             {
               label: 'All Types',
               value: '1',

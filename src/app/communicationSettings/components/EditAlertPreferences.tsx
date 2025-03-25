@@ -11,233 +11,116 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { useState } from 'react';
-import {
-  AlertType,
-  CommunicationSettingsAppData,
-  ContactPreference,
-  PreferenceCommunication,
-  Preferences,
-} from '../models/app/communicationSettingsAppData';
 
 interface EditAlertPreferncesProps extends IComponent {
-  alertPreferenceData: CommunicationSettingsAppData;
+  isTextAlert: boolean;
+  isEmailAlert: boolean;
+  isPlanInfo: boolean;
+  isClaimsInfo: boolean;
+  isHealthInfo: boolean;
 }
 
-const normalizeText = (text: string) =>
-  text.replace(/&amp;/g, '&').replace(/&/g, '').replace(/\s+/g, '').trim();
-
 export const EditAlertPreferncesSection = ({
+  isTextAlert,
+  isEmailAlert,
+  isPlanInfo,
+  isClaimsInfo,
+  isHealthInfo,
   className,
-  alertPreferenceData,
 }: EditAlertPreferncesProps) => {
-  const getDescriptions = (): Map<AlertType, Preferences> => {
-    const pref: [AlertType, Preferences][] = (
-      alertPreferenceData.tierOneDescriptions || []
-    )
-      .filter(
-        (tierOneDescription) =>
-          normalizeText(tierOneDescription.hTexts.join('')) !== '',
-      )
-      .map((tierOneDescription) => [
-        normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-        {
-          hText: tierOneDescription.hTexts.join(' ').replace('&amp;', '&'),
-          pText: tierOneDescription.pTexts.join(' ').replace('&apos;', '′'),
-          selected: false,
-          category: PreferenceCommunication.get(
-            normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-          )?.category,
-          method: PreferenceCommunication.get(
-            normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-          )?.method,
-        },
-      ]);
-    return new Map(pref);
-  };
-
-  const initialEditAlertMap: Map<AlertType, Preferences> = new Map([
-    [
-      AlertType.ReceiveTextAlerts,
-      {
-        hText: 'Receive Text Alerts',
-        pText:
-          'Get text alerts with plan updates and personalized health notifications.',
-        selected: false,
-        category: 'TEXT',
-        method: 'TEXT',
-      },
-    ],
-    [
-      AlertType.ReceiveEmailAlerts,
-      {
-        hText: 'Receive Email Alerts',
-        pText:
-          'Get important plan updates, claims information and/or health and wellness topics sent to your email.',
-        selected: false,
-        childCheckBox: getDescriptions(),
-      },
-    ],
-  ]);
-
-  const [editAlertMap, setEditAlertMap] = useState(initialEditAlertMap);
   const { showAppModal } = useAppModalStore();
-  const resetState = () => {
-    setEditAlertMap(initialEditAlertMap);
-  };
-  const checkBoxHandler = (
-    alertType: AlertType,
-    parentAlertType?: AlertType,
-  ) => {
-    const alertMap = new Map(
-      Array.from(editAlertMap.entries()).map(([key, value]) => [
-        key,
-        {
-          ...value,
-          childCheckBox: value.childCheckBox
-            ? new Map(value.childCheckBox)
-            : undefined,
-        },
-      ]),
-    );
+  const [isChecked, setIsChecked] = useState(false);
 
-    if (!parentAlertType) {
-      const alert = alertMap.get(alertType);
-      if (alert) {
-        alert.selected = !alert.selected;
-        if (alert.childCheckBox) {
-          Array.from(alert.childCheckBox).map(
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            ([key, value]) => (value.selected = alert.selected),
-          );
-        }
-        alertMap.set(alertType, alert);
-      }
-    } else {
-      const parentAlert = alertMap.get(parentAlertType);
-      if (parentAlert?.childCheckBox) {
-        const childAlert = parentAlert.childCheckBox.get(alertType);
-        if (childAlert) {
-          childAlert.selected = !childAlert.selected;
-          parentAlert.childCheckBox.set(alertType, childAlert);
-          alertMap.set(parentAlertType, parentAlert);
-        }
-      }
-    }
-    setEditAlertMap(alertMap);
+  const checkHandler = () => {
+    setIsChecked(!isChecked);
   };
 
-  const getPreferences = (): ContactPreference[] => {
-    const pref: ContactPreference[] = [];
+  const [isSelected, setIsSelected] = useState(false);
 
-    Array.from(editAlertMap.values()).map((alert) => {
-      if (alert.category && alert.method) {
-        pref.push({
-          optOut: alert.selected ? 'I' : 'O',
-          communicationCategory: alert.category,
-          communicationMethod: alert.method,
-        });
-      }
-
-      if (alert.childCheckBox) {
-        Array.from(alert.childCheckBox.values()).map((childAlert) => {
-          if (childAlert.category && childAlert.method) {
-            pref.push({
-              optOut: childAlert.selected ? 'I' : 'O',
-              communicationCategory: childAlert.category,
-              communicationMethod: childAlert.method,
-            });
-          }
-        });
-      }
-    });
-
-    return pref;
-  };
-
-  const handleNext = () => {
-    const selectedPreferences = {
-      mobileNumber: alertPreferenceData.mobileNumber,
-      emailAddress: alertPreferenceData.emailAddress,
-      contactPreference: getPreferences(),
-      memberKey: '',
-      subscriberKey: '',
-      groupKey: '',
-      lineOfBusiness: '',
-      memberUserId: '',
-      dutyToWarn:
-        alertPreferenceData.dutyToWarn?.map((item) => item.texts.join('')) ||
-        [],
-    };
-
-    showAppModal({
-      content: (
-        <UpdateCommunicationTerms selectedPreferences={selectedPreferences} />
-      ),
-    });
-  };
-
-  const generateCheckBox = (
-    preference: Preferences,
-    alertType: AlertType,
-    parentAlertType?: AlertType,
-  ) => {
-    return (
-      <Checkbox
-        label={preference.hText}
-        classProps="font-bold"
-        selected={preference.selected}
-        body={<TextBox className="mt-2" text={preference.pText} />}
-        callback={() => checkBoxHandler(alertType, parentAlertType)}
-      />
-    );
+  const checkHandlerText = () => {
+    setIsSelected(!isSelected);
   };
 
   return (
     <Card className={className}>
       <div>
-        <Header text="Edit Alert Preferences" type="title-2" className="pl-3" />
+        <Header text="Edit Alert Prefernces" type="title-2" className="pl-3" />
         <Spacer size={12} />
         <TextBox text="Sign up for email and text alerts." className="pl-3" />
         <Spacer size={18} />
-        {[...editAlertMap.entries()].map(([alertType, preference], index) => {
-          return (
-            <Card className={className} key={index}>
-              <Column>
-                {generateCheckBox(preference, alertType)}
-                {preference.selected && preference.childCheckBox && (
-                  <Column className="emailAlertsSublevel">
-                    <Divider axis="vertical" />
-                    <Spacer size={18} />
-                    <TextBox text="Choose the emails you want to receive:" />
-                    <Spacer size={32} />
-                    {preference.childCheckBox.size > 0 &&
-                      [...preference.childCheckBox.entries()].map(
-                        ([childAlertType, childPreference], index) => {
-                          return (
-                            <div key={index}>
-                              {generateCheckBox(
-                                childPreference,
-                                childAlertType,
-                                alertType,
-                              )}
-                              <Spacer size={32} />
-                            </div>
-                          );
-                        },
-                      )}
-                  </Column>
-                )}
+        <Card className={className}>
+          <Column>
+            <Checkbox
+              label="Receive Text Alerts"
+              classProps="font-bold"
+              selected={isTextAlert}
+              body={
+                <TextBox text="Get text alerts with plan updates and personalized health notifications." />
+              }
+              callback={checkHandlerText}
+            />
+          </Column>
+        </Card>
+        <Card className={className}>
+          <Column>
+            <Checkbox
+              label="Receive Email Alerts"
+              classProps="font-bold"
+              selected={isEmailAlert}
+              body={
+                <TextBox text="Get important plan updates, claims information and/or health and wellness topics sent to your email." />
+              }
+              callback={checkHandler}
+            />
+            <Spacer size={18} />
+
+            {(isChecked || isEmailAlert) && (
+              <Column className="emailAlertsSublevel">
+                <Divider axis="vertical" />
+                <Spacer size={18} />
+                <TextBox text="Choose the emails you want to receive:" />
+                <Spacer size={32} />
+                <Checkbox
+                  label="Important Plan Information"
+                  classProps="font-bold"
+                  body={
+                    <TextBox text="Get details about your coverage, including updates about your network, benefits and appeals." />
+                  }
+                  selected={isPlanInfo}
+                />
+                <Spacer size={32} />
+                <Checkbox
+                  label="Claims Information"
+                  classProps="font-bold"
+                  body={
+                    <TextBox text="Get alerts about your share of care costs." />
+                  }
+                  selected={isClaimsInfo}
+                />
+                <Spacer size={32} />
+                <Checkbox
+                  label="Health & Wellness"
+                  classProps="font-bold"
+                  body={
+                    <TextBox text="Get tips and reminders to help you get the care you need and stay well." />
+                  }
+                  selected={isHealthInfo}
+                />
               </Column>
-            </Card>
-          );
-        })}
-        {Array.from(editAlertMap.values()).some(
-          (value) => value.selected === true,
-        ) && (
+            )}
+          </Column>
+        </Card>
+        {(isSelected || isChecked || isTextAlert || isEmailAlert) && (
           <Row className="pl-3 pr-3">
-            <Button label="Cancel" type="secondary" callback={resetState} />
+            <Button label="Cancel" type="secondary" />
             <Spacer axis="horizontal" size={32} />
-            <Button label="Next" type="primary" callback={handleNext} />
+            <Button
+              label="Next"
+              type="primary"
+              callback={() =>
+                showAppModal({ content: <UpdateCommunicationTerms /> })
+              }
+            />
           </Row>
         )}
       </div>

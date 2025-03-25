@@ -18,14 +18,14 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          class="card-button cursor-pointer mb-4"
+          class="card-elevated cursor-pointer mb-4"
         >
-          <section
-            class="md:flex md:flex-row align-top m-4"
+          <div
+            class="flex flex-row flex flex-row align-top m-4 mt-8"
           >
             <img
               alt="Medical"
-              class="icon max-md:hidden"
+              class="icon"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -39,95 +39,49 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
             />
             <div
-              class="flex flex-col min-w-[95%]"
+              class="flex flex-col flex flex-col flex-grow"
             >
-              <section
-                class="md:flex md:flex-row md:justify-between"
+              <p
+                class="font-bold"
               >
-                <section
-                  class="flex flex-row mb-[10px] md:flex-col"
-                >
-                  <img
-                    alt="Medical"
-                    class="icon md:hidden"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <h3
-                    class="title-3 body-bold primary-color max-md:ml-[5px]"
-                  >
-                    John Doe
-                  </h3>
-                </section>
-                <section
-                  class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                >
-                  <div
-                    class="success flex flex-row justify-center items-center px-2 py-1 rounded"
-                  >
-                    <div
-                      class="circle rounded-full w-3 h-3 aspect-square"
-                    />
-                    <p
-                      class="font-bold ml-2 body-2"
-                    >
-                      Processed
-                    </p>
-                  </div>
-                  <div
-                    class="flex flex-col md:hidden"
-                  >
-                    <p
-                      class="body-1 body-1 font-bold mt-2"
-                      style="display: block;"
-                    >
-                      $67
-                    </p>
-                  </div>
-                </section>
-              </section>
+                John Doe
+              </p>
+              <span
+                class="body-1"
+              >
+                Visited on 
+                02/06/2024
+                , For 
+                Chris James
+              </span>
+            </div>
+            <div
+              class="flex flex-row flex flex-col items-end"
+            >
               <div
-                class="flex flex-row justify-between"
+                class="success flex flex-row justify-center items-center px-2 py-1 rounded"
               >
                 <div
-                  class="flex flex-col"
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
                 >
-                  <p
-                    class="body-1 body-1 mt-2"
-                    style="display: block;"
-                  >
-                    Visited on 02/06/2024, For Chris James
-                  </p>
-                </div>
-                <div
-                  class="flex flex-col max-md:hidden"
-                >
-                  <p
-                    class="body-1 body-1 font-bold mt-2"
-                    style="display: block;"
-                  >
-                    $67
-                  </p>
-                </div>
+                  Processed
+                </p>
               </div>
             </div>
-          </section>
+          </div>
         </div>
         <div
-          class="card-button cursor-pointer mb-4"
+          class="card-elevated cursor-pointer mb-4"
         >
-          <section
-            class="md:flex md:flex-row align-top m-4"
+          <div
+            class="flex flex-row flex flex-row align-top m-4 mt-8"
           >
             <img
               alt="Pharmacy"
-              class="icon max-md:hidden"
+              class="icon"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -141,91 +95,49 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
             />
             <div
-              class="flex flex-col min-w-[95%]"
+              class="flex flex-col flex flex-col flex-grow"
             >
-              <section
-                class="md:flex md:flex-row md:justify-between"
+              <p
+                class="font-bold"
               >
-                <section
-                  class="flex flex-row mb-[10px] md:flex-col"
-                >
-                  <img
-                    alt="Pharmacy"
-                    class="icon md:hidden"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <h3
-                    class="title-3 body-bold primary-color max-md:ml-[5px]"
-                  >
-                    John Does
-                  </h3>
-                </section>
-                <section
-                  class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                >
-                  <div
-                    class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                  >
-                    <div
-                      class="circle rounded-full w-3 h-3 aspect-square"
-                    />
-                    <p
-                      class="font-bold ml-2 body-2"
-                    >
-                      Pending
-                    </p>
-                  </div>
-                  <div
-                    class="flex flex-col md:hidden"
-                  >
-                    <p
-                      class="body-1 body-1 font-bold mt-2"
-                      style="display: block;"
-                    />
-                  </div>
-                </section>
-              </section>
+                John Does
+              </p>
+              <span
+                class="body-1"
+              >
+                Visited on 
+                01/06/2024
+                , For 
+                Aly Jame
+              </span>
+            </div>
+            <div
+              class="flex flex-row flex flex-col items-end"
+            >
               <div
-                class="flex flex-row justify-between"
+                class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
               >
                 <div
-                  class="flex flex-col"
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
                 >
-                  <p
-                    class="body-1 body-1 mt-2"
-                    style="display: block;"
-                  >
-                    Visited on 01/06/2024, For Aly Jame
-                  </p>
-                </div>
-                <div
-                  class="flex flex-col max-md:hidden"
-                >
-                  <p
-                    class="body-1 body-1 font-bold mt-2"
-                    style="display: block;"
-                  />
-                </div>
+                  Pending
+                </p>
               </div>
             </div>
-          </section>
+          </div>
         </div>
         <div
-          class="card-button cursor-pointer mb-4"
+          class="card-elevated cursor-pointer mb-4"
         >
-          <section
-            class="md:flex md:flex-row align-top m-4"
+          <div
+            class="flex flex-row flex flex-row align-top m-4 mt-8"
           >
             <img
               alt="Dental"
-              class="icon max-md:hidden"
+              class="icon"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -239,98 +151,256 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
             />
             <div
-              class="flex flex-col min-w-[95%]"
+              class="flex flex-col flex flex-col flex-grow"
             >
-              <section
-                class="md:flex md:flex-row md:justify-between"
+              <p
+                class="font-bold"
               >
-                <section
-                  class="flex flex-row mb-[10px] md:flex-col"
-                >
-                  <img
-                    alt="Dental"
-                    class="icon md:hidden"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                  <h3
-                    class="title-3 body-bold primary-color max-md:ml-[5px]"
-                  >
-                    John Doea
-                  </h3>
-                </section>
-                <section
-                  class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                >
-                  <div
-                    class="error flex flex-row justify-center items-center px-2 py-1 rounded"
-                  >
-                    <div
-                      class="circle rounded-full w-3 h-3 aspect-square"
-                    />
-                    <p
-                      class="font-bold ml-2 body-2"
-                    >
-                      Denied
-                    </p>
-                  </div>
-                  <div
-                    class="flex flex-col md:hidden"
-                  >
-                    <p
-                      class="body-1 body-1 font-bold mt-2"
-                      style="display: block;"
-                    />
-                  </div>
-                </section>
-              </section>
+                John Doea
+              </p>
+              <span
+                class="body-1"
+              >
+                Visited on 
+                01/16/2024
+                , For 
+                Aly Jame
+              </span>
+            </div>
+            <div
+              class="flex flex-row flex flex-col items-end"
+            >
               <div
-                class="flex flex-row justify-between"
+                class="error flex flex-row justify-center items-center px-2 py-1 rounded"
               >
                 <div
-                  class="flex flex-col"
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
                 >
-                  <p
-                    class="body-1 body-1 mt-2"
-                    style="display: block;"
-                  >
-                    Visited on 01/16/2024, For Aly Jame
-                  </p>
-                </div>
-                <div
-                  class="flex flex-col max-md:hidden"
-                >
-                  <p
-                    class="body-1 body-1 font-bold mt-2"
-                    style="display: block;"
-                  />
-                </div>
+                  Denied
+                </p>
               </div>
             </div>
-          </section>
+          </div>
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <a
-          aria-label="View All Claims"
-          href="/claims"
-          style="display: block;"
+          class="block undefined"
         >
           <button
-            class="flex flex-row link-container undefined"
-            style="max-width: max-content; height: auto; display: block;"
-            tabindex="-1"
-            type="button"
+            class="flex flex-row link-container"
+            style="max-width: max-content; height: auto;"
+            tabindex="0"
           >
             <p
-              class="link undefined"
+              class="link"
+            >
+              View All Claims
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`RecentClaimSection should render UI correctly for mobile device 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Recent Claims
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Medical"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1"
+              >
+                John Doe
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row justify-between"
+            >
+              <div
+                class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                >
+                  Processed
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+          </div>
+        </div>
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Pharmacy"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1"
+              >
+                John Does
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row justify-between"
+            >
+              <div
+                class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                >
+                  Pending
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+          </div>
+        </div>
+        <div
+          class="card-elevated cursor-pointer mb-4"
+        >
+          <div
+            class="flex flex-col m-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <img
+                alt="Dental"
+                class="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1"
+              >
+                John Doea
+              </p>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+            <div
+              class="flex flex-row justify-between"
+            >
+              <div
+                class="error flex flex-row justify-center items-center px-2 py-1 rounded"
+              >
+                <div
+                  class="circle rounded-full w-3 h-3 aspect-square"
+                />
+                <p
+                  class="font-bold ml-2 body-2"
+                >
+                  Denied
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+            />
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <a
+          class="block undefined"
+        >
+          <button
+            class="flex flex-row link-container"
+            style="max-width: max-content; height: auto;"
+            tabindex="0"
+          >
+            <p
+              class="link"
             >
               View All Claims
             </p>

@@ -55,8 +55,6 @@ export const InitModalSlide = ({
         <Spacer size={16} />
         <AppLink
           label="Cancel"
-          linkUnderline="!no-underline"
-          type="button"
           callback={() => {
             cancelCallback();
           }}

@@ -21,7 +21,6 @@ export const BalanceChart = ({
       <ProgressBar
         height={10}
         completePercent={(spentAmount / limitAmount) * 100}
-        ariaLabel={`$${spentAmount} used of $${limitAmount}`}
       />
       <Spacer size={8} />
       <div className="flex flex-row justify-between">

@@ -144,39 +144,6 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           userToken: useLoginStore.getState().userToken,
         });
 
-        if (resp.status == SubmitMFAStatus.PASSWORD_RESET_REQUIRED) {
-          useLoginStore.setState({
-            forcedPasswordReset: true,
-            interactionData: {
-              interactionId: resp.data!.interactionId,
-              interactionToken: resp.data!.interactionToken,
-            },
-          });
-          return;
-        }
-
-        if (resp.status == SubmitMFAStatus.EMAIL_UNIQUENESS) {
-          useLoginStore.setState({
-            emailUniqueness: true,
-            interactionData: {
-              interactionId: resp.data!.interactionId,
-              interactionToken: resp.data!.interactionToken,
-            },
-          });
-          return;
-        }
-        if (resp.status == SubmitMFAStatus.DUPLICATE_ACCOUNT) {
-          useLoginStore.setState({
-            duplicateAccount: true,
-            interactionData: {
-              interactionId: resp.data!.interactionId,
-              interactionToken: resp.data!.interactionToken,
-            },
-            userId: resp.data!.userId,
-          });
-          return;
-        }
-
         if (resp.status == SubmitMFAStatus.OTP_OK) {
           useLoginStore.setState({
             loggedUser: true,

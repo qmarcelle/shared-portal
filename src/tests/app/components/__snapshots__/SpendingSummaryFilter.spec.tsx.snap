@@ -28,47 +28,47 @@ exports[`Spending Summary FilterSection should render the UI correctly 1`] = `
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div>
+        <div
+          class="body-1 input"
+        >
           <div
-            class="rich-dropdown"
+            class="flex flex-col switch-filter default"
+            tabindex="1"
           >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
+            <div>
+              <div
+                class="border-none"
+              >
                 <div
-                  class="body-1 input"
+                  class="flex flex-row p-1 items-center"
                 >
                   <div
-                    class="flex flex-row p-1 items-center"
+                    class="flex flex-col border-none flex-grow"
                   >
-                    <div
-                      class="flex flex-col border-none flex-grow"
+                    <p
+                      class="body-1"
                     >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        All Members
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                      All Members
+                    </p>
                   </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
                 </div>
               </div>
             </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
           </div>
         </div>
       </div>
@@ -87,47 +87,47 @@ exports[`Spending Summary FilterSection should render the UI correctly 1`] = `
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div>
+        <div
+          class="body-1 input"
+        >
           <div
-            class="rich-dropdown"
+            class="flex flex-col switch-filter default"
+            tabindex="1"
           >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
+            <div>
+              <div
+                class="border-none"
+              >
                 <div
-                  class="body-1 input"
+                  class="flex flex-row p-1 items-center"
                 >
                   <div
-                    class="flex flex-row p-1 items-center"
+                    class="flex flex-col border-none flex-grow"
                   >
-                    <div
-                      class="flex flex-col border-none flex-grow"
+                    <p
+                      class="body-1"
                     >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        2023
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                      2023
+                    </p>
                   </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
                 </div>
               </div>
             </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
           </div>
         </div>
       </div>
@@ -146,53 +146,50 @@ exports[`Spending Summary FilterSection should render the UI correctly 1`] = `
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div>
+        <div
+          class="body-1 input"
+        >
           <div
-            class="rich-dropdown"
+            class="flex flex-col switch-filter default"
+            tabindex="1"
           >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
+            <div>
+              <div
+                class="border-none"
+              >
                 <div
-                  class="body-1 input"
+                  class="flex flex-row p-1 items-center"
                 >
                   <div
-                    class="flex flex-row p-1 items-center"
+                    class="flex flex-col border-none flex-grow"
                   >
-                    <div
-                      class="flex flex-col border-none flex-grow"
+                    <p
+                      class="body-1"
                     >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        All Types
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                      All Types
+                    </p>
                   </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
                 </div>
               </div>
             </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
           </div>
         </div>
       </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
@@ -232,47 +229,47 @@ exports[`Spending Summary FilterSection should render the UI correctly 2`] = `
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div>
+        <div
+          class="body-1 input"
+        >
           <div
-            class="rich-dropdown"
+            class="flex flex-col switch-filter default"
+            tabindex="1"
           >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
+            <div>
+              <div
+                class="border-none"
+              >
                 <div
-                  class="body-1 input"
+                  class="flex flex-row p-1 items-center"
                 >
                   <div
-                    class="flex flex-row p-1 items-center"
+                    class="flex flex-col border-none flex-grow"
                   >
-                    <div
-                      class="flex flex-col border-none flex-grow"
+                    <p
+                      class="body-1"
                     >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        All Members
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                      All Members
+                    </p>
                   </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
                 </div>
               </div>
             </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
           </div>
         </div>
       </div>
@@ -291,47 +288,47 @@ exports[`Spending Summary FilterSection should render the UI correctly 2`] = `
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div>
+        <div
+          class="body-1 input"
+        >
           <div
-            class="rich-dropdown"
+            class="flex flex-col switch-filter default"
+            tabindex="1"
           >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
+            <div>
+              <div
+                class="border-none"
+              >
                 <div
-                  class="body-1 input"
+                  class="flex flex-row p-1 items-center"
                 >
                   <div
-                    class="flex flex-row p-1 items-center"
+                    class="flex flex-col border-none flex-grow"
                   >
-                    <div
-                      class="flex flex-col border-none flex-grow"
+                    <p
+                      class="body-1"
                     >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        2023
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                      2023
+                    </p>
                   </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
                 </div>
               </div>
             </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
           </div>
         </div>
       </div>
@@ -350,53 +347,50 @@ exports[`Spending Summary FilterSection should render the UI correctly 2`] = `
         <span
           style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
         />
-        <div>
+        <div
+          class="body-1 input"
+        >
           <div
-            class="rich-dropdown"
+            class="flex flex-col switch-filter default"
+            tabindex="1"
           >
-            <div
-              class="flex flex-col switch-filter default"
-              tabindex="1"
-            >
-              <div>
+            <div>
+              <div
+                class="border-none"
+              >
                 <div
-                  class="body-1 input"
+                  class="flex flex-row p-1 items-center"
                 >
                   <div
-                    class="flex flex-row p-1 items-center"
+                    class="flex flex-col border-none flex-grow"
                   >
-                    <div
-                      class="flex flex-col border-none flex-grow"
+                    <p
+                      class="body-1"
                     >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        All Types
-                      </p>
-                    </div>
-                    <img
-                      alt=""
-                      class="w-[20px] h-[20px] ml-2 items-end"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                      All Types
+                    </p>
                   </div>
+                  <img
+                    alt=""
+                    class="w-[20px] h-[20px] ml-2 items-end"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
                 </div>
               </div>
             </div>
+            <ul
+              class="max-h-[420px] overflow-y-scroll"
+            />
           </div>
         </div>
       </div>
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-      />
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />

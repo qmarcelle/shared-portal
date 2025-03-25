@@ -31,7 +31,7 @@ describe('Es API', () => {
       data: { userId: 'xxxx' },
     });
     expect(config.data.credentials).toBeDefined();
-    expect(config.headers.Authorization).toBeDefined();
+    expect(config.headers.Authorization).toBeUndefined();
   });
   it('Es API Should set the credentials & authorization for every request when token api is success', async () => {
     process.env.ES_API_PING_CREDENTIALS = 'XXXXX';

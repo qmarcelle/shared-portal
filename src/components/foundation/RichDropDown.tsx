@@ -1,33 +1,20 @@
 import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
 import Image from 'next/image';
-import { ReactElement, ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactElement, ReactNode, useRef, useState } from 'react';
 import { IComponent } from '../IComponent';
-import { Card } from './Card';
 import { Column } from './Column';
 import { Header } from './Header';
 import { checkBlueIcon, switchFilterIcon } from './Icons';
 import { Row } from './Row';
 
-export type RichSelectItem = {
-  id: string;
-  label: string;
-  value: string;
-};
-
 interface RichDropDownProps<T> extends IComponent {
-  headBuilder?: (val: T) => ReactNode;
+  headBuilder: (val: T) => ReactNode;
   dropdownHeader?: ReactElement | null;
   dropdownFooter?: ReactElement;
   itemData: T[];
   itemsBuilder: (data: T, index: number, selected: T) => ReactNode;
   selected: T;
   onSelectItem: (val: T) => void;
-  onClickFooter?: () => void;
-  maxHeight?: string;
-  minWidth?: string;
-  showSelected?: boolean;
-  divider?: boolean;
-  isMultipleItem?: boolean;
 }
 
 const DefaultDropDownHead = () => {
@@ -44,27 +31,21 @@ export const RichDropDown = <T extends { id: string }>({
   dropdownHeader = <DefaultDropDownHead />,
   dropdownFooter,
   itemData,
-  isMultipleItem = false,
   itemsBuilder,
   selected,
   onSelectItem,
-  maxHeight = 'max-h-[420px]',
-  minWidth,
-  showSelected = true,
-  divider = true,
-  onClickFooter,
 }: RichDropDownProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const listRef = useRef(null);
   const openDropDown = () => {
-    if (itemData.length > 1 || isMultipleItem) setIsOpen(true);
-    else return;
+    if (itemData.length < 2) {
+      return;
+    }
+    setIsOpen(true);
   };
 
   const closeDropdown = () => {
-    if (headBuilder) {
-      setIsOpen(false);
-    }
+    setIsOpen(false);
   };
 
   const selectItem = (val: T) => {
@@ -73,74 +54,45 @@ export const RichDropDown = <T extends { id: string }>({
   };
 
   useOutsideClickListener(listRef, () => {
-    if (selected.id !== '') {
-      closeDropdown();
-    }
+    closeDropdown();
   });
 
-  useEffect(() => {
-    if (!headBuilder) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
-  }, []);
-
   return (
-    <div className="rich-dropdown">
-      {headBuilder && (
-        <Column
-          tabIndex={1}
-          className={`switch-filter ${itemData.length > 1 || isMultipleItem ? 'default' : 'disabled'}`}
-        >
-          <div onClick={openDropDown}>{headBuilder(selected)}</div>
-        </Column>
+    <Column
+      className={`switch-filter ${itemData.length > 1 ? 'default' : 'disabled'}`}
+    >
+      {isOpen == false && (
+        <div onClick={openDropDown}>{headBuilder(selected)}</div>
       )}
-      {isOpen && (
-        <Card
-          type="elevated"
-          tabIndex={1}
-          className={`switch-filter absolute-dropdown ${minWidth ?? 'min-w-[100%]'} ${selected.id == '' ? 'p-8' : ''} ${itemData.length > 1 ? 'default' : 'disabled'}`}
-        >
-          <div ref={listRef}>
-            <div onClick={closeDropdown}>{dropdownHeader}</div>
-            <ul
-              className={`${maxHeight} ${minWidth ?? 'min-w-[100%]'} overflow-auto`}
-            >
-              {itemData.map((item, index) => {
-                const isSelcted = selected.id == item.id && showSelected;
-                const isSelectedId = selected.id == '';
-                return (
-                  <li key={item.id} className={`${isSelectedId ? 'mt-4' : ''}`}>
-                    <Row
-                      tabIndex={1}
-                      className={`${isSelectedId ? '' : 'p-4'} ${divider ? 'divider-bottom' : ''} ${isSelcted ? 'selected' : ''} item`}
-                      key={item.id}
-                      onClick={() => selectItem(item)}
-                    >
-                      {isSelcted ? (
-                        <div className="size-5 mr-2">
-                          <Image
-                            alt="selcted"
-                            className="size-5"
-                            src={checkBlueIcon}
-                          />
-                        </div>
-                      ) : (
-                        <div
-                          className={showSelected ? 'size-5 mr-2' : ''}
-                        ></div>
-                      )}
-                      {itemsBuilder(item, index, selected)}
-                    </Row>
-                  </li>
-                );
-              })}
-            </ul>
-            <div onClick={() => onClickFooter?.()}>{dropdownFooter}</div>
-          </div>
-        </Card>
-      )}
-    </div>
+      {isOpen && <div onClick={closeDropdown}>{dropdownHeader}</div>}
+      <ul ref={listRef} className="max-h-[420px] overflow-y-scroll">
+        {isOpen &&
+          itemData.map((item, index) => {
+            const isSelcted = selected.id == item.id;
+            return (
+              <li key={item.id}>
+                <Row
+                  tabIndex={0}
+                  className={`p-4 divider-bottom ${isSelcted ? 'selected' : ''} item`}
+                  key={item.id}
+                  onClick={() => selectItem(item)}
+                >
+                  <div className="size-5 mr-2">
+                    {isSelcted && (
+                      <Image
+                        alt="selcted"
+                        className="size-5"
+                        src={checkBlueIcon}
+                      />
+                    )}
+                  </div>
+                  {itemsBuilder(item, index, selected)}
+                </Row>
+              </li>
+            );
+          })}
+      </ul>
+      {isOpen && dropdownFooter}
+    </Column>
   );
 };

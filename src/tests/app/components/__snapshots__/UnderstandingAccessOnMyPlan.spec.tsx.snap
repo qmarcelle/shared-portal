@@ -4,7 +4,7 @@ exports[`UnderstandingAccessOnMyPlan should render UI correctly 1`] = `
 <body>
   <div>
     <div
-      class="card-main  large-section"
+      class="card-main large-section p-8"
     >
       <div
         class="flex flex-col items-stretch"
@@ -15,12 +15,13 @@ exports[`UnderstandingAccessOnMyPlan should render UI correctly 1`] = `
           >
             Understanding Access On My Plan
           </h1>
+           
           <span
-            style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
         </div>
         <div
-          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
         >
           <div
             class="flex flex-row m-1 accordion-head"
@@ -64,11 +65,12 @@ exports[`UnderstandingAccessOnMyPlan should render UI correctly 1`] = `
           />
         </div>
         <div
+          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
         <div
-          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
         >
           <div
             class="flex flex-row m-1 accordion-head"
@@ -96,11 +98,12 @@ exports[`UnderstandingAccessOnMyPlan should render UI correctly 1`] = `
           />
         </div>
         <div
+          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
         <div
-          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
         >
           <div
             class="flex flex-row m-1 accordion-head"

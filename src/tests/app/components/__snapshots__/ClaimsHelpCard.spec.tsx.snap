@@ -23,7 +23,7 @@ exports[`Claims Help Card Claims Help Card 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <span
-              class="rich-text body-1 undefined"
+              class="body-1 undefined"
             >
               <span>
                 If you need help, please reach out to us. You can 
@@ -43,7 +43,7 @@ exports[`Claims Help Card Claims Help Card 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <span
-              class="rich-text body-1 undefined"
+              class="body-1 undefined"
             >
               <span>
                 You can also try our 
@@ -80,7 +80,7 @@ exports[`Claims Help Card Claims Help Card 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <span
-            class="rich-text body-1 undefined"
+            class="body-1 undefined"
           >
             <span>
               If you need help, please reach out to us. You can 
@@ -100,7 +100,7 @@ exports[`Claims Help Card Claims Help Card 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <span
-            class="rich-text body-1 undefined"
+            class="body-1 undefined"
           >
             <span>
               You can also try our 

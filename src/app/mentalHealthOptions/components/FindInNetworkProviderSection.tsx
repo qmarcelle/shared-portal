@@ -5,7 +5,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import FindCare from '../../../../public/assets/find_care_search.svg';
+import FindCare from '../../../../public/assets/Find-Care.svg';
 
 interface FindInNetworkProviderSectionProps extends IComponent {
   icon?: ReactNode;

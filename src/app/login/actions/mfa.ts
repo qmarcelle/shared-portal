@@ -71,7 +71,6 @@ export async function callSubmitMfaOtp(
   let authUser: string | null = null;
   let username: string | null = null;
   try {
-    let status: SubmitMFAStatus = SubmitMFAStatus.OTP_OK;
     params.policyId = process.env.ES_API_POLICY_ID;
     params.appId = process.env.ES_API_APP_ID;
     username = verifyUserId(params.userToken);
@@ -83,20 +82,12 @@ export async function callSubmitMfaOtp(
     if (!username) {
       throw 'Failed to verify username';
     }
-    if (resp.data.data?.flowStatus == 'PASSWORD_RESET_REQUIRED') {
-      status = SubmitMFAStatus.PASSWORD_RESET_REQUIRED;
-    } else if (resp.data.data?.flowStatus == 'NEW_EMAIL_REQUIRED') {
-      status = SubmitMFAStatus.EMAIL_UNIQUENESS;
-    } else if (resp.data.data?.message == 'Duplicate_Account') {
-      status = SubmitMFAStatus.DUPLICATE_ACCOUNT;
-    } else {
-      authUser = username;
-      await setWebsphereRedirectCookie({
-        ...resp.data.data,
-      });
-    }
+    authUser = username;
+    await setWebsphereRedirectCookie({
+      ...resp.data.data,
+    });
     return {
-      status: status,
+      status: SubmitMFAStatus.OTP_OK,
       data: resp.data.data,
     };
   } catch (err) {

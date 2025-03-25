@@ -1,15 +1,15 @@
 import { ClaimDetails } from '@/models/claim_details';
-import Image from 'next/image';
-import DentalIcon from '../../../public/assets/dental.svg';
-import MedicalIcon from '../../../public/assets/medical.svg';
-import PharmacyIcon from '../../../public/assets/pharmacy.svg';
-import VisionIcon from '../../../public/assets/vision.svg';
 import { AppLink } from '../foundation/AppLink';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
-import { externalIcon } from '../foundation/Icons';
-import { Row } from '../foundation/Row';
+import { extrenalIcon } from '../foundation/Icons';
+import Image from 'next/image';
 import { Spacer } from '../foundation/Spacer';
+import MedicalIcon from '../../../public/Medical.svg';
+import PharmacyIcon from '../../../public/Pharmacy.svg';
+import DentalIcon from '../../../public/Dental.svg';
+import VisionIcon from '../../../public/Vision.svg';
+import { Row } from '../foundation/Row';
 import { StatusLabel } from '../foundation/StatusLabel';
 import { TextBox } from '../foundation/TextBox';
 
@@ -20,11 +20,7 @@ interface ClaimDetailsProps {
 export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
   function getSuccessStatus() {
     console.log(claimInfo.claimStatus);
-    if (
-      claimInfo.claimStatus == 'Processed' ||
-      claimInfo.claimStatus == 'Approved' ||
-      claimInfo.claimStatus == 'Completed'
-    ) {
+    if (claimInfo.claimStatus == 'Processed') {
       return 'success';
     } else if (claimInfo.claimStatus == 'Denied') {
       return 'error';
@@ -52,8 +48,8 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
         <Column>
           <AppLink
             label="Review This Provider"
-            className="link !flex"
-            icon={<Image src={externalIcon} alt="external" />}
+            className="link flex "
+            icon={<Image src={extrenalIcon} alt="external" />}
           />
         </Column>
       );

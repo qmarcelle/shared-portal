@@ -1,4 +1,4 @@
-import { ServiceDetails } from '@/app/claims/models/app/service_details';
+import { ServiceDetails } from '@/app/claimServiceRendered/models/service_details';
 import { IComponent } from '@/components/IComponent';
 import { Accordion } from '@/components/foundation/Accordion';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -12,7 +12,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { formatCurrency } from '@/utils/currency_formatter';
 import Image from 'next/image';
-import { ServicesRenderedInformation } from '../../claims/components/ServicesRenderedInformation';
+import { ServicesRenderedInformation } from '../../claimServiceRendered/components/ServicesRenderedInformation';
 import { SpendingChart } from './SpendingChart';
 
 interface SpendingSummarySectionProps extends IComponent {
@@ -69,7 +69,7 @@ export const SpendingAccountSummary = ({
               right={0}
             />
             <TextBox text="You Paid" className="ml-2" />
-            <p className="body-bold ml-auto">
+            <p className="font-bold ml-auto">
               {formatCurrency(amountPaid) ?? '--'}
             </p>
           </Row>
@@ -84,7 +84,7 @@ export const SpendingAccountSummary = ({
               right={0}
             />
             <TextBox text="You Saved" className="ml-2" />
-            <p className="body-bold ml-auto">
+            <p className="font-bold ml-auto">
               {formatCurrency(amountSaved) ?? '--'}
             </p>
           </Row>

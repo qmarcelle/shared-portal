@@ -43,7 +43,7 @@ export const ContactInformationSection = ({
           key={'email'}
           onClick={() =>
             showAppModal({
-              content: <UpdateCommunicationEmail email={email} />,
+              content: <UpdateCommunicationEmail email="chall111@gmail.com" />,
             })
           }
           label={<TextBox className="font-bold" text="Email Address" />}

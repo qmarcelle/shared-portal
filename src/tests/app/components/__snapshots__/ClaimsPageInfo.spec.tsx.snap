@@ -64,7 +64,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
                 >
                   Visited on 08/23/23
                 </p>
@@ -74,7 +73,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
                 >
                   For Chris Hall
                 </p>
@@ -84,7 +82,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
                 >
                   Claim ID:
                 </p>
@@ -93,7 +90,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
                 >
                   Claim1
                 </p>
@@ -106,7 +102,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
                   >
                     RX #:
                   </p>
@@ -115,7 +110,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                   />
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
                   >
                     1234567890
                   </p>
@@ -126,7 +120,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
                 >
                   Network Status:
                 </p>
@@ -135,7 +128,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
                 >
                   In-Network
                 </p>
@@ -206,7 +198,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
               >
                 Visited on 08/23/23
               </p>
@@ -216,7 +207,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
               >
                 For Chris Hall
               </p>
@@ -226,7 +216,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
               >
                 Claim ID:
               </p>
@@ -235,7 +224,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               />
               <p
                 class="body-1 font-bold"
-                style="display: block;"
               >
                 Claim1
               </p>
@@ -248,7 +236,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
                 >
                   RX #:
                 </p>
@@ -257,7 +244,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
                 >
                   1234567890
                 </p>
@@ -268,7 +254,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
               >
                 Network Status:
               </p>
@@ -277,7 +262,6 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               />
               <p
                 class="body-1 font-bold"
-                style="display: block;"
               >
                 In-Network
               </p>

@@ -13,23 +13,11 @@ import userEvent from '@testing-library/user-event';
 
 // Mock useRouter:
 const mockReplace = jest.fn();
-const mockRefresh = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
       prefetch: () => null,
       replace: mockReplace,
-      refresh: mockRefresh,
-    };
-  },
-  useSearchParams() {
-    return {
-      get: jest.fn(),
-    };
-  },
-  useSearchParams() {
-    return {
-      get: jest.fn(),
     };
   },
 }));

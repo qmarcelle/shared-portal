@@ -1,13 +1,11 @@
+import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
-import { Divider } from '@/components/foundation/Divider';
 import { Dropdown, SelectItem } from '@/components/foundation/Dropdown';
 import { Spacer } from '@/components/foundation/Spacer';
-import { TextBox } from '@/components/foundation/TextBox';
-import { IComponent } from '@/components/IComponent';
 import { BalanceChart } from './BalanceChart';
 
-export interface MedicalBalanceSectionProps extends IComponent {
+interface MedicalBalanceSectionProps extends IComponent {
   members: SelectItem[];
   selectedMemberId: string;
   balanceNetworks: SelectItem[];
@@ -18,8 +16,6 @@ export interface MedicalBalanceSectionProps extends IComponent {
   outOfPocketLimit: number;
   onSelectedMemberChange: () => void;
   onSelectedNetworkChange: () => void;
-  displayDisclaimerText: boolean;
-  disclaimerText?: string;
 }
 
 export const MedicalBalanceSection = ({
@@ -34,8 +30,6 @@ export const MedicalBalanceSection = ({
   outOfPocketSpent,
   onSelectedMemberChange,
   onSelectedNetworkChange,
-  displayDisclaimerText,
-  disclaimerText,
 }: MedicalBalanceSectionProps) => {
   return (
     <Card className={className}>
@@ -74,16 +68,7 @@ export const MedicalBalanceSection = ({
           limitAmount={outOfPocketLimit}
         />
         <Spacer size={32} />
-        {!displayDisclaimerText && (
-          <AppLink label="View Balances" url="/balances" />
-        )}
-        {displayDisclaimerText && disclaimerText && (
-          <>
-            <Divider />
-            <Spacer size={32} />
-            <TextBox type="body-2" text={disclaimerText} />
-          </>
-        )}
+        <AppLink label="View All Balances" />
       </div>
     </Card>
   );

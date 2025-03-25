@@ -6,15 +6,12 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { EmailUniquenessVerification } from './components/EmailUniquenessVerification';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
 import { MultipleAttemptsErrorComponent } from './components/MultipleAttemptsErrorComponent';
-import { PrimaryAccountSelection } from './components/PrimaryAccountSelection';
-import { ResetPasswordComponent } from './components/ResetPasswordComponent';
 import { useLoginStore } from './stores/loginStore';
 import { useMfaStore } from './stores/mfaStore';
 
@@ -27,10 +24,6 @@ export default function LogIn() {
     isRiskScoreHigh,
     riskLevelNotDetermined,
     verifyEmail,
-    forcedPasswordReset,
-    emailUniqueness,
-    verifyUniqueEmail,
-    duplicateAccount,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
@@ -39,10 +32,6 @@ export default function LogIn() {
     state.isRiskScoreHigh,
     state.riskLevelNotDetermined,
     state.verifyEmail,
-    state.forcedPasswordReset,
-    state.emailUniqueness,
-    state.verifyUniqueEmail,
-    state.duplicateAccount,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
@@ -60,7 +49,6 @@ export default function LogIn() {
           process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL ||
           '/security',
       );
-      router.refresh();
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
@@ -71,20 +59,12 @@ export default function LogIn() {
     if (multipleMFASecurityCodeAttempts == true) {
       return <MFASecurityCodeMultipleAttemptComponent />;
     }
-    if (forcedPasswordReset == true) {
-      return <ResetPasswordComponent />;
-    }
-    if (verifyEmail == true || verifyUniqueEmail == true) {
-      return <LoginEmailVerification />;
-    }
-    if (emailUniqueness == true) {
-      return <EmailUniquenessVerification />;
-    }
-    if (duplicateAccount == true) {
-      return <PrimaryAccountSelection />;
-    }
     if (mfaNeeded == false) {
-      return <LoginComponent />;
+      if (verifyEmail == true) {
+        return <LoginEmailVerification />;
+      } else {
+        return <LoginComponent />;
+      }
     } else {
       return <MfaComponent />;
     }

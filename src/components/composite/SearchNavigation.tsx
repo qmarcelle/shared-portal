@@ -1,10 +1,8 @@
-import { invokeSmartSearch } from '@/actions/smartSearch';
-import { SearchDetails } from '@/models/app/searchDetails';
-import { transformSearchResponseToDetails } from '@/utils/fusion_search_response_mapper';
+import { useSmartSearchStore } from '@/stores/smartSearchStore';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import searchIcon from '../../../public/assets/Search.svg';
 import CloseIcon from '../../../public/assets/close.svg';
-import searchIcon from '../../../public/assets/search.svg';
 import { IComponent } from '../IComponent';
 import SearchField from '../foundation/SearchField';
 import { SearchTypeAhead } from '../foundation/SearchTypeAhead';
@@ -12,60 +10,48 @@ import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
 
 export const SearchNavigation = ({ className }: IComponent) => {
-  const [searchText, setSearchText] = useState<string>('');
-  const [searchResults, setSearchResults] = useState<SearchDetails[] | null>(
-    null,
-  );
+  const { searchText, getSmartSearch, updateSearchText, searchResults } =
+    useSmartSearchStore();
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showSearchSuggestion, setShowSearchSuggestion] = useState(false);
 
   useEffect(() => {
-    console.log('Running effect');
-    if (searchText.length == 0) {
-      setShowSearchSuggestion(false);
-      setSearchResults(null);
-      console.log('Search suggestion to false');
-      return;
-    }
-
     if (searchText.length >= 3) {
       const getSearchResults = setTimeout(async () => {
-        const result = await invokeSmartSearch(searchText);
-        if (result.status == 200) {
-          setSearchResults(transformSearchResponseToDetails(result.data!));
-        }
+        await getSmartSearch();
       }, 500);
 
       return () => clearTimeout(getSearchResults);
     }
-  }, [searchText]);
+  }, [getSmartSearch, searchText]);
 
   function closeSearch() {
     setShowSearchBar(false);
     setShowSearchSuggestion(false);
-    setSearchText('');
+    updateSearchText('');
   }
 
   const handleSearch = (searchVal: string) => {
-    setSearchText(searchVal);
     if (searchVal.length >= 3) {
       setShowSearchSuggestion(true);
+      updateSearchText(searchVal);
     }
   };
 
   const SearchBar = () => (
-    <div
-      className={`flex flex-row align-top m-2 hover:bg-white w-full ${className}`}
-    >
-      <div className="flex flex-col flex-grow relative" onClick={() => {}}>
+    <div className={`flex flex-row align-top m-2 searchBar ${className}`}>
+      <div
+        className="flex flex-col flex-grow "
+        style={{ height: 40 }}
+        onClick={() => {}}
+      >
         <SearchField
           classValue="search-textfield-input"
           searchText={searchText}
           onSearch={handleSearch}
           hint="Search for claims, documents, and more..."
-          autoFocus={true}
         ></SearchField>
-        {showSearchSuggestion && searchResults ? (
+        {showSearchSuggestion ? (
           <SearchTypeAhead
             searchText={searchText}
             searchDetails={searchResults}
@@ -96,10 +82,9 @@ export const SearchNavigation = ({ className }: IComponent) => {
     return showSearchBar ? (
       <SearchBar />
     ) : (
-      <div className="flex flex-row align-top">
+      <div className="flex flex-row align-top m-4">
         <div
-          tabIndex={0}
-          className="flex flex-row rounded-[4px] m-4 box-border items-end focus:outline-none focus:ring-2 focus:ring-primary-color"
+          className="flex flex-row"
           onClick={() => {
             setShowSearchBar(true);
           }}
@@ -108,20 +93,14 @@ export const SearchNavigation = ({ className }: IComponent) => {
             <TextBox className="link-row-head" text="Search" />
           </a>
           <Spacer size={8} />
-          <Image
-            src={searchIcon}
-            className="icon items-end ml-1"
-            alt="Search"
-          />
+          <Image src={searchIcon} className="icon items-end" alt="Search" />
         </div>
       </div>
     );
   }
 
   return (
-    <div
-      className={`flex font-bold focus:outline-none hover:bg-secondary-focus focus:ring-2 focus:ring-primary-color ${showSearchBar ? 'w-full' : 'w-fit'}`}
-    >
+    <div className="flex flex-col self-strectch w-full items-end">
       {renderSearch()}
     </div>
   );

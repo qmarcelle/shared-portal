@@ -6,10 +6,11 @@ const renderUI = () => {
   return render(<LoginEmailVerification />);
 };
 
-describe('Login Email Verification Component', () => {
+describe('Login Email Verfication Component', () => {
   it('should render UI correctly', () => {
     const component = renderUI();
-    screen.getByRole('heading', { name: 'Let’s Verify Your Email' });
+    // eslint-disable-next-line quotes
+    screen.getByRole('heading', { name: "Let's Verify Your Email" });
     screen.getByText(
       'We’ll need to confirm your email address before you can log in.',
     );
@@ -30,7 +31,7 @@ describe('Login Email Verification Component', () => {
       'Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or',
     );
     expect(
-      screen.getByRole('link', {
+      screen.getByRole('button', {
         name: /contact us/i,
       }),
     ).toBeVisible();

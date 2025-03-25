@@ -1,10 +1,7 @@
-import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
-import { ToolTip } from '@/components/foundation/Tooltip';
 import Image from 'next/image';
 import editIcon from '../../../public/assets/edit.svg';
 import infoIcon from '../../../public/assets/info.svg';
 import { IComponent } from '../IComponent';
-import { useAppModalStore } from '../foundation/AppModal';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Divider } from '../foundation/Divider';
@@ -20,11 +17,6 @@ interface OnMyPlanItemProps extends IComponent {
   isMinor: boolean;
   icon?: JSX.Element;
   infoButton: boolean;
-  requestorType?: string;
-  targetType?: string;
-  medicalEffectiveDate: string;
-  dentalEffectiveDate: string;
-  visionEffectiveDate: string;
 }
 
 export const OnMyPlanItem = ({
@@ -36,13 +28,7 @@ export const OnMyPlanItem = ({
   className,
   infoButton,
   icon = <Image src={editIcon} alt="link" />,
-  requestorType,
-  targetType,
-  medicalEffectiveDate,
-  dentalEffectiveDate,
-  visionEffectiveDate,
 }: OnMyPlanItemProps) => {
-  const { showAppModal } = useAppModalStore();
   function getMinorContent() {
     return (
       <Column>
@@ -70,38 +56,13 @@ export const OnMyPlanItem = ({
           <Spacer axis="horizontal" size={8} />
           <TextBox className="body-1 " text={sharingType} />
           {infoButton && (
-            <ToolTip
-              showTooltip={true}
-              className="flex flex-row justify-center items-end tooltip tooltipIcon relative ml-2 text-center"
-              label={
-                <>
-                  {medicalEffectiveDate && (
-                    <Column className="mb-2 ml-2 mt-4">
-                      <Row>Medical</Row>
-                      <Row>Policy effective date: {medicalEffectiveDate}</Row>
-                    </Column>
-                  )}
-                  {dentalEffectiveDate && (
-                    <Column className="mb-2 ml-2">
-                      <Row>Dental</Row>
-                      <Row>Policy effective date: {dentalEffectiveDate}</Row>
-                    </Column>
-                  )}
-                  {visionEffectiveDate && (
-                    <Column className="ml-2 mb-4">
-                      <Row>Vision</Row>
-                      <Row>Policy effective date: {visionEffectiveDate}</Row>
-                    </Column>
-                  )}
-                </>
-              }
-            >
+            <div>
               <Image src={infoIcon} className="icon" alt="Info" />
-            </ToolTip>
+            </div>
           )}
         </Row>
         {!infoButton && (
-          <>
+          <div>
             {' '}
             <Spacer size={16} />
             <Row>
@@ -110,22 +71,10 @@ export const OnMyPlanItem = ({
                 className="font-bold primary-color"
                 text="Update"
                 suffix={icon}
-                callback={() => {
-                  showAppModal({
-                    content: (
-                      <EditLevelOfAccess
-                        currentAccessType="basic"
-                        memberName={memberName}
-                        requestorType={requestorType ?? ''}
-                        targetType={targetType ?? ''}
-                      />
-                    ),
-                  });
-                }}
               />
               <Spacer size={40} />
             </Row>
-          </>
+          </div>
         )}
       </Column>
     );

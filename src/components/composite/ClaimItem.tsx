@@ -1,35 +1,40 @@
-import { IComponent } from '@/components/IComponent';
-import { Card } from '@/components/foundation/Card';
-import { Column } from '@/components/foundation/Column';
-import { Row } from '@/components/foundation/Row';
-import { Spacer } from '@/components/foundation/Spacer';
-import { StatusLabel } from '@/components/foundation/StatusLabel';
-import { TextBox } from '@/components/foundation/TextBox';
-import { ClaimDetails } from '@/models/claim_details';
-import { formatCurrency } from '@/utils/currency_formatter';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
 import PharmacyIcon from '../../../public/assets/pharmacy.svg';
 import VisionIcon from '../../../public/assets/vision.svg';
-import { Header } from '../foundation/Header';
+import { IComponent } from '../IComponent';
+import { Card } from '../foundation/Card';
+import { Column } from '../foundation/Column';
+import { Row } from '../foundation/Row';
+import { Spacer, SpacerX } from '../foundation/Spacer';
+import { StatusLabel } from '../foundation/StatusLabel';
+import { TextBox } from '../foundation/TextBox';
 
 interface ClaimItemProps extends IComponent {
-  // TODO: Update the model and type while integrating the api.
-  claimInfo: ClaimDetails;
-  callBack?: (id: string) => void;
+  // TODO: Find the correct model and type it here
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  claimInfo: any;
 }
 
 export const ClaimItem = ({
   claimInfo,
+  onClick,
   className,
-  callBack,
 }: ClaimItemProps) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   function getSuccessStatus() {
+    console.log(claimInfo.claimStatus);
     switch (claimInfo.claimStatus) {
       case 'Processed':
-        return 'success';
-      case 'Paid':
         return 'success';
       case 'Denied':
         return 'error';
@@ -41,22 +46,6 @@ export const ClaimItem = ({
         return 'success';
       default:
         return 'empty';
-    }
-  }
-
-  function getFormattedDataValue(
-    value: number | string | null,
-    defaultValue: string,
-    isDollar: boolean,
-  ): string | undefined {
-    if (value) {
-      if (isDollar) {
-        return formatCurrency(value as number);
-      } else {
-        return value as string;
-      }
-    } else {
-      return defaultValue;
     }
   }
 
@@ -72,123 +61,177 @@ export const ClaimItem = ({
     }
   }
 
-  function getClaimItem() {
+  function getDesktopView() {
     return (
-      <section className="md:flex md:flex-row align-top m-4">
+      <Row
+        className={
+          claimInfo.totalBilled
+            ? 'flex flex-row align-top mt-8 mb-8 ml-4 mr-4'
+            : 'flex flex-row align-top m-4 mt-8'
+        }
+      >
         <Image
           src={getClaimIcon()}
-          className="icon max-md:hidden"
+          className="icon"
           alt={claimInfo.claimType}
         />
         <Spacer axis="horizontal" size={8} />
-        <Column className="min-w-[95%]">
-          <section className="md:flex md:flex-row md:justify-between">
-            <section className="flex flex-row mb-[10px] md:flex-col">
-              <Image
-                src={getClaimIcon()}
-                className="icon md:hidden"
-                alt={claimInfo.claimType}
-              />
-              <Header
-                text={claimInfo.issuer}
-                type="title-3"
-                className="body-bold primary-color max-md:ml-[5px]"
-              />
-            </section>
-            <section className="flex flex-row justify-between md:flex-col max-lg:mr-[5px]">
-              <StatusLabel
-                label={claimInfo.claimStatus}
-                status={getSuccessStatus()}
-              />
-              {claimInfo.isMiniCard && (
-                <Column className="md:hidden">
-                  <TextBox
-                    className="body-1 font-bold mt-2"
-                    text={
-                      claimInfo.claimTotal != null
-                        ? `$${claimInfo.claimTotal}`
-                        : ''
-                    }
-                  />
-                </Column>
-              )}
-            </section>
-          </section>
-          {claimInfo.isMiniCard && (
-            <Row className="justify-between">
-              <Column>
-                <TextBox
-                  className="body-1 mt-2"
-                  text={`Visited on ${claimInfo.serviceDate}, For ${claimInfo.memberName}`}
-                />
-              </Column>
-              <Column className="max-md:hidden">
-                <TextBox
-                  className="body-1 font-bold mt-2"
-                  text={
-                    claimInfo.claimTotal != null
-                      ? `$${claimInfo.claimTotal}`
-                      : ''
-                  }
-                />
-              </Column>
+        <Column className="flex flex-col flex-grow">
+          <p className="font-bold" style={{ color: 'var(--primary-color)' }}>
+            {claimInfo.issuer}
+          </p>
+          {!claimInfo.claimsFlag && !claimInfo.priorAuthFlag && (
+            <span className="body-1">
+              Visited on {claimInfo.serviceDate}, For {claimInfo.memberName}
+            </span>
+          )}
+          {claimInfo.claimsFlag && (
+            <Row className="mt-2">
+              <Row className="flex flex-col mr-2">
+                <span className="body-1">
+                  Visited on {claimInfo.serviceDate}
+                </span>
+                <span className="body-1 mt-2">For {claimInfo.memberName}</span>
+              </Row>
+              <Row className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: '0.7' }}>
+                  Total Billed
+                </span>
+                <span className="body-1 mt-2">
+                  {claimInfo.totalBilled != null
+                    ? `$${claimInfo.totalBilled}`
+                    : '--'}
+                </span>
+              </Row>
+              <Row className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: '0.7' }}>
+                  Plan Paid
+                </span>
+                <span className="body-1 mt-2">
+                  {claimInfo.planPaid != null ? `$${claimInfo.planPaid}` : '--'}
+                </span>
+              </Row>
+              <Row className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: '0.7' }}>
+                  My Share
+                </span>
+                <span className="body-1 mt-2 font-bold">
+                  {claimInfo.myShare != null ? `$${claimInfo.myShare}` : '--'}
+                </span>
+              </Row>
             </Row>
           )}
-          {claimInfo.columns && (
+          {claimInfo.priorAuthFlag && (
             <Row className="mt-2">
-              <Column className="mr-2 flex-grow max-md:hidden">
-                <TextBox
-                  className="body-1"
-                  text={`Visited on ${claimInfo.serviceDate}`}
-                />
-                <TextBox
-                  className="body-1 mt-2"
-                  text={`For ${claimInfo.memberName}`}
-                />
+              <Column className="flex flex-col mr-2">
+                <span className="body-1">
+                  Visited on {claimInfo.serviceDate}
+                </span>
+                <span className="body-1 mt-2">For {claimInfo.memberName}</span>
               </Column>
-              <Column className="flex-grow mr-5 md:hidden">
-                <TextBox className="body-1" text="Visited on" />
-                <TextBox className="body-1" text={claimInfo.serviceDate} />
-                <TextBox
-                  className="body-1 mt-2"
-                  text={`For ${claimInfo.memberName}`}
-                />
+              <Column className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: '0.7' }}>
+                  Referred by
+                </span>
+                <span className="body-1 mt-2">{claimInfo.ReferredBy}</span>
               </Column>
-              {claimInfo.columns.map((item, index) => (
-                <Column
-                  className={`mx-4 flex-grow ${!item.isVisibleInMobile ? 'max-md:hidden' : ''}`}
-                  key={index}
-                >
-                  <TextBox
-                    className="body-1 tertiary-color"
-                    text={item.label}
-                  />
-                  <TextBox
-                    className={`body-1 mt-2 ${item.isValueBold ? 'font-bold' : ''}`}
-                    text={
-                      getFormattedDataValue(
-                        item.value,
-                        item.defaultValue,
-                        item.isDollar ?? false,
-                      ) ?? item.defaultValue
-                    }
-                  />
-                </Column>
-              ))}
+              <Column className="flex flex-col mr-4 ml-4">
+                <span className="body-1" style={{ opacity: '0.7' }}>
+                  Referred to
+                </span>
+                <span className="body-1 mt-2">{claimInfo.ReferredTo}</span>
+              </Column>
             </Row>
           )}
         </Column>
-      </section>
+        <Row className="flex flex-col items-end">
+          <StatusLabel
+            label={claimInfo.claimStatus}
+            status={getSuccessStatus()}
+          />
+          {!claimInfo.claimsFlag ||
+            (!claimInfo.priorAuthFlag && (
+              <p className="body-1 font-bold">
+                {claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ''}
+              </p>
+            ))}
+        </Row>
+      </Row>
     );
   }
 
-  return (
+  function getMobileView() {
+    return (
+      <Column className="m-4">
+        <Row>
+          <Image
+            src={getClaimIcon()}
+            className="icon"
+            alt={claimInfo.claimType}
+          />
+          <SpacerX size={8} />
+          <TextBox text={claimInfo.issuer} />
+        </Row>
+        <Spacer size={8} />
+        <Row className="justify-between">
+          <StatusLabel
+            label={claimInfo.claimStatus}
+            status={getSuccessStatus()}
+          />
+          {!claimInfo.claimsFlag ||
+            (!claimInfo.priorAuthFlag && (
+              <TextBox
+                className="font-bold"
+                text={
+                  claimInfo.claimTotal != null ? `$${claimInfo.claimTotal}` : ''
+                }
+              />
+            ))}
+        </Row>
+        <Spacer size={8} />
+        {!claimInfo.claimsFlag ||
+          (claimInfo.priorAuthFlag && (
+            <TextBox
+              text={`Visited on ${claimInfo.serviceDate}, For ${claimInfo.memberName}`}
+            />
+          ))}
+        {claimInfo.claimsFlag && (
+          <Row className="flex-grow mt-2">
+            <Column className="flex flex-col flex-grow mr-5">
+              <span className="body-1">Visited on</span>
+              <span className="body-1">{claimInfo.serviceDate}</span>
+              <span className="body-1 mt-2">For {claimInfo.memberName}</span>
+            </Column>
+            <Column className="flex flex-col flex-grow">
+              <span className="body-1" style={{ opacity: '0.7' }}>
+                My Share
+              </span>
+              <span className="body-1 mt-2 font-bold">
+                {claimInfo.myShare != null ? `$${claimInfo.myShare}` : '--'}
+              </span>
+            </Column>
+          </Row>
+        )}
+        {claimInfo.priorAuthFlag && (
+          <Row className="flex-grow mt-2">
+            <Column className="flex flex-col flex-grow mr-5">
+              <span className="body-1">Visited on</span>
+              <span className="body-1">{claimInfo.serviceDate}</span>
+              <span className="body-1 mt-2">For {claimInfo.memberName}</span>
+            </Column>
+          </Row>
+        )}
+      </Column>
+    );
+  }
+
+  return isClient ? (
     <Card
       className={`cursor-pointer ${className}`}
-      type="button"
-      onClick={() => callBack?.(claimInfo.encryptedClaimId ?? '')}
+      type="elevated"
+      onClick={onClick}
     >
-      {getClaimItem()}
+      {isMobile ? getMobileView() : getDesktopView()}
     </Card>
-  );
+  ) : null;
 };

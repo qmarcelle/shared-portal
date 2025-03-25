@@ -21,7 +21,6 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
           >
             You can speak with a therapist or a psychiatrist (a medical doctor that can prescribe medicine). Or try a self-guided program with personalized recommendations.
           </p>
@@ -52,11 +51,9 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
                 width="40"
               />
             </div>
-            <div
-              class="mr-2 flex-grow"
-            />
           </div>
           <div
+            aria-label="divider"
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
@@ -89,7 +86,6 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
             >
               <p
                 class="body-1"
-                style="display: block;"
               >
                 If you are looking for talk therapy and counseling, talk to a therapist. There are different types, such as psychologists and licensed social workers, marriage and family therapists and counselors. The difference is in their level of training and the problems they specialize in handling.
               </p>
@@ -116,7 +112,6 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
         />
         <p
           class="body-1 body-1"
-          style="display: block;"
         >
           You can speak with a therapist or a psychiatrist (a medical doctor that can prescribe medicine). Or try a self-guided program with personalized recommendations.
         </p>
@@ -147,11 +142,9 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
               width="40"
             />
           </div>
-          <div
-            class="mr-2 flex-grow"
-          />
         </div>
         <div
+          aria-label="divider"
           class=""
           style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
         />
@@ -184,7 +177,6 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
             >
               If you are looking for talk therapy and counseling, talk to a therapist. There are different types, such as psychologists and licensed social workers, marriage and family therapists and counselors. The difference is in their level of training and the problems they specialize in handling.
             </p>

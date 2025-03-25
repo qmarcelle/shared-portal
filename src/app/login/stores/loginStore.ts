@@ -6,7 +6,6 @@ import { createWithEqualityFn } from 'zustand/traditional';
 import { callLogin } from '../actions/login';
 import { callSignOut } from '../actions/signOut';
 import { PortalLoginResponse } from '../models/api/login';
-import { UpdateEmailResponse } from '../models/api/update_email_response';
 import { AppProg } from '../models/app/app_prog';
 import {
   inlineErrorCodeMessageMap,
@@ -16,14 +15,12 @@ import {
 import { LoginInteractionData } from '../models/app/login_interaction_data';
 import { MfaModeState } from '../models/app/mfa_mode_state';
 import { MfaOption } from '../models/app/mfa_option';
-import { EmailUniquenessStatus, LoginStatus } from '../models/status';
+import { LoginStatus } from '../models/status';
 import {
   mapMfaDeviceMetadata,
   mapMfaDeviceType,
 } from '../utils/mfaDeviceMapper';
-import { useEmailUniquenessStore } from './emailUniquenessStore';
 import { useMfaStore } from './mfaStore';
-import { usePasswordResetStore } from './passwordResetStore';
 import { useVerifyEmailStore } from './verifyEmailStore';
 
 export type LoginStore = {
@@ -35,10 +32,7 @@ export type LoginStore = {
   isRiskScoreHigh: boolean;
   riskLevelNotDetermined: boolean;
   verifyEmail: boolean;
-  verifyUniqueEmail: boolean;
-  emailUniqueness: boolean;
   mfaNeeded: boolean;
-  inactive: boolean;
   updateUsername: (val: string) => void;
   updatePassword: (val: string) => void;
   updateMultipleLoginAttempts: (val: boolean) => void;
@@ -48,18 +42,12 @@ export type LoginStore = {
   resetToHome: () => void;
   signOut: () => void;
   updateLoggedUser: (val: boolean) => void;
-  setVerifyUniqueEmail: (
-    val: ActionResponse<EmailUniquenessStatus, UpdateEmailResponse>,
-  ) => void;
   loginProg: AppProg;
   apiErrors: string[];
   apiErrorcode: string[];
   interactionData: LoginInteractionData | null;
   userToken: string;
   emailId: string;
-  forcedPasswordReset: boolean;
-  duplicateAccount: boolean;
-  userId: string;
 };
 
 export const useLoginStore = createWithEqualityFn<LoginStore>(
@@ -74,13 +62,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     mfaNeeded: false,
     userToken: '',
     verifyEmail: false,
-    verifyUniqueEmail: false,
-    emailUniqueness: false,
-    forcedPasswordReset: false,
-    inactive: false,
     emailId: '',
-    userId: '',
-    duplicateAccount: false,
     updateLoggedUser: (val: boolean) => set(() => ({ loggedUser: val })),
     updateMultipleLoginAttempts: (val: boolean) =>
       set(() => ({ multipleLoginAttempts: val })),
@@ -120,6 +102,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         }
         // Set to success if request succeeded
         set(() => ({ loginProg: AppProg.success }));
+        //To Do Uncomment once ES API is available for integration
         if (resp.status == LoginStatus.VERIFY_EMAIL) {
           set({
             verifyEmail: true,
@@ -131,53 +114,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
           });
           return;
         }
-
-        if (resp.status == LoginStatus.REACTIVATION_REQUIRED) {
-          set({
-            verifyEmail: true,
-            inactive: true,
-            interactionData: {
-              interactionId: resp.data?.interactionId ?? '',
-              interactionToken: resp.data?.interactionToken ?? '',
-            },
-            emailId: resp.data?.email ?? '',
-          });
-          return;
-        }
-
-        if (resp.status == LoginStatus.EMAIL_UNIQUENESS) {
-          set({
-            emailUniqueness: true,
-            interactionData: {
-              interactionId: resp.data?.interactionId ?? '',
-              interactionToken: resp.data?.interactionToken ?? '',
-            },
-          });
-          return;
-        }
-
-        if (resp.status == LoginStatus.PASSWORD_RESET_REQUIRED) {
-          set({
-            forcedPasswordReset: true,
-            interactionData: {
-              interactionId: resp.data?.interactionId ?? '',
-              interactionToken: resp.data?.interactionToken ?? '',
-            },
-          });
-          return;
-        }
-        if (resp.status == LoginStatus.DUPLICATE_ACCOUNT) {
-          set({
-            duplicateAccount: true,
-            interactionData: {
-              interactionId: resp.data?.interactionId ?? '',
-              interactionToken: resp.data?.interactionToken ?? '',
-            },
-            userId: resp.data?.userId ?? '',
-          });
-          return;
-        }
-
         // Process login response for further operations
         await get().processLogin(resp.data!);
       } catch (err) {
@@ -271,10 +207,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         password: '',
         multipleLoginAttempts: false,
         verifyEmail: false,
-        forcedPasswordReset: false,
-        emailUniqueness: false,
-        verifyUniqueEmail: false,
-        duplicateAccount: false,
       });
       useMfaStore.setState({
         stage: MfaModeState.selection,
@@ -284,12 +216,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       useMfaStore.getState().updateResendCode(false);
       useVerifyEmailStore.getState().updateCode('');
       useVerifyEmailStore.getState().resetApiErrors();
-      usePasswordResetStore.getState().updatePassword('');
-      usePasswordResetStore.getState().updateDOB('');
-      usePasswordResetStore.getState().resetError();
-      useEmailUniquenessStore.getState().updateEmailAddress('');
-      useEmailUniquenessStore.getState().updateConfirmEmailAddress('');
-      useEmailUniquenessStore.getState().resetError();
     },
     resetApiErrors: () =>
       set(() => ({
@@ -299,18 +225,6 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     apiErrors: [],
     apiErrorcode: [],
     interactionData: null,
-    setVerifyUniqueEmail: (
-      resp: ActionResponse<EmailUniquenessStatus, UpdateEmailResponse>,
-    ) => {
-      set({
-        verifyUniqueEmail: true,
-        interactionData: {
-          interactionId: resp.data?.interactionId ?? '',
-          interactionToken: resp.data?.interactionToken ?? '',
-        },
-        emailId: resp.data?.emailId ?? '',
-      });
-    },
     signOut: async () => {
       try {
         await callSignOut();

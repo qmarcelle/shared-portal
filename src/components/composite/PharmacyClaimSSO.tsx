@@ -1,11 +1,11 @@
-import externalIcon from '@/../public/assets/external.svg';
-import Image from 'next/image';
-import { AppLink } from '../foundation/AppLink';
 import { Card } from '../foundation/Card';
-import { Column } from '../foundation/Column';
-import { Header } from '../foundation/Header';
 import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
+import { Header } from '../foundation/Header';
+import { Column } from '../foundation/Column';
+import externalIcon from '@/../public/External.svg';
+import Image from 'next/image';
+import { AppLink } from '../foundation/AppLink';
 
 export const PharmacyClaimSSO = () => {
   return (

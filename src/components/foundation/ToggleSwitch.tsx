@@ -19,19 +19,8 @@ export const ToggleSwitch = ({
     onToggleCallback?.();
   };
 
-  const handleKeyDown = (e: { keyCode: number }) => {
-    if (e.keyCode === 13) {
-      onToggle();
-    }
-  };
-
   return (
-    <label
-      aria-label={ariaLabel}
-      className="switch"
-      tabIndex={0}
-      onKeyDown={handleKeyDown}
-    >
+    <label aria-label={ariaLabel} className="switch">
       <input type="checkbox" onChange={onToggle} checked={checkedState} />
       <div
         className={`flex items-center toggle-slider round ${checkedState ? 'justify-start' : 'justify-end'}`}

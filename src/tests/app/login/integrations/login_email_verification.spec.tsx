@@ -14,23 +14,11 @@ import userEvent from '@testing-library/user-event';
 
 // Mock useRouter:
 const mockReplace = jest.fn();
-const mockRefresh = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
       prefetch: () => null,
       replace: mockReplace,
-      refresh: mockRefresh,
-    };
-  },
-  useSearchParams() {
-    return {
-      get: jest.fn(),
-    };
-  },
-  useSearchParams() {
-    return {
-      get: jest.fn(),
     };
   },
 }));
@@ -70,7 +58,6 @@ describe('Log In of User whose Email Id is not registered yet', () => {
             interactionId: 'interactionId1',
             interactionToken: 'interactionToken1',
             mfaDeviceList: [],
-            email: 'abcdefggh@bcbst.com',
           },
           details: {
             componentName: 'mfauthentication',

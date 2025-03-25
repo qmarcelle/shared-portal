@@ -5,5 +5,4 @@ export type SubmitMfaOtpResponse = {
   refreshToken: string;
   idToken: string;
   flowStatus: string;
-  message?: string;
 };

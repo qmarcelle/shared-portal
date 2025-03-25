@@ -2,9 +2,8 @@
 
 exports[`Security Page should render page correctly when errors occur 1`] = `
 <div>
-  <main
+  <div
     class="flex flex-col justify-center items-center page"
-    id="main"
   >
     <div
       class="flex flex-col app-content app-base-font-color"
@@ -62,7 +61,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                     To change your username, you will need to delete your registered account and create a new account. This will not affect your health plan information.
                   </span>
                   <img
-                    alt=""
+                    alt="Info"
                     class="icon"
                     data-nimg="1"
                     decoding="async"
@@ -71,7 +70,6 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                     src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
                     srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
                     style="color: transparent;"
-                    tabindex="0"
                     width="40"
                   />
                 </div>
@@ -103,9 +101,8 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
               />
               <p
                 class="body-1"
-                style="display: block;"
               >
-                   Multi-factor authentication (MFA) will confirm your identity when you log in,    protecting your important health information.
+                 Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information.
               </p>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -147,6 +144,6 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
         </div>
       </section>
     </div>
-  </main>
+  </div>
 </div>
 `;

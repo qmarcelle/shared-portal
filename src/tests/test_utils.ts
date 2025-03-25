@@ -48,9 +48,3 @@ export const testClient = (handler: NextApiHandler, bodyParser = true) => {
     }),
   );
 };
-
-export function fetchRespWrapper(resp: any) {
-  return {
-    json: () => Promise.resolve(resp),
-  };
-}

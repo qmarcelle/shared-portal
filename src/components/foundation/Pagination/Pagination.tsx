@@ -7,7 +7,7 @@ interface PaginationProps<T> extends IComponent {
   initialList: T[];
   pageSize: number;
   totalCount?: number;
-  className?: string;
+  className: string;
   label?: string;
   itemsBuilder: (data: T, index: number) => ReactNode;
   wrapperBuilder: (itemsBuilder: ReactNode) => ReactNode;
@@ -26,7 +26,7 @@ export const Pagination = <T,>({
 
   useEffect(() => {
     mapItemList();
-  }, []);
+  });
 
   const mapItemList = () => {
     const items: Map<number, T[]> = new Map<number, T[]>();
@@ -48,11 +48,11 @@ export const Pagination = <T,>({
   return (
     <>
       {wrapperBuilder(itemList)}
-      {label && pageItems.get(currentPage) ? (
+      {label ? (
         <section className="flex justify-center self-center pt-5">
           <TextBox
             className="m-2 mt-0"
-            text={`Viewing ${currentPage > 1 ? (currentPage - 1) * pageSize + (pageItems.get(currentPage)?.length ?? 0) : pageItems.get(currentPage)?.length} of ${totalCount ?? initialList.length} ${label}`}
+            text={`Viewing ${currentPage} of ${totalCount} ${label}`}
           ></TextBox>
         </section>
       ) : null}

@@ -35,7 +35,6 @@ export const PriorAuthCard = ({
       className="cursor-pointer"
       type="elevated"
       key={priorAuthName + priorAuthType}
-      tabIndex={0}
     >
       <div className=" flex-row align-top m-4">
         <div className="flex">

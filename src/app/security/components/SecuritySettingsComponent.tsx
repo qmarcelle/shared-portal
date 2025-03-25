@@ -1,6 +1,4 @@
 'use client';
-import { AppPage } from '@/components/foundation/AppPage';
-import { Body } from '@/components/foundation/Body';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
@@ -30,8 +28,8 @@ export const SecuritySettings = ({ username }: SecuritySettingsProps) => {
     })();
   });
   return (
-    <AppPage>
-      <Body>
+    <div className="flex flex-col justify-center items-center page">
+      <Column className="app-content app-base-font-color">
         <Header type="title-1" text="Security Settings" />
         <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
@@ -45,7 +43,7 @@ export const SecuritySettings = ({ username }: SecuritySettingsProps) => {
             <MFAInfoComponent mfaDevices={mfaDevices} />
           </Column>
         </section>
-      </Body>
-    </AppPage>
+      </Column>
+    </div>
   );
 };

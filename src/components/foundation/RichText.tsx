@@ -11,7 +11,5 @@ export const RichText = ({
   className,
   type = 'body-1',
 }: RichTextProps) => {
-  return (
-    <span className={`rich-text ${type} ${className}`.trimEnd()}>{spans}</span>
-  );
+  return <span className={`${type} ${className}`.trimEnd()}>{spans}</span>;
 };

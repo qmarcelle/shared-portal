@@ -42,7 +42,6 @@ exports[`Multiple Attempts for login error should render all the required compon
           >
             <p
               class="body-1 text-center"
-              style="display: block;"
             >
               You have tried the security code too many times. Please wait 10 minutes to try again.
             </p>
@@ -58,7 +57,6 @@ exports[`Multiple Attempts for login error should render all the required compon
             />
             <p
               class="body-1 title-3 center"
-              style="display: block;"
             >
               Need help?
             </p>
@@ -123,7 +121,6 @@ exports[`Multiple Attempts for login error should render all the required compon
         >
           <p
             class="body-1 text-center"
-            style="display: block;"
           >
             You have tried the security code too many times. Please wait 10 minutes to try again.
           </p>
@@ -139,7 +136,6 @@ exports[`Multiple Attempts for login error should render all the required compon
           />
           <p
             class="body-1 title-3 center"
-            style="display: block;"
           >
             Need help?
           </p>

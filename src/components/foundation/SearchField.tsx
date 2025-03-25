@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import SearchIcon from '../../../public/assets/search.svg';
+import SearchIcon from '../../../public/assets/Search.svg';
 
 interface Props {
   onSearch: (searchTerm: string) => void;
   hint: string;
   classValue?: string;
   searchText?: string;
-  autoFocus?: boolean;
 }
 
 const SearchField: React.FC<Props> = ({
@@ -15,7 +14,6 @@ const SearchField: React.FC<Props> = ({
   hint,
   classValue,
   searchText,
-  autoFocus,
 }) => {
   const [searchTerm, setSearchTerm] = useState(searchText ?? '');
 
@@ -41,7 +39,7 @@ const SearchField: React.FC<Props> = ({
     }
   };
 
-  const [focus, setFocus] = useState(false);
+  const [focus, setFocus] = useState(true);
   const [focusButton, setFocusButton] = useState(false);
 
   return (
@@ -59,12 +57,11 @@ const SearchField: React.FC<Props> = ({
         placeholder={hint}
         type="text"
         onKeyDown={_handleKeyDown}
-        autoFocus={autoFocus}
       />
       <div className="flex flex-col items-end">
         <button
           type="submit"
-          className={`flex flex-col p-[0.125rem] ${focusButton ? 'buttonSearch-focus' : ''} `}
+          className={`flex flex-col ${focusButton ? 'buttonSearch-focus' : ''} `}
           onClick={handleSubmit}
           onFocus={() => setFocusButton(true)}
           onBlur={() => setFocusButton(false)}

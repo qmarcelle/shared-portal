@@ -1,10 +1,7 @@
-import { SearchDetails, SearchItem } from '@/models/app/searchDetails';
-import Link from 'next/link';
+import { SearchDetails } from '@/models/app/searchDetails';
 import { IComponent } from '../IComponent';
 import { Spacer } from '../foundation/Spacer';
 import { Divider } from './Divider';
-import { HighlightedText } from './HighlightedText';
-import { RichText } from './RichText';
 import { Row } from './Row';
 import { TextBox } from './TextBox';
 
@@ -14,46 +11,16 @@ interface SearchTypeAheadProps extends IComponent {
 }
 
 interface SearchGroupProps extends IComponent {
-  content: SearchItem[];
-  searchText: string;
+  content: string[];
 }
 interface SearchDetailsProps extends IComponent {
   searchDetails: SearchDetails[];
-  searchText: string;
 }
-const SearchGroup = ({ content, searchText }: SearchGroupProps) =>
+const SearchGroup = ({ content }: SearchGroupProps) =>
   content.map((item) => (
-    <Link
-      key={item.label}
-      href={item.url}
-      target={item.url.includes('https') ? '_blank' : undefined}
-      className="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
-    >
-      {item.metadata ? (
-        <RichText
-          spans={[
-            <HighlightedText
-              key="main"
-              text={`${item.label} | `}
-              searchTerm={searchText}
-            />,
-            <HighlightedText
-              key="meta"
-              text={item.metadata}
-              searchTerm={searchText}
-              className="italic"
-            />,
-          ]}
-        />
-      ) : (
-        <HighlightedText key="main" text={item.label} searchTerm={searchText} />
-      )}
-    </Link>
+    <TextBox text={item} key={item} className="body-1 py-2 px-4"></TextBox>
   ));
-const SearchDetailsView = ({
-  searchDetails,
-  searchText,
-}: SearchDetailsProps) => (
+const SearchDetailsView = ({ searchDetails }: SearchDetailsProps) => (
   <div>
     {searchDetails.map((item, index) => (
       <div key={index}>
@@ -63,10 +30,7 @@ const SearchDetailsView = ({
           text={item.header}
         ></TextBox>
         <Divider />
-        <SearchGroup
-          content={item.content}
-          searchText={searchText}
-        ></SearchGroup>
+        <SearchGroup content={item.content}></SearchGroup>
         <Spacer size={32} />
       </div>
     ))}
@@ -78,16 +42,13 @@ export const SearchTypeAhead = ({
   searchDetails,
 }: SearchTypeAheadProps) => {
   return (
-    <div className="searchSuggestion font-medium text-black scroll w-full">
+    <div className="searchSuggestion scroll">
       <Row className="searchForField title-3 px-4 py-2">
         <TextBox className="px-2" text={'See all results for '}></TextBox>
         <TextBox className="font-bold" text={searchText}></TextBox>
       </Row>
       <Spacer size={32} />
-      <SearchDetailsView
-        searchDetails={searchDetails}
-        searchText={searchText}
-      ></SearchDetailsView>
+      <SearchDetailsView searchDetails={searchDetails}></SearchDetailsView>
     </div>
   );
 };

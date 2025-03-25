@@ -1,12 +1,11 @@
 import Image from 'next/image';
-import { Fragment } from 'react';
+import { useState } from 'react';
 import downIcon from '../../../public/assets/down.svg';
 import resetIcon from '../../../public/assets/reset.svg';
 import {
   FilterDetails,
-  FilterItem,
+  FilterDropDowndetails,
 } from '../../models/filter_dropdown_details';
-import { IComponent } from '../IComponent';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
@@ -14,24 +13,14 @@ import { RichDropDown } from '../foundation/RichDropDown';
 import { Row } from '../foundation/Row';
 import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
-import { Button } from './Button';
-import { TextField } from './TextField';
+import { IComponent } from '../IComponent';
 
 interface FilterProps extends IComponent {
   filterHeading: string;
-  filterItems: FilterItem[];
-  onSelectCallback: (index: number, data: FilterItem[]) => void;
-  showReset: boolean;
-  onReset: () => void;
-  buttons?: {
-    type: 'primary';
-    className: string;
-    label: string;
-    callback: (isClicked: boolean) => void | Promise<void> | null;
-  };
+  dropDown: FilterDropDowndetails[];
 }
 
-export const FilterTile = ({ user }: { user: FilterDetails }) => {
+const FilterTile = ({ user }: { user: FilterDetails }) => {
   return (
     <Column className="border-none flex-grow">
       <TextBox type="body-1" text={`${user.label}`} />
@@ -39,9 +28,9 @@ export const FilterTile = ({ user }: { user: FilterDetails }) => {
   );
 };
 
-export const FilterHead = ({ user }: { user: FilterDetails }) => {
+const FilterHead = ({ user }: { user: FilterDetails }) => {
   return (
-    <div className="body-1 input">
+    <div className="border-none">
       <Row className="p-1 items-center">
         <FilterTile user={user} />
         <Image
@@ -54,41 +43,22 @@ export const FilterHead = ({ user }: { user: FilterDetails }) => {
   );
 };
 
-export const Filter = ({
-  className,
-  filterHeading,
-  filterItems,
-  buttons,
-  showReset,
-  onReset,
-  onSelectCallback,
-}: FilterProps) => {
-  //const [filter, setFilter] = useState(filterItems);
+export const Filter = ({ className, filterHeading, dropDown }: FilterProps) => {
+  const [reset, resetFilter] = useState(false);
+  const [dropDownList, setDropDownList] = useState(dropDown);
 
-  const handleDropDownUpdate = (
-    selectedFilter: FilterDetails,
-    index: number,
-  ) => {
-    const dropDownCopiedVal = JSON.parse(
-      JSON.stringify(filterItems),
-    ) as FilterItem[];
-    if (dropDownCopiedVal[index]) {
-      dropDownCopiedVal[index].selectedValue = selectedFilter;
-    }
-
-    onSelectCallback(index, dropDownCopiedVal);
+  const handleReset = () => {
+    resetFilter(false);
+    setDropDownList(dropDown);
   };
 
-  const handleInputUpdate = (value: string, index: number) => {
-    const filterList = JSON.parse(JSON.stringify(filterItems)) as FilterItem[];
-    if (filterList[index]) {
-      filterList[index].value = value;
+  const handleDropDownUpdate = (value: FilterDetails, index: number) => {
+    const dropdDownCopiedVal = JSON.parse(JSON.stringify(dropDownList));
+    if (dropdDownCopiedVal[index]) {
+      dropdDownCopiedVal[index].selectedValue = value;
     }
-    onSelectCallback(index, filterList);
-  };
-
-  const handleCallback = () => {
-    buttons?.callback(true);
+    setDropDownList(dropdDownCopiedVal);
+    resetFilter(true);
   };
 
   return (
@@ -96,45 +66,31 @@ export const Filter = ({
       <Column>
         <Header className="title-2" text={filterHeading} />
         <Spacer size={32} />
-        {filterItems.slice(0, filterItems.length).map((item, index) => (
-          <Fragment key={item.label}>
+        {dropDownList.slice(0, dropDownList.length).map((item, index) => (
+          <>
             <Column key={index}>
-              {item.type == 'dropdown' ? (
-                <div className="body-1">{item.label} </div>
-              ) : null}
+              <div className="body-1">{item.dropNownName} </div>
               <Spacer size={5} />
-              {item.type == 'dropdown' ? (
-                <div>
-                  <RichDropDown<FilterDetails>
-                    headBuilder={(val) => <FilterHead user={val} />}
-                    itemData={item.value as FilterDetails[]}
-                    itemsBuilder={(data, index) => (
-                      <FilterTile user={data} key={index} />
-                    )}
-                    selected={item.selectedValue ?? ({} as FilterDetails)}
-                    onSelectItem={(val) => {
-                      handleDropDownUpdate(val, index);
-                    }}
-                  />
-                </div>
-              ) : null}
-              {item.type == 'input' ? (
-                <TextField
-                  type="text"
-                  label={item.label}
-                  value={item.value as string}
-                  valueCallback={(value) => {
-                    handleInputUpdate(value, index);
+              <div className="body-1 input">
+                <RichDropDown<FilterDetails>
+                  headBuilder={(val) => <FilterHead user={val} />}
+                  itemData={item.dropDownval}
+                  itemsBuilder={(data, index) => (
+                    <FilterTile user={data} key={index} />
+                  )}
+                  selected={item.selectedValue}
+                  onSelectItem={(val) => {
+                    handleDropDownUpdate(val, index);
                   }}
-                ></TextField>
-              ) : null}
+                />
+              </div>
             </Column>
             <Spacer size={16} />
-          </Fragment>
+          </>
         ))}
         <Spacer size={16} />
-        {showReset && (
-          <a className="link flex !no-underline" href="#" onClick={onReset}>
+        {reset && (
+          <a className="link flex !no-underline" href="#" onClick={handleReset}>
             <Image
               src={resetIcon}
               className="w-[20px] h-[20px] ml-2 mr-2 items-end"
@@ -143,15 +99,6 @@ export const Filter = ({
             Reset Filter
           </a>
         )}
-        <Spacer size={16} />
-        {buttons ? (
-          <Button
-            className={buttons.className}
-            label={buttons.label}
-            type={buttons.type}
-            callback={() => handleCallback()}
-          ></Button>
-        ) : null}
       </Column>
     </Card>
   );

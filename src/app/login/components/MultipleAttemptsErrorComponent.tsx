@@ -13,7 +13,7 @@ export const MultipleAttemptsErrorComponent = () => {
         <Column className="items-center">
           <TextBox
             className="text-center"
-            text="You have attempted to log in too many times. Please wait 10 minutes to try again."
+            text="You have attempted to log in too many times. Please wait 15 minutes to try again."
           />
           <Spacer size={32} />
           <AppLink

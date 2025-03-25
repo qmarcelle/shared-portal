@@ -22,15 +22,15 @@ export const BenefitsProviderInfoCard = ({
       <a className="p-4 block" href={url}>
         {url != null ? (
           <Title
-            className="body-bold primary-color"
+            className="font-bold primary-color"
             text={providedBy}
             suffix={<Image src={externalIcon} alt="external" />}
           />
         ) : (
-          <TextBox text={providedBy} className="body-1 body-bold" />
+          <TextBox text={providedBy} className="body-1 font-bold" />
         )}
         <Spacer size={16} />
-        {contact && <TextBox text={contact} />}
+        <TextBox text={contact} />
       </a>
     </Card>
   );

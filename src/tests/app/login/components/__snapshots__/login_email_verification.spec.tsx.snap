@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Email Verification Component should render UI correctly 1`] = `
+exports[`Login Email Verfication Component should render UI correctly 1`] = `
 <body>
   <div>
     <form>
@@ -10,14 +10,13 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
         <h1
           class="title-1"
         >
-          Let’s Verify Your Email
+          Let's Verify Your Email
         </h1>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
           class="body-1"
-          style="display: block;"
         >
           We’ll need to confirm your email address before you can log in.
         </p>
@@ -26,20 +25,17 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
         >
           We’ve sent a code to:
         </p>
         <p
           class="body-1 font-bold"
-          style="display: block;"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
           class="body-1"
-          style="display: block;"
         >
           Enter the security code to verify your email address.
         </p>
@@ -47,33 +43,24 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          class="flex flex-col w-full text-field"
+          class="flex flex-col "
         >
-          <p>
+          <label
+            class="mb-1 "
+            for="input-enter-security-code"
+          >
             Enter Security Code
-          </p>
-          <div
-            class="flex flex-row items-center input   "
-          >
-            <input
-              aria-label="Enter Security Code"
-              class=""
-              type="text"
-              value=""
-            />
-            <div
-              class="cursor-pointer"
-            />
-          </div>
-          <div
-            class="error-container mt-1 p-1"
-          >
-            <div />
-          </div>
+          </label>
+          <input
+            aria-invalid="false"
+            aria-label="Enter Security Code"
+            aria-required="false"
+            class="input  "
+            id="input-enter-security-code"
+            type="text"
+            value=""
+          />
         </div>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
@@ -88,7 +75,6 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
           <button
             aria-label="Confirm Code"
             class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-            disabled=""
             type="submit"
           >
             Confirm Code
@@ -113,35 +99,37 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
-          class="body-1 pr-1"
-          style="display: inline;"
+          class="body-1 pr-5"
         >
           Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
         </p>
-        <a
-          aria-label="contact us"
-          href="https://www.bcbst.com/contact-us"
-          style="display: inline;"
+        <section
+          class="flex flex-row"
         >
-          <button
-            class="flex flex-row link-container p-0"
-            style="max-width: max-content; height: auto; display: inline;"
-            tabindex="-1"
-            type="button"
+          <a
+            aria-label="contact us"
+            href="https://www.bcbst.com/contact-us"
+            style="display: inline;"
           >
-            <p
-              class="link undefined"
+            <button
+              class="flex flex-row link-container p-0"
+              style="max-width: max-content; height: auto; display: inline;"
+              tabindex="-1"
+              type="button"
             >
-              contact us
-            </p>
-          </button>
-        </a>
-        <p
-          class="body-1"
-          style="display: inline;"
-        >
-          .
-        </p>
+              <p
+                class="link undefined"
+              >
+                contact us
+              </p>
+            </button>
+          </a>
+          <p
+            class="body-1"
+          >
+            .
+          </p>
+        </section>
       </div>
     </form>
   </div>

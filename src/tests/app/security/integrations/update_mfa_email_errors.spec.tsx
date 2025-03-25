@@ -46,9 +46,6 @@ describe('Update Mfa Email Authentication Errors', () => {
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
 
-    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
-    await userEvent.type(confirmEmailEntryInput, 'chall123@gmail.com');
-
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
     await waitFor(() => {
       expect(mockedAxios.post).toHaveBeenCalledWith(
@@ -114,9 +111,6 @@ describe('Update Mfa Email Authentication Errors', () => {
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
 
-    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
-    await userEvent.type(confirmEmailEntryInput, 'chall123@gmail.com');
-
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
 
     await waitFor(() => {
@@ -165,9 +159,6 @@ describe('Update Mfa Email Authentication Errors', () => {
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
 
-    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
-    await userEvent.type(confirmEmailEntryInput, 'chall123@gmail.com');
-
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
 
     await waitFor(() => {
@@ -212,9 +203,6 @@ describe('Update Mfa Email Authentication Errors', () => {
 
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
-
-    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
-    await userEvent.type(confirmEmailEntryInput, 'chall123@gmail.com');
 
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
 
@@ -261,9 +249,6 @@ describe('Update Mfa Email Authentication Errors', () => {
     const emailEntryInput = screen.getByLabelText(/Email Address/i);
     await userEvent.type(emailEntryInput, 'chall123@gmail.com');
 
-    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
-    await userEvent.type(confirmEmailEntryInput, 'chall123@gmail.com');
-
     fireEvent.click(screen.getByRole('button', { name: /next/i }));
 
     await waitFor(() => {
@@ -271,48 +256,6 @@ describe('Update Mfa Email Authentication Errors', () => {
         screen.getByText(
           // eslint-disable-next-line quotes
           "Oops! We're sorry. Something went wrong. Please try again.",
-        ),
-      ).toBeVisible();
-    });
-  });
-
-  test('Update Mfa Devices 400-17 error', async () => {
-    mockedAxios.post.mockRejectedValueOnce(
-      createAxiosErrorForTest({
-        status: 400,
-        errorObject: {
-          data: {},
-          details: {
-            returnCode: 'RE-400-17',
-          },
-        },
-      }),
-    );
-    dismissModal();
-    setupUI();
-    showAppModal({
-      content: <AddMFAEmailJourney email={'chall123@gmail.com'} />,
-    });
-
-    await waitFor(() => {
-      expect(
-        screen.getByRole('heading', { name: 'Email Setup' }),
-      ).toBeVisible();
-    });
-
-    const emailEntryInput = screen.getByLabelText(/Email Address/i);
-    await userEvent.type(emailEntryInput, 'chall123@gmail.com');
-
-    const confirmEmailEntryInput = screen.getByLabelText(/Confirm Email/i);
-    await userEvent.type(confirmEmailEntryInput, 'chall123@gmail.com');
-
-    fireEvent.click(screen.getByRole('button', { name: /next/i }));
-
-    await waitFor(() => {
-      expect(
-        screen.getByText(
-          // eslint-disable-next-line quotes
-          'The email address entered is already in use by another account. Please choose a different email address.',
         ),
       ).toBeVisible();
     });

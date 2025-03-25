@@ -6,11 +6,11 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
     <div
       id="mainSection"
     >
-      <h2
+      <p
         class="title-2"
       >
         Let's Confirm Your Identity
-      </h2>
+      </p>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
@@ -21,29 +21,23 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
       <div
-        class="flex flex-col w-full text-field"
+        class="flex flex-col "
       >
-        <p>
+        <label
+          class="mb-1 "
+          for="input-enter-security-code"
+        >
           Enter Security Code
-        </p>
-        <div
-          class="flex flex-row items-center input   "
-        >
-          <input
-            aria-label="Enter Security Code"
-            class=""
-            type="text"
-            value=""
-          />
-          <div
-            class="cursor-pointer"
-          />
-        </div>
-        <div
-          class="error-container mt-1 p-1"
-        >
-          <div />
-        </div>
+        </label>
+        <input
+          aria-invalid="false"
+          aria-label="Enter Security Code"
+          aria-required="false"
+          class="input  "
+          id="input-enter-security-code"
+          type="text"
+          value=""
+        />
       </div>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -59,7 +53,6 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
         <button
           aria-label="Confirm"
           class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive undefined"
-          disabled=""
           type="submit"
         >
           Confirm
@@ -68,18 +61,23 @@ exports[`Authenticator Mfa Component should render the UI correctly 1`] = `
       <span
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
-      <button
-        class="flex flex-row link-container m-auto"
-        style="max-width: max-content; height: auto; display: block;"
-        type="button"
+      <a
+        aria-label="Choose a Different Method"
+        style="display: block;"
       >
-        <p
-          class="link undefined"
-          style="display: block;"
+        <button
+          class="flex flex-row link-container m-auto"
+          style="max-width: max-content; height: auto; display: block;"
+          tabindex="-1"
+          type="button"
         >
-          Choose a Different Method
-        </p>
-      </button>
+          <p
+            class="link undefined"
+          >
+            Choose a Different Method
+          </p>
+        </button>
+      </a>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />

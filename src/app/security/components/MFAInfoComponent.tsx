@@ -1,4 +1,5 @@
 import { DisableMFAWarning } from '@/app/security/components/DisableMFAWarning';
+import { ErrorMfaCard } from '@/app/security/components/ErrorMfaCard';
 import { AddMFAAuthenticatorJourney } from '@/app/security/components/journeys/AddMFAAuthenticatorJourney';
 import { AddMFAEmailJourney } from '@/app/security/components/journeys/AddMFAEmailJourney';
 import { AddMFATextJourney } from '@/app/security/components/journeys/AddMFATextJourney';
@@ -10,7 +11,6 @@ import {
   MfaDeviceTypeAnalytics,
 } from '@/app/security/models/mfa_device_type';
 import { useSecuritySettingsStore } from '@/app/security/stores/security_settings_store';
-import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { UpdateRowWithStatus } from '@/components/composite/UpdateRowWithStatus';
 import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Card } from '@/components/foundation/Card';
@@ -100,7 +100,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
           />
           <Spacer size={32} />
           {getDeviceError && (
-            <ErrorInfoCard
+            <ErrorMfaCard
               className="mt-4"
               errorText="We're not able to load your MFA settings right now. Please try again later."
             />
@@ -133,7 +133,6 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
                       <TextBox
                         className="underline underline-offset-4 decoration-dashed app-underline font-bold"
                         text="Authenticator App"
-                        tabFocus={0}
                       />
                     </ToolTip>
                   }

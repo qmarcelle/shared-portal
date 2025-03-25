@@ -24,8 +24,6 @@ export interface LoginResponse {
   interactionToken: string;
   mfaDeviceList?: MfaDeviceListItem[];
   email?: string;
-  flowStatus?: string;
-  userId?: string;
 }
 
 export interface MfaDeviceListItem {

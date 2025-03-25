@@ -106,14 +106,18 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
     }
   };
 
-  const handleKeyDown = (e: { keyCode: number }) => {
+  const handleKeyDown = (e: {
+    preventDefault: () => void;
+    keyCode: number;
+  }) => {
+    e.preventDefault();
     if (e.keyCode === 13) {
       onClose();
     }
   };
 
   return (
-    <Row className="justify-between modal-header items-center relative p-4">
+    <Row className="justify-between modal-header items-center relative">
       {showBack ? (
         <Row
           tabIndex={1}

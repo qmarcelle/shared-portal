@@ -95,7 +95,6 @@ exports[`Multiple Login MFA Invalid Secutity Code Attempts Error should render M
               >
                 <p
                   class="body-1 text-center"
-                  style="display: block;"
                 >
                   You have tried the security code too many times. Please wait 10 minutes to try again.
                 </p>
@@ -111,7 +110,6 @@ exports[`Multiple Login MFA Invalid Secutity Code Attempts Error should render M
                 />
                 <p
                   class="body-1 title-3 center"
-                  style="display: block;"
                 >
                   Need help?
                 </p>

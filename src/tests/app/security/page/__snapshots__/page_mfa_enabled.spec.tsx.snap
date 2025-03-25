@@ -2,9 +2,8 @@
 
 exports[`Security Page should render page correctly when mfa is enabled 1`] = `
 <div>
-  <main
+  <div
     class="flex flex-col justify-center items-center page"
-    id="main"
   >
     <div
       class="flex flex-col app-content app-base-font-color"
@@ -62,7 +61,7 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                     To change your username, you will need to delete your registered account and create a new account. This will not affect your health plan information.
                   </span>
                   <img
-                    alt=""
+                    alt="Info"
                     class="icon"
                     data-nimg="1"
                     decoding="async"
@@ -71,7 +70,6 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                     src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
                     srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
                     style="color: transparent;"
-                    tabindex="0"
                     width="40"
                   />
                 </div>
@@ -103,9 +101,8 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
               />
               <p
                 class="body-1"
-                style="display: block;"
               >
-                   Multi-factor authentication (MFA) will confirm your identity when you log in,    protecting your important health information.
+                 Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information.
               </p>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -131,7 +128,6 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                       <label
                         aria-label="toggle mfa"
                         class="switch"
-                        tabindex="0"
                       >
                         <input
                           checked=""
@@ -155,9 +151,8 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                     </div>
                     <p
                       class="body-1"
-                      style="display: block;"
                     >
-                      We'll send a one-time security code to your email by default. Set up   multiple methods for more options when you log in.
+                      We'll send a one-time security code to your email by default. Set up multiple methods for more options when you log in.
                     </p>
                   </div>
                 </div>
@@ -216,8 +211,6 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                           </span>
                           <p
                             class="body-1 underline underline-offset-4 decoration-dashed app-underline font-bold"
-                            style="display: block;"
-                            tabindex="0"
                           >
                             Authenticator App
                           </p>
@@ -225,34 +218,38 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                         />
-                        <button
-                          class="flex flex-row link-container font-bold primary-color pl-0"
-                          style="max-width: max-content; height: auto; display: flex;"
-                          type="button"
+                        <a
+                          aria-label="Set Up Method"
+                          style="display: flex;"
                         >
-                          <p
-                            class="link !no-underline"
-                            style="display: flex;"
+                          <button
+                            class="flex flex-row link-container font-bold primary-color pl-0"
+                            style="max-width: max-content; height: auto; display: flex;"
+                            tabindex="-1"
+                            type="button"
                           >
-                            Set Up Method
-                          </p>
-                          <p
-                            class="ml-1"
-                            style="display: flex;"
-                          >
-                            <img
-                              alt=""
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                          </p>
-                        </button>
+                            <p
+                              class="link linkUnderlineNone"
+                            >
+                              Set Up Method
+                            </p>
+                            <p
+                              class="ml-1"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
                       </div>
                     </div>
                     <div
@@ -306,7 +303,6 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         </div>
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
                         >
                           Email Message
                         </p>
@@ -315,38 +311,41 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         />
                         <p
                           class="body-1 mb-4"
-                          style="display: block;"
                         >
                           Send a security code to testEmail@bcbst.com.
                         </p>
-                        <button
-                          class="flex flex-row link-container font-bold primary-color pl-0"
-                          style="max-width: max-content; height: auto; display: flex;"
-                          type="button"
+                        <a
+                          aria-label="Remove Method"
+                          style="display: flex;"
                         >
-                          <p
-                            class="link !no-underline"
-                            style="display: flex;"
+                          <button
+                            class="flex flex-row link-container font-bold primary-color pl-0"
+                            style="max-width: max-content; height: auto; display: flex;"
+                            tabindex="-1"
+                            type="button"
                           >
-                            Remove Method
-                          </p>
-                          <p
-                            class="ml-1"
-                            style="display: flex;"
-                          >
-                            <img
-                              alt=""
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                          </p>
-                        </button>
+                            <p
+                              class="link linkUnderlineNone"
+                            >
+                              Remove Method
+                            </p>
+                            <p
+                              class="ml-1"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
                       </div>
                     </div>
                     <div
@@ -400,7 +399,6 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         </div>
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
                         >
                           Text Message
                         </p>
@@ -409,38 +407,41 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         />
                         <p
                           class="body-1 mb-4"
-                          style="display: block;"
                         >
                           Send a security code to (467) 589-6875.
                         </p>
-                        <button
-                          class="flex flex-row link-container font-bold primary-color pl-0"
-                          style="max-width: max-content; height: auto; display: flex;"
-                          type="button"
+                        <a
+                          aria-label="Remove Method"
+                          style="display: flex;"
                         >
-                          <p
-                            class="link !no-underline"
-                            style="display: flex;"
+                          <button
+                            class="flex flex-row link-container font-bold primary-color pl-0"
+                            style="max-width: max-content; height: auto; display: flex;"
+                            tabindex="-1"
+                            type="button"
                           >
-                            Remove Method
-                          </p>
-                          <p
-                            class="ml-1"
-                            style="display: flex;"
-                          >
-                            <img
-                              alt=""
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                          </p>
-                        </button>
+                            <p
+                              class="link linkUnderlineNone"
+                            >
+                              Remove Method
+                            </p>
+                            <p
+                              class="ml-1"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
                       </div>
                     </div>
                     <div
@@ -494,7 +495,6 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         </div>
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
                         >
                           Voice Call
                         </p>
@@ -503,38 +503,41 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
                         />
                         <p
                           class="body-1 mb-4"
-                          style="display: block;"
                         >
                           Send a security code to (467) 589-6875.
                         </p>
-                        <button
-                          class="flex flex-row link-container font-bold primary-color pl-0"
-                          style="max-width: max-content; height: auto; display: flex;"
-                          type="button"
+                        <a
+                          aria-label="Remove Method"
+                          style="display: flex;"
                         >
-                          <p
-                            class="link !no-underline"
-                            style="display: flex;"
+                          <button
+                            class="flex flex-row link-container font-bold primary-color pl-0"
+                            style="max-width: max-content; height: auto; display: flex;"
+                            tabindex="-1"
+                            type="button"
                           >
-                            Remove Method
-                          </p>
-                          <p
-                            class="ml-1"
-                            style="display: flex;"
-                          >
-                            <img
-                              alt=""
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                          </p>
-                        </button>
+                            <p
+                              class="link linkUnderlineNone"
+                            >
+                              Remove Method
+                            </p>
+                            <p
+                              class="ml-1"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </p>
+                          </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -545,6 +548,6 @@ exports[`Security Page should render page correctly when mfa is enabled 1`] = `
         </div>
       </section>
     </div>
-  </main>
+  </div>
 </div>
 `;

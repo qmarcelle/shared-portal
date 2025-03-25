@@ -6,81 +6,31 @@ import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-
-import {
-  isBlueCareEligible,
-  isManageMyPolicyEligible,
-} from '@/visibilityEngine/computeVisibilityRules';
-import { VisibilityRules } from '@/visibilityEngine/rules';
+import { ReactNode } from 'react';
 import External from '../../../../public/assets/external.svg';
 
 export interface ManageMyPlanProps extends IComponent {
-  visibilityRules?: VisibilityRules;
+  managePlanItems: managePlanItems[];
+}
+
+interface managePlanItems {
+  title: string;
+  body: string;
+  externalLink: boolean;
+  url: string;
+  icon?: ReactNode;
 }
 
 export const ManageMyPlan = ({
+  managePlanItems,
   className,
-  visibilityRules,
 }: ManageMyPlanProps) => {
-  let manageMyPlanDetails;
-  if (isBlueCareEligible(visibilityRules))
-    manageMyPlanDetails = [
-      {
-        title: 'Katie Beckett Banking Info',
-        body: 'Find and update your bank draft details for your plan here.',
-        externalLink: false,
-        url: 'myPlan/katieBeckettBankingInfo',
-      },
-    ];
-  else if (isManageMyPolicyEligible(visibilityRules))
-    manageMyPlanDetails = [
-      {
-        title: 'Report Other Health Insurance',
-        body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
-        externalLink: false,
-        url: '/reportOtherHealthInsurance',
-      },
-      {
-        title: 'Update Social Security Number',
-        body: 'Add or update the Social Security Number associated with your plan.',
-        externalLink: false,
-        url: '/myPlan/updateSocialSecurityNumber',
-      },
-      {
-        title: 'Manage My Policy',
-        body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
-        externalLink: false,
-        url: '/myPlan/manageMyPolicy',
-      },
-    ];
-  else
-    manageMyPlanDetails = [
-      {
-        title: 'Report Other Health Insurance',
-        body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
-        externalLink: false,
-        url: '/reportOtherHealthInsurance',
-      },
-      {
-        title: 'Update Social Security Number',
-        body: 'Add or update the Social Security Number associated with your plan.',
-        externalLink: false,
-        url: '/myPlan/updateSocialSecurityNumber',
-      },
-      {
-        title: 'Enroll in a Health Plan',
-        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
-        externalLink: true,
-        url: 'url',
-      },
-    ];
-
   return (
     <Card className={className}>
       <Column>
         <Header type="title-2" text="Manage My Plan" />
         <Column>
-          {manageMyPlanDetails.map((items, index) =>
+          {managePlanItems.map((items, index) =>
             items.externalLink ? (
               <>
                 {' '}
@@ -98,7 +48,7 @@ export const ManageMyPlan = ({
                     window.location.href = items.url;
                   }}
                 />
-                {index !== manageMyPlanDetails.length - 1 && <Divider />}
+                {index !== managePlanItems.length - 1 && <Divider />}
               </>
             ) : (
               <>
@@ -114,7 +64,7 @@ export const ManageMyPlan = ({
                     window.location.href = items.url;
                   }}
                 />
-                {index !== manageMyPlanDetails.length - 1 && <Divider />}
+                {index !== managePlanItems.length - 1 && <Divider />}
               </>
             ),
           )}

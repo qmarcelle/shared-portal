@@ -37,33 +37,29 @@ export const SpendingChart = ({
     ],
   };
   return (
-    <Column>
-      <Column className="doughnut-img mx-auto">
-        <Doughnut
-          data={data}
-          options={Options}
-          className="spendingSummaryChart"
-          aria-hidden="true"
-        />
-        <div className="doughnut-middle-text">
-          <div className="flex flex-col justify-between pl-3 chartText ">
-            <p>Your plan paid</p>
-            <p className="title-2-bold">{percentageAmountSaved}%</p>
-            <p>of your costs</p>
-          </div>
-          <Spacer size={8} />
-          <div className="chartTextDivider">
-            <Divider></Divider>
-          </div>
-          <Spacer size={8} />
-          <div className="flex flex-col justify-between pl-3 chartText">
-            <p>Total Billed</p>
-            <p className="title-2-bold">
-              {formatCurrency(totalAmount) ?? '--'}
-            </p>
-          </div>
+    <Column className="chartSection">
+      <div className="text-center absolute doughnutText pl-3 w-36">
+        <div className="flex flex-col justify-between pl-3 chartText">
+          <p>Your plan paid</p>
+          <p className="font-bold">{percentageAmountSaved}%</p>
+          <p>of your costs</p>
         </div>
-      </Column>
+        <Spacer size={8} />
+        <div className="chartTextDivider">
+          <Divider></Divider>
+        </div>
+        <Spacer size={8} />
+        <div className="flex flex-col justify-between pl-3 chartText">
+          <p>Total Billed</p>
+          <p className="font-bold">{formatCurrency(totalAmount) ?? '--'}</p>
+        </div>
+      </div>
+      <Spacer size={8} />
+      <Doughnut
+        data={data}
+        options={Options}
+        className="spendingSummaryChart"
+      />
       <Spacer size={32} />
     </Column>
   );

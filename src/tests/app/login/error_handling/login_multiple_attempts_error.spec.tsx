@@ -14,11 +14,6 @@ jest.mock('next/navigation', () => ({
       replace: () => null,
     };
   },
-  useSearchParams() {
-    return {
-      get: jest.fn(),
-    };
-  },
 }));
 
 const setupUI = () => {
@@ -66,7 +61,7 @@ describe('Multiple Login Attempts Error', () => {
     expect(screen.getByText('Too Many Login Attempts')).toBeVisible();
     expect(
       screen.getByText(
-        'You have attempted to log in too many times. Please wait 10 minutes to try again.',
+        'You have attempted to log in too many times. Please wait 15 minutes to try again.',
       ),
     ).toBeVisible();
 
@@ -75,7 +70,7 @@ describe('Multiple Login Attempts Error', () => {
     expect(
       screen.getByText(
         // eslint-disable-next-line quotes
-        'You have attempted to log in too many times. Please wait 10 minutes to try again.',
+        'You have attempted to log in too many times. Please wait 15 minutes to try again.',
       ),
     ).toBeVisible();
     expect(container).toMatchSnapshot();

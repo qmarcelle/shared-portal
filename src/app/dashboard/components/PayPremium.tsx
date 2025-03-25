@@ -27,12 +27,14 @@ export const PayPremiumSection = ({
         <Spacer size={32} />
         <Row>
           <TextBox text="Payment Due Date" />
-          <p className="body-bold ml-auto">{dueDate}</p>
+          <Spacer axis="horizontal" size={40} />
+          <p className="font-bold">{dueDate}</p>
         </Row>
         <Spacer size={12} />
         <Row>
           <TextBox text="Amount Due" />
-          <p className="body-bold ml-auto">${amountDue}</p>
+          <Spacer axis="horizontal" size={80} />
+          <p className="font-bold">${amountDue}</p>
         </Row>
         <Spacer size={32} />
         <Button icon={icon} label="View or Pay Premium" callback={() => null} />

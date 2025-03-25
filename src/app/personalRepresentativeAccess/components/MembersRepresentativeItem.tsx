@@ -11,8 +11,6 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
-import { isMatureMinor } from '@/visibilityEngine/computeVisibilityRules';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { EditLevelOfAccess } from '../journeys/EditLevelOfAccess';
@@ -25,50 +23,53 @@ interface MembersRepresentativeItemProps extends IComponent {
   fullAccess: boolean;
   icon1?: JSX.Element;
   isRepresentative?: boolean;
-  visibilityRules?: VisibilityRules;
 }
 
 export const MembersRepresentativeItem = ({
   memberName,
   DOB,
-  isOnline = true,
+  isOnline,
   onClick,
   className,
   fullAccess,
   isRepresentative,
-  visibilityRules,
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
 }: MembersRepresentativeItemProps) => {
+  // const [isPending, setIsPending] = useState(false);
   const { showAppModal } = useAppModalStore();
   function getProfileOfflineContent() {
     return (
       <Column>
         <Row>
+          <Image src={accessGranted} className="icon" alt="Info" />
           <TextBox className="pt-1 ml-1" text="Basic Access as of 01/01/2024" />
           <Spacer axis="horizontal" size={32} />
         </Row>
-        <Spacer size={16} />
-        <Card backgroundColor="rgba(0,0,0,0.05)" className="w-full">
-          <Column className="m-4">
-            <Row className="mt-2">
-              <TextBox
-                className="body-1"
-                text="This member has not created an online profile."
+        <Row>
+          <Spacer axis="horizontal" size={16} />
+          <Card backgroundColor="rgba(0,0,0,0.05)" className="w-full">
+            <Column className="m-4">
+              <Row className="mt-2">
+                <TextBox
+                  className="body-1"
+                  text="This member has not created an online profile."
+                />
+              </Row>
+              <Spacer axis="horizontal" size={8} />
+              <AppLink
+                className="!flex pl-0"
+                label="Invite to Register"
+                icon={icon1}
+                callback={() =>
+                  showAppModal({
+                    content: <InviteToRegister memberName={memberName} />,
+                  })
+                }
               />
-            </Row>
-            <AppLink
-              className="!flex pl-0"
-              label="Invite to Register"
-              icon={icon1}
-              callback={() =>
-                showAppModal({
-                  content: <InviteToRegister memberName={memberName} />,
-                })
-              }
-            />
-          </Column>
-        </Card>
+            </Column>
+          </Card>
+        </Row>
       </Column>
     );
   }
@@ -81,32 +82,31 @@ export const MembersRepresentativeItem = ({
           {fullAccess && (
             <Row>
               <Image src={accessGranted} className="icon" alt="Info" />
-              <TextBox className="ml-2" text="Full Access" />
+              <TextBox className="pt-1 ml-1" text="Full Access" />
             </Row>
           )}
         </Row>
         {!fullAccess && (
           <div>
+            {' '}
             <Row>
-              <TextBox className="ml-2" text="Basic Access as of 01/01/2024" />
+              <Image src={accessGranted} className="icon" alt="Info" />
+              <TextBox
+                className="pt-1 ml-1"
+                text="Basic Access as of 01/01/2024"
+              />
               <Spacer size={42} />
             </Row>
-            {!isRepresentative && isMatureMinor(visibilityRules) && (
+            {!isRepresentative && (
               <Row>
                 <Spacer size={42} />
                 <Title
-                  className="font-bold primary-color ml-2"
-                  text="Update"
+                  className="font-bold primary-color"
+                  text="Edit Access"
                   suffix={icon}
                   callback={() =>
                     showAppModal({
-                      content: (
-                        <EditLevelOfAccess
-                          memberName={memberName}
-                          isMaturedMinor
-                          currentAccessType="basic"
-                        />
-                      ),
+                      content: <EditLevelOfAccess memberName={memberName} />,
                     })
                   }
                 />
@@ -140,14 +140,17 @@ export const MembersRepresentativeItem = ({
       type="elevated"
       onClick={onClick}
     >
-      <Column className="m-8">
+      <Column className="m-4">
         <Spacer size={16} />
         <Row className="justify-between">
-          <TextBox className="font-bold body-1" text={memberName} />
+          <TextBox className="ml-2 font-bold body-1" text={memberName} />
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />
-        <Divider />
+        <Row>
+          <Spacer axis="horizontal" size={8} />
+          <Divider />
+        </Row>
         <Spacer size={16} />
         {isOnline ? getProfileOnlineContent() : getProfileOfflineContent()}
       </Column>

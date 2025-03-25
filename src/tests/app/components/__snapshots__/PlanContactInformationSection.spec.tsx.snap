@@ -4,13 +4,13 @@ exports[`PlanContactInformation should render UI correctly 1`] = `
 <body>
   <div>
     <div
-      class="card-main  "
+      class="card-main "
     >
       <div
         class="flex flex-col items-stretch"
       >
         <div
-          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+          class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
         >
           <div
             class="flex flex-row m-1 accordion-head"

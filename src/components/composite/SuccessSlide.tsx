@@ -9,7 +9,6 @@ import { Spacer } from '../foundation/Spacer';
 interface SuccessSlideProps {
   label: string;
   body: ReactElement;
-  btnLabel?: string;
   // TODO: Find the correct model and type it here
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   doneCallBack: () => any;
@@ -18,7 +17,6 @@ interface SuccessSlideProps {
 export const SuccessSlide = ({
   label,
   body,
-  btnLabel = 'Done',
   doneCallBack,
 }: SuccessSlideProps) => {
   return (
@@ -30,7 +28,7 @@ export const SuccessSlide = ({
       <Column className="w-[358px]">
         {body}
         <Spacer size={32} />
-        <Button label={btnLabel} callback={doneCallBack} />
+        <Button label="Done" callback={doneCallBack} />
       </Column>
     </Column>
   );

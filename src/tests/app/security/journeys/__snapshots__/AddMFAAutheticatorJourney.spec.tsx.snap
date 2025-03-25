@@ -17,7 +17,7 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container react-responsive-modal-containerCenter"
+        class="react-responsive-modal-container"
         data-testid="modal-container"
       >
         <div
@@ -93,7 +93,6 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
                     >
                       Scan the QR Code or manually type the secret key into your authenticator app then enter the security code.
                     </p>
@@ -122,7 +121,6 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 font-bold"
-                          style="display: block;"
                         >
                           Secret Key:
                         </p>
@@ -131,7 +129,6 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
                         >
                           ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ
                         </p>
@@ -146,24 +143,23 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                         />
                         <div
-                          class="flex flex-col w-full text-field"
+                          class="flex flex-col "
                         >
-                          <p>
-                            Enter Security Code
-                          </p>
-                          <div
-                            class="flex flex-row items-center input   "
+                          <label
+                            class="mb-1 "
+                            for="input-enter-security-code"
                           >
-                            <input
-                              aria-label="Enter Security Code"
-                              class=""
-                              type="text"
-                              value=""
-                            />
-                            <div
-                              class="cursor-pointer"
-                            />
-                          </div>
+                            Enter Security Code
+                          </label>
+                          <input
+                            aria-invalid="false"
+                            aria-label="Enter Security Code"
+                            aria-required="false"
+                            class="input  "
+                            id="input-enter-security-code"
+                            type="text"
+                            value=""
+                          />
                         </div>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
@@ -172,7 +168,6 @@ exports[`Authenticator App Setup should render the screens correctly 1`] = `
                       <button
                         aria-label="Confirm"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
-                        disabled=""
                         type="button"
                       >
                         Confirm
@@ -246,7 +241,7 @@ exports[`Authenticator App Setup should render the screens correctly 2`] = `
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container react-responsive-modal-containerCenter"
+        class="react-responsive-modal-container"
         data-testid="modal-container"
       >
         <div
@@ -340,7 +335,6 @@ exports[`Authenticator App Setup should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
                         >
                           The next time you login, you'll generate a code through your authenticator app.
                         </p>
@@ -407,7 +401,7 @@ exports[`Authenticator App Setup should render the screens without error when we
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container react-responsive-modal-containerCenter"
+        class="react-responsive-modal-container"
         data-testid="modal-container"
       >
         <div
@@ -483,7 +477,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
                     >
                       Scan the QR Code or manually type the secret key into your authenticator app then enter the security code.
                     </p>
@@ -512,7 +505,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1 body-1 font-bold"
-                          style="display: block;"
                         >
                           Secret Key:
                         </p>
@@ -521,7 +513,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
                         >
                           ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ
                         </p>
@@ -536,29 +527,23 @@ exports[`Authenticator App Setup should render the screens without error when we
                           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                         />
                         <div
-                          class="flex flex-col w-full text-field"
+                          class="flex flex-col "
                         >
-                          <p>
+                          <label
+                            class="mb-1 "
+                            for="input-enter-security-code"
+                          >
                             Enter Security Code
-                          </p>
-                          <div
-                            class="flex flex-row items-center input   "
-                          >
-                            <input
-                              aria-label="Enter Security Code"
-                              class=""
-                              type="text"
-                              value=""
-                            />
-                            <div
-                              class="cursor-pointer"
-                            />
-                          </div>
-                          <div
-                            class="error-container mt-1 p-1"
-                          >
-                            <div />
-                          </div>
+                          </label>
+                          <input
+                            aria-invalid="false"
+                            aria-label="Enter Security Code"
+                            aria-required="false"
+                            class="input  "
+                            id="input-enter-security-code"
+                            type="text"
+                            value=""
+                          />
                         </div>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
@@ -567,7 +552,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                       <button
                         aria-label="Confirm"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
-                        disabled=""
                         type="button"
                       >
                         Confirm
@@ -641,7 +625,7 @@ exports[`Authenticator App Setup should render the screens without error when we
         style="animation: react-responsive-modal-overlay-in 300ms;"
       />
       <div
-        class="react-responsive-modal-container react-responsive-modal-containerCenter"
+        class="react-responsive-modal-container"
         data-testid="modal-container"
       >
         <div
@@ -717,7 +701,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
                     >
                       Scan the QR Code or manually type the secret key into your authenticator app then enter the security code.
                     </p>
@@ -746,7 +729,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1 body-1 font-bold"
-                          style="display: block;"
                         >
                           Secret Key:
                         </p>
@@ -755,7 +737,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
                         >
                           ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ
                         </p>
@@ -776,11 +757,10 @@ exports[`Authenticator App Setup should render the screens without error when we
                             Enter Security Code
                           </p>
                           <div
-                            class="flex flex-row items-center input   "
+                            class="flex flex-row items-center input  "
                           >
                             <input
                               aria-label="Enter Security Code"
-                              class=""
                               type="text"
                               value=""
                             />
@@ -801,7 +781,6 @@ exports[`Authenticator App Setup should render the screens without error when we
                       <button
                         aria-label="Confirm"
                         class="button-text primary text-center flex flex-row justify-center items-center min-w-fit inactive font-bold active"
-                        disabled=""
                         type="button"
                       >
                         Confirm

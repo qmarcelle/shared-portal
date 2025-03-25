@@ -9,16 +9,9 @@ import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import ableToIcon from '../../../../public/assets/able_to.svg';
-import alightIcon from '../../../../public/assets/alight.svg';
-import careTNIcon from '../../../../public/assets/caretn.svg';
-import healthyMaternityIcon from '../../../../public/assets/healthy_maternity.svg';
-import hingeHealthIcon from '../../../../public/assets/hinge_health.svg';
-import questSelectIcon from '../../../../public/assets/quest_select.svg';
-import sanitasIcon from '../../../../public/assets/sanitas_bot.svg';
-import silverFitIcon from '../../../../public/assets/silver_fit.svg';
-import teladocIcon from '../../../../public/assets/teladoc_health.svg';
-
+import SanitasIcon from '../../../../public/assets/Sanitas-BoT.svg';
+import AbleToIcon from '../../../../public/assets/ableTo.svg';
+import TelaDocIcon from '../../../../public/assets/teladoc-health.svg';
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {
@@ -30,6 +23,7 @@ interface HealthCareItemProps extends IComponent {
 export const HealthCareItem = ({
   healthCareInfo,
   onClick,
+  className,
   itemDataTitle,
   itemData,
 }: HealthCareItemProps) => {
@@ -42,23 +36,11 @@ export const HealthCareItem = ({
 
   function getHealthIcon() {
     if (healthCareInfo.icon == 'TelaDoc') {
-      return teladocIcon;
+      return TelaDocIcon;
     } else if (healthCareInfo.icon == 'AbleToIcon') {
-      return ableToIcon;
+      return AbleToIcon;
     } else if (healthCareInfo.icon == 'Sanitas') {
-      return sanitasIcon;
-    } else if (healthCareInfo.icon == 'Alight') {
-      return alightIcon;
-    } else if (healthCareInfo.icon == 'CareTN') {
-      return careTNIcon;
-    } else if (healthCareInfo.icon == 'SilverFit') {
-      return silverFitIcon;
-    } else if (healthCareInfo.icon == 'QuestSelect') {
-      return questSelectIcon;
-    } else if (healthCareInfo.icon == 'HingeHealth') {
-      return hingeHealthIcon;
-    } else if (healthCareInfo.icon == 'HealthyMaternity') {
-      return healthyMaternityIcon;
+      return SanitasIcon;
     }
   }
 
@@ -69,13 +51,11 @@ export const HealthCareItem = ({
           className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
           text={healthCareInfo.healthcareType}
         ></TextBox>
-        {healthCareInfo.icon && (
-          <Image
-            src={getHealthIcon()}
-            className="w-1/2"
-            alt={healthCareInfo.icon}
-          />
-        )}
+        <Image
+          src={getHealthIcon()}
+          className="w-1/2"
+          alt={healthCareInfo.icon}
+        />
         <Spacer axis="horizontal" size={8} />
         <Column className="flex flex-col flex-grow">
           <TextBox
@@ -103,13 +83,11 @@ export const HealthCareItem = ({
             className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
             text="Medical Health"
           ></TextBox>
-          {healthCareInfo.icon && (
-            <Image
-              src={getHealthIcon()}
-              className="w-1/2"
-              alt={healthCareInfo.icon}
-            />
-          )}
+          <Image
+            src={getHealthIcon()}
+            className="w-1/2"
+            alt={healthCareInfo.icon}
+          />
           <SpacerX size={8} />
           <Column className="flex flex-col flex-grow">
             <TextBox
@@ -132,7 +110,7 @@ export const HealthCareItem = ({
 
   return isClient ? (
     <Card
-      className={'cursor-pointer ${className} md:w-80'}
+      className={`cursor-pointer ${className} md:w-1/3`}
       type="elevated"
       onClick={onClick}
     >

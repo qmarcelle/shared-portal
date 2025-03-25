@@ -19,13 +19,11 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
             >
               Filter Results:
             </p>
             <p
               class="body-1 font-bold ml-2"
-              style="display: block;"
             >
               1 Documents
             </p>
@@ -35,7 +33,6 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
           >
             <p
               class="body-1 mr-2"
-              style="display: block;"
             >
               Sort by: 
             </p>
@@ -44,11 +41,8 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
             >
               <div
                 class="flex flex-row link"
-                tabindex="0"
               >
-                <p
-                  class="body-bold"
-                >
+                <p>
                   Date(Most Recent)
                 </p>
                 <span
@@ -67,35 +61,17 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 />
               </div>
               <section
-                class="card-elevated z-20 dropdown-section"
+                class="card-elevated py-2 z-20"
                 style="display: none; position: absolute;"
               >
                 <div
-                  class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                  class="selected-dropdown-item cursor-pointer"
                 >
-                  <div
-                    class="size-5 mx-2 "
+                  <p
+                    class="whitespace-nowrap mx-2"
                   >
-                    <img
-                      alt="selcted"
-                      class="size-5"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                  <div>
-                    <p
-                      class="whitespace-nowrap mx-2"
-                    >
-                      Date(Most Recent)
-                    </p>
-                  </div>
+                    Date(Most Recent)
+                  </p>
                 </div>
               </section>
             </div>
@@ -150,7 +126,6 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
                   >
                     Received: 01/20/2023
                   </p>
@@ -159,7 +134,6 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
                   >
                     For Chris Hall
                   </p>
@@ -189,13 +163,11 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
         >
           <p
             class="body-1"
-            style="display: block;"
           >
             Filter Results:
           </p>
           <p
             class="body-1 font-bold ml-2"
-            style="display: block;"
           >
             1 Documents
           </p>
@@ -205,7 +177,6 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
         >
           <p
             class="body-1 mr-2"
-            style="display: block;"
           >
             Sort by: 
           </p>
@@ -214,11 +185,8 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
           >
             <div
               class="flex flex-row link"
-              tabindex="0"
             >
-              <p
-                class="body-bold"
-              >
+              <p>
                 Date(Most Recent)
               </p>
               <span
@@ -237,35 +205,17 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
               />
             </div>
             <section
-              class="card-elevated z-20 dropdown-section"
+              class="card-elevated py-2 z-20"
               style="display: none; position: absolute;"
             >
               <div
-                class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                class="selected-dropdown-item cursor-pointer"
               >
-                <div
-                  class="size-5 mx-2 "
+                <p
+                  class="whitespace-nowrap mx-2"
                 >
-                  <img
-                    alt="selcted"
-                    class="size-5"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </div>
-                <div>
-                  <p
-                    class="whitespace-nowrap mx-2"
-                  >
-                    Date(Most Recent)
-                  </p>
-                </div>
+                  Date(Most Recent)
+                </p>
               </div>
             </section>
           </div>
@@ -320,7 +270,6 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
                 >
                   Received: 01/20/2023
                 </p>
@@ -329,7 +278,6 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
                 >
                   For Chris Hall
                 </p>

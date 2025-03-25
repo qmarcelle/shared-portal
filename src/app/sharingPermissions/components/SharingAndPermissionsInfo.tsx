@@ -1,16 +1,8 @@
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { LinkRow } from '@/components/foundation/LinkRow';
-import { UserRole } from '@/userManagement/models/sessionUser';
-import { checkPersonalRepAccess } from '@/utils/getRole';
 
-export type SharingAndPermissionsInfoProps = {
-  userRole: UserRole | undefined;
-};
-
-export const SharingAndPermissionsInfo = ({
-  userRole,
-}: SharingAndPermissionsInfoProps) => {
+export const SharingAndPermissionsInfo = () => {
   return (
     <Card className="large-section">
       <Column className="flex flex-col">
@@ -24,31 +16,26 @@ export const SharingAndPermissionsInfo = ({
           }
           divider={true}
         />
-
-        {checkPersonalRepAccess(userRole) && (
-          <LinkRow
-            label="Access Others' Information"
-            description={
-              <div className="body-1 flex flex-row">
-                View or request access to others&apos; plan information.
-              </div>
-            }
-            divider={true}
-          />
-        )}
-        {checkPersonalRepAccess(userRole) && (
-          <LinkRow
-            label="Personal Representative Access"
-            description={
-              <div className="body-1 flex flex-row">
-                A personal representative is an individual with the legal
-                authority to make decisions for others, such as minor dependent
-                or other dependent individual.
-              </div>
-            }
-            divider={true}
-          />
-        )}
+        <LinkRow
+          label="Access Others' Information"
+          description={
+            <div className="body-1 flex flex-row">
+              View or request access to others&apos; plan information.
+            </div>
+          }
+          divider={true}
+        />
+        <LinkRow
+          label="Personal Representative Access"
+          description={
+            <div className="body-1 flex flex-row">
+              A personal representative is an individual with the legal
+              authority to make decisions for others, such as minor dependent or
+              other dependent individual.
+            </div>
+          }
+          divider={true}
+        />
         <LinkRow
           label="Third Party Sharing"
           description={
@@ -57,10 +44,9 @@ export const SharingAndPermissionsInfo = ({
               information with.
             </div>
           }
-          divider={false}
+          divider={true}
         />
-        {/* US-33923 Removing Health Info Transfer Request */}
-        {/* <LinkRow
+        <LinkRow
           label="Health Information Transfer Request"
           description={
             <div className="body-1 flex flex-row">
@@ -69,7 +55,7 @@ export const SharingAndPermissionsInfo = ({
             </div>
           }
           divider={false}
-        /> */}
+        />
       </Column>
     </Card>
   );

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import AlertIcon from '../../../public/assets/alert_gray.svg';
+import AlertIcon from '../../../public/assets/Alert-Gray1.svg';
 import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
 import PharmacyIcon from '../../../public/assets/pharmacy.svg';

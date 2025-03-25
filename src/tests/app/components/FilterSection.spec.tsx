@@ -1,26 +1,32 @@
 import { Filter } from '@/components/foundation/Filter';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-// Mock useRouter:
-jest.mock('next/navigation', () => ({
-  useRouter() {
-    return {
-      prefetch: () => null,
-      replace: () => null,
-    };
-  },
-}));
 
 const renderUI = () => {
   return render(
     <Filter
       className="large-section px-0 m-0"
       filterHeading="Filter Claims"
-      filterItems={[
+      dropDown={[
         {
-          type: 'dropdown',
-          label: 'Member',
-          value: [
+          dropNownName: 'Connected Plans',
+          dropDownval: [
+            {
+              label: 'All Plans',
+              value: '1',
+              id: '1',
+            },
+            {
+              label: 'Plans',
+              value: '2',
+              id: '2',
+            },
+          ],
+          selectedValue: { label: 'All Plans', value: '1', id: '1' },
+        },
+        {
+          dropNownName: 'Member',
+          dropDownval: [
             {
               label: 'All Members',
               value: '1',
@@ -55,9 +61,29 @@ const renderUI = () => {
           selectedValue: { label: 'All Members', value: '1', id: '1' },
         },
         {
-          type: 'dropdown',
-          label: 'Claim Type',
-          value: [
+          dropNownName: 'Date Range',
+          dropDownval: [
+            {
+              label: '2023',
+              value: '1',
+              id: '1',
+            },
+            {
+              label: '2022',
+              value: '2',
+              id: '2',
+            },
+            {
+              label: '2021',
+              value: '3',
+              id: '3',
+            },
+          ],
+          selectedValue: { label: '2023', value: '1', id: '1' },
+        },
+        {
+          dropNownName: 'Claim Type',
+          dropDownval: [
             {
               label: 'All Types',
               value: '1',
@@ -86,47 +112,6 @@ const renderUI = () => {
           ],
           selectedValue: { label: 'All Types', value: '1', id: '1' },
         },
-        {
-          type: 'dropdown',
-          label: 'Date Range',
-          value: [
-            {
-              label: 'Last 30 Days',
-              value: '1',
-              id: '1',
-            },
-            {
-              label: 'Last 60 Days',
-              value: '2',
-              id: '2',
-            },
-            {
-              label: 'Last 90 Days',
-              value: '3',
-              id: '3',
-            },
-            {
-              label: 'Last 120 Days',
-              value: '4',
-              id: '4',
-            },
-            {
-              label: 'Last Calender Year',
-              value: '5',
-              id: '5',
-            },
-            {
-              label: 'Last Two Years',
-              value: '6',
-              id: '6',
-            },
-          ],
-          selectedValue: {
-            label: 'Last Two Years',
-            value: '6',
-            id: '6',
-          },
-        },
       ]}
     />,
   );
@@ -138,18 +123,24 @@ describe('FilterSection', () => {
 
     // Should show selected profile
 
+    expect(screen.getByText('Connected Plans')).toBeVisible();
     expect(screen.getByText('Member')).toBeVisible();
     expect(screen.getByText('Claim Type')).toBeVisible();
     expect(screen.getByText('Date Range')).toBeVisible();
+
+    expect(screen.getByText('All Plans')).toBeVisible();
+
     expect(container).toMatchSnapshot();
 
     // Should show the dropdown when clicked
 
     // Should show all profiles
-
+    expect(screen.getByText('Connected Plans')).toBeVisible();
     expect(screen.getByText('Member')).toBeVisible();
     expect(screen.getByText('Claim Type')).toBeVisible();
     expect(screen.getByText('Date Range')).toBeVisible();
+    expect(screen.getByText('All Plans')).toBeVisible();
+
     expect(container).toMatchSnapshot();
   });
 });
