@@ -5,7 +5,11 @@ import { cookies } from 'next/headers';
 import { UNIXTimeSeconds } from './date_formatter';
 import { encrypt } from './encryption';
 
-export async function setExternalSessionToken(user: SessionUser) {
+export async function setExternalSessionToken(user?: SessionUser) {
+  if (!user) {
+    console.error('Tried to set external session token but user is undefined!');
+    return;
+  }
   const expirySec = parseInt(process.env.JWT_SESSION_EXPIRY_SECONDS || '1800');
   const now = UNIXTimeSeconds();
   const tokenObj: DXAuthToken = {

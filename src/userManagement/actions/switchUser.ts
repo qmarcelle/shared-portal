@@ -14,6 +14,8 @@ export async function switchUser(userId?: string, planId?: string) {
       // only plan switch
       planId: userId == null ? planId : null,
     });
-    await setExternalSessionToken(session.user);
+    //Update the plan data in the external session token for legacy apps (i.e. PHS).
+    const updatedSession = await auth();
+    await setExternalSessionToken(updatedSession?.user);
   }
 }
