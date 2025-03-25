@@ -10,7 +10,8 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
-import { useState } from 'react';
+import { isValidEmailAddress } from '@/utils/inputValidator';
+import { useEffect, useRef, useState } from 'react';
 
 interface EditEmailSettingsJourneyProps {
   email: string;
@@ -22,18 +23,31 @@ export const EditEmailProfileSettings = ({
   email,
 }: ModalChildProps & EditEmailSettingsJourneyProps) => {
   const { dismissModal } = useAppModalStore();
-  /* 
-  const initChange = () => {
-    changePage!(1, true);
-  };
-
-  function changePageIndex(index: number, showback = true) {
-    changePage?.(index, showback);
-  } */
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const codeInputRef = useRef<HTMLInputElement>(null);
 
   const [mainAuthDevice, setMainAuthDevice] = useState(email);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
+  const [emailErrors, setEmailErrors] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Focus the appropriate input field based on the current page
+    if (pageIndex === 0 && emailInputRef.current) {
+      emailInputRef.current.focus();
+    } else if (pageIndex === 1 && codeInputRef.current) {
+      codeInputRef.current.focus();
+    }
+  }, [pageIndex]);
+
+  const validateEmail = (value: string) => {
+    setNewAuthDevice(value);
+    if (value && !isValidEmailAddress(value)) {
+      setEmailErrors(['Please enter a valid email address']);
+    } else {
+      setEmailErrors([]);
+    }
+  };
 
   const initNewDevice = async () => {
     // Do API call for new device
@@ -45,20 +59,32 @@ export const EditEmailProfileSettings = ({
     // Do API call for submit code
     changePage?.(2, false);
   };
+
   const pages = [
     <ChangeAuthDeviceSlide
       key={0}
       label="Update Email Address"
       subLabel="Enter the new email address you'd like to use for communications and security settings."
       actionArea={
-        <TextField
-          valueCallback={(val) => setNewAuthDevice(val)}
-          label="Email Address"
-        />
+        <Column>
+          <TextField
+            valueCallback={validateEmail}
+            label="Email Address"
+            inputRef={emailInputRef}
+            value={newAuthDevice}
+            errors={emailErrors}
+            ariaLabel="Enter your new email address"
+            type="email"
+            inputMode="email"
+            required={true}
+          />
+        </Column>
       }
       cancelCallback={() => dismissModal()}
       nextCallback={
-        newAuthDevice.length > 5 ? () => initNewDevice() : undefined
+        newAuthDevice.length > 5 && emailErrors.length === 0
+          ? () => initNewDevice()
+          : undefined
       }
     />,
     <InputModalSlide
@@ -74,9 +100,24 @@ export const EditEmailProfileSettings = ({
             type="text"
             valueCallback={(val) => setConfirmCode(val)}
             label="Enter Security Code"
+            inputRef={codeInputRef}
+            value={confirmCode}
+            ariaLabel="Enter the security code sent to your email"
+            maxLength={6}
+            pattern="[0-9]*"
+            inputMode="numeric"
+            required={true}
+            ariaDescribedBy="email-code-description"
           />
+          <div id="email-code-description" className="sr-only">
+            Enter the 6-digit verification code we sent to your email
+          </div>
           <Spacer size={16} />
-          <AppLink className="self-start !p-0" label="Resend Code" />
+          <AppLink
+            className="self-start !p-0"
+            label="Resend Code"
+            aria-label="Resend verification code to your email"
+          />
           <Spacer size={32} />
         </Column>
       }

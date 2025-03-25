@@ -11,6 +11,8 @@ import { Radio } from '@/components/foundation/Radio';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { formatPhoneNumber, isValidMobileNumber } from '@/utils/inputValidator';
+import { useEffect, useRef, useState } from 'react';
 
 const bottomNote =
   'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.';
@@ -26,20 +28,32 @@ export const UpdateCommunicationText = ({
   initNumber,
 }: ModalChildProps & UpdateCommunicationTextProps) => {
   const { dismissModal } = useAppModalStore();
-  /* const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
-  const [newAuthDevice, setNewAuthDevice] = useState('');
-  const [confirmCode, setConfirmCode] = useState(''); */
+  const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
+  const [newPhoneNumber, setNewPhoneNumber] = useState('');
+  const [verificationCode, setVerificationCode] = useState('');
+  const [phoneErrors, setPhoneErrors] = useState<string[]>([]);
+  const phoneInputRef = useRef<HTMLInputElement>(null);
+  const codeInputRef = useRef<HTMLInputElement>(null);
 
-  /* const initNewDevice = async () => {
-    // Do API call for new device
-    setMainAuthDevice(newAuthDevice);
-    changePage?.(1, true);
+  useEffect(() => {
+    // Focus management for different steps
+    if (pageIndex === 0 && phoneInputRef.current) {
+      phoneInputRef.current.focus();
+    } else if (pageIndex === 2 && codeInputRef.current) {
+      codeInputRef.current.focus();
+    }
+  }, [pageIndex]);
+
+  const validatePhoneNumber = (value: string) => {
+    const formatted = formatPhoneNumber(value);
+    setNewPhoneNumber(formatted);
+
+    if (value && !isValidMobileNumber(value.replace(/\D/g, ''))) {
+      setPhoneErrors(['Please enter a valid phone number']);
+    } else {
+      setPhoneErrors([]);
+    }
   };
-
-  const submitCode = async () => {
-    // Do API call for submit code
-    changePage?.(3, false);
-  }; */
 
   const pages = [
     <InputModalSlide
@@ -50,11 +64,26 @@ export const UpdateCommunicationText = ({
       actionArea={
         <Column className="items-center">
           <Spacer size={32} />
-          <TextField label="Phone Number" />
+          <TextField
+            label="Phone Number"
+            inputRef={phoneInputRef}
+            valueCallback={validatePhoneNumber}
+            value={newPhoneNumber}
+            errors={phoneErrors}
+            ariaLabel="Enter your new phone number"
+            required={true}
+            type="tel"
+            inputMode="tel"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          />
           <Spacer size={24} />
         </Column>
       }
-      nextCallback={() => changePage?.(1, true)}
+      nextCallback={
+        newPhoneNumber && phoneErrors.length === 0
+          ? () => changePage?.(1, true)
+          : undefined
+      }
       cancelCallback={() => dismissModal()}
     />,
     <SelectModalSlide
@@ -68,10 +97,15 @@ export const UpdateCommunicationText = ({
           />
           <Spacer size={24} />
           <Column>
-            <Radio label="Text a code to (123) 456-0000" selected={true} />
+            <Radio
+              label="Text a code to (123) 456-0000"
+              selected={true}
+              ariaLabel="Send security code via text message"
+            />
             <Radio
               label="Call with a code to (123) 456-0000"
               selected={false}
+              ariaLabel="Send security code via phone call"
             />
           </Column>
         </Column>
@@ -89,12 +123,32 @@ export const UpdateCommunicationText = ({
         <Column className="items-center">
           <TextBox className="font-bold" text={initNumber} />
           <Spacer size={32} />
-          <TextField label="Enter Security Code" />
-          <AppLink className="self-start" label="Resend Code" />
+          <TextField
+            label="Enter Security Code"
+            inputRef={codeInputRef}
+            valueCallback={(val) => setVerificationCode(val)}
+            value={verificationCode}
+            maxLength={6}
+            pattern="[0-9]*"
+            inputMode="numeric"
+            ariaLabel="Enter the 6-digit security code"
+            ariaDescribedBy="code-description"
+            required={true}
+          />
+          <div id="code-description" className="sr-only">
+            Enter the 6-digit code we sent to your phone number
+          </div>
+          <AppLink
+            className="self-start"
+            label="Resend Code"
+            aria-label="Resend security code"
+          />
           <Spacer size={32} />
         </Column>
       }
-      nextCallback={() => changePage?.(3, true)}
+      nextCallback={
+        verificationCode.length === 6 ? () => changePage?.(3, true) : undefined
+      }
       cancelCallback={() => dismissModal()}
     />,
     <SuccessSlide

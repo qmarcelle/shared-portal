@@ -1,46 +1,68 @@
-import { ReactNode } from 'react';
+import React from 'react';
 import { IComponent } from '../IComponent';
-import { Column } from './Column';
 
 export interface CheckboxProps extends IComponent {
+  label?: string;
+  body?: React.ReactNode;
   selected?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  callback?: (val: any) => void;
-  label: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value?: any;
+  callback?: (value?: string) => void;
+  value?: string;
   classProps?: string;
-  checkProps?: string;
-  body?: ReactNode;
+  disabled?: boolean;
+  ariaLabel?: string;
 }
 
 export const Checkbox = ({
   label,
   body,
+  selected = false,
   callback,
-  selected,
-  classProps,
-  className,
+  value,
+  classProps = '',
+  className = '',
+  disabled = false,
+  ariaLabel,
 }: CheckboxProps) => {
+  const id = `checkbox-${Math.random().toString(36).substring(2, 9)}`;
+
+  const handleClick = () => {
+    if (!disabled && callback) {
+      callback(value);
+    }
+  };
+
   return (
     <div
-      className={`flex flex-row gap-2 p-2  ${callback == null ? 'checkbox-disabled' : ''} ${className ?? ''}`}
+      onClick={handleClick}
+      className={`flex flex-row gap-1 ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+      role="checkbox"
+      aria-checked={selected}
+      aria-disabled={disabled}
+      tabIndex={disabled ? -1 : 0}
+      onKeyDown={(e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
+          e.preventDefault();
+          callback?.(value);
+        }
+      }}
     >
-      <label>
-        <input
-          type="checkbox"
-          name=""
-          id="myCheckbox"
-          onChange={callback}
-          checked={selected}
-        />
-      </label>
-      <Column>
-        <label htmlFor="myCheckbox">
-          <p className={classProps}>{label}</p>
+      <input
+        type="checkbox"
+        id={id}
+        checked={selected}
+        onChange={() => {}} // Handled by div onClick
+        aria-checked={selected}
+        aria-label={ariaLabel || label}
+        aria-disabled={disabled}
+        disabled={disabled}
+        className="mt-1 mr-2"
+      />
+      <div className="flex-col mb-3">
+        <label htmlFor={id} className={classProps}>
+          {label}
         </label>
-        {body}
-      </Column>
+        {body && <div>{body}</div>}
+      </div>
     </div>
   );
 };

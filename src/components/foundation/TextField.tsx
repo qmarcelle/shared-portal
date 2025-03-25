@@ -1,192 +1,100 @@
-import Image from 'next/image';
-import { useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 import { IComponent } from '../IComponent';
-import {
-  alertErrorIcon,
-  showPasswordIcon,
-  showPasswordSelectedIcon,
-} from './Icons';
-import { Row } from './Row';
 
 export interface TextFieldProps extends IComponent {
-  label: string;
-  type?: 'text' | 'password' | 'email' | 'number';
-  errors?: string[] | null;
-  fillGuidance?: string[] | null;
-  value?: string | number;
-  hint?: string;
-  valueCallback?: (value: string) => void;
-  onKeydownCallback?: (key: string) => void;
-  suffixIconCallback?: () => void;
-  maxWidth?: number;
-  isSuffixNeeded?: boolean;
-  highlightError?: boolean;
-  onFocusCallback?: () => void;
-  minValue?: number;
-  maxValue?: number;
-  maxLength?: number;
+  label?: string;
+  value?: string;
+  placeholder?: string;
+  type?: string;
+  required?: boolean;
   disabled?: boolean;
+  errors?: string[];
+  valueCallback?: (value: string) => void;
+  onKeydownCallback?: (value: string) => void;
+  inputRef?: React.RefObject<HTMLInputElement>;
+  maxLength?: number;
+  pattern?: string;
+  inputMode?: 'text' | 'numeric' | 'tel' | 'email' | 'url' | 'search';
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
+  ariaInvalid?: boolean;
 }
-
-const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
-  return (
-    <div className="flex flex-row items-center">
-      <div className="separator"></div>
-      {obscure == true ? (
-        <div>
-          <Image src={showPasswordIcon} className="icon" alt="Showpassword" />
-        </div>
-      ) : (
-        <div>
-          <Image
-            src={showPasswordSelectedIcon}
-            className="icon"
-            alt={'Showpassword'}
-          />
-        </div>
-      )}
-    </div>
-  );
-};
-
-const SuffixIcon = ({
-  type,
-  obscured,
-}: {
-  type: 'text' | 'password' | 'email' | 'number';
-  errors?: string[] | null;
-  obscured?: boolean | null;
-}) => {
-  switch (type) {
-    case 'text':
-      return null;
-    case 'password':
-      return <ObscureIndicator obscure={obscured ?? true} />;
-  }
-};
-
-const Error = ({ errors }: { errors: string[] }) => {
-  // return <div>
-  //     {errors.length > 1 ? errors.map(item => <li key={item} >{item}</li>) : <p>{errors[0]}</p>}
-  // </div>
-  return (
-    <div>
-      {errors.map((item) => (
-        <Row key={item}>
-          <div className="inline-flex">
-            <Image src={alertErrorIcon} className="icon" alt={'ErrorIcon'} />
-            <p className="ml-2">{item}</p>
-          </div>
-        </Row>
-      ))}
-    </div>
-  );
-};
-
-const FillGuidance = ({ fillGuidance }: { fillGuidance: string[] }) => {
-  return (
-    <div>
-      {fillGuidance.map((item) => (
-        <li key={item}>{item}</li>
-      ))}
-    </div>
-  );
-};
-
-const LowerPart = ({
-  errors,
-  fillGuidance,
-}: {
-  errors?: string[] | null;
-  fillGuidance?: string[] | null;
-}) => {
-  return (
-    <div className={`${errors ? 'error-container' : ''} mt-1 p-1`}>
-      {errors && <Error errors={errors} />}
-      {errors == null && fillGuidance && (
-        <FillGuidance fillGuidance={fillGuidance} />
-      )}
-    </div>
-  );
-};
 
 export const TextField = ({
   label,
+  value = '',
+  placeholder,
   type = 'text',
-  errors = null,
-  fillGuidance = null,
-  value,
-  hint,
-  valueCallback,
-  onFocusCallback,
-  suffixIconCallback,
-  onKeydownCallback,
-  maxWidth,
-  isSuffixNeeded = false,
-  minValue,
-  maxValue,
-  maxLength,
-  className = '',
-  highlightError = true,
+  required = false,
   disabled = false,
+  errors = [],
+  valueCallback,
+  onKeydownCallback,
+  inputRef,
+  className = '',
+  maxLength,
+  pattern,
+  inputMode,
+  ariaLabel,
+  ariaDescribedBy,
+  ariaInvalid,
 }: TextFieldProps) => {
-  const [focus, setFocus] = useState(false);
-  const [obscuredState, setObscuredState] = useState(
-    type == 'password' ? true : false,
-  );
+  const localInputRef = useRef<HTMLInputElement>(null);
+  const actualInputRef = inputRef || localInputRef;
+  const [isFocused, setIsFocused] = useState(false);
 
-  function computeType(): typeof type {
-    if (type == 'password') {
-      return obscuredState == true ? type : 'text';
-    }
+  const fieldId = label
+    ? `input-${label.replace(/\s+/g, '-').toLowerCase()}`
+    : `input-${Math.random().toString(36).substring(2, 9)}`;
+  const errorId = `${fieldId}-error`;
+  const descriptionId =
+    ariaDescribedBy || (errors.length > 0 ? errorId : undefined);
 
-    return type;
-  }
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    valueCallback?.(e.target.value);
+  };
 
-  function toggleObscure() {
-    if (type == 'password') {
-      setObscuredState(!obscuredState);
-    }
-    suffixIconCallback?.();
-  }
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    onKeydownCallback?.(e.currentTarget.value);
+  };
+
+  const hasError = errors.length > 0;
 
   return (
-    <div
-      style={{ ...(maxWidth && { maxWidth: `${maxWidth}px` }) }}
-      className="flex flex-col w-full text-field"
-    >
-      <p>{label}</p>
-      <div
-        className={`flex flex-row items-center input ${className} ${
-          focus ? 'input-focus' : ''
-        } ${(errors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
-      >
-        <input
-          aria-label={label}
-          onFocus={() => {
-            setFocus(true);
-            onFocusCallback?.();
-          }}
-          onBlur={() => setFocus(false)}
-          onChange={(event) => valueCallback?.(event.target.value)}
-          onKeyDown={(event) => onKeydownCallback?.(event.key)}
-          value={value}
-          placeholder={hint}
-          type={computeType()}
-          min={minValue}
-          max={maxValue}
-          className={className}
-          maxLength={maxLength}
-          disabled={disabled}
-        />
-        <div className="cursor-pointer" onClick={toggleObscure}>
-          {isSuffixNeeded && (
-            <SuffixIcon errors={errors} type={type} obscured={obscuredState} />
-          )}
+    <div className={`flex flex-col ${className}`}>
+      {label && (
+        <label
+          htmlFor={fieldId}
+          className={`mb-1 ${required ? 'required-field after:content-["*"] after:ml-1 after:text-red-500' : ''}`}
+        >
+          {label}
+        </label>
+      )}
+      <input
+        id={fieldId}
+        type={type}
+        value={value}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        placeholder={placeholder}
+        disabled={disabled}
+        required={required}
+        maxLength={maxLength}
+        pattern={pattern}
+        inputMode={inputMode}
+        ref={actualInputRef}
+        aria-label={ariaLabel || label}
+        aria-required={required}
+        aria-invalid={ariaInvalid || hasError}
+        aria-describedby={descriptionId}
+        className={`input ${hasError ? 'error-input' : ''} ${isFocused ? 'input-focus' : ''}`}
+      />
+      {hasError && (
+        <div id={errorId} className="error-container" role="alert">
+          {errors[0]}
         </div>
-      </div>
-      {(errors || fillGuidance) && (
-        <LowerPart errors={errors} fillGuidance={fillGuidance} />
       )}
     </div>
   );
