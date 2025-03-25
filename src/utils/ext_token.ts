@@ -11,6 +11,8 @@ export async function setExternalSessionToken(user: SessionUser) {
   const tokenObj: DXAuthToken = {
     user: user.id,
     time: now,
+    memberCk: user.currUsr.plan?.memCk,
+    subscriberId: user.currUsr.plan?.subId,
     constituent: 'member',
   };
   const token = encrypt(JSON.stringify(tokenObj));
