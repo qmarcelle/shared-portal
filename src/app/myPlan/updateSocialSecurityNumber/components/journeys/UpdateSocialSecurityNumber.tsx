@@ -9,7 +9,7 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { updateSSNData } from '../../actions/updateSSNData';
 import { UpdateSSNRequest } from '../../models/app/updateSSNRequest';
 
@@ -17,6 +17,7 @@ interface UpdateSocialSecurityNumberJourneyProps {
   memberName: string;
   successCallback: () => void;
 }
+
 const headerText = 'Update or Add a Social Security Number';
 
 export const UpdateSocialSecurityNumberJourney = ({
@@ -26,7 +27,15 @@ export const UpdateSocialSecurityNumberJourney = ({
   successCallback,
 }: ModalChildProps & UpdateSocialSecurityNumberJourneyProps) => {
   const { dismissModal } = useAppModalStore();
+  const ssnInputRef = useRef<HTMLInputElement>(null);
   const [securityNumber, setSecurityNumber] = useState('***-**-****');
+
+  useEffect(() => {
+    if (pageIndex === 0) {
+      // Focus SSN input on first page
+      ssnInputRef.current?.focus();
+    }
+  }, [pageIndex]);
 
   const addSecurityNumber = (value: string) => {
     if (!isNaN(Number(value))) {
@@ -60,15 +69,27 @@ export const UpdateSocialSecurityNumberJourney = ({
       subLabel="Enter the social security number for:"
       actionArea={
         <Column>
-          <TextBox className="font-bold text-center" text={memberName} />
+          <TextBox
+            className="font-bold text-center"
+            text={memberName}
+            ariaLabel={`Enter SSN for ${memberName}`}
+          />
           <Spacer size={32} />
           <TextField
+            ref={ssnInputRef}
             hint="***-**-****"
             valueCallback={(val) => addSecurityNumber(val)}
             maxLength={9}
             label="Social Security Number"
+            ariaLabel="Enter your social security number"
+            ariaDescribedBy="ssn-description"
+            type="password"
           />
-
+          <TextBox
+            id="ssn-description"
+            className="sr-only"
+            text="Enter your 9-digit social security number. The number will be masked for security."
+          />
           <Spacer size={32} />
         </Column>
       }
@@ -87,6 +108,7 @@ export const UpdateSocialSecurityNumberJourney = ({
           <TextBox
             className="text-center"
             text="Your social security number has been successfully updated."
+            ariaLabel="Your social security number has been successfully updated."
           />
           <Spacer size={32} />
         </Column>
@@ -100,9 +122,8 @@ export const UpdateSocialSecurityNumberJourney = ({
         <Column className="items-center">
           <TextBox
             className="text-center"
-            text={
-              'We’re unable to update your information at this time. Please try again later.'
-            }
+            text="We're unable to update your information at this time. Please try again later."
+            ariaLabel="We're unable to update your information at this time. Please try again later."
           />
         </Column>
       }
