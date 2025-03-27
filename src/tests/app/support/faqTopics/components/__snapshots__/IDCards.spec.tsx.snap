@@ -29,8 +29,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
               />
               <p
-                class="body-1 body-1"
-                style="display: block;"
+                class="body-1 body-1 block"
               >
                 Do you have questions about your ID cards? We’re here to help.
               </p>
@@ -53,11 +52,11 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   >
                     Help with Member ID Cards
-                  </h2>
+                  </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
@@ -190,8 +189,8 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -499,8 +498,7 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               Do you have questions about your ID cards? We’re here to help.
             </p>
@@ -523,11 +521,11 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 >
                   Help with Member ID Cards
-                </h2>
+                </p>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
@@ -660,8 +658,8 @@ exports[`ID Cards FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"

@@ -29,8 +29,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
               />
               <p
-                class="body-1 body-1"
-                style="display: block;"
+                class="body-1 body-1 block"
               >
                 How to keep your information secure, manage your online account and more.
               </p>
@@ -53,11 +52,11 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   >
                     About Multi-factor Authentication
-                  </h2>
+                  </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
@@ -142,8 +141,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -185,8 +184,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -228,8 +227,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -271,8 +270,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -314,8 +313,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -357,8 +356,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -400,8 +399,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -443,8 +442,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -486,8 +485,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -534,11 +533,11 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   >
                     About Email Verification
-                  </h2>
+                  </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
@@ -623,8 +622,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -666,8 +665,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -709,8 +708,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -752,8 +751,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -795,8 +794,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -838,8 +837,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -886,11 +885,11 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   >
                     About Account Management
-                  </h2>
+                  </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
@@ -975,8 +974,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1018,8 +1017,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1061,8 +1060,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1104,8 +1103,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1147,8 +1146,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1190,8 +1189,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1233,8 +1232,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1276,8 +1275,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -1585,8 +1584,7 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               How to keep your information secure, manage your online account and more.
             </p>
@@ -1609,11 +1607,11 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 >
                   About Multi-factor Authentication
-                </h2>
+                </p>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
@@ -1698,8 +1696,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -1741,8 +1739,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -1784,8 +1782,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -1827,8 +1825,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -1870,8 +1868,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -1913,8 +1911,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -1956,8 +1954,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -1999,8 +1997,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2042,8 +2040,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2090,11 +2088,11 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 >
                   About Email Verification
-                </h2>
+                </p>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
@@ -2179,8 +2177,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2222,8 +2220,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2265,8 +2263,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2308,8 +2306,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2351,8 +2349,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2394,8 +2392,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2442,11 +2440,11 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 >
                   About Account Management
-                </h2>
+                </p>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
@@ -2531,8 +2529,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2574,8 +2572,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2617,8 +2615,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2660,8 +2658,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2703,8 +2701,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2746,8 +2744,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2789,8 +2787,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -2832,8 +2830,8 @@ exports[`Sharing Permissions Security FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"

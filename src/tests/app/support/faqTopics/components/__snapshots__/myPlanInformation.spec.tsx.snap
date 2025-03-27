@@ -29,8 +29,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
               />
               <p
-                class="body-1 body-1"
-                style="display: block;"
+                class="body-1 body-1 block"
               >
                 How to update your address, dependents, and more.
               </p>
@@ -53,11 +52,11 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   >
                     Updating Plan Information
-                  </h2>
+                  </p>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
@@ -101,8 +100,8 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -144,8 +143,8 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -187,8 +186,8 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
                 <div
                   class="flex flex-col"
                 >
-                  <h2
-                    class="title-2"
+                  <p
+                    class="title-2  block"
                   />
                   <div
                     class="flex flex-col items-stretch"
@@ -496,8 +495,7 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               How to update your address, dependents, and more.
             </p>
@@ -520,11 +518,11 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 >
                   Updating Plan Information
-                </h2>
+                </p>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
@@ -568,8 +566,8 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -611,8 +609,8 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
@@ -654,8 +652,8 @@ exports[`My Plan Information FAQ should render the UI correctly 1`] = `
               <div
                 class="flex flex-col"
               >
-                <h2
-                  class="title-2"
+                <p
+                  class="title-2  block"
                 />
                 <div
                   class="flex flex-col items-stretch"
