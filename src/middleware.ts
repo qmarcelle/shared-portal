@@ -24,8 +24,11 @@ const getLoginDeeplinkRedirect = function (nextUrl: NextURL) {
 
 export default auth(async (req) => {
   const isLoggedIn = !!req.auth;
+  const routeUser = isLoggedIn
+    ? req.auth?.user.name || 'unknown'
+    : 'unauthenticated';
   const method = req.method;
-  console.log(`${method} ${req.nextUrl.pathname} loggedIn=${isLoggedIn}`);
+  console.log(`Router <${routeUser}> ${method} ${req.nextUrl.pathname}`);
   const { nextUrl } = req;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
