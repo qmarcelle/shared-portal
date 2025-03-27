@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { RefObject, useState } from 'react';
+import { forwardRef, RefObject, useState } from 'react';
 import { IComponent } from '../IComponent';
 import {
   alertErrorIcon,
@@ -27,6 +27,8 @@ export interface TextFieldProps extends IComponent {
   maxLength?: number;
   disabled?: boolean;
   inputRef?: RefObject<HTMLInputElement>;
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -67,11 +69,8 @@ const SuffixIcon = ({
 };
 
 const Error = ({ errors }: { errors: string[] }) => {
-  // return <div>
-  //     {errors.length > 1 ? errors.map(item => <li key={item} >{item}</li>) : <p>{errors[0]}</p>}
-  // </div>
   return (
-    <div>
+    <div id="error-message">
       {errors.map((item) => (
         <Row key={item}>
           <div className="inline-flex">
@@ -111,86 +110,120 @@ const LowerPart = ({
   );
 };
 
-export const TextField = ({
-  label,
-  type = 'text',
-  errors = null,
-  fillGuidance = null,
-  value,
-  hint,
-  valueCallback,
-  onFocusCallback,
-  suffixIconCallback,
-  onKeydownCallback,
-  maxWidth,
-  isSuffixNeeded = false,
-  minValue,
-  maxValue,
-  maxLength,
-  className = '',
-  highlightError = true,
-  disabled = false,
-  inputRef,
-}: TextFieldProps) => {
-  const [focus, setFocus] = useState(false);
-  const [obscuredState, setObscuredState] = useState(
-    type == 'password' ? true : false,
-  );
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+  (
+    {
+      label,
+      type = 'text',
+      errors = null,
+      fillGuidance = null,
+      value,
+      hint,
+      valueCallback,
+      onFocusCallback,
+      suffixIconCallback,
+      onKeydownCallback,
+      maxWidth,
+      isSuffixNeeded = false,
+      minValue,
+      maxValue,
+      maxLength,
+      className = '',
+      highlightError = true,
+      disabled = false,
+      inputRef,
+      ariaLabel,
+      ariaDescribedBy,
+    },
+    ref,
+  ) => {
+    const [focus, setFocus] = useState(false);
+    const [obscuredState, setObscuredState] = useState(
+      type == 'password' ? true : false,
+    );
 
-  function computeType(): typeof type {
-    if (type == 'password') {
-      return obscuredState == true ? type : 'text';
+    function computeType(): typeof type {
+      if (type == 'password') {
+        return obscuredState == true ? type : 'text';
+      }
+
+      return type;
     }
 
-    return type;
-  }
-
-  function toggleObscure() {
-    if (type == 'password') {
-      setObscuredState(!obscuredState);
+    function toggleObscure() {
+      if (type == 'password') {
+        setObscuredState(!obscuredState);
+      }
+      suffixIconCallback?.();
     }
-    suffixIconCallback?.();
-  }
 
-  return (
-    <div
-      style={{ ...(maxWidth && { maxWidth: `${maxWidth}px` }) }}
-      className="flex flex-col w-full text-field"
-    >
-      <p>{label}</p>
+    // Handle both regular ref and inputRef
+    const setRefs = (element: HTMLInputElement | null) => {
+      // Set the forwarded ref
+      if (typeof ref === 'function') {
+        ref(element);
+      } else if (ref) {
+        ref.current = element;
+      }
+
+      // Set the inputRef if provided
+      if (inputRef && element) {
+        // This is a safe operation as inputRef is passed by the component user
+        (inputRef as { current: HTMLInputElement | null }).current = element;
+      }
+    };
+
+    return (
       <div
-        className={`flex flex-row items-center input ${className} ${
-          focus ? 'input-focus' : ''
-        } ${(errors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
+        style={{ ...(maxWidth && { maxWidth: `${maxWidth}px` }) }}
+        className="flex flex-col w-full text-field"
       >
-        <input
-          ref={inputRef}
-          aria-label={label}
-          onFocus={() => {
-            setFocus(true);
-            onFocusCallback?.();
-          }}
-          onBlur={() => setFocus(false)}
-          onChange={(event) => valueCallback?.(event.target.value)}
-          onKeyDown={(event) => onKeydownCallback?.(event.key)}
-          value={value}
-          placeholder={hint}
-          type={computeType()}
-          min={minValue}
-          max={maxValue}
-          className={className}
-          maxLength={maxLength}
-          disabled={disabled}
-        />
-        <div className="cursor-pointer" onClick={toggleObscure}>
-          {isSuffixNeeded && (
-            <SuffixIcon errors={errors} type={type} obscured={obscuredState} />
-          )}
+        <label className="text-sm font-medium text-gray-700">{label}</label>
+        <div
+          className={`flex flex-row items-center input ${className} ${
+            focus ? 'input-focus' : ''
+          } ${(errors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
+        >
+          <input
+            ref={setRefs}
+            aria-label={ariaLabel || label}
+            onFocus={() => {
+              setFocus(true);
+              onFocusCallback?.();
+            }}
+            onBlur={() => setFocus(false)}
+            onChange={(event) => valueCallback?.(event.target.value)}
+            onKeyDown={(event) => onKeydownCallback?.(event.key)}
+            value={value}
+            placeholder={hint}
+            type={computeType()}
+            min={minValue}
+            max={maxValue}
+            className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm ${
+              highlightError ? 'border-red-500' : ''
+            } ${className || ''}`}
+            maxLength={maxLength}
+            disabled={disabled}
+            aria-describedby={ariaDescribedBy}
+            aria-invalid={errors !== null && errors.length > 0}
+            aria-errormessage={errors?.length ? 'error-message' : undefined}
+          />
+          <div className="cursor-pointer" onClick={toggleObscure}>
+            {isSuffixNeeded && (
+              <SuffixIcon
+                errors={errors}
+                type={type}
+                obscured={obscuredState}
+              />
+            )}
+          </div>
         </div>
+        {(errors || fillGuidance) && (
+          <LowerPart errors={errors} fillGuidance={fillGuidance} />
+        )}
       </div>
-      {(errors || fillGuidance) && (
-        <LowerPart errors={errors} fillGuidance={fillGuidance} />
-      )}
-    </div>
-  );
-};
+    );
+  },
+);
+
+TextField.displayName = 'TextField';

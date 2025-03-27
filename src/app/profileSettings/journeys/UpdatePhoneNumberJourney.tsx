@@ -29,21 +29,22 @@ export const UpdatePhoneNumberJourney = ({
 }: ModalChildProps & InviteToRegisterProps) => {
   const { dismissModal } = useAppModalStore();
   const phoneInputRef = useRef<HTMLInputElement>(null);
-  const securityCodeRef = useRef<HTMLInputElement>(null);
+  const verificationInputRef = useRef<HTMLInputElement>(null);
 
   // Focus the appropriate input field when the modal page changes
   useEffect(() => {
-    if (pageIndex === 0 && phoneInputRef.current) {
+    if (pageIndex === 0) {
       // Focus phone input on first page
       setTimeout(() => phoneInputRef.current?.focus(), 100);
-    } else if (pageIndex === 2 && securityCodeRef.current) {
-      // Focus security code input on verification page
-      setTimeout(() => securityCodeRef.current?.focus(), 100);
+    } else if (pageIndex === 2) {
+      // Focus verification code input on verification page
+      setTimeout(() => verificationInputRef.current?.focus(), 100);
     }
   }, [pageIndex]);
 
   const pages = [
     <InputModalSlide
+      key={0}
       label="Update Phone Number"
       subLabel="Enter the new phone number you'd like to use for communications and security settings."
       buttonLabel="Next"
@@ -51,9 +52,15 @@ export const UpdatePhoneNumberJourney = ({
         <Column className="items-center">
           <Spacer size={32} />
           <TextField
+            ref={phoneInputRef}
             label="Phone Number"
-            inputRef={phoneInputRef}
-            aria-label="Enter new phone number"
+            ariaLabel="Enter your new phone number"
+            ariaDescribedBy="phone-number-description"
+          />
+          <TextBox
+            id="phone-number-description"
+            className="sr-only"
+            text="Enter your new phone number in the format (XXX) XXX-XXXX"
           />
           <Spacer size={24} />
         </Column>
@@ -62,6 +69,7 @@ export const UpdatePhoneNumberJourney = ({
       cancelCallback={() => dismissModal()}
     />,
     <InitModalSlide
+      key={1}
       label="Confirm Phone Number"
       subLabel={
         <Column>
@@ -75,11 +83,13 @@ export const UpdatePhoneNumberJourney = ({
               label="Text a code to (123) 456-0000"
               selected={true}
               id="text-code-option"
+              ariaLabel="Receive verification code via text message"
             />
             <Radio
               label="Call with a code to (123) 456-0000"
               selected={false}
               id="call-code-option"
+              ariaLabel="Receive verification code via phone call"
             />
           </Column>
         </Column>
@@ -91,18 +101,33 @@ export const UpdatePhoneNumberJourney = ({
       cancelCallback={() => dismissModal()}
     />,
     <InputModalSlide
+      key={2}
       label="Confirm Phone Number"
       subLabel="Enter the security code we sent to:"
       actionArea={
         <Column className="items-center">
-          <TextBox className="font-bold" text={phoneNumber} />
+          <TextBox
+            className="font-bold"
+            text={phoneNumber}
+            aria-live="polite"
+          />
           <Spacer size={32} />
           <TextField
+            ref={verificationInputRef}
             label="Enter Security Code"
-            inputRef={securityCodeRef}
-            aria-label="Enter security code"
+            ariaLabel="Enter the verification code sent to your phone"
+            ariaDescribedBy="verification-code-description"
           />
-          <AppLink className="self-start" label="Resend Code" />
+          <TextBox
+            id="verification-code-description"
+            className="sr-only"
+            text="Enter the 6-digit verification code sent to your phone number"
+          />
+          <AppLink
+            className="self-start"
+            label="Resend Code"
+            ariaLabel="Click to resend the verification code"
+          />
           <Spacer size={32} />
         </Column>
       }
@@ -110,6 +135,7 @@ export const UpdatePhoneNumberJourney = ({
       cancelCallback={() => dismissModal()}
     />,
     <SuccessSlide
+      key={3}
       label="Phone Number Updated"
       body={
         <Column className="items-center">

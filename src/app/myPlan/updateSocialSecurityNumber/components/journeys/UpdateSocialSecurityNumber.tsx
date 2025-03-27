@@ -17,6 +17,7 @@ interface UpdateSocialSecurityNumberJourneyProps {
   memberName: string;
   successCallback: () => void;
 }
+
 const headerText = 'Update or Add a Social Security Number';
 
 export const UpdateSocialSecurityNumberJourney = ({
@@ -32,7 +33,7 @@ export const UpdateSocialSecurityNumberJourney = ({
 
   // Focus SSN input when modal loads
   useEffect(() => {
-    if (pageIndex === 0 && ssnInputRef.current) {
+    if (pageIndex === 0) {
       setTimeout(() => ssnInputRef.current?.focus(), 100);
     }
   }, [pageIndex]);
@@ -99,24 +100,27 @@ export const UpdateSocialSecurityNumberJourney = ({
             className="font-bold text-center"
             text={memberName}
             aria-live="polite"
+            ariaLabel={`Enter SSN for ${memberName}`}
           />
           <Spacer size={32} />
           <TextField
+            ref={ssnInputRef}
             hint="123-45-6789"
             valueCallback={(val) => addSecurityNumber(val)}
             value={securityNumber}
             maxLength={11}
             label="Social Security Number"
-            inputRef={ssnInputRef}
             errors={inputError}
-            aria-label="Enter social security number, format: 9 digits"
+            aria-label="Enter your social security number"
             aria-required="true"
-            aria-describedby="ssn-description"
+            aria-describedBy="ssn-description"
+            type="password"
           />
-          <div id="ssn-description" className="sr-only">
-            Enter your 9-digit Social Security Number. The format is 3 digits, 2
-            digits, 4 digits.
-          </div>
+          <TextBox
+            id="ssn-description"
+            className="sr-only"
+            text="Enter your 9-digit Social Security Number. The format is 3 digits, 2 digits, 4 digits. The number will be masked for security."
+          />
           <Spacer size={32} />
         </Column>
       }
@@ -140,6 +144,7 @@ export const UpdateSocialSecurityNumberJourney = ({
             className="text-center"
             text="Your social security number has been successfully updated."
             aria-live="assertive"
+            ariaLabel="Your social security number has been successfully updated."
           />
           <Spacer size={32} />
         </Column>
@@ -155,6 +160,7 @@ export const UpdateSocialSecurityNumberJourney = ({
             className="text-center"
             text="We're unable to update your information at this time. Please try again later."
             aria-live="assertive"
+            ariaLabel="We're unable to update your information at this time. Please try again later."
           />
         </Column>
       }
