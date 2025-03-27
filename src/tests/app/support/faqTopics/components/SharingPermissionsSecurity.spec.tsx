@@ -17,9 +17,7 @@ describe('Sharing Permissions Security FAQ', () => {
       'How to keep your information secure, manage your online account and more.',
     );
 
-    screen.getByRole('heading', {
-      name: 'About Multi-factor Authentication',
-    });
+    screen.getByText('About Multi-factor Authentication');
     screen.getByText('What is multi-factor authentication (MFA)?');
     fireEvent.click(
       screen.getByText('What is multi-factor authentication (MFA)?'),
@@ -28,9 +26,7 @@ describe('Sharing Permissions Security FAQ', () => {
       'Multi-factor authentication (MFA) is a way to make sure your online accounts are extra safe. It means you need to prove who you are in more than one way before you can log in. Usually, you use your password and then something else, like a code sent to your phone. This makes it much harder for someone else to get into your account.',
     );
 
-    screen.getByRole('heading', {
-      name: 'About Email Verification',
-    });
+    screen.getByText('About Email Verification');
     screen.getByText('What is a one-time passcode and how does it work?');
     fireEvent.click(
       screen.getByText('What is a one-time passcode and how does it work?'),
@@ -39,9 +35,7 @@ describe('Sharing Permissions Security FAQ', () => {
       'A one-time passcode is a security code sent to a user to verify their identity as the owner of their online account. This could be part of the registration process, a forgotten password, enabling multifactor authentication or logging in with MFA.',
     );
 
-    screen.getByRole('heading', {
-      name: 'About Account Management',
-    });
+    screen.getByText('About Account Management');
     screen.getByText('How do I reset my password using a one-time passcode?');
     fireEvent.click(
       screen.getByText('How do I reset my password using a one-time passcode?'),

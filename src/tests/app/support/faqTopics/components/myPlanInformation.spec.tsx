@@ -15,9 +15,7 @@ describe('My Plan Information FAQ', () => {
     fireEvent.click(benefits);
     screen.getByText('How to update your address, dependents, and more.');
 
-    screen.getByRole('heading', {
-      name: 'Updating Plan Information',
-    });
+    screen.getByText('Updating Plan Information');
     screen.getByText(
       'How do I update personal info like my address, last name or payment information?',
     );

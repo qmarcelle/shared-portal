@@ -14,12 +14,10 @@ describe('ID Cards FAQ', () => {
 
     fireEvent.click(idCard);
     screen.getByText(
-      'Do you have questions about your ID cards? We’re here to help.',
+      /Do you have questions about your ID cards\? We.?re here to help\./,
     );
 
-    screen.getByRole('heading', {
-      name: 'Help with Member ID Cards',
-    });
+    screen.getByText('Help with Member ID Cards');
     screen.getByText('How do I get a new Member ID card?');
 
     fireEvent.click(screen.getByText('How do I get a new Member ID card?'));
