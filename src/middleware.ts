@@ -92,7 +92,13 @@ export default auth(async (req) => {
    */
   if (isAuthRoute) {
     if (isLoggedIn) {
-      const redir = process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard';
+      let redir;
+      const targetResource = nextUrl.searchParams.get('TargetResource');
+      if (targetResource) {
+        redir = decodeURIComponent(targetResource);
+      } else {
+        redir = process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard';
+      }
       console.log(`Redirecting logged-in client to ${redir}`);
       return Response.redirect(new URL(redir, nextUrl));
     } else {
