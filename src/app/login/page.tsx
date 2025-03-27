@@ -55,11 +55,16 @@ export default function LogIn() {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace(
-        queryParams.get('TargetResource') ||
-          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL ||
-          '/security',
-      );
+      const targetResource = queryParams.get('TargetResource');
+      if (targetResource) {
+        const decoded = decodeURIComponent(targetResource);
+        router.replace(decoded);
+      } else {
+        router.replace(
+          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard',
+        );
+      }
+
       router.refresh();
     }
     if (multipleLoginAttempts == true) {
