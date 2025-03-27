@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth';
+import { NextURL } from 'next/dist/server/web/next-url';
 import authConfig from './auth.config';
 import {
   apiAuthPrefix,
@@ -8,6 +9,18 @@ import {
 } from './utils/routes';
 
 const { auth } = NextAuth(authConfig);
+
+const getLoginDeeplinkRedirect = function (nextUrl: NextURL) {
+  const path = nextUrl.pathname;
+  if (!path || path == '/' || path == '/dashboard') {
+    return Response.redirect(new URL('/login', nextUrl));
+  } else {
+    const encodedTargetResource = encodeURI(path);
+    return Response.redirect(
+      new URL(`/login?TargetResource=${encodedTargetResource}`, nextUrl),
+    );
+  }
+};
 
 export default auth(async (req) => {
   const isLoggedIn = !!req.auth;
@@ -30,7 +43,7 @@ export default auth(async (req) => {
         return Response.redirect(new URL('/login', nextUrl));
       }
     } catch (err) {
-      console.log('Skipped POST request check due to no form data.');
+      //If this block throws an error, it just means there's no form data - probably a server action call.
     }
   }
 
@@ -107,7 +120,7 @@ export default auth(async (req) => {
   if (!isPublicRoute) {
     if (!isLoggedIn) {
       console.log('Redirecting logged-out client to /login');
-      return Response.redirect(new URL('/login', nextUrl));
+      return getLoginDeeplinkRedirect(nextUrl);
     }
   }
 
