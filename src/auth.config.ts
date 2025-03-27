@@ -31,7 +31,8 @@ export default {
           const user = await computeSessionUser(username);
           return user;
         } catch (err) {
-          console.log('Authorization failed');
+          console.log(`computeSessionUser failure username=${username}`);
+          console.error(err);
           throw new AuthError();
         }
       },
