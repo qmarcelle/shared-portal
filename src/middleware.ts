@@ -15,7 +15,7 @@ const getLoginDeeplinkRedirect = function (nextUrl: NextURL) {
   if (!path || path == '/' || path == '/dashboard') {
     return Response.redirect(new URL('/login', nextUrl));
   } else {
-    const encodedTargetResource = encodeURI(path);
+    const encodedTargetResource = encodeURIComponent(path);
     return Response.redirect(
       new URL(`/login?TargetResource=${encodedTargetResource}`, nextUrl),
     );
