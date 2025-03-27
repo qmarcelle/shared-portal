@@ -11,6 +11,7 @@ import { Radio } from '@/components/foundation/Radio';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { useEffect, useRef } from 'react';
 
 const bottomNote =
   'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and condition.';
@@ -26,7 +27,21 @@ export const UpdatePhoneNumberJourney = ({
   pageIndex,
   phoneNumber,
 }: ModalChildProps & InviteToRegisterProps) => {
-  const {dismissModal} = useAppModalStore();
+  const { dismissModal } = useAppModalStore();
+  const phoneInputRef = useRef<HTMLInputElement>(null);
+  const securityCodeRef = useRef<HTMLInputElement>(null);
+
+  // Focus the appropriate input field when the modal page changes
+  useEffect(() => {
+    if (pageIndex === 0 && phoneInputRef.current) {
+      // Focus phone input on first page
+      setTimeout(() => phoneInputRef.current?.focus(), 100);
+    } else if (pageIndex === 2 && securityCodeRef.current) {
+      // Focus security code input on verification page
+      setTimeout(() => securityCodeRef.current?.focus(), 100);
+    }
+  }, [pageIndex]);
+
   const pages = [
     <InputModalSlide
       label="Update Phone Number"
@@ -35,7 +50,11 @@ export const UpdatePhoneNumberJourney = ({
       actionArea={
         <Column className="items-center">
           <Spacer size={32} />
-          <TextField label="Phone Number" />
+          <TextField
+            label="Phone Number"
+            inputRef={phoneInputRef}
+            aria-label="Enter new phone number"
+          />
           <Spacer size={24} />
         </Column>
       }
@@ -52,10 +71,15 @@ export const UpdatePhoneNumberJourney = ({
           />
           <Spacer size={24} />
           <Column>
-            <Radio label="Text a code to (123) 456-0000" selected={true} />
+            <Radio
+              label="Text a code to (123) 456-0000"
+              selected={true}
+              id="text-code-option"
+            />
             <Radio
               label="Call with a code to (123) 456-0000"
               selected={false}
+              id="call-code-option"
             />
           </Column>
         </Column>
@@ -73,7 +97,11 @@ export const UpdatePhoneNumberJourney = ({
         <Column className="items-center">
           <TextBox className="font-bold" text={phoneNumber} />
           <Spacer size={32} />
-          <TextField label="Enter Security Code" />
+          <TextField
+            label="Enter Security Code"
+            inputRef={securityCodeRef}
+            aria-label="Enter security code"
+          />
           <AppLink className="self-start" label="Resend Code" />
           <Spacer size={32} />
         </Column>
@@ -87,7 +115,12 @@ export const UpdatePhoneNumberJourney = ({
         <Column className="items-center">
           <TextBox className="text-center" text="Your phone number is:" />
           <Spacer size={16} />
-          <TextBox className="font-bold" text={phoneNumber} />
+          <TextBox
+            className="font-bold"
+            text={phoneNumber}
+            aria-live="polite"
+            aria-atomic="true"
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}

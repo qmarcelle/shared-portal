@@ -8,6 +8,7 @@ export interface RadioProps {
   subLabel?: string;
   childBuilder?: (selected: boolean) => ReactElement | undefined;
   value?: any;
+  id?: string;
 }
 
 export const Radio = ({
@@ -17,23 +18,30 @@ export const Radio = ({
   callback,
   value,
   subLabel,
+  id = Math.random().toString(36).substring(2, 9),
 }: RadioProps) => {
   return (
     <div
       onClick={() => callback?.(value)}
       className={`flex flex-row gap-1 ${callback == null ? 'checkbox-disabled' : ''}`}
     >
-      <label>
-        <input
-          aria-label={label}
-          type="radio"
-          name=""
-          id=""
-          checked={selected}
-        />
-      </label>
+      <input
+        type="radio"
+        name={id}
+        id={id}
+        checked={selected}
+        onChange={() => callback?.(value)}
+        aria-checked={selected}
+        disabled={callback == null}
+        aria-disabled={callback == null}
+      />
       <div className="flex-col m-1">
-        <p className={`${subLabel != null ? 'font-bold' : ''}`}>{label}</p>
+        <label
+          htmlFor={id}
+          className={`${subLabel != null ? 'font-bold' : ''}`}
+        >
+          {label}
+        </label>
         {subLabel && <p>{subLabel}</p>}
         {childBuilder && childBuilder(selected)}
       </div>

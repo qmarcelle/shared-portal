@@ -12,6 +12,7 @@ export interface CheckboxProps extends IComponent {
   classProps?: string;
   checkProps?: string;
   body?: ReactNode;
+  id?: string;
 }
 
 export const Checkbox = ({
@@ -21,23 +22,28 @@ export const Checkbox = ({
   selected,
   classProps,
   className,
+  id = Math.random().toString(36).substring(2, 9),
 }: CheckboxProps) => {
+  const isDisabled = callback == null;
+
   return (
     <div
-      className={`flex flex-row gap-2 p-2  ${callback == null ? 'checkbox-disabled' : ''} ${className ?? ''}`}
+      className={`flex flex-row gap-2 p-2 ${isDisabled ? 'checkbox-disabled' : ''} ${className ?? ''}`}
     >
-      <label>
-        <input
-          type="checkbox"
-          name=""
-          id="myCheckbox"
-          onChange={callback}
-          checked={selected}
-        />
-      </label>
+      <input
+        type="checkbox"
+        name={id}
+        id={id}
+        onChange={callback}
+        checked={selected}
+        disabled={isDisabled}
+        aria-checked={!!selected}
+        aria-disabled={isDisabled}
+        aria-labelledby={`${id}-label`}
+      />
       <Column>
-        <label htmlFor="myCheckbox">
-          <p className={classProps}>{label}</p>
+        <label htmlFor={id} id={`${id}-label`} className={classProps}>
+          {label}
         </label>
         {body}
       </Column>

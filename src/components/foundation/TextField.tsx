@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { RefObject, useState } from 'react';
 import { IComponent } from '../IComponent';
 import {
   alertErrorIcon,
@@ -26,6 +26,7 @@ export interface TextFieldProps extends IComponent {
   maxValue?: number;
   maxLength?: number;
   disabled?: boolean;
+  inputRef?: RefObject<HTMLInputElement>;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -129,6 +130,7 @@ export const TextField = ({
   className = '',
   highlightError = true,
   disabled = false,
+  inputRef,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -162,6 +164,7 @@ export const TextField = ({
         } ${(errors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
       >
         <input
+          ref={inputRef}
           aria-label={label}
           onFocus={() => {
             setFocus(true);

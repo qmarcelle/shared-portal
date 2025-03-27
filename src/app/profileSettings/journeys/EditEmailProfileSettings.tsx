@@ -10,7 +10,7 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface EditEmailSettingsJourneyProps {
   email: string;
@@ -35,6 +35,20 @@ export const EditEmailProfileSettings = ({
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
 
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const codeInputRef = useRef<HTMLInputElement>(null);
+
+  // Set focus on the appropriate input when modal loads or page changes
+  useEffect(() => {
+    if (pageIndex === 0 && emailInputRef.current) {
+      // Focus email input on first page
+      setTimeout(() => emailInputRef.current?.focus(), 100);
+    } else if (pageIndex === 1 && codeInputRef.current) {
+      // Focus security code input on verification page
+      setTimeout(() => codeInputRef.current?.focus(), 100);
+    }
+  }, [pageIndex]);
+
   const initNewDevice = async () => {
     // Do API call for new device
     setMainAuthDevice(newAuthDevice);
@@ -52,8 +66,11 @@ export const EditEmailProfileSettings = ({
       subLabel="Enter the new email address you'd like to use for communications and security settings."
       actionArea={
         <TextField
+          inputRef={emailInputRef}
           valueCallback={(val) => setNewAuthDevice(val)}
           label="Email Address"
+          type="email"
+          aria-label="Enter new email address"
         />
       }
       cancelCallback={() => dismissModal()}
@@ -68,15 +85,25 @@ export const EditEmailProfileSettings = ({
       actionArea={
         <Column>
           <Spacer size={16} />
-          <TextBox className="font-bold text-center" text={mainAuthDevice} />
+          <TextBox
+            className="font-bold text-center"
+            text={mainAuthDevice}
+            aria-live="polite"
+          />
           <Spacer size={32} />
           <TextField
             type="text"
+            inputRef={codeInputRef}
             valueCallback={(val) => setConfirmCode(val)}
             label="Enter Security Code"
+            aria-label="Enter security code"
           />
           <Spacer size={16} />
-          <AppLink className="self-start !p-0" label="Resend Code" />
+          <AppLink
+            className="self-start !p-0"
+            label="Resend Code"
+            ariaLabel="Resend security code"
+          />
           <Spacer size={32} />
         </Column>
       }
@@ -88,9 +115,17 @@ export const EditEmailProfileSettings = ({
       label="Email Address Updated"
       body={
         <Column>
-          <TextBox className="text-center" text="Your email address is: " />
+          <TextBox
+            className="text-center"
+            text="Your email address is: "
+            aria-live="polite"
+          />
           <Spacer size={16} />
-          <TextBox className="text-center font-bold" text={mainAuthDevice} />
+          <TextBox
+            className="text-center font-bold"
+            text={mainAuthDevice}
+            aria-atomic="true"
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}

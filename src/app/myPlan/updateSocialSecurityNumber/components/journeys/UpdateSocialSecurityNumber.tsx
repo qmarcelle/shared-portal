@@ -9,7 +9,7 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { updateSSNData } from '../../actions/updateSSNData';
 import { UpdateSSNRequest } from '../../models/app/updateSSNRequest';
 
@@ -27,10 +27,37 @@ export const UpdateSocialSecurityNumberJourney = ({
 }: ModalChildProps & UpdateSocialSecurityNumberJourneyProps) => {
   const { dismissModal } = useAppModalStore();
   const [securityNumber, setSecurityNumber] = useState('***-**-****');
+  const [inputError, setInputError] = useState<string[] | null>(null);
+  const ssnInputRef = useRef<HTMLInputElement>(null);
+
+  // Focus SSN input when modal loads
+  useEffect(() => {
+    if (pageIndex === 0 && ssnInputRef.current) {
+      setTimeout(() => ssnInputRef.current?.focus(), 100);
+    }
+  }, [pageIndex]);
 
   const addSecurityNumber = (value: string) => {
-    if (!isNaN(Number(value))) {
-      setSecurityNumber(value);
+    // Clear any previous errors
+    setInputError(null);
+
+    // Only accept numeric input
+    if (value === '' || !isNaN(Number(value.replace(/\D/g, '')))) {
+      const digitsOnly = value.replace(/\D/g, '');
+
+      // Format the SSN with dashes for better screen reader experience
+      if (digitsOnly.length <= 9) {
+        let formattedSSN = digitsOnly;
+        if (digitsOnly.length > 3) {
+          formattedSSN = `${digitsOnly.slice(0, 3)}-${digitsOnly.slice(3)}`;
+        }
+        if (digitsOnly.length > 5) {
+          formattedSSN = `${formattedSSN.slice(0, 6)}-${formattedSSN.slice(6)}`;
+        }
+        setSecurityNumber(formattedSSN);
+      }
+    } else {
+      setInputError(['Please enter numbers only']);
     }
   };
 
@@ -40,8 +67,16 @@ export const UpdateSocialSecurityNumberJourney = ({
 
   const submitSSNCode = async () => {
     try {
+      // Remove any non-numeric characters before submitting
+      const cleanSSN = securityNumber.replace(/\D/g, '');
+
+      if (cleanSSN.length !== 9) {
+        setInputError(['SSN must be 9 digits']);
+        return;
+      }
+
       const request: UpdateSSNRequest = {
-        ssn: securityNumber,
+        ssn: cleanSSN,
       };
       const response = await updateSSNData(request);
       if (response.data?.message === 'Updated SSN') {
@@ -60,20 +95,37 @@ export const UpdateSocialSecurityNumberJourney = ({
       subLabel="Enter the social security number for:"
       actionArea={
         <Column>
-          <TextBox className="font-bold text-center" text={memberName} />
+          <TextBox
+            className="font-bold text-center"
+            text={memberName}
+            aria-live="polite"
+          />
           <Spacer size={32} />
           <TextField
-            hint="***-**-****"
+            hint="123-45-6789"
             valueCallback={(val) => addSecurityNumber(val)}
-            maxLength={9}
+            value={securityNumber}
+            maxLength={11}
             label="Social Security Number"
+            inputRef={ssnInputRef}
+            errors={inputError}
+            aria-label="Enter social security number, format: 9 digits"
+            aria-required="true"
+            aria-describedby="ssn-description"
           />
-
+          <div id="ssn-description" className="sr-only">
+            Enter your 9-digit Social Security Number. The format is 3 digits, 2
+            digits, 4 digits.
+          </div>
           <Spacer size={32} />
         </Column>
       }
       nextCallback={
-        securityNumber.length > 5 ? () => submitSSNCode() : undefined
+        securityNumber.length >= 9 &&
+        securityNumber !== '***-**-****' &&
+        !inputError
+          ? () => submitSSNCode()
+          : undefined
       }
       cancelCallback={() => dismissModal()}
       buttonLabel="Save Changes"
@@ -87,6 +139,7 @@ export const UpdateSocialSecurityNumberJourney = ({
           <TextBox
             className="text-center"
             text="Your social security number has been successfully updated."
+            aria-live="assertive"
           />
           <Spacer size={32} />
         </Column>
@@ -100,9 +153,8 @@ export const UpdateSocialSecurityNumberJourney = ({
         <Column className="items-center">
           <TextBox
             className="text-center"
-            text={
-              'We’re unable to update your information at this time. Please try again later.'
-            }
+            text="We're unable to update your information at this time. Please try again later."
+            aria-live="assertive"
           />
         </Column>
       }
