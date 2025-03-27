@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { forwardRef, useState } from 'react';
+import { forwardRef, RefObject, useState } from 'react';
 import { IComponent } from '../IComponent';
 import {
   alertErrorIcon,
@@ -26,6 +26,7 @@ export interface TextFieldProps extends IComponent {
   maxValue?: number;
   maxLength?: number;
   disabled?: boolean;
+  inputRef?: RefObject<HTMLInputElement>;
   ariaLabel?: string;
   ariaDescribedBy?: string;
 }
@@ -68,11 +69,8 @@ const SuffixIcon = ({
 };
 
 const Error = ({ errors }: { errors: string[] }) => {
-  // return <div>
-  //     {errors.length > 1 ? errors.map(item => <li key={item} >{item}</li>) : <p>{errors[0]}</p>}
-  // </div>
   return (
-    <div>
+    <div id="error-message">
       {errors.map((item) => (
         <Row key={item}>
           <div className="inline-flex">
@@ -133,6 +131,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       className = '',
       highlightError = true,
       disabled = false,
+      inputRef,
       ariaLabel,
       ariaDescribedBy,
     },
@@ -158,6 +157,22 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       suffixIconCallback?.();
     }
 
+    // Handle both regular ref and inputRef
+    const setRefs = (element: HTMLInputElement | null) => {
+      // Set the forwarded ref
+      if (typeof ref === 'function') {
+        ref(element);
+      } else if (ref) {
+        ref.current = element;
+      }
+
+      // Set the inputRef if provided
+      if (inputRef && element) {
+        // This is a safe operation as inputRef is passed by the component user
+        (inputRef as { current: HTMLInputElement | null }).current = element;
+      }
+    };
+
     return (
       <div
         style={{ ...(maxWidth && { maxWidth: `${maxWidth}px` }) }}
@@ -170,7 +185,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           } ${(errors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
         >
           <input
-            ref={ref}
+            ref={setRefs}
             aria-label={ariaLabel || label}
             onFocus={() => {
               setFocus(true);
@@ -190,7 +205,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             maxLength={maxLength}
             disabled={disabled}
             aria-describedby={ariaDescribedBy}
-            aria-invalid={highlightError}
+            aria-invalid={errors !== null && errors.length > 0}
             aria-errormessage={errors?.length ? 'error-message' : undefined}
           />
           <div className="cursor-pointer" onClick={toggleObscure}>

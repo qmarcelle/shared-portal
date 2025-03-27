@@ -31,13 +31,14 @@ export const UpdatePhoneNumberJourney = ({
   const phoneInputRef = useRef<HTMLInputElement>(null);
   const verificationInputRef = useRef<HTMLInputElement>(null);
 
+  // Focus the appropriate input field when the modal page changes
   useEffect(() => {
     if (pageIndex === 0) {
       // Focus phone input on first page
-      phoneInputRef.current?.focus();
+      setTimeout(() => phoneInputRef.current?.focus(), 100);
     } else if (pageIndex === 2) {
       // Focus verification code input on verification page
-      verificationInputRef.current?.focus();
+      setTimeout(() => verificationInputRef.current?.focus(), 100);
     }
   }, [pageIndex]);
 
@@ -81,11 +82,13 @@ export const UpdatePhoneNumberJourney = ({
             <Radio
               label="Text a code to (123) 456-0000"
               selected={true}
+              id="text-code-option"
               ariaLabel="Receive verification code via text message"
             />
             <Radio
               label="Call with a code to (123) 456-0000"
               selected={false}
+              id="call-code-option"
               ariaLabel="Receive verification code via phone call"
             />
           </Column>
@@ -103,7 +106,11 @@ export const UpdatePhoneNumberJourney = ({
       subLabel="Enter the security code we sent to:"
       actionArea={
         <Column className="items-center">
-          <TextBox className="font-bold" text={phoneNumber} />
+          <TextBox
+            className="font-bold"
+            text={phoneNumber}
+            aria-live="polite"
+          />
           <Spacer size={32} />
           <TextField
             ref={verificationInputRef}
@@ -134,7 +141,12 @@ export const UpdatePhoneNumberJourney = ({
         <Column className="items-center">
           <TextBox className="text-center" text="Your phone number is:" />
           <Spacer size={16} />
-          <TextBox className="font-bold" text={phoneNumber} />
+          <TextBox
+            className="font-bold"
+            text={phoneNumber}
+            aria-live="polite"
+            aria-atomic="true"
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}

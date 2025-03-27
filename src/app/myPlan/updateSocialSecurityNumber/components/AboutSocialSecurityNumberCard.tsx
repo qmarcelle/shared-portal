@@ -8,7 +8,11 @@ export const AboutSocialSecurityNumberCard = () => {
   return (
     <Card className="small-section">
       <Column>
-        <Header className="mb-0 title-2" text="About Social Security Number" />
+        <Header
+          className="mb-0 title-2"
+          text="About Social Security Number"
+          aria-level={2}
+        />
         <Spacer size={16} />
         <TextBox
           className="body-1 mb-0"

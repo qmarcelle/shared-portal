@@ -1,3 +1,4 @@
+import React from 'react';
 import { IComponent } from '../IComponent';
 import { Column } from './Column';
 
@@ -9,6 +10,7 @@ export interface RadioProps extends IComponent {
   subLabel?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
+  id?: string;
   classProps?: string;
   body?: React.ReactNode;
   ariaLabel?: string;
@@ -22,16 +24,18 @@ export const Radio = ({
   body,
   callback,
   selected,
+  value,
   classProps,
   className,
   ariaLabel,
   childBuilder,
+  id = `radio-${Math.random().toString(36).substring(2, 9)}`,
 }: RadioProps) => {
-  const radioId = `radio-${Math.random().toString(36).substr(2, 9)}`;
+  const isDisabled = callback == null;
 
   return (
     <div
-      className={`flex flex-row gap-2 p-2 ${callback == null ? 'radio-disabled' : ''} ${className ?? ''}`}
+      className={`flex flex-row gap-2 p-2 ${isDisabled ? 'radio-disabled' : ''} ${className ?? ''}`}
       role="radio"
       aria-checked={selected}
       aria-label={ariaLabel || label}
@@ -39,32 +43,35 @@ export const Radio = ({
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          callback?.(!selected);
+          callback?.(value);
         }
       }}
     >
-      <label className="flex items-center">
-        <input
-          type="radio"
-          id={radioId}
-          onChange={callback}
-          checked={selected}
-          disabled={callback == null}
-          className="sr-only"
-          aria-label={ariaLabel || label}
-        />
-        <div
-          className={`w-5 h-5 border rounded-full ${
-            selected ? 'bg-blue-600 border-blue-600' : 'border-gray-300'
-          } ${callback == null ? 'opacity-50' : ''}`}
-          aria-hidden="true"
-        >
-          {selected && <div className="w-2 h-2 bg-white rounded-full m-1.5" />}
-        </div>
-      </label>
+      <input
+        type="radio"
+        name={id}
+        id={id}
+        checked={selected}
+        onChange={() => callback?.(value)}
+        aria-checked={!!selected}
+        disabled={isDisabled}
+        aria-disabled={isDisabled}
+        className="sr-only"
+      />
+      <div
+        className={`w-5 h-5 border rounded-full ${
+          selected ? 'bg-blue-600 border-blue-600' : 'border-gray-300'
+        } ${isDisabled ? 'opacity-50' : ''}`}
+        aria-hidden="true"
+      >
+        {selected && <div className="w-2 h-2 bg-white rounded-full m-1.5" />}
+      </div>
       <Column>
-        <label htmlFor={radioId} className="cursor-pointer">
-          <p className={classProps}>{label}</p>
+        <label
+          htmlFor={id}
+          className={`cursor-pointer ${subLabel != null ? 'font-bold' : ''} ${classProps || ''}`}
+        >
+          {label}
         </label>
         {subLabel && <p className="text-sm text-gray-500 mt-1">{subLabel}</p>}
         {childBuilder && childBuilder(selected)}
