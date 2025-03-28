@@ -12,7 +12,11 @@ const { auth } = NextAuth(authConfig);
 
 const getLoginDeeplinkRedirect = function (nextUrl: NextURL) {
   const path = nextUrl.pathname;
-  if (!path || path == '/' || path == '/dashboard') {
+  if (
+    !path ||
+    path == '/' ||
+    path == process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL
+  ) {
     return Response.redirect(new URL('/login', nextUrl));
   } else {
     const encodedTargetResource = encodeURIComponent(path);
