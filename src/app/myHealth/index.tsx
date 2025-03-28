@@ -3,7 +3,6 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import {
   biometricScreeningIcon,
-  dentalHealthLibraryIcon,
   fitLogo,
   fitnessLogo,
   healthAssessmentIcon,
@@ -13,7 +12,7 @@ import {
   primaryVisionLogo,
   transportationLogo,
   wellnessPointsIcon,
-  wellTunedBlogIcon,
+  wellTunedBlogIcon
 } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import healthSupportIcon from '@/public/assets/health_support.svg';
@@ -337,14 +336,6 @@ const MyHealth = ({ data }: MyHealthProps) => {
                 />
               </section>
             )}
-            <section>
-              <MyHealthOffsiteLinkCard
-                icon={dentalHealthLibraryIcon}
-                title="Dental Health Library"
-                description="Check dental symptoms and get your dental questions answered."
-                url=""
-              />
-            </section>
           </>
         )}
       </Column>

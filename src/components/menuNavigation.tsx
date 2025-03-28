@@ -406,28 +406,7 @@ export const getMenuNavigation = (
         url: '/myHealth/healthProgramsResources',
         external: false,
       },
-      {
-        id: 80,
-        title: 'Dental Health Library',
-        description: 'This is Dental Health Library',
-        category: 'Advice & Support',
-        showOnMenu: () => {
-          return true;
-        },
-        url: 'https://bcbstwelltuned.com/',
-        external: true,
-      },
-      {
-        id: 79,
-        title: 'Health Library',
-        description: 'This is Health Library',
-        category: 'Advice & Support',
-        showOnMenu: () => {
-          return true;
-        },
-        url: 'https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78',
-        external: true,
-      },
+
       {
         id: 78,
         title: 'WellTuned Blog',
