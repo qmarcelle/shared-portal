@@ -1,11 +1,18 @@
+'use server';
+
+import { auth } from '@/auth';
 import { DXAuthToken } from '@/models/auth/dx_auth_token';
-import { SessionUser } from '@/userManagement/models/sessionUser';
 import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
-import { UNIXTimeSeconds } from './date_formatter';
-import { encrypt } from './encryption';
+import { UNIXTimeSeconds } from '../utils/date_formatter';
+import { encrypt } from '../utils/encryption';
 
-export async function setExternalSessionToken(user?: SessionUser) {
+export async function setExternalSessionToken() {
+  console.log('Setting external token');
+
+  const session = await auth();
+  const user = session?.user;
+
   if (!user) {
     console.error('Tried to set external session token but user is undefined!');
     return;

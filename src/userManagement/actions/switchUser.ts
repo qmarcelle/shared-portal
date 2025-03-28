@@ -1,7 +1,6 @@
 'use server';
 
 import { auth, unstable_update } from '@/auth';
-import { setExternalSessionToken } from '@/utils/ext_token';
 
 export async function switchUser(userId?: string, planId?: string) {
   const session = await auth();
@@ -14,8 +13,5 @@ export async function switchUser(userId?: string, planId?: string) {
       // only plan switch
       planId: userId == null ? planId : null,
     });
-    //Update the plan data in the external session token for legacy apps (i.e. PHS).
-    const updatedSession = await auth();
-    await setExternalSessionToken(updatedSession?.user);
   }
 }
