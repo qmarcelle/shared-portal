@@ -67,8 +67,7 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
         <Spacer size={32} />
         <TextBox
           className="body-1 w-[130%] text-center"
-          text="Tell us about your other insurance. All fields are required unless
-          noted as optional."
+          text="Tell us about your other insurance. All fields are required unless noted as optional."
         />
         <Spacer size={32} />
       </Column>
@@ -163,8 +162,7 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             <Spacer size={16} />
             <TextBox
               className="body-1"
-              text="Is this member eligible for Medicare due to End Stage Renal
-              Disease?"
+              text="Is this member eligible for Medicare due to End Stage Renal Disease?"
             />
             <Spacer size={16} />
             <Radio

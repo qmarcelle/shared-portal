@@ -79,8 +79,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
           <Spacer size={16} />
           <TextBox
             text="
-              Multi-factor authentication (MFA) will confirm your identity when you log in, 
-              protecting your important health information."
+              Multi-factor authentication (MFA) will confirm your identity when you log in, protecting your important health information."
           />
           <Spacer size={32} />
           <Loader items={10} />
@@ -95,8 +94,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
           <Spacer size={16} />
           <TextBox
             text="
-                Multi-factor authentication (MFA) will confirm your identity when you log in, 
-                protecting your important health information."
+                Multi-factor authentication (MFA) will confirm your identity when you log in, protecting your important health information."
           />
           <Spacer size={32} />
           {getDeviceError && (
