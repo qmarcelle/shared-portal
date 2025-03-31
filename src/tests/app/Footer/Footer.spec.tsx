@@ -42,7 +42,7 @@ describe('Footer Component', () => {
 
     const socialMediaIcons = screen.getAllByRole('img');
     expect(socialMediaIcons.length).toBeGreaterThanOrEqual(6); // Check if at least 6 icons are rendered
-    expect(socialMediaIcons[0]).toHaveAttribute('alt', 'Facebook Icon');
+    expect(screen.getByAltText('Facebook Icon')).toBeInTheDocument();
 
     expect(screen.getByText('Sitemap')).toBeInTheDocument();
     expect(screen.getByText('Privacy & Security')).toBeInTheDocument();

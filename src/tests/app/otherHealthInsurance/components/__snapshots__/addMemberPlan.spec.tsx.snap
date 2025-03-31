@@ -21,7 +21,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             class="body-1 body-1 w-[130%] text-center"
             style="display: block;"
           >
-            Tell us about your other insurance. All fields are required unless   noted as optional.
+            Tell us about your other insurance. All fields are required unless noted as optional.
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -176,26 +176,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Medicare Part A"
+                  class="checkbox   "
+                  id="medicare-part-a"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="medicare-part-a"
                 >
-                  <p
-                    class="!p-0"
-                  >
-                    Medicare Part A
-                  </p>
+                  Medicare Part A
                 </label>
               </div>
             </div>
@@ -203,24 +205,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Medicare Part B"
+                  class="checkbox   "
+                  id="medicare-part-b"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="medicare-part-b"
                 >
-                  <p>
-                    Medicare Part B
-                  </p>
+                  Medicare Part B
                 </label>
               </div>
             </div>
@@ -228,24 +234,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Medicare Part D"
+                  class="checkbox   "
+                  id="medicare-part-d"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="medicare-part-d"
                 >
-                  <p>
-                    Medicare Part D
-                  </p>
+                  Medicare Part D
                 </label>
               </div>
             </div>
@@ -568,7 +578,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               class="body-1 body-1"
               style="display: block;"
             >
-              Is this member eligible for Medicare due to End Stage Renal   Disease?
+              Is this member eligible for Medicare due to End Stage Renal Disease?
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -690,24 +700,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="This member is over 65."
+                  class="checkbox   "
+                  id="member-over-65"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="member-over-65"
                 >
-                  <p>
-                    This member is over 65.
-                  </p>
+                  This member is over 65.
                 </label>
               </div>
             </div>
@@ -736,7 +750,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
           class="body-1 body-1 w-[130%] text-center"
           style="display: block;"
         >
-          Tell us about your other insurance. All fields are required unless   noted as optional.
+          Tell us about your other insurance. All fields are required unless noted as optional.
         </p>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -891,26 +905,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Medicare Part A"
+                class="checkbox   "
+                id="medicare-part-a"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="medicare-part-a"
               >
-                <p
-                  class="!p-0"
-                >
-                  Medicare Part A
-                </p>
+                Medicare Part A
               </label>
             </div>
           </div>
@@ -918,24 +934,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Medicare Part B"
+                class="checkbox   "
+                id="medicare-part-b"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="medicare-part-b"
               >
-                <p>
-                  Medicare Part B
-                </p>
+                Medicare Part B
               </label>
             </div>
           </div>
@@ -943,24 +963,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Medicare Part D"
+                class="checkbox   "
+                id="medicare-part-d"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="medicare-part-d"
               >
-                <p>
-                  Medicare Part D
-                </p>
+                Medicare Part D
               </label>
             </div>
           </div>
@@ -1283,7 +1307,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             class="body-1 body-1"
             style="display: block;"
           >
-            Is this member eligible for Medicare due to End Stage Renal   Disease?
+            Is this member eligible for Medicare due to End Stage Renal Disease?
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -1405,24 +1429,28 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="This member is over 65."
+                class="checkbox   "
+                id="member-over-65"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="member-over-65"
               >
-                <p>
-                  This member is over 65.
-                </p>
+                This member is over 65.
               </label>
             </div>
           </div>
