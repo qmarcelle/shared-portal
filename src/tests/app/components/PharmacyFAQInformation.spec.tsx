@@ -5,8 +5,7 @@ import { render, screen } from '@testing-library/react';
 const renderUI = () => {
   return render(
     <PharmacyFAQInformation
-      answerline1="To see a list of all the prescription drugs your plan
-              covers, go to the Check Drug Cost & Coverage page on your caremark.com account."
+      answerline1="To see a list of all the prescription drugs your plan covers, go to the Check Drug Cost & Coverage page on your caremark.com account."
       answerline2="You can also view or download a pdf formulary."
     />,
   );
