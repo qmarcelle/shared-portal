@@ -11,6 +11,7 @@ type PrimaryAccountSelectionStore = {
   submitPrimaryAccountSelection: (e?: FormEvent<HTMLFormElement>) => void;
   resetApiErrors: () => void;
   continueWithUsernameProg: AppProg;
+  pbeError: boolean;
   apiErrors: string[];
 };
 
@@ -18,6 +19,7 @@ export const usePrimaryAccountSelectionStore =
   createWithEqualityFn<PrimaryAccountSelectionStore>(
     (set) => ({
       apiErrors: [],
+      pbeError: false,
       resetApiErrors: () =>
         set(() => ({
           apiErrors: [],
@@ -31,12 +33,19 @@ export const usePrimaryAccountSelectionStore =
           set({
             continueWithUsernameProg: AppProg.loading,
           });
-          const pbe = await getPersonBusinessEntity(
-            useLoginStore.getState().userId,
-          );
+          let pbe;
+          try {
+            pbe = await getPersonBusinessEntity(
+              useLoginStore.getState().username,
+            );
+          } catch (err) {
+            logger.error('Error from getPBE in Primary Account selection', err);
+            set({ pbeError: true });
+            return;
+          }
           const resp = await callAccountDeactivation({
-            primaryUserName: pbe.getPBEDetails[0].userName,
-            umpiId: pbe.getPBEDetails[0].umpid,
+            primaryUserName: pbe?.getPBEDetails[0].userName,
+            umpiId: pbe?.getPBEDetails[0].umpid,
             userName: useLoginStore.getState().username,
           });
           if (resp) useLoginStore.getState().updateLoggedUser(true);
