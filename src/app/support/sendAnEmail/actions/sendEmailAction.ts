@@ -3,7 +3,7 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { ActionResponse } from '@/models/app/actionResponse';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { EmailRequest, MemberDetails } from '../models/email_app_data';
 
@@ -58,8 +58,8 @@ export async function invokeSendEmailAction(
     });
     emailRequest.contactNumber = await invokePhoneNumberAction();
     logger.info('emailRequest - ' + JSON.stringify(emailRequest));
-    const resp = await portalSvcsApi.post<string>(
-      '/memberservice/api/v1/contactusemail',
+    const resp = await memberService.post<string>(
+      '/api/v1/contactusemail',
       emailRequest,
     );
     logger.info('EmailResponse - ' + JSON.stringify(resp.data));

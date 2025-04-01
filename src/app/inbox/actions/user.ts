@@ -1,15 +1,15 @@
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 
 //TODO: Delete this file and use the global implementation once PR 3037: Session Caching with PZN Model and Storage Implementation, is merged
 export async function getLoggedInUserInfo(
   userId: string,
 ): Promise<ActionResponse<number, LoggedInUserInfo>> {
   try {
-    const resp = await portalSvcsApi.get<LoggedInUserInfo>(
-      `/${process.env.MEMBERSERVICE_CONTEXT_ROOT}/api/member/v1/loggedInUserInfo/${userId.toLowerCase()}`,
+    const resp = await memberService.get<LoggedInUserInfo>(
+      `/api/member/v1/loggedInUserInfo/${userId.toLowerCase()}`,
     );
 
     return {

@@ -2101,6 +2101,7 @@ exports[`Claims SnapshotList should show the claims list with default filters 1`
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"

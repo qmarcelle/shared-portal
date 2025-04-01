@@ -59,6 +59,7 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -145,6 +146,7 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -232,6 +234,7 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                   <div>
                     <div
                       aria-label="bar chart"
+                      role="img"
                       style="height: 10px; width: 0%;"
                     />
                   </div>
@@ -286,6 +289,7 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                   <div>
                     <div
                       aria-label="bar chart"
+                      role="img"
                       style="height: 10px; width: 0%;"
                     />
                   </div>
@@ -888,6 +892,7 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                   class="flex flex-col doughnut-img mx-auto"
                 >
                   <canvas
+                    aria-hidden="true"
                     class="spendingSummaryChart"
                     height="150"
                     role="img"

@@ -1,6 +1,6 @@
 'use server';
 
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberLimitService } from '@/utils/api/memberLimitService';
 import { logger } from '@/utils/logger';
 import { MemberLimitResponse } from '../models/api/memberLimitResponse';
 
@@ -15,8 +15,8 @@ export async function getMemberLimit({
 }) {
   try {
     logger.info('Calling Member Limit Service');
-    const resp = await portalSvcsApi.get<MemberLimitResponse>(
-      `/memberlimitservice/api/member/v1/members/${lookUpType}/${memberId}/limitInfo/${productTypes}`,
+    const resp = await memberLimitService.get<MemberLimitResponse>(
+      `/api/member/v1/members/${lookUpType}/${memberId}/limitInfo/${productTypes}`,
     );
     return resp.data;
   } catch (err) {

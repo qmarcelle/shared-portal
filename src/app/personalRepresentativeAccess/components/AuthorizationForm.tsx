@@ -12,7 +12,7 @@ interface AuthorizationFormProps extends IComponent {
   linkLabel: string;
   linkURL?: string;
   isMatureMinor: boolean;
-  isRepresentative: boolean;
+  isRepresentative: boolean | undefined;
   fullAccess: boolean;
 }
 

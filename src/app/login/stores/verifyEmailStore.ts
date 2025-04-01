@@ -75,6 +75,17 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
         set({
           completeVerifyEmailProg: AppProg.success,
         });
+        if (resp.status == LoginStatus.DUPLICATE_ACCOUNT) {
+          useLoginStore.setState({
+            duplicateAccount: true,
+            interactionData: {
+              interactionId: resp.data?.interactionId ?? '',
+              interactionToken: resp.data?.interactionToken ?? '',
+            },
+            userId: resp.data?.userId ?? '',
+          });
+          return;
+        }
         if (resp.status == LoginStatus.PASSWORD_RESET_REQUIRED) {
           useLoginStore.setState({
             forcedPasswordReset: true,

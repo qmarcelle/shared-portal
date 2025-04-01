@@ -4,12 +4,14 @@ import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { logger } from '@/utils/logger';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Link from 'next/link';
 import MemberDashboard from './components/MemberDashboard';
 import MemberDashboardTermedPlan from './components/MemberDashboardTermedPlan';
 import NonMemberDashboard from './components/NonMemberDashboard';
 import { PlanSelector } from './components/PlanSelector';
+import { PlanSelectorErrorModal } from './components/PlanSelectorErrorModal';
 import { DashboardData } from './models/dashboardData';
 
 export type DashboardProps = {
@@ -25,6 +27,10 @@ const Dashboard = ({ data }: DashboardProps) => {
     }
   }
 
+  if (data.memberDetails == null) {
+    logger.info('Failure in rendering Dashboard data{}');
+    return <PlanSelectorErrorModal />;
+  }
   if (data.role != UserRole.NON_MEM && data.memberDetails?.planName == null) {
     return <PlanSelector plans={data.memberDetails!.plans!} />;
   }
@@ -77,10 +83,7 @@ const Dashboard = ({ data }: DashboardProps) => {
       {data.role != UserRole.NON_MEM ? (
         <>
           {!data.memberDetails?.selectedPlan?.termedPlan ? (
-            <MemberDashboard
-              visibilityRules={data.visibilityRules}
-              primaryCareProviderData={data.primaryCareProvider!}
-            />
+            <MemberDashboard data={data} />
           ) : (
             <MemberDashboardTermedPlan data={data} />
           )}

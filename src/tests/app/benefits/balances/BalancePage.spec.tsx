@@ -8,6 +8,8 @@ const renderUI = async () => {
   return render(page);
 };
 
+process.env.NEXT_PUBLIC_IDP_EYEMED = 'Eyemed';
+
 const vRules = {
   user: {
     currUsr: {
@@ -25,7 +27,7 @@ const vRules = {
 jest.mock('src/auth', () => ({
   auth: jest.fn(),
 }));
-
+const baseUrl = window.location.origin;
 describe('Balances Page', () => {
   it('should render Dental Balance information on the Balances page', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
@@ -82,7 +84,7 @@ describe('Balances Page', () => {
 
     const component = await renderUI();
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
+      '/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
     );
     expect(screen.getByText('Dental Balance')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
@@ -96,6 +98,10 @@ describe('Balances Page', () => {
     const component = await renderUI();
     expect(screen.getByText('Vision Balance')).toBeVisible();
     expect(screen.getByText('visit EyeMed')).toBeVisible();
+    expect(screen.getByRole('link', { name: 'visit EyeMed' })).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=Eyemed`,
+    );
     expect(component.baseElement).toMatchSnapshot();
   });
 });

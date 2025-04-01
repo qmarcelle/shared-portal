@@ -1,7 +1,7 @@
 'use server';
 
 import { LoggedInMember } from '@/models/app/loggedin_member';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 
 export interface BenefitResponse {
@@ -42,8 +42,8 @@ export async function getBenefitFlags(
       planId = memberData.vpdpdId;
       productType = 'V';
     }
-    const resp = await portalSvcsApi.get<BenefitResponse>(
-      `/memberservice/api/member/v1/members/byMemberCk/${memberData.memeCk}/benefits/flags/${productType}/${planId}/${flagsFor}`,
+    const resp = await memberService.get<BenefitResponse>(
+      `/api/member/v1/members/byMemberCk/${memberData.memeCk}/benefits/flags/${productType}/${planId}/${flagsFor}`,
     );
 
     return resp.data;

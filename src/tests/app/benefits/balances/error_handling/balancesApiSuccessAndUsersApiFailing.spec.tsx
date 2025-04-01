@@ -1,6 +1,6 @@
 import BalancesPage from '@/app/benefits/balances/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
+import { mockedFetch } from '@/tests/setup';
 import '@testing-library/jest-dom';
 import { render, screen, within } from '@testing-library/react';
 
@@ -271,16 +271,9 @@ describe('Medical and Dental Balances API Failing Error Handling', () => {
           },
         ],
       },
-    })
-    // loggedIn userInfo for member names
-    .mockRejectedValueOnce(
-      createAxiosErrorForTest({
-        status: 400,
-        errorObject: {
-          desc: 'Mocked Error',
-        },
-      }),
-    );
+    });
+  // loggedIn userInfo for member names
+  mockedFetch.mockRejectedValueOnce(new Error('Failed to fetch'));
 
   it('should call Balances api and render error for Medical, Dental Balances', async () => {
     const { container } = render(await BalancesPage());
@@ -316,13 +309,18 @@ describe('Medical and Dental Balances API Failing Error Handling', () => {
 
     // Medical, Dental Balance, LoggedInUserInfo Api calls were called
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/D',
+      '/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/D',
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberlimitservice/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
+      '/api/member/v1/members/bySubscriberCk/654567656/balances/deductibleAndOOP/M',
     );
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/api/member/v1/members/byMemberCk/123456789',
+    expect(mockedFetch).toHaveBeenCalledWith(
+      'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/123456789',
+      {
+        cache: undefined,
+        headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+        next: { revalidate: 1800, tags: ['123456789'] },
+      },
     );
   });
 });

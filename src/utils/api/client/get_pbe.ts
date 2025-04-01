@@ -1,30 +1,38 @@
-import { pbeWithMemberMultiplePRMultiplePlans } from '@/mock/pbe/pbeWithMemberMultiplePRMultiplePlans';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { PBEData } from '@/models/member/api/pbeData';
 import { logger } from '@/utils/logger';
-import { esApi } from '../esApi';
+import { getAuthToken } from '../getToken';
 
 export async function getPersonBusinessEntity(
   userId: string,
-  needPBE: boolean = true, //eslint-disable-line @typescript-eslint/no-unused-vars -- Stub function
+  needPBE: boolean = true,
+  needConsent: boolean = true,
+  refresh: boolean = false, //eslint-disable-line @typescript-eslint/no-unused-vars -- Stub function
 ): Promise<PBEData> {
   try {
-    const resp = await esApi.get<ESResponse<PBEData>>(
-      '/searchMemberLookupDetails/getPBEConsentDetails',
+    const resp = await fetch(
+      `${process.env.ES_API_URL}/searchMemberLookupDetails/getPBEConsentDetails?userName=${userId}&isPBERequired=${needPBE}&isConsentRequired=${needConsent}`,
       {
-        params: {
-          userName: userId,
-          isPBERequired: needPBE,
+        headers: {
+          Authorization: `Bearer ${await getAuthToken()}`,
+        },
+        cache: refresh ? 'no-store' : undefined,
+        next: {
+          revalidate: !refresh ? 1800 : undefined,
+          tags: [userId],
         },
       },
     );
 
-    logger.info('PBE Data', resp.data.data);
-    return resp.data.data!;
+    const result = (await resp.json()) as ESResponse<PBEData>;
+
+    logger.info('PBE Data', result.data!);
+    return result.data!;
   } catch (err) {
     logger.error('PBE Api Error', err);
     //TODO: Remove returning the mocked pbe Response and rethrow error
     //once we have enough test data.
-    return pbeWithMemberMultiplePRMultiplePlans.data;
+    //return pbeWithMemberMultiplePRMultiplePlans.data;
+    throw err;
   }
 }

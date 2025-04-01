@@ -9,11 +9,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
         class="card-main large-section"
       >
         <div>
-          <h2
+          <h3
             class="title-2"
           >
             Benefits & Coverage
-          </h2>
+          </h3>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
@@ -88,7 +88,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 class="flex flex-col "
               >
                 <img
-                  alt="Next"
+                  alt=""
                   class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
@@ -133,7 +133,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 class="flex flex-col "
               >
                 <img
-                  alt="Next"
+                  alt=""
                   class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
@@ -178,7 +178,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 class="flex flex-col "
               >
                 <img
-                  alt="Next"
+                  alt=""
                   class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
@@ -223,7 +223,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 class="flex flex-col "
               >
                 <img
-                  alt="Next"
+                  alt=""
                   class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
@@ -268,7 +268,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
                 class="flex flex-col "
               >
                 <img
-                  alt="Next"
+                  alt=""
                   class="icon mt-2"
                   data-nimg="1"
                   decoding="async"
@@ -318,11 +318,11 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
       class="card-main large-section"
     >
       <div>
-        <h2
+        <h3
           class="title-2"
         >
           Benefits & Coverage
-        </h2>
+        </h3>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
@@ -397,7 +397,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="flex flex-col "
             >
               <img
-                alt="Next"
+                alt=""
                 class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
@@ -442,7 +442,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="flex flex-col "
             >
               <img
-                alt="Next"
+                alt=""
                 class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
@@ -487,7 +487,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="flex flex-col "
             >
               <img
-                alt="Next"
+                alt=""
                 class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
@@ -532,7 +532,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="flex flex-col "
             >
               <img
-                alt="Next"
+                alt=""
                 class="icon mt-2"
                 data-nimg="1"
                 decoding="async"
@@ -577,7 +577,7 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="flex flex-col "
             >
               <img
-                alt="Next"
+                alt=""
                 class="icon mt-2"
                 data-nimg="1"
                 decoding="async"

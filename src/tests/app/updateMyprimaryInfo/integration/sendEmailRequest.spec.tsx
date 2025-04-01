@@ -1,5 +1,8 @@
 import UpdateMyPrimaryCareProviderPage from '@/app/updateMyPrimaryCareProvider/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -28,6 +31,7 @@ describe('Send Email Request API Integration', () => {
         message: 'PCP Updated.',
       },
     });
+    mockedFetch.mockResolvedValue(fetchRespWrapper(loggedInUserInfoMockResp));
 
     await setupUI();
     const inputProviderName = screen.getByLabelText(
@@ -51,24 +55,21 @@ describe('Send Email Request API Integration', () => {
     await userEvent.type(inputPhoneNumber, '1234567890');
     fireEvent.click(submitButton);
     await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith(
-        '/memberservice/PCPhysicianService/pcPhysician/641613650',
-        {
-          physicianName: 'James Louthan',
-          physicianAddress: '2033 Meadowview Ln Ste 300',
-          physicianCity: 'KINGSPORT',
-          physicianState: 'TN',
-          physicianZip: '12345',
-          physicianCounty: 'Shleby',
-          contactName: 'CHRISTMAS HALL',
-          contactPhone: '1234567890',
-          contactRelation: 'Self',
-          subscriberID: '902218823',
-          subscriberName: 'CHRIS HALL',
-          memberCK: '641613650',
-          //policyType: 'INDV',
-        },
-      );
+      expect(mockedAxios.post).toHaveBeenCalledWith('/pcPhysician/641613650', {
+        physicianName: 'James Louthan',
+        physicianAddress: '2033 Meadowview Ln Ste 300',
+        physicianCity: 'KINGSPORT',
+        physicianState: 'TN',
+        physicianZip: '12345',
+        physicianCounty: 'Shleby',
+        contactName: 'CHRISTMAS HALL',
+        contactPhone: '1234567890',
+        contactRelation: 'Self',
+        subscriberID: '902218823',
+        subscriberName: 'CHRIS HALL',
+        memberCK: '641613650',
+        //policyType: 'INDV',
+      });
     });
     screen.getByText('Got it!');
   });

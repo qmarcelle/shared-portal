@@ -5,4 +5,7 @@ export interface OnMyPlanDetails {
   isMinor: boolean;
   requestorType?: string;
   targetType?: string;
+  medicalEffectiveDate: string;
+  dentalEffectiveDate: string;
+  visionEffectiveDate: string;
 }

@@ -1,3 +1,7 @@
+process.env.PORTAL_SERVICES_URL = 'PORTAL_SVCS_URL';
+process.env.MEMBERSERVICE_CONTEXT_ROOT = '/MEM_SVC_CONTEXT';
+process.env.ES_API_URL = 'ES_SVC_URL';
+
 window.matchMedia =
   window.matchMedia ||
   function () {
@@ -27,6 +31,16 @@ jest.mock('next/navigation', () => ({
     return '/dashboard';
   },
 }));
+
+// Bearer Token Mock
+jest.mock('src/utils/api/getToken', () => ({
+  getAuthToken: jest.fn(() => {
+    return 'BearerTokenMockedValue';
+  }),
+}));
+
+export const mockedFetch = jest.fn();
+global.fetch = mockedFetch;
 
 jest.mock('src/actions/ext_token', () => ({
   setExternalSessionToken: jest.fn(),

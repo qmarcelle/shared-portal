@@ -2,7 +2,7 @@ import { getMemberAndDependents } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
 import { ClaimDetailResponse } from '../models/api/claimsResponse';
@@ -14,8 +14,8 @@ export async function getClaimDetails(
   claimType: string,
 ) {
   try {
-    const resp = await portalSvcsApi.get<ClaimDetailResponse>(
-      `/memberservice/api/v1/claims/${subscriberCk}/${claimId}/${claimType}`,
+    const resp = await memberService.get<ClaimDetailResponse>(
+      `/api/v1/claims/${subscriberCk}/${claimId}/${claimType}`,
     );
     return resp.data.claim;
   } catch (err) {

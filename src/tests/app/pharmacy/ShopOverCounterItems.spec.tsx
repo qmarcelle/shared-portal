@@ -12,7 +12,7 @@ const vRules = {
     vRules: {
       active: true,
       otcEnable: true,
-      displayPharmacyTab: true,
+      showPharmacyTab: true,
     },
   },
 };

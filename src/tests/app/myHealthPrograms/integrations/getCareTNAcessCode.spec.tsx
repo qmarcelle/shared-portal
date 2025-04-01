@@ -1,6 +1,7 @@
 import MyHealthProgramsPage from '@/app/myHealth/healthProgramsResources/myHealthPrograms/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
-import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -37,7 +38,7 @@ describe('Care TN Access Code', () => {
   test('Care TN access Code - btnbluehere', async () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = [];
-    mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
     await setupUI();
     await waitFor(() => {
       expect(screen.getAllByText('btnbluehere'));
@@ -47,7 +48,7 @@ describe('Care TN Access Code', () => {
   test('Care TN access Code - btnbluewell', async () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Diabetes'];
-    mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
     await setupUI();
     await waitFor(() => {
       expect(screen.getAllByText('btnbluewell'));
@@ -57,7 +58,7 @@ describe('Care TN Access Code', () => {
   test('Care TN access Code - btnbluechat', async () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Depression'];
-    mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
     await setupUI();
     await waitFor(() => {
       expect(screen.getAllByText('btnbluechat'));
@@ -68,7 +69,7 @@ describe('Care TN Access Code', () => {
     vRules.user.vRules.isAmplifyMem = true;
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = [];
-    mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
     await setupUI();
     await waitFor(() => {
       expect(screen.getAllByText('ampbluehere'));
@@ -79,7 +80,7 @@ describe('Care TN Access Code', () => {
     vRules.user.vRules.isAmplifyMem = true;
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Diabetes'];
-    mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
     await setupUI();
     await waitFor(() => {
       expect(screen.getAllByText('ampbluewell'));
@@ -90,7 +91,7 @@ describe('Care TN Access Code', () => {
     vRules.user.vRules.isAmplifyMem = true;
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Depression'];
-    mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
     await setupUI();
     await waitFor(() => {
       expect(screen.getAllByText('ampbluechat'));
@@ -101,7 +102,7 @@ describe('Care TN Access Code', () => {
     vRules.user.vRules.isAmplifyMem = true;
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Error'];
-    mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
     await setupUI();
     await waitFor(() => {
       expect(screen.getAllByText('Access code could not load.'));

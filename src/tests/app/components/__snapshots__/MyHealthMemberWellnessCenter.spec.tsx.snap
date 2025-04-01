@@ -36,7 +36,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
             >
               <a
                 class="my-health-card my-health-card-link"
-                href="#path-1"
+                href="/sso/launch?PartnerSpId=OnLife"
               >
                 <div
                   class="card-main my-health-card-member-wellness"
@@ -93,7 +93,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
               </a>
               <a
                 class="my-health-card my-health-card-link"
-                href="#path-1"
+                href="/sso/launch?PartnerSpId=OnLife"
               >
                 <div
                   class="card-main my-health-card-member-wellness"
@@ -150,7 +150,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
               </a>
               <a
                 class="my-health-card my-health-card-link"
-                href="#path-1"
+                href="/sso/launch?PartnerSpId=OnLife"
               >
                 <div
                   class="card-main my-health-card-member-wellness"
@@ -220,7 +220,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                 >
                   <a
                     aria-label="Visit Member Wellness Center"
-                    href=""
+                    href="/sso/launch?PartnerSpId=OnLife"
                     style="display: block;"
                   >
                     <button
@@ -291,7 +291,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
           >
             <a
               class="my-health-card my-health-card-link"
-              href="#path-1"
+              href="/sso/launch?PartnerSpId=OnLife"
             >
               <div
                 class="card-main my-health-card-member-wellness"
@@ -348,7 +348,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
             </a>
             <a
               class="my-health-card my-health-card-link"
-              href="#path-1"
+              href="/sso/launch?PartnerSpId=OnLife"
             >
               <div
                 class="card-main my-health-card-member-wellness"
@@ -405,7 +405,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
             </a>
             <a
               class="my-health-card my-health-card-link"
-              href="#path-1"
+              href="/sso/launch?PartnerSpId=OnLife"
             >
               <div
                 class="card-main my-health-card-member-wellness"
@@ -475,7 +475,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
               >
                 <a
                   aria-label="Visit Member Wellness Center"
-                  href=""
+                  href="/sso/launch?PartnerSpId=OnLife"
                   style="display: block;"
                 >
                   <button

@@ -165,6 +165,17 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
           });
           return;
         }
+        if (resp.status == SubmitMFAStatus.DUPLICATE_ACCOUNT) {
+          useLoginStore.setState({
+            duplicateAccount: true,
+            interactionData: {
+              interactionId: resp.data!.interactionId,
+              interactionToken: resp.data!.interactionToken,
+            },
+            userId: resp.data!.userId,
+          });
+          return;
+        }
 
         if (resp.status == SubmitMFAStatus.OTP_OK) {
           useLoginStore.setState({

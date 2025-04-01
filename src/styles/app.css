@@ -293,3 +293,11 @@
 .manage-faq {
   font-family: 'Univers-55' !important;
 }
+
+.recentClaimsException {
+  background-color: rgb(230, 230, 230) !important;
+  border-radius: 10px;
+  display: flex;
+  height: 100%;
+  padding: 10px;
+}

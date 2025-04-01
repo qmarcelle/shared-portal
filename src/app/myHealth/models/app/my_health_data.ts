@@ -12,6 +12,7 @@ export interface MemberRewards {
   totalAmount: number;
   quarterlyMaxPoints: number;
   quarterlyPointsEarned: number;
+  isSelfFunded: boolean;
   //To Do: Need to Revisit the logic once we get proper api response in phase 2.
   //quarter: 'Q1' | 'Q2' | 'Q3';
 }

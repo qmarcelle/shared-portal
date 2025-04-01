@@ -2,7 +2,7 @@ import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberLimitService } from '@/utils/api/memberLimitService';
 import { logger } from '@/utils/logger';
 import {
   DedAndOOPBalanceResponse,
@@ -32,9 +32,10 @@ export async function callGetDedAndOOPBalance({
   productType = 'M',
 }: DedAndOOPBalanceApiParams): Promise<DedAndOOPBalanceResponse> {
   try {
-    const serviceURL = `/memberlimitservice/api/member/v1/members/${lookup}/${memberId}/balances/deductibleAndOOP/${productType}`;
+    const serviceURL = `/api/member/v1/members/${lookup}/${memberId}/balances/deductibleAndOOP/${productType}`;
     logger.info(`GetDedAndOOPBalance Api call started: ${serviceURL}`);
-    const resp = await portalSvcsApi.get<DedAndOOPBalanceResponse>(serviceURL);
+    const resp =
+      await memberLimitService.get<DedAndOOPBalanceResponse>(serviceURL);
 
     logger.info(`Response: ${JSON.stringify(resp)}`);
     return resp.data;

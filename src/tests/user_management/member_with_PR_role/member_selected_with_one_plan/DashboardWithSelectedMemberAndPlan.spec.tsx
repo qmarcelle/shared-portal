@@ -1,12 +1,14 @@
 import DashboardPage from '@/app/dashboard/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 // LoggedInUserInfo call
-mockedAxios.get.mockResolvedValueOnce({
-  data: {
+mockedFetch.mockResolvedValueOnce(
+  fetchRespWrapper({
     groupData: {
       groupID: '100000',
       groupCK: '21908',
@@ -47,8 +49,8 @@ mockedAxios.get.mockResolvedValueOnce({
         pedAdultInd: 'Adult',
       },
     ],
-  },
-});
+  }),
+);
 mockedAxios.get.mockResolvedValueOnce({
   data: {
     physicianId: '3118777',
@@ -64,6 +66,32 @@ mockedAxios.get.mockResolvedValueOnce({
     addressType: '1',
     taxId: '621388079',
   },
+});
+mockedAxios.get.mockResolvedValueOnce({
+  data: [
+    {
+      id: '45',
+      providedBy: 'Davis Vision',
+      contact: '1-800-456-9876',
+      url: 'https://davis-vision.com',
+    },
+    {
+      id: '87',
+      providedBy: 'Nirmal Dental',
+      contact: '1-800-367-9676',
+      url: 'https://nirmaldental.com',
+    },
+    {
+      id: '25',
+      providedBy: 'Low Pharm',
+      contact: '1-800-834-2465',
+    },
+    {
+      id: '289',
+      providedBy: 'Quant Labs',
+      contact: '1-800-834-3465',
+    },
+  ],
 });
 mockedAxios.get.mockResolvedValueOnce({
   data: {
@@ -112,8 +140,13 @@ describe('Dashboard when PR is selected', () => {
   });
 
   it('should render UI correctly with proper greeting and plan details', () => {
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/api/member/v1/members/byMemberCk/502622001',
+    expect(mockedFetch).toHaveBeenCalledWith(
+      'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/502622001',
+      {
+        cache: undefined,
+        headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+        next: { revalidate: 1800, tags: ['502622001'] },
+      },
     );
     expect(screen.getByText('Welcome, Chris')).toBeVisible();
     expect(
