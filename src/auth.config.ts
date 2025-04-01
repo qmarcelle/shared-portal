@@ -2,6 +2,7 @@ import { CredentialsSignin, type NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { computeSessionUser } from './userManagement/computeSessionUser';
 import { SessionUser } from './userManagement/models/sessionUser';
+import { logger } from './utils/logger';
 
 class AuthError extends CredentialsSignin {
   code =
@@ -22,7 +23,7 @@ export default {
       async authorize(credentials): Promise<SessionUser> {
         const username = credentials.userId?.toString();
         if (!username) {
-          console.error(
+          logger.error(
             'Tried to create session with an empty username. Something is very wrong!',
           );
           throw new AuthError();
@@ -31,7 +32,7 @@ export default {
           const user = await computeSessionUser(username);
           return user;
         } catch (err) {
-          console.log('Authorization failed');
+          logger.error('Authorization failed');
           throw new AuthError();
         }
       },
