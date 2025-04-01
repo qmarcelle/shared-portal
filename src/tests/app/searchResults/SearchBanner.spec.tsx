@@ -3,7 +3,15 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 const setupUI = () => {
-  return render(<SearchBanner />);
+  return render(
+    <SearchBanner
+      title="Talk With a Care Provider"
+      description="Schedule an appointment or get health information 24/7 for non-emergency conditions."
+      link="/findcare"
+      linkText="Click Here"
+      external={false}
+    />,
+  );
 };
 
 describe('Search Results Page', () => {

@@ -50,7 +50,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               class="searchSuggestion font-medium text-black scroll w-full"
             >
               <div
-                class="flex flex-row searchForField title-3 px-4 py-2"
+                class="flex flex-row searchForField title-3 px-4 py-2 cursor-pointer"
               >
                 <p
                   class="body-1 px-2"
@@ -485,7 +485,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
             class="searchSuggestion font-medium text-black scroll w-full"
           >
             <div
-              class="flex flex-row searchForField title-3 px-4 py-2"
+              class="flex flex-row searchForField title-3 px-4 py-2 cursor-pointer"
             >
               <p
                 class="body-1 px-2"
