@@ -27,3 +27,7 @@ jest.mock('next/navigation', () => ({
     return '/dashboard';
   },
 }));
+
+jest.mock('src/actions/ext_token', () => ({
+  setExternalSessionToken: jest.fn(),
+}));
