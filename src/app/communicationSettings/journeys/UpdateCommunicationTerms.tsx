@@ -38,7 +38,7 @@ export const UpdateCommunicationTerms = ({
       console.log('selectedPreferences', selectedPreferences);
       const response = await saveDataAction(selectedPreferences);
 
-      if (response.data?.componentStatus === 'Success') {
+      if (response.details?.componentStatus === 'Success') {
         changePage?.(1, true);
       }
     } catch (error) {
