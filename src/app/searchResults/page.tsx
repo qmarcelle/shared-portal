@@ -11,7 +11,7 @@ const SearchResults = () => {
       <Column className="flex flex-col app-content">
         <Spacer size={32} />
         <section className="flex justify-start self-start">
-          <Header className="title-1" text="Search Results" />
+          <Header className="title-1 mb-4" text="Search Results" />
           <Spacer size={32} />
         </section>
         <SearchResultsInfoComponent />

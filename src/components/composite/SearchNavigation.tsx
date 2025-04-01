@@ -2,6 +2,7 @@ import { invokeSmartSearch } from '@/actions/smartSearch';
 import { SearchDetails } from '@/models/app/searchDetails';
 import { transformSearchResponseToDetails } from '@/utils/fusion_search_response_mapper';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import CloseIcon from '../../../public/assets/close.svg';
 import searchIcon from '../../../public/assets/search.svg';
@@ -19,12 +20,17 @@ export const SearchNavigation = ({ className }: IComponent) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showSearchSuggestion, setShowSearchSuggestion] = useState(false);
 
+  const router = useRouter();
+
+  function gotoSearchPage() {
+    router.push(`/searchResults?searchTerm=${searchText}`);
+    closeSearch();
+  }
+
   useEffect(() => {
-    console.log('Running effect');
     if (searchText.length == 0) {
       setShowSearchSuggestion(false);
       setSearchResults(null);
-      console.log('Search suggestion to false');
       return;
     }
 
@@ -53,44 +59,66 @@ export const SearchNavigation = ({ className }: IComponent) => {
     }
   };
 
-  const SearchBar = () => (
-    <div
-      className={`flex flex-row align-top m-2 hover:bg-white w-full ${className}`}
-    >
-      <div className="flex flex-col flex-grow relative" onClick={() => {}}>
-        <SearchField
-          classValue="search-textfield-input"
-          searchText={searchText}
-          onSearch={handleSearch}
-          hint="Search for claims, documents, and more..."
-          autoFocus={true}
-        ></SearchField>
-        {showSearchSuggestion && searchResults ? (
-          <SearchTypeAhead
-            searchText={searchText}
-            searchDetails={searchResults}
-          />
-        ) : null}
-      </div>
-      <Spacer size={8} axis="horizontal" />
-      <div
-        className="flex flex-col"
-        onClick={() => {
+  const SearchBar = () => {
+    useEffect(() => {
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key == 'Enter') {
+          gotoSearchPage();
+        }
+
+        if (event.key == 'Escape') {
           closeSearch();
-        }}
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    });
+
+    return (
+      <div
+        className={`flex flex-row align-top m-2 hover:bg-white w-full ${className}`}
       >
-        <Spacer size={14} axis="vertical" />
-        <Image
-          src={CloseIcon}
-          className=""
-          height={12}
-          width={12}
-          alt={'CloseIcon'}
-        />
+        <div className="flex flex-col flex-grow relative" onClick={() => {}}>
+          <SearchField
+            classValue="search-textfield-input"
+            searchText={searchText}
+            onSearch={handleSearch}
+            hint="Search for claims, documents, and more..."
+            autoFocus={true}
+          ></SearchField>
+          {showSearchSuggestion && searchResults ? (
+            <SearchTypeAhead
+              searchText={searchText}
+              searchDetails={searchResults}
+              closeSuggestions={closeSearch}
+              gotoMain={gotoSearchPage}
+            />
+          ) : null}
+        </div>
+        <Spacer size={8} axis="horizontal" />
+        <div
+          className="flex flex-col"
+          onClick={() => {
+            closeSearch();
+          }}
+        >
+          <Spacer size={14} axis="vertical" />
+          <Image
+            src={CloseIcon}
+            className=""
+            height={12}
+            width={12}
+            alt={'CloseIcon'}
+          />
+        </div>
+        <Spacer size={8} axis="horizontal" />
       </div>
-      <Spacer size={8} axis="horizontal" />
-    </div>
-  );
+    );
+  };
 
   function renderSearch() {
     return showSearchBar ? (
