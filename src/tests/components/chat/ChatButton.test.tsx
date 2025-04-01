@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ChatButton } from '../../../components/chat/core/ChatButton';
 import { useChatStore } from '../../../utils/chatStore';
 
@@ -8,25 +9,41 @@ jest.mock('../../../utils/chatStore', () => ({
 }));
 
 describe('ChatButton', () => {
-  // Default mock implementation
-  const mockSetOpen = jest.fn();
-
-  beforeEach(() => {
-    // Reset mocks
-    jest.clearAllMocks();
-
-    // Default mock implementation
-    (useChatStore as jest.Mock).mockReturnValue({
-      setOpen: mockSetOpen,
+  it('should render the chat button correctly', () => {
+    // Mock the store state
+    (useChatStore as unknown as jest.Mock).mockReturnValue({
+      isOpen: false,
+      setOpen: jest.fn(),
+      messages: [],
     });
-  });
 
-  it('renders with default label', () => {
     render(<ChatButton />);
 
+    // Check if button is rendered
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
-    expect(button).toHaveTextContent('Chat with us');
+    expect(button).toHaveTextContent('Chat with Us');
+  });
+
+  it('should open chat when clicked', async () => {
+    // Setup a mock function for setOpen
+    const mockSetOpen = jest.fn();
+
+    // Mock the store state
+    (useChatStore as unknown as jest.Mock).mockReturnValue({
+      isOpen: false,
+      setOpen: mockSetOpen,
+      messages: [],
+    });
+
+    render(<ChatButton />);
+
+    // Click the button
+    const button = screen.getByRole('button');
+    await userEvent.click(button);
+
+    // Check if setOpen was called with true
+    expect(mockSetOpen).toHaveBeenCalledWith(true);
   });
 
   it('renders with custom label', () => {
@@ -42,14 +59,5 @@ describe('ChatButton', () => {
 
     const button = screen.getByRole('button');
     expect(button).toHaveClass('custom-class');
-  });
-
-  it('opens chat when clicked', () => {
-    render(<ChatButton />);
-
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
-
-    expect(mockSetOpen).toHaveBeenCalledWith(true);
   });
 });

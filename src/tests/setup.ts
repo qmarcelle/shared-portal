@@ -1,43 +1,27 @@
-process.env.PORTAL_SERVICES_URL = 'PORTAL_SVCS_URL';
-process.env.MEMBERSERVICE_CONTEXT_ROOT = '/MEM_SVC_CONTEXT';
-process.env.ES_API_URL = 'ES_SVC_URL';
+/**
+ * Jest test setup file - configures the test environment
+ */
 
-window.matchMedia =
-  window.matchMedia ||
-  function () {
-    return {
-      matches: false,
-      addListener: function () {},
-      removeListener: function () {},
-    };
-  };
+// Import testing libraries
+import '@testing-library/jest-dom';
 
-// Mock useRouter:
-jest.mock('next/navigation', () => ({
-  useRouter() {
-    return {
-      prefetch: () => null,
-      replace: () => null,
-      push: () => null,
-      refresh: () => null,
-    };
-  },
-  useSearchParams() {
-    return {
-      get: jest.fn(),
-    };
-  },
-  usePathname() {
-    return '/dashboard';
-  },
+// Import the server from mocks folder
+import { server } from '../mocks/server';
+
+// Set environment variables for tests
+process.env.PORTAL_SERVICES_URL = 'http://test-portal-services';
+process.env.MEMBERSERVICE_CONTEXT_ROOT = '/MemberServiceWeb';
+process.env.ES_API_URL = 'http://test-es-api';
+
+// Mock auth token
+jest.mock('../utils/api/getToken', () => ({
+  getAuthToken: jest.fn().mockReturnValue('fake-auth-token'),
 }));
 
-// Bearer Token Mock
-jest.mock('src/utils/api/getToken', () => ({
-  getAuthToken: jest.fn(() => {
-    return 'BearerTokenMockedValue';
-  }),
-}));
-
-export const mockedFetch = jest.fn();
-global.fetch = mockedFetch;
+// Set up MSW server for tests
+beforeAll(() => server.listen({ onUnhandledRequest: 'bypass' }));
+afterEach(() => {
+  server.resetHandlers();
+  jest.clearAllMocks();
+});
+afterAll(() => server.close());
