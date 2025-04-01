@@ -3,7 +3,7 @@
 import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { esApi } from '@/utils/api/esApi';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { idCardService } from '@/utils/api/idCardService';
 import { logger } from '@/utils/logger';
 
 export async function invokeEmailAction(): Promise<string> {
@@ -30,8 +30,8 @@ export async function invokePhoneNumberAction(): Promise<string> {
     const memberDetails = await getLoggedInMember(session);
     const effectiveDetials = new Date().toLocaleDateString(); // current date
 
-    const phoneNumberResponse = await portalSvcsApi.get(
-      `/IDCardService/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&effectiveDetials=${effectiveDetials}`,
+    const phoneNumberResponse = await idCardService.get(
+      `/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&effectiveDetials=${effectiveDetials}`,
     );
     if (phoneNumberResponse?.data.memberServicePhoneNumber != null) {
       return phoneNumberResponse?.data.memberServicePhoneNumber;

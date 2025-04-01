@@ -4,7 +4,8 @@ import MyPlanPage from '@/app/myPlan/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
+import { mockedFetch } from '@/tests/setup';
+import { createAxiosErrorForTest, fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -43,7 +44,9 @@ jest.mock('../../../../auth', () => ({
 
 describe('ID Card SVG Image Front', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   test('ID Card SVG Image Front for Member Relation - M', async () => {
     mockedAxios.get.mockResolvedValueOnce({
@@ -55,7 +58,7 @@ describe('ID Card SVG Image Front', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
   });
@@ -69,7 +72,7 @@ describe('ID Card SVG Image Front', () => {
 
     await waitFor(() => {
       const response = expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       expect(response).toBeNull;
     });
@@ -87,7 +90,7 @@ describe('ID Card SVG Image Front', () => {
 
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?subscriberCk=91722400&cardType=${CardType.CardTypeFront}&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
       //expect(response).not.toBeInTheDocument;
       expect(
@@ -128,7 +131,7 @@ describe('ID Card SVG Image Front', () => {
     await setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/Image?memberCk=${memberDetails.member_ck}&cardType=${CardType.CardTypeFront}&groupId=${memberDetails.groupID}&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
+        `/Image?memberCk=${memberDetails.member_ck}&cardType=${CardType.CardTypeFront}&groupId=${memberDetails.groupID}&effectiveDate=${new Date().toLocaleDateString()}&fileExtension=${ExtensionType.Svg}`,
       );
     });
   });

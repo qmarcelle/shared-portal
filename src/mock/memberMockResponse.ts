@@ -118,7 +118,7 @@ export const memberMockResponse = {
   noOfDependents: 1,
   userID: 'm901164814',
   vbbEligible: false,
-  memberNotEligibleForPHS: false,
+  phsEligible: true,
   asoWellnessIneligible: false,
   asoOnlifeWellnessEligible: true,
   asoPCAWellnessEligible: false,

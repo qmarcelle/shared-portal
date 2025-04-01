@@ -2,6 +2,8 @@ import { MemberList } from '@/app/myPlan/updateSocialSecurityNumber/models/app/m
 import UpdateSocialSecurityNumberPage from '@/app/myPlan/updateSocialSecurityNumber/page';
 import { AppModal } from '@/components/foundation/AppModal';
 import { ESResponse } from '@/models/enterprise/esResponse';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -31,8 +33,8 @@ const renderUI = async () => {
 };
 describe('Update SSN', () => {
   it('should render the screens correctly', async () => {
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         members: [
           {
             birthDate: '06/29/2009',
@@ -56,8 +58,8 @@ describe('Update SSN', () => {
             hasSocial: true,
           },
         ],
-      } as ESResponse<MemberList>,
-    });
+      } as ESResponse<MemberList>),
+    );
     const component = await renderUI();
     // Init Screen is rendered correctly
     await waitFor(() => {
@@ -75,8 +77,8 @@ describe('Update SSN', () => {
       },
     });
 
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         members: [
           {
             birthDate: '06/29/2009',
@@ -100,8 +102,8 @@ describe('Update SSN', () => {
             hasSocial: true,
           },
         ],
-      } as ESResponse<MemberList>,
-    });
+      } as ESResponse<MemberList>),
+    );
 
     const button = screen.getAllByAltText(/link/i);
     fireEvent.click(button[0]);
@@ -121,7 +123,7 @@ describe('Update SSN', () => {
 
     await waitFor(() => {
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        '/memberservice/api/member/v1/members/byMemberCk/123456789/updateSSN',
+        '/api/member/v1/members/byMemberCk/123456789/updateSSN',
         {
           ssn: '111223344',
         },
@@ -136,7 +138,14 @@ describe('Update SSN', () => {
     fireEvent.click(screen.getByRole('button', { name: /Done/i }));
 
     await waitFor(() => {
-      expect(mockedAxios.get).toHaveBeenCalledTimes(2);
+      expect(mockedFetch).toHaveBeenCalledWith(
+        'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/123456789',
+        {
+          cache: undefined,
+          headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+          next: { revalidate: 1800, tags: ['123456789'] },
+        },
+      );
       expect(
         screen.queryAllByText('A SSN was found on file.')[0],
       ).toBeVisible();

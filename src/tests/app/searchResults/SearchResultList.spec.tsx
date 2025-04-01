@@ -66,13 +66,19 @@ const resultList = [
 ];
 
 const setupUI = () => {
-  return render(<SearchResultList searchResults={resultList} />);
+  return render(
+    <SearchResultList
+      resultCount={65}
+      searchString="health"
+      searchResults={resultList}
+    />,
+  );
 };
 
 describe('Search Results List', () => {
   it('should render all the required components', () => {
     const component = setupUI();
-    expect(screen.getAllByRole('img').length).toBe(10);
-    expect(component).toMatchSnapshot();
+    expect(screen.getAllByRole('img').length).toBe(17);
+    expect(component.container).toMatchSnapshot();
   });
 });

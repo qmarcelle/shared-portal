@@ -9,6 +9,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import {
   isBloodPressureManagementEligible,
   isCareManagementEligiblity,
+  isDiabetesManagementEligible,
   isDiabetesPreventionEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
@@ -16,6 +17,7 @@ import {
   isNurseChatEligible,
   isQuestSelectEligible,
   isSilverAndFitnessEligible,
+  isTeladocEligible,
   isTeladocPrimary360Eligible,
   isTeladocSecondOpinionAdviceAndSupportEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -45,6 +47,10 @@ const healthPrograms = [
     key: HealthProgramsResourcesName.TalkToNurse,
   },
   {
+    checkFunction: isDiabetesManagementEligible,
+    key: HealthProgramsResourcesName.TeladocHealthDiabetesManagementProgram,
+  },
+  {
     checkFunction: isDiabetesPreventionEligible,
     key: HealthProgramsResourcesName.TeladocHealthDiabetesPreventionProgram,
   },
@@ -68,6 +74,10 @@ const healthPrograms = [
     checkFunction: isQuestSelectEligible,
     key: HealthProgramsResourcesName.QuestSelectLowCostLabTesting,
   },
+  {
+    checkFunction: isTeladocEligible,
+    key: HealthProgramsResourcesName.TeladocHealthGeneralAndUrgentCare,
+  },
 ];
 
 export type MyHealthProgramsResourcesProps = {
@@ -84,6 +94,7 @@ const MyHealthProgramsResources = ({
       if (resource) virtualHealthCareDetails.push(resource);
     }
   });
+
   return (
     <div className="flex flex-col justify-center items-center page">
       <Spacer size={32} />

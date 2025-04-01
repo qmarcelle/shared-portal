@@ -679,6 +679,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -2895,6 +2896,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -4962,6 +4964,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -5738,6 +5741,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"

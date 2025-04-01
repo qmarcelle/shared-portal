@@ -25,6 +25,7 @@ import {
   isBlueCareEligible,
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
+  isMemberWellnessCenterEligible,
   isQuestSelectEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -43,7 +44,7 @@ const memberWellnessCenterDetails = [
     title: 'Your Health Assessment',
     description:
       'Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.',
-    url: '#path-1',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`,
     icon: healthAssessmentIcon,
   },
   {
@@ -51,7 +52,7 @@ const memberWellnessCenterDetails = [
     title: 'Earn Wellness Points',
     description:
       'Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.',
-    url: '#path-1',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`,
     icon: wellnessPointsIcon,
   },
   {
@@ -59,7 +60,7 @@ const memberWellnessCenterDetails = [
     title: 'Interactive Programs',
     description:
       'Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!',
-    url: '#path-1',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`,
     icon: interactiveProgramsIcon,
   },
 ];
@@ -328,12 +329,14 @@ const MyHealth = ({ data }: MyHealthProps) => {
         )}
         {!isBlueCareMember && (
           <>
-            <section>
-              <MemberWellnessCenterOptions
-                className="large-section"
-                options={memberWellnessCenterDetails}
-              />
-            </section>
+            {isMemberWellnessCenterEligible(data.visibilityRules) && (
+              <section>
+                <MemberWellnessCenterOptions
+                  className="large-section"
+                  options={memberWellnessCenterDetails}
+                />
+              </section>
+            )}
             <section>
               <MyHealthOffsiteLinkCard
                 icon={dentalHealthLibraryIcon}

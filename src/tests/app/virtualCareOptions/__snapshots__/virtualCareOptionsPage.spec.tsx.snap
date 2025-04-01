@@ -917,7 +917,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Alight Second Opinion Advice & Support
+                                    Teladoc Health Second Opinion Advice & Support
                                   </p>
                                 </div>
                                 <span
@@ -1086,6 +1086,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                 />
                 <a
                   aria-label="View All Health Programs & Resources"
+                  href="/myHealth/healthProgramsResources"
                   style="display: block;"
                 >
                   <button
@@ -2021,7 +2022,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Alight Second Opinion Advice & Support
+                                  Teladoc Health Second Opinion Advice & Support
                                 </p>
                               </div>
                               <span
@@ -2190,6 +2191,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
               />
               <a
                 aria-label="View All Health Programs & Resources"
+                href="/myHealth/healthProgramsResources"
                 style="display: block;"
               >
                 <button

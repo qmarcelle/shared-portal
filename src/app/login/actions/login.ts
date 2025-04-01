@@ -77,6 +77,9 @@ export async function callLogin(
       case 'DEACTIVATED_DUE_TO_INACTIVITY':
         status = LoginStatus.REACTIVATION_REQUIRED;
         break;
+      case 'Duplicate_Account':
+        status = LoginStatus.DUPLICATE_ACCOUNT;
+        break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {

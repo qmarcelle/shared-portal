@@ -371,6 +371,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <a
                 aria-label="View All Health Programs & Resources"
+                href="/myHealth/healthProgramsResources"
                 style="display: block;"
               >
                 <button
@@ -1015,7 +1016,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 >
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -1072,7 +1073,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -1129,7 +1130,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   </a>
                   <a
                     class="my-health-card my-health-card-link"
-                    href="#path-1"
+                    href="/sso/launch?PartnerSpId=undefined"
                   >
                     <div
                       class="card-main my-health-card-member-wellness"
@@ -1199,7 +1200,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                     >
                       <a
                         aria-label="Visit Member Wellness Center"
-                        href=""
+                        href="/sso/launch?PartnerSpId=undefined"
                         style="display: block;"
                       >
                         <button

@@ -1,6 +1,8 @@
 import MyHealthPage from '@/app/myHealth/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -36,7 +38,9 @@ jest.mock('../../../auth', () => ({
 
 describe('My Health Page for BlueCare', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
 
   it('should render My Health Page correctly for Blue Care', async () => {
@@ -57,9 +61,7 @@ describe('My Health Page for BlueCare', () => {
       },
     });
     const component = await renderUI();
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberservice/PCPhysicianService/pcPhysician/123456789',
-    );
+    expect(mockedAxios.get).toHaveBeenCalledWith('/pcPhysician/123456789');
     expect(screen.getByText('Louthan, James D.')).toBeVisible();
     expect(screen.getByText('2033 Meadowview Ln Ste 200')).toBeVisible();
     expect(screen.getByText('My Primary Care Provider')).toBeVisible();

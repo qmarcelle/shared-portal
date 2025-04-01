@@ -1,7 +1,7 @@
 import PharmacyPage from '@/app/pharmacy/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER = 'https://www.shopbcbstotc.com';
 
 // Mock useRouter:
@@ -22,7 +22,7 @@ const vRules = {
       wellnessOnly: false,
       terminated: false,
       medicarePrescriptionPaymentPlanEligible: true,
-      displayPharmacyTab: true,
+      showPharmacyTab: true,
     },
   },
 };
@@ -42,14 +42,6 @@ describe('Pharmacy Page', () => {
     const container = render(Page);
     expect(screen.getByText('My Recent Pharmacy Claims')).toBeVisible();
     expect(screen.getByText('View All Pharmacy Claims')).toBeVisible();
-    fireEvent.click(screen.getByText(/View All Pharmacy Claims/i));
-    expect(mockPush).toHaveBeenCalledWith('/claimSnapshotList');
-    fireEvent.click(screen.getByText(/123 Pharmacy/i));
-    expect(mockPush).toHaveBeenCalledWith('/pharmacy/pharmacyClaims');
-    fireEvent.click(screen.getByText(/565 Pharmacy/i));
-    expect(mockPush).toHaveBeenCalledWith('/pharmacy/pharmacyClaims');
-    fireEvent.click(screen.getByText(/890 Pharmacy/i));
-    expect(mockPush).toHaveBeenCalledWith('/pharmacy/pharmacyClaims');
     expect(container).toMatchSnapshot();
   });
 

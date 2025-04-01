@@ -1,6 +1,7 @@
 import MyHealthPage from '@/app/myHealth/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -8,7 +9,26 @@ const renderUI = async () => {
   const page = await MyHealthPage();
   return render(page);
 };
+const vRules = {
+  futureEffective: false,
+  fsaOnly: false,
+  wellnessOnly: false,
+  terminated: false,
+  katieBeckNoBenefitsElig: false,
+  blueCare: false,
+  bluePerksElig: true,
+  commercial: true,
+  phaMemberEligible: true,
+  medicare: true,
+  individual: true,
+};
 
+function setisActiveAndNotFSAOnly(vRules: VisibilityRules) {
+  vRules.futureEffective = false;
+  vRules.fsaOnly = false;
+  vRules.terminated = false;
+  vRules.katieBeckNoBenefitsElig = false;
+}
 jest.mock('../../../auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
@@ -20,16 +40,7 @@ jest.mock('../../../auth', () => ({
             memCk: '123456789',
           },
         },
-        vRules: {
-          futureEffective: false,
-          fsaOnly: false,
-          wellnessOnly: false,
-          terminated: false,
-          katieBeckNoBenefitsElig: false,
-          blueCare: false,
-          bluePerksElig: true,
-          commercial: true,
-        },
+        vRules: vRules,
       },
     }),
   ),
@@ -37,6 +48,10 @@ jest.mock('../../../auth', () => ({
 
 describe('My Health Page', () => {
   it('should render My Health Page correctly', async () => {
+    vRules.commercial = true;
+    vRules.medicare = false;
+    vRules.phaMemberEligible = true;
+    setisActiveAndNotFSAOnly(vRules);
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         physicianId: '3118777',
@@ -54,9 +69,7 @@ describe('My Health Page', () => {
       },
     });
     const component = await renderUI();
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/memberservice/PCPhysicianService/pcPhysician/123456789',
-    );
+    expect(mockedAxios.get).toHaveBeenCalledWith('/pcPhysician/123456789');
 
     screen.getByText('WellTuned Blog');
     screen.getByText(

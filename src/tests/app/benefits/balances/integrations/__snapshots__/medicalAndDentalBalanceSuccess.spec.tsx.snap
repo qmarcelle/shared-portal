@@ -59,6 +59,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -145,6 +146,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -232,6 +234,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   <div>
                     <div
                       aria-label="bar chart"
+                      role="img"
                       style="height: 10px; width: 0%;"
                     />
                   </div>
@@ -286,6 +289,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   <div>
                     <div
                       aria-label="bar chart"
+                      role="img"
                       style="height: 10px; width: 0%;"
                     />
                   </div>
@@ -826,6 +830,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -1123,6 +1128,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   class="flex flex-col doughnut-img mx-auto"
                 >
                   <canvas
+                    aria-hidden="true"
                     class="spendingSummaryChart"
                     height="150"
                     role="img"
@@ -1411,6 +1417,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -1497,6 +1504,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -1584,6 +1592,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   <div>
                     <div
                       aria-label="bar chart"
+                      role="img"
                       style="height: 10px; width: 26.052631578947366%;"
                     />
                   </div>
@@ -1638,6 +1647,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   <div>
                     <div
                       aria-label="bar chart"
+                      role="img"
                       style="height: 10px; width: 66.66666666666666%;"
                     />
                   </div>
@@ -1988,6 +1998,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -2285,6 +2296,7 @@ exports[`Medical and Dental Balances API Integration should call Balances api an
                   class="flex flex-col doughnut-img mx-auto"
                 >
                   <canvas
+                    aria-hidden="true"
                     class="spendingSummaryChart"
                     height="150"
                     role="img"

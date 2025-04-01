@@ -1,8 +1,10 @@
 import { OrderIdCard } from '@/app/memberIDCard/journeys/OrderIdCard';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
+import { mockedFetch } from '@/tests/setup';
+import { createAxiosErrorForTest, fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
@@ -48,6 +50,9 @@ describe('OrderId Card', () => {
   const showAppModal = useAppModalStore.getState().showAppModal;
   const dismissAppModal = useAppModalStore.getState().dismissModal;
   beforeEach(() => {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     dismissAppModal();
     renderUI();
     showAppModal({
@@ -90,7 +95,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -134,7 +139,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -175,7 +180,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -217,7 +222,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?subscriberCk=91722400&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });
@@ -263,7 +268,7 @@ describe('OrderId Card', () => {
         ),
       ).toBeVisible();
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        `/IDCardService/Order?memberCk=91722407,&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
+        `/Order?memberCk=91722407,&groupId=100000&effectiveDate=${new Date().toLocaleDateString()}&numOfCards=1`,
       );
     });
   });

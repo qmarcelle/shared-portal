@@ -107,6 +107,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -404,6 +405,7 @@ exports[`Medical Balances Error Handling with Dental working should call Balance
                   class="flex flex-col doughnut-img mx-auto"
                 >
                   <canvas
+                    aria-hidden="true"
                     class="spendingSummaryChart"
                     height="150"
                     role="img"

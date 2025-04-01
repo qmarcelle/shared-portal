@@ -83,6 +83,10 @@ const renderUI = (vRules: VisibilityRules) => {
 };
 
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
+  'https://caremark/{DEEPLINK}?newLogin=yes';
+process.env.NEXT_PUBLIC_IDP_ON_LIFE = 'OnLife';
+process.env.NEXT_PUBLIC_IDP_EMBOLD = 'EMBOLD';
 
 describe('SiteHeader And Navigation Menu', () => {
   beforeEach(() => {
@@ -122,6 +126,11 @@ describe('SiteHeader And Navigation Menu', () => {
     ).toBeVisible();
 
     expect(screen.getByText('Find a Medical Provider')).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', {
+        name: 'Find a Medical Provider External Link',
+      }),
+    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=EMBOLD`);
 
     expect(
       screen.getByRole('button', {
@@ -131,14 +140,22 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
-    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=CVS`);
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes`,
+    );
     expect(
       screen.getByRole('link', { name: 'Price a Medication External Link' }),
     ).toHaveProperty('target', '');
 
+    const estimateCostsElement = screen.getByText(/Estimate Costs/i);
+    expect(estimateCostsElement.tagName).toBe('P');
     /**** Nav Links For My Plan  */
 
     fireEvent.click(screen.getAllByText('My Plan')[0]);
+
+    const findCareElement = screen.getByText(/Plan Details/i);
+    expect(findCareElement.tagName).toBe('P');
 
     expect(
       screen.getByRole('button', {
@@ -209,6 +226,12 @@ describe('SiteHeader And Navigation Menu', () => {
     fireEvent.click(screen.getAllByText('My Health')[0]);
 
     expect(
+      screen.getByRole('link', {
+        name: 'Member Wellness Center External Link',
+      }),
+    ).toHaveProperty('href', `${baseUrl}/sso/launch?PartnerSpId=OnLife`);
+
+    expect(
       screen.getAllByRole('link', {
         name: 'Quick Tip Looking for a virtual care provider for mental health or physical therapy? View Virtual Care Options. Page Arrow',
       })[0],
@@ -219,17 +242,30 @@ describe('SiteHeader And Navigation Menu', () => {
     fireEvent.click(screen.getAllByText('Pharmacy')[0]);
     expect(
       screen.getByRole('link', { name: 'My Prescriptions External Link' }),
-    ).toHaveProperty('href', 'https://www.caremark.com/refillRx?newLogin=yes');
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/refillRx?newLogin=yes`,
+    );
 
     expect(
       screen.getByRole('link', { name: 'Mail Order External Link' }),
-    ).toHaveProperty('href', 'https://www.caremark.com/refillRx?newLogin=yes');
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/refillRx?newLogin=yes`,
+    );
 
     expect(
       screen.getByRole('link', { name: 'Find a Pharmacy External Link' }),
     ).toHaveProperty(
       'href',
-      'https://www.caremark.com/pharmacySearchFast?newLogin=yes',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes`,
+    );
+
+    expect(
+      screen.getByRole('link', { name: 'Price a Medication External Link' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes`,
     );
 
     expect(
@@ -508,7 +544,7 @@ describe('SiteHeader And Navigation Menu', () => {
     vRules.medical = true;
     vRules.groupRenewalDateBeforeTodaysDate = true;
     vRules.primary360Eligible = true;
-    vRules.teladoc = true;
+    vRules.teladocEligible = true;
     vRules.futureEffective = false;
     vRules.fsaOnly = false;
     vRules.wellnessOnly = false;

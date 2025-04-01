@@ -32,7 +32,8 @@ exports[`Search Results Page should render all the required components 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
-            aria-label="Get Started with Teladoc Health"
+            aria-label="Click Here"
+            href="/findcare"
             style="display: inline-flex;"
           >
             <button
@@ -44,22 +45,7 @@ exports[`Search Results Page should render all the required components 1`] = `
               <p
                 class="link undefined"
               >
-                Get Started with Teladoc Health
-              </p>
-              <p
-                class="ml-1"
-              >
-                <img
-                  alt="external"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
+                Click Here
               </p>
             </button>
           </a>
@@ -95,7 +81,8 @@ exports[`Search Results Page should render all the required components 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <a
-          aria-label="Get Started with Teladoc Health"
+          aria-label="Click Here"
+          href="/findcare"
           style="display: inline-flex;"
         >
           <button
@@ -107,22 +94,7 @@ exports[`Search Results Page should render all the required components 1`] = `
             <p
               class="link undefined"
             >
-              Get Started with Teladoc Health
-            </p>
-            <p
-              class="ml-1"
-            >
-              <img
-                alt="external"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
+              Click Here
             </p>
           </button>
         </a>

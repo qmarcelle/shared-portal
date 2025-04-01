@@ -1,7 +1,17 @@
 import { FindMedicalProvidersComponent } from '@/app/dashboard/components/FindMedicalProvidersComponent';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
+const mockPush = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      push: mockPush,
+    };
+  },
+}));
+process.env.NEXT_PUBLIC_IDP_EMBOLD = 'EMBOLD';
+process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY = 'PROVIDER_DIRECTORY';
 const renderUI = () => {
   return render(<FindMedicalProvidersComponent />);
 };
@@ -25,5 +35,19 @@ describe('FindMedicalProvidersComponent', () => {
     expect(screen.queryAllByText('Find Medical Providers')).toHaveLength(2);
     expect(screen.getByText('Find Other Care')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Find Medical Providers' }),
+    );
+    expect(mockPush).toHaveBeenCalledWith('/sso/launch?PartnerSpId=EMBOLD');
+  });
+  it('should navigate to Sapphire SSO', () => {
+    const component = renderUI();
+
+    expect(screen.getByText('Find Other Care')).toBeVisible();
+    expect(component.baseElement).toMatchSnapshot();
+    fireEvent.click(screen.getByRole('button', { name: 'Find Other Care' }));
+    expect(mockPush).toHaveBeenCalledWith(
+      '/sso/launch?PartnerSpId=PROVIDER_DIRECTORY',
+    );
   });
 });

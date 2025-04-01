@@ -7,8 +7,8 @@ const pharmacyClaims = () => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <section className="flex flex-row items-start app-body">
-          <Column className="flex-grow page-section-63_33 items-stretch">
+        <section className="flex-row items-start app-body" id="Filter">
+          <Column className="flex-grow page-section-63_33 items-stretch mt-4">
             <PharmacyDrugInformation
               drugInformation={[
                 {
@@ -21,10 +21,11 @@ const pharmacyClaims = () => {
               ]}
             />
           </Column>
-          <Column className=" flex-grow page-section-36_67 items-stretch">
-            <></>
-          </Column>
         </section>
+
+        <Column className=" flex-grow page-section-36_67 items-stretch">
+          <></>
+        </Column>
       </Column>
     </main>
   );

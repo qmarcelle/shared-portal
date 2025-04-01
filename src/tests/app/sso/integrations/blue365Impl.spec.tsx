@@ -1,6 +1,7 @@
 import SSORedirect from '@/app/sso/redirect/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
-import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
 import axios from 'axios';
@@ -50,7 +51,9 @@ const setupUI = () => {
 describe('Blue365 SSO', () => {
   beforeEach(() => {
     jest.resetAllMocks();
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   it('Should not route to Blue365 SSO when drop off service is failing', async () => {
     mockGet.mockReturnValueOnce('Blue365');
@@ -64,12 +67,13 @@ describe('Blue365 SSO', () => {
         `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {
@@ -99,12 +103,13 @@ describe('Blue365 SSO', () => {
         `${process.env.NEXT_PUBLIC_PING_REST_URL}/ext/ref/dropoff`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {

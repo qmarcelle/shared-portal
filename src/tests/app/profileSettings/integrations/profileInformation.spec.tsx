@@ -1,6 +1,8 @@
 import ProfileSettingsPage from '@/app/profileSettings/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
 
@@ -27,7 +29,9 @@ jest.mock('src/auth', () => ({
 
 describe('Profile Information API Integration', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   test('Profile Information Email API integration  success scenario', async () => {
     mockedAxios.get.mockResolvedValueOnce({
@@ -141,7 +145,9 @@ describe('Profile Information API Integration', () => {
 
   test('Profile Information Phone number API integration success scenario', async () => {
     const effectiveDetials = new Date().toLocaleDateString(); // current date
-
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       links: [
         {
@@ -176,7 +182,7 @@ describe('Profile Information API Integration', () => {
     setupUI();
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
+        `/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
       );
     });
   });
@@ -184,6 +190,9 @@ describe('Profile Information API Integration', () => {
   test('Profile Information Phone number API integration null scenario', async () => {
     const effectiveDetials = new Date().toLocaleDateString(); // current date
 
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       data: {},
     });
@@ -192,7 +201,7 @@ describe('Profile Information API Integration', () => {
 
     await waitFor(() => {
       const response = expect(mockedAxios.get).toHaveBeenCalledWith(
-        `/IDCardService/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
+        `/OperationHours?groupId=100000&subscriberCk=91722400&effectiveDetials=${effectiveDetials}`,
       );
       expect(response).toBeNull;
     });

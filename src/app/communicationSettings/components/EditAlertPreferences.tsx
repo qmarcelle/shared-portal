@@ -1,5 +1,6 @@
 import { UpdateCommunicationTerms } from '@/app/communicationSettings/journeys/UpdateCommunicationTerms';
 import { IComponent } from '@/components/IComponent';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
@@ -88,6 +89,7 @@ export const EditAlertPreferncesSection = ({
     alertType: AlertType,
     parentAlertType?: AlertType,
   ) => {
+    const initialClick = true;
     const alertMap = new Map(
       Array.from(editAlertMap.entries()).map(([key, value]) => [
         key,
@@ -104,7 +106,7 @@ export const EditAlertPreferncesSection = ({
       const alert = alertMap.get(alertType);
       if (alert) {
         alert.selected = !alert.selected;
-        if (alert.childCheckBox) {
+        if (alert.childCheckBox && !initialClick) {
           Array.from(alert.childCheckBox).map(
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             ([key, value]) => (value.selected = alert.selected),
@@ -199,38 +201,46 @@ export const EditAlertPreferncesSection = ({
         <Spacer size={12} />
         <TextBox text="Sign up for email and text alerts." className="pl-3" />
         <Spacer size={18} />
-        {[...editAlertMap.entries()].map(([alertType, preference], index) => {
-          return (
-            <Card className={className} key={index}>
-              <Column>
-                {generateCheckBox(preference, alertType)}
-                {preference.selected && preference.childCheckBox && (
-                  <Column className="emailAlertsSublevel">
-                    <Divider axis="vertical" />
-                    <Spacer size={18} />
-                    <TextBox text="Choose the emails you want to receive:" />
-                    <Spacer size={32} />
-                    {preference.childCheckBox.size > 0 &&
-                      [...preference.childCheckBox.entries()].map(
-                        ([childAlertType, childPreference], index) => {
-                          return (
-                            <div key={index}>
-                              {generateCheckBox(
-                                childPreference,
-                                childAlertType,
-                                alertType,
-                              )}
-                              <Spacer size={32} />
-                            </div>
-                          );
-                        },
-                      )}
-                  </Column>
-                )}
-              </Column>
-            </Card>
-          );
-        })}
+        {alertPreferenceData.tierOneDescriptions &&
+        alertPreferenceData.tierOneDescriptions ? (
+          [...editAlertMap.entries()].map(([alertType, preference], index) => {
+            return (
+              <Card className={className} key={index}>
+                <Column>
+                  {generateCheckBox(preference, alertType)}
+                  {preference.selected && preference.childCheckBox && (
+                    <Column className="emailAlertsSublevel">
+                      <Divider axis="vertical" />
+                      <Spacer size={18} />
+                      <TextBox text="Choose the emails you want to receive:" />
+                      <Spacer size={32} />
+                      {preference.childCheckBox.size > 0 &&
+                        [...preference.childCheckBox.entries()].map(
+                          ([childAlertType, childPreference], index) => {
+                            return (
+                              <div key={index}>
+                                {generateCheckBox(
+                                  childPreference,
+                                  childAlertType,
+                                  alertType,
+                                )}
+                                <Spacer size={32} />
+                              </div>
+                            );
+                          },
+                        )}
+                    </Column>
+                  )}
+                </Column>
+              </Card>
+            );
+          })
+        ) : (
+          <ErrorInfoCard
+            className="mt-2 ml-3"
+            errorText="We're not able to load your communication settings right now. Please try again later."
+          />
+        )}
         {Array.from(editAlertMap.values()).some(
           (value) => value.selected === true,
         ) && (

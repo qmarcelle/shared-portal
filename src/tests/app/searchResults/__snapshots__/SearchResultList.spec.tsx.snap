@@ -1,0 +1,694 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Results List should render all the required components 1`] = `
+<div>
+  <div
+    class="card-main undefined"
+  >
+    <div
+      class="flex flex-col searchResult"
+    >
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            508C Telehealth and Telephonic/Audio-Only Services
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            Telehealth and Telephonic/Audio-Only Services
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            Mobile Apps | BlueCross BlueShield of Tennessee
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            , telehealth, and provider search with cost estimates -- all from your mobile device.
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            Use Your Health Insurance Plan | BlueCross BlueShield of Tennessee
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            Manage your BCBS of Tennessee health insurance plans, login to your account and use our cost estimator tools to help you understand various health insurance coverage options.
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            Find a Doctor Near You | BlueCross BlueShield of Tennessee
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            Search for a doctor, hospital, dental and vision providers or pharmacies in your area. You can search by specialty, location or network to find the healthcare provider that meets your needs. 
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            Get Healthcare Near You | BlueCross BlueShield of Tennessee
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            Find a doctor, pharmacy or other healthcare and wellness providers in your area.
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            508C Frequently Asked Questions
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            Frequently Asked Questions
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            508C REVISION -Update to Stand-alone Vaccine Counseling (replaces March 15, 2023 memo)
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            REVISION -Update to Stand-alone Vaccine Counseling (replaces March 15, 2023 memo)
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            Healthymom | Providers | BlueCare Tennessee
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            Helpful resources to assist with language interpretation when talking to your patients. *These resources are NOT affiliated with or endorsed by BlueCare Tennessee. Fees for their services may apply.
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            Individual and Family Health Insurance Plans | BlueCross BlueShield of Tennessee
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            We have a wide range of health insurance plans for you and your family, with premiums as low as $0. Protect yourself and your family with free quotes and easy enrollment.
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+      >
+        <div
+          class="flex flex-row m-2"
+        >
+          <p
+            class="link-row-head mr-2"
+            tabindex="0"
+          >
+            BlueCross BlueShield of Tennessee Health Insurance
+          </p>
+          <img
+            alt="link"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="m-2"
+        >
+          <div
+            class="body-1 flex flex-row"
+          >
+            Learn more about BlueCross BlueShield of Tennessee (BCBST) health insurance and the medical, dental and vision plans we offer for employers, individuals and families.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section
+    class="flex justify-center self-center pt-5"
+  >
+    <p
+      class="body-1 m-2 mt-0"
+      style="display: block;"
+    >
+      Viewing 10 of 65 Items
+    </p>
+  </section>
+  <section>
+    <ul
+      aria-label="pagination"
+      class="pagination-container pagination"
+    >
+      <li
+        class="pagination-item disabled"
+      >
+        <div
+          class="flex flex-row arrow left"
+        >
+          <img
+            alt="previous"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <p
+            class="body-1 pt-1"
+            style="display: block;"
+          >
+            Previous
+          </p>
+        </div>
+      </li>
+      <li
+        class="pagination-item disabled selected"
+      >
+        1
+      </li>
+      <li
+        class="pagination-item"
+      >
+        2
+      </li>
+      <li
+        class="pagination-item"
+      >
+        3
+      </li>
+      <li
+        class="pagination-item"
+      >
+        4
+      </li>
+      <li
+        class="pagination-item"
+      >
+        5
+      </li>
+      <li
+        class="pagination-item dots"
+      >
+        …
+      </li>
+      <li
+        class="pagination-item"
+      >
+        7
+      </li>
+      <li
+        class="pagination-item"
+      >
+        <div
+          class="flex flex-row arrow right"
+        >
+          <p
+            class="body-1 pt-1"
+            style="display: block;"
+          >
+            Next
+          </p>
+          <img
+            alt="next"
+            class="right-icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <img
+            alt="next"
+            class="right-icon-white"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </li>
+    </ul>
+    <ul
+      aria-label="pagination"
+      class="pagination-mobile-container pagination"
+    >
+      <li
+        class="pagination-item disabled"
+      >
+        <div
+          class="flex flex-row arrow left"
+        >
+          <img
+            alt="previous"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </li>
+      <div
+        class="flex flex-row"
+      >
+        <span
+          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+        />
+        <p
+          class="body-1 body-1"
+          style="display: block;"
+        >
+          Page: 
+        </p>
+        <span
+          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+        />
+        <div
+          class="relative"
+        >
+          <div
+            class="flex flex-row link"
+            tabindex="0"
+          >
+            <p
+              class="body-bold"
+            >
+              1
+            </p>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <img
+              alt="down icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <section
+            class="card-elevated z-20 dropdown-section"
+            style="display: none; position: absolute;"
+          >
+            <div
+              class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+            >
+              <div
+                class="size-5 mx-2 "
+              >
+                <img
+                  alt="selcted"
+                  class="size-5"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+              <div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  1
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row  dropdown-item p-2 cursor-pointer"
+            >
+              <div
+                class="size-5 mx-2"
+              />
+              <div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  2
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row  dropdown-item p-2 cursor-pointer"
+            >
+              <div
+                class="size-5 mx-2"
+              />
+              <div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  3
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row  dropdown-item p-2 cursor-pointer"
+            >
+              <div
+                class="size-5 mx-2"
+              />
+              <div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  4
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row  dropdown-item p-2 cursor-pointer"
+            >
+              <div
+                class="size-5 mx-2"
+              />
+              <div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  5
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row  dropdown-item p-2 cursor-pointer"
+            >
+              <div
+                class="size-5 mx-2"
+              />
+              <div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  6
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-row  dropdown-item p-2 cursor-pointer"
+            >
+              <div
+                class="size-5 mx-2"
+              />
+              <div>
+                <p
+                  class="whitespace-nowrap mx-2"
+                >
+                  7
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <span
+          style="display: block; width: 4px; min-width: 4px; height: 1px; min-height: 1px;"
+        />
+        <p
+          class="body-1 body-1"
+          style="display: block;"
+        >
+          of 7
+        </p>
+      </div>
+      <li
+        class="pagination-item"
+      >
+        <div
+          class="flex flex-row arrow right"
+        >
+          <img
+            alt="next"
+            class="right-icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <img
+            alt="next"
+            class="right-icon-white"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+`;
