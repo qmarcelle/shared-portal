@@ -1,20 +1,23 @@
 import React from 'react';
-import { useChatStore } from '../../../utils/chatStore';
+import { useChatStore } from '../../../chat/providers';
 
-interface ChatBodyProps {
-  className?: string;
-}
-
-export const ChatBody: React.FC<ChatBodyProps> = ({ className = '' }) => {
+export const ChatBody: React.FC = () => {
   const messages = useChatStore((state) => state.messages);
 
   return (
-    <div className={`chat-body ${className}`}>
-      <div className="messages-container">
+    <div
+      className="chat-body"
+      role="log"
+      aria-live="polite"
+      aria-label="Chat messages"
+    >
+      <div className="messages">
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`message-item ${message.sender === 'user' ? 'user-message' : 'agent-message'}`}
+            className={`message ${message.sender}`}
+            role="article"
+            aria-label={`${message.sender} message`}
           >
             {message.text}
           </div>

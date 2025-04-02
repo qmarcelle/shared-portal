@@ -2,9 +2,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 import AlertIcon from '../../../public/assets/alert_white.svg';
 import CloseIcon from '../../../public/assets/close_white.svg';
+import { IComponent } from '../IComponent';
 
-export interface AlertBarProps {
+interface AlertBarProps extends IComponent {
   alerts: string[];
+  role?: string;
+  'aria-label'?: string;
 }
 
 const AlertTile = ({
@@ -29,7 +32,11 @@ const AlertTile = ({
   );
 };
 
-export const AlertBar = ({ alerts }: AlertBarProps) => {
+export const AlertBar = ({
+  alerts,
+  role,
+  'aria-label': ariaLabel,
+}: AlertBarProps) => {
   const [items, setItems] = useState(alerts);
 
   const closeCallback = (index: number) => {
@@ -52,7 +59,11 @@ export const AlertBar = ({ alerts }: AlertBarProps) => {
     );
   } else {
     return (
-      <div className="flex flex-col self-stretch">
+      <div
+        className="flex flex-col self-stretch"
+        role={role}
+        aria-label={ariaLabel}
+      >
         {items.map((item, index) => {
           if (index != alerts.length - 1) {
             return (

@@ -1,28 +1,15 @@
 import React from 'react';
-import { useChatStore } from '../../../utils/chatStore';
+import { useChatStore } from '../../../chat/providers';
 
-interface ChatHeaderProps {
-  title?: string;
-  isAmplifyMember?: boolean;
-  className?: string;
-}
-
-export const ChatHeader: React.FC<ChatHeaderProps> = ({
-  title = 'Chat with Us',
-  isAmplifyMember = false,
-  className = '',
-}) => {
-  // Use selector pattern for better performance
-  const setOpen = useChatStore((state) => state.setOpen);
+export const ChatHeader: React.FC = () => {
+  const closeChat = useChatStore((state) => state.closeChat);
 
   return (
-    <div className={`chat-header ${className}`}>
-      <h2 className="chat-title">
-        {isAmplifyMember ? 'Amplify Support' : title}
-      </h2>
+    <div className="chat-header" role="banner">
+      <h2>Chat Support</h2>
       <button
+        onClick={closeChat}
         className="close-button"
-        onClick={() => setOpen(false)}
         aria-label="Close chat"
       >
         ×
