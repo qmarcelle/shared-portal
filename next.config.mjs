@@ -14,6 +14,16 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // Add appropriate headers for MSW service worker
+        source: '/mockServiceWorker.js',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
+          },
+        ],
+      },
     ];
   },
   async redirects() {
@@ -32,6 +42,11 @@ const nextConfig = {
     fetches: {
       fullUrl: true,
     },
+  },
+  webpack: (config) => {
+    // Required for MSW in Next.js 14
+    config.resolve.alias['msw/browser'] = require.resolve('msw/browser');
+    return config;
   },
 };
 export default nextConfig;

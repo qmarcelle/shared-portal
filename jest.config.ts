@@ -20,7 +20,7 @@ const customJestConfig = {
   testEnvironmentOptions: {
     customExportConditions: [''],
   },
-  testMatch: ['**/tests/**/*spec.{ts,tsx}'],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
   collectCoverageFrom: ['./src/**'],
   coveragePathIgnorePatterns: ['/tests/'],
   collectCoverage: true,
@@ -36,14 +36,7 @@ const customJestConfig = {
       },
     ],
   ],
-  globals: {
-    'ts-jest': {
-      tsconfig: './tsconfig.json',
-    },
-  },
-  transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
-  },
+  resetMocks: true,
 };
 
 export default createJestConfig(customJestConfig);
