@@ -1,0 +1,109 @@
+.chat-widget {
+  @apply fixed bottom-4 right-4 w-96 bg-base-100 rounded-large shadow-soft z-50;
+  max-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  @apply flex justify-between items-center p-4 bg-primary text-primary-content rounded-t-large;
+}
+
+.chat-header h2 {
+  @apply text-lg font-semibold;
+}
+
+.close-button {
+  @apply text-2xl font-bold hover:opacity-80 transition-opacity;
+}
+
+.chat-body {
+  @apply flex-1 flex flex-col p-4;
+  min-height: 400px;
+  max-height: calc(100vh - 12rem);
+}
+
+.messages {
+  @apply flex-1 overflow-y-auto mb-4 space-y-4;
+}
+
+.message {
+  @apply p-3 rounded-md max-w-[80%];
+}
+
+.message.user {
+  @apply bg-primary text-primary-content ml-auto;
+}
+
+.message.agent {
+  @apply bg-base-200 text-neutral;
+}
+
+.chat-input {
+  @apply flex gap-2 mt-auto;
+}
+
+.chat-input input {
+  @apply flex-1 p-2 border border-tertiary-4 rounded-md focus:outline-none focus:border-primary;
+}
+
+.chat-send-button {
+  @apply bg-primary text-primary-content px-4 py-2 rounded-md hover:bg-primary-focus transition-colors;
+}
+
+.chat-start-form {
+  @apply p-4;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+.form-group label {
+  @apply block text-sm font-medium text-neutral mb-1;
+}
+
+.form-group select {
+  @apply w-full p-2 border border-tertiary-4 rounded-md focus:outline-none focus:border-primary;
+}
+
+.button-group {
+  @apply flex gap-2 mt-6;
+}
+
+.chat-loading {
+  @apply flex flex-col items-center justify-center p-8;
+}
+
+.chat-loading p {
+  @apply mt-2 text-neutral;
+}
+
+.cobrowse-button {
+  @apply mt-4 w-full bg-secondary text-secondary-content hover:bg-secondary-focus transition-colors;
+}
+
+/* Scrollbar styling */
+.messages::-webkit-scrollbar {
+  @apply w-2;
+}
+
+.messages::-webkit-scrollbar-track {
+  @apply bg-base-200 rounded-full;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  @apply bg-tertiary-4 rounded-full hover:bg-tertiary-5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .chat-widget {
+    @apply w-full h-full bottom-0 right-0 rounded-none;
+    max-height: 100vh;
+  }
+
+  .chat-body {
+    min-height: 0;
+  }
+}
