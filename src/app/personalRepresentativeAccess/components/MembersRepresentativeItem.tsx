@@ -1,4 +1,3 @@
-import { RequestAccessOnMyPlan } from '@/app/accessOthersInformation/journeys/RequestAccessOnMyPlan';
 import { InviteToRegister } from '@/app/personalRepresentativeAccess/journeys/InviteToRegister';
 import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -16,6 +15,7 @@ import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { EditLevelOfAccess } from '../journeys/EditLevelOfAccess';
+import { PersonalRepRequestAccessOnMyPlan } from '../journeys/PersonalRepRequestAccessOnMyPlan';
 
 interface MembersRepresentativeItemProps extends IComponent {
   memberName: string;
@@ -121,7 +121,9 @@ export const MembersRepresentativeItem = ({
                   callback={() =>
                     showAppModal({
                       content: (
-                        <RequestAccessOnMyPlan memberName={memberName} />
+                        <PersonalRepRequestAccessOnMyPlan
+                          memberName={memberName}
+                        />
                       ),
                     })
                   }
