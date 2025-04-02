@@ -167,7 +167,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          Christmas Hall
+                          CHRISTMAS HALL
                         </p>
                         <p
                           class="body-1"
@@ -293,7 +293,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          Krissy Hall
+                          KRISSY HALL
                         </p>
                         <p
                           class="body-1"
@@ -404,7 +404,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          Chris Hall
+                          CHRIS HALL
                         </p>
                         <p
                           class="body-1"
@@ -628,14 +628,13 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 <p
                   class="body-1 body-1"
                   style="display: block;"
-                >
-                  N/A
-                </p>
+                />
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <a
                   aria-label="View All Plan Contact Information"
+                  href="/myPlan/planContactInformation"
                   style="display: block;"
                 >
                   <button
