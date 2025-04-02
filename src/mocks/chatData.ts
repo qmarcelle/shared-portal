@@ -1,4 +1,4 @@
-import { ChatConfig, ChatEligibility, Plan } from '../models/chat';
+import { ChatConfig, ClientType, Plan, UserEligibility } from '../models/chat';
 
 /**
  * Mock chat configuration for testing
@@ -6,6 +6,7 @@ import { ChatConfig, ChatEligibility, Plan } from '../models/chat';
 export const mockChatConfig: ChatConfig = {
   token: 'mock-jwt-token',
   endPoint: 'https://api.example.com/chat',
+  demoEndPoint: 'https://demo-api.example.com/chat',
   opsPhone: '800-123-4567',
   memberFirstname: 'John',
   memberLastname: 'Doe',
@@ -25,22 +26,78 @@ export const mockChatConfig: ChatConfig = {
       { day: 'Sunday', openTime: '09:00', closeTime: '17:00' },
     ],
   },
+  cobrowseSource: 'https://cobrowse.example.com',
+  cobrowseURL: 'https://js.cobrowse.io/CobrowseIO.js',
+  coBrowseLicence: 'mock-cobrowse-license-key',
 };
 
 /**
  * Mock user eligibility data for testing
  */
-export const mockUserEligibility: ChatEligibility = {
-  isEligibleForChat: true,
-  isActiveMember: true,
-  memberClientID: 'MEMBER123',
-  userID: 'USER456',
-  coverage_eligibility: true,
-  memberFirstName: 'John',
-  memberLastName: 'Doe',
-  policyID: 'POLICY789',
-  memberSince: '2020-01-01',
+export const mockUserEligibility: UserEligibility = {
+  isChatEligibleMember: true,
+  isDemoMember: false,
+  isAmplifyMem: false,
+  groupId: 'GROUP456',
+  memberClientID: ClientType.Default,
+  getGroupType: 'Commercial',
+  isBlueEliteGroup: false,
+  isMedical: true,
+  isDental: true,
+  isVision: true,
+  isWellnessOnly: false,
+  isCobraEligible: false,
+  chatHours: 'Monday-Friday: 8:00 AM - 6:00 PM',
+  rawChatHours: 'M_F_8_6',
+  isChatbotEligible: true,
+  memberMedicalPlanID: 'PLAN789',
   isIDCardEligible: true,
+  memberDOB: '1980-01-01',
+  subscriberID: 'SUB123',
+  sfx: '01',
+  memberFirstname: 'John',
+  memberLastName: 'Doe',
+  userID: 'USER456',
+  isChatAvailable: true,
+  routingchatbotEligible: true,
+  idCardChatBotName: 'speechstorm-chatbot',
+  // Added fields for enhanced routing
+  RoutingChatbotInteractionId: '',
+  coverage_eligibility: '',
+  lob_group: 'Commercial',
+  Origin: 'member-portal',
+  Source: 'web',
+};
+
+/**
+ * Mock BlueCare user eligibility for testing specialized routing
+ */
+export const mockBlueCareUserEligibility: UserEligibility = {
+  ...mockUserEligibility,
+  memberClientID: ClientType.BlueCare,
+  lob_group: ClientType.BlueCare,
+  getGroupType: 'BlueCare',
+};
+
+/**
+ * Mock Dental-only user eligibility for testing specialized routing
+ */
+export const mockDentalOnlyUserEligibility: UserEligibility = {
+  ...mockUserEligibility,
+  isMedical: false,
+  isDental: true,
+  isVision: false,
+  isWellnessOnly: false,
+  coverage_eligibility: 'dental_only',
+};
+
+/**
+ * Mock ID Card request user eligibility for testing specialized routing
+ */
+export const mockIdCardUserEligibility: UserEligibility = {
+  ...mockUserEligibility,
+  isIDCardEligible: true,
+  RoutingChatbotInteractionId: 'ID_CARD_REQ',
 };
 
 /**

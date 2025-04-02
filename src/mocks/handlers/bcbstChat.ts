@@ -115,4 +115,64 @@ export const bcbstChatHandlers = [
       { status: 200 },
     );
   }),
+
+  // Enhanced Cobrowse endpoints
+  http.post('/api/v1/chat/cobrowse/initialize', async ({ request }) => {
+    const data = (await request.json()) as Record<string, string>;
+
+    return HttpResponse.json(
+      {
+        status: 'success',
+        data: {
+          initialized: true,
+          deviceId: `device-${Date.now()}`,
+          capabilities: [
+            'cursor',
+            'keypress',
+            'laser',
+            'pointer',
+            'scroll',
+            'select',
+          ],
+          userInfo: {
+            memberId: data?.memberId || 'unknown',
+            groupId: data?.groupId || 'unknown',
+          },
+        },
+      },
+      { status: 200 },
+    );
+  }),
+
+  http.post('/api/v1/chat/cobrowse/session', async () => {
+    return HttpResponse.json(
+      {
+        status: 'success',
+        data: {
+          sessionId: `cobrowse-${Date.now()}`,
+          code: '123456',
+          url: 'https://cobrowse.example.com/session/123456',
+          expiresAt: new Date(Date.now() + 15 * 60 * 1000).toISOString(), // 15 min expiry
+          active: true,
+        },
+      },
+      { status: 200 },
+    );
+  }),
+
+  http.delete('/api/v1/chat/cobrowse/session/:sessionId', ({ params }) => {
+    const { sessionId } = params;
+
+    return HttpResponse.json(
+      {
+        status: 'success',
+        data: {
+          sessionId,
+          endTime: new Date().toISOString(),
+          terminated: true,
+        },
+      },
+      { status: 200 },
+    );
+  }),
 ];

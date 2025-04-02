@@ -1,19 +1,13 @@
 import { setupWorker } from 'msw/browser';
 import { handlers } from './handlers';
-import { createRestHandler } from './restHandlers';
 
 /**
  * MSW worker setup for browser environment
  * This enables mocking API requests in development environment
  */
 
-// Convert the handlers to the expected format for MSW 2.x
-const restHandlers = handlers.map((handler) =>
-  createRestHandler(handler.method, handler.url, handler.resolver),
-);
-
-// This configures a service worker with the given request handlers
-export const worker = setupWorker(...restHandlers);
+// This configures a Service Worker with the given request handlers
+export const worker = setupWorker(...handlers);
 
 /**
  * Initialize MSW in development mode only
@@ -23,6 +17,10 @@ export async function initMSW() {
     // Start the worker
     await worker.start({
       onUnhandledRequest: 'bypass', // Don't warn about unhandled requests
+      serviceWorker: {
+        url: '/mockServiceWorker.js',
+        options: { scope: '/' },
+      },
     });
 
     console.log('[MSW] Mock Service Worker initialized');
