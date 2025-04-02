@@ -82,8 +82,9 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '1/1/2019',
     visionEffectiveDate: '1/1/2019',
-    address: [],
+    address: '',
     primaryPhoneNumber: '123456789',
+    secondaryPhoneNumber: '',
   },
   {
     memberName: 'KRISSY HALL',
@@ -129,8 +130,9 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '',
     visionEffectiveDate: '1/1/2019',
-    address: [],
+    address: '',
     primaryPhoneNumber: '',
+    secondaryPhoneNumber: '',
   },
   {
     memberName: 'CHRIS HALL',
@@ -188,8 +190,9 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '11/1/2017',
     visionEffectiveDate: '1/1/2019',
-    address: [],
+    address: '',
     primaryPhoneNumber: '',
+    secondaryPhoneNumber: '',
   },
 ];
 describe('PlanDetailsSection', () => {
@@ -221,7 +224,7 @@ describe('PlanDetailsSection', () => {
 
     fireEvent.click(screen.getByText(/View Who's Covered/i));
 
-    expect(screen.getByText('Christmas Hall')).toBeInTheDocument();
+    expect(screen.getByText('CHRISTMAS HALL')).toBeInTheDocument();
     expect(screen.getByText('DOB: 6/29/2009')).toBeInTheDocument();
     const contactInfo = screen.queryAllByText(/View Plan Contact Information/i);
     fireEvent.click(contactInfo[0]);
