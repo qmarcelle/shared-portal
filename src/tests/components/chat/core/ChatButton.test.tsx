@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ChatButton } from '../../../components/chat/core/ChatButton';
-import { useChatStore } from '../../../utils/chatStore';
+import { ChatButton } from '../../../../components/chat/core/ChatButton';
+import { useChatStore } from '../../../../utils/chatStore';
 
 // Mock the chat store
-jest.mock('../../../utils/chatStore', () => ({
+jest.mock('../../../../utils/chatStore', () => ({
   useChatStore: jest.fn(),
 }));
 

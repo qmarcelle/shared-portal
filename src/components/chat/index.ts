@@ -11,6 +11,10 @@ import { ChatForm, ChatUnavailable } from './screens';
 // Re-export feature components
 import { ChatDisclaimer, CobrowseConsent, CobrowseSession } from './features';
 
+import * as Core from './core';
+import * as Features from './features';
+import * as Screens from './screens';
+
 export {
   ChatBody,
   ChatButton,
@@ -25,4 +29,7 @@ export {
   ChatWidget,
   CobrowseConsent,
   CobrowseSession,
+  Core,
+  Features,
+  Screens,
 };

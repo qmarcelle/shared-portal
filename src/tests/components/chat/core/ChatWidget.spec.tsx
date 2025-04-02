@@ -1,7 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HttpResponse, http } from 'msw';
-import { ChatWidget } from '../../../components/chat/core/ChatWidget';
+import { ChatWidget } from '../../../../components/chat/core/ChatWidget';
+import { PlanInfo, UserEligibility } from '../../../../models/chat';
+import { useChatStore } from '../../../../utils/chatStore';
 import {
   mockAvailablePlans,
   mockChatConfig,
@@ -9,11 +11,9 @@ import {
   mockUserEligibility,
 } from '../../../mocks/chatData';
 import { server } from '../../../mocks/server';
-import { PlanInfo, UserEligibility } from '../../../models/chat';
-import { useChatStore } from '../../../utils/chatStore';
 
 // Mock the chat store
-jest.mock('../../../utils/chatStore', () => ({
+jest.mock('../../../../utils/chatStore', () => ({
   useChatStore: jest.fn(),
 }));
 
