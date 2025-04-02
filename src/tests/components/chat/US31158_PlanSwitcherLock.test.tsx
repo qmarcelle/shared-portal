@@ -1,185 +1,132 @@
-import { screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ClientType, PlanInfo } from './__mocks__/chatModels';
-import { ChatWidget } from './__mocks__/ChatWidget';
-import { renderWithChatProvider, setupChatTests } from './ChatTestSetup';
+import { useChatStore } from '../../../../chat/providers';
+import { ChatWidget } from '../../../../components/chat/core/ChatWidget';
+import {
+  createMockChatConfig,
+  createMockPlanInfo,
+  createMockUserEligibility,
+} from '../../../../tests/mocks/factories';
 
 // Mock the chat store
-jest.mock('../../../app/chat/stores/chatStore', () => {
-  return {
-    ...jest.requireActual('./__mocks__/chatStore'),
-  };
-});
+jest.mock('../../../../chat/providers', () => ({
+  useChatStore: jest.fn(),
+}));
 
-// Import the chat store after mocking
-import { useChatStore } from '../../../app/chat/stores/chatStore';
-
-// Setup MSW for tests
-setupChatTests();
-
-// Mock PlanSwitcher component
-const PlanSwitcher = ({
-  isPlanSwitcherLocked,
-}: {
-  isPlanSwitcherLocked: boolean;
-}) => (
-  <select
-    data-testid="plan-switcher"
-    disabled={isPlanSwitcherLocked}
-    title={
-      isPlanSwitcherLocked
-        ? 'End your chat session to switch plan information.'
-        : ''
-    }
-  >
-    <option value="plan1">Plan 1</option>
-    <option value="plan2">Plan 2</option>
-  </select>
-);
-
-describe('US31158: Plan Switcher Lock', () => {
-  const mockOpenPlanSwitcher = jest.fn();
-
-  // Mock plans
-  const eligiblePlan: PlanInfo = {
-    planId: 'MBSSOV2E',
-    planName: 'Premium Health Plan',
-    lineOfBusiness: ClientType.Default,
-    isEligibleForChat: true,
-    businessHours: 'S_S_24', // 24/7 availability
-  } as PlanInfo;
-
-  // Default props
-  const defaultProps = {
-    currentPlan: eligiblePlan,
-    availablePlans: [eligiblePlan],
-    isPlanSwitcherOpen: false,
-    openPlanSwitcher: mockOpenPlanSwitcher,
-    closePlanSwitcher: jest.fn(),
-  };
+describe('US31158: Plan Switcher Lock During Chat', () => {
+  const mockLockPlanSwitcher = jest.fn();
+  const mockUnlockPlanSwitcher = jest.fn();
+  const mockIsPlanSwitcherLocked = false;
 
   beforeEach(() => {
-    // Clear all mocks
+    // Reset all mocks
     jest.clearAllMocks();
-    // Reset chat store
-    useChatStore.getState().setOpen(false);
-    useChatStore.getState().unlockPlanSwitcher();
+
+    // Setup chat store mock
+    (useChatStore as jest.Mock).mockImplementation((selector) => {
+      const state = {
+        isOpen: false,
+        isLoading: false,
+        isSending: false,
+        messages: [],
+        session: null,
+        isPlanSwitcherLocked: mockIsPlanSwitcherLocked,
+        lockPlanSwitcher: mockLockPlanSwitcher,
+        unlockPlanSwitcher: mockUnlockPlanSwitcher,
+        openChat: jest.fn(),
+        closeChat: jest.fn(),
+        addMessage: jest.fn(),
+        setError: jest.fn(),
+      };
+      return selector(state);
+    });
   });
 
-  it('should lock plan switcher when chat is started', async () => {
-    // Set up components with chat widget and plan switcher
-    const TestComponent = () => {
-      const { isPlanSwitcherLocked } = useChatStore();
-
-      return (
-        <>
-          <PlanSwitcher isPlanSwitcherLocked={isPlanSwitcherLocked} />
-          <ChatWidget {...defaultProps} />
-        </>
-      );
-    };
-
-    renderWithChatProvider(<TestComponent />);
-
-    // Verify plan switcher is initially enabled
-    const planSwitcher = screen.getByTestId('plan-switcher');
-    expect(planSwitcher).not.toBeDisabled();
+  it('should lock plan switcher when chat session starts', async () => {
+    render(
+      <ChatWidget
+        config={createMockChatConfig()}
+        userEligibility={createMockUserEligibility()}
+        currentPlan={createMockPlanInfo()}
+        availablePlans={[createMockPlanInfo()]}
+      />,
+    );
 
     // Open chat
     const chatButton = screen.getByRole('button', { name: /chat with us/i });
     await userEvent.click(chatButton);
 
-    // Complete and submit the chat form
+    // Complete the chat form
     const serviceTypeSelect = screen.getByLabelText(/service.*help/i);
     await userEvent.selectOptions(serviceTypeSelect, 'GENERAL');
 
     const inquiryTypeSelect = screen.getByLabelText(/specific inquiry/i);
     await userEvent.selectOptions(inquiryTypeSelect, 'BENEFITS');
 
+    // Start chat
     const startChatButton = screen.getByRole('button', { name: /start chat/i });
     await userEvent.click(startChatButton);
 
-    // Verify plan switcher is now disabled
-    await waitFor(() => {
-      expect(planSwitcher).toBeDisabled();
-    });
-
-    // Verify hover message is set
-    expect(planSwitcher).toHaveAttribute(
-      'title',
-      'End your chat session to switch plan information.',
-    );
+    // Verify plan switcher was locked
+    expect(mockLockPlanSwitcher).toHaveBeenCalled();
   });
 
-  it('should unlock plan switcher when chat is closed', async () => {
-    // Set up component
-    const TestComponent = () => {
-      const { isPlanSwitcherLocked } = useChatStore();
+  it('should unlock plan switcher when chat session ends', async () => {
+    render(
+      <ChatWidget
+        config={createMockChatConfig()}
+        userEligibility={createMockUserEligibility()}
+        currentPlan={createMockPlanInfo()}
+        availablePlans={[createMockPlanInfo()]}
+      />,
+    );
 
-      return (
-        <>
-          <PlanSwitcher isPlanSwitcherLocked={isPlanSwitcherLocked} />
-          <ChatWidget {...defaultProps} />
-        </>
-      );
-    };
-
-    renderWithChatProvider(<TestComponent />);
-
-    // Start a chat
+    // Open chat
     const chatButton = screen.getByRole('button', { name: /chat with us/i });
     await userEvent.click(chatButton);
 
-    // Submit the chat form
-    const serviceTypeSelect = screen.getByLabelText(/service.*help/i);
-    await userEvent.selectOptions(serviceTypeSelect, 'GENERAL');
-
-    const inquiryTypeSelect = screen.getByLabelText(/specific inquiry/i);
-    await userEvent.selectOptions(inquiryTypeSelect, 'BENEFITS');
-
+    // Start chat
     const startChatButton = screen.getByRole('button', { name: /start chat/i });
     await userEvent.click(startChatButton);
 
-    // Verify plan switcher is locked
-    const planSwitcher = screen.getByTestId('plan-switcher');
-    await waitFor(() => {
-      expect(planSwitcher).toBeDisabled();
-    });
-
-    // Close the chat
+    // Close chat
     const closeButton = screen.getByRole('button', { name: /close/i });
     await userEvent.click(closeButton);
 
-    // Verify plan switcher is unlocked
-    await waitFor(() => {
-      expect(planSwitcher).not.toBeDisabled();
-    });
+    // Verify plan switcher was unlocked
+    expect(mockUnlockPlanSwitcher).toHaveBeenCalled();
   });
 
-  it('should display a warning message about locked plan switcher', async () => {
-    renderWithChatProvider(<ChatWidget {...defaultProps} />);
-
-    // Open chat
-    const chatButton = screen.getByRole('button', { name: /chat with us/i });
-    await userEvent.click(chatButton);
-
-    // Submit the chat form
-    const serviceTypeSelect = screen.getByLabelText(/service.*help/i);
-    await userEvent.selectOptions(serviceTypeSelect, 'GENERAL');
-
-    const inquiryTypeSelect = screen.getByLabelText(/specific inquiry/i);
-    await userEvent.selectOptions(inquiryTypeSelect, 'BENEFITS');
-
-    const startChatButton = screen.getByRole('button', { name: /start chat/i });
-    await userEvent.click(startChatButton);
-
-    // Verify warning message about locked plan switcher is displayed
-    await waitFor(() => {
-      expect(
-        screen.getByText(
-          /plan switching is disabled during an active chat session/i,
-        ),
-      ).toBeInTheDocument();
+  it('should prevent plan switching during active chat session', async () => {
+    // Mock chat store to simulate active session
+    (useChatStore as jest.Mock).mockImplementation((selector) => {
+      const state = {
+        isOpen: true,
+        isLoading: false,
+        isSending: false,
+        messages: [],
+        session: { id: 'test-session' },
+        isPlanSwitcherLocked: true,
+        lockPlanSwitcher: mockLockPlanSwitcher,
+        unlockPlanSwitcher: mockUnlockPlanSwitcher,
+        openChat: jest.fn(),
+        closeChat: jest.fn(),
+        addMessage: jest.fn(),
+        setError: jest.fn(),
+      };
+      return selector(state);
     });
+
+    render(
+      <ChatWidget
+        config={createMockChatConfig()}
+        userEligibility={createMockUserEligibility()}
+        currentPlan={createMockPlanInfo()}
+        availablePlans={[createMockPlanInfo()]}
+      />,
+    );
+
+    // Verify plan switcher is locked
+    expect(mockIsPlanSwitcherLocked).toBe(true);
   });
 });

@@ -1,12 +1,12 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ChatWidget } from '../../../components/chat/core/ChatWidget';
-import { mockUserEligibility } from '../../../mocks/chatData';
-import { ClientType, PlanInfo } from '../../../models/chat';
-import { useChatStore } from '../../../utils/chatStore';
+import { ChatWidget } from '../../../../components/chat/core/ChatWidget';
+import { ClientType, PlanInfo } from '../../../../models/chat';
+import { useChatStore } from '../../../../tests/mocks/chatStore';
+import { createMockUserEligibility } from '../../../../tests/mocks/factories';
 
 // Mock chat API
-jest.mock('../../../utils/chatAPI', () => ({
+jest.mock('../../../../utils/chatAPI', () => ({
   startChatSession: jest.fn().mockResolvedValue({
     sessionId: 'test-session-id',
     startTime: new Date().toISOString(),
@@ -22,7 +22,7 @@ jest.mock('../../../utils/chatAPI', () => ({
 }));
 
 // Mock GenesysChatService
-jest.mock('../../../utils/GenesysChatService', () => {
+jest.mock('../../../../utils/GenesysChatService', () => {
   return {
     GenesysChatService: jest.fn().mockImplementation(() => ({
       initialize: jest.fn().mockResolvedValue({ sessionId: 'test-session' }),
@@ -33,7 +33,7 @@ jest.mock('../../../utils/GenesysChatService', () => {
 });
 
 // Mock CobrowseService
-jest.mock('../../../utils/CobrowseService', () => {
+jest.mock('../../../../utils/CobrowseService', () => {
   return {
     CobrowseService: jest.fn().mockImplementation(() => ({
       initialize: jest.fn().mockResolvedValue({}),
@@ -76,7 +76,7 @@ describe('US31158: Plan Switcher Lock', () => {
 
   // Default props for the ChatWidget component
   const defaultProps = {
-    userEligibility: mockUserEligibility,
+    userEligibility: createMockUserEligibility(),
     config: {
       token: 'test-token',
       endPoint: 'https://api.example.com/chat',
