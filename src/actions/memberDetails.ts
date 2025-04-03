@@ -1,5 +1,7 @@
 'use server';
 
+import { getContactInfo } from '@/app/myPlan/actions/getAllPlansData';
+import { AllMyPlanData, PlanDetail } from '@/app/myPlan/model/app/myPlanData';
 import { auth } from '@/auth';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { LoggedInMember } from '@/models/app/loggedin_member';
@@ -21,6 +23,7 @@ export async function getLoggedInMember(
     const loggedUserInfo = await getLoggedInUserInfo(
       session!.user.currUsr!.plan!.memCk,
     );
+    console.log('loggedUserInfo', loggedUserInfo);
     member.userId = session?.user.id ?? '';
     member.subscriberId = loggedUserInfo.subscriberID;
     member.subscriberCk = loggedUserInfo.subscriberCK;
@@ -109,6 +112,73 @@ export async function getMemberAndDependents(
       lastName: item.lastName,
       suffix: item.memberSuffix,
       dob: item.birthDate,
+    };
+  });
+}
+
+export async function getMemberAndDependentsPlanDetails(
+  sessionData?: Session | null,
+): Promise<AllMyPlanData[]> {
+  const session = sessionData ?? (await auth());
+  const loggedInUser = await getLoggedInUserInfo(
+    session?.user.currUsr?.plan!.memCk ?? '',
+  );
+
+  const categoryFlags: { [key: string]: string } = {
+    M: 'isMedical',
+    D: 'isDental',
+    V: 'isVision',
+    S: 'isSupplemental',
+  };
+
+  const contactInfo = await getContactInfo(session?.user.currUsr?.umpi ?? '');
+
+  return loggedInUser.members.map((item) => {
+    const memberName = `${item.firstName} ${item.lastName}`;
+
+    const planDetails: PlanDetail[] = item.planDetails.map((plan) => {
+      const planDetail: PlanDetail = {
+        productCategory: plan.productCategory,
+        planID: plan.planID,
+        effectiveDate: plan.effectiveDate,
+        planStartDate: plan.planStartDate,
+        planClassID: plan.planClassID,
+        networkPlanName: plan.networkPlanName,
+        isMedical: false,
+        isDental: false,
+        isVision: false,
+        isSupplemental: false,
+      };
+
+      const flag = categoryFlags[plan.productCategory];
+      if (flag) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (planDetail as any)[flag] = true;
+      }
+      return planDetail;
+    });
+
+    const medicalPlan = planDetails.find((plan) => plan.isMedical);
+    const dentalPlan = planDetails.find((plan) => plan.isDental);
+    const visionPlan = planDetails.find((plan) => plan.isVision);
+    return {
+      memberName,
+      dob: item.birthDate,
+      planDetails,
+      medicalEffectiveDate: medicalPlan
+        ? new Date(medicalPlan.effectiveDate).toLocaleDateString()
+        : '',
+      dentalEffectiveDate: dentalPlan
+        ? new Date(dentalPlan.effectiveDate).toLocaleDateString()
+        : '',
+      visionEffectiveDate: visionPlan
+        ? new Date(visionPlan.effectiveDate).toLocaleDateString()
+        : '',
+      address: loggedInUser.addresses ? loggedInUser.addresses : [],
+      primaryPhoneNumber: contactInfo.phone,
+      secondaryPhoneNumber: 'N/A',
+      age: Number(item.birthDate),
+      mailAddressType: item.mailAddressType,
     };
   });
 }

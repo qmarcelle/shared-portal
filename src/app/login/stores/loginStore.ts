@@ -58,6 +58,8 @@ export type LoginStore = {
   userToken: string;
   emailId: string;
   forcedPasswordReset: boolean;
+  duplicateAccount: boolean;
+  userId: string;
 };
 
 export const useLoginStore = createWithEqualityFn<LoginStore>(
@@ -77,6 +79,8 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     forcedPasswordReset: false,
     inactive: false,
     emailId: '',
+    userId: '',
+    duplicateAccount: false,
     updateLoggedUser: (val: boolean) => set(() => ({ loggedUser: val })),
     updateMultipleLoginAttempts: (val: boolean) =>
       set(() => ({ multipleLoginAttempts: val })),
@@ -162,6 +166,18 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
           });
           return;
         }
+        if (resp.status == LoginStatus.DUPLICATE_ACCOUNT) {
+          set({
+            duplicateAccount: true,
+            interactionData: {
+              interactionId: resp.data?.interactionId ?? '',
+              interactionToken: resp.data?.interactionToken ?? '',
+            },
+            userId: resp.data?.userId ?? '',
+          });
+          return;
+        }
+
         // Process login response for further operations
         await get().processLogin(resp.data!);
       } catch (err) {
@@ -258,6 +274,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         forcedPasswordReset: false,
         emailUniqueness: false,
         verifyUniqueEmail: false,
+        duplicateAccount: false,
       });
       useMfaStore.setState({
         stage: MfaModeState.selection,

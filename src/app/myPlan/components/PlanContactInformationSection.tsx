@@ -31,7 +31,10 @@ export const PlanContactInformationSection = ({
       <TextBox className="body-2" text="Secondary Phone Number"></TextBox>
       <TextBox className="body-1" text={secondaryPhoneNumber}></TextBox>
       <Spacer size={32} />
-      <AppLink label="View All Plan Contact Information" />
+      <AppLink
+        label="View All Plan Contact Information"
+        url="/myPlan/planContactInformation"
+      />
     </Column>
   );
 };

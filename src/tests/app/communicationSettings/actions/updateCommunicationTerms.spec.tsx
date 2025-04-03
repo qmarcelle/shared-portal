@@ -1,9 +1,15 @@
+import { EditAlertPreferncesSection } from '@/app/communicationSettings/components/EditAlertPreferences';
 import { UpdateCommunicationTerms } from '@/app/communicationSettings/journeys/UpdateCommunicationTerms';
-import { CommunicationSettingsSaveResponse } from '@/app/communicationSettings/models/app/communicationSettingsAppData';
+import {
+  CommunicationSettingsAppData,
+  CommunicationSettingsSaveResponse,
+} from '@/app/communicationSettings/models/app/communicationSettingsAppData';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import {
   act,
@@ -74,7 +80,9 @@ describe('communication Information API Integration', () => {
   beforeEach(() => {});
   let component: RenderResult;
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     act(() => {
       dismissAppModal();
       component = renderUI();
@@ -209,5 +217,27 @@ describe('communication Information API Integration', () => {
       // Ensure changePage is not called
       expect(mockChangePage).not.toHaveBeenCalled();
     });
+  });
+  it('should show error message if api fails', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValue();
+
+    const preferenceData: CommunicationSettingsAppData = [
+      {
+        emailAddress: 'John@bcbst.com',
+        mobileNumber: '7463728472',
+        tierOneDescriptions: [{ hTexts: [], pTexts: [] }],
+      },
+    ];
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {},
+    });
+    render(<EditAlertPreferncesSection alertPreferenceData={preferenceData} />);
+    expect(
+      screen.getByText(
+        // eslint-disable-next-line quotes
+        "We're not able to load your communication settings right now. Please try again later.",
+      ),
+    ).toBeInTheDocument();
   });
 });

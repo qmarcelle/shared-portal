@@ -1,8 +1,8 @@
 'use server';
 
-import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { memberService } from '@/utils/api/memberService';
+import { getAuthToken } from '@/utils/api/getToken';
+import { logger } from '@/utils/logger';
 
 export type MemberData = {
   id: string;
@@ -16,20 +16,30 @@ export type MemberData = {
 
 export async function getLoggedInUserInfo(
   memberCk: string,
+  refresh = false,
+  userId?: string,
 ): Promise<LoggedInUserInfo> {
   try {
-    const resp = await memberService.get<LoggedInUserInfo>(
-      `/api/member/v1/members/byMemberCk/${memberCk}`,
+    logger.info('Calling LoggedIn User Info API');
+    const resp = await fetch(
+      `${process.env.PORTAL_SERVICES_URL}${process.env.MEMBERSERVICE_CONTEXT_ROOT}/api/member/v1/members/byMemberCk/${memberCk}`,
+      {
+        headers: {
+          Authorization: `Bearer ${await getAuthToken()}`,
+        },
+        cache: refresh ? 'no-store' : undefined,
+        next: {
+          revalidate: !refresh ? 1800 : undefined,
+          tags: [memberCk, ...(userId ? [userId] : [])],
+        },
+      },
     );
 
-    return resp.data;
+    const result = (await resp.json()) as LoggedInUserInfo;
+
+    return result;
   } catch (err: any) {
-    console.error('LoggedInUserInfo API error', err);
-    //TODO: Remove returning the mock response and throw error instead
-    // once we have enough test data.
-    if (err?.response?.data?.desc == 'Mocked Error') {
-      throw err;
-    }
-    return loggedInUserInfoMockResp;
+    logger.error('LoggedInUserInfo API error', err);
+    throw err;
   }
 }

@@ -1,39 +1,38 @@
 import {
   ableToLogo,
-  alightIcon,
   hingeHealthLogo,
   questSelectLogo,
   silverFitLogo,
   teladocHealthLogo,
 } from '@/components/foundation/Icons';
+import { getHingeHealthLink } from '@/visibilityEngine/computeVisibilityRules';
 import { HealthProgramDetails } from './health_program_details';
 import { HealthProgramType } from './health_program_type';
-import { getHingeHealthLink } from '@/visibilityEngine/computeVisibilityRules';
 
 export const healthProgramsandResourcesDetails: Map<
   HealthProgramType,
   HealthProgramDetails
 > = new Map([
   [
-    HealthProgramType.Alight,
+    HealthProgramType.TeladocSecondOption,
     {
-      healthProgramType: HealthProgramType.Alight,
+      healthProgramType: HealthProgramType.TeladocSecondOption,
       healthProgramHeaderDetails: {
-        title: 'Alight Second Opinion Advice & Support',
+        title: 'Teladoc Second Opinion Advice & Support',
         description:
-          'Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost.',
+          'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
         serviceDesc:
           'The first time using this service, you’ll need to create an account.',
-        buttonText: 'Use Alight',
-        icon: alightIcon,
+        buttonText: 'Use Teladoc Health',
+        icon: teladocHealthLogo,
         redirectLink: () => {
-          return process.env.NEXT_PUBLIC_ALIGHT ?? '';
+          return '';
         },
       },
       whyUseThisOptionDetails: [
-        'In-network & covered by your plan at no cost to you',
-        'Earn a $400 gift card if your doctor has suggested certain surgeries',
-        'Call, chat or email available',
+        'In-network & covered by your plan at no cost',
+        'Feel confident in the steps ahead with a clear diagnosis and/or treatment plan that’s right for you',
+        'Start your case by phone, online or on the Teladoc Health app',
       ],
       costForThisOptionDetails: [
         {
@@ -42,10 +41,10 @@ export const healthProgramsandResourcesDetails: Map<
         },
       ],
       goodForOptionDetails: [
-        'Speaking with an expert about your diagnosis',
-        'Rare or life-threatening condition support',
-        'Considering risky or complicated treatment',
-        'Compare costs of treatment or tests',
+        'Confirming a diagnosis',
+        'Deciding on a treatment plan',
+        'Getting expert guidance on a surgery',
+        'Providing answers to your questions about your diagnosis or recommended treatment',
       ],
     },
   ],

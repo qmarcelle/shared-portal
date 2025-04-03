@@ -1,6 +1,7 @@
 import SSORedirect from '@/app/sso/redirect/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
-import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
 import axios from 'axios';
@@ -54,7 +55,9 @@ const setupUI = () => {
 describe('CVSCaremark SSO', () => {
   beforeEach(() => {
     jest.resetAllMocks();
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
 
   it('Should not route to CVSCaremark SSO when drop off service is failing', async () => {
@@ -78,7 +81,6 @@ describe('CVSCaremark SSO', () => {
             lastname: 'HALL',
             personid: '902218823',
             subject: '902218823',
-            targetresource: '',
           },
           {
             headers: {
@@ -116,7 +118,6 @@ describe('CVSCaremark SSO', () => {
           lastname: 'HALL',
           personid: '902218823',
           subject: '902218823',
-          targetresource: '',
         },
         {
           headers: {

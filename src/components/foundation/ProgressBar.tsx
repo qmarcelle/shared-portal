@@ -18,6 +18,7 @@ export const ProgressBar = ({
     <div style={{ backgroundColor: backgroundColor }}>
       <div
         aria-label={ariaLabel}
+        role="img"
         style={{
           backgroundColor: progressColor,
           height: `${height}px`,

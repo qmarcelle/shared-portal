@@ -1,5 +1,7 @@
 import OtherHealthInsurancePage from '@/app/reportOtherHealthInsurance/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -130,8 +132,9 @@ const loggedinUser = {
 
 describe('OtherHealthInsurance', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedinUser });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
   });
+
   it('should render the UI correctly', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);

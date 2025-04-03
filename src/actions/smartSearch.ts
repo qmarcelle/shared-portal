@@ -2,9 +2,14 @@
 
 import { auth } from '@/auth';
 import { fusionSearchMockWithAllSet } from '@/mock/fusion_search/fusionSearchMockWithAllSets';
+import { fusionSearchResultsInquiryMockResp } from '@/mock/fusion_search/fusionSearchResultsInquiryMockResp';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { SmartSearchRequest } from '@/models/enterprise/smartSearch';
+import {
+  SmartSearchInquiryResponse,
+  SmartSearchInquiryResult,
+} from '@/models/enterprise/smartSearchInquiryResponse';
 import {
   SmartSearchResponse,
   SmartSearchSuggestionResponse,
@@ -60,5 +65,50 @@ export async function invokeSmartSearch(
     //     },
     //   };
     // }
+  }
+}
+
+/**
+ * Api called to fetch fusion search results for yje
+ * Search Results Page
+ * @param searchString The text to search
+ * @param sortBy The sorting to applied
+ * @returns SearchResults object wrapping the result items
+ */
+export async function invokeSmartSearchInquiry(
+  searchString: string,
+  sortBy = '',
+): Promise<ActionResponse<number, SmartSearchInquiryResponse>> {
+  try {
+    logger.info('Making call to SmartSearch Inquiry API');
+    const resp = await esApi.get<ESResponse<SmartSearchInquiryResult>>(
+      '/smartSearch/inquiry',
+      {
+        params: {
+          inquiry: searchString,
+          fieldList:
+            'score,id,mime_type,parent_s,fetchedDate_dt,title,highlighting,description,data_source,BCBS_SEC_FILTERS_s',
+          numberOfRows: 30,
+          cursorValue: 0,
+          qpParams: 'member',
+          apps: 'MAIN',
+          qryPipeline: 'MAIN',
+          collections: 'MAIN',
+          sortBy,
+          membersDocAllowList: '',
+        },
+      },
+    );
+
+    return {
+      status: 200,
+      data: JSON.parse(resp.data.data!.inquiryResponse),
+    };
+  } catch (err) {
+    logger.error('Smart Search Inquiry API error', err);
+    return {
+      status: 200,
+      data: fusionSearchResultsInquiryMockResp,
+    };
   }
 }

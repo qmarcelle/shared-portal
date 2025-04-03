@@ -1,0 +1,733 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanDetailsSection renders plan details correctly 1`] = `
+<div>
+  <div
+    class="card-main test-class"
+  >
+    <div
+      class="flex flex-col"
+    >
+      <h2
+        class="title-2"
+      >
+        Plan Details
+      </h2>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="card-neutral  neutral container undefined"
+      >
+        <div
+          class="flex flex-row flex flex-row align-top m-4"
+        >
+          <img
+            alt="alert"
+            class="icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+          />
+          <div
+            class="flex flex-row flex flex-col flex-grow"
+          >
+            <p
+              class="body-1"
+            >
+              There was a problem loading your information. Please try refreshing the page or returning to this page later.
+            </p>
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col"
+      >
+        <div
+          class="flex flex-col m-2 mb-10"
+        >
+          <p
+            class="body-1 id-card-error-msg"
+            style="display: block;"
+          >
+            Your ID card is not available at this time.
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-col"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
+          style="display: block;"
+        >
+          All members of your plan use the same ID card.
+        </p>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <a
+        aria-label="View More ID Card Options"
+        href="/memberIDCard"
+        style="display: block;"
+      >
+        <button
+          class="flex flex-row link-container p-0"
+          style="max-width: max-content; height: auto; display: block;"
+          tabindex="-1"
+          type="button"
+        >
+          <p
+            class="link undefined"
+          >
+            View More ID Card Options
+          </p>
+        </button>
+      </a>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
+      />
+      <div
+        class=""
+        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="card-main undefined"
+      >
+        <div
+          class="flex flex-col items-stretch"
+        >
+          <div
+            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+          >
+            <div
+              class="flex flex-row m-1 accordion-head"
+            >
+              <p
+                class="mr-2 flex-grow"
+              >
+                View Who's Covered
+              </p>
+              <img
+                alt="Up Chevron"
+                class="pl-2 w-6"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-1"
+            >
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          CHRISTMAS HALL
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 6/29/2009
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 body-1"
+                            style="display: block;"
+                          >
+                            Medical / Vision / Dental
+                          </p>
+                          <div
+                            class="flex flex-row justify-center items-end tooltip tooltipIcon relative ml-2 text-center"
+                          >
+                            <span
+                              class="tooltiptext !p-2"
+                            >
+                              <div
+                                class="flex flex-col mb-2 ml-2 mt-4"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Medical
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  1/1/2019
+                                </div>
+                              </div>
+                              <div
+                                class="flex flex-col mb-2 ml-2"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Dental
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  1/1/2019
+                                </div>
+                              </div>
+                              <div
+                                class="flex flex-col ml-2 mb-4"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Vision
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  1/1/2019
+                                </div>
+                              </div>
+                            </span>
+                            <img
+                              alt="Info"
+                              class="icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          KRISSY HALL
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 6/15/2009
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 body-1"
+                            style="display: block;"
+                          >
+                            Medical / Vision
+                          </p>
+                          <div
+                            class="flex flex-row justify-center items-end tooltip tooltipIcon relative ml-2 text-center"
+                          >
+                            <span
+                              class="tooltiptext !p-2"
+                            >
+                              <div
+                                class="flex flex-col mb-2 ml-2 mt-4"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Medical
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  1/1/2019
+                                </div>
+                              </div>
+                              <div
+                                class="flex flex-col ml-2 mb-4"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Vision
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  1/1/2019
+                                </div>
+                              </div>
+                            </span>
+                            <img
+                              alt="Info"
+                              class="icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-4"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 ml-2 font-bold body-1"
+                          style="display: block;"
+                        >
+                          CHRIS HALL
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 8/6/1959
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                        <div
+                          class=""
+                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <p
+                            class="body-1 body-1"
+                            style="display: block;"
+                          >
+                            Dental / Medical / Vision
+                          </p>
+                          <div
+                            class="flex flex-row justify-center items-end tooltip tooltipIcon relative ml-2 text-center"
+                          >
+                            <span
+                              class="tooltiptext !p-2"
+                            >
+                              <div
+                                class="flex flex-col mb-2 ml-2 mt-4"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Medical
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  1/1/2019
+                                </div>
+                              </div>
+                              <div
+                                class="flex flex-col mb-2 ml-2"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Dental
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  11/1/2017
+                                </div>
+                              </div>
+                              <div
+                                class="flex flex-col ml-2 mb-4"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Vision
+                                </div>
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  Policy effective date: 
+                                  1/1/2019
+                                </div>
+                              </div>
+                            </span>
+                            <img
+                              alt="Info"
+                              class="icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <a
+                  aria-label="View Benefits & Coverage"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container undefined"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      View Benefits & Coverage
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
+        class="card-main undefined"
+      >
+        <div
+          class="flex flex-col items-stretch"
+        >
+          <div
+            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+          >
+            <div
+              class="flex flex-row m-1 accordion-head"
+            >
+              <p
+                class="mr-2 flex-grow"
+              >
+                View Plan Contact Information
+              </p>
+              <img
+                alt="Up Chevron"
+                class="pl-2 w-6"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-1"
+            >
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-1"
+                  style="display: block;"
+                >
+                  Below is the phone number and mailing address associated with your plan.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <p
+                  class="body-1 body-2"
+                  style="display: block;"
+                >
+                  Mailing Address
+                </p>
+                <p
+                  class="body-1 body-1"
+                  style="display: block;"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-2"
+                  style="display: block;"
+                >
+                  Primary Phone Number
+                </p>
+                <p
+                  class="body-1 body-1"
+                  style="display: block;"
+                >
+                  123456789
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1 body-2"
+                  style="display: block;"
+                >
+                  Secondary Phone Number
+                </p>
+                <p
+                  class="body-1 body-1"
+                  style="display: block;"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <a
+                  aria-label="View All Plan Contact Information"
+                  href="/myPlan/planContactInformation"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container undefined"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      View All Plan Contact Information
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card-main undefined"
+      >
+        <div
+          class="flex flex-col items-stretch"
+        >
+          <div
+            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+          >
+            <div
+              class="flex flex-row m-1 accordion-head"
+            >
+              <p
+                class="mr-2 flex-grow"
+              >
+                View Plan Contact Information
+              </p>
+              <img
+                alt="Down Chevron"
+                class="pl-2 w-6"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="mr-2 flex-grow"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="card-main undefined"
+      >
+        <div
+          class="flex flex-col items-stretch"
+        >
+          <div
+            class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+          >
+            <div
+              class="flex flex-row m-1 accordion-head"
+            >
+              <p
+                class="mr-2 flex-grow"
+              >
+                View Plan Contact Information
+              </p>
+              <img
+                alt="Down Chevron"
+                class="pl-2 w-6"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="mr-2 flex-grow"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

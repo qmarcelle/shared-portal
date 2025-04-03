@@ -1,12 +1,14 @@
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 // PBE Call
-mockedAxios.get.mockResolvedValueOnce({
-  data: {
+mockedFetch.mockResolvedValueOnce(
+  fetchRespWrapper({
     data: {
       getPBEmessage: 'Person Record fetched Successfully ',
       getConsentmessage: 'Person Record fetched Successfully ',
@@ -188,8 +190,8 @@ mockedAxios.get.mockResolvedValueOnce({
         ],
       },
     },
-  },
-});
+  }),
+);
 
 // Policy Info Call
 mockedAxios.get.mockResolvedValueOnce({
@@ -245,9 +247,13 @@ describe('SiteHeader when PR is selected with one plan', () => {
     expect(screen.getByText('Alpha Beta')).toBeVisible();
 
     // PBE Called correctly
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/searchMemberLookupDetails/getPBEConsentDetails',
-      { params: { isPBERequired: true, userName: 'testUser' } },
+    expect(mockedFetch).toHaveBeenCalledWith(
+      'ES_SVC_URL/searchMemberLookupDetails/getPBEConsentDetails?userName=testUser&isPBERequired=true&isConsentRequired=true',
+      {
+        cache: undefined,
+        headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+        next: { revalidate: 1800, tags: ['testUser'] },
+      },
     );
 
     // Policy Info called

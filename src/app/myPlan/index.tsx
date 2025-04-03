@@ -15,12 +15,13 @@ import {
 } from '@/visibilityEngine/computeVisibilityRules';
 import { PayPremiumSection } from '../dashboard/components/PayPremium';
 import { ManageMyPlan } from './components/ManageMyPlan';
-import { MyPlanData } from './model/app/myPlanData';
+import { AllMyPlanData, MyPlanData } from './model/app/myPlanData';
 
 export type MyPlanProps = {
   data: MyPlanData;
+  planData: AllMyPlanData<string>[];
 };
-const MyPlan = ({ data }: MyPlanProps) => {
+const MyPlan = ({ data, planData }: MyPlanProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <WelcomeBanner
@@ -48,6 +49,7 @@ const MyPlan = ({ data }: MyPlanProps) => {
               svgData={data.idCardSvgFrontData}
               planType={data.planType}
               visibilityRules={data.visibilityRules}
+              planData={planData}
             />
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
