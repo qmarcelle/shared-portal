@@ -5,6 +5,11 @@ import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
+import {
+  condensedExperienceProfileHorizonGroups,
+  ncqaGroups,
+  wellnessProfileWellnessOnlyGroups,
+} from './groups';
 import { VisibilityRules } from './rules';
 
 const COMMERCIAL_LOB = ['REGL'];
@@ -56,16 +61,13 @@ export function computeVisibilityRules(
   computeAuthFunctions(loggedUserInfo, rules);
 
   rules.isCondensedExperienceProfileHorizon =
-    rules?.isCondensedExperience && groupId == '130430';
+    rules?.isCondensedExperience &&
+    condensedExperienceProfileHorizonGroups.includes(groupId);
 
   rules.isWellnessProfileWellnessOnly =
-    rules?.wellnessOnly && groupId == '130447';
+    rules?.wellnessOnly && wellnessProfileWellnessOnlyGroups.includes(groupId);
 
-  rules.ncqaEligible =
-    rules?.blueCare ||
-    groupId == '125000' ||
-    groupId == '155000' ||
-    groupId == '119002';
+  rules.ncqaEligible = rules?.blueCare || ncqaGroups.includes(groupId);
 
   for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
@@ -147,12 +149,9 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
 
 export function isAHAdvisorpage(
   rules: VisibilityRules | undefined,
-  groupId: string | undefined
+  groupId: string | undefined,
 ) {
-  return (
-    (rules?.active && rules?.amplifyMember) ||
-    isAHAdvisorEnabled(groupId)
-  );
+  return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
 }
 
 function isAHAdvisorEnabled(groupId: string | undefined) {
