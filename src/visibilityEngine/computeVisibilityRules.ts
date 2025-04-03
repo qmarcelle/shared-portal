@@ -7,6 +7,7 @@ import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
 import {
   condensedExperienceProfileHorizonGroups,
+  katieBeckettGroups,
   ncqaGroups,
   wellnessProfileWellnessOnlyGroups,
 } from './groups';
@@ -70,6 +71,8 @@ export function computeVisibilityRules(
     rules?.wellnessOnly && wellnessProfileWellnessOnlyGroups.includes(groupId);
 
   rules.ncqaEligible = rules?.blueCare || ncqaGroups.includes(groupId);
+
+  rules.katieBeckettEligible = katieBeckettGroups.includes(groupId);
 
   for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
@@ -515,4 +518,8 @@ export function isTaxDocument1095BRequestVisible(
   rules: VisibilityRules | undefined,
 ) {
   return rules?.prevYearMedical || rules?.prevYearFullyInsured;
+}
+
+export function isKatieBeckettEligible(rules: VisibilityRules | undefined) {
+  return rules?.katieBeckettEligible;
 }

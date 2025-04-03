@@ -12,6 +12,7 @@ import {
   isEnrollEligible,
   isHealthProgamAndResourceEligible,
   isHingeHealthEligible,
+  isKatieBeckettEligible,
   isMentalHealthMenuOption,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
@@ -312,9 +313,7 @@ export const getMenuNavigation = (
         title: 'Update Katie Beckett Banking Info',
         description: 'This is Updating Katie Beckett Banking Info',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isKatieBeckettEligible,
         url: 'myPlan/katieBeckettBankingInfo',
         external: false,
       },
