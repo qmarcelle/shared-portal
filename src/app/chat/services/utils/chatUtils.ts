@@ -154,27 +154,5 @@ export function getChatAvailabilityMessage(businessHours: string): string {
  * @returns A unique string ID
  */
 export function generateInteractionId(): string {
-  return `chat_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  return `interaction-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 }
-
-import { ChatPayload } from '../app/chat/models/session';
-import {
-  LoggedInUserInfo,
-  Member,
-} from '../models/member/api/loggedInUserInfo';
-
-export const mapUserInfoToChatPayload = (
-  userInfo: LoggedInUserInfo,
-  selectedMember: Member | null = null,
-  selectedPlanId: string | null = null,
-): ChatPayload => {
-  // Use selected member or default to first member
-  const member = selectedMember || userInfo.members[0];
-  const planId = selectedPlanId || member?.planDetails[0]?.planID || '';
-
-  return {
-    memberClientID: userInfo.subscriberID,
-    userID: userInfo.subscriberID,
-    planId: planId,
-  };
-};

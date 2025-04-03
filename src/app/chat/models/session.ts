@@ -1,5 +1,5 @@
-import { ChatMessage } from '../../app/chat/models/message';
-import { PlanInfo } from '../../app/chat/models/plans';
+import { ChatMessage } from './message';
+import { PlanInfo } from './plans';
 
 /**
  * JWT information for chat sessions
@@ -56,6 +56,7 @@ export interface ChatState {
   isOpen: boolean;
   isLoading: boolean;
   isSendingMessage: boolean;
+  error: string | null;
 
   // Messages State
   messages: ChatMessage[];
@@ -73,6 +74,7 @@ export interface ChatState {
   setSession: (session: ChatSession | null) => void;
   setLoading: (isLoading: boolean) => void;
   setSendingMessage: (isSending: boolean) => void;
+  setError: (error: string | null) => void;
   lockPlanSwitcher: () => void;
   unlockPlanSwitcher: () => void;
   reset: () => void;

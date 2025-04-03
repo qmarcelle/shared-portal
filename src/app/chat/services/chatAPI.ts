@@ -1,11 +1,10 @@
-import { CobrowseSession } from '../app/chat/models/cobrowse';
-import { ChatMessage } from '../app/chat/models/message';
 import {
+  BusinessHours,
   ChatEligibility,
+  ChatMessage,
   ChatSession,
-  ChatSessionJWT,
-} from '../app/chat/models/session';
-import { BusinessHours } from '../app/chat/models/types';
+  CobrowseSession,
+} from '../../models/chat';
 
 const API_BASE = '/api/v1/chat';
 
@@ -126,7 +125,6 @@ export async function endChatSession(sessionId: string): Promise<void> {
 export async function sendChatMessage(
   sessionId: string,
   message: string,
-  jwt?: ChatSessionJWT,
 ): Promise<ChatMessage> {
   try {
     const response = await fetch(`${API_BASE}/session/${sessionId}/message`, {
@@ -136,7 +134,6 @@ export async function sendChatMessage(
       },
       body: JSON.stringify({
         text: message,
-        jwt,
       }),
     });
 

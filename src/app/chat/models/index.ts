@@ -4,7 +4,7 @@ export type {
   CobrowseInitResponse,
   CobrowseSession,
   CobrowseSessionResponse,
-} from '../../app/chat/models/cobrowse';
+} from './cobrowse';
 
 // Make sure the ChatMessage type is consistent by defining it inline here
 export interface ChatMessage {
@@ -14,10 +14,7 @@ export interface ChatMessage {
   timestamp: Date;
 }
 
-// Export types from plans
-export * from '../../app/chat/models/plans';
-
-// Export types from session
+export * from './plans';
 export type {
   ChatEligibility,
   ChatPayload,
@@ -25,9 +22,7 @@ export type {
   ChatSessionJWT,
   ChatState,
   PlanSwitcherState,
-} from '../../app/chat/models/session';
-
-// Export types from types
+} from './session';
 export type {
   BusinessDay,
   BusinessHours,
@@ -35,4 +30,4 @@ export type {
   ChatOption,
   CobrowseState,
   UserEligibility,
-} from '../../app/chat/models/types';
+} from './types';

@@ -1,65 +1,53 @@
+import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { auth } from '@/auth';
+import { useChatStore } from '@/chat/hooks/useChatStore';
+import { mapUserInfoToChatPayload } from '@/utils/chatUtils';
 import { useEffect, useState } from 'react';
-import { PlanInfo } from '../../../models/chat';
-import { checkChatHours } from '../../../services/chat/utils/chatHours';
+import { ChatPayload } from '../models/session';
 
-interface UseChatEligibilityOptions {
-  currentPlan: PlanInfo | null;
-}
-
-interface ChatEligibilityResult {
-  isEligible: boolean;
-  isWithinHours: boolean;
-  currentPlan: PlanInfo | null;
-  reason: 'eligible' | 'plan-ineligible' | 'outside-hours' | 'no-plan';
-}
-
-/**
- * Hook to determine if chat is eligible based on the current plan and business hours
- */
-export const useChatEligibility = ({
-  currentPlan,
-}: UseChatEligibilityOptions): ChatEligibilityResult => {
-  const [eligibility, setEligibility] = useState<ChatEligibilityResult>({
-    isEligible: false,
-    isWithinHours: false,
-    currentPlan: null,
-    reason: 'no-plan',
-  });
+export const useChatEligibility = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [chatPayload, setChatPayload] = useState<ChatPayload | null>(null);
+  const { currentPlan } = useChatStore();
 
   useEffect(() => {
-    if (!currentPlan) {
-      setEligibility({
-        isEligible: false,
-        isWithinHours: false,
-        currentPlan: null,
-        reason: 'no-plan',
-      });
-      return;
-    }
+    const fetchUserInfo = async () => {
+      try {
+        setIsLoading(true);
+        const session = await auth();
+        const memberCk = session?.user.currUsr?.plan?.memCk;
 
-    // Check if the plan is eligible for chat
-    if (!currentPlan.isEligibleForChat) {
-      setEligibility({
-        isEligible: false,
-        isWithinHours: false,
-        currentPlan,
-        reason: 'plan-ineligible',
-      });
-      return;
-    }
+        if (!memberCk) {
+          throw new Error('No member CK found');
+        }
 
-    // Check if current time is within business hours
-    const isWithinHours = currentPlan.businessHours
-      ? checkChatHours(currentPlan.businessHours)
-      : true; // Default to true if no business hours specified
+        const userInfo = await getLoggedInUserInfo(memberCk);
 
-    setEligibility({
-      isEligible: isWithinHours,
-      isWithinHours,
-      currentPlan,
-      reason: isWithinHours ? 'eligible' : 'outside-hours',
-    });
-  }, [currentPlan]);
+        // Map user info to chat payload, considering selected member and plan
+        const payload = mapUserInfoToChatPayload(
+          userInfo,
+          null, // We'll get the selected member from the store if needed
+          currentPlan?.planId || null,
+        );
 
-  return eligibility;
+        setChatPayload(payload);
+        setError(null);
+      } catch (err) {
+        setError('Failed to fetch user eligibility information');
+        console.error('Error fetching user info:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUserInfo();
+  }, [currentPlan]); // Re-run when plan changes
+
+  return {
+    isLoading,
+    error,
+    chatPayload,
+    isEligible: !!chatPayload, // Consider adding more specific eligibility checks if needed
+  };
 };
