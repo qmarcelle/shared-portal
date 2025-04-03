@@ -35,13 +35,13 @@ export type DashboardProps = {
 };
 
 const MemberDashboard = ({ data }: DashboardProps) => {
-  const { visibilityRules, primaryCareProvider } = data;
+  const { memberDetails, visibilityRules, primaryCareProvider } = data;
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
         {!isBlueCareEligible(visibilityRules) &&
           !isQuantumHealthEligible(visibilityRules) &&
-          isAHAdvisorpage(visibilityRules) && (
+          isAHAdvisorpage(visibilityRules, memberDetails?.groupId) && (
             <section className="sm:flex sm:flex-row items-start">
               <AmplifyHealthAdvisorBanner />
             </section>

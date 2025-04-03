@@ -77,6 +77,9 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'isEmboldHealth',
   'diabetesManagementEligible',
   'questSelectEligible',
+  'isCondensedExperienceProfileHorizon',
+  'isWellnessProfileWellnessOnly',
+  'ncqaEligible',
   'phaMemberEligible',
 ] as const;
 
