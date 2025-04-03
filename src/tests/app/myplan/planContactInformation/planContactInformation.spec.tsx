@@ -25,7 +25,7 @@ jest.mock('src/auth', () => ({
     }),
   ),
 }));
-const mockPlanData: AllMyPlanData[] = [
+const mockPlanData: AllMyPlanData<string>[] = [
   {
     memberName: 'CHRISTMAS HALL',
     dob: '06/29/2009',
