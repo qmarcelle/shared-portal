@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { ChatMessageLoading } from '../../../app/chat/components/core/ChatMessageLoading';
 import { useChatStore } from '../../../chat/providers';
 import { AlertBar } from '../../../components/foundation/AlertBar';
 import { Button } from '../../../components/foundation/Button';
@@ -10,7 +11,6 @@ import { ChatConfig, PlanInfo, UserEligibility } from '../../../models/chat';
 import '../../../styles/chat/widget.css';
 import { sendChatMessage } from '../../../utils/chatAPI';
 import { ChatHeader } from './ChatHeader';
-import { ChatMessageLoading } from './ChatMessageLoading';
 
 /**
  * Props interface for the ChatWidget component.
@@ -50,7 +50,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
   // Using useChatStore with a selector to get only the needed state
   const {
     isLoading,
-    isSending,
+    isSendingMessage,
     messages,
     session,
     addMessage,
@@ -117,7 +117,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
         id: `user-${Date.now()}`,
         text: message,
         sender: 'user' as const,
-        timestamp: Date.now(),
+        timestamp: new Date(),
       };
       addMessage(userMessage);
 
@@ -125,7 +125,14 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
       const response = await sendChatMessage(session.id, message);
 
       // Add server response to chat
-      addMessage(response);
+      const normalizedResponse = {
+        ...response,
+        timestamp:
+          typeof response.timestamp === 'number'
+            ? new Date(response.timestamp)
+            : response.timestamp,
+      };
+      addMessage(normalizedResponse);
 
       // Clear input
       setMessage('');
@@ -241,7 +248,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
                 <span>{message.text}</span>
               </Card>
             ))}
-            {isSending && <ChatMessageLoading />}
+            {isSendingMessage && <ChatMessageLoading />}
           </div>
           <form
             onSubmit={handleSendMessage}
@@ -253,16 +260,16 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
               value={message}
               valueCallback={setMessage}
               hint="Type your message..."
-              disabled={isSending}
+              disabled={isSendingMessage}
               ref={chatInputRef}
               ariaLabel="Message input"
             />
             <Button
               type="primary"
               style="submit"
-              label={isSending ? 'Sending...' : 'Send'}
-              callback={isSending ? undefined : handleSendMessage}
-              ariaLabel={isSending ? 'Sending message' : 'Send message'}
+              label={isSendingMessage ? 'Sending...' : 'Send'}
+              callback={isSendingMessage ? undefined : handleSendMessage}
+              ariaLabel={isSendingMessage ? 'Sending message' : 'Send message'}
             />
           </form>
           <div

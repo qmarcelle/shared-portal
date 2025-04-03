@@ -19,7 +19,7 @@ jest.mock('../../../../utils/chatAPI', () => ({
     id: 'test-message-id',
     text: 'Test response',
     sender: 'agent',
-    timestamp: Date.now(),
+    timestamp: new Date(),
   }),
   endChatSession: jest.fn().mockResolvedValue({ success: true }),
 }));
@@ -54,16 +54,24 @@ describe('ChatWidget Component', () => {
     });
 
     it('should show unavailable screen when outside business hours', async () => {
-      render(
-        <TestChatWidget
-          config={createMockChatConfig({
-            businessHours: {
-              isOpen24x7: false,
-              days: [],
-            },
-          })}
-        />,
-      );
+      // Create basic config
+      const mockConfig = createMockChatConfig();
+
+      // Use a more specific type assertion to avoid linter warnings
+      const testConfig = mockConfig as unknown as ChatConfig & {
+        businessHours: {
+          isOpen24x7: boolean;
+          days: Array<{ day: string; openTime: string; closeTime: string }>;
+        };
+      };
+
+      // Override businessHours for testing
+      testConfig.businessHours = {
+        isOpen24x7: false,
+        days: [],
+      };
+
+      render(<TestChatWidget config={testConfig} />);
 
       await waitFor(() => {
         expect(

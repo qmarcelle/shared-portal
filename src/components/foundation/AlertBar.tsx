@@ -19,14 +19,19 @@ const AlertTile = ({
   label: string;
   closeCallback: (index: number) => void;
 }) => {
+  // Convert SVG components to a format compatible with next/image
+  // This uses double type assertion to safely convert SVG components
+  const alertIconSrc = AlertIcon as unknown as { src: string };
+  const closeIconSrc = CloseIcon as unknown as { src: string };
+
   return (
     <div className="flex flex-row py-1 px-2 w-full alert-tile">
       <div>
-        <Image src={AlertIcon} className="icon" alt={'AlertIcon'} />
+        <Image src={alertIconSrc.src} className="icon" alt="Alert Icon" />
       </div>
       <p className="mx-1 grow">{label}</p>
       <div onClick={() => closeCallback(index)}>
-        <Image src={CloseIcon} className="icon" alt={'CloseIcon'} />
+        <Image src={closeIconSrc.src} className="icon" alt="Close Icon" />
       </div>
     </div>
   );
