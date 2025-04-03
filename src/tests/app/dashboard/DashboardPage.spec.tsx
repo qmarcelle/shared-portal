@@ -1,5 +1,7 @@
 import DashboardPage from '@/app/dashboard/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -46,8 +48,8 @@ describe('Dashboard Page', () => {
   it('should render Welcome Banner UI correctly', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         groupData: {
           groupID: '100000',
           groupCK: '21908',
@@ -88,8 +90,8 @@ describe('Dashboard Page', () => {
             pedAdultInd: 'Adult',
           },
         ],
-      },
-    });
+      }),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         physicianId: '3118777',
@@ -157,8 +159,13 @@ describe('Dashboard Page', () => {
       },
     });
     const component = await renderUI();
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/api/member/v1/members/byMemberCk/123456789',
+    expect(mockedFetch).toHaveBeenCalledWith(
+      'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/123456789',
+      {
+        cache: undefined,
+        headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+        next: { revalidate: 1800, tags: ['123456789'] },
+      },
     );
     expect(
       screen.getByText('Plan: BlueCross BlueShield of Tennessee'),
@@ -181,8 +188,8 @@ describe('Dashboard Page', () => {
     vRules.user.vRules.payMyPremiumElig = true;
     mockAuth.mockResolvedValueOnce(vRules);
 
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         groupData: {
           groupID: '100000',
           groupCK: '21908',
@@ -223,8 +230,8 @@ describe('Dashboard Page', () => {
             pedAdultInd: 'Adult',
           },
         ],
-      },
-    });
+      }),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         physicianId: '3118777',
@@ -292,8 +299,13 @@ describe('Dashboard Page', () => {
       },
     });
     const component = await renderUI();
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/api/member/v1/members/byMemberCk/123456789',
+    expect(mockedFetch).toHaveBeenCalledWith(
+      'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/123456789',
+      {
+        cache: undefined,
+        headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+        next: { revalidate: 1800, tags: ['123456789'] },
+      },
     );
 
     expect(screen.getByText('Pay Premium')).toBeVisible();
@@ -305,8 +317,8 @@ describe('Dashboard Page', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
 
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         groupData: {
           groupID: '100000',
           groupCK: '21908',
@@ -347,8 +359,8 @@ describe('Dashboard Page', () => {
             pedAdultInd: 'Adult',
           },
         ],
-      },
-    });
+      }),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         physicianId: '3118777',
@@ -430,8 +442,8 @@ describe('Dashboard Page', () => {
     vRules.user.vRules.fsaOnly = true;
     vRules.user.vRules.isEmboldHealth = false;
     mockAuth.mockResolvedValueOnce(vRules);
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
         groupData: {
           groupID: '100000',
           groupCK: '21908',
@@ -472,8 +484,8 @@ describe('Dashboard Page', () => {
             pedAdultInd: 'Adult',
           },
         ],
-      },
-    });
+      }),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         physicianId: '3118777',

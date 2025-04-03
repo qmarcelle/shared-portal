@@ -1,3 +1,5 @@
+import { AccessStatus } from '@/models/app/getSharePlanDetails';
+
 export type PBEData = {
   getPBEmessage: string;
   getConsentmessage: string;
@@ -89,4 +91,5 @@ export type RelatedPerson = {
   relatedPersonDob: string;
   relatedPersonApprovalRequestId: string;
   relatedPersonMemeCk: string;
+  name: AccessStatus;
 };

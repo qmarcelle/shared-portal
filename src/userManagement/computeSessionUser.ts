@@ -1,5 +1,6 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { getMemberNetworkId } from '@/actions/memberNetwork';
+import { revalidateUser } from '@/actions/revalidateUser';
 import { PBEData } from '@/models/member/api/pbeData';
 import { UserProfile } from '@/models/user_profile';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
@@ -14,10 +15,12 @@ export async function computeSessionUser(
   planId?: string,
 ): Promise<SessionUser> {
   try {
+    logger.info('Calling computeSessionUser');
+    revalidateUser(userId);
     // Get the PBE of the loggedIn user
     // The loggedIn user here is the user who has logged in
     // and not the user role to which user has switched to.
-    const pbe = await getPersonBusinessEntity(userId);
+    const pbe = await getPersonBusinessEntity(userId, true, true, true);
 
     // Get the current user to which user has either switched to or
     // their actual role with the selected plan.
@@ -78,7 +81,7 @@ async function computeTokenWithPlan(
   currentUser: UserProfile,
   planId: string,
 ): Promise<SessionUser> {
-  const loggedUserInfo = await getLoggedInUserInfo(planId);
+  const loggedUserInfo = await getLoggedInUserInfo(planId, true, userId);
   const memberNetworks = await getMemberNetworkId(loggedUserInfo.networkPrefix);
   return {
     id: userId,

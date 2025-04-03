@@ -1,6 +1,7 @@
 import LaunchSSO from '@/app/sso/launch/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
-import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import axios from 'axios';
@@ -63,7 +64,9 @@ const setupUI = () => {
 describe('Blue365 SSO using Drop off API', () => {
   beforeEach(() => {
     jest.resetAllMocks();
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   it('Should route to Error Page when we click SSO Link & SDKToken is failed', async () => {
     mockGet.mockReturnValueOnce('Blue365');
@@ -120,12 +123,13 @@ describe('Blue365 SSO using Drop off API', () => {
         `${process.env.PING_ONE_BASE_URL}${process.env.NEXT_PUBLIC_ENV_ID}/davinci/policy/${process.env.DROP_OFF_POLICY_ID}/start`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {
@@ -176,12 +180,13 @@ describe('Blue365 SSO using Drop off API', () => {
         `${process.env.PING_ONE_BASE_URL}${process.env.NEXT_PUBLIC_ENV_ID}/davinci/policy/${process.env.DROP_OFF_POLICY_ID}/start`,
         {
           alphaprefix: 'QMI',
-          birthyear: '08/06/',
+          birthyear: '1959',
           firstname: 'CHRIS',
           gender: 'M',
           lastname: 'HALL',
           targetresource: '',
           zipcode: '37402',
+          subject: '',
         },
         {
           headers: {

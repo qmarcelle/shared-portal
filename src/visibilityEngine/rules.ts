@@ -73,13 +73,14 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'matureMinor',
   'isSilverFitClient',
   'medicarePrescriptionPaymentPlanEligible',
-  'isEmboldHealth',
   'teladocEligible',
+  'isEmboldHealth',
   'diabetesManagementEligible',
   'questSelectEligible',
   'isCondensedExperienceProfileHorizon',
   'isWellnessProfileWellnessOnly',
   'ncqaEligible',
+  'phaMemberEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

@@ -1,6 +1,8 @@
 import PharmacyPage from '@/app/pharmacy/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
@@ -51,6 +53,8 @@ jest.mock('fs', () => ({
 }));
 
 process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
+  'https://caremark/{DEEPLINK}?newLogin=yes';
 
 describe('Pharmacy Page', () => {
   it('should render Pharmacy page correctly', async () => {
@@ -102,7 +106,9 @@ describe('Pharmacy Page', () => {
 
     fireEvent.click(screen.getByText('View or Refill My Prescriptions'));
 
-    expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
+    expect(mockWindow).toHaveBeenCalledWith(
+      '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/refillRx?newLogin=yes',
+    );
   });
   it('should redirect to SSO launch page when we click on Get My Prescriptions by Mail card', async () => {
     vRules.user.vRules.showPharmacyTab = true;
@@ -117,15 +123,17 @@ describe('Pharmacy Page', () => {
 
     fireEvent.click(screen.getByText('Get My Prescriptions by Mail'));
 
-    expect(mockWindow).toHaveBeenCalledWith('/sso/launch?PartnerSpId=CVS');
+    expect(mockWindow).toHaveBeenCalledWith(
+      '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes',
+    );
   });
   it('should download Choice formulary correctly', async () => {
     vRules.user.vRules.showPharmacyTab = true;
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
-    mockedAxios.get.mockResolvedValueOnce({
-      data: loggedInUserInfoMockResp,
-    });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     const mockSync = jest.requireMock('fs').existsSync;
     mockSync.mockReturnValue(true);
     const component = await renderUI();

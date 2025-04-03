@@ -95,270 +95,35 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
-                  class="flex flex-row flex flex-row"
+                  class="card-main neutral container undefined"
                 >
-                  <p>
-                    Member :
-                  </p>
-                  <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                  />
                   <div
-                    class="relative"
+                    class="flex flex-row flex flex-row align-top m-4"
                   >
+                    <img
+                      alt="alert"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
                     <div
-                      class="flex flex-row link"
+                      class="flex flex-row flex flex-col flex-grow"
                     >
                       <p
-                        class="body-bold"
+                        class="body-1"
                       >
-                        ChrisBalance HALL
-                      </p>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <img
-                        alt="down icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <section
-                      class="card-elevated z-20 dropdown-section"
-                      style="display: none; position: absolute;"
-                    >
-                      <div
-                        class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
-                      >
-                        <div
-                          class="size-5 mx-2 "
-                        >
-                          <img
-                            alt="selcted"
-                            class="size-5"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </div>
-                        <div>
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            ChrisBalance HALL
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
-                      >
-                        <div
-                          class="size-5 mx-2"
-                        />
-                        <div>
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            CHRISTMAS HALL
-                          </p>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-col"
-                >
-                  <p
-                    class=" app-underline body-1"
-                  >
-                    Deductible
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class="card-main undefined"
-                    style="background-color: rgba(0, 0, 0, 0.05);"
-                  >
-                    <div
-                      class="flex flex-col m-4"
-                    >
-                      <div
-                        class="flex flex-row"
-                      >
-                        <p
-                          class="body-1 body-1"
-                          style="display: block;"
-                        >
-                          You do not have any Deductible amounts.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-col"
-                >
-                  <p
-                    class=" app-underline body-1"
-                  >
-                    Out-of-Pocket
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class="card-main undefined"
-                    style="background-color: rgba(0, 0, 0, 0.05);"
-                  >
-                    <div
-                      class="flex flex-col m-4"
-                    >
-                      <div
-                        class="flex flex-row"
-                      >
-                        <p
-                          class="body-1 body-1"
-                          style="display: block;"
-                        >
-                          You do not have any Out-of-Pocket amounts.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-col"
-                >
-                  <p
-                    class="underline decoration-dashed underline-offset-4 app-underline body-1"
-                  >
-                    Services Used
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div>
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 font-bold"
-                          style="display: block;"
-                        >
-                          $0.00
-                        </p>
-                        <p
-                          class="body-2"
-                          style="display: block;"
-                        >
-                          Used
-                        </p>
-                      </div>
-                      <p
-                        class="body-1 ml-5"
-                        style="display: block;"
-                      >
-                        $3000 Annual Maximum Basic and Major
+                        There was a problem loading your information. Please try refreshing the page or returning to this page later.
                       </p>
                     </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                  </div>
-                  <div>
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 font-bold"
-                          style="display: block;"
-                        >
-                          $0.00
-                        </p>
-                        <p
-                          class="body-2"
-                          style="display: block;"
-                        >
-                          Used
-                        </p>
-                      </div>
-                      <p
-                        class="body-1 ml-5"
-                        style="display: block;"
-                      >
-                        $3000 Ortho Lifetime Maximum
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                    <div
-                      class=""
-                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                    />
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                    />
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                  />
-                  <div
-                    class="flex flex-col"
-                  >
-                    <span
-                      class="rich-text body-2 undefined"
-                    >
-                      <span>
-                        Services Used is based on your processed items. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
-                         
-                      </span>
-                      <span
-                        class="link"
-                      >
-                        <a>
-                           start a chat 
-                        </a>
-                      </span>
-                      <span>
-                         or call us at [1-800-000-0000].
-                      </span>
-                    </span>
                   </div>
                 </div>
               </div>
@@ -383,7 +148,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                 </p>
                 <a
                   aria-label="visit EyeMed"
-                  href=""
+                  href="/sso/launch?PartnerSpId=Eyemed"
                   style="display: inline-flex;"
                 >
                   <button
@@ -459,6 +224,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                     class="flex flex-col doughnut-img mx-auto"
                   >
                     <canvas
+                      aria-hidden="true"
                       class="spendingSummaryChart"
                       height="150"
                       role="img"
@@ -837,7 +603,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                 </p>
                 <a
                   aria-label="visit EyeMed"
-                  href=""
+                  href="/sso/launch?PartnerSpId=Eyemed"
                   style="display: inline-flex;"
                 >
                   <button
@@ -913,6 +679,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                     class="flex flex-col doughnut-img mx-auto"
                   >
                     <canvas
+                      aria-hidden="true"
                       class="spendingSummaryChart"
                       height="150"
                       role="img"

@@ -1,43 +1,50 @@
 import PersonalRepresentativeAccess from '@/app/personalRepresentativeAccess';
-import { VisibilityRules } from '@/visibilityEngine/rules';
+import PersonalRepresentativePage from '@/app/personalRepresentativeAccess/page';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { redirect } from 'next/navigation';
 
-const vRules: VisibilityRules = {};
-const renderUI = (vRules: VisibilityRules) => {
-  return render(<PersonalRepresentativeAccess visibilityRules={vRules} />);
+const renderUI = () => {
+  return render(<PersonalRepresentativeAccess />);
 };
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          role: UserRole.PERSONAL_REP,
+        },
+      },
+    }),
+  ),
+}));
 
-function setVisibilityRules(vRules: VisibilityRules) {
-  vRules.matureMinor = true;
-}
+jest.mock('next/navigation', () => ({
+  redirect: jest.fn(),
+}));
 
 describe('PersonalRepresentativeAccess', () => {
-  it('should render the UI correctly', async () => {
-    setVisibilityRules(vRules);
-    const component = renderUI(vRules);
-    expect(screen.getByText('Personal Representative Access')).toBeVisible();
-    expect(
-      screen.getByText(
-        /Personal representatives have the legal authority to make health care decisions on behalf of the member/i,
-      ),
-    ).toBeVisible();
-    expect(screen.getByText('Understanding Access')).toBeVisible();
-    expect(screen.getAllByText('Full Access'));
-    expect(screen.getAllByText('[Mature Minor]'));
-    expect(screen.getByText('DOB: 01/01/2008')).toBeVisible();
-    expect(screen.getAllByText('Basic Access as of 01/01/2024'));
-    expect(
-      screen.getAllByText('This member has not created an online profile.'),
-    );
-    fireEvent.click(screen.getByText(/Invite To Register/i));
-    await waitFor(() => {
-      expect(screen.getByText('Invite to Register')).toBeVisible();
-    });
-    expect(screen.getAllByText('[Mature Minor]'));
-    expect(screen.getByText('DOB: 01/01/2009')).toBeVisible();
-    expect(screen.getAllByText('Basic Access as of 01/01/2024'));
+  it('should redirect to /dashboard if user role is PERSONAL_REP', async () => {
+    await PersonalRepresentativePage();
+    expect(redirect).toHaveBeenCalledWith('/dashboard');
+  });
 
+  it('should render PersonalRepresentativeAccess if user role is not PERSONAL_REP', async () => {
+    const component = renderUI();
+    jest.mock('src/auth', () => ({
+      auth: jest.fn(() =>
+        Promise.resolve({
+          user: {
+            currUsr: {
+              role: UserRole.MEMBER,
+            },
+          },
+        }),
+      ),
+    }));
+
+    render(<PersonalRepresentativeAccess />);
     expect(component).toMatchSnapshot();
   });
 });

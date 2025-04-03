@@ -9,6 +9,7 @@ const renderUI = (vRules: VisibilityRules) => {
       svgData={null}
       planType="BlueCare Medicaid"
       visibilityRules={vRules}
+      planData={[]}
     />,
   );
 };

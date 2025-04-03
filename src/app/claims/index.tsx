@@ -14,18 +14,18 @@ import { useMemo, useState } from 'react';
 
 /* eslint-disable */
 type ClaimsPageProps = {
-  filters: FilterItem[];
+  filters: FilterItem[] | null;
   claimsList: ClaimDetails[] | undefined;
 };
 
 const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
   const initialFilter = useMemo(() => {
-    return filters;
-  }, []);
+    return filters ?? [];
+  }, [filters]);
   const [searchText, setSearchText] = useState('');
-  const initialClaims = useMemo(() => claimsList ?? [], []);
-  const [filter, setFilter] = useState(filters);
-  const [claims, setClaims] = useState(filterClaims(filter));
+  const initialClaims = useMemo(() => claimsList ?? [], [claimsList]);
+  const [filter, setFilter] = useState<FilterItem[]>(initialFilter);
+  const [claims, setClaims] = useState(filterClaims(initialFilter));
 
   function onFilterSelect(index: number, filter: FilterItem[]) {
     setFilter(filter);

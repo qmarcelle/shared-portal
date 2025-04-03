@@ -260,6 +260,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       </div>
       <div
         class="card-elevated switch-filter absolute-dropdown min-w-[100%]  default"
+        tabindex="1"
       >
         <div>
           <div>

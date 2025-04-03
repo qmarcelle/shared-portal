@@ -83,9 +83,8 @@ export const SubNavItemSection = ({
             <>
               {colType !== 'Support' && !!tempChildPages.length && (
                 <TextBox
-                  type="title-1"
                   text={colType}
-                  className="py-2 tertiary-color font-thin !text-2xl"
+                  className="title-1 py-2 tertiary-color font-thin !text-2xl"
                 />
               )}
               {tempChildPages.map((item, index) =>

@@ -1,5 +1,7 @@
 import { auth } from '@/auth';
+import { checkPersonalRepAccess } from '@/utils/getRole';
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import { SecuritySettings } from './components/SecuritySettingsComponent';
 
 export const metadata: Metadata = {
@@ -8,8 +10,12 @@ export const metadata: Metadata = {
 
 const SecurityPage = async () => {
   const session = await auth();
-
-  return session?.user && <SecuritySettings username={session.user.id} />; //TODO this needs to check for visibility by PZN once implemented.
+  const userRole = session?.user.currUsr.role;
+  if (userRole && !checkPersonalRepAccess(userRole)) {
+    redirect('/dashboard');
+  } else {
+    return session?.user && <SecuritySettings username={session.user.id} />; //TODO this needs to check for visibility by PZN once implemented.
+  }
 };
 
 export default SecurityPage;

@@ -5,12 +5,13 @@ import { Column } from '@/components/foundation/Column';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
+  isEmboldHealthEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
   isTeladocEligible,
-  isTeledocPrimary360Eligible,
+  isTeladocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
@@ -20,6 +21,14 @@ import findCareIcon from '../../../public/assets/find_care_search.svg';
 import MentalCareIcon from '../../../public/assets/mental_health.svg';
 import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
 import { FindMedicalProvidersComponent } from '../dashboard/components/FindMedicalProvidersComponent';
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_DRUG_SEARCH_INIT,
+  CVS_PHARMACY_SEARCH_FAST,
+  EYEMED_DEEPLINK_MAP,
+  EYEMED_PROVIDER_DIRECTORY,
+  EYEMED_VISION,
+} from '../sso/ssoConstants';
 import { FindCarePillBox } from './components/FindCarePillBox';
 export type FindCareProps = {
   visibilityRules?: VisibilityRules;
@@ -38,63 +47,68 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
         </section>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <FindMedicalProvidersComponent
-              className="!mt-8"
-              isButtonHorizontal={true}
-            />
-            <FindCarePillBox
-              className="my-8  p-4"
-              // className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
-              title="Looking for care? Find a:"
-              icon={
-                <Image
-                  src={findCareIcon}
-                  className="w-[40px] h-[40px]"
-                  alt=""
-                />
-              }
-              pillObjects={[
-                {
-                  label: 'Primary Care Provider',
-                  callback: () => {
-                    console.log('Clicked Pill PCP');
+            {isEmboldHealthEligible(visibilityRules) && (
+              <FindMedicalProvidersComponent
+                className="!mt-8"
+                isButtonHorizontal={true}
+              />
+            )}
+            {!isEmboldHealthEligible(visibilityRules) && (
+              <FindCarePillBox
+                className="my-8  p-4"
+                // className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
+                title="Looking for care? Find a:"
+                icon={
+                  <Image
+                    src={findCareIcon}
+                    className="w-[40px] h-[40px]"
+                    alt=""
+                  />
+                }
+                pillObjects={[
+                  {
+                    label: 'Primary Care Provider',
+                    callback: () => {
+                      console.log('Clicked Pill PCP');
+                    },
                   },
-                },
-                {
-                  label: 'Dentist',
-                  callback: () => {
-                    console.log('Clicked Pill Dentist');
+                  {
+                    label: 'Dentist',
+                    callback: () => {
+                      console.log('Clicked Pill Dentist');
+                    },
                   },
-                },
-                {
-                  label: 'Mental Health Provider',
-                  callback: () => {
-                    console.log('Clicked Pill Mental Health Provider');
+                  {
+                    label: 'Mental Health Provider',
+                    callback: () => {
+                      console.log('Clicked Pill Mental Health Provider');
+                    },
                   },
-                },
-                {
-                  label: 'Eye Doctor',
-                  callback: () => {
-                    console.log('Clicked Pill Eye Doctor');
+                  {
+                    label: 'Eye Doctor',
+                    callback: () => {
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
+                      );
+                    },
                   },
-                },
-                {
-                  label: 'Pharmacy',
-                  callback: () => {
-                    router.push(
-                      '/sso/launch?PartnerSpId=' +
-                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
-                    );
+                  {
+                    label: 'Pharmacy',
+                    callback: () => {
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
+                      );
+                    },
                   },
-                },
-                {
-                  label: 'Virtual Care',
-                  callback: () => {
-                    console.log('Clicked Pill Virtual Care');
+                  {
+                    label: 'Virtual Care',
+                    callback: () => {
+                      console.log('Clicked Pill Virtual Care');
+                    },
                   },
-                },
-              ]}
-            />
+                ]}
+              />
+            )}
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
             <FindCarePillBox
@@ -125,15 +139,16 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   label: 'Prescription Drugs',
                   callback: () => {
                     router.push(
-                      '/sso/launch?PartnerSpId=' +
-                        process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK,
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
                     );
                   },
                 },
                 {
                   label: 'Vision',
                   callback: () => {
-                    console.log('Clicked Pill Vision');
+                    router.push(
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_VISION)!)}`,
+                    );
                   },
                 },
               ]}
@@ -178,7 +193,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
         {isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules) &&
           isNewMentalHealthSupportAbleToEligible(visibilityRules) &&
           isHingeHealthEligible(visibilityRules) &&
-          isTeledocPrimary360Eligible(visibilityRules) &&
+          isTeladocPrimary360Eligible(visibilityRules) &&
           isTeladocEligible(visibilityRules) &&
           isNurseChatEligible(visibilityRules) && (
             <section>
