@@ -7,18 +7,18 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { VisibilityRules } from '@/visibilityEngine/rules';
-import { RepresentativeAccessDetails } from '../models/representativeaccess_details';
+import { RepresentativeData } from '../models/representativeDetails';
 import { MembersRepresentativeItem } from './MembersRepresentativeItem';
 
 interface MembersRepresentedProps extends IComponent {
-  representativeAccessDetails: RepresentativeAccessDetails[];
-  isRepresentative: boolean;
+  representativesData: RepresentativeData[] | null;
+  isRepresentative: boolean | undefined;
   isRegistered: boolean;
   visibilityRules?: VisibilityRules;
 }
 
 export const MembersRepresented = ({
-  representativeAccessDetails,
+  representativesData,
   isRepresentative,
   isRegistered,
   visibilityRules,
@@ -34,7 +34,7 @@ export const MembersRepresented = ({
         )}
         <Spacer size={32} />
         <Column className="flex flex-col">
-          {representativeAccessDetails.map((item, index) => (
+          {representativesData?.map((item, index) => (
             <MembersRepresentativeItem
               key={index}
               className="mb-4"

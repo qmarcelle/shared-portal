@@ -75,7 +75,7 @@ describe('MyHealthProgramsResources', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render UI correctly for Teledoc Health Primar Card Provider Health Program', () => {
+  it('should render UI correctly for Teladoc Health Primar Card Provider Health Program', () => {
     vRules.primary360Eligible = true;
     activeAndHealthPlanMemberProfiler(vRules);
     const component = renderUI(vRules);
@@ -284,6 +284,28 @@ describe('MyHealthProgramsResources', () => {
         'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
       ),
     ).toBeNull;
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render the teladoc general and urgent card if pzn rule is true', () => {
+    vRules.teladocEligible = true;
+    const component = renderUI(vRules);
+    expect(screen.getByText('Teladoc Health General & Urgent Care'));
+    expect(
+      screen.getByText(
+        'Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.',
+      ),
+    );
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should not render the teladoc general and urgent card if pzn rule is false', () => {
+    const component = renderUI(vRules);
+    expect(
+      screen.queryByText('Teladoc Health General & Urgent Care'),
+    ).toBeNull();
 
     expect(component).toMatchSnapshot();
   });

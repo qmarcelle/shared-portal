@@ -3,7 +3,8 @@ import { CardType } from '@/app/myPlan/model/api/card_type';
 import { ExtensionType } from '@/app/myPlan/model/api/extension_type';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
+import { mockedFetch } from '@/tests/setup';
+import { createAxiosErrorForTest, fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -30,7 +31,9 @@ jest.mock('src/auth', () => ({
 
 describe('Member ID Card ', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   test('Member ID Card SVG Image Front and Back for Member Relation - M', async () => {
     mockedAxios.get.mockResolvedValue({

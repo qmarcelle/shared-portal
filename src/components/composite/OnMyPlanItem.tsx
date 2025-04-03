@@ -1,4 +1,5 @@
 import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
+import { ToolTip } from '@/components/foundation/Tooltip';
 import Image from 'next/image';
 import editIcon from '../../../public/assets/edit.svg';
 import infoIcon from '../../../public/assets/info.svg';
@@ -21,6 +22,9 @@ interface OnMyPlanItemProps extends IComponent {
   infoButton: boolean;
   requestorType?: string;
   targetType?: string;
+  medicalEffectiveDate: string;
+  dentalEffectiveDate: string;
+  visionEffectiveDate: string;
 }
 
 export const OnMyPlanItem = ({
@@ -34,6 +38,9 @@ export const OnMyPlanItem = ({
   icon = <Image src={editIcon} alt="link" />,
   requestorType,
   targetType,
+  medicalEffectiveDate,
+  dentalEffectiveDate,
+  visionEffectiveDate,
 }: OnMyPlanItemProps) => {
   const { showAppModal } = useAppModalStore();
   function getMinorContent() {
@@ -63,9 +70,34 @@ export const OnMyPlanItem = ({
           <Spacer axis="horizontal" size={8} />
           <TextBox className="body-1 " text={sharingType} />
           {infoButton && (
-            <div>
+            <ToolTip
+              showTooltip={true}
+              className="flex flex-row justify-center items-end tooltip tooltipIcon relative ml-2 text-center"
+              label={
+                <>
+                  {medicalEffectiveDate && (
+                    <Column className="mb-2 ml-2 mt-4">
+                      <Row>Medical</Row>
+                      <Row>Policy effective date: {medicalEffectiveDate}</Row>
+                    </Column>
+                  )}
+                  {dentalEffectiveDate && (
+                    <Column className="mb-2 ml-2">
+                      <Row>Dental</Row>
+                      <Row>Policy effective date: {dentalEffectiveDate}</Row>
+                    </Column>
+                  )}
+                  {visionEffectiveDate && (
+                    <Column className="ml-2 mb-4">
+                      <Row>Vision</Row>
+                      <Row>Policy effective date: {visionEffectiveDate}</Row>
+                    </Column>
+                  )}
+                </>
+              }
+            >
               <Image src={infoIcon} className="icon" alt="Info" />
-            </div>
+            </ToolTip>
           )}
         </Row>
         {!infoButton && (

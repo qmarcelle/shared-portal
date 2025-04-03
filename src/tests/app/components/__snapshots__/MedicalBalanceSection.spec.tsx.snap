@@ -31,6 +31,7 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
             >
               <div
                 class="flex flex-row link"
+                tabindex="0"
               >
                 <p
                   class="body-bold"
@@ -117,6 +118,7 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
             >
               <div
                 class="flex flex-row link"
+                tabindex="0"
               >
                 <p
                   class="body-bold"
@@ -202,7 +204,8 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
             />
             <div>
               <div
-                aria-label="bar chart"
+                aria-label="$1800 used of $2000"
+                role="img"
                 style="height: 10px; width: 90%;"
               />
             </div>
@@ -254,7 +257,8 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
             />
             <div>
               <div
-                aria-label="bar chart"
+                aria-label="$1500 used of $3000"
+                role="img"
                 style="height: 10px; width: 50%;"
               />
             </div>
@@ -342,6 +346,7 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
           >
             <div
               class="flex flex-row link"
+              tabindex="0"
             >
               <p
                 class="body-bold"
@@ -428,6 +433,7 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
           >
             <div
               class="flex flex-row link"
+              tabindex="0"
             >
               <p
                 class="body-bold"
@@ -513,7 +519,8 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
           />
           <div>
             <div
-              aria-label="bar chart"
+              aria-label="$1800 used of $2000"
+              role="img"
               style="height: 10px; width: 90%;"
             />
           </div>
@@ -565,7 +572,8 @@ exports[`MedicalBalanceSection should render the UI correctly 1`] = `
           />
           <div>
             <div
-              aria-label="bar chart"
+              aria-label="$1500 used of $3000"
+              role="img"
               style="height: 10px; width: 50%;"
             />
           </div>

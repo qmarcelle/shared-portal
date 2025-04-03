@@ -46,7 +46,10 @@ export const Balances = ({ data }: BalancePageProps) => {
               )}
 
             {isVisionEligible(data?.visibilityRules) && (
-              <VisionBalance className="large-section" linkURL="" />
+              <VisionBalance
+                className="large-section"
+                linkURL={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}`}
+              />
             )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">

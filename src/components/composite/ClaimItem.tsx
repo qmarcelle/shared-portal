@@ -29,6 +29,8 @@ export const ClaimItem = ({
     switch (claimInfo.claimStatus) {
       case 'Processed':
         return 'success';
+      case 'Paid':
+        return 'success';
       case 'Denied':
         return 'error';
       case 'Pending':

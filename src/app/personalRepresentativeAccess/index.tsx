@@ -6,17 +6,17 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 import { AuthorizationForm } from './components/AuthorizationForm';
 import { BecomeRepresentative } from './components/BecomeRepresentative';
 import { MembersRepresented } from './components/MembersRepresented';
+import { RepresentativeViewDetails } from './models/representativeDetails';
 
 export type PersonalRepresentativeAccessProps = {
-  visibilityRules?: VisibilityRules;
+  representativeDetails?: RepresentativeViewDetails;
 };
 
 const PersonalRepresentativeAccess = ({
-  visibilityRules,
+  representativeDetails,
 }: PersonalRepresentativeAccessProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
@@ -75,36 +75,23 @@ const PersonalRepresentativeAccess = ({
           <Column className="page-section-63_33 items-stretch">
             <Card className="large-section">
               <MembersRepresented
-                isRepresentative={false}
-                isRegistered={true}
-                visibilityRules={visibilityRules}
-                representativeAccessDetails={[
-                  {
-                    memberName: 'Robert Hall',
-                    DOB: '01/01/1943',
-                    isOnline: true,
-                    fullAccess: false,
-                  },
-                  {
-                    memberName: '[Mature Minor]',
-                    DOB: '01/01/2008',
-                    isOnline: false,
-                    fullAccess: true,
-                  },
-                  {
-                    memberName: '[Mature Minor]',
-                    DOB: '01/01/2009',
-                    isOnline: true,
-                    fullAccess: false,
-                  },
-                ]}
+                isRepresentative={
+                  representativeDetails?.isRepresentativeLoggedIn
+                }
+                isRegistered={
+                  representativeDetails?.representativeData ? true : false
+                }
+                visibilityRules={representativeDetails?.visibilityRules}
+                representativesData={
+                  representativeDetails?.representativeData ?? null
+                }
               />
             </Card>
 
             <AuthorizationForm
               isMatureMinor={true}
               fullAccess={true}
-              isRepresentative={true}
+              isRepresentative={representativeDetails?.isRepresentativeLoggedIn}
               linkLabel="Download Authorization Form"
             />
           </Column>

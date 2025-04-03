@@ -46,6 +46,9 @@ export const OnMyPlanComponent = ({
             infoButton={infoIcon}
             requestorType={item.requestorType}
             targetType={item.targetType}
+            medicalEffectiveDate={item.medicalEffectiveDate}
+            dentalEffectiveDate={item.dentalEffectiveDate}
+            visionEffectiveDate={item.visionEffectiveDate}
           />
         ))}
       </Column>

@@ -43,6 +43,7 @@ export const SpendingChart = ({
           data={data}
           options={Options}
           className="spendingSummaryChart"
+          aria-hidden="true"
         />
         <div className="doughnut-middle-text">
           <div className="flex flex-col justify-between pl-3 chartText ">

@@ -1,14 +1,15 @@
 import { unstable_update } from '@/auth';
 import { SideBarModal } from '@/components/foundation/SideBarModal';
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
-import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 // PBE Call
-mockedAxios.get.mockResolvedValueOnce({
-  data: {
+mockedFetch.mockResolvedValueOnce(
+  fetchRespWrapper({
     data: {
       getPBEmessage: 'Person Record fetched Successfully ',
       getConsentmessage: 'Person Record fetched Successfully ',
@@ -158,8 +159,8 @@ mockedAxios.get.mockResolvedValueOnce({
         ],
       },
     },
-  },
-});
+  }),
+);
 
 // eslint-disable-next-line no-var
 jest.mock('src/auth', () => ({
@@ -213,9 +214,13 @@ describe('Switch User from Sidebar', () => {
   it('should call the update method of NextAuth correctly to update jwt', async () => {
     expect(screen.getByText('Alpha Beta')).toBeVisible();
     expect(screen.queryByText('View Plan:')).toBeNull();
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/searchMemberLookupDetails/getPBEConsentDetails',
-      { params: { isPBERequired: true, userName: 'testUser' } },
+    expect(mockedFetch).toHaveBeenCalledWith(
+      'ES_SVC_URL/searchMemberLookupDetails/getPBEConsentDetails?userName=testUser&isPBERequired=true&isConsentRequired=true',
+      {
+        cache: undefined,
+        headers: { Authorization: 'Bearer BearerTokenMockedValue' },
+        next: { revalidate: 1800, tags: ['testUser'] },
+      },
     );
 
     fireEvent.click(screen.getByText('My Profile:'));

@@ -371,6 +371,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <a
                 aria-label="View All Health Programs & Resources"
+                href="/myHealth/healthProgramsResources"
                 style="display: block;"
               >
                 <button

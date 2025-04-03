@@ -3,12 +3,14 @@ import { ProfileInformationCard } from '@/app/profileSettings/components/Profile
 import { ProfileSettingsSection } from '@/app/profileSettings/components/ProfileSettingsSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import { ProfileSettingsAppData } from './models/app/profileSettingsAppData';
 
 export type ProfileSettingsProps = {
   data: ProfileSettingsAppData;
+  userRole: UserRole | undefined;
 };
-const ProfileSettings = ({ data }: ProfileSettingsProps) => {
+const ProfileSettings = ({ data, userRole }: ProfileSettingsProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -24,7 +26,10 @@ const ProfileSettings = ({ data }: ProfileSettingsProps) => {
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <ProfileSettingsSection visibilityRules={data.visibilityRules} />
+            <ProfileSettingsSection
+              visibilityRules={data.visibilityRules}
+              userRole={userRole}
+            />
           </Column>
         </section>
       </Column>

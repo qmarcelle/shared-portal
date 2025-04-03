@@ -1,7 +1,10 @@
 import MyHealthPage from '@/app/myHealth/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -15,8 +18,15 @@ const vRules = {
   ohdEligible: true,
   commercial: true,
   medicare: true,
+  phaMemberEligible: true,
 };
 
+function setisActiveAndNotFSAOnly(vRules: VisibilityRules) {
+  vRules.futureEffective = false;
+  vRules.fsaOnly = false;
+  vRules.terminated = false;
+  vRules.katieBeckNoBenefitsElig = false;
+}
 jest.mock('../../../auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
@@ -36,7 +46,9 @@ jest.mock('../../../auth', () => ({
 
 describe('My Health Page', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   it('should render My Health Page correctly', async () => {
     mockedAxios.get.mockResolvedValueOnce({
@@ -56,9 +68,7 @@ describe('My Health Page', () => {
       },
     });
     const component = await renderUI();
-    expect(mockedAxios.get).toHaveBeenCalledWith(
-      '/pcPhysician/123456789',
-    );
+    expect(mockedAxios.get).toHaveBeenCalledWith('/pcPhysician/123456789');
 
     expect(screen.getByText('Louthan, James D.')).toBeVisible();
     expect(screen.getByText('2033 Meadowview Ln Ste 200')).toBeVisible();
@@ -116,6 +126,40 @@ describe('My Health Page', () => {
       screen.queryByText('View All Health Programs & Resources'),
     ).not.toBeInTheDocument();
 
+    expect(component).toMatchSnapshot();
+  });
+  it('should show Member Wellness Center component if memberWellness is true', async () => {
+    vRules.phaMemberEligible = true;
+    setisActiveAndNotFSAOnly(vRules);
+    const component = await renderUI();
+    expect(
+      screen.queryByRole('heading', {
+        name: 'Member Wellness Center',
+      }),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.queryByText(
+        'Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.',
+      ),
+    ).toBeInTheDocument();
+    expect(component).toMatchSnapshot();
+  });
+  it('should not show Member Wellness Center component if memberWellness is true', async () => {
+    vRules.phaMemberEligible = false;
+    setisActiveAndNotFSAOnly(vRules);
+    const component = await renderUI();
+    expect(
+      screen.queryByRole('heading', {
+        name: 'Member Wellness Center',
+      }),
+    ).not.toBeInTheDocument();
+
+    expect(
+      screen.queryByText(
+        'Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.',
+      ),
+    ).not.toBeInTheDocument();
     expect(component).toMatchSnapshot();
   });
 });

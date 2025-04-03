@@ -169,6 +169,7 @@ exports[`Medical and Dental Balances API Failing Error Handling should call Bala
                   class="flex flex-col doughnut-img mx-auto"
                 >
                   <canvas
+                    aria-hidden="true"
                     class="spendingSummaryChart"
                     height="150"
                     role="img"

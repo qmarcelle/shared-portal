@@ -54,6 +54,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
             <div>
               <div
                 aria-label="bar chart"
+                role="img"
                 style="height: 10px; width: 70%;"
               />
             </div>
@@ -161,6 +162,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
           <div>
             <div
               aria-label="bar chart"
+              role="img"
               style="height: 10px; width: 70%;"
             />
           </div>
@@ -274,6 +276,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
           <div>
             <div
               aria-label="bar chart"
+              role="img"
               style="height: 10px; width: 70%;"
             />
           </div>
@@ -381,6 +384,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
         <div>
           <div
             aria-label="bar chart"
+            role="img"
             style="height: 10px; width: 70%;"
           />
         </div>
@@ -552,6 +556,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
             <div>
               <div
                 aria-label="bar chart"
+                role="img"
                 style="height: 10px; width: 0%;"
               />
             </div>
@@ -652,6 +657,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
           <div>
             <div
               aria-label="bar chart"
+              role="img"
               style="height: 10px; width: 0%;"
             />
           </div>
@@ -766,6 +772,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
           <div>
             <div
               aria-label="bar chart"
+              role="img"
               style="height: 10px; width: 0%;"
             />
           </div>
@@ -866,6 +873,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
         <div>
           <div
             aria-label="bar chart"
+            role="img"
             style="height: 10px; width: 0%;"
           />
         </div>
