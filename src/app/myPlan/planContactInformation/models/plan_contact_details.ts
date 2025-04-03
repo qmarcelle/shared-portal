@@ -2,6 +2,7 @@ export interface PlanContactDetails {
   name: string;
   dob: string;
   age: number;
-  phone: string;
+  primaryPhoneNumber: string;
+  secondaryPhoneNumber: string;
   address: string;
 }

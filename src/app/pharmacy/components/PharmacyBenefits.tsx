@@ -66,11 +66,11 @@ const PharmacyBenefits = ({
               type="body-1"
               className="md:!inline-flex"
               spans={[
-                <span key={0}>You can also&nbsp;</span>,
+                <span key={0}>You can also visit &nbsp;</span>,
                 <span key={1}>
                   <AppLink
                     className="link hover:!underline !flex p-0"
-                    label="visit TennCare’s site for more info"
+                    label="TennCare’s site for more info"
                     url="https://www.tn.gov/tenncare/members-applicants/pharmacy.html"
                     icon={<Image src={externalIcon} alt="external" />}
                   />

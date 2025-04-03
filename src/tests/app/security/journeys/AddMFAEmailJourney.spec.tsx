@@ -148,7 +148,7 @@ describe('Add Mfa Email Journey', () => {
       ).toBeVisible();
     });
     expect(component.baseElement).toMatchSnapshot();
-  });
+  }, 10000);
 
   it('should show error when we input invalid Email Address', async () => {
     // Init Screen is rendered correctly

@@ -4,7 +4,8 @@ import MyPlanPage from '@/app/myPlan/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
-import { createAxiosErrorForTest } from '@/tests/test_utils';
+import { mockedFetch } from '@/tests/setup';
+import { createAxiosErrorForTest, fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -43,7 +44,9 @@ jest.mock('../../../../auth', () => ({
 
 describe('ID Card SVG Image Front', () => {
   beforeEach(() => {
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   test('ID Card SVG Image Front for Member Relation - M', async () => {
     mockedAxios.get.mockResolvedValueOnce({

@@ -2083,6 +2083,7 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"
@@ -4263,6 +4264,7 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                     >
                       <div
                         class="flex flex-row link"
+                        tabindex="0"
                       >
                         <p
                           class="body-bold"

@@ -1,6 +1,8 @@
 import MyHealthPage from '@/app/myHealth/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -50,7 +52,9 @@ describe('My Health Page Integration', () => {
   beforeEach(() => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
-    mockedAxios.get.mockResolvedValueOnce({ data: loggedInUserInfoMockResp });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
   });
   it('should render Wellness Rewards with progress bar & pie chart when points & dollars are available', async () => {
     mockedAxios.post.mockResolvedValueOnce({

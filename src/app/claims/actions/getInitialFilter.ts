@@ -1,6 +1,6 @@
-import { FilterItem } from '@/models/filter_dropdown_details';
+import { FilterDetails, FilterItem } from '@/models/filter_dropdown_details';
 
-export function getInitialClaimsFilter() {
+export function getInitialClaimsFilter(claimTypes: FilterDetails[]) {
   const filterItems: FilterItem[] = [
     {
       type: 'dropdown',
@@ -27,26 +27,7 @@ export function getInitialClaimsFilter() {
           value: '0',
           id: '0',
         },
-        {
-          label: 'Medical',
-          value: 'Medical',
-          id: '2',
-        },
-        {
-          label: 'Pharmacy',
-          value: 'Pharmacy',
-          id: '3',
-        },
-        {
-          label: 'Dental',
-          value: 'Dental',
-          id: '4',
-        },
-        {
-          label: 'Vision',
-          value: 'Vision',
-          id: '5',
-        },
+        ...claimTypes,
       ],
       selectedValue: { label: 'All Types', value: '0', id: '0' },
     },

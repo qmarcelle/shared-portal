@@ -1,5 +1,8 @@
 import UpdateMyPrimaryCareProviderPage from '@/app/updateMyPrimaryCareProvider/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import SelectPCPImage from '@/public/assets/select_pcp.png';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -23,6 +26,11 @@ const renderUI = async () => {
 };
 
 describe('UpdateMyPrimaryCareProvider', () => {
+  beforeEach(() => {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
+  });
   afterEach(() => {
     jest.clearAllMocks();
   });

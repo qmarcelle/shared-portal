@@ -1,5 +1,5 @@
 export enum HealthProgramType {
-  Alight = 'Alight',
+  TeladocSecondOption = 'TeladocSecondOption',
   SilverFit = 'SilverFit',
   TeladocBP = 'TeladocBP',
   HingeHealth = 'HingeHealth',

@@ -96,11 +96,11 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
               <div
                 class="flex flex-col"
               >
-                <h1
-                  class="title-1 title-2"
+                <h2
+                  class="title-2"
                 >
                   Recent Claims
-                </h1>
+                </h2>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -415,6 +415,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                 />
                 <a
                   aria-label="View Claims"
+                  href="/claims"
                   style="display: block;"
                 >
                   <button
@@ -458,6 +459,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   >
                     <div
                       class="flex flex-row link"
+                      tabindex="0"
                     >
                       <p
                         class="body-bold"
@@ -544,6 +546,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   >
                     <div
                       class="flex flex-row link"
+                      tabindex="0"
                     >
                       <p
                         class="body-bold"
@@ -629,7 +632,8 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   />
                   <div>
                     <div
-                      aria-label="bar chart"
+                      aria-label="$1800 used of $2000"
+                      role="img"
                       style="height: 10px; width: 90%;"
                     />
                   </div>
@@ -681,7 +685,8 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   />
                   <div>
                     <div
-                      aria-label="bar chart"
+                      aria-label="$1500 used of $3000"
+                      role="img"
                       style="height: 10px; width: 50%;"
                     />
                   </div>
@@ -782,6 +787,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                     class="flex flex-col doughnut-img mx-auto"
                   >
                     <canvas
+                      aria-hidden="true"
                       class="spendingSummaryChart"
                       height="150"
                       role="img"
@@ -920,6 +926,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                 />
                 <div
                   class="card-elevated cursor-pointer"
+                  tabindex="0"
                 >
                   <div
                     class=" flex-row align-top m-4"
@@ -1019,11 +1026,11 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
               class="card-main large-section"
             >
               <div>
-                <h2
+                <h3
                   class="title-2"
                 >
                   Benefits & Coverage
-                </h2>
+                </h3>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -1098,7 +1105,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                       class="flex flex-col "
                     >
                       <img
-                        alt="Next"
+                        alt=""
                         class="icon mt-2"
                         data-nimg="1"
                         decoding="async"
@@ -1143,7 +1150,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                       class="flex flex-col "
                     >
                       <img
-                        alt="Next"
+                        alt=""
                         class="icon mt-2"
                         data-nimg="1"
                         decoding="async"
@@ -1188,7 +1195,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                       class="flex flex-col "
                     >
                       <img
-                        alt="Next"
+                        alt=""
                         class="icon mt-2"
                         data-nimg="1"
                         decoding="async"
@@ -1233,7 +1240,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                       class="flex flex-col "
                     >
                       <img
-                        alt="Next"
+                        alt=""
                         class="icon mt-2"
                         data-nimg="1"
                         decoding="async"
@@ -1278,7 +1285,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                       class="flex flex-col "
                     >
                       <img
-                        alt="Next"
+                        alt=""
                         class="icon mt-2"
                         data-nimg="1"
                         decoding="async"

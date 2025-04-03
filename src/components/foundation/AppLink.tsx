@@ -11,6 +11,7 @@ export interface LinkProps extends IComponent {
   icon?: ReactNode | null;
   displayStyle?: string;
   linkUnderline?: string;
+  target?: string;
   callback?: () => void;
 }
 
@@ -24,10 +25,16 @@ export const AppLink = ({
   linkUnderline,
   linkIndex,
   displayStyle = 'block',
+  target,
 }: LinkProps) => {
   if (type == 'default') {
     return (
-      <a style={{ display: `${displayStyle}` }} href={url} aria-label={label}>
+      <a
+        style={{ display: `${displayStyle}` }}
+        href={url}
+        aria-label={label}
+        target={target}
+      >
         <button
           onClick={callback}
           tabIndex={-1}
@@ -82,6 +89,7 @@ export const AppLink = ({
         tabIndex={linkIndex}
         href={url}
         aria-label={label}
+        target={target}
         className={`flex flex-row link-container ${className}`}
       >
         <p className={`link ${linkUnderline}`}>{label}</p>

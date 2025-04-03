@@ -66,6 +66,10 @@ const LaunchSSO = () => {
               }
             };
           }
+          ssoWindow?.addEventListener('SSOError', () => {
+            setIsError(true);
+            ssoWindow?.close();
+          });
         } catch (error) {
           console.log('catch block', error);
           setIsError(true);
@@ -76,7 +80,7 @@ const LaunchSSO = () => {
   }, [partnerId, searchParams]);
 
   return (
-    <div className="flex flex-col justify-center items-center page">
+    <main className="flex flex-col items-center page">
       <Column className="app-content app-base-font-color">
         <Link tabIndex={1} onClick={handleGoBack} href="#">
           <Image src={leftIcon} alt="back" className="inline" />
@@ -89,7 +93,7 @@ const LaunchSSO = () => {
         <Spacer size={32} />
         {!isError ? (
           <>
-            <Header className="title-1" text={`Taking you to [${sso}]`} />
+            <Header className="title-1" text={`Taking you to ${sso}`} />
             <Spacer size={16} />
             <TextBox text="We’re about to send you off to our partner’s site, if you are not automatically redirected use the link below." />
           </>
@@ -98,20 +102,21 @@ const LaunchSSO = () => {
             <Title className="title-1" text="Sorry, something went wrong." />
             <Spacer size={16} />
             <TextBox
-              text={`There was a problem connecting you to [${sso}]. Please try again using the link below or try again later.`}
+              text={`There was a problem connecting you to ${sso}. Please try again using the link below or try again later.`}
             />
           </>
         )}
         <Spacer size={16} />
         <AppLink
-          label={`Go to [${sso}]`}
+          label={`Go to ${sso}`}
+          target="_blank"
           icon={<Image src={externalIcon} alt="external" />}
           displayStyle="inline-flex"
           className="p-0"
           url={ssoUrl}
         />
       </Column>
-    </div>
+    </main>
   );
 };
 

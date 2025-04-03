@@ -97,11 +97,11 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                 <div
                   class="flex flex-col"
                 >
-                  <h1
-                    class="title-1 title-2"
+                  <h2
+                    class="title-2"
                   >
                     Recent Claims
-                  </h1>
+                  </h2>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -416,6 +416,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   />
                   <a
                     aria-label="View Claims"
+                    href="/claims"
                     style="display: block;"
                   >
                     <button
@@ -538,6 +539,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   />
                   <div
                     class="card-elevated cursor-pointer"
+                    tabindex="0"
                   >
                     <div
                       class=" flex-row align-top m-4"
@@ -637,11 +639,11 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                 class="card-main large-section"
               >
                 <div>
-                  <h2
+                  <h3
                     class="title-2"
                   >
                     Benefits & Coverage
-                  </h2>
+                  </h3>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -716,7 +718,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -761,7 +763,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -806,7 +808,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -851,7 +853,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"
@@ -896,7 +898,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                         class="flex flex-col "
                       >
                         <img
-                          alt="Next"
+                          alt=""
                           class="icon mt-2"
                           data-nimg="1"
                           decoding="async"

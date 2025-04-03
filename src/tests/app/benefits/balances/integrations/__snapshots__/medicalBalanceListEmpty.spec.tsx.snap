@@ -59,6 +59,7 @@ exports[`Medical and Dental Balances API Integration with Medical not active sho
                 >
                   <div
                     class="flex flex-row link"
+                    tabindex="0"
                   >
                     <p
                       class="body-bold"
@@ -356,6 +357,7 @@ exports[`Medical and Dental Balances API Integration with Medical not active sho
                   class="flex flex-col doughnut-img mx-auto"
                 >
                   <canvas
+                    aria-hidden="true"
                     class="spendingSummaryChart"
                     height="150"
                     role="img"
