@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1095BFormRequest Page should render 1095BFormRequest Eligible UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col flex flex-col"
+      >
+        <p
+          class="body-1 title-2"
+          style="display: block;"
+        >
+          Request a 1095-B Form
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          Please confirm the following information. If our files show that you lived in California, Maryland, New Jersey, Rhode Island, Vermont, or Washington D.C last year, you don't have to request a 1095-B. We'll mail one to you.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`1095BFormRequest Page should render 1095BFormRequest Ineligible UI correctly when member does not have medical in the previous year 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main undefined"
+    >
+      <div
+        class="flex flex-col flex flex-col"
+      >
+        <p
+          class="body-1 title-2"
+          style="display: block;"
+        >
+          Request a 1095-B Form
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          We're sorry, but we don't supply a 1095-B form for the type of coverage you have.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          If you had coverage last year through the Health Insurance Marketplace, Medicare Advantage, BlueCare or CoverKids Medicaid or CHIP, those organizations will provide your form. 
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <span
+          class="rich-text body-2 undefined"
+        >
+          <span>
+            If you have questions, talk to your employer or tax preparer. If you think we made a mistake please
+             
+          </span>
+          <span
+            class="font-bold link"
+          >
+            <a
+              href=""
+            >
+              contact us
+               
+            </a>
+          </span>
+          <span>
+            by phone, email or chat. 
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          Or write to us at:
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          BlueCross BlueShield of Tennessee
+        </p>
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          Attn: 1095-B Request
+        </p>
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          3.2 - Membership Administration
+        </p>
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          1 Cameron Hill Circle
+        </p>
+        <p
+          class="body-1 body-2"
+          style="display: block;"
+        >
+          Chattanooga, TN 37402
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;

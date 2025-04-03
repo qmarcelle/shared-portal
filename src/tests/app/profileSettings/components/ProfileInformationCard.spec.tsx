@@ -23,6 +23,7 @@ describe('ProfileInformationCard', () => {
   it('should render UI correctly with Other Profile Settings when NCQA Eligible is true', () => {
     vRules.ncqaEligible = true;
     vRules.active = true;
+    
     const component = renderUI(vRules);
 
     screen.getByText('Profile Information');
