@@ -9,6 +9,10 @@ class AuthError extends CredentialsSignin {
     "We're sorry, we weren't able to authenticate your account due to an unknown error. Please try again later."; //eslint-disable-line quotes
 }
 
+const JWT_EXPIRY: number = parseInt(
+  process.env.JWT_SESSION_EXPIRY_SECONDS || '1800',
+);
+
 /**
  * This NextAuth provider does NOT process authentication!
  * Credentials checks and MFA are handled by server actions prior to this step.
@@ -38,4 +42,21 @@ export default {
       },
     }),
   ],
+  session: {
+    strategy: 'jwt',
+    maxAge: JWT_EXPIRY,
+  },
+  jwt: {
+    maxAge: JWT_EXPIRY,
+  },
+  cookies: {
+    sessionToken: {
+      name: 'BCBSTMemberSessionToken',
+      options: {
+        maxAge: JWT_EXPIRY,
+        secure: true,
+        httpOnly: true,
+      },
+    },
+  },
 } satisfies NextAuthConfig;
