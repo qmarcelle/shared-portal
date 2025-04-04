@@ -1,14 +1,16 @@
 import React from 'react';
-import { useChatStore } from '../../../chat/providers';
 
-export const ChatHeader: React.FC = () => {
-  const closeChat = useChatStore((state) => state.closeChat);
+interface ChatHeaderProps {
+  title: string;
+  onClose: () => void;
+}
 
+export const ChatHeader: React.FC<ChatHeaderProps> = ({ title, onClose }) => {
   return (
     <div className="chat-header" role="banner">
-      <h2>Chat Support</h2>
+      <h2>{title}</h2>
       <button
-        onClick={closeChat}
+        onClick={onClose}
         className="close-button"
         aria-label="Close chat"
       >

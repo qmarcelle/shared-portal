@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { PlanInfo } from '../../../models/chat';
+import { ChatPlan } from '../models/types';
 import { useChatStore } from '../stores/chatStore';
 
 interface UsePlanSwitcherOptions {
   currentPlan: PlanInfo | null;
   availablePlans: PlanInfo[];
-  isPlanSwitcherOpen: boolean;
   openPlanSwitcher: () => void;
-  closePlanSwitcher: () => void;
 }
 
 interface PlanSwitcherResult {
@@ -24,9 +23,7 @@ interface PlanSwitcherResult {
 export const usePlanSwitcher = ({
   currentPlan,
   availablePlans,
-  isPlanSwitcherOpen,
   openPlanSwitcher,
-  closePlanSwitcher,
 }: UsePlanSwitcherOptions): PlanSwitcherResult => {
   const {
     isOpen: isChatOpen,
@@ -34,15 +31,29 @@ export const usePlanSwitcher = ({
     isPlanSwitcherLocked,
     lockPlanSwitcher,
     unlockPlanSwitcher,
-    updateCurrentPlan,
+    setCurrentPlan,
   } = useChatStore();
 
   // Update current plan in chat store when it changes
   useEffect(() => {
     if (currentPlan) {
-      updateCurrentPlan(currentPlan);
+      const chatPlan: ChatPlan = {
+        id: currentPlan.planId,
+        name: currentPlan.planName,
+        isChatEligible: currentPlan.isEligibleForChat,
+        lineOfBusiness: currentPlan.lineOfBusiness,
+        businessHours: {
+          isOpen24x7: false,
+          days: [],
+          timezone: 'America/New_York',
+          isCurrentlyOpen: false,
+        },
+        termsAndConditions: '',
+        isActive: true,
+      };
+      setCurrentPlan(chatPlan);
     }
-  }, [currentPlan, updateCurrentPlan]);
+  }, [currentPlan, setCurrentPlan]);
 
   // Lock plan switcher when chat is open with messages
   useEffect(() => {
@@ -61,7 +72,7 @@ export const usePlanSwitcher = ({
     }
 
     // Close the chat widget and open the plan switcher
-    useChatStore.getState().setOpen(false);
+    useChatStore.getState().closeChat();
     openPlanSwitcher();
   };
 

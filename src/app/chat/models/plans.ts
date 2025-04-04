@@ -60,3 +60,11 @@ export interface UserPlan {
   isEligibleForChat: boolean;
   membershipNumber?: string;
 }
+
+export interface PlanSwitcherState {
+  isPlanSwitcherLocked: boolean;
+  currentPlan: PlanInfo | null;
+  lockPlanSwitcher: () => void;
+  unlockPlanSwitcher: () => void;
+  updateCurrentPlan: (plan: PlanInfo) => void;
+}

@@ -1,4 +1,4 @@
-import { BusinessHours } from '../../../models/chat';
+import { BusinessHours } from '../../models/types';
 
 // Mapping of day names to numeric day of week (0 = Sunday, 1 = Monday, etc.)
 const DAY_MAP: Record<string, number> = {
@@ -87,6 +87,10 @@ export function parseLegacyChatHours(chatHoursStr: string): BusinessHours {
     return {
       isOpen24x7: false,
       days: [],
+      timezone: 'America/New_York',
+      isCurrentlyOpen: false,
+      lastUpdated: Date.now(),
+      source: 'api',
     };
   }
 
@@ -95,6 +99,10 @@ export function parseLegacyChatHours(chatHoursStr: string): BusinessHours {
     return {
       isOpen24x7: true,
       days: [],
+      timezone: 'America/New_York',
+      isCurrentlyOpen: false,
+      lastUpdated: Date.now(),
+      source: 'api',
     };
   }
 
@@ -105,6 +113,10 @@ export function parseLegacyChatHours(chatHoursStr: string): BusinessHours {
     return {
       isOpen24x7: false,
       days: [],
+      timezone: 'America/New_York',
+      isCurrentlyOpen: false,
+      lastUpdated: Date.now(),
+      source: 'api',
     };
   }
 
@@ -138,6 +150,7 @@ export function parseLegacyChatHours(chatHoursStr: string): BusinessHours {
         day: getDayNameFromIndex(currentDayIndex),
         openTime: `${startHour24.toString().padStart(2, '0')}:00`,
         closeTime: `${endHour24.toString().padStart(2, '0')}:00`,
+        isOpen: true,
       });
 
       // Move to next day (with wrap-around)
@@ -148,6 +161,10 @@ export function parseLegacyChatHours(chatHoursStr: string): BusinessHours {
   return {
     isOpen24x7: false,
     days,
+    timezone: 'America/New_York',
+    isCurrentlyOpen: false,
+    lastUpdated: Date.now(),
+    source: 'api',
   };
 }
 

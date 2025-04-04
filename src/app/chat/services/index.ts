@@ -1,9 +1,10 @@
-// Base services
+// Core Services
 export { ChatService } from './ChatService';
 export { CobrowseService } from './CobrowseService';
 export { GenesysChatService } from './GenesysChatService';
+export { PlanService } from './PlanService';
 
-// API functions
+// API Functions
 export {
   checkChatEligibility,
   endChatSession,
@@ -14,17 +15,10 @@ export {
   startCobrowseSession,
 } from './chatAPI';
 
-// Utility functions
+// Utility Functions
 export {
-  checkChatHours,
-  formatLegacyChatHours,
-  getBusinessHoursMessage,
-  parseLegacyChatHours,
-} from './utils/chatHours';
-
-export {
-  formatBusinessHours as formatLegacyBusinessHours,
+  formatBusinessHours,
   generateInteractionId,
-  getChatAvailabilityMessage,
-  interpretWorkingHours,
-} from './utils/chatUtils';
+  isWithinBusinessHours,
+  parseBusinessHours,
+} from '../utils/chatUtils';
