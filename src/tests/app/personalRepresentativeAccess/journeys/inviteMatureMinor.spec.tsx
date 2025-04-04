@@ -1,47 +1,59 @@
 import PersonalRepresentativePage from '@/app/personalRepresentativeAccess/page';
+import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
+import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-const renderUI = async () => {
-  const page = await PersonalRepresentativePage();
-  return render(page);
-};
-
-const vRules = {
-  user: {
-    currUsr: {
-      firstName: 'Chris',
-      role: UserRole.MEMBER,
-      plan: {
-        planName: 'BlueCross BlueShield of Tennessee',
-        subId: '123456',
-        grpId: '100000',
-        memCk: '147235702',
-        coverageType: ['Medical', 'Dental', 'Vision'],
-      },
-    },
-    vRules: {},
-  },
-};
 jest.mock('src/auth', () => ({
-  auth: jest.fn(),
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        id: 'testUser',
+        currUsr: {
+          umpi: '65d4458442db105635427958',
+          role: UserRole.PERSONAL_REP,
+          plan: {
+            planName: 'BlueCross BlueShield of Tennessee',
+            subId: '123456',
+            grpId: '100000',
+            memCk: '',
+            coverageType: ['Medical', 'Dental', 'Vision'],
+          },
+        },
+        vRules: {},
+      },
+    }),
+  ),
 }));
+
 jest.mock('src/utils/date_formatter', () => ({
   formatDateToLocale: jest.fn(),
 }));
 
-describe('Personal Representative Access Page', () => {
-  it('should show personal representatives associated to slected plan for a loggedin user', async () => {
-    const mockAuth = jest.requireMock('src/auth').auth;
-    mockAuth.mockResolvedValue(vRules);
+const renderUI = async () => {
+  const component = await PersonalRepresentativePage();
+  const { container } = render(
+    <>
+      <AppModal />
+      {component}
+    </>,
+  );
+
+  return container;
+};
+describe('Inviting Mature Minor to regsiter online', () => {
+  beforeEach(() => {
     const mockFormatDate = jest.requireMock(
       'src/utils/date_formatter',
     ).formatDateToLocale;
-    mockFormatDate.mockReturnValueOnce('07/19/1964');
-
+    mockFormatDate.mockReturnValueOnce('01/18/1985');
+    const { dismissModal } = useAppModalStore.getState();
+    dismissModal();
+  });
+  it('should show member details and Invite', async () => {
     mockedFetch.mockResolvedValueOnce(
       fetchRespWrapper({
         data: {
@@ -84,12 +96,13 @@ describe('Personal Representative Access Page', () => {
                   relatedPersons: [
                     {
                       relatedPersonUMPID: '57c85test3ebd23c7db88244',
-                      relatedPersonFirstName: 'Raphel',
+                      relatedPersonFirstName: 'Rafusal',
                       relatedPersonLastName: 'Claud',
                       relatedPersonMiddleName: 'S',
                       relatedPersonSuffix: 'Mr.',
                       relatedPersonNativeId: '38922455200-100000',
-                      relatedPersonFHIRID: '',
+                      relatedPersonFHIRID:
+                        'ddd94652-d077-454d-b252-bcb7c24e1de5',
                       relatedPersonPatientFHIRID: '',
                       relatedPersonRelationshipTermDate:
                         '2030-11-30T00:00:00.0000000+00:00',
@@ -105,7 +118,8 @@ describe('Personal Representative Access Page', () => {
                       relatedPersonMiddleName: 'S',
                       relatedPersonSuffix: 'Mr.',
                       relatedPersonNativeId: '38922455200-100000',
-                      relatedPersonFHIRID: '',
+                      relatedPersonFHIRID:
+                        'ddd94652-d077-454d-b252-bcb7c24e1de5',
                       relatedPersonPatientFHIRID: '',
                       relatedPersonRelationshipTermDate:
                         '2030-11-30T00:00:00.0000000+00:00',
@@ -113,38 +127,6 @@ describe('Personal Representative Access Page', () => {
                       relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
                       relatedPersonApprovalRequestId: '',
                       relatedPersonMemeCk: '846239401',
-                    },
-                  ],
-                },
-                {
-                  personRoleType: 'Dependent',
-                  org: 'bcbst_facets',
-                  roleTermDate: '2030-11-30T00:00:00.0000000+00:00',
-                  nativeId: '38922455201-100000',
-                  primaryPlanFlag: false,
-                  patientFHIRID: '30345928-abcd-ef01-2345-6789abcdef52',
-                  userName: 'Testuser553',
-                  memeCk: '147235702',
-                  clientId: '194',
-                  multiPlanConfirmed: false,
-                  multiPlanConfirmedDate: '2030-11-30T00:00:00.0000000+00:00',
-                  approvalRequestId: '38922455201-1123456787',
-                  relatedPersons: [
-                    {
-                      relatedPersonUMPID: '57c85test3ebd23c7db88244',
-                      relatedPersonFirstName: 'Chris',
-                      relatedPersonLastName: 'Hall',
-                      relatedPersonMiddleName: 'S',
-                      relatedPersonSuffix: 'Mr.',
-                      relatedPersonNativeId: '38922455200-100000',
-                      relatedPersonFHIRID: '',
-                      relatedPersonPatientFHIRID: '',
-                      relatedPersonRelationshipTermDate:
-                        '2030-11-30T00:00:00.0000000+00:00',
-                      relatedPersonRoleType: 'PR',
-                      relatedPersonDob: '1964-07-20',
-                      relatedPersonApprovalRequestId: '',
-                      relatedPersonMemeCk: '6765454',
                     },
                   ],
                 },
@@ -211,17 +193,48 @@ describe('Personal Representative Access Page', () => {
         },
       }),
     );
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        data: {
+          isEmailSent: 'true',
+        },
+      },
+    });
+
     const component = await renderUI();
 
-    expect(screen.getByText('Personal Representative Access')).toBeVisible();
-    expect(
-      screen.getByText(
-        /Personal representatives have the legal authority to make health care decisions on behalf of the member/i,
-      ),
-    ).toBeVisible();
+    // eslint-disable-next-line prettier/prettier
     expect(screen.getByText('Understanding Access')).toBeVisible();
-    expect(screen.getByText('Your Representative(s)')).toBeVisible();
-    expect(screen.getByText('Chris Hall')).toBeVisible();
+    expect(screen.getByText('Members You Represent')).toBeVisible();
+    expect(screen.getByText('Rafusal Claud')).toBeVisible();
+    fireEvent.click(screen.getByText('Invite to Register'));
+    expect(
+      screen.getByRole('heading', { name: 'Invite to Register' }),
+    ).toBeVisible();
+
+    const inputEmail = screen.getAllByRole('textbox', {
+      name: /Their Email Address/i,
+    })[0];
+    const inputConfirmationEmail = screen.getByRole('textbox', {
+      name: /Confirm Their Email Address/i,
+    });
+    fireEvent.change(inputEmail, { target: { value: 'testuser@bcbst.com' } });
+    fireEvent.change(inputConfirmationEmail, {
+      target: { value: 'testuser@bcbst.com' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Send Invite/i }));
+    await waitFor(() => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        '/userRegistration/sharePermission/sendInvite?memeck=502622001&requesteeFHRID=ddd94652-d077-454d-b252-bcb7c24e1de5&requesteeEmailID=testuser@bcbst.com&requestType=Invite',
+      );
+    });
+    await waitFor(() => {
+      expect(
+        screen.getByRole('heading', { name: 'Invitation to Register Sent' }),
+      ).toBeVisible();
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Done/i }));
+    expect(screen.getByText('Pending...')).toBeVisible();
     expect(component).toMatchSnapshot();
   });
 });

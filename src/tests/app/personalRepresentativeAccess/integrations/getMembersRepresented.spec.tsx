@@ -14,34 +14,34 @@ const vRules = {
   user: {
     currUsr: {
       firstName: 'Chris',
-      role: UserRole.MEMBER,
+      role: UserRole.PERSONAL_REP,
       plan: {
         planName: 'BlueCross BlueShield of Tennessee',
         subId: '123456',
         grpId: '100000',
-        memCk: '147235702',
+        memCk: '',
         coverageType: ['Medical', 'Dental', 'Vision'],
       },
     },
     vRules: {},
   },
 };
+
 jest.mock('src/auth', () => ({
   auth: jest.fn(),
 }));
+
 jest.mock('src/utils/date_formatter', () => ({
   formatDateToLocale: jest.fn(),
 }));
 
 describe('Personal Representative Access Page', () => {
-  it('should show personal representatives associated to slected plan for a loggedin user', async () => {
+  it('should show members represented', async () => {
     const mockAuth = jest.requireMock('src/auth').auth;
-    mockAuth.mockResolvedValue(vRules);
     const mockFormatDate = jest.requireMock(
       'src/utils/date_formatter',
     ).formatDateToLocale;
-    mockFormatDate.mockReturnValueOnce('07/19/1964');
-
+    mockFormatDate.mockReturnValueOnce('11/30/1965');
     mockedFetch.mockResolvedValueOnce(
       fetchRespWrapper({
         data: {
@@ -84,7 +84,7 @@ describe('Personal Representative Access Page', () => {
                   relatedPersons: [
                     {
                       relatedPersonUMPID: '57c85test3ebd23c7db88244',
-                      relatedPersonFirstName: 'Raphel',
+                      relatedPersonFirstName: 'Rafusal',
                       relatedPersonLastName: 'Claud',
                       relatedPersonMiddleName: 'S',
                       relatedPersonSuffix: 'Mr.',
@@ -145,6 +145,54 @@ describe('Personal Representative Access Page', () => {
                       relatedPersonDob: '1964-07-20',
                       relatedPersonApprovalRequestId: '',
                       relatedPersonMemeCk: '6765454',
+                    },
+                  ],
+                },
+                {
+                  personRoleType: 'PR',
+                  org: 'bcbst_facets',
+                  roleTermDate: '2030-11-30T00:00:00.0000000+00:00',
+                  nativeId: '38922455201-100000',
+                  primaryPlanFlag: false,
+                  patientFHIRID: '30345928-abcd-ef01-2345-6789abcdef52',
+                  userName: 'Testuser553',
+                  memeCk: '3349138',
+                  clientId: '194',
+                  multiPlanConfirmed: false,
+                  multiPlanConfirmedDate: '2030-11-30T00:00:00.0000000+00:00',
+                  approvalRequestId: '38922455201-1123456787',
+                  relatedPersons: [
+                    {
+                      relatedPersonUMPID: '57c85test3ebd23c7db88244',
+                      relatedPersonFirstName: 'Chris',
+                      relatedPersonLastName: 'Claud',
+                      relatedPersonMiddleName: 'S',
+                      relatedPersonSuffix: 'Mr.',
+                      relatedPersonNativeId: '38922455200-100000',
+                      relatedPersonFHIRID: '',
+                      relatedPersonPatientFHIRID: '',
+                      relatedPersonRelationshipTermDate:
+                        '2030-11-30T00:00:00.0000000+00:00',
+                      relatedPersonRoleType: 'Subscriber',
+                      relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
+                      relatedPersonApprovalRequestId: '',
+                      relatedPersonMemeCk: '502622001',
+                    },
+                    {
+                      relatedPersonUMPID: '57c85test3ebd23c7db88244',
+                      relatedPersonFirstName: 'Chris',
+                      relatedPersonLastName: 'Claud',
+                      relatedPersonMiddleName: 'S',
+                      relatedPersonSuffix: 'Mr.',
+                      relatedPersonNativeId: '38922455200-100000',
+                      relatedPersonFHIRID: '',
+                      relatedPersonPatientFHIRID: '',
+                      relatedPersonRelationshipTermDate:
+                        '2030-11-30T00:00:00.0000000+00:00',
+                      relatedPersonRoleType: 'Subscriber',
+                      relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
+                      relatedPersonApprovalRequestId: '',
+                      relatedPersonMemeCk: '846239401',
                     },
                   ],
                 },
@@ -211,8 +259,8 @@ describe('Personal Representative Access Page', () => {
         },
       }),
     );
+    mockAuth.mockResolvedValueOnce(vRules);
     const component = await renderUI();
-
     expect(screen.getByText('Personal Representative Access')).toBeVisible();
     expect(
       screen.getByText(
@@ -220,8 +268,10 @@ describe('Personal Representative Access Page', () => {
       ),
     ).toBeVisible();
     expect(screen.getByText('Understanding Access')).toBeVisible();
-    expect(screen.getByText('Your Representative(s)')).toBeVisible();
-    expect(screen.getByText('Chris Hall')).toBeVisible();
+    expect(screen.getByText('Members You Represent')).toBeVisible();
+    expect(screen.getByText('Rafusal Claud')).toBeVisible();
+    expect(screen.getByText('Chris Claud')).toBeVisible();
+    expect(screen.queryByText('Chris Hall')).not.toBeInTheDocument();
     expect(component).toMatchSnapshot();
   });
 });
