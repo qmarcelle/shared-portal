@@ -25,7 +25,7 @@ jest.mock('src/auth', () => ({
     }),
   ),
 }));
-const mockPlanData: AllMyPlanData[] = [
+const mockPlanData: AllMyPlanData<string>[] = [
   {
     memberName: 'CHRISTMAS HALL',
     dob: '06/29/2009',
@@ -224,7 +224,7 @@ describe('PlanDetailsSection', () => {
 
     fireEvent.click(screen.getByText(/View Who's Covered/i));
 
-    expect(screen.getByText('CHRISTMAS HALL')).toBeInTheDocument();
+    expect(screen.getByText('Christmas Hall')).toBeInTheDocument();
     expect(screen.getByText('DOB: 6/29/2009')).toBeInTheDocument();
     const contactInfo = screen.queryAllByText(/View Plan Contact Information/i);
     fireEvent.click(contactInfo[0]);

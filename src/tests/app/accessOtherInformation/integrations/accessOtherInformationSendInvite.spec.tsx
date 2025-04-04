@@ -270,8 +270,8 @@ describe('Send Access Invite - Access Other Information', () => {
     const container = await renderUI();
 
     // eslint-disable-next-line prettier/prettier
-    expect(screen.getByText('Access Others\' Information')).toBeVisible();
-    expect(screen.getByText('JESSICA MEYER')).toBeVisible();
+    expect(screen.getByText(/Access Others' Information/i)).toBeVisible();
+    expect(screen.getByText('Jessica Meyer')).toBeVisible();
     fireEvent.click(screen.getByText('Update'));
     expect(
       screen.getByRole('heading', { name: 'Request Access' }),
@@ -493,8 +493,8 @@ describe('Send Access Invite - Access Other Information', () => {
     });
     const container = await renderUI();
     // eslint-disable-next-line prettier/prettier
-    expect(screen.getByText('Access Others\' Information')).toBeVisible();
-    expect(screen.getByText('JESSICA MEYER')).toBeVisible();
+    expect(screen.getByText(/Access Others' Information/i)).toBeVisible();
+    expect(screen.getByText('Jessica Meyer')).toBeVisible();
     fireEvent.click(screen.getByText('Update'));
     expect(
       screen.getByRole('heading', { name: 'Request Access' }),
@@ -715,8 +715,8 @@ describe('Send Access Invite - Access Other Information', () => {
     );
     const container = await renderUI();
     // eslint-disable-next-line prettier/prettier
-    expect(screen.getByText('Access Others\' Information')).toBeVisible();  
-    expect(screen.getByText('JESSICA MEYER')).toBeVisible();
+    expect(screen.getByText(/Access Others' Information/i)).toBeVisible();
+    expect(screen.getByText('Jessica Meyer')).toBeVisible();
     fireEvent.click(screen.getByText('Update'));
     expect(
       screen.getByRole('heading', { name: 'Request Access' }),
