@@ -1,88 +1,60 @@
-import { useEffect } from 'react';
-import { PlanInfo } from '../../../models/chat';
-import { ChatPlan } from '../models/types';
-import { useChatStore } from '../stores/chatStore';
+import { useCallback, useEffect, useState } from 'react';
+import { PlanService } from '../services';
+import { ChatPlan, ChatPlanStatus } from '../types';
 
-interface UsePlanSwitcherOptions {
-  currentPlan: PlanInfo | null;
-  availablePlans: PlanInfo[];
-  openPlanSwitcher: () => void;
-}
+export const usePlanSwitcher = () => {
+  const [plans, setPlans] = useState<ChatPlan[]>([]);
+  const [selectedPlan, setSelectedPlan] = useState<ChatPlan | null>(null);
+  const [status, setStatus] = useState<ChatPlanStatus>('idle');
+  const [error, setError] = useState<string | null>(null);
 
-interface PlanSwitcherResult {
-  isPlanSwitcherLocked: boolean;
-  showSwitchPlanOption: boolean;
-  handleSwitchPlan: () => void;
-  currentPlanName: string | null;
-  displayPlanInfo: boolean;
-}
+  const fetchPlans = useCallback(async () => {
+    try {
+      setStatus('loading');
+      const availablePlans = await PlanService.getAvailablePlans();
+      setPlans(availablePlans);
+      setStatus('success');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch plans');
+      setStatus('error');
+    }
+  }, []);
 
-/**
- * Hook to handle integration between chat widget and plan switcher
- */
-export const usePlanSwitcher = ({
-  currentPlan,
-  availablePlans,
-  openPlanSwitcher,
-}: UsePlanSwitcherOptions): PlanSwitcherResult => {
-  const {
-    isOpen: isChatOpen,
-    messages,
-    isPlanSwitcherLocked,
-    lockPlanSwitcher,
-    unlockPlanSwitcher,
-    setCurrentPlan,
-  } = useChatStore();
+  const switchPlan = useCallback(
+    async (planId: string) => {
+      try {
+        setStatus('switching');
+        await PlanService.switchPlan(planId);
+        const newPlan = plans.find((p) => p.id === planId);
+        setSelectedPlan(newPlan || null);
+        setStatus('success');
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to switch plan');
+        setStatus('error');
+      }
+    },
+    [plans],
+  );
 
-  // Update current plan in chat store when it changes
+  const validatePlanEligibility = useCallback(async (planId: string) => {
+    try {
+      return await PlanService.validatePlanEligibility(planId);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to validate plan');
+      return false;
+    }
+  }, []);
+
   useEffect(() => {
-    if (currentPlan) {
-      const chatPlan: ChatPlan = {
-        id: currentPlan.planId,
-        name: currentPlan.planName,
-        isChatEligible: currentPlan.isEligibleForChat,
-        lineOfBusiness: currentPlan.lineOfBusiness,
-        businessHours: {
-          isOpen24x7: false,
-          days: [],
-          timezone: 'America/New_York',
-          isCurrentlyOpen: false,
-        },
-        termsAndConditions: '',
-        isActive: true,
-      };
-      setCurrentPlan(chatPlan);
-    }
-  }, [currentPlan, setCurrentPlan]);
-
-  // Lock plan switcher when chat is open with messages
-  useEffect(() => {
-    if (isChatOpen && messages.length > 0) {
-      lockPlanSwitcher();
-    } else {
-      unlockPlanSwitcher();
-    }
-  }, [isChatOpen, messages, lockPlanSwitcher, unlockPlanSwitcher]);
-
-  // Handler for switching plans from chat
-  const handleSwitchPlan = () => {
-    // If the chat is active (has messages), do not allow switching
-    if (messages.length > 0) {
-      return;
-    }
-
-    // Close the chat widget and open the plan switcher
-    useChatStore.getState().closeChat();
-    openPlanSwitcher();
-  };
-
-  const hasMultiplePlans = availablePlans.length > 1;
+    fetchPlans();
+  }, [fetchPlans]);
 
   return {
-    isPlanSwitcherLocked,
-    showSwitchPlanOption: hasMultiplePlans && !isPlanSwitcherLocked,
-    handleSwitchPlan,
-    currentPlanName: currentPlan?.planName || null,
-    displayPlanInfo: hasMultiplePlans,
+    plans,
+    selectedPlan,
+    status,
+    error,
+    switchPlan,
+    validatePlanEligibility,
   };
 };
