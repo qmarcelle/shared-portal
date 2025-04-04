@@ -1,4 +1,5 @@
 import { ChangeAuthDeviceSlide } from '@/components/composite/ChangeAuthDeviceSlide';
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -74,12 +75,15 @@ export const UpdateCommunicationEmail = ({
           'The email address you provided is invalid or it’s from a domain we don’t allow. Please choose another email address.',
         );
         setNextDisabled(true); // Disable the Next button if there's an error
-      } else {
-        changePage?.(1, true);
+      } else if (response.details?.componentStatus === 'Success') {
+        changePage?.(2, true);
         setShowConfirmEmail(false);
-        setNextDisabled(false); // Enable the Next button if the email is valid
+        setNextDisabled(false);
+      } else {
+        changePage?.(3, true);
       }
     } catch (errorMessage: unknown) {
+      changePage?.(3, true);
       console.error(
         'error in emailUniqueness for updating the email',
         errorMessage,
@@ -210,6 +214,19 @@ export const UpdateCommunicationEmail = ({
           <TextBox className="text-center" text="Your email address is:" />
           <Spacer size={16} />
           <TextBox text={mainAuthDevice} />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ErrorDisplaySlide
+      key={3}
+      label="Something went wrong."
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="We’re unable to update your information at this time. Please try again later."
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}
