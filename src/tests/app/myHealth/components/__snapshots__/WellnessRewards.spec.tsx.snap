@@ -224,6 +224,61 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
           </button>
         </div>
       </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1"
+      >
+        Active Rewards - Employer Provided Reward
+      </h1>
+      <div
+        class="card-main section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2"
+          >
+            Wellness Rewards
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Complete wellness tasks to earn rewards provided by your employer.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+          />
+          <button
+            aria-label="Learn More"
+            class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-1/5"
+            type="button"
+          >
+            Learn More
+            <p
+              class="ml-2"
+            >
+              <img
+                alt="external icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -428,6 +483,61 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
           type="button"
         >
           View Ways to Earn & Learn more
+          <p
+            class="ml-2"
+          >
+            <img
+              alt="external icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </p>
+        </button>
+      </div>
+    </div>
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+    />
+    <h1
+      class="title-1"
+    >
+      Active Rewards - Employer Provided Reward
+    </h1>
+    <div
+      class="card-main section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Wellness Rewards
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+        />
+        <p
+          class="body-1"
+          style="display: block;"
+        >
+          Complete wellness tasks to earn rewards provided by your employer.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+        />
+        <button
+          aria-label="Learn More"
+          class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-1/5"
+          type="button"
+        >
+          Learn More
           <p
             class="ml-2"
           >
@@ -719,6 +829,61 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
           </button>
         </div>
       </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1"
+      >
+        Active Rewards - Employer Provided Reward
+      </h1>
+      <div
+        class="card-main section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2"
+          >
+            Wellness Rewards
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Complete wellness tasks to earn rewards provided by your employer.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+          />
+          <button
+            aria-label="Learn More"
+            class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-1/5"
+            type="button"
+          >
+            Learn More
+            <p
+              class="ml-2"
+            >
+              <img
+                alt="external icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -917,6 +1082,61 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
           type="button"
         >
           View Ways to Earn & Learn more
+          <p
+            class="ml-2"
+          >
+            <img
+              alt="external icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </p>
+        </button>
+      </div>
+    </div>
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+    />
+    <h1
+      class="title-1"
+    >
+      Active Rewards - Employer Provided Reward
+    </h1>
+    <div
+      class="card-main section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Wellness Rewards
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+        />
+        <p
+          class="body-1"
+          style="display: block;"
+        >
+          Complete wellness tasks to earn rewards provided by your employer.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+        />
+        <button
+          aria-label="Learn More"
+          class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-1/5"
+          type="button"
+        >
+          Learn More
           <p
             class="ml-2"
           >
