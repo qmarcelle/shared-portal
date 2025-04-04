@@ -1560,6 +1560,7 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                             />
                             <a
                               aria-label="View All Plan Contact Information"
+                              href="/myPlan/planContactInformation"
                               style="display: block;"
                             >
                               <button
@@ -2517,6 +2518,7 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                           />
                           <a
                             aria-label="View All Plan Contact Information"
+                            href="/myPlan/planContactInformation"
                             style="display: block;"
                           >
                             <button

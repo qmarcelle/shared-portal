@@ -1,0 +1,519 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Results Page should show all the results with banner correctly on searching from search bar 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col flex flex-col app-content"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="flex justify-start self-start"
+      >
+        <h1
+          class="title-1 title-1 mb-4"
+        >
+          Search Results
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+      </section>
+      <section
+        class="flex flex-col"
+      >
+        <div
+          class="flex flex-row items-center input  input-focus "
+        >
+          <input
+            class="body-1 search-textfield"
+            name="search-Field"
+            placeholder="search"
+            type="text"
+            value="health"
+          />
+          <div
+            class="flex flex-col items-end"
+          >
+            <button
+              class="flex flex-col p-[0.125rem]  "
+              type="submit"
+            >
+              <img
+                alt="Search"
+                class="icon searchhover "
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </button>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="flex flex-col"
+        >
+          <div
+            class="flex flex-row justify-between"
+          >
+            <p
+              class="body-1"
+              style="display: block;"
+            >
+              20 Results for  health
+            </p>
+            <div
+              class="flex flex-row"
+            >
+              <p
+                class="body-1 mb-2"
+                style="display: block;"
+              >
+                Sort by: 
+              </p>
+              <div
+                class="relative"
+              >
+                <div
+                  class="flex flex-row link"
+                  tabindex="0"
+                >
+                  <p
+                    class="body-bold"
+                  >
+                    Most Relevant
+                  </p>
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <img
+                    alt="down icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <section
+                  class="card-elevated z-20 dropdown-section"
+                  style="display: none; position: absolute;"
+                >
+                  <div
+                    class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                  >
+                    <div
+                      class="size-5 mx-2 "
+                    >
+                      <img
+                        alt="selcted"
+                        class="size-5"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div>
+                      <p
+                        class="whitespace-nowrap mx-2"
+                      >
+                        Most Relevant
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                  >
+                    <div
+                      class="size-5 mx-2"
+                    />
+                    <div>
+                      <p
+                        class="whitespace-nowrap mx-2"
+                      >
+                        Newest
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                  >
+                    <div
+                      class="size-5 mx-2"
+                    />
+                    <div>
+                      <p
+                        class="whitespace-nowrap mx-2"
+                      >
+                        Oldest
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="card-main searchBanner container"
+        >
+          <div
+            class="flex flex-col"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <h1
+              class="title-1 title-3 pl-2"
+            >
+              Verify Other Insurance
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1 pl-2"
+              style="display: block;"
+            >
+              Verify if you or anyone else on your plan have other insurance so we can keep processing your claims.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <a
+              aria-label="Confirm Other Insurance Now"
+              href="/member/myplan/otherinsurance"
+              style="display: inline-flex;"
+            >
+              <button
+                class="flex flex-row link-container searchBannerLink inline"
+                style="max-width: max-content; height: auto; display: inline-flex;"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="link undefined"
+                >
+                  Confirm Other Insurance Now
+                </p>
+              </button>
+            </a>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="card-main undefined"
+        >
+          <div
+            class="flex flex-col searchResult"
+          >
+            <div
+              class="flex flex-col p-1 link-row cursor-pointer link-row-container"
+            >
+              <div
+                class="flex flex-row m-2"
+              >
+                <p
+                  class="link-row-head mr-2"
+                  tabindex="0"
+                >
+                  508C Bluecare Tennessee Lab Exclusion List Diff
+                </p>
+                <img
+                  alt="link"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+              <div
+                class="m-2"
+              >
+                <div
+                  class="body-1 flex flex-row"
+                >
+                  Bluecare Tennessee Lab Exclusion List
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section
+          class="flex justify-center self-center pt-5"
+        >
+          <p
+            class="body-1 m-2 mt-0"
+            style="display: block;"
+          >
+            Viewing 1 of 20 Items
+          </p>
+        </section>
+        <section>
+          <ul
+            aria-label="pagination"
+            class="pagination-container pagination"
+          >
+            <li
+              class="pagination-item disabled"
+            >
+              <div
+                class="flex flex-row arrow left"
+              >
+                <img
+                  alt="previous"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <p
+                  class="body-1 pt-1"
+                  style="display: block;"
+                >
+                  Previous
+                </p>
+              </div>
+            </li>
+            <li
+              class="pagination-item disabled selected"
+            >
+              1
+            </li>
+            <li
+              class="pagination-item"
+            >
+              2
+            </li>
+            <li
+              class="pagination-item"
+            >
+              <div
+                class="flex flex-row arrow right"
+              >
+                <p
+                  class="body-1 pt-1"
+                  style="display: block;"
+                >
+                  Next
+                </p>
+                <img
+                  alt="next"
+                  class="right-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <img
+                  alt="next"
+                  class="right-icon-white"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </li>
+          </ul>
+          <ul
+            aria-label="pagination"
+            class="pagination-mobile-container pagination"
+          >
+            <li
+              class="pagination-item disabled"
+            >
+              <div
+                class="flex flex-row arrow left"
+              >
+                <img
+                  alt="previous"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </li>
+            <div
+              class="flex flex-row"
+            >
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1 body-1"
+                style="display: block;"
+              >
+                Page: 
+              </p>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="relative"
+              >
+                <div
+                  class="flex flex-row link"
+                  tabindex="0"
+                >
+                  <p
+                    class="body-bold"
+                  >
+                    1
+                  </p>
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
+                  <img
+                    alt="down icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <section
+                  class="card-elevated z-20 dropdown-section"
+                  style="display: none; position: absolute;"
+                >
+                  <div
+                    class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
+                  >
+                    <div
+                      class="size-5 mx-2 "
+                    >
+                      <img
+                        alt="selcted"
+                        class="size-5"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div>
+                      <p
+                        class="whitespace-nowrap mx-2"
+                      >
+                        1
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-row  dropdown-item p-2 cursor-pointer"
+                  >
+                    <div
+                      class="size-5 mx-2"
+                    />
+                    <div>
+                      <p
+                        class="whitespace-nowrap mx-2"
+                      >
+                        2
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <span
+                style="display: block; width: 4px; min-width: 4px; height: 1px; min-height: 1px;"
+              />
+              <p
+                class="body-1 body-1"
+                style="display: block;"
+              >
+                of 2
+              </p>
+            </div>
+            <li
+              class="pagination-item"
+            >
+              <div
+                class="flex flex-row arrow right"
+              >
+                <img
+                  alt="next"
+                  class="right-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <img
+                  alt="next"
+                  class="right-icon-white"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </div>
+  </main>
+</div>
+`;

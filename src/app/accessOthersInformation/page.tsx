@@ -1,3 +1,4 @@
+import { getPlanInformationData } from '@/actions/getPlanMemberDetails';
 import { auth } from '@/auth';
 import { checkPersonalRepAccess } from '@/utils/getRole';
 import { Metadata } from 'next';
@@ -11,10 +12,15 @@ export const metadata: Metadata = {
 const AccessOthersInformationPage = async () => {
   const session = await auth();
   const userRole = session?.user.currUsr.role;
+  const accessOtherInformationData = await getPlanInformationData();
   if (userRole && !checkPersonalRepAccess(userRole)) {
     redirect('/dashboard');
   } else {
-    return <AccessOthersInformation />;
+    return (
+      <AccessOthersInformation
+        accessOtherInformationDetails={accessOtherInformationData.data}
+      />
+    );
   }
 };
 

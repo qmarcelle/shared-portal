@@ -49,8 +49,8 @@ const HealthyMaternity = () => {
                       <Image src={maternity} alt="Maternity Breast Pump Icon" />
                     ),
                     benefitCopy:
-                      'Enroll within the first 20 weeks of your pregnancy to qualify for a free breast pump.',
-                    benefitLabel: 'Free Breast Pump',
+                      'Connect with a nurse to learn more about your breast pump benefit.',
+                    benefitLabel: 'Breast Pump Benefit',
                   },
                   {
                     benefitIcon: (

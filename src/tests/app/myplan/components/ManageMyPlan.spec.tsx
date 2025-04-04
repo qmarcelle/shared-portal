@@ -14,6 +14,7 @@ function setVisibilityRules(vRules: VisibilityRules) {
   vRules.wellnessOnly = false;
   vRules.terminated = false;
   vRules.katieBeckNoBenefitsElig = false;
+  //vRules.katieBeckettEligible = false;
 }
 
 describe('ManageMyPlan', () => {
@@ -35,6 +36,15 @@ describe('ManageMyPlan', () => {
 
   it('should render UI correctly for Blue Care groups', () => {
     vRules.blueCare = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    screen.getAllByRole('heading', { name: 'Manage My Plan' });
+    screen.getByText('Katie Beckett Banking Info');
+    screen.findByAltText(/link/i);
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should render UI correctly for Blue Care groups 155000', () => {
+    vRules.katieBeckettEligible = true;
     setVisibilityRules(vRules);
     const component = renderUI(vRules);
     screen.getAllByRole('heading', { name: 'Manage My Plan' });

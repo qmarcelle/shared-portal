@@ -19,7 +19,7 @@ import { AllMyPlanData, MyPlanData } from './model/app/myPlanData';
 
 export type MyPlanProps = {
   data: MyPlanData;
-  planData: AllMyPlanData[];
+  planData: AllMyPlanData<string>[];
 };
 const MyPlan = ({ data, planData }: MyPlanProps) => {
   return (

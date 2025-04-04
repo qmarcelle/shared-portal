@@ -22,7 +22,7 @@ interface InviteToRegisterProps {
   memberName: string;
   requestorType?: string;
   targetType?: string;
-  currentAccessType: AccessType;
+  currentAccessType: string;
   isMaturedMinor?: boolean;
 }
 
@@ -34,10 +34,9 @@ export const EditLevelOfAccess = ({
   currentAccessType,
   isMaturedMinor,
 }: ModalChildProps & InviteToRegisterProps) => {
-  const [selectedData, setSelectedData] =
-    useState<AccessType>(currentAccessType);
+  const [selectedData, setSelectedData] = useState<string>(currentAccessType);
 
-  const handleClick = (val: AccessType) => {
+  const handleClick = (val: string) => {
     setSelectedData(val);
   };
 
@@ -61,8 +60,8 @@ export const EditLevelOfAccess = ({
                   ? 'Your Representative will have access to all documents and claims, even those with sensitive information'
                   : 'They’ll see documents and claims, even those with sensitive information.'
               }
-              selected={selectedData === 'full'}
-              callback={() => handleClick('full')}
+              selected={selectedData === 'Full Access'}
+              callback={() => handleClick('Full Access')}
             />
             <Spacer size={16} />
             <Radio
@@ -72,8 +71,8 @@ export const EditLevelOfAccess = ({
                   ? 'Your Representative will have access to all documents and claims, but will not be able to view sensitive information'
                   : 'They won’t be able to see documents or claims with sensitive information.'
               }
-              selected={selectedData === 'basic'}
-              callback={() => handleClick('basic')}
+              selected={selectedData === 'Basic Access'}
+              callback={() => handleClick('Basic Access')}
             />
             <Spacer size={16} />
             {!isMaturedMinor && (
@@ -82,8 +81,8 @@ export const EditLevelOfAccess = ({
                   <Radio
                     label="None"
                     subLabel="They won’t see any documents and claims."
-                    selected={selectedData === 'none'}
-                    callback={() => handleClick('none')}
+                    selected={selectedData === 'None'}
+                    callback={() => handleClick('None')}
                   />
                 ) : (
                   <RichText

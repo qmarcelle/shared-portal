@@ -8,19 +8,42 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import { logger } from '@/utils/logger';
+import { useState } from 'react';
+import { invokeSendEmailInvite } from '../actions/sendInvitePR';
 
 interface InviteToRegisterProps {
   memberName: string;
+  memeCk: string;
+  requesteeFHRID: string;
+  onRequestSuccessCallBack: () => void;
 }
 
 export const InviteToRegister = ({
   changePage,
   pageIndex,
   memberName,
+  memeCk,
+  requesteeFHRID,
+  onRequestSuccessCallBack,
 }: ModalChildProps & InviteToRegisterProps) => {
   const { dismissModal } = useAppModalStore();
-  const initChange = () => {
-    changePage!(1, false);
+  const [inputValue, setInputValue] = useState('');
+
+  const initiateInvite = async () => {
+    try {
+      const response = await invokeSendEmailInvite(
+        memeCk,
+        requesteeFHRID,
+        inputValue,
+      );
+      if (response.isEmailSent === 'true') {
+        changePage!(1, false);
+        onRequestSuccessCallBack();
+      }
+    } catch (error) {
+      logger.error('Error from Send Invite Request', error);
+    }
   };
 
   const pages = [
@@ -43,12 +66,14 @@ export const InviteToRegister = ({
           <TextField
             type="text"
             label="Confirm Their Email Address"
+            className="emailInvite"
+            valueCallback={(e) => setInputValue(e)}
           ></TextField>
           <Spacer size={32} />
         </Column>
       }
       cancelCallback={() => dismissModal()}
-      nextCallback={initChange}
+      nextCallback={initiateInvite}
     />,
     <SuccessSlide
       key={1}

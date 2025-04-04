@@ -18,14 +18,20 @@ export const getPersonalRepresentativeData = async (): Promise<
     const session = await auth();
     const pbeResponse = await getPersonBusinessEntity(session!.user!.id);
     const selectedPlan = pbeResponse.getPBEDetails[0].relationshipInfo.find(
-      (item) => item.memeCk === session?.user.currUsr?.plan?.memCk,
+      (item) => item?.memeCk === session?.user.currUsr?.plan?.memCk,
+    );
+    const selectedPR = pbeResponse.getPBEDetails[0].relationshipInfo.filter(
+      (item) => item.personRoleType === 'PR',
     );
     return {
       status: 200,
       data: {
-        representativeData: computePRProfile(pbeResponse, selectedPlan),
+        representativeData:
+          session?.user.currUsr.role === 'PR'
+            ? computeMemberProfile(pbeResponse, selectedPR)
+            : computePRProfile(pbeResponse, selectedPlan),
         visibilityRules: session?.user.vRules,
-        isRepresentativeLoggedIn: selectedPlan?.personRoleType === 'PR',
+        isRepresentativeLoggedIn: session?.user.currUsr.role === 'PR',
       },
     };
   } catch (error) {
@@ -39,6 +45,28 @@ export const getPersonalRepresentativeData = async (): Promise<
       },
     };
   }
+};
+
+const computeMemberProfile = (
+  pbeResponse: PBEData,
+  selectedPlan: RelationshipInfo[] | undefined,
+): RepresentativeData[] => {
+  const representativesData: RepresentativeData[] = [];
+  const relatedPersonDetails = selectedPlan?.map((item) => {
+    return item.relatedPersons[0];
+  });
+  relatedPersonDetails?.forEach((item) =>
+    representativesData.push({
+      memberName:
+        item.relatedPersonFirstName + ' ' + item.relatedPersonLastName,
+      DOB: formatDateToLocale(new Date(item.relatedPersonDob)),
+      isOnline: false,
+      fullAccess: false,
+      memeck: item.relatedPersonMemeCk,
+      requesteeFHRID: item.relatedPersonFHIRID,
+    }),
+  );
+  return representativesData;
 };
 
 const computePRProfile = (

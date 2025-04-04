@@ -1,5 +1,6 @@
 import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
 import { ToolTip } from '@/components/foundation/Tooltip';
+import { capitalizeName } from '@/utils/capitalizeName';
 import Image from 'next/image';
 import editIcon from '../../../public/assets/edit.svg';
 import infoIcon from '../../../public/assets/info.svg';
@@ -22,9 +23,10 @@ interface OnMyPlanItemProps extends IComponent {
   infoButton: boolean;
   requestorType?: string;
   targetType?: string;
-  medicalEffectiveDate: string;
-  dentalEffectiveDate: string;
-  visionEffectiveDate: string;
+  medicalEffectiveDate?: string;
+  dentalEffectiveDate?: string;
+  visionEffectiveDate?: string;
+  isLoggedInMember?: string;
 }
 
 export const OnMyPlanItem = ({
@@ -36,12 +38,23 @@ export const OnMyPlanItem = ({
   className,
   infoButton,
   icon = <Image src={editIcon} alt="link" />,
-  requestorType,
   targetType,
   medicalEffectiveDate,
   dentalEffectiveDate,
   visionEffectiveDate,
 }: OnMyPlanItemProps) => {
+  const getSharingText = (sharingType: string) => {
+    switch (sharingType) {
+      case 'Full Access':
+        return 'Full Sharing';
+      case 'Basic Access':
+        return 'Basic Sharing';
+      case 'No Access':
+        return 'None';
+      default:
+        return sharingType;
+    }
+  };
   const { showAppModal } = useAppModalStore();
   function getMinorContent() {
     return (
@@ -68,7 +81,7 @@ export const OnMyPlanItem = ({
       <Column>
         <Row>
           <Spacer axis="horizontal" size={8} />
-          <TextBox className="body-1 " text={sharingType} />
+          <TextBox className="body-1 " text={getSharingText(sharingType)} />
           {infoButton && (
             <ToolTip
               showTooltip={true}
@@ -114,10 +127,10 @@ export const OnMyPlanItem = ({
                   showAppModal({
                     content: (
                       <EditLevelOfAccess
-                        currentAccessType="basic"
+                        currentAccessType={sharingType}
                         memberName={memberName}
-                        requestorType={requestorType ?? ''}
                         targetType={targetType ?? ''}
+                        isMaturedMinor={isMinor}
                       />
                     ),
                   });
@@ -140,7 +153,10 @@ export const OnMyPlanItem = ({
       <Column className="m-4">
         <Spacer size={16} />
         <Row className="justify-between">
-          <TextBox className="ml-2 font-bold body-1" text={memberName} />
+          <TextBox
+            className="ml-2 font-bold body-1"
+            text={capitalizeName(memberName)}
+          />
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />

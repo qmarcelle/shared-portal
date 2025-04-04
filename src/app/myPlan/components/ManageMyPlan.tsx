@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 import {
   isBlueCareEligible,
+  isKatieBeckettEligible,
   isManageMyPolicyEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
@@ -23,7 +24,10 @@ export const ManageMyPlan = ({
   visibilityRules,
 }: ManageMyPlanProps) => {
   let manageMyPlanDetails;
-  if (isBlueCareEligible(visibilityRules))
+  if (
+    isBlueCareEligible(visibilityRules) ||
+    isKatieBeckettEligible(visibilityRules)
+  ) {
     manageMyPlanDetails = [
       {
         title: 'Katie Beckett Banking Info',
@@ -32,7 +36,7 @@ export const ManageMyPlan = ({
         url: 'myPlan/katieBeckettBankingInfo',
       },
     ];
-  else if (isManageMyPolicyEligible(visibilityRules))
+  } else if (isManageMyPolicyEligible(visibilityRules))
     manageMyPlanDetails = [
       {
         title: 'Report Other Health Insurance',

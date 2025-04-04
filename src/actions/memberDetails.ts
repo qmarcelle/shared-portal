@@ -133,9 +133,6 @@ export async function getMemberAndDependentsPlanDetails(
 
   const contactInfo = await getContactInfo(session?.user.currUsr?.umpi ?? '');
 
-  const mailAddress = loggedInUser.addresses.find(
-    (contact) => contact.type === 'H',
-  );
   return loggedInUser.members.map((item) => {
     const memberName = `${item.firstName} ${item.lastName}`;
 
@@ -177,8 +174,11 @@ export async function getMemberAndDependentsPlanDetails(
       visionEffectiveDate: visionPlan
         ? new Date(visionPlan.effectiveDate).toLocaleDateString()
         : '',
-      address: mailAddress ? [mailAddress] : [],
+      address: loggedInUser.addresses ? loggedInUser.addresses : [],
       primaryPhoneNumber: contactInfo.phone,
+      secondaryPhoneNumber: 'N/A',
+      age: Number(item.birthDate),
+      mailAddressType: item.mailAddressType,
     };
   });
 }
