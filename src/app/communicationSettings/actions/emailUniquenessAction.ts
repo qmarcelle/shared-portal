@@ -26,7 +26,7 @@ export async function invokeUpdateEmailAddress(
     );
     return response?.data;
   } catch (error) {
-    logger.error('emailUniqueness for updating the email - Failure', error);
+    logger.error('updating the email - Failure', error);
     if (error instanceof AxiosError) {
       return {
         errorCode:
