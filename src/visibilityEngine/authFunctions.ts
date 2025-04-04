@@ -43,5 +43,7 @@ export const AUTH_FUNCTION_MAP = {
   questSelectEligible: 'QUEST_SELECT',
   isEmboldHealth: 'EMBOLD_HEALTH',
   teladocEligible: 'TELADOC',
+  prevYearMedical: 'PREV_YEAR_MEDICAL', // TODO authFunction to be created
+  prevYearFullyInsured: 'PREV_YEAR_FULLY_INSURED', // TODO authFunction to be created
   phaMemberEligible: 'PHACommercialEligible',
 };

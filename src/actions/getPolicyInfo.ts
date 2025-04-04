@@ -1,6 +1,5 @@
 'use server';
 
-import { policyInfoMock } from '@/mock/policyInfoMock';
 import { PolicyInfo } from '@/models/policy_info_details';
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
@@ -14,6 +13,6 @@ export async function getPolicyInfo(memCks: string[]): Promise<PolicyInfo> {
     return response?.data;
   } catch (error) {
     logger.error('Error Response from Policy Info API', error);
-    return policyInfoMock;
+    throw error;
   }
 }

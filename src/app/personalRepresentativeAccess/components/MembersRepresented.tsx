@@ -7,7 +7,11 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { VisibilityRules } from '@/visibilityEngine/rules';
-import { RepresentativeData } from '../models/representativeDetails';
+import { useState } from 'react';
+import {
+  InviteStatus,
+  RepresentativeData,
+} from '../models/representativeDetails';
 import { MembersRepresentativeItem } from './MembersRepresentativeItem';
 
 interface MembersRepresentedProps extends IComponent {
@@ -23,6 +27,16 @@ export const MembersRepresented = ({
   isRegistered,
   visibilityRules,
 }: MembersRepresentedProps) => {
+  const [memberInviteState, setMemberInviteState] =
+    useState(representativesData);
+  function updateMemberInviteStateToPending(memberCk: string) {
+    const member = memberInviteState?.find((item) => item.memeck === memberCk);
+
+    if (member != undefined) {
+      member.inviteStatus = InviteStatus.Pending;
+      setMemberInviteState([...memberInviteState!]);
+    }
+  }
   function representingMembers() {
     return (
       <Column className="flex flex-col">
@@ -36,14 +50,20 @@ export const MembersRepresented = ({
         <Column className="flex flex-col">
           {representativesData?.map((item, index) => (
             <MembersRepresentativeItem
+              onRequestSuccessCallBack={() =>
+                updateMemberInviteStateToPending(item.memeck!)
+              }
               key={index}
               className="mb-4"
               memberName={item.memberName}
+              memberMemeCk={item.memeck}
+              requesteeFHRID={item.requesteeFHRID}
               DOB={item.DOB}
               isOnline={item.isOnline}
               fullAccess={item.fullAccess}
               isRepresentative={isRepresentative}
               visibilityRules={visibilityRules}
+              inviteStatus={item.inviteStatus!}
             />
           ))}
         </Column>

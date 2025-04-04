@@ -1,3 +1,5 @@
+import { AccessStatus } from '@/models/app/getSharePlanDetails';
+
 export const pbeWithMemberMultiplePRMultiplePlans = {
   data: {
     getPBEmessage: 'Person Record fetched Successfully ',
@@ -52,6 +54,7 @@ export const pbeWithMemberMultiplePRMultiplePlans = {
                 relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
                 relatedPersonApprovalRequestId: '',
                 relatedPersonMemeCk: '6765454',
+                name: AccessStatus.NoAccess,
               },
             ],
           },
@@ -85,6 +88,7 @@ export const pbeWithMemberMultiplePRMultiplePlans = {
                 relatedPersonMasterPatientFHIRID: '',
                 relatedPersonApprovalRequestId: '',
                 relatedPersonMemeCk: '54363201',
+                name: AccessStatus.NoAccess,
               },
             ],
           },
@@ -117,6 +121,7 @@ export const pbeWithMemberMultiplePRMultiplePlans = {
                 relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
                 relatedPersonApprovalRequestId: '',
                 relatedPersonMemeCk: '502622001',
+                name: AccessStatus.NoAccess,
               },
               {
                 relatedPersonUMPID: '57c85test3ebd23c7db88244',
@@ -133,6 +138,7 @@ export const pbeWithMemberMultiplePRMultiplePlans = {
                 relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
                 relatedPersonApprovalRequestId: '',
                 relatedPersonMemeCk: '846239401',
+                name: AccessStatus.NoAccess,
               },
             ],
           },
@@ -165,6 +171,7 @@ export const pbeWithMemberMultiplePRMultiplePlans = {
                 relatedPersonDob: '2030-11-30T00:00:00.0000000+00:00',
                 relatedPersonApprovalRequestId: '',
                 relatedPersonMemeCk: '846239401',
+                name: AccessStatus.NoAccess,
               },
             ],
           },

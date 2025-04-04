@@ -25,7 +25,7 @@ exports[`1095BFormRequest Page should render FormRequest Page UI correctly 1`] =
           class="flex flex-col flex-grow page-section-63_33 items-stretch "
         >
           <div
-            class="card-main large-section"
+            class="card-main undefined"
           >
             <div
               class="flex flex-col flex flex-col"
@@ -43,7 +43,7 @@ exports[`1095BFormRequest Page should render FormRequest Page UI correctly 1`] =
                 class="body-1 body-2"
                 style="display: block;"
               >
-                We’re sorry, but we don’t supply a 1095-B form for the type of coverage you have.
+                We're sorry, but we don't supply a 1095-B form for the type of coverage you have.
               </p>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -85,7 +85,7 @@ exports[`1095BFormRequest Page should render FormRequest Page UI correctly 1`] =
                 class="body-1 body-2"
                 style="display: block;"
               >
-                 Or write to us at:
+                Or write to us at:
               </p>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -94,7 +94,7 @@ exports[`1095BFormRequest Page should render FormRequest Page UI correctly 1`] =
                 class="body-1 body-2"
                 style="display: block;"
               >
-                 BlueCross BlueShield of Tennessee
+                BlueCross BlueShield of Tennessee
               </p>
               <p
                 class="body-1 body-2"

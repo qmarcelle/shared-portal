@@ -7,6 +7,8 @@ import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { isNCQAEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { EditEmailProfileSettings } from '../journeys/EditEmailProfileSettings';
 import { UpdatePhoneNumberJourney } from '../journeys/UpdatePhoneNumberJourney';
 
@@ -17,6 +19,7 @@ interface ProfileInformationCardProps extends IComponent {
   DOB: string;
   phoneNumber: string;
   email: string;
+  visibilityRules?: VisibilityRules;
 }
 
 export const ProfileInformationCard = ({
@@ -24,6 +27,7 @@ export const ProfileInformationCard = ({
   DOB,
   email,
   phoneNumber,
+  visibilityRules,
 }: ProfileInformationCardProps) => {
   const { showAppModal } = useAppModalStore();
   return (
@@ -76,14 +80,18 @@ export const ProfileInformationCard = ({
           divider={true}
           onOffLabelEnabled={false}
         />
-        <Spacer size={16} />
-        <Column>
-          <LinkRow label="Other Profile Settings" />
-          <TextBox
-            className="ml-3"
-            text="Add or update details about yourself, including ethnicity, race and language preferences."
-          />
-        </Column>
+        {isNCQAEligible(visibilityRules) && (
+          <>
+            <Spacer size={16} />
+            <Column>
+              <LinkRow label="Other Profile Settings" />
+              <TextBox
+                className="ml-3"
+                text="Add or update details about yourself, including ethnicity, race and language preferences."
+              />
+            </Column>
+          </>
+        )}
       </Column>
     </Card>
   );

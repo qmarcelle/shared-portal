@@ -10,9 +10,16 @@ import { accessGranted } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
 import Image from 'next/image';
 
-const AccessOthersInformation = () => {
+export type AccessOtherInformationProps = {
+  accessOtherInformationDetails?: SharePlanInformationDetails;
+};
+
+const AccessOthersInformation = ({
+  accessOtherInformationDetails,
+}: AccessOtherInformationProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -100,33 +107,9 @@ const AccessOthersInformation = () => {
                   </Column>
                 }
                 infoIcon={false}
-                accessOnMyPlanDetails={[
-                  {
-                    memberName: 'Maddison Hall',
-                    DOB: '01/01/1979',
-                    isOnline: true,
-                  },
-                  {
-                    memberName: 'Forest Hall',
-                    DOB: '01/01/2001',
-                    isOnline: true,
-                  },
-                  {
-                    memberName: 'Corey Hall',
-                    DOB: '01/01/2002',
-                    isOnline: false,
-                  },
-                  {
-                    memberName: 'Telly Hall',
-                    DOB: '01/01/2008',
-                    isOnline: true,
-                  },
-                  {
-                    memberName: 'Janie Hall',
-                    DOB: '01/01/2024',
-                    isOnline: true,
-                  },
-                ]}
+                accessOnMyPlanDetails={
+                  accessOtherInformationDetails?.memberData ?? null
+                }
               />
             </Card>
           </Column>

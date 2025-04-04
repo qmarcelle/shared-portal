@@ -84,6 +84,7 @@ describe('PlanDetailsSection', () => {
     const contactInfo = screen.queryAllByText(/View Plan Contact Information/i);
     fireEvent.click(contactInfo[0]);
     expect(screen.getByText('7654387656')).toBeVisible();
+    expect(screen.getByText('View All Plan Contact Information')).toBeVisible();
     expect(component).toMatchSnapshot();
   });
   test('planDetails not displayed when plan type is not available', async () => {

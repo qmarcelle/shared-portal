@@ -50,6 +50,7 @@ const plans: PlanDetails[] = [
     planName: 'BlueCross BlueShield of Tennessee',
     policies: 'Medical, Dental, Vision',
     subscriberName: 'Chris Hall',
+    termedPlan: false,
   },
 ];
 
@@ -584,5 +585,15 @@ describe('SiteHeader And Navigation Menu', () => {
     ).toBeNull();
 
     expect(component.container).toMatchSnapshot();
+  });
+
+  it('should show  Update Katie Beckett Banking Info if group id is 155000', async () => {
+    vRules.katieBeckettEligible = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(screen.getByText('Update Katie Beckett Banking Info')).toBeVisible();
+
+    expect(component.baseElement).toMatchSnapshot();
   });
 });
