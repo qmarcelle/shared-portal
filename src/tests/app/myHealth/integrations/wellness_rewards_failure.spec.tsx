@@ -70,7 +70,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(
       screen.getByText(
         'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
@@ -86,7 +86,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(
       screen.getByText(
         'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
