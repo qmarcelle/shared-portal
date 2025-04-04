@@ -266,16 +266,17 @@ describe('Request Access other Information - request on my plan component', () =
     const container = await renderUI();
 
     // eslint-disable-next-line prettier/prettier
-    expect(screen.getByText('Access Others\' Information')).toBeVisible();
+    expect(screen.getByText(/Access Others' Information/i)).toBeVisible();
     expect(screen.getByText('On My Plan')).toBeVisible();
     expect(
       screen.getByText(
         // eslint-disable-next-line prettier/prettier
-          'Below is the access you\'ve been granted by other members on your plan.',
+        /Below is the access you've been granted by other members on your plan./i,
       ),
     ).toBeVisible();
-    expect(screen.getByText('JESSICA MEYER')).toBeVisible();
-    expect(screen.getByText('JUNIPER MEYER')).toBeVisible();
+    expect(screen.getByText('Jessica Meyer')).toBeVisible();
+    expect(screen.getByText('Juniper Meyer')).toBeVisible();
+
     fireEvent.click(screen.getByText('Update'));
     expect(
       screen.getByRole('heading', { name: 'Request Access' }),

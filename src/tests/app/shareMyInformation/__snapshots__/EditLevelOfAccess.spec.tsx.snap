@@ -794,7 +794,6 @@ exports[`Edit Level Of Access Component should render the UI correctly for subsc
               <label>
                 <input
                   aria-label="Full Sharing"
-                  checked=""
                   id=""
                   name=""
                   type="radio"
@@ -978,7 +977,6 @@ exports[`Edit Level Of Access Component should render the UI correctly for subsc
               <label>
                 <input
                   aria-label="Basic Sharing"
-                  checked=""
                   id=""
                   name=""
                   type="radio"

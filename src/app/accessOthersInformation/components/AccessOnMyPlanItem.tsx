@@ -19,6 +19,7 @@ import {
   AccessStatus,
   ShareMyPlanDetails,
 } from '@/models/app/getSharePlanDetails';
+import { capitalizeName } from '@/utils/capitalizeName';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 
@@ -159,7 +160,7 @@ export const AccessOnMyPlanItem = ({
         <Row className="justify-between">
           <TextBox
             className="ml-2 font-bold body-1"
-            text={memberDetails.memberName}
+            text={capitalizeName(memberDetails.memberName)}
           />
           <TextBox text={'DOB: ' + memberDetails.DOB} />
         </Row>

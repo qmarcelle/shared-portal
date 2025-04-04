@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
+exports[`Share My Information  Page should show Share My Information plan details info 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -283,13 +283,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             class="body-1 ml-2 font-bold body-1"
                             style="display: block;"
                           >
-                            Maddison Hall
+                            Jessica Meyer
                           </p>
                           <p
                             class="body-1"
                             style="display: block;"
                           >
-                            DOB: 01/01/1979
+                            DOB: 07/19/1964
                           </p>
                         </div>
                         <span
@@ -382,211 +382,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                             class="body-1 ml-2 font-bold body-1"
                             style="display: block;"
                           >
-                            Forest Hall
+                            Juniper Meyer
                           </p>
                           <p
                             class="body-1"
                             style="display: block;"
                           >
-                            DOB: 01/01/2001
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-col"
-                        >
-                          <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <p
-                              class="body-1 body-1"
-                              style="display: block;"
-                            >
-                              Basic Sharing
-                            </p>
-                          </div>
-                           
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="flex flex-row"
-                            >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
-                              <div
-                                class="ml-2"
-                              >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                              </div>
-                            </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-elevated cursor-pointer mb-4"
-                    >
-                      <div
-                        class="flex flex-col m-4"
-                      >
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <p
-                            class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
-                          >
-                            Corey Hall
-                          </p>
-                          <p
-                            class="body-1"
-                            style="display: block;"
-                          >
-                            DOB: 01/01/2002
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-col"
-                        >
-                          <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <p
-                              class="body-1 body-1"
-                              style="display: block;"
-                            >
-                              Basic Sharing
-                            </p>
-                          </div>
-                           
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="flex flex-row"
-                            >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
-                              <div
-                                class="ml-2"
-                              >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                              </div>
-                            </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-elevated cursor-pointer mb-4"
-                    >
-                      <div
-                        class="flex flex-col m-4"
-                      >
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <p
-                            class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
-                          >
-                            Telly Hall
-                          </p>
-                          <p
-                            class="body-1"
-                            style="display: block;"
-                          >
-                            DOB: 01/01/2008
+                            DOB: undefined
                           </p>
                         </div>
                         <span
@@ -663,101 +465,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="card-elevated cursor-pointer mb-4"
-                    >
-                      <div
-                        class="flex flex-col m-4"
-                      >
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <p
-                            class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
-                          >
-                            Janie Hall
-                          </p>
-                          <p
-                            class="body-1"
-                            style="display: block;"
-                          >
-                            DOB: 01/01/2024
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-col"
-                        >
-                          <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="card-main undefined"
-                              style="background-color: rgba(0, 0, 0, 0.05);"
-                            >
-                              <div
-                                class="flex flex-col m-4"
-                              >
-                                <div
-                                  class="flex flex-row"
-                                >
-                                  <p
-                                    class="body-1 body-1"
-                                    style="display: block;"
-                                  >
-                                    This is a minor dependent. Sharing permissions aren’t applicable with this account.
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Benefits & Coverage"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Benefits & Coverage
-                      </p>
-                    </button>
-                  </a>
                 </div>
               </div>
             </div>
@@ -1045,13 +753,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          Maddison Hall
+                          Jessica Meyer
                         </p>
                         <p
                           class="body-1"
                           style="display: block;"
                         >
-                          DOB: 01/01/1979
+                          DOB: 07/19/1964
                         </p>
                       </div>
                       <span
@@ -1144,211 +852,13 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          Forest Hall
+                          Juniper Meyer
                         </p>
                         <p
                           class="body-1"
                           style="display: block;"
                         >
-                          DOB: 01/01/2001
-                        </p>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-row"
-                      >
-                        <span
-                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                        />
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-col"
-                      >
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <p
-                            class="body-1 body-1"
-                            style="display: block;"
-                          >
-                            Basic Sharing
-                          </p>
-                        </div>
-                         
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class="flex flex-row"
-                          >
-                            <p
-                              class="font-bold primary-color"
-                            >
-                              Update
-                            </p>
-                            <div
-                              class="ml-2"
-                            >
-                              <img
-                                alt="link"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                            </div>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="card-elevated cursor-pointer mb-4"
-                  >
-                    <div
-                      class="flex flex-col m-4"
-                    >
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <p
-                          class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
-                        >
-                          Corey Hall
-                        </p>
-                        <p
-                          class="body-1"
-                          style="display: block;"
-                        >
-                          DOB: 01/01/2002
-                        </p>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-row"
-                      >
-                        <span
-                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                        />
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-col"
-                      >
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <p
-                            class="body-1 body-1"
-                            style="display: block;"
-                          >
-                            Basic Sharing
-                          </p>
-                        </div>
-                         
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class="flex flex-row"
-                          >
-                            <p
-                              class="font-bold primary-color"
-                            >
-                              Update
-                            </p>
-                            <div
-                              class="ml-2"
-                            >
-                              <img
-                                alt="link"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                            </div>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="card-elevated cursor-pointer mb-4"
-                  >
-                    <div
-                      class="flex flex-col m-4"
-                    >
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <p
-                          class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
-                        >
-                          Telly Hall
-                        </p>
-                        <p
-                          class="body-1"
-                          style="display: block;"
-                        >
-                          DOB: 01/01/2008
+                          DOB: undefined
                         </p>
                       </div>
                       <span
@@ -1425,101 +935,7 @@ exports[`ShareMyInfoOnMyPlan should render the UI correctly 1`] = `
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="card-elevated cursor-pointer mb-4"
-                  >
-                    <div
-                      class="flex flex-col m-4"
-                    >
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <p
-                          class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
-                        >
-                          Janie Hall
-                        </p>
-                        <p
-                          class="body-1"
-                          style="display: block;"
-                        >
-                          DOB: 01/01/2024
-                        </p>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-row"
-                      >
-                        <span
-                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                        />
-                        <div
-                          class=""
-                          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                      />
-                      <div
-                        class="flex flex-col"
-                      >
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class="card-main undefined"
-                            style="background-color: rgba(0, 0, 0, 0.05);"
-                          >
-                            <div
-                              class="flex flex-col m-4"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="body-1 body-1"
-                                  style="display: block;"
-                                >
-                                  This is a minor dependent. Sharing permissions aren’t applicable with this account.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <a
-                  aria-label="View Benefits & Coverage"
-                  style="display: block;"
-                >
-                  <button
-                    class="flex flex-row link-container undefined"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="link undefined"
-                    >
-                      View Benefits & Coverage
-                    </p>
-                  </button>
-                </a>
               </div>
             </div>
           </div>

@@ -167,7 +167,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          CHRISTMAS HALL
+                          Christmas Hall
                         </p>
                         <p
                           class="body-1"
@@ -293,7 +293,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          KRISSY HALL
+                          Krissy Hall
                         </p>
                         <p
                           class="body-1"
@@ -404,7 +404,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           class="body-1 ml-2 font-bold body-1"
                           style="display: block;"
                         >
-                          CHRIS HALL
+                          Chris Hall
                         </p>
                         <p
                           class="body-1"
