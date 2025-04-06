@@ -20,6 +20,7 @@ jest.mock('src/auth', () => ({
           plan: {
             grpId: '100000',
             sbsbCk: '91722400',
+            memCk: '123456789',
           },
         },
       },

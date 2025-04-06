@@ -23,7 +23,7 @@ jest.mock('src/auth', () => ({
             fhirId: '654543434',
             grgrCk: '7678765456',
             grpId: '65654323',
-            memCk: '502622001',
+            memCk: '91722401',
             sbsbCk: '5654566',
             subId: '56543455',
           },

@@ -24,7 +24,7 @@ jest.mock('../../../../auth', () => ({
             planName: 'BlueCross BlueShield of Tennessee',
             subId: '123456',
             grpId: '100000',
-            memCk: '91722407',
+            memCk: '123456789',
             sbsbCk: '91722400',
             coverageType: ['Medical', 'Dental', 'Vision'],
           },

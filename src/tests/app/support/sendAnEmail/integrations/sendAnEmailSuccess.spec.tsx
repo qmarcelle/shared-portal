@@ -35,7 +35,7 @@ describe('Send Email  API Integration', () => {
         contactNumber: '1-800-565-9140',
         message: 'test',
         categoryValue: 'Dental',
-        dependentName: 'CHRIS HALL',
+        dependentName: 'CHRISTMAS HALL',
         category: 'D',
         groupID: '100000',
         name: 'CHRIS HALL',

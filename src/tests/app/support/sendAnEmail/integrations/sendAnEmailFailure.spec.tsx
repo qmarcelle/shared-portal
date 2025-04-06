@@ -3,6 +3,7 @@ import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';
+import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -11,6 +12,29 @@ const setupUI = async () => {
   const result = await SendAnEmailPage();
   render(result);
 };
+
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        id: 'testUser',
+        currUsr: {
+          umpi: '57c85test3ebd23c7db88245',
+          role: UserRole.MEMBER,
+          plan: {
+            fhirId: '654543434',
+            grgrCk: '7678765456',
+            grpId: '65654323',
+            memCk: '123456789',
+            sbsbCk: '5654566',
+            subId: '56543455',
+          },
+        },
+        vRules: {},
+      },
+    }),
+  ),
+}));
 
 describe('Send Email  API Integration', () => {
   test('Send Email  API integration Failure scenario', async () => {
@@ -32,7 +56,7 @@ describe('Send Email  API Integration', () => {
         contactNumber: '1-800-565-9140',
         message: 'test',
         categoryValue: 'Dental',
-        dependentName: 'CHRIS HALL',
+        dependentName: 'CHRISTMAS HALL',
         category: 'D',
         groupID: '100000',
         name: 'CHRIS HALL',

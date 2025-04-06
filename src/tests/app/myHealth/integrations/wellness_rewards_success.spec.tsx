@@ -22,7 +22,7 @@ const vRules = {
         fhirId: '654543434',
         grgrCk: '7678765456',
         grpId: '65654323',
-        memCk: '502622001',
+        memCk: '123456789',
         sbsbCk: '5654566',
         subId: '56543455',
       },

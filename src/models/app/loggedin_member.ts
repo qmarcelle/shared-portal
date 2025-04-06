@@ -1,11 +1,13 @@
 import {
   Address,
   AuthFunction,
+  CoverageType,
   GroupData,
   PlanDetail,
 } from '../member/api/loggedInUserInfo';
 
 export interface LoggedInMember {
+  subscriberLoggedIn: boolean;
   subscriberId: string;
   subscriberCk: string;
   suffix: number;
@@ -28,6 +30,8 @@ export interface LoggedInMember {
   groupId: string;
   ssn: string;
   groupEIN: string;
+  coverageTypes: CoverageType[];
+  groupName: string;
   userId: string;
   mpdpdId?: string;
   dpdpdId?: string;

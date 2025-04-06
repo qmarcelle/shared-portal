@@ -28,7 +28,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
           class="body-1"
           style="display: block;"
         >
-          Plan: BlueCross BlueShield of Tennessee
+          Plan: Chris B Hall Enterprises
         </p>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -55,7 +55,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
           class="body-1"
           style="display: block;"
         >
-          Policies: Medical, Dental, Vision
+          Policies: Medical, Wellness, Vision, Dental
         </p>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"

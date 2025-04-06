@@ -1,4 +1,5 @@
 import DashboardPage from '@/app/dashboard/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';
@@ -49,48 +50,7 @@ describe('Dashboard Page', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedFetch.mockResolvedValueOnce(
-      fetchRespWrapper({
-        groupData: {
-          groupID: '100000',
-          groupCK: '21908',
-          groupName: 'BlueCross BlueShield of Tennessee',
-          parentGroupID: '100001',
-          subGroupID: '0001',
-          subGroupCK: 28951,
-          subGroupName: 'BlueCross BlueShield of Tennessee',
-          clientID: 'EI',
-          policyType: 'INT',
-          groupEIN: '620427913',
-        },
-        networkPrefix: 'QMI',
-        subscriberID: '902218823',
-        subscriberCK: '91722400',
-        subscriberFirstName: 'CHRIS',
-        subscriberLastName: 'HALL',
-        coverageTypes: [
-          {
-            productType: 'M',
-            coverageLevel: 'A',
-            exchange: false,
-            indvGroupInd: '',
-            pedAdultInd: '',
-          },
-          {
-            productType: 'D',
-            coverageLevel: 'A',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-          {
-            productType: 'V',
-            coverageLevel: '*',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-        ],
-      }),
+      fetchRespWrapper(loggedInUserInfoMockResp),
     );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
@@ -167,10 +127,10 @@ describe('Dashboard Page', () => {
         next: { revalidate: 1800, tags: ['123456789'] },
       },
     );
+    expect(screen.getByText('Plan: Chris B Hall Enterprises')).toBeVisible();
     expect(
-      screen.getByText('Plan: BlueCross BlueShield of Tennessee'),
+      screen.getByText('Policies: Medical, Wellness, Vision, Dental'),
     ).toBeVisible();
-    expect(screen.getByText('Policies: Medical, Dental, Vision')).toBeVisible();
     expect(screen.getByText('View Plan Details')).toBeVisible();
     expect(component).toMatchSnapshot();
     expect(screen.getByText('View Claims')).toBeVisible();
@@ -189,48 +149,7 @@ describe('Dashboard Page', () => {
     mockAuth.mockResolvedValueOnce(vRules);
 
     mockedFetch.mockResolvedValueOnce(
-      fetchRespWrapper({
-        groupData: {
-          groupID: '100000',
-          groupCK: '21908',
-          groupName: 'BlueCross BlueShield of Tennessee',
-          parentGroupID: '100001',
-          subGroupID: '0001',
-          subGroupCK: 28951,
-          subGroupName: 'BlueCross BlueShield of Tennessee',
-          clientID: 'EI',
-          policyType: 'INT',
-          groupEIN: '620427913',
-        },
-        networkPrefix: 'QMI',
-        subscriberID: '902218823',
-        subscriberCK: '91722400',
-        subscriberFirstName: 'CHRIS',
-        subscriberLastName: 'HALL',
-        coverageTypes: [
-          {
-            productType: 'M',
-            coverageLevel: 'A',
-            exchange: false,
-            indvGroupInd: '',
-            pedAdultInd: '',
-          },
-          {
-            productType: 'D',
-            coverageLevel: 'A',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-          {
-            productType: 'V',
-            coverageLevel: '*',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-        ],
-      }),
+      fetchRespWrapper(loggedInUserInfoMockResp),
     );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
@@ -318,48 +237,7 @@ describe('Dashboard Page', () => {
     mockAuth.mockResolvedValueOnce(vRules);
 
     mockedFetch.mockResolvedValueOnce(
-      fetchRespWrapper({
-        groupData: {
-          groupID: '100000',
-          groupCK: '21908',
-          groupName: 'BlueCross BlueShield of Tennessee',
-          parentGroupID: '100001',
-          subGroupID: '0001',
-          subGroupCK: 28951,
-          subGroupName: 'BlueCross BlueShield of Tennessee',
-          clientID: 'EI',
-          policyType: 'INT',
-          groupEIN: '620427913',
-        },
-        networkPrefix: 'QMI',
-        subscriberID: '902218823',
-        subscriberCK: '91722400',
-        subscriberFirstName: 'CHRIS',
-        subscriberLastName: 'HALL',
-        coverageTypes: [
-          {
-            productType: 'M',
-            coverageLevel: 'A',
-            exchange: false,
-            indvGroupInd: '',
-            pedAdultInd: '',
-          },
-          {
-            productType: 'D',
-            coverageLevel: 'A',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-          {
-            productType: 'V',
-            coverageLevel: '*',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-        ],
-      }),
+      fetchRespWrapper(loggedInUserInfoMockResp),
     );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
@@ -443,48 +321,7 @@ describe('Dashboard Page', () => {
     vRules.user.vRules.isEmboldHealth = false;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedFetch.mockResolvedValueOnce(
-      fetchRespWrapper({
-        groupData: {
-          groupID: '100000',
-          groupCK: '21908',
-          groupName: 'BlueCross BlueShield of Tennessee',
-          parentGroupID: '100001',
-          subGroupID: '0001',
-          subGroupCK: 28951,
-          subGroupName: 'BlueCross BlueShield of Tennessee',
-          clientID: 'EI',
-          policyType: 'INT',
-          groupEIN: '620427913',
-        },
-        networkPrefix: 'QMI',
-        subscriberID: '902218823',
-        subscriberCK: '91722400',
-        subscriberFirstName: 'CHRIS',
-        subscriberLastName: 'HALL',
-        coverageTypes: [
-          {
-            productType: 'M',
-            coverageLevel: 'A',
-            exchange: false,
-            indvGroupInd: '',
-            pedAdultInd: '',
-          },
-          {
-            productType: 'D',
-            coverageLevel: 'A',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-          {
-            productType: 'V',
-            coverageLevel: '*',
-            exchange: true,
-            indvGroupInd: 'Group',
-            pedAdultInd: 'Adult',
-          },
-        ],
-      }),
+      fetchRespWrapper(loggedInUserInfoMockResp),
     );
     mockedAxios.get.mockResolvedValueOnce({
       data: {

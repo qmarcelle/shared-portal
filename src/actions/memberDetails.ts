@@ -5,6 +5,7 @@ import { AllMyPlanData, PlanDetail } from '@/app/myPlan/model/app/myPlanData';
 import { auth } from '@/auth';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { LoggedInMember } from '@/models/app/loggedin_member';
+import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { Session } from 'next-auth';
 import { MemberData, getLoggedInUserInfo } from './loggedUserInfo';
 
@@ -28,21 +29,24 @@ export async function getLoggedInMember(
     member.subscriberId = loggedUserInfo.subscriberID;
     member.subscriberCk = loggedUserInfo.subscriberCK;
     member.noOfDependents = loggedUserInfo.members.length;
+    member.subscriberLoggedIn = loggedUserInfo.subscriberLoggedIn;
     member.lob = loggedUserInfo.lob;
     member.groupDetails = loggedUserInfo.groupData;
     member.networkPrefix = loggedUserInfo.networkPrefix;
     member.groupId = loggedUserInfo.groupData.groupID;
     member.groupEIN = loggedUserInfo.groupData.groupEIN;
     member.groupKey = loggedUserInfo.groupData.groupCK;
+    member.groupName = loggedUserInfo.groupData.groupName;
+    member.coverageTypes = loggedUserInfo.coverageTypes;
     member.lineOfBusiness = loggedUserInfo.lob;
     member.cmCondition = loggedUserInfo.cmcondition.join(',');
     const loggedMember = loggedUserInfo.members.find(
-      (x) => x.memRelation == 'M',
+      (item) => item.memberCk.toString() === session!.user.currUsr!.plan!.memCk,
     );
     if (loggedMember) {
-      member.firstName = loggedMember?.firstName ?? '';
-      member.middleIntital = loggedMember?.middleInitial ?? '';
-      member.lastName = loggedMember?.lastName ?? '';
+      member.firstName = loggedMember.firstName ?? '';
+      member.middleIntital = loggedMember.middleInitial ?? '';
+      member.lastName = loggedMember.lastName ?? '';
       member.dateOfBirth = loggedMember?.birthDate ?? '';
       member.suffix = loggedMember?.memberSuffix ?? 0;
       member.memRelation = loggedMember?.memRelation ?? '';
@@ -97,6 +101,24 @@ export async function getLoggedInMember(
     throw error;
   }
 }
+
+export const computeLoggedInUserName = (
+  loggedUserInfo: LoggedInUserInfo,
+  memCk: string,
+): string[] => {
+  const loggedInUserName: string[] = [];
+  if (loggedUserInfo.subscriberLoggedIn) {
+    loggedInUserName[0] = loggedUserInfo.subscriberFirstName;
+    loggedInUserName[1] = loggedUserInfo.subscriberLastName;
+  } else {
+    const loggedInMember = loggedUserInfo.members.find(
+      (item) => item.memberCk.toString() === memCk,
+    );
+    loggedInUserName[0] = loggedInMember?.firstName ?? '';
+    loggedInUserName[1] = loggedInMember?.lastName ?? '';
+  }
+  return loggedInUserName;
+};
 
 export async function getMemberAndDependents(
   memberCk: string,
