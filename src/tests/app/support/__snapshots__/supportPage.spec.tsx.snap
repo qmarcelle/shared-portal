@@ -97,7 +97,13 @@ exports[`Support Page should render the page correctly 1`] = `
                       class="body-1 font-bold"
                       style="display: block;"
                     >
-                      1-800-000-0000, TTY 711
+                      1-800-565-9000
+                    </p>
+                    <p
+                      class="body-1 font-bold"
+                      style="display: block;"
+                    >
+                      , TTY 711
                     </p>
                   </span>
                 </div>
@@ -473,7 +479,13 @@ exports[`Support Page should render the page correctly 1`] = `
                     class="body-1 font-bold"
                     style="display: block;"
                   >
-                    1-800-000-0000, TTY 711
+                    1-800-565-9000
+                  </p>
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    , TTY 711
                   </p>
                 </span>
               </div>

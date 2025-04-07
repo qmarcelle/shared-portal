@@ -9,11 +9,13 @@ import { ServicesUsedItem } from '@/models/app/servicesused_details';
 interface ServicesUsedChartProps {
   label: string;
   serviceDetails: ServicesUsedItem[];
+  contact: string;
 }
 
 export const ServicesUsedChart = ({
   label,
   serviceDetails,
+  contact,
 }: ServicesUsedChartProps) => {
   return (
     <div className="flex flex-col">
@@ -50,7 +52,7 @@ export const ServicesUsedChart = ({
             <span className="link" key={1}>
               <a> start a chat </a>
             </span>,
-            <span key={3}> or call us at [1-800-000-0000].</span>,
+            <span key={3}> or call us at [{contact}].</span>,
           ]}
         />
       </Column>

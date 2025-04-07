@@ -83,7 +83,7 @@ exports[`Support Page should render the page correctly 1`] = `
                       class="body-1 font-bold"
                       style="display: block;"
                     >
-                       [1-800-000-0000]
+                      1-800-565-9000
                     </p>
                   </span>
                   <span
@@ -213,7 +213,7 @@ exports[`Support Page should render the page correctly 1`] = `
                     class="body-1 font-bold"
                     style="display: block;"
                   >
-                     [1-800-000-0000]
+                    1-800-565-9000
                   </p>
                 </span>
                 <span

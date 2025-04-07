@@ -35,7 +35,9 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
               start a chat
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
           <span
@@ -812,7 +814,9 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
               start a chat
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
           <span
@@ -3056,7 +3060,9 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
               start a chat
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
           <span
@@ -5097,7 +5103,9 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
               start a chat
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
           <span

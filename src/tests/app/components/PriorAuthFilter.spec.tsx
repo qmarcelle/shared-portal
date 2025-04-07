@@ -1,6 +1,9 @@
 import PriorAuthorizationPage from '@/app/priorAuthorization/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
@@ -9,8 +12,34 @@ const renderUI = async () => {
   return render(result);
 };
 
+jest.mock('src/auth', () => ({
+  auth: jest.fn(() =>
+    Promise.resolve({
+      user: {
+        currUsr: {
+          plan: {
+            memCk: '91722407',
+            grpId: '100000',
+            sbsbCk: '91722400',
+          },
+        },
+      },
+    }),
+  ),
+}));
+
 describe('PriorAuth FilterSection', () => {
+  beforeEach(() => {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
+  });
   it('should render the UI correctly', async () => {
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        memberServicePhoneNumber: '1-800-565-9000',
+      },
+    });
     const memberDetails = memberMockResponse;
     mockedAxios.get.mockResolvedValueOnce({
       data: {

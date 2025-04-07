@@ -25,12 +25,13 @@ import { SupportData } from './model/app/support_data';
 export type SupportProps = {
   data: SupportData;
   quantumHealthEnabled: boolean;
+  phone: string;
 };
 
 let ContactHeader = '';
 let CONTACT_ITEMS: any[] = [];
 
-function getQuantumHealthContent() {
+function getQuantumHealthContent(contact: string) {
   ContactHeader = 'Contact Quantum Health';
   CONTACT_ITEMS = [
     {
@@ -41,11 +42,7 @@ function getQuantumHealthContent() {
           <RichText
             spans={[
               <TextBox key="first" className="font-bold" text="Call " />,
-              <TextBox
-                className="font-bold"
-                key="second"
-                text=" [1-800-000-0000]"
-              />,
+              <TextBox className="font-bold" key="second" text={contact} />,
             ]}
           />
         </>
@@ -57,7 +54,7 @@ function getQuantumHealthContent() {
   ];
 }
 
-function getGeneralContent() {
+function getGeneralContent(contact: string) {
   ContactHeader = 'Contact Us';
   CONTACT_ITEMS = [
     {
@@ -73,11 +70,8 @@ function getGeneralContent() {
         <RichText
           spans={[
             <TextBox key="first" text="Call " />,
-            <TextBox
-              className="font-bold"
-              key="second"
-              text="1-800-000-0000, TTY 711"
-            />,
+            <TextBox className="font-bold" key="second" text={contact} />,
+            <TextBox className="font-bold" key="third" text=", TTY 711" />,
           ]}
         />
       ),
@@ -136,7 +130,7 @@ const ModalOverlay = ({ isOpen }: { isOpen: boolean }) => {
   return <div className="fixed modal-overlay inset-0 bg-opacity-50 z-50"></div>;
 };
 
-const Support = ({ data, quantumHealthEnabled }: SupportProps) => {
+const Support = ({ data, quantumHealthEnabled, phone }: SupportProps) => {
   const [isNewWindowOpen, setIsNewWindowOpen] = useState(false);
   let qualtricsWindow: WindowProxy | null;
   useEffect(() => {
@@ -169,7 +163,9 @@ const Support = ({ data, quantumHealthEnabled }: SupportProps) => {
     }
   };
   {
-    quantumHealthEnabled ? getQuantumHealthContent() : getGeneralContent();
+    quantumHealthEnabled
+      ? getQuantumHealthContent(phone)
+      : getGeneralContent(phone);
   }
   return (
     <>

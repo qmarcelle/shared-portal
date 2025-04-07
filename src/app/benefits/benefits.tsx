@@ -41,6 +41,7 @@ interface BenefitsProps {
   benefitsBean: MemberBenefitsBean;
   otherBenefitItems: ManageBenefitsItems[];
   userGroupId: string;
+  phoneNumber: string;
   visibilityRules?: VisibilityRules;
 }
 
@@ -49,6 +50,7 @@ const Benefits = ({
   benefitsBean,
   otherBenefitItems,
   userGroupId,
+  phoneNumber,
   visibilityRules,
 }: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
@@ -234,7 +236,7 @@ const Benefits = ({
             <span className="link font-bold" key={1}>
               start a chat
             </span>,
-            <span key={2}> or call us at [1-800-000-000].</span>,
+            <span key={2}> or call us at [{phoneNumber}].</span>,
           ]}
         />
         <Spacer size={16} />

@@ -17,9 +17,10 @@ import { MedicalServicesWrapper } from '../components/MedicalServices';
 type ServicesUsedProps = {
   users: UIUser[] | undefined;
   services: Map<string, ServicesUsedItem[]> | undefined;
+  phoneNumber: string;
 };
 
-const ServicesUsed = ({ users, services }: ServicesUsedProps) => {
+const ServicesUsed = ({ users, services, phoneNumber }: ServicesUsedProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
@@ -42,6 +43,7 @@ const ServicesUsed = ({ users, services }: ServicesUsedProps) => {
                 }))}
                 initSelectedMemberId={users[0].id}
                 medicalServiceDetailsUsed={services}
+                phoneNumber={phoneNumber}
               />
             ) : (
               <ErrorInfoCard
