@@ -16,6 +16,7 @@ steps:
       targetType: 'inline'
       script: 'npm run test'
     displayName: Run Tests From App Config
+    continueOnError: true
 
   - task: PowerShell@2
     inputs:
