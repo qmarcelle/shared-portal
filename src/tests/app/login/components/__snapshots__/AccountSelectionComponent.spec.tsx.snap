@@ -27,7 +27,7 @@ exports[`Account selection Component should render all the required details 1`] 
             class="body-1 w-72"
             style="display: block;"
           >
-            First, let's confirm the username and password you will use   from now on.
+            First, let's confirm the username and password you will use from now on.
           </p>
           <div
             class="flex flex-row justify-center items-end tooltip tooltipIcon relative"
@@ -79,50 +79,27 @@ exports[`Account selection Component should render all the required details 1`] 
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          class="flex flex-row gap-2 p-2   "
+          aria-checked="false"
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-required="false"
+          class="flex flex-col "
+          role="checkbox"
         >
-          <label>
+          <div
+            class="flex flex-row items-center"
+            tabindex="0"
+          >
             <input
-              id="myCheckbox"
-              name=""
+              aria-label=""
+              class="checkbox   "
+              id="checkbox-"
               type="checkbox"
             />
-          </label>
-          <div
-            class="flex flex-col"
-          >
             <label
-              for="myCheckbox"
-            >
-              <p />
-            </label>
-            <div
-              class="flex flex-col"
-            >
-              <span
-                class="rich-text body-1 undefined"
-              >
-                <span
-                  class="font-bold"
-                >
-                  I understand
-                   
-                </span>
-                <span>
-                  the username listed above and its password will be the only login credentials for
-                   
-                </span>
-                <span
-                  class="font-bold"
-                >
-                  all my BlueCross BlueShield of Tennessee registered accounts
-                   
-                </span>
-                <span>
-                  moving forward. 
-                </span>
-              </span>
-            </div>
+              class="ml-2"
+              for="checkbox-"
+            />
           </div>
         </div>
         <span
@@ -237,7 +214,7 @@ exports[`Account selection Component should render all the required details 1`] 
           class="body-1 w-72"
           style="display: block;"
         >
-          First, let's confirm the username and password you will use   from now on.
+          First, let's confirm the username and password you will use from now on.
         </p>
         <div
           class="flex flex-row justify-center items-end tooltip tooltipIcon relative"
@@ -289,50 +266,27 @@ exports[`Account selection Component should render all the required details 1`] 
         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
       />
       <div
-        class="flex flex-row gap-2 p-2   "
+        aria-checked="false"
+        aria-disabled="false"
+        aria-invalid="false"
+        aria-required="false"
+        class="flex flex-col "
+        role="checkbox"
       >
-        <label>
+        <div
+          class="flex flex-row items-center"
+          tabindex="0"
+        >
           <input
-            id="myCheckbox"
-            name=""
+            aria-label=""
+            class="checkbox   "
+            id="checkbox-"
             type="checkbox"
           />
-        </label>
-        <div
-          class="flex flex-col"
-        >
           <label
-            for="myCheckbox"
-          >
-            <p />
-          </label>
-          <div
-            class="flex flex-col"
-          >
-            <span
-              class="rich-text body-1 undefined"
-            >
-              <span
-                class="font-bold"
-              >
-                I understand
-                 
-              </span>
-              <span>
-                the username listed above and its password will be the only login credentials for
-                 
-              </span>
-              <span
-                class="font-bold"
-              >
-                all my BlueCross BlueShield of Tennessee registered accounts
-                 
-              </span>
-              <span>
-                moving forward. 
-              </span>
-            </span>
-          </div>
+            class="ml-2"
+            for="checkbox-"
+          />
         </div>
       </div>
       <span

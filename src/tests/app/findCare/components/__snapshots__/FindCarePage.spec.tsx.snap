@@ -28,11 +28,13 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                 class="flex flex-col items-end"
               >
                 <button
+                  aria-label="Search"
                   class="flex flex-col p-[0.125rem]  "
                   type="submit"
                 >
                   <img
-                    alt="Search"
+                    alt=""
+                    aria-hidden="true"
                     class="icon searchhover "
                     data-nimg="1"
                     decoding="async"
@@ -355,11 +357,13 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
               class="flex flex-col items-end"
             >
               <button
+                aria-label="Search"
                 class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
-                  alt="Search"
+                  alt=""
+                  aria-hidden="true"
                   class="icon searchhover "
                   data-nimg="1"
                   decoding="async"
@@ -739,11 +743,13 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                 class="flex flex-col items-end"
               >
                 <button
+                  aria-label="Search"
                   class="flex flex-col p-[0.125rem]  "
                   type="submit"
                 >
                   <img
-                    alt="Search"
+                    alt=""
+                    aria-hidden="true"
                     class="icon searchhover "
                     data-nimg="1"
                     decoding="async"
@@ -1358,11 +1364,13 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
               class="flex flex-col items-end"
             >
               <button
+                aria-label="Search"
                 class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
-                  alt="Search"
+                  alt=""
+                  aria-hidden="true"
                   class="icon searchhover "
                   data-nimg="1"
                   decoding="async"
@@ -2034,11 +2042,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                 class="flex flex-col items-end"
               >
                 <button
+                  aria-label="Search"
                   class="flex flex-col p-[0.125rem]  "
                   type="submit"
                 >
                   <img
-                    alt="Search"
+                    alt=""
+                    aria-hidden="true"
                     class="icon searchhover "
                     data-nimg="1"
                     decoding="async"
@@ -2361,11 +2371,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
               class="flex flex-col items-end"
             >
               <button
+                aria-label="Search"
                 class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
-                  alt="Search"
+                  alt=""
+                  aria-hidden="true"
                   class="icon searchhover "
                   data-nimg="1"
                   decoding="async"
@@ -2745,11 +2757,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                 class="flex flex-col items-end"
               >
                 <button
+                  aria-label="Search"
                   class="flex flex-col p-[0.125rem]  "
                   type="submit"
                 >
                   <img
-                    alt="Search"
+                    alt=""
+                    aria-hidden="true"
                     class="icon searchhover "
                     data-nimg="1"
                     decoding="async"
@@ -3364,11 +3378,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
               class="flex flex-col items-end"
             >
               <button
+                aria-label="Search"
                 class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
-                  alt="Search"
+                  alt=""
+                  aria-hidden="true"
                   class="icon searchhover "
                   data-nimg="1"
                   decoding="async"

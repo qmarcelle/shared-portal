@@ -335,7 +335,10 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
               />
               <div
+                aria-label="undefined claim for ANITA from Magnetic Resonance Imaging, Outpatient-HTI/PRE-AUTH with status Approved"
                 class="card-button cursor-pointer mb-4"
+                role="button"
+                tabindex="0"
               >
                 <section
                   class="md:flex md:flex-row align-top m-4"
@@ -475,7 +478,10 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                 </section>
               </div>
               <div
+                aria-label="undefined claim for ANITA from SPRX-Provider Administered-Authed with status Approved"
                 class="card-button cursor-pointer mb-4"
+                role="button"
+                tabindex="0"
               >
                 <section
                   class="md:flex md:flex-row align-top m-4"
@@ -615,7 +621,10 @@ exports[`PriorAuth FilterSection should render the UI correctly 1`] = `
                 </section>
               </div>
               <div
+                aria-label="undefined claim for ANITA from Durable Medical Equipment - Prosthetic/Orthotics with status Approved"
                 class="card-button cursor-pointer mb-4"
+                role="button"
+                tabindex="0"
               >
                 <section
                   class="md:flex md:flex-row align-top m-4"

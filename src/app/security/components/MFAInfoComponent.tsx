@@ -78,9 +78,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
           <Header type="title-2" text="Multi-Factor Authentication (MFA)" />
           <Spacer size={16} />
           <TextBox
-            text="
-              Multi-factor authentication (MFA) will confirm your identity when you log in, 
-              protecting your important health information."
+            text=" Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information."
           />
           <Spacer size={32} />
           <Loader items={10} />
@@ -94,9 +92,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
           <Header type="title-2" text="Multi-Factor Authentication (MFA)" />
           <Spacer size={16} />
           <TextBox
-            text="
-                Multi-factor authentication (MFA) will confirm your identity when you log in, 
-                protecting your important health information."
+            text=" Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information."
           />
           <Spacer size={32} />
           {getDeviceError && (

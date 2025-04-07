@@ -279,11 +279,13 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
           >
             <section
               class="card-main max-sm:my-4 md:my-8"
+              role="search"
             >
               <div
                 class="flex flex-row items-center input   "
               >
                 <input
+                  aria-label="Search claims by member name, provider name, or claim ID"
                   class="body-1 search-textfield"
                   name="search-Field"
                   placeholder="Search Claims..."
@@ -294,11 +296,13 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   class="flex flex-col items-end"
                 >
                   <button
+                    aria-label="Search"
                     class="flex flex-col p-[0.125rem]  "
                     type="submit"
                   >
                     <img
-                      alt="Search"
+                      alt=""
+                      aria-hidden="true"
                       class="icon searchhover "
                       data-nimg="1"
                       decoding="async"
@@ -314,20 +318,29 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
               </div>
             </section>
             <div
+              aria-label="Claims list controls"
               class="xs:block md:inline-flex max-sm:my-4 md:my-2"
+              role="toolbar"
             >
               <div
                 class="flex flex-row body-1 flex-grow align-top mb-0"
               >
-                Filter Results:
+                <span
+                  id="filter-label"
+                >
+                  Filter Results:
+                </span>
                  
                 <a
+                  aria-label="Download 10 claims"
                   class="link ml-2 flex"
+                  href="#"
                 >
                   10
                    Claims
                   <img
                     alt=""
+                    aria-hidden="true"
                     class="w-[20px] h-[20px] ml-2"
                     data-nimg="1"
                     decoding="async"
@@ -343,7 +356,11 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
               <div
                 class="flex flex-row body-1 items-end"
               >
-                Sort by:
+                <span
+                  id="sort-label"
+                >
+                  Sort by:
+                </span>
                  
                 <div>
                   <div
@@ -355,12 +372,14 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                     >
                       <div>
                         <a
+                          aria-labelledby="sort-label"
                           class="link ml-2 flex"
                         >
                           Date (Most Recent)
                            
                           <img
                             alt=""
+                            aria-hidden="true"
                             class="w-[20px] h-[20px] ml-2"
                             data-nimg="1"
                             decoding="async"
@@ -382,7 +401,9 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
               />
             </div>
             <div
+              aria-label="Claims list"
               class="flex flex-col max-sm:my-4"
+              role="region"
             >
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -391,7 +412,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                 class="flex flex-col"
               >
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Rickertsen, Reece N. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -549,7 +573,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Womack, Benjamin D. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -707,7 +734,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Welch, Derek C. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -865,7 +895,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Tomichek, Richard C. with status Awaiting Processing"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1023,7 +1056,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Watson, Melissa I. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1181,7 +1217,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Capizzi, Stephen A. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1339,7 +1378,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Wade, Joseph F. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1497,7 +1539,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Bhushan, Susan D. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1655,7 +1700,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTMAS HALL from Bhushan, Susan D. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1813,7 +1861,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Warren County Health Dept with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -2462,11 +2513,13 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
           >
             <section
               class="card-main max-sm:my-4 md:my-8"
+              role="search"
             >
               <div
                 class="flex flex-row items-center input   "
               >
                 <input
+                  aria-label="Search claims by member name, provider name, or claim ID"
                   class="body-1 search-textfield"
                   name="search-Field"
                   placeholder="Search Claims..."
@@ -2477,11 +2530,13 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   class="flex flex-col items-end"
                 >
                   <button
+                    aria-label="Search"
                     class="flex flex-col p-[0.125rem]  "
                     type="submit"
                   >
                     <img
-                      alt="Search"
+                      alt=""
+                      aria-hidden="true"
                       class="icon searchhover "
                       data-nimg="1"
                       decoding="async"
@@ -2497,20 +2552,29 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
               </div>
             </section>
             <div
+              aria-label="Claims list controls"
               class="xs:block md:inline-flex max-sm:my-4 md:my-2"
+              role="toolbar"
             >
               <div
                 class="flex flex-row body-1 flex-grow align-top mb-0"
               >
-                Filter Results:
+                <span
+                  id="filter-label"
+                >
+                  Filter Results:
+                </span>
                  
                 <a
+                  aria-label="Download 10 claims"
                   class="link ml-2 flex"
+                  href="#"
                 >
                   10
                    Claims
                   <img
                     alt=""
+                    aria-hidden="true"
                     class="w-[20px] h-[20px] ml-2"
                     data-nimg="1"
                     decoding="async"
@@ -2526,7 +2590,11 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
               <div
                 class="flex flex-row body-1 items-end"
               >
-                Sort by:
+                <span
+                  id="sort-label"
+                >
+                  Sort by:
+                </span>
                  
                 <div>
                   <div
@@ -2538,12 +2606,14 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                     >
                       <div>
                         <a
+                          aria-labelledby="sort-label"
                           class="link ml-2 flex"
                         >
                           MyShare (High to Low)
                            
                           <img
                             alt=""
+                            aria-hidden="true"
                             class="w-[20px] h-[20px] ml-2"
                             data-nimg="1"
                             decoding="async"
@@ -2565,7 +2635,9 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
               />
             </div>
             <div
+              aria-label="Claims list"
               class="flex flex-col max-sm:my-4"
+              role="region"
             >
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -2574,7 +2646,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                 class="flex flex-col"
               >
                 <div
+                  aria-label="Medical claim for CHRISTMAS HALL from Bhushan, Susan D. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -2732,7 +2807,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Bhushan, Susan D. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -2890,7 +2968,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Warren County Health Dept with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3048,7 +3129,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Rickertsen, Reece N. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3206,7 +3290,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Womack, Benjamin D. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3364,7 +3451,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Welch, Derek C. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3522,7 +3612,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Tomichek, Richard C. with status Awaiting Processing"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3680,7 +3773,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Watson, Melissa I. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3838,7 +3934,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Capizzi, Stephen A. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3996,7 +4095,10 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
                   </section>
                 </div>
                 <div
+                  aria-label="Medical claim for CHRISTOCLAIM HALL from Wade, Joseph F. with status Completed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
