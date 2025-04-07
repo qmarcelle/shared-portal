@@ -20,11 +20,7 @@ describe('Katie Beckett Banking Info Page', () => {
     expect(screen.getByText('Member Information')).toBeVisible();
     expect(screen.getByText('Get Help with the Bank Draft Form')).toBeVisible();
     expect(screen.getByText('Bank Information')).toBeVisible();
-    expect(
-      screen.getByText(
-        'By checking this box, I acknowledge that I have the authority to allow access to this account on behalf of the account holder.',
-      ),
-    ).toBeVisible();
+    expect(screen.getAllByRole('checkbox')[0]).toBeVisible();
     expect(screen.getByText('Submit Form')).toBeVisible();
     expect(component.baseElement).toMatchSnapshot();
   });

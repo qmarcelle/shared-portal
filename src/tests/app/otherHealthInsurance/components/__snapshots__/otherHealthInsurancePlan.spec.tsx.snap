@@ -20,26 +20,28 @@ exports[`otherPlan should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
-          class="flex flex-row gap-2 p-2   "
+          aria-checked="false"
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-required="false"
+          class="flex flex-col "
+          role="checkbox"
         >
-          <label>
+          <div
+            class="flex flex-row items-center"
+            tabindex="0"
+          >
             <input
-              id="myCheckbox"
-              name=""
+              aria-label="Medicare Plan"
+              class="checkbox   "
+              id="checkbox-medicare-plan"
               type="checkbox"
             />
-          </label>
-          <div
-            class="flex flex-col"
-          >
             <label
-              for="myCheckbox"
+              class="ml-2"
+              for="checkbox-medicare-plan"
             >
-              <p
-                class=""
-              >
-                Medicare Plan
-              </p>
+              Medicare Plan
             </label>
           </div>
         </div>
@@ -47,26 +49,28 @@ exports[`otherPlan should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
         />
         <div
-          class="flex flex-row gap-2 p-2   "
+          aria-checked="false"
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-required="false"
+          class="flex flex-col "
+          role="checkbox"
         >
-          <label>
+          <div
+            class="flex flex-row items-center"
+            tabindex="0"
+          >
             <input
-              id="myCheckbox"
-              name=""
+              aria-label="Medical Plan"
+              class="checkbox   "
+              id="checkbox-medical-plan"
               type="checkbox"
             />
-          </label>
-          <div
-            class="flex flex-col"
-          >
             <label
-              for="myCheckbox"
+              class="ml-2"
+              for="checkbox-medical-plan"
             >
-              <p
-                class=""
-              >
-                Medical Plan
-              </p>
+              Medical Plan
             </label>
           </div>
         </div>
@@ -74,26 +78,28 @@ exports[`otherPlan should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
         />
         <div
-          class="flex flex-row gap-2 p-2   "
+          aria-checked="false"
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-required="false"
+          class="flex flex-col "
+          role="checkbox"
         >
-          <label>
+          <div
+            class="flex flex-row items-center"
+            tabindex="0"
+          >
             <input
-              id="myCheckbox"
-              name=""
+              aria-label="Dental Plan"
+              class="checkbox   "
+              id="checkbox-dental-plan"
               type="checkbox"
             />
-          </label>
-          <div
-            class="flex flex-col"
-          >
             <label
-              for="myCheckbox"
+              class="ml-2"
+              for="checkbox-dental-plan"
             >
-              <p
-                class=""
-              >
-                Dental Plan
-              </p>
+              Dental Plan
             </label>
           </div>
         </div>

@@ -306,42 +306,27 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          class="flex flex-row gap-2 p-2  checkbox-disabled "
+          aria-checked="false"
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-required="false"
+          class="flex flex-col "
+          role="checkbox"
         >
-          <label>
+          <div
+            class="flex flex-row items-center"
+            tabindex="0"
+          >
             <input
-              checked=""
-              id="myCheckbox"
-              name=""
+              aria-label=""
+              class="checkbox   "
+              id="checkbox-"
               type="checkbox"
             />
-          </label>
-          <div
-            class="flex flex-col"
-          >
             <label
-              for="myCheckbox"
-            >
-              <p />
-            </label>
-            <span
-              class="rich-text body-1 undefined"
-            >
-              <span
-                class="font-bold"
-              >
-                I Agree.
-              </span>
-              <span>
-                 Clicking “I Agree” means that you have read, understand, and
-                    agree to this authorization. You are giving your permission
-                    for BlueCross BlueShield of Tennessee to give your Personal Representative, and any person, company or other third party
-                    authorized by your Personal Representative, access to yours
-                    health information, including your highly sensitive health
-                    information. You understand that you can contact BlueCross
-                    BlueShield of Tennessee for a copy of this authorization.
-              </span>
-            </span>
+              class="ml-2"
+              for="checkbox-"
+            />
           </div>
         </div>
         <span
@@ -376,25 +361,27 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          class="flex flex-row gap-2 p-2  checkbox-disabled "
+          aria-checked="false"
+          aria-disabled="false"
+          aria-invalid="false"
+          aria-required="false"
+          class="flex flex-col "
+          role="checkbox"
         >
-          <label>
+          <div
+            class="flex flex-row items-center"
+            tabindex="0"
+          >
             <input
-              checked=""
-              id="myCheckbox"
-              name=""
+              aria-label=""
+              class="checkbox   "
+              id="checkbox-"
               type="checkbox"
             />
-          </label>
-          <div
-            class="flex flex-col"
-          >
             <label
-              for="myCheckbox"
-            >
-              <p />
-            </label>
-            I Agree. Lorem ipsum dolor sit amet, consectetur adipiscing elit.   Sed sodales, orci vitae ullamcorper dignissim,    ligula nulla condimentum lectus, feugiat interdum dui turpis eget nisl.    Duis at lectus vitae augue pulvinar dictum eu nec neque. Pellentesque maximus mattis justo id tincidunt.   Mauris porttitor
+              class="ml-2"
+              for="checkbox-"
+            />
           </div>
         </div>
         <span

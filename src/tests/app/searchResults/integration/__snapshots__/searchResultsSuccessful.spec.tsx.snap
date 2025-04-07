@@ -40,11 +40,13 @@ exports[`Search Results Page should show all the results correctly on searching 
             class="flex flex-col items-end"
           >
             <button
+              aria-label="Search"
               class="flex flex-col p-[0.125rem]  "
               type="submit"
             >
               <img
-                alt="Search"
+                alt=""
+                aria-hidden="true"
                 class="icon searchhover "
                 data-nimg="1"
                 decoding="async"

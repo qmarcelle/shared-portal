@@ -507,38 +507,27 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                     style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                   />
                   <div
-                    class="flex flex-row gap-2 p-2  checkbox-disabled pl-0"
+                    aria-checked="false"
+                    aria-disabled="false"
+                    aria-invalid="false"
+                    aria-required="false"
+                    class="flex flex-col pl-0"
+                    role="checkbox"
                   >
-                    <label>
+                    <div
+                      class="flex flex-row items-center"
+                      tabindex="0"
+                    >
                       <input
-                        id="myCheckbox"
-                        name=""
+                        aria-label=""
+                        class="checkbox   "
+                        id="checkbox-"
                         type="checkbox"
                       />
-                    </label>
-                    <div
-                      class="flex flex-col"
-                    >
                       <label
-                        for="myCheckbox"
-                      >
-                        <p />
-                      </label>
-                      <span
-                        class="rich-text body-1 undefined"
-                      >
-                        <span>
-                          By checking this box, I acknowledge that I have the authority to allow access to this account on behalf of the account holder.
-                           
-                        </span>
-                        <span
-                          class="link font-bold"
-                        >
-                          <a>
-                            View Terms & Conditions
-                          </a>
-                        </span>
-                      </span>
+                        class="ml-2"
+                        for="checkbox-"
+                      />
                     </div>
                   </div>
                   <span

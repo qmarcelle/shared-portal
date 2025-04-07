@@ -67,8 +67,7 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
         <Spacer size={32} />
         <TextBox
           className="body-1 w-[130%] text-center"
-          text="Tell us about your other insurance. All fields are required unless
-          noted as optional."
+          text="Tell us about your other insurance. All fields are required unless noted as optional."
         />
         <Spacer size={32} />
       </Column>
@@ -105,11 +104,15 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             />
             <Spacer size={16} />
 
-            <Checkbox label={'Medicare Part A'} classProps="!p-0"></Checkbox>
+            <Checkbox
+              label={'Medicare Part A'}
+              classProps="!p-0"
+              id="medicare-part-a"
+            ></Checkbox>
             <Spacer size={8} />
-            <Checkbox label={'Medicare Part B'}></Checkbox>
+            <Checkbox label={'Medicare Part B'} id="medicare-part-b"></Checkbox>
             <Spacer size={8} />
-            <Checkbox label={'Medicare Part D'}></Checkbox>
+            <Checkbox label={'Medicare Part D'} id="medicare-part-d"></Checkbox>
             <Spacer size={16} />
             <CalendarField
               isSuffixNeeded={true}
@@ -159,8 +162,7 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             <Spacer size={16} />
             <TextBox
               className="body-1"
-              text="Is this member eligible for Medicare due to End Stage Renal
-              Disease?"
+              text="Is this member eligible for Medicare due to End Stage Renal Disease?"
             />
             <Spacer size={16} />
             <Radio
@@ -194,7 +196,10 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
               text="Check the box if this statement applies:"
             />
             <Spacer size={8} />
-            <Checkbox label={'This member is over 65.'}></Checkbox>
+            <Checkbox
+              label={'This member is over 65.'}
+              id="member-over-65"
+            ></Checkbox>
             <Spacer size={32} />
             {error && (
               <div className="text-red-500 mt-1">

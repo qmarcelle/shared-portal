@@ -49,8 +49,7 @@ export const PriceDentalCareCard = ({
           <Spacer size={32} />
           <TextBox
             className="body-1 center"
-            text="This cost is only an estimate and may be less based on your
-      deductible, coinsurance and annual maximum."
+            text="This cost is only an estimate and may be less based on your deductible, coinsurance and annual maximum."
           />
           <Spacer size={32} />
           {procedures.slice(0, 3).map((procedures) => (
