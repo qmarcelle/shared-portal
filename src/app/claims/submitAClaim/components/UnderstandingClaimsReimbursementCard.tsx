@@ -7,7 +7,13 @@ import { TextBox } from '@/components/foundation/TextBox';
 
 // UnderstandingClaimsReimbursementCard component
 
-export const UnderstandingClaimsReimbursementCard = () => {
+export type UnderstandingClaimsReimbursementCardProps = {
+  contact: string;
+};
+
+export const UnderstandingClaimsReimbursementCard = ({
+  contact,
+}: UnderstandingClaimsReimbursementCardProps) => {
   return (
     <Card>
       <Column className="m-8">
@@ -26,7 +32,7 @@ export const UnderstandingClaimsReimbursementCard = () => {
             <span className="link" key={1}>
               <a> start a chat </a>
             </span>,
-            <span key={3}> or call us at [1-800-000-0000].</span>,
+            <span key={3}> or call us at [{contact}].</span>,
           ]}
         />
       </Column>

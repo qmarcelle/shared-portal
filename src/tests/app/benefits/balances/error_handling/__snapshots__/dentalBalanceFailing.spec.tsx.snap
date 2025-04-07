@@ -795,7 +795,9 @@ exports[`Medical and Dental Balances Error Handling should call Balances api and
                       </a>
                     </span>
                     <span>
-                       or call us at [1-800-000-0000].
+                       or call us at [
+                      1-800-565-9000
+                      ].
                     </span>
                   </span>
                 </div>

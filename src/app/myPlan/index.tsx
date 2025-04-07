@@ -19,9 +19,10 @@ import { AllMyPlanData, MyPlanData } from './model/app/myPlanData';
 
 export type MyPlanProps = {
   data: MyPlanData;
+  contact: string;
   planData: AllMyPlanData<string>[];
 };
-const MyPlan = ({ data, planData }: MyPlanProps) => {
+const MyPlan = ({ data, contact, planData }: MyPlanProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <WelcomeBanner
@@ -35,7 +36,7 @@ const MyPlan = ({ data, planData }: MyPlanProps) => {
               <span className="link !text-white" key={1}>
                 <a>start a chat</a>
               </span>,
-              <span key={2}> or call us at [1-800-000-000].</span>,
+              <span key={2}> or call us at [{contact}].</span>,
             ]}
           />
         }

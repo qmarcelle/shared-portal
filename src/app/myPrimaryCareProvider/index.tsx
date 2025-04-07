@@ -10,9 +10,10 @@ import { ProviderContactInformation } from './components/ProviderContactInformat
 
 export type PrimaryCareOptionsProps = {
   data: PrimaryCareOptionsData;
+  phone: string;
 };
 
-const MyPrimaryCareProvider = ({ data }: PrimaryCareOptionsProps) => {
+const MyPrimaryCareProvider = ({ data, phone }: PrimaryCareOptionsProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color mt-20">
@@ -49,7 +50,7 @@ const MyPrimaryCareProvider = ({ data }: PrimaryCareOptionsProps) => {
               ))}
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
-            <HelpWithPrimaryCareProvider />
+            <HelpWithPrimaryCareProvider contact={phone} />
           </Column>
         </section>
       </Column>

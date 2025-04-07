@@ -21,9 +21,11 @@ import { useBenefitsStore } from '../stores/benefitsStore';
 export const Details = ({
   balanceData,
   spendingAccountInfo,
+  contact,
 }: {
   balanceData: BalanceData | undefined;
   spendingAccountInfo: SpendingAccountSectionProps;
+  contact: string;
 }) => {
   const { selectedBenefitDetails } = useBenefitsStore();
 
@@ -118,6 +120,7 @@ export const Details = ({
                   key="Medical"
                   title="Medical & Pharmacy Balance"
                   product={balanceData?.medical}
+                  phone={contact}
                 />
               )}
               {selectedBenefitDetails.benefitType ===
@@ -126,6 +129,7 @@ export const Details = ({
                   key="Dental"
                   title="Dental Balance"
                   product={balanceData?.dental}
+                  phone={contact}
                 />
               )}
 

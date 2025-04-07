@@ -35,7 +35,9 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 1`
               start a chat
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
           <span
@@ -2216,7 +2218,9 @@ exports[`Claims SnapshotList Sort should sort the data based on sort selected 2`
               start a chat
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
           <span

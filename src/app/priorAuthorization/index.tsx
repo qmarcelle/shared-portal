@@ -47,7 +47,7 @@ const PriorAuthorization = ({
                   label="Start a chat"
                   className="link !flex caremark pt-0"
                 />
-                or call [1-800-000-000].
+                or call us at [{data.phoneNumber}].
               </Row>,
               <Row
                 className="body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
