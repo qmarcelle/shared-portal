@@ -204,6 +204,67 @@ exports[`ManageMyPlan should render UI correctly for Blue Care groups 1`] = `
 </body>
 `;
 
+exports[`ManageMyPlan should render UI correctly for Blue Care groups 155000 1`] = `
+<body>
+  <div>
+    <div
+      class="card-main undefined"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Manage My Plan
+        </h2>
+        <div
+          class="flex flex-col"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col p-1 false cursor-pointer link-row-container"
+          >
+            <div
+              class="flex flex-row m-2"
+            >
+              <p
+                class="link-row-head mr-2"
+                tabindex="0"
+              >
+                Katie Beckett Banking Info
+              </p>
+              <img
+                alt="link"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <div
+              class="m-2"
+            >
+              <div
+                class="body-1 flex flex-row"
+              >
+                Find and update your bank draft details for your plan here.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`ManageMyPlan should render UI correctly for other groups 1`] = `
 <body>
   <div>

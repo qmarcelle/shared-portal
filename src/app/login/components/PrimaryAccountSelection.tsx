@@ -47,10 +47,8 @@ export const PrimaryAccountSelection = () => {
       <Row className="flex flex-row">
         <TextBox
           type="body-1"
-          text="First, let's confirm the username and password you will use
-              from now on."
-          ariaLabel="First, let's confirm the username and password you will use
-              from now on."
+          text="First, let's confirm the username and password you will use from now on."
+          ariaLabel="First, let's confirm the username and password you will use from now on."
           className="w-72"
         />
         <ToolTip

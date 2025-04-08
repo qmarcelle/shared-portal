@@ -4,7 +4,13 @@ import { Header } from '@/components/foundation/Header';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 
-export const HelpWithPrimaryCareProvider = () => {
+export type HelpWithPrimaryCareProviderProps = {
+  contact: string;
+};
+
+export const HelpWithPrimaryCareProvider = ({
+  contact,
+}: HelpWithPrimaryCareProviderProps) => {
   return (
     <Card className="mt-4 md:ml-8 m-4 p-8">
       <Column className="flex flex-col">
@@ -21,7 +27,7 @@ export const HelpWithPrimaryCareProvider = () => {
             <span className="link" key={1}>
               <a>start a chat </a>
             </span>,
-            <span key={2}>or call us at [1-800-000-000]</span>,
+            <span key={2}>or call us at [{contact}]</span>,
           ]}
         />
       </Column>

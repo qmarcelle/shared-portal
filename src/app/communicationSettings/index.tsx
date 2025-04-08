@@ -25,8 +25,8 @@ const CommunicationSettings = ({ data }: CommunicationSettingsProps) => {
           <Column className="flex-grow page-section-36_67 items-stretch">
             <ContactInformationSection
               className="large-section"
-              phone={data.mobileNumber}
-              email={data.emailAddress}
+              phone={data?.mobileNumber}
+              email={data?.emailAddress}
             />
             <RequestPrintMaterialSection className="large-section" />
           </Column>
@@ -34,12 +34,12 @@ const CommunicationSettings = ({ data }: CommunicationSettingsProps) => {
             <EditAlertPreferncesSection
               className="large-section"
               alertPreferenceData={{
-                emailAddress: data.emailAddress,
-                mobileNumber: data.mobileNumber,
-                visibilityRules: data.visibilityRules,
-                tierOne: data.tierOne,
-                tierOneDescriptions: data.tierOneDescriptions,
-                dutyToWarn: data.dutyToWarn,
+                emailAddress: data?.emailAddress,
+                mobileNumber: data?.mobileNumber,
+                visibilityRules: data?.visibilityRules,
+                tierOne: data?.tierOne,
+                tierOneDescriptions: data?.tierOneDescriptions,
+                dutyToWarn: data?.dutyToWarn,
               }}
             />
           </Column>

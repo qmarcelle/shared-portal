@@ -275,7 +275,10 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
+                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -377,7 +380,10 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                   </section>
                 </div>
                 <div
+                  aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1199,7 +1205,10 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
+                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1301,7 +1310,10 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                   </section>
                 </div>
                 <div
+                  aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1779,7 +1791,10 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
+                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1881,7 +1896,10 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                   </section>
                 </div>
                 <div
+                  aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"

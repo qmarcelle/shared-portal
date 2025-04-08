@@ -1,7 +1,7 @@
 'use server';
 
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
-import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { getLoggedInMember } from '@/actions/memberDetails';
 import { getEmployerProvidedBenefits } from '@/app/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
@@ -64,7 +64,7 @@ export const getDashboardData = async (): Promise<
       employerProvidedBenefits,
       planDetails,
     ] = await Promise.allSettled([
-      getLoggedInUserInfo(session?.user.currUsr?.plan.memCk ?? ''),
+      getLoggedInMember(session),
       getPCPInfo(session),
       getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
@@ -78,12 +78,12 @@ export const getDashboardData = async (): Promise<
       status: 200,
       data: {
         memberDetails: {
-          firstName: loggedUserInfo.subscriberFirstName,
-          lastName: loggedUserInfo.subscriberLastName,
-          planName: loggedUserInfo.groupData.groupName,
+          firstName: loggedUserInfo.firstName,
+          lastName: loggedUserInfo.lastName,
+          planName: loggedUserInfo.groupName,
           coverageType: computeCoverageType(loggedUserInfo.coverageTypes),
-          subscriberId: loggedUserInfo.subscriberID,
-          groupId: loggedUserInfo.groupData.groupID,
+          subscriberId: loggedUserInfo.subscriberId,
+          groupId: loggedUserInfo.groupId,
           selectedPlan:
             planDetails.status === 'fulfilled'
               ? transformPolicyToPlans(planDetails.value)[0]

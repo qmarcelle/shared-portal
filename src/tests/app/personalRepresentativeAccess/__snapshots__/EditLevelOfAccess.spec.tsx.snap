@@ -50,7 +50,6 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
               <label>
                 <input
                   aria-label="Full Access"
-                  checked=""
                   id=""
                   name=""
                   type="radio"

@@ -29,7 +29,7 @@ export const transformPolicyToPlans = (policyInfo: PolicyInfo) => {
       subscriberName: item.subscriberName,
       memeCk: item.memberCk?.toString(),
       termedPlan: true,
-      endedOn: item.termDate?.split('-')[3],
+      endedOn: item.termDate?.split('-')[2],
     }),
   );
   return planDetails;

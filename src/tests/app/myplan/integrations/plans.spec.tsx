@@ -25,7 +25,7 @@ jest.mock('src/auth', () => ({
     }),
   ),
 }));
-const mockPlanData: AllMyPlanData[] = [
+const mockPlanData: AllMyPlanData<string>[] = [
   {
     memberName: 'CHRISTMAS HALL',
     dob: '06/29/2009',
@@ -82,8 +82,9 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '1/1/2019',
     visionEffectiveDate: '1/1/2019',
-    address: [],
+    address: '',
     primaryPhoneNumber: '123456789',
+    secondaryPhoneNumber: '',
   },
   {
     memberName: 'KRISSY HALL',
@@ -129,8 +130,9 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '',
     visionEffectiveDate: '1/1/2019',
-    address: [],
+    address: '',
     primaryPhoneNumber: '',
+    secondaryPhoneNumber: '',
   },
   {
     memberName: 'CHRIS HALL',
@@ -188,8 +190,9 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '11/1/2017',
     visionEffectiveDate: '1/1/2019',
-    address: [],
+    address: '',
     primaryPhoneNumber: '',
+    secondaryPhoneNumber: '',
   },
 ];
 describe('PlanDetailsSection', () => {

@@ -40,7 +40,9 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                 </a>
               </span>
               <span>
-                 or call us at [1-800-000-000].
+                 or call us at [
+                1-800-565-9000
+                ].
               </span>
             </span>
           </div>
@@ -68,41 +70,6 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                   >
                     Plan Details
                   </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
-                    class="card-neutral  neutral container undefined"
-                  >
-                    <div
-                      class="flex flex-row flex flex-row align-top m-4"
-                    >
-                      <img
-                        alt="alert"
-                        class="icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-row flex flex-col flex-grow"
-                      >
-                        <p
-                          class="body-1"
-                        >
-                          There was a problem loading your information. Please try refreshing the page or returning to this page later.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -660,7 +627,9 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
               </a>
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
         </div>
@@ -688,41 +657,6 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                 >
                   Plan Details
                 </h2>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="card-neutral  neutral container undefined"
-                >
-                  <div
-                    class="flex flex-row flex flex-row align-top m-4"
-                  >
-                    <img
-                      alt="alert"
-                      class="icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-row flex flex-col flex-grow"
-                    >
-                      <p
-                        class="body-1"
-                      >
-                        There was a problem loading your information. Please try refreshing the page or returning to this page later.
-                      </p>
-                    </div>
-                  </div>
-                </div>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -1337,7 +1271,9 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                 </a>
               </span>
               <span>
-                 or call us at [1-800-000-000].
+                 or call us at [
+                1-800-565-9000
+                ].
               </span>
             </span>
           </div>
@@ -1365,6 +1301,41 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                   >
                     Plan Details
                   </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="card-neutral  neutral container undefined"
+                  >
+                    <div
+                      class="flex flex-row flex flex-row align-top m-4"
+                    >
+                      <img
+                        alt="alert"
+                        class="icon"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-row flex flex-col flex-grow"
+                      >
+                        <p
+                          class="body-1"
+                        >
+                          There was a problem loading your information. Please try refreshing the page or returning to this page later.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
@@ -1560,6 +1531,7 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                             />
                             <a
                               aria-label="View All Plan Contact Information"
+                              href="/myPlan/planContactInformation"
                               style="display: block;"
                             >
                               <button
@@ -1577,6 +1549,42 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                             </a>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="card-main undefined"
+                  >
+                    <div
+                      class="flex flex-col items-stretch"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            View Plan Contact Information
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
                       </div>
                     </div>
                   </div>
@@ -2294,7 +2302,9 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
               </a>
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
         </div>
@@ -2322,6 +2332,41 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                 >
                   Plan Details
                 </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="card-neutral  neutral container undefined"
+                >
+                  <div
+                    class="flex flex-row flex flex-row align-top m-4"
+                  >
+                    <img
+                      alt="alert"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-row flex flex-col flex-grow"
+                    >
+                      <p
+                        class="body-1"
+                      >
+                        There was a problem loading your information. Please try refreshing the page or returning to this page later.
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
@@ -2517,6 +2562,7 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                           />
                           <a
                             aria-label="View All Plan Contact Information"
+                            href="/myPlan/planContactInformation"
                             style="display: block;"
                           >
                             <button
@@ -2534,6 +2580,42 @@ exports[`PlanDetailsSection renders plan details correctly on click of view cont
                           </a>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-main undefined"
+                >
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          View Plan Contact Information
+                        </p>
+                        <img
+                          alt="Down Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="mr-2 flex-grow"
+                      />
                     </div>
                   </div>
                 </div>
@@ -3308,7 +3390,9 @@ exports[`PlanDetailsSection renders plan details correctly on click of view who 
                 </a>
               </span>
               <span>
-                 or call us at [1-800-000-000].
+                 or call us at [
+                1-800-565-9000
+                ].
               </span>
             </span>
           </div>
@@ -4453,6 +4537,132 @@ exports[`PlanDetailsSection renders plan details correctly on click of view who 
                                   </div>
                                 </div>
                               </div>
+                              <div
+                                class="card-elevated cursor-pointer mb-4"
+                              >
+                                <div
+                                  class="flex flex-col m-4"
+                                >
+                                  <span
+                                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                  />
+                                  <div
+                                    class="flex flex-row justify-between"
+                                  >
+                                    <p
+                                      class="body-1 ml-2 font-bold body-1"
+                                      style="display: block;"
+                                    >
+                                      Chris Hall
+                                    </p>
+                                    <p
+                                      class="body-1"
+                                      style="display: block;"
+                                    >
+                                      DOB: 8/6/1959
+                                    </p>
+                                  </div>
+                                  <span
+                                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                  />
+                                  <div
+                                    class="flex flex-row"
+                                  >
+                                    <span
+                                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                    />
+                                    <div
+                                      class=""
+                                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                                    />
+                                  </div>
+                                  <span
+                                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                  />
+                                  <div
+                                    class="flex flex-col"
+                                  >
+                                    <div
+                                      class="flex flex-row"
+                                    >
+                                      <span
+                                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                      />
+                                      <p
+                                        class="body-1 body-1"
+                                        style="display: block;"
+                                      >
+                                        Dental / Medical / Vision
+                                      </p>
+                                      <div
+                                        class="flex flex-row justify-center items-end tooltip tooltipIcon relative ml-2 text-center"
+                                      >
+                                        <span
+                                          class="tooltiptext !p-2"
+                                        >
+                                          <div
+                                            class="flex flex-col mb-2 ml-2 mt-4"
+                                          >
+                                            <div
+                                              class="flex flex-row"
+                                            >
+                                              Medical
+                                            </div>
+                                            <div
+                                              class="flex flex-row"
+                                            >
+                                              Policy effective date: 
+                                              1/1/2019
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="flex flex-col mb-2 ml-2"
+                                          >
+                                            <div
+                                              class="flex flex-row"
+                                            >
+                                              Dental
+                                            </div>
+                                            <div
+                                              class="flex flex-row"
+                                            >
+                                              Policy effective date: 
+                                              11/1/2017
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="flex flex-col ml-2 mb-4"
+                                          >
+                                            <div
+                                              class="flex flex-row"
+                                            >
+                                              Vision
+                                            </div>
+                                            <div
+                                              class="flex flex-row"
+                                            >
+                                              Policy effective date: 
+                                              1/1/2019
+                                            </div>
+                                          </div>
+                                        </span>
+                                        <img
+                                          alt="Info"
+                                          class="icon"
+                                          data-nimg="1"
+                                          decoding="async"
+                                          height="40"
+                                          loading="lazy"
+                                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                          style="color: transparent;"
+                                          width="40"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                             <span
                               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -4482,6 +4692,42 @@ exports[`PlanDetailsSection renders plan details correctly on click of view who 
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
+                  <div
+                    class="card-main undefined"
+                  >
+                    <div
+                      class="flex flex-col items-stretch"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            View Plan Contact Information
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
+                      </div>
+                    </div>
+                  </div>
                   <div
                     class="card-main undefined"
                   >
@@ -5232,7 +5478,9 @@ exports[`PlanDetailsSection renders plan details correctly on click of view who 
               </a>
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
         </div>
@@ -6377,6 +6625,132 @@ exports[`PlanDetailsSection renders plan details correctly on click of view who 
                                 </div>
                               </div>
                             </div>
+                            <div
+                              class="card-elevated cursor-pointer mb-4"
+                            >
+                              <div
+                                class="flex flex-col m-4"
+                              >
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <div
+                                  class="flex flex-row justify-between"
+                                >
+                                  <p
+                                    class="body-1 ml-2 font-bold body-1"
+                                    style="display: block;"
+                                  >
+                                    Chris Hall
+                                  </p>
+                                  <p
+                                    class="body-1"
+                                    style="display: block;"
+                                  >
+                                    DOB: 8/6/1959
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <span
+                                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                  />
+                                  <div
+                                    class=""
+                                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                                  />
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <div
+                                  class="flex flex-col"
+                                >
+                                  <div
+                                    class="flex flex-row"
+                                  >
+                                    <span
+                                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                                    />
+                                    <p
+                                      class="body-1 body-1"
+                                      style="display: block;"
+                                    >
+                                      Dental / Medical / Vision
+                                    </p>
+                                    <div
+                                      class="flex flex-row justify-center items-end tooltip tooltipIcon relative ml-2 text-center"
+                                    >
+                                      <span
+                                        class="tooltiptext !p-2"
+                                      >
+                                        <div
+                                          class="flex flex-col mb-2 ml-2 mt-4"
+                                        >
+                                          <div
+                                            class="flex flex-row"
+                                          >
+                                            Medical
+                                          </div>
+                                          <div
+                                            class="flex flex-row"
+                                          >
+                                            Policy effective date: 
+                                            1/1/2019
+                                          </div>
+                                        </div>
+                                        <div
+                                          class="flex flex-col mb-2 ml-2"
+                                        >
+                                          <div
+                                            class="flex flex-row"
+                                          >
+                                            Dental
+                                          </div>
+                                          <div
+                                            class="flex flex-row"
+                                          >
+                                            Policy effective date: 
+                                            11/1/2017
+                                          </div>
+                                        </div>
+                                        <div
+                                          class="flex flex-col ml-2 mb-4"
+                                        >
+                                          <div
+                                            class="flex flex-row"
+                                          >
+                                            Vision
+                                          </div>
+                                          <div
+                                            class="flex flex-row"
+                                          >
+                                            Policy effective date: 
+                                            1/1/2019
+                                          </div>
+                                        </div>
+                                      </span>
+                                      <img
+                                        alt="Info"
+                                        class="icon"
+                                        data-nimg="1"
+                                        decoding="async"
+                                        height="40"
+                                        loading="lazy"
+                                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                        style="color: transparent;"
+                                        width="40"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <span
                             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -6406,6 +6780,42 @@ exports[`PlanDetailsSection renders plan details correctly on click of view who 
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
+                <div
+                  class="card-main undefined"
+                >
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          View Plan Contact Information
+                        </p>
+                        <img
+                          alt="Down Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="mr-2 flex-grow"
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div
                   class="card-main undefined"
                 >

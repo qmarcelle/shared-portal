@@ -4,12 +4,16 @@ import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { logger } from '@/utils/logger';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
+import { isWellnessQa } from '@/visibilityEngine/computeVisibilityRules';
 import Link from 'next/link';
 import MemberDashboard from './components/MemberDashboard';
 import MemberDashboardTermedPlan from './components/MemberDashboardTermedPlan';
 import NonMemberDashboard from './components/NonMemberDashboard';
 import { PlanSelector } from './components/PlanSelector';
+import { PlanSelectorErrorModal } from './components/PlanSelectorErrorModal';
+import { WellnessDashboard } from './components/WellnessDasboard';
 import { DashboardData } from './models/dashboardData';
 
 export type DashboardProps = {
@@ -25,6 +29,10 @@ const Dashboard = ({ data }: DashboardProps) => {
     }
   }
 
+  if (data.memberDetails == null) {
+    logger.info('Failure in rendering Dashboard data{}');
+    return <PlanSelectorErrorModal />;
+  }
   if (data.role != UserRole.NON_MEM && data.memberDetails?.planName == null) {
     return <PlanSelector plans={data.memberDetails!.plans!} />;
   }
@@ -76,7 +84,9 @@ const Dashboard = ({ data }: DashboardProps) => {
       <Spacer size={32}></Spacer>
       {data.role != UserRole.NON_MEM ? (
         <>
-          {!data.memberDetails?.selectedPlan?.termedPlan ? (
+          {isWellnessQa(data.visibilityRules) ? (
+            <WellnessDashboard />
+          ) : !data.memberDetails?.selectedPlan?.termedPlan ? (
             <MemberDashboard data={data} />
           ) : (
             <MemberDashboardTermedPlan data={data} />

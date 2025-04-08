@@ -1,12 +1,12 @@
-import { AccessOnMyPlanDetails } from '@/app/accessOthersInformation/models/accessonmyplan_details';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
-import { ReactElement } from 'react';
+import { ShareMyPlanDetails } from '@/models/app/getSharePlanDetails';
+import { ReactElement, useState } from 'react';
 import { AccessOnMyPlanItem } from './AccessOnMyPlanItem';
 
 interface AccessOnMyPlanDropDownProps extends IComponent {
-  accessOnMyPlanDetails: AccessOnMyPlanDetails[];
+  accessOnMyPlanDetails: ShareMyPlanDetails[] | null;
   header?: ReactElement;
   subHeader?: ReactElement;
   planType?: ReactElement;
@@ -18,8 +18,21 @@ export const AccessOnMyPlanComponent = ({
   header,
   subHeader,
   planType,
+
   infoIcon,
 }: AccessOnMyPlanDropDownProps) => {
+  const [memberAccessList, setMemberAccessList] = useState(
+    accessOnMyPlanDetails,
+  );
+  function updateMemberAccessToPending(memberCk: string) {
+    const member = memberAccessList?.find((item) => item.memberCk === memberCk);
+
+    if (member != undefined) {
+      member.accessStatusIsPending = true;
+      setMemberAccessList([...memberAccessList!]);
+    }
+  }
+
   return (
     <Column className="flex flex-col">
       {header}
@@ -34,12 +47,14 @@ export const AccessOnMyPlanComponent = ({
       {planType && <div>{planType}</div>}
       <Spacer size={32} />
       <Column className="flex flex-col">
-        {accessOnMyPlanDetails.map((item, index) => (
+        {accessOnMyPlanDetails?.map((item, index) => (
           <AccessOnMyPlanItem
+            onRequestSuccessCallBack={() =>
+              updateMemberAccessToPending(item.memberCk)
+            }
             key={index}
             className="mb-4"
-            memberName={item.memberName}
-            DOB={item.DOB}
+            memberDetails={item}
             isOnline={item.isOnline}
             infoButton={infoIcon}
           />

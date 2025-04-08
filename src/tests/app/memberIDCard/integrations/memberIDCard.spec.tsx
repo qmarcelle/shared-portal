@@ -21,7 +21,7 @@ jest.mock('src/auth', () => ({
           plan: {
             grpId: '100000',
             sbsbCk: '91722400',
-            memCk: '91722407',
+            memCk: '123456789',
           },
         },
       },
@@ -100,7 +100,7 @@ describe('Member ID Card ', () => {
 
   test('Member ID Card SVG Image Front and Back for Future effective members', async () => {
     const memberDetails = loggedInUserInfoMockResp;
-    memberDetails.members[4].planDetails[1].effectiveDate = 253370782800000;
+    memberDetails.members[9].planDetails[1].effectiveDate = 253370782800000;
     mockedAxios.get.mockResolvedValueOnce({ data: memberDetails });
     mockedAxios.get.mockResolvedValue({
       data: `<?xml version="1.0" encoding="UTF-8"?>
@@ -121,7 +121,7 @@ describe('Member ID Card ', () => {
 
   xit('Member ID Card SVG Image Front and Back for Member Relation - S', async () => {
     const memberDetails = loggedInUserInfoMockResp;
-
+    memberDetails.members[9].memRelation = 'S';
     mockedAxios.get.mockResolvedValue({
       data: `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'

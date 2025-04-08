@@ -40,24 +40,28 @@ exports[`PayProvider should render the UI correctly 1`] = `
             class="flex flex-row"
           >
             <div
-              class="flex flex-row gap-2 p-2  checkbox-disabled "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Mark as Paid"
+                  class="checkbox   "
+                  id="checkbox-mark-as-paid"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-mark-as-paid"
                 >
-                  <p>
-                    Mark as Paid
-                  </p>
+                  Mark as Paid
                 </label>
               </div>
             </div>
@@ -123,24 +127,28 @@ exports[`PayProvider should render the UI correctly 1`] = `
           class="flex flex-row"
         >
           <div
-            class="flex flex-row gap-2 p-2  checkbox-disabled "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Mark as Paid"
+                class="checkbox   "
+                id="checkbox-mark-as-paid"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="checkbox-mark-as-paid"
               >
-                <p>
-                  Mark as Paid
-                </p>
+                Mark as Paid
               </label>
             </div>
           </div>

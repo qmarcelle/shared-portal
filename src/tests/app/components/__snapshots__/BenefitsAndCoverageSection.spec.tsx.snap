@@ -31,11 +31,13 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
               class="flex flex-col items-end"
             >
               <button
+                aria-label="Search"
                 class="flex flex-col p-[0.125rem]  "
                 type="submit"
               >
                 <img
-                  alt="Search"
+                  alt=""
+                  aria-hidden="true"
                   class="icon searchhover "
                   data-nimg="1"
                   decoding="async"
@@ -340,11 +342,13 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             class="flex flex-col items-end"
           >
             <button
+              aria-label="Search"
               class="flex flex-col p-[0.125rem]  "
               type="submit"
             >
               <img
-                alt="Search"
+                alt=""
+                aria-hidden="true"
                 class="icon searchhover "
                 data-nimg="1"
                 decoding="async"

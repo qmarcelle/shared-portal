@@ -23,7 +23,7 @@ jest.mock('src/auth', () => ({
             fhirId: '654543434',
             grgrCk: '7678765456',
             grpId: '65654323',
-            memCk: '502622001',
+            memCk: '91722401',
             sbsbCk: '5654566',
             subId: '56543455',
           },
@@ -68,7 +68,7 @@ describe('My Health Page', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('100 pts').length).toBe(1);
     expect(screen.getAllByText('70').length).toBe(1);
     expect(component).toMatchSnapshot();

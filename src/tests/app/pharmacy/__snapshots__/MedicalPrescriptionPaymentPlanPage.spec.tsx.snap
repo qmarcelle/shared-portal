@@ -144,27 +144,34 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
               <div
-                class="flex flex-row gap-2 p-2   "
+                aria-checked="false"
+                aria-disabled="false"
+                aria-invalid="false"
+                aria-required="false"
+                class="flex flex-col "
+                role="checkbox"
               >
-                <label>
+                <div
+                  class="flex flex-row items-center"
+                  tabindex="0"
+                >
                   <input
-                    id="myCheckbox"
-                    name=""
+                    aria-label="I read, considered, understand and agree to the contents above. I
+                  understand that, by clicking on the "I AGREE" button, below, I am
+                  confirming my authorization for the use, disclosure of information about
+                  me and redirection to WIPRO, LLC, as described herein."
+                    class="checkbox   "
+                    id="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                     type="checkbox"
                   />
-                </label>
-                <div
-                  class="flex flex-col"
-                >
                   <label
-                    for="myCheckbox"
+                    class="ml-2"
+                    for="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                   >
-                    <p>
-                      I read, considered, understand and agree to the contents above. I
+                    I read, considered, understand and agree to the contents above. I
                   understand that, by clicking on the "I AGREE" button, below, I am
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein.
-                    </p>
                   </label>
                 </div>
               </div>
@@ -172,34 +179,27 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
               />
               <div
-                class="flex flex-row gap-2 p-2   "
+                aria-checked="false"
+                aria-disabled="false"
+                aria-invalid="false"
+                aria-required="false"
+                class="flex flex-col "
+                role="checkbox"
               >
-                <label>
+                <div
+                  class="flex flex-row items-center"
+                  tabindex="0"
+                >
                   <input
-                    id="myCheckbox"
-                    name=""
+                    aria-label=""
+                    class="checkbox   "
+                    id="checkbox-"
                     type="checkbox"
                   />
-                </label>
-                <div
-                  class="flex flex-col"
-                >
                   <label
-                    for="myCheckbox"
-                  >
-                    <p />
-                  </label>
-                  <div>
-                    I have read and agree to the Medicare Prescription Payment Plan
-                    <a
-                      class="primary-color !font-bold ml-1"
-                      href="/assets/terms_and_conditions.pdf"
-                      target="_blank"
-                    >
-                      Terms and Conditions
-                    </a>
-                    .
-                  </div>
+                    class="ml-2"
+                    for="checkbox-"
+                  />
                 </div>
               </div>
               <span
@@ -370,27 +370,34 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="I read, considered, understand and agree to the contents above. I
+                  understand that, by clicking on the "I AGREE" button, below, I am
+                  confirming my authorization for the use, disclosure of information about
+                  me and redirection to WIPRO, LLC, as described herein."
+                  class="checkbox   "
+                  id="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                 >
-                  <p>
-                    I read, considered, understand and agree to the contents above. I
+                  I read, considered, understand and agree to the contents above. I
                   understand that, by clicking on the "I AGREE" button, below, I am
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein.
-                  </p>
                 </label>
               </div>
             </div>
@@ -398,34 +405,27 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label=""
+                  class="checkbox   "
+                  id="checkbox-"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
-                >
-                  <p />
-                </label>
-                <div>
-                  I have read and agree to the Medicare Prescription Payment Plan
-                  <a
-                    class="primary-color !font-bold ml-1"
-                    href="/assets/terms_and_conditions.pdf"
-                    target="_blank"
-                  >
-                    Terms and Conditions
-                  </a>
-                  .
-                </div>
+                  class="ml-2"
+                  for="checkbox-"
+                />
               </div>
             </div>
             <span

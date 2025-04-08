@@ -84,7 +84,10 @@ exports[`PriorAuthorizationCardSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
+          aria-label="Medical claim for Chris Hall from Service Group Description with status Approved"
           class="card-button cursor-pointer mb-4"
+          role="button"
+          tabindex="0"
         >
           <section
             class="md:flex md:flex-row align-top m-4"

@@ -19,6 +19,8 @@ const vRules = {
   commercial: true,
   medicare: true,
   phaMemberEligible: true,
+  fullyInsuredHealthyMaternity: true,
+  medical: true,
 };
 
 function setisActiveAndNotFSAOnly(vRules: VisibilityRules) {
@@ -158,6 +160,34 @@ describe('My Health Page', () => {
     expect(
       screen.queryByText(
         'Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.',
+      ),
+    ).not.toBeInTheDocument();
+    expect(component).toMatchSnapshot();
+  });
+  it('should show Healthy maternity component if pzn is true', async () => {
+    vRules.fullyInsuredHealthyMaternity = true;
+    vRules.medical = true;
+    vRules.medicare = true;
+
+    const component = await renderUI();
+    expect(screen.getByText('Healthy Maternity')).toBeInTheDocument();
+
+    expect(
+      screen.getByText(
+        'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
+      ),
+    ).toBeInTheDocument();
+    expect(component).toMatchSnapshot();
+  });
+  it('should not show Healthy maternity component if if pzn is false', async () => {
+    vRules.fullyInsuredHealthyMaternity = false;
+    vRules.medical = false;
+    const component = await renderUI();
+    expect(screen.queryByText('Healthy Maternity')).not.toBeInTheDocument();
+
+    expect(
+      screen.queryByText(
+        'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
       ),
     ).not.toBeInTheDocument();
     expect(component).toMatchSnapshot();

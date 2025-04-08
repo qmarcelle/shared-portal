@@ -5,4 +5,6 @@ export interface AnalyticsData {
   action?: string;
   event?: string;
   content_type?: string;
+  page_section?: string;
+  selection_type?: string;
 }

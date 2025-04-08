@@ -9,6 +9,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { EmailUniquenessVerification } from './components/EmailUniquenessVerification';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
+import { LoginErrorPBETemplate } from './components/LoginErrorPBETemplate';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
@@ -17,6 +18,7 @@ import { PrimaryAccountSelection } from './components/PrimaryAccountSelection';
 import { ResetPasswordComponent } from './components/ResetPasswordComponent';
 import { useLoginStore } from './stores/loginStore';
 import { useMfaStore } from './stores/mfaStore';
+import { usePrimaryAccountSelectionStore } from './stores/primaryAccountSelectionStore';
 
 export default function LogIn() {
   const [
@@ -47,6 +49,9 @@ export default function LogIn() {
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
   ]);
+  const [pbeError] = usePrimaryAccountSelectionStore((state) => [
+    state.pbeError,
+  ]);
 
   const router = useRouter();
   const queryParams = useSearchParams();
@@ -55,11 +60,16 @@ export default function LogIn() {
       return <LoginGenericErrorcomponent />;
     }
     if (loggedUser == true) {
-      router.replace(
-        queryParams.get('TargetResource') ||
-          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL ||
-          '/security',
-      );
+      const targetResource = queryParams.get('TargetResource');
+      if (targetResource) {
+        const decoded = decodeURIComponent(targetResource);
+        router.replace(decoded);
+      } else {
+        router.replace(
+          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard',
+        );
+      }
+
       router.refresh();
     }
     if (multipleLoginAttempts == true) {
@@ -82,6 +92,9 @@ export default function LogIn() {
     }
     if (duplicateAccount == true) {
       return <PrimaryAccountSelection />;
+    }
+    if (pbeError == true) {
+      return <LoginErrorPBETemplate />;
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;
