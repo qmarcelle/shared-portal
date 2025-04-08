@@ -1,4 +1,2 @@
-export { useAudioAlert } from './useAudioAlert';
-export { useChatEligibility } from './useChatEligibility';
-export { useCobrowse } from './useCobrowse';
-export { usePlanSwitcher } from './usePlanSwitcher';
+export { useChat } from './useChat';
+export type { UseChatProps } from './useChat';

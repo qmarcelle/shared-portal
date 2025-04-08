@@ -8,8 +8,8 @@
  * - ID generation
  */
 
-import type { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { ChatPayload } from '../types';
+import { BusinessHours } from '../models/types';
+import type { LoggedInUserInfo } from './types';
 
 /**
  * Maps user information to chat payload format
@@ -21,19 +21,33 @@ export function mapUserInfoToChatPayload(
   userInfo: LoggedInUserInfo,
   selectedMember: Partial<LoggedInUserInfo> | null = null,
   planId: string | null = null,
-): ChatPayload | null {
+): any {
   if (!userInfo) return null;
 
   const member = selectedMember || userInfo;
 
   return {
-    memberClientID: member.subscriberID || '',
-    userID: member.subscriberID || userInfo.subscriberID || '',
-    planId:
+    MEMBER_ID: member.subscriberID || '',
+    SERV_Type: 'MemberPortal',
+    firstname: member.subscriberFirstName || '',
+    lastname: member.subscriberLastName || '',
+    PLAN_ID:
       planId ||
       member.members?.[0]?.planDetails.find((pd) => pd.productCategory === 'M')
         ?.planID ||
       '',
+    GROUP_ID: member.groupData?.groupID || '',
+    Origin: 'MemberPortal' as const,
+    Source: 'Web' as const,
+    INQ_TYPE: 'MEM',
+    RoutingChatbotInteractionId: `MP-${Date.now()}-${Math.random().toString(36).substr(2, 8)}`,
+    IsVisionEligible: false,
+    IsDentalEligible: false,
+    IsMedicalEligibile: true,
+    MEMBER_DOB: String(member.subscriberDateOfBirth || ''),
+    LOB: 'Medical',
+    lob_group: 'Commercial',
+    coverage_eligibility: true,
   };
 }
 
@@ -47,177 +61,264 @@ export function interpretWorkingHours(workingHoursStr: string): {
   isAvailable: boolean;
   is24Hours?: boolean;
 } {
-  // If no working hours string provided, chat is not available
-  if (!workingHoursStr) return { isAvailable: false };
+  return { isAvailable: isWithinBusinessHours(workingHoursStr) };
+}
 
-  // Parse working hours string (e.g., "M_F_8_6" or "S_S_24")
-  const parts = workingHoursStr.split('_');
+/**
+ * Determines if the current time is within business hours
+ * @param hoursStr Format: "M_F_8_6" for Mon-Fri 8am-6pm or "S_S_24" for 24/7
+ * @returns boolean indicating if current time is within business hours
+ */
+export const isWithinBusinessHours = (hoursStr: string): boolean => {
+  if (!hoursStr || hoursStr === '') return false;
+  if (hoursStr === 'S_S_24') return true;
 
-  if (parts.length < 3) return { isAvailable: false };
+  try {
+    const [startDay, endDay, startHour, endHour] = hoursStr.split('_');
+    if (!startDay || !endDay || !startHour || !endHour) return false;
 
-  const startDay = parts[0]; // M = Monday, S = Sunday/Saturday (needs context)
-  const endDay = parts[1]; // F = Friday, S = Sunday/Saturday (needs context)
+    const now = new Date();
+    const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    const currentHour = now.getHours();
 
-  // 24-hour availability (S_S_24)
-  if (parts.length === 3 && parts[2] === '24') {
-    return { isAvailable: true, is24Hours: true };
-  }
-
-  // For standard hour ranges (M_F_8_18)
-  if (parts.length === 4) {
-    const startHour = parseInt(parts[2]); // 8 = 8am
-    const endHour = parseInt(parts[3]); // 18 = 6pm
-
-    // Check if current time is within business hours
-    const currentDate = new Date();
-    const currentDay = currentDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
-    const currentHour = currentDate.getHours();
-
-    // Convert day strings to numeric values for comparison
-    // S can be Sunday (0) or Saturday (6) depending on context
-    const dayMap: Record<string, number | number[]> = {
-      S: [0, 6], // Sunday, Saturday
+    // Map day codes to numeric values (0 = Sunday, 1 = Monday, etc.)
+    const dayMap: Record<string, number> = {
+      A: 0, // Sunday
       M: 1, // Monday
       T: 2, // Tuesday
       W: 3, // Wednesday
       R: 4, // Thursday
-      F: 5, // Friday,
+      F: 5, // Friday
+      S: 6, // Saturday
     };
 
-    // Handle specific day ranges
-    if (startDay === 'S' && endDay === 'S') {
-      // All week availability, just check hours
-      if (currentHour >= startHour && currentHour < endHour) {
-        return { isAvailable: true };
-      }
-    } else if (startDay === 'M' && endDay === 'F') {
-      // Weekday availability (Mon-Fri)
-      if (
-        currentDay >= 1 &&
-        currentDay <= 5 &&
-        currentHour >= startHour &&
-        currentHour < endHour
-      ) {
-        return { isAvailable: true };
-      }
-    } else {
-      // For other day ranges, handle individually
-      const startDayNum = Array.isArray(dayMap[startDay])
-        ? (dayMap[startDay] as number[])[0]
-        : (dayMap[startDay] as number);
+    const startDayNum = dayMap[startDay];
+    const endDayNum = dayMap[endDay];
 
-      const endDayNum = Array.isArray(dayMap[endDay])
-        ? (dayMap[endDay] as number[])[1]
-        : (dayMap[endDay] as number);
+    if (startDayNum === undefined || endDayNum === undefined) return false;
 
-      if (
-        currentDay >= startDayNum &&
-        currentDay <= endDayNum &&
-        currentHour >= startHour &&
-        currentHour < endHour
-      ) {
-        return { isAvailable: true };
-      }
-    }
+    // Check if current day is within range
+    const isInDayRange =
+      startDayNum <= endDayNum
+        ? currentDay >= startDayNum && currentDay <= endDayNum
+        : currentDay >= startDayNum || currentDay <= endDayNum;
+
+    if (!isInDayRange) return false;
+
+    // Check if current hour is within range
+    const startHourNum = parseInt(startHour, 10);
+    const endHourNum = parseInt(endHour, 10);
+    // Convert end hour to 24-hour format if it's PM (less than 12)
+    const endHourConverted = endHourNum < 12 ? endHourNum + 12 : endHourNum;
+    return currentHour >= startHourNum && currentHour < endHourConverted;
+  } catch (error) {
+    return false;
   }
-
-  return { isAvailable: false };
-}
+};
 
 /**
  * Creates a human-readable string representing the business hours
- *
- * @param workingHoursStr Format from API
+ * @param hoursStr Format: "M_F_8_6" for Mon-Fri 8am-6pm or "S_S_24" for 24/7
  * @returns Friendly string for display to users
  */
-export function formatBusinessHours(workingHoursStr: string): string {
-  if (!workingHoursStr) return 'Hours not available';
+export const formatBusinessHours = (hoursStr: string): string => {
+  if (!hoursStr || hoursStr === '') return 'Closed';
+  if (hoursStr === 'S_S_24') return '24/7';
 
-  const parts = workingHoursStr.split('_');
+  try {
+    const [startDay, endDay, startHour, endHour] = hoursStr.split('_');
+    if (!startDay || !endDay || !startHour || !endHour) return 'Closed';
 
-  if (parts.length < 3) return 'Hours not available';
+    const dayMap: Record<string, string> = {
+      M: 'Monday',
+      T: 'Tuesday',
+      W: 'Wednesday',
+      R: 'Thursday',
+      F: 'Friday',
+      S: 'Saturday',
+      A: 'Sunday',
+    };
 
-  // 24-hour availability
-  if (parts.length === 3 && parts[2] === '24') {
-    return 'Available 24/7';
+    const startHourNum = parseInt(startHour, 10);
+    const endHourNum = parseInt(endHour, 10);
+
+    // Convert 24-hour format to 12-hour format with AM/PM
+    const formatHour = (hour: number): string => {
+      if (hour === 0) return '12:00 AM';
+      if (hour === 12) return '12:00 PM';
+      const period = hour < 12 ? 'AM' : 'PM';
+      const hourStr = hour <= 12 ? hour : hour - 12;
+      return `${hourStr}:00 ${period}`;
+    };
+
+    const startHourStr = formatHour(startHourNum);
+    const endHourStr = formatHour(endHourNum === 6 ? 18 : endHourNum); // Convert 6 to 18 for PM
+
+    if (startDay === endDay) {
+      return `${dayMap[startDay]} ${startHourStr} - ${endHourStr}`;
+    }
+
+    return `${dayMap[startDay]} - ${dayMap[endDay]}, ${startHourStr} - ${endHourStr}`;
+  } catch (error) {
+    return 'Closed';
   }
-
-  // Map day codes to full names
-  const dayNames: Record<string, string> = {
-    S: 'Sunday',
-    M: 'Monday',
-    T: 'Tuesday',
-    W: 'Wednesday',
-    R: 'Thursday',
-    F: 'Friday',
-  };
-
-  const startDay = dayNames[parts[0]];
-  const endDay = dayNames[parts[1]];
-
-  // Convert 24-hour format to 12-hour format with AM/PM
-  const formatHour = (hour: number): string => {
-    if (hour === 0) return '12 AM';
-    if (hour === 12) return '12 PM';
-    return hour < 12 ? `${hour} AM` : `${hour - 12} PM`;
-  };
-
-  const startHour = formatHour(parseInt(parts[2]));
-  const endHour = formatHour(parseInt(parts[3]));
-
-  if (startDay === endDay) {
-    return `${startDay} ${startHour} - ${endHour}`;
-  }
-
-  return `${startDay} - ${endDay}, ${startHour} - ${endHour}`;
-}
+};
 
 /**
- * Determines if chat is currently available and returns appropriate message
- *
- * @param businessHours The business hours string from API
- * @returns Message indicating chat availability status
+ * Parses business hours string into structured format
+ * @param hoursStr Format: "M_F_8_6" for Mon-Fri 8am-6pm or "S_S_24" for 24/7
+ * @returns Array of business hours by day
  */
-export function getChatAvailabilityMessage(businessHours: string): string {
-  const availability = interpretWorkingHours(businessHours);
+export const parseBusinessHours = (hoursStr: string): BusinessHours['days'] => {
+  const defaultDays = [
+    { day: 'Monday', openTime: '12:00 AM', closeTime: 'Closed', isOpen: false },
+    {
+      day: 'Tuesday',
+      openTime: '12:00 AM',
+      closeTime: 'Closed',
+      isOpen: false,
+    },
+    {
+      day: 'Wednesday',
+      openTime: '12:00 AM',
+      closeTime: 'Closed',
+      isOpen: false,
+    },
+    {
+      day: 'Thursday',
+      openTime: '12:00 AM',
+      closeTime: 'Closed',
+      isOpen: false,
+    },
+    { day: 'Friday', openTime: '12:00 AM', closeTime: 'Closed', isOpen: false },
+    {
+      day: 'Saturday',
+      openTime: '12:00 AM',
+      closeTime: 'Closed',
+      isOpen: false,
+    },
+    { day: 'Sunday', openTime: '12:00 AM', closeTime: 'Closed', isOpen: false },
+  ];
 
-  if (availability.isAvailable) {
-    return 'Chat is currently available';
+  if (!hoursStr || hoursStr === '') return defaultDays;
+  if (hoursStr === 'S_S_24') {
+    return defaultDays.map((day) => ({
+      ...day,
+      isOpen: true,
+      openTime: '12:00 AM',
+      closeTime: '11:59 PM',
+    }));
   }
 
-  return `Chat is currently unavailable. Please try again during our business hours: ${formatBusinessHours(businessHours)}`;
-}
+  try {
+    const [startDay, endDay, startHour, endHour] = hoursStr.split('_');
+    if (!startDay || !endDay || !startHour || !endHour) return defaultDays;
+
+    const dayMap: Record<string, string> = {
+      M: 'Monday',
+      T: 'Tuesday',
+      W: 'Wednesday',
+      R: 'Thursday',
+      F: 'Friday',
+      S: 'Saturday',
+      A: 'Sunday',
+    };
+
+    const startDayName = dayMap[startDay];
+    const endDayName = dayMap[endDay];
+    const startTime = '8:00 AM';
+    const endTime = '6:00 PM';
+
+    return defaultDays.map((day) => {
+      const isInRange = isInDayRange(day.day, startDayName, endDayName);
+      return {
+        ...day,
+        isOpen: isInRange,
+        openTime: isInRange ? startTime : 'Closed',
+        closeTime: isInRange ? endTime : 'Closed',
+      };
+    });
+  } catch (error) {
+    return defaultDays;
+  }
+};
+
+/**
+ * Helper function to determine if a day falls within a range
+ */
+const isInDayRange = (
+  day: string,
+  startDay: string,
+  endDay: string,
+): boolean => {
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  const dayIndex = days.indexOf(day);
+  const startIndex = days.indexOf(startDay);
+  const endIndex = days.indexOf(endDay);
+
+  if (startIndex <= endIndex) {
+    return dayIndex >= startIndex && dayIndex <= endIndex;
+  } else {
+    return dayIndex >= startIndex || dayIndex <= endIndex;
+  }
+};
 
 /**
  * Generates a unique interaction ID for chat sessions
  * @returns A unique string ID
  */
-export function generateInteractionId(): string {
-  return `interaction-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
-}
+export const generateInteractionId = (): string => {
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(2, 8);
+  return `MP-${timestamp}-${random}`;
+};
 
 /**
- * Converts a date to a chat-friendly timestamp
- * @param date Date to format
+ * Gets a user-friendly message about chat availability
+ * @param isOpen Whether chat is currently available
+ * @param nextOpeningTime Optional next opening time
+ * @returns Message about chat availability
+ */
+export const getChatAvailabilityMessage = (
+  isOpen: boolean,
+  nextOpeningTime?: string,
+): string => {
+  if (isOpen) return 'Chat is currently available';
+  if (nextOpeningTime) return `Chat will be available at ${nextOpeningTime}`;
+  return 'Chat is currently unavailable';
+};
+
+/**
+ * Formats a date for chat display
+ * @param date The date to format
  * @returns Formatted date string
  */
 export function formatChatDate(date: Date): string {
-  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  return date.toLocaleString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  });
 }
 
 /**
- * Sanitizes text for display in chat
- * @param text Text to sanitize
+ * Sanitizes text for chat display
+ * @param text The text to sanitize
  * @returns Sanitized text
  */
 export function sanitizeChatText(text: string): string {
-  if (!text) return '';
-
-  // Simple HTML sanitization
   return text
+    .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
