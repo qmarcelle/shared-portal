@@ -46,4 +46,6 @@ export const AUTH_FUNCTION_MAP = {
   prevYearMedical: 'PREV_YEAR_MEDICAL', // TODO authFunction to be created
   prevYearFullyInsured: 'PREV_YEAR_FULLY_INSURED', // TODO authFunction to be created
   phaMemberEligible: 'PHACommercialEligible',
+  fullyInsuredHealthyMaternity: 'FIHEALTHYMATERNITY',
+  enableHealthyMaternity: 'HEALTHYMATERNITY',
 };

@@ -128,43 +128,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Healthy Maternity
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                                style="display: block;"
-                              >
-                                This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="false"
-                        class="slick-slide slick-active"
-                        data-index="2"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
                                   Teladoc Health Blood Pressure Management Program
                                 </p>
                               </div>
@@ -182,9 +145,9 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         </div>
                       </div>
                       <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="3"
+                        aria-hidden="false"
+                        class="slick-slide slick-active"
+                        data-index="2"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -221,7 +184,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="slick-slide"
-                        data-index="4"
+                        data-index="3"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -258,7 +221,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="slick-slide"
-                        data-index="5"
+                        data-index="4"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -295,7 +258,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="slick-slide"
-                        data-index="6"
+                        data-index="5"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -362,7 +325,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 >
                   <div
                     class="primary-bg-color h-1.5 rounded-full"
-                    style="width: 43%;"
+                    style="width: 50%;"
                   />
                 </div>
               </div>
