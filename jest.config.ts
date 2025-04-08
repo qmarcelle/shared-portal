@@ -1,27 +1,58 @@
-import nextJest from 'next/jest';
+import type { Config } from 'jest';
+import nextJest from 'next/jest.js';
+
 const createJestConfig = nextJest({
   dir: './',
 });
-const customJestConfig = {
+
+const config: Config = {
+  coverageProvider: 'v8',
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
-    '^@/components/(.*)$': '/src/components/$1',
-    '^@/pages/(.*)$': '/src/pages/$1',
-    '^@/utils/(.*)$': '/src/utils/$1',
-    'next-auth/providers/credentials':
-      '<rootDir>/src/tests/__mocks__/next-auth-providers-credentials.ts',
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@app/(.*)$': '<rootDir>/src/app/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@auth/(.*)$': '<rootDir>/node_modules/@auth/$1',
   },
-  moduleDirectories: ['node_modules', '<rootDir>'],
-  setupFilesAfterEnv: [
-    '<rootDir>/src/tests/__mocks__/ping-jest-mock-data-setup.ts',
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
+  transformIgnorePatterns: [
+    '/node_modules/(?!next-auth|@auth/core|@babel/runtime|@swc/helpers)/',
   ],
-  testEnvironment: 'jest-environment-jsdom',
-  testMatch: ['**/tests/**/*spec.{ts,tsx}'],
-  //coverageProvider: 'v8',
-  collectCoverageFrom: ['./src/**'],
-  coveragePathIgnorePatterns: ['/tests/'],
-  collectCoverage: true,
-  reporters: [['default', { summaryThreshold: 1 }], 'jest-html-reporters'],
-  // coverageDirectory: './reports/coverage',
-  setupFiles: ['./src/tests/setup.ts'],
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/**/*.stories.{js,jsx,ts,tsx}',
+    '!src/**/index.{js,ts}',
+    '!src/**/types.ts',
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
+  testEnvironmentOptions: {
+    customExportConditions: [''],
+  },
 };
-export default createJestConfig(customJestConfig);
+
+export default createJestConfig(config);

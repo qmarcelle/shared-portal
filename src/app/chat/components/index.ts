@@ -1,14 +1,23 @@
+/**
+ * Component Exports
+ * Centralizes all component exports following the new directory structure
+ */
+
 // Core Components
-export * from './core/ChatButton';
-export * from './core/ChatErrorBoundary';
-export * from './core/ChatHeader';
-export * from './core/ChatWidget';
+export { ChatContainer } from './core/ChatContainer';
+export { ChatControls } from './core/ChatControls';
+export { ChatWidget } from './core/ChatWidget';
 
-// Business Hours Components
-export * from './business-hours/BusinessHoursNotification';
+// Feature Components
+export { BusinessHoursDisplay } from './features/business-hours/BusinessHoursDisplay';
+export { BusinessHoursNotification } from './features/business-hours/BusinessHoursNotification';
+export { ActiveChatWindow, ChatStartWindow } from './features/chat-window';
+export { EligibilityCheck } from './features/eligibility/EligibilityCheck';
+export { PlanSwitcher } from './features/plan-switcher/PlanSwitcher';
 
-// Eligibility Components
-export * from './eligibility/EligibilityCheck';
+// Dashboard Widget
+export { DashboardChatWidget } from './DashboardChatWidget';
 
-// Plan Switcher Components will be added here when implemented
-// export * from './plan-switcher/PlanSwitcher';
+// Shared Components
+export { ChatErrorBoundary } from './shared/ChatErrorBoundary';
+export { LoadingState } from './shared/LoadingState';

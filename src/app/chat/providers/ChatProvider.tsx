@@ -2,22 +2,30 @@
 
 import { AlertBar } from '@/components/foundation/AlertBar';
 import { ReactNode, useEffect } from 'react';
-import { ChatErrorBoundary } from '../components/ChatErrorBoundary';
+import { ChatErrorBoundary } from '../components/shared/ChatErrorBoundary';
 import { useChatStore } from '../stores/chatStore';
+import { ChatProviderFactory } from './ChatProviderFactory';
 
 interface ChatProviderProps {
   children: ReactNode;
 }
 
 export function ChatProvider({ children }: ChatProviderProps) {
-  const { error, reset } = useChatStore();
+  const { error, clearSession, setError, closeChat } = useChatStore();
+
+  // Reset function to reset the store state
+  const resetStore = () => {
+    clearSession();
+    setError(null);
+    closeChat();
+  };
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      reset();
+      resetStore();
     };
-  }, [reset]);
+  }, []);
 
   if (error) {
     return (
@@ -27,7 +35,11 @@ export function ChatProvider({ children }: ChatProviderProps) {
     );
   }
 
-  return <ChatErrorBoundary onReset={reset}>{children}</ChatErrorBoundary>;
+  return (
+    <ChatErrorBoundary onReset={resetStore}>
+      <ChatProviderFactory>{children}</ChatProviderFactory>
+    </ChatErrorBoundary>
+  );
 }
 
 export { useChatStore };

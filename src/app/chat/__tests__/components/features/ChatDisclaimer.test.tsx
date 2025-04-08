@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import ChatDisclaimer from '../../../components/chat/features/ChatDisclaimer';
+import ChatDisclaimer from '../../../components/features/ChatDisclaimer';
 
 describe('ChatDisclaimer Component', () => {
   const onAcceptMock = jest.fn();

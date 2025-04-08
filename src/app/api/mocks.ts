@@ -1,24 +1,10 @@
 /**
  * Mock Service Worker initialization for Next.js
+ *
+ * This has been disabled as per requirements.
  */
 export async function initMocks() {
-  if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-    if (typeof window === 'undefined') {
-      // Server environment
-      const { server } = await import('../../mocks/server');
-      server.listen({ onUnhandledRequest: 'bypass' });
-      console.info('🔶 MSW initialized on server');
-    } else {
-      // Browser environment
-      const { worker } = await import('../../mocks/browser');
-      await worker.start({
-        onUnhandledRequest: 'bypass',
-        serviceWorker: {
-          url: '/mockServiceWorker.js',
-          options: { scope: '/' },
-        },
-      });
-      console.info('🔶 MSW initialized in browser');
-    }
-  }
+  // MSW has been disabled
+  console.info('API mocking is disabled');
+  return;
 }

@@ -1,11 +1,12 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ChatWidget } from '../../../components/chat/core/ChatWidget';
-import { mockUserEligibility } from '../../../mocks/chatData';
-import { ClientType, PlanInfo } from '../../../models/chat';
+import { mockUserEligibility } from '../../../../__mocks__/chatData';
+import { ChatWidget } from '../../../../components/core/ChatWidget';
+import { ChatPlan } from '../../../../models/types';
+import * as chatStore from '../../../../stores/chatStore';
 
 // Mock chat API
-jest.mock('../../../utils/chatAPI', () => ({
+jest.mock('../../../../utils/chatAPI', () => ({
   startChatSession: jest.fn().mockResolvedValue({
     sessionId: 'test-session-id',
     startTime: new Date().toISOString(),
@@ -21,7 +22,7 @@ jest.mock('../../../utils/chatAPI', () => ({
 }));
 
 // Mock services
-jest.mock('../../../utils/GenesysChatService', () => {
+jest.mock('../../../../utils/GenesysChatService', () => {
   return {
     GenesysChatService: jest.fn().mockImplementation(() => ({
       initialize: jest.fn().mockResolvedValue({ sessionId: 'test-session' }),
@@ -31,7 +32,7 @@ jest.mock('../../../utils/GenesysChatService', () => {
   };
 });
 
-jest.mock('../../../utils/CobrowseService', () => {
+jest.mock('../../../../utils/CobrowseService', () => {
   return {
     CobrowseService: jest.fn().mockImplementation(() => ({
       initialize: jest.fn().mockResolvedValue({}),
@@ -42,9 +43,18 @@ jest.mock('../../../utils/CobrowseService', () => {
 });
 
 // Make sure chat hours check passes
-jest.mock('../../../utils/chatHours', () => ({
+jest.mock('../../../../utils/chatHours', () => ({
   checkChatHours: jest.fn().mockReturnValue(true),
 }));
+
+// Mock the chatStore module
+jest.mock('../../../../stores/chatStore', () => {
+  const actual = jest.requireActual('../../../../stores/chatStore');
+  return {
+    ...actual,
+    useChatStore: jest.fn(),
+  };
+});
 
 /**
  * User Stories:
@@ -53,69 +63,137 @@ jest.mock('../../../utils/chatHours', () => ({
  */
 describe('Plan Information Display', () => {
   // Mock plans
-  const plan1: PlanInfo = {
-    planId: 'PLAN-1',
-    planName: 'Medical Plan',
-    lineOfBusiness: ClientType.Default,
-    isEligibleForChat: true,
-    businessHours: 'S_S_24',
-  } as PlanInfo;
-
-  const plan2: PlanInfo = {
-    planId: 'PLAN-2',
-    planName: 'Dental Plan',
-    lineOfBusiness: ClientType.Default,
-    isEligibleForChat: true,
-    businessHours: 'S_S_24',
-  } as PlanInfo;
-
-  // Default props for multi-plan scenario
-  const multiPlanProps = {
-    userEligibility: mockUserEligibility,
-    config: {
-      token: 'test-token',
-      endPoint: 'https://api.example.com/chat',
-      opsPhone: '1-800-123-4567',
-      memberFirstname: 'John',
-      memberLastname: 'Doe',
-      memberId: 'MEMBER123',
-      groupId: 'GROUP456',
-      planId: plan1.planId,
-      planName: plan1.planName,
-      businessHours: {
-        isOpen24x7: true,
-        days: [],
-      },
+  const plan1: ChatPlan = {
+    id: 'plan1',
+    name: 'Medical Plan',
+    lineOfBusiness: 'Medical',
+    isChatEligible: true,
+    businessHours: {
+      isOpen24x7: true,
+      days: [],
+      timezone: 'America/New_York',
+      isCurrentlyOpen: true,
+      lastUpdated: Date.now(),
+      source: 'api',
     },
-    currentPlan: plan1,
-    availablePlans: [plan1, plan2],
-    isPlanSwitcherOpen: false,
-    openPlanSwitcher: jest.fn(),
-    closePlanSwitcher: jest.fn(),
+    termsAndConditions: '',
+    isActive: true,
+    memberFirstname: 'John',
+    memberLastname: 'Doe',
+    memberId: 'MEMBER123',
+    groupId: 'GROUP456',
+    isMedicalEligible: true,
+    isDentalEligible: false,
+    isVisionEligible: false,
+    lobGroup: 'Medical',
   };
 
-  // Props for single-plan scenario
-  const singlePlanProps = {
-    ...multiPlanProps,
-    availablePlans: [plan1],
+  const plan2: ChatPlan = {
+    id: 'plan2',
+    name: 'Dental Plan',
+    lineOfBusiness: 'Dental',
+    isChatEligible: true,
+    businessHours: {
+      isOpen24x7: true,
+      days: [],
+      timezone: 'America/New_York',
+      isCurrentlyOpen: true,
+      lastUpdated: Date.now(),
+      source: 'api',
+    },
+    termsAndConditions: '',
+    isActive: true,
+    memberFirstname: 'John',
+    memberLastname: 'Doe',
+    memberId: 'MEMBER123',
+    groupId: 'GROUP456',
+    isMedicalEligible: false,
+    isDentalEligible: true,
+    isVisionEligible: false,
+    lobGroup: 'Dental',
   };
 
   beforeEach(() => {
+    // Reset all mocks before each test
     jest.clearAllMocks();
   });
 
   // US31161: Display plan member will chat about
   describe('US31161: Plan Information Display', () => {
-    it('should display current plan information in start chat window for multi-plan users', async () => {
-      render(<ChatWidget {...multiPlanProps} />);
+    it('should display the current plan name in the header when multiple plans are available', () => {
+      // Mock the useChatStore hook implementation
+      const mockStore = {
+        isOpen: true,
+        error: null,
+        closeChat: jest.fn(),
+        openChat: jest.fn(),
+        isChatActive: false,
+        isWithinBusinessHours: true,
+        currentPlan: plan1,
+        startChat: jest.fn(),
+        endChat: jest.fn(),
+        availablePlans: [plan1, plan2],
+        businessHours: plan1.businessHours,
+        lockPlanSwitcher: jest.fn(),
+        unlockPlanSwitcher: jest.fn(),
+        userEligibility: mockUserEligibility,
+      };
+      jest.spyOn(chatStore, 'useChatStore').mockReturnValue(mockStore);
 
-      // Open chat
-      const chatButton = screen.getByRole('button', { name: /chat with us/i });
-      await userEvent.click(chatButton);
+      render(<ChatWidget />);
+      expect(
+        screen.getByText(`Chatting about: ${plan1.name}`),
+      ).toBeInTheDocument();
+    });
+
+    it('should display generic header when only one plan is available', () => {
+      // Mock the useChatStore hook implementation
+      const mockStore = {
+        isOpen: true,
+        error: null,
+        closeChat: jest.fn(),
+        openChat: jest.fn(),
+        isChatActive: false,
+        isWithinBusinessHours: true,
+        currentPlan: plan1,
+        startChat: jest.fn(),
+        endChat: jest.fn(),
+        availablePlans: [plan1],
+        businessHours: plan1.businessHours,
+        lockPlanSwitcher: jest.fn(),
+        unlockPlanSwitcher: jest.fn(),
+        userEligibility: mockUserEligibility,
+      };
+      jest.spyOn(chatStore, 'useChatStore').mockReturnValue(mockStore);
+
+      render(<ChatWidget />);
+      expect(screen.getByText('Chat with us')).toBeInTheDocument();
+    });
+
+    it('should display current plan information in start chat window for multi-plan users', async () => {
+      // Mock the useChatStore hook implementation
+      jest.spyOn(chatStore, 'useChatStore').mockReturnValue({
+        isOpen: true,
+        error: null,
+        closeChat: jest.fn(),
+        openChat: jest.fn(),
+        isChatActive: false,
+        isWithinBusinessHours: true,
+        currentPlan: plan1,
+        startChat: jest.fn(),
+        endChat: jest.fn(),
+        availablePlans: [plan1, plan2],
+        businessHours: plan1.businessHours,
+        lockPlanSwitcher: jest.fn(),
+        unlockPlanSwitcher: jest.fn(),
+        userEligibility: mockUserEligibility,
+      });
+
+      render(<ChatWidget />);
 
       // Verify that plan information is displayed
       expect(screen.getByText(/Current Plan:/i)).toBeInTheDocument();
-      expect(screen.getByText(plan1.planName)).toBeInTheDocument();
+      expect(screen.getByText(plan1.name)).toBeInTheDocument();
 
       // Verify that switch button is displayed
       expect(
@@ -124,11 +202,25 @@ describe('Plan Information Display', () => {
     });
 
     it('should display plan information in active chat window for multi-plan users', async () => {
-      render(<ChatWidget {...multiPlanProps} />);
+      // Mock the useChatStore hook implementation
+      jest.spyOn(chatStore, 'useChatStore').mockReturnValue({
+        isOpen: true,
+        error: null,
+        closeChat: jest.fn(),
+        openChat: jest.fn(),
+        isChatActive: false,
+        isWithinBusinessHours: true,
+        currentPlan: plan1,
+        startChat: jest.fn(),
+        endChat: jest.fn(),
+        availablePlans: [plan1, plan2],
+        businessHours: plan1.businessHours,
+        lockPlanSwitcher: jest.fn(),
+        unlockPlanSwitcher: jest.fn(),
+        userEligibility: mockUserEligibility,
+      });
 
-      // Open chat
-      const chatButton = screen.getByRole('button', { name: /chat with us/i });
-      await userEvent.click(chatButton);
+      render(<ChatWidget />);
 
       // Complete chat form
       const serviceTypeSelect = screen.getByLabelText(/service.*help/i);
@@ -145,9 +237,7 @@ describe('Plan Information Display', () => {
 
       // Verify that plan information is displayed in active chat window
       await waitFor(() => {
-        expect(screen.getByTestId('chat-body')).toHaveTextContent(
-          plan1.planName,
-        );
+        expect(screen.getByTestId('chat-body')).toHaveTextContent(plan1.name);
       });
     });
   });
@@ -155,11 +245,25 @@ describe('Plan Information Display', () => {
   // US31166: Do not display plan info for single-plan members
   describe('US31166: Single Plan Handling', () => {
     it('should NOT display plan information in start chat window for single-plan users', async () => {
-      render(<ChatWidget {...singlePlanProps} />);
+      // Mock the useChatStore hook implementation
+      jest.spyOn(chatStore, 'useChatStore').mockReturnValue({
+        isOpen: true,
+        error: null,
+        closeChat: jest.fn(),
+        openChat: jest.fn(),
+        isChatActive: false,
+        isWithinBusinessHours: true,
+        currentPlan: plan1,
+        startChat: jest.fn(),
+        endChat: jest.fn(),
+        availablePlans: [plan1],
+        businessHours: plan1.businessHours,
+        lockPlanSwitcher: jest.fn(),
+        unlockPlanSwitcher: jest.fn(),
+        userEligibility: mockUserEligibility,
+      });
 
-      // Open chat
-      const chatButton = screen.getByRole('button', { name: /chat with us/i });
-      await userEvent.click(chatButton);
+      render(<ChatWidget />);
 
       // Verify that plan information is NOT displayed
       expect(screen.queryByText(/Current Plan:/i)).not.toBeInTheDocument();
@@ -169,11 +273,25 @@ describe('Plan Information Display', () => {
     });
 
     it('should NOT display plan information in active chat window for single-plan users', async () => {
-      render(<ChatWidget {...singlePlanProps} />);
+      // Mock the useChatStore hook implementation
+      jest.spyOn(chatStore, 'useChatStore').mockReturnValue({
+        isOpen: true,
+        error: null,
+        closeChat: jest.fn(),
+        openChat: jest.fn(),
+        isChatActive: false,
+        isWithinBusinessHours: true,
+        currentPlan: plan1,
+        startChat: jest.fn(),
+        endChat: jest.fn(),
+        availablePlans: [plan1],
+        businessHours: plan1.businessHours,
+        lockPlanSwitcher: jest.fn(),
+        unlockPlanSwitcher: jest.fn(),
+        userEligibility: mockUserEligibility,
+      });
 
-      // Open chat
-      const chatButton = screen.getByRole('button', { name: /chat with us/i });
-      await userEvent.click(chatButton);
+      render(<ChatWidget />);
 
       // Complete chat form
       const serviceTypeSelect = screen.getByLabelText(/service.*help/i);
@@ -191,13 +309,31 @@ describe('Plan Information Display', () => {
       // Mock the chat body component to verify it's not displaying plan info
       await waitFor(() => {
         const chatBody = screen.getByTestId('chat-body');
-        expect(chatBody).not.toHaveTextContent(plan1.planName);
+        expect(chatBody).not.toHaveTextContent(plan1.name);
       });
     });
 
     it('should have streamlined UI for single-plan users', async () => {
+      // Mock the useChatStore hook implementation
+      jest.spyOn(chatStore, 'useChatStore').mockReturnValue({
+        isOpen: true,
+        error: null,
+        closeChat: jest.fn(),
+        openChat: jest.fn(),
+        isChatActive: false,
+        isWithinBusinessHours: true,
+        currentPlan: plan1,
+        startChat: jest.fn(),
+        endChat: jest.fn(),
+        availablePlans: [plan1],
+        businessHours: plan1.businessHours,
+        lockPlanSwitcher: jest.fn(),
+        unlockPlanSwitcher: jest.fn(),
+        userEligibility: mockUserEligibility,
+      });
+
       // Render both single-plan and multi-plan widgets for comparison
-      const { unmount } = render(<ChatWidget {...multiPlanProps} />);
+      const { unmount } = render(<ChatWidget />);
 
       // Open chat
       let chatButton = screen.getByRole('button', { name: /chat with us/i });
@@ -213,7 +349,7 @@ describe('Plan Information Display', () => {
       unmount();
 
       // Render single-plan widget
-      render(<ChatWidget {...singlePlanProps} />);
+      render(<ChatWidget />);
 
       // Open chat
       chatButton = screen.getByRole('button', { name: /chat with us/i });

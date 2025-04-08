@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { ChatWidget } from '../../components/core/ChatWidget';
 import { useChatStore } from '../../stores/chatStore';
-import { createMockPlanInfo } from './../mocks/factories';
+import { createMockPlanInfo } from '../utils/factories';
 
 // Mock the chat store
 jest.mock('../../stores/chatStore', () => ({

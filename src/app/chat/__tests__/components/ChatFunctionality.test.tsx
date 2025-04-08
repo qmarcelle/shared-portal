@@ -4,9 +4,10 @@ import { ChatWidget } from '../../components/core/ChatWidget';
 import { useChatStore } from '../../stores/chatStore';
 
 // Mock the chat store
-jest.mock('../../stores/chatStore', () => ({
-  useChatStore: jest.fn(),
-}));
+jest.mock('../../stores/chatStore');
+
+// Cast the mock with unknown first
+const mockUseChatStore = useChatStore as unknown as jest.Mock;
 
 describe('Chat Functionality Tests', () => {
   const mockOpenChat = jest.fn();
@@ -17,7 +18,7 @@ describe('Chat Functionality Tests', () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    (useChatStore as jest.Mock).mockImplementation((selector) => {
+    mockUseChatStore.mockImplementation((selector) => {
       const state = {
         isOpen: false,
         isLoading: false,
@@ -48,7 +49,7 @@ describe('Chat Functionality Tests', () => {
 
   it('should close chat when close button is clicked', async () => {
     // Mock chat as open
-    (useChatStore as jest.Mock).mockImplementation((selector) => {
+    mockUseChatStore.mockImplementation((selector) => {
       const state = {
         isOpen: true,
         isLoading: false,
@@ -77,7 +78,7 @@ describe('Chat Functionality Tests', () => {
 
   it('should send a message when the send button is clicked', async () => {
     // Mock chat as open
-    (useChatStore as jest.Mock).mockImplementation((selector) => {
+    mockUseChatStore.mockImplementation((selector) => {
       const state = {
         isOpen: true,
         isLoading: false,

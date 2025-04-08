@@ -1,10 +1,10 @@
-import { CobrowseSession } from '@/app/chat/models/cobrowse';
-import { ChatEligibility } from '@/app/chat/models/session';
 import {
   BusinessHours,
+  ChatEligibility,
   ChatMessage,
   ChatSession,
-} from '@/app/chat/models/types';
+  CobrowseSession,
+} from '../../models/types';
 import {
   checkChatEligibility,
   endChatSession,
@@ -77,6 +77,8 @@ describe('chatAPI', () => {
         ],
         timezone: 'America/New_York',
         isCurrentlyOpen: true,
+        lastUpdated: Date.now(),
+        source: 'api',
       };
 
       mockFetch.mockResolvedValueOnce({
@@ -122,6 +124,42 @@ describe('chatAPI', () => {
         planName: 'Test Plan',
         isPlanSwitchingLocked: false,
         messages: [],
+        jwt: {
+          planId: 'test-plan-id',
+          userID: 'test-user-id',
+          userRole: 'member',
+          groupId: 'test-group-id',
+          subscriberId: 'test-sub-id',
+          currUsr: {
+            umpi: 'test-umpi',
+            role: 'member',
+            firstName: 'John',
+            lastName: 'Doe',
+            plan: {
+              memCk: 'test-plan-id',
+              grpId: 'test-group-id',
+              subId: 'test-sub-id',
+            },
+          },
+        },
+        lastUpdated: Date.now(),
+        plan: {
+          id: 'test-plan-id',
+          name: 'Test Plan',
+          groupId: 'test-group-id',
+          memberId: 'test-sub-id',
+          isEligibleForChat: true,
+          businessHours: {
+            isOpen24x7: false,
+            days: [],
+            timezone: 'America/New_York',
+            isCurrentlyOpen: true,
+            lastUpdated: Date.now(),
+            source: 'api',
+          },
+          lineOfBusiness: 'Medical',
+          isActive: true,
+        },
       };
 
       mockFetch.mockResolvedValueOnce({
@@ -208,7 +246,7 @@ describe('chatAPI', () => {
     it('should send a message in the chat session', async () => {
       const mockMessage: ChatMessage = {
         id: 'test-message-id',
-        text: 'Hello, world!',
+        content: 'Hello, world!',
         sender: 'user',
         timestamp: Date.now(),
       };

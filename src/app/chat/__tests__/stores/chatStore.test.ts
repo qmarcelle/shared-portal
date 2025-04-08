@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
+import { ChatMessage } from '../../models/types';
 import { useChatStore } from '../../stores/chatStore';
-import { ChatMessage } from '../../models/message';
 
 describe('useChatStore', () => {
   beforeEach(() => {
@@ -42,9 +42,9 @@ describe('useChatStore', () => {
     const { result } = renderHook(() => useChatStore());
     const testMessage: ChatMessage = {
       id: '1',
-      text: 'Hello',
+      content: 'Hello',
       sender: 'user',
-      timestamp: new Date()
+      timestamp: Date.now(),
     };
 
     act(() => {
@@ -52,7 +52,7 @@ describe('useChatStore', () => {
     });
 
     expect(result.current.messages).toHaveLength(1);
-    expect(result.current.messages[0].text).toBe('Hello');
+    expect(result.current.messages[0].content).toBe('Hello');
     expect(result.current.messages[0].sender).toBe('user');
   });
-}); 
+});

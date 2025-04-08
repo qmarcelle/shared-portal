@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { ChatButton } from '../../../../components/chat/core/ChatButton';
-import { useChatStore } from '../../../../tests/mocks/chatStore';
+import { ChatButton } from '../../components/core/ChatButton';
+import { useChatStore } from '../../stores/chatStore';
 
-jest.mock('../../../../tests/mocks/chatStore');
+jest.mock('../../stores/chatStore');
 
 describe('ChatButton', () => {
   it('renders chat button', () => {
@@ -23,6 +23,17 @@ describe('ChatButton', () => {
     render(<ChatButton />);
     screen.getByText('Chat with Us').click();
     expect(mockOpenChat).toHaveBeenCalled();
+  });
+
+  it('calls custom onClick when provided', () => {
+    const mockOnClick = jest.fn();
+    (useChatStore as unknown as jest.Mock).mockReturnValue({
+      openChat: jest.fn(),
+    });
+
+    render(<ChatButton onClick={mockOnClick} />);
+    screen.getByText('Chat with Us').click();
+    expect(mockOnClick).toHaveBeenCalled();
   });
 
   it('renders with custom label', () => {

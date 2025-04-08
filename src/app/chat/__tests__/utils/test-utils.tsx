@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import { ChatState } from '../../stores/chatStore';
+import type { ChatActions, ChatState } from '../../stores/chatStore';
 import {
   createMockChatMessage,
   createMockChatSession,
@@ -9,9 +9,13 @@ import {
 
 export const renderWithChatStore = (
   ui: React.ReactElement,
-  initialState: Partial<ChatState> = {},
+  initialState: Partial<ChatState & ChatActions> = {},
 ) => {
-  return render(<div data-testid="chat-store-provider">{ui}</div>);
+  return render(
+    <div data-testid="chat-store-provider" {...initialState}>
+      {ui}
+    </div>,
+  );
 };
 
 export const mockActiveChatSession = () => {
@@ -19,135 +23,131 @@ export const mockActiveChatSession = () => {
   const message = createMockChatMessage();
 
   return {
-    // UI State
-    isOpen: true,
-    isPlanSwitcherLocked: true,
-    showPlanSwitcherMessage: false,
-    showCobrowseConsent: false,
-    cobrowseSessionCode: null,
-
-    // Messages State
-    messages: [message],
-    isSending: false,
-    error: null,
-
     // Session State
     session,
-    isInitializing: false,
-    isWithinBusinessHours: true,
+    chatJWT: session.user,
+    isAuthenticated: true,
+    isExpired: false,
 
-    // Plan Switching State
+    // UI State
+    isOpen: true,
+    isMinimized: false,
+    isTransitioning: false,
+    isSendingMessage: false,
+    isLoading: false,
+
+    // Chat State
+    messages: [message],
+    lastMessageId: message.id,
     currentPlan: createMockPlanInfo(),
-    availablePlans: [createMockPlanInfo()],
-    isPlanSwitcherOpen: false,
+    isPlanSwitcherLocked: false,
+    error: null,
+    chatSession: session,
 
     // Actions
+    initializeSession: jest.fn(),
+    clearSession: jest.fn(),
+    checkExpiration: jest.fn(),
     openChat: jest.fn(),
     closeChat: jest.fn(),
+    minimizeChat: jest.fn(),
+    maximizeChat: jest.fn(),
+    startChat: jest.fn(),
+    endChat: jest.fn(),
+    sendMessage: jest.fn(),
     addMessage: jest.fn(),
     clearMessages: jest.fn(),
     setError: jest.fn(),
-    initializeSession: jest.fn(),
-    endSession: jest.fn(),
-    setCurrentPlan: jest.fn(),
-    setAvailablePlans: jest.fn(),
-    openPlanSwitcher: jest.fn(),
-    closePlanSwitcher: jest.fn(),
     lockPlanSwitcher: jest.fn(),
     unlockPlanSwitcher: jest.fn(),
-    setShowPlanSwitcherMessage: jest.fn(),
-    setCobrowseSessionCode: jest.fn(),
-    setShowCobrowseConsent: jest.fn(),
-    setBusinessHours: jest.fn(),
+    setSession: jest.fn(),
   };
 };
 
 export const mockOutOfBusinessHours = () => {
   return {
-    // UI State
-    isOpen: false,
-    isPlanSwitcherLocked: false,
-    showPlanSwitcherMessage: false,
-    showCobrowseConsent: false,
-    cobrowseSessionCode: null,
-
-    // Messages State
-    messages: [],
-    isSending: false,
-    error: null,
-
     // Session State
     session: null,
-    isInitializing: false,
-    isWithinBusinessHours: false,
+    chatJWT: null,
+    isAuthenticated: false,
+    isExpired: false,
 
-    // Plan Switching State
-    currentPlan: createMockPlanInfo(),
-    availablePlans: [createMockPlanInfo()],
-    isPlanSwitcherOpen: false,
+    // UI State
+    isOpen: false,
+    isMinimized: false,
+    isTransitioning: false,
+    isSendingMessage: false,
+    isLoading: false,
+
+    // Chat State
+    messages: [],
+    lastMessageId: null,
+    currentPlan: null,
+    isPlanSwitcherLocked: false,
+    error: null,
+    chatSession: null,
 
     // Actions
+    initializeSession: jest.fn(),
+    clearSession: jest.fn(),
+    checkExpiration: jest.fn(),
     openChat: jest.fn(),
     closeChat: jest.fn(),
+    minimizeChat: jest.fn(),
+    maximizeChat: jest.fn(),
+    startChat: jest.fn(),
+    endChat: jest.fn(),
+    sendMessage: jest.fn(),
     addMessage: jest.fn(),
     clearMessages: jest.fn(),
     setError: jest.fn(),
-    initializeSession: jest.fn(),
-    endSession: jest.fn(),
-    setCurrentPlan: jest.fn(),
-    setAvailablePlans: jest.fn(),
-    openPlanSwitcher: jest.fn(),
-    closePlanSwitcher: jest.fn(),
     lockPlanSwitcher: jest.fn(),
     unlockPlanSwitcher: jest.fn(),
-    setShowPlanSwitcherMessage: jest.fn(),
-    setCobrowseSessionCode: jest.fn(),
-    setShowCobrowseConsent: jest.fn(),
-    setBusinessHours: jest.fn(),
+    setSession: jest.fn(),
   };
 };
 
 export const mockIneligibleUser = () => {
+  const session = createMockChatSession({ isEligibleForChat: false });
+
   return {
+    // Session State
+    session,
+    chatJWT: session.user,
+    isAuthenticated: true,
+    isExpired: false,
+
     // UI State
     isOpen: false,
-    isPlanSwitcherLocked: false,
-    showPlanSwitcherMessage: false,
-    showCobrowseConsent: false,
-    cobrowseSessionCode: null,
+    isMinimized: false,
+    isTransitioning: false,
+    isSendingMessage: false,
+    isLoading: false,
 
-    // Messages State
+    // Chat State
     messages: [],
-    isSending: false,
-    error: null,
-
-    // Session State
-    session: null,
-    isInitializing: false,
-    isWithinBusinessHours: true,
-
-    // Plan Switching State
+    lastMessageId: null,
     currentPlan: createMockPlanInfo({ isEligibleForChat: false }),
-    availablePlans: [createMockPlanInfo({ isEligibleForChat: false })],
-    isPlanSwitcherOpen: false,
+    isPlanSwitcherLocked: false,
+    error: null,
+    chatSession: session,
 
     // Actions
+    initializeSession: jest.fn(),
+    clearSession: jest.fn(),
+    checkExpiration: jest.fn(),
     openChat: jest.fn(),
     closeChat: jest.fn(),
+    minimizeChat: jest.fn(),
+    maximizeChat: jest.fn(),
+    startChat: jest.fn(),
+    endChat: jest.fn(),
+    sendMessage: jest.fn(),
     addMessage: jest.fn(),
     clearMessages: jest.fn(),
     setError: jest.fn(),
-    initializeSession: jest.fn(),
-    endSession: jest.fn(),
-    setCurrentPlan: jest.fn(),
-    setAvailablePlans: jest.fn(),
-    openPlanSwitcher: jest.fn(),
-    closePlanSwitcher: jest.fn(),
     lockPlanSwitcher: jest.fn(),
     unlockPlanSwitcher: jest.fn(),
-    setShowPlanSwitcherMessage: jest.fn(),
-    setCobrowseSessionCode: jest.fn(),
-    setShowCobrowseConsent: jest.fn(),
-    setBusinessHours: jest.fn(),
+    setSession: jest.fn(),
   };
 };

@@ -1,4 +1,4 @@
-import { chatHandlers } from './chatHandlers';
 import { memberHandlers } from './memberHandlers';
 
-export const handlers = [...chatHandlers, ...memberHandlers];
+// Removed MSW chat handlers - they're no longer needed as we've refactored the chat implementation
+export const handlers = [...memberHandlers];
