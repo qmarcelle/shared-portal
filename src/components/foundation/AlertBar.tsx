@@ -2,9 +2,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 import AlertIcon from '../../../public/assets/alert_white.svg';
 import CloseIcon from '../../../public/assets/close_white.svg';
+import { IComponent } from '../IComponent';
 
-export interface AlertBarProps {
+interface AlertBarProps extends IComponent {
   alerts: string[];
+  role?: string;
+  'aria-label'?: string;
 }
 
 const AlertTile = ({
@@ -16,20 +19,29 @@ const AlertTile = ({
   label: string;
   closeCallback: (index: number) => void;
 }) => {
+  // Convert SVG components to a format compatible with next/image
+  // This uses double type assertion to safely convert SVG components
+  const alertIconSrc = AlertIcon as unknown as { src: string };
+  const closeIconSrc = CloseIcon as unknown as { src: string };
+
   return (
     <div className="flex flex-row py-1 px-2 w-full alert-tile">
       <div>
-        <Image src={AlertIcon} className="icon" alt={'AlertIcon'} />
+        <Image src={alertIconSrc.src} className="icon" alt="Alert Icon" />
       </div>
       <p className="mx-1 grow">{label}</p>
       <div onClick={() => closeCallback(index)}>
-        <Image src={CloseIcon} className="icon" alt={'CloseIcon'} />
+        <Image src={closeIconSrc.src} className="icon" alt="Close Icon" />
       </div>
     </div>
   );
 };
 
-export const AlertBar = ({ alerts }: AlertBarProps) => {
+export const AlertBar = ({
+  alerts,
+  role,
+  'aria-label': ariaLabel,
+}: AlertBarProps) => {
   const [items, setItems] = useState(alerts);
 
   const closeCallback = (index: number) => {
@@ -52,7 +64,11 @@ export const AlertBar = ({ alerts }: AlertBarProps) => {
     );
   } else {
     return (
-      <div className="flex flex-col self-stretch">
+      <div
+        className="flex flex-col self-stretch"
+        role={role}
+        aria-label={ariaLabel}
+      >
         {items.map((item, index) => {
           if (index != alerts.length - 1) {
             return (

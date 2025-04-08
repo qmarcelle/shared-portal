@@ -10,6 +10,8 @@ export const SERVER_ACTION_NO_SESSION_ERROR = 'Invalid session';
 declare module 'next-auth' {
   interface Session {
     user: PortalUser;
+    // JWT token needed for chat service authentication and external service validation
+    token?: string;
   }
 }
 
@@ -29,6 +31,7 @@ export const {
     async session({ token, session }) {
       return {
         ...session,
+        token: token.jwt,
         user: {
           ...session.user,
           ...token.user!,

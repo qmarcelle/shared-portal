@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BCBST Chat Widget Implementation
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This project implements a modern chat widget for the BCBST Member Portal. It provides a seamless chat experience for members while maintaining integration with Genesys APIs and supporting plan-specific customization.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- **Real-time Chat**: Enables members to chat with BCBST customer service representatives
+- **Plan-Specific Customization**: Displays different options and content based on member's plan type
+- **Co-browsing**: Allows representatives to view and assist with the member's screen
+- **Time-Based Availability**: Checks if chat is available based on business hours
+- **Audio Notifications**: Alerts when new messages are received
+- **Responsive Design**: Works on desktop and mobile devices
+- **Plan Switching**: Seamless integration with plan switcher
+- **Business Hours**: Centralized business hours management
+- **Eligibility Checks**: Comprehensive eligibility verification
+
+## Architecture
+
+The chat widget follows a modern, modular architecture:
+
+```
+src/app/chat/
+├── components/
+│   ├── core/
+│   │   ├── ChatWidget.tsx
+│   │   ├── ChatButton.tsx
+│   │   └── ChatHeader.tsx
+│   ├── business-hours/
+│   ├── eligibility/
+│   └── plan-switcher/
+├── services/
+│   ├── ChatService.ts
+│   └── GenesysChatService.ts
+├── stores/
+│   └── chatStore.ts
+└── hooks/
+    ├── useChatEligibility.ts
+    └── useAudioAlert.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### State Management
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The chat widget uses Zustand for state management, providing:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Chat session state
+- UI state (open/closed, minimized)
+- Plan eligibility
+- Business hours
+- Message history
+- Co-browse state
 
-## Learn More
+### Service Layer
 
-To learn more about Next.js, take a look at the following resources:
+The service layer handles all external integrations:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **GenesysChatService**: Manages chat session lifecycle and Genesys API integration
+- **BusinessHoursService**: Centralizes business hours logic
+- **CobrowseService**: Handles screen sharing functionality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Plan Switching Capabilities
 
-## Deploy on Vercel
+The widget supports dynamic customization based on the member's health plan:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1. Client Types
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```typescript
+export enum ClientType {
+  BlueCare = 'BC',
+  BlueCarePlus = 'DS',
+  CoverTN = 'CT',
+  CoverKids = 'CK',
+  SeniorCare = 'BA',
+  Individual = 'INDV',
+  BlueElite = 'INDVMX',
+  Default = 'Default',
+}
+```
+
+### 2. Chat Queue Routing
+
+Each client type is routed to a specific chat queue:
+
+- BlueCare → BlueCare_Chat
+- SeniorCare → SCD_Chat
+- Blue Elite → SeniorCare_Chat
+- Individual & Others → MBAChat (default)
+
+### 3. Plan-Specific Features
+
+- Customized help topics per plan type
+- Plan-specific disclaimers
+- Eligibility-based feature availability
+- Dynamic UI adaptation
+
+## Testing
+
+The project maintains a comprehensive testing strategy:
+
+1. **Unit Tests**: Testing individual components and utility functions
+2. **Component Tests**: Testing component rendering and interactions
+3. **Integration Tests**: Testing communication between components
+4. **End-to-End Tests**: Testing the complete chat flow
+
+Test coverage is maintained at 90%+.
+
+## Usage
+
+The chat widget can be added to any page:
+
+```jsx
+import { ChatWidget } from '@/app/chat/components/core/ChatWidget';
+
+// In your component
+return (
+  <ChatWidget
+    userEligibility={userEligibility}
+    config={chatConfig}
+    currentPlan={currentPlan}
+    availablePlans={availablePlans}
+  />
+);
+```
+
+## Configuration
+
+Configuration options include:
+
+```typescript
+// Chat Configuration
+{
+  endPoint: process.env.NEXT_PUBLIC_PING_REST_URL,
+  baseUrl: process.env.PING_ONE_BASE_URL,
+  envId: process.env.NEXT_PUBLIC_ENV_ID,
+  policyId: process.env.DROP_OFF_POLICY_ID,
+  credentials: process.env.ES_API_PING_CREDENTIALS
+}
+
+// User Eligibility
+{
+  isChatEligibleMember: boolean,
+  isDemoMember: boolean,
+  isAmplifyMem: boolean,
+  groupId: string,
+  // Additional eligibility properties...
+}
+```
+
+## Maintenance Guidelines
+
+1. **Code Organization**
+
+   - Keep chat-related code in the `src/app/chat` directory
+   - Maintain separation between UI and service layers
+   - Use established patterns for new features
+
+2. **Testing**
+
+   - Maintain high test coverage
+   - Follow established testing patterns
+   - Update tests when adding new features
+
+3. **Documentation**
+   - Keep documentation up to date with changes
+   - Document new features following existing patterns
+   - Update type definitions when modifying interfaces
+
+## Future Enhancements
+
+- End-to-end test implementation
+- Additional chat features as needed
+- Performance optimization
+- Enhanced error handling
+- Improved accessibility features

@@ -1,0 +1,185 @@
+/* Theme Variables */
+:root {
+  --color-primary: theme('colors.primary');
+  --color-secondary: theme('colors.secondary');
+  --color-neutral: theme('colors.neutral.900');
+  --color-base-100: theme('colors.white');
+  --color-base-200: theme('colors.gray.100');
+  --color-error: theme('colors.red.600');
+}
+
+/* Common Chat Widget Container */
+.chat-widget-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 400px;
+  height: 600px;
+  max-height: 80vh;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: var(--color-base-100);
+}
+
+/* Legacy WebChat Overrides */
+.cx-widget.cx-webchat {
+  /* Base styles */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-base-100);
+
+  /* Header */
+  .cx-titlebar {
+    background-color: var(--color-base-100);
+    color: var(--color-neutral);
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-base-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Messages Container */
+  .cx-message-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: var(--color-base-100);
+  }
+
+  /* Messages */
+  .cx-message {
+    margin-bottom: 1rem;
+
+    &.cx-system {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--color-neutral);
+      opacity: 0.75;
+    }
+
+    &.cx-user {
+      display: flex;
+      justify-content: flex-end;
+
+      .cx-bubble {
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 1rem 1rem 0.25rem 1rem;
+      }
+    }
+
+    &.cx-agent {
+      display: flex;
+      justify-content: flex-start;
+
+      .cx-bubble {
+        background-color: var(--color-base-200);
+        color: var(--color-neutral);
+        border-radius: 1rem 1rem 1rem 0.25rem;
+      }
+    }
+  }
+
+  /* Message Bubble */
+  .cx-bubble {
+    padding: 0.75rem 1rem;
+    max-width: 80%;
+    word-break: break-word;
+  }
+
+  /* Input Area */
+  .cx-input-container {
+    background-color: var(--color-base-100);
+    border-top: 1px solid var(--color-base-200);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cx-send {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 9999px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .cx-input {
+    flex: 1;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-base-200);
+    color: var(--color-neutral);
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: var(--color-neutral);
+      opacity: 0.5;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
+    }
+  }
+
+  /* Attachments */
+  .cx-attachment-button {
+    color: var(--color-neutral);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  /* Loading Spinner */
+  .cx-loader {
+    border-color: rgba(var(--color-primary), 0.2);
+    border-top-color: var(--color-primary);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chat-widget-container {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .cx-widget.cx-webchat {
+    .cx-titlebar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .cx-input-container {
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+    }
+  }
+}

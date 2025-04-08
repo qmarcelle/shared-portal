@@ -22,22 +22,20 @@ export const EditEmailProfileSettings = ({
   email,
 }: ModalChildProps & EditEmailSettingsJourneyProps) => {
   const { dismissModal } = useAppModalStore();
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const verificationInputRef = useRef<HTMLInputElement>(null);
 
   const [mainAuthDevice, setMainAuthDevice] = useState(email);
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
 
-  const emailInputRef = useRef<HTMLInputElement>(null);
-  const verificationInputRef = useRef<HTMLInputElement>(null);
-
-  // Set focus on the appropriate input when modal loads or page changes
   useEffect(() => {
     if (pageIndex === 0) {
       // Focus email input on first page
-      setTimeout(() => emailInputRef.current?.focus(), 100);
+      emailInputRef.current?.focus();
     } else if (pageIndex === 1) {
       // Focus verification code input on verification page
-      setTimeout(() => verificationInputRef.current?.focus(), 100);
+      verificationInputRef.current?.focus();
     }
   }, [pageIndex]);
 
@@ -82,7 +80,6 @@ export const EditEmailProfileSettings = ({
           <TextBox
             className="font-bold text-center"
             text={mainAuthDevice}
-            aria-live="polite"
             ariaLabel="Your email address"
           />
           <Spacer size={32} />
@@ -119,14 +116,12 @@ export const EditEmailProfileSettings = ({
           <TextBox
             className="text-center"
             text="Your email address is: "
-            aria-live="polite"
             ariaLabel="Your updated email address is"
           />
           <Spacer size={16} />
           <TextBox
             className="text-center font-bold"
             text={mainAuthDevice}
-            aria-atomic="true"
             ariaLabel={mainAuthDevice}
           />
         </Column>

@@ -1,4 +1,5 @@
 'use client';
+import { initMocks } from '@/app/api/mocks';
 import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { GTM_ID } from '@/utils/analytics';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
@@ -20,6 +21,9 @@ export const ClientInitComponent = () => {
     };
     console.log('Initializing Google Analytics');
     TagManager.initialize(TagManagerArgs);
+
+    // Initialize MSW if API mocking is enabled
+    initMocks();
 
     initPingOne();
   }, []);
