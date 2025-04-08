@@ -137,6 +137,10 @@ describe('Dashboard Page', () => {
     expect(screen.getByText('View Prior Authorizations')).toBeVisible();
     expect(screen.getByText('View Balances')).toBeVisible();
     expect(screen.getByText('View Benefits & Coverage')).toBeVisible();
+    expect(
+      screen.queryByText('Member Wellness Center'),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Member Discount')).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 

@@ -9,6 +9,7 @@ import {
   condensedExperienceProfileHorizonGroups,
   katieBeckettGroups,
   ncqaGroups,
+  offMarketGroups,
   wellnessProfileWellnessOnlyGroups,
 } from './groups';
 import { VisibilityRules } from './rules';
@@ -47,8 +48,7 @@ export function computeVisibilityRules(
   rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
   rules.dsnpGrpInd = loggedUserInfo.groupData.clientID === 'ES';
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
-
-  rules.offMarketGrp = loggedUserInfo.groupData.groupID == '129800';
+  rules.offMarketGrp = offMarketGroups.includes(groupId);
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
@@ -69,6 +69,13 @@ export function computeVisibilityRules(
 
   rules.isWellnessProfileWellnessOnly =
     rules?.wellnessOnly && wellnessProfileWellnessOnlyGroups.includes(groupId);
+
+  rules.isWellnessQa =
+    rules?.wellnessOnly &&
+    !rules.futureEffective &&
+    !rules.terminated &&
+    !rules.fsaOnly &&
+    !wellnessProfileWellnessOnlyGroups.includes(groupId);
 
   rules.ncqaEligible = rules?.blueCare || ncqaGroups.includes(groupId);
 
@@ -480,6 +487,12 @@ export function isMedicarePrescriptionPaymentPlanEligible(
   );
 }
 
+export const isWellnessQa = (rules: VisibilityRules | undefined) =>
+  rules?.isWellnessQa;
+
+export const isNotWellnessQa = (rules: VisibilityRules | undefined) =>
+  !isWellnessQa(rules);
+
 export const isTeladocEligible = (rules: VisibilityRules | undefined) =>
   rules?.teladocEligible && activeAndHealthPlanMember(rules);
 
@@ -501,6 +514,11 @@ export function isMemberWellnessCenterEligible(
 ) {
   return isActiveAndNotFSAOnly(rules) && rules?.phaMemberEligible;
 }
+
+export const isHealthyMaternity = (rules: VisibilityRules | undefined) =>
+  (rules?.fullyInsuredHealthyMaternity || rules?.enableHealthyMaternity) &&
+  (rules?.wellnessOnly || rules?.medical) &&
+  isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly';
 
 export function isNCQAEligible(rules: VisibilityRules | undefined) {
   return rules?.ncqaEligible && rules?.active;

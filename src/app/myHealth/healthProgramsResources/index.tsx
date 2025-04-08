@@ -11,6 +11,7 @@ import {
   isCareManagementEligiblity,
   isDiabetesManagementEligible,
   isDiabetesPreventionEligible,
+  isHealthyMaternity,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
@@ -77,6 +78,10 @@ const healthPrograms = [
   {
     checkFunction: isTeladocEligible,
     key: HealthProgramsResourcesName.TeladocHealthGeneralAndUrgentCare,
+  },
+  {
+    checkFunction: isHealthyMaternity,
+    key: HealthProgramsResourcesName.HealthyMaternity,
   },
 ];
 

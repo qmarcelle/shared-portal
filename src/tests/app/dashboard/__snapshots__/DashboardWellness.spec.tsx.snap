@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Page for Wellness Only should render UI correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+            Welcome, 
+             
+            Chris
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Plan: Chris B Hall Enterprises
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Subscriber ID: 902218823
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Group ID: 100000
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Policies: Medical, Wellness, Vision, Dental
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <a
+            class="link-white-text"
+            href="/myPlan"
+          >
+            <p
+              class="pb-2 pt-2"
+            >
+              View Plan Details
+            </p>
+          </a>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <section>
+          <div
+            class="card-main large-section skip-underscore"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="link"
+                  class="size-10"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <section
+                  class="flex justify-start self-start my-health-link"
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <div
+                      class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+                    >
+                      <a
+                        aria-label="Member Wellness Center"
+                        href=""
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <p
+                            class="link undefined"
+                          >
+                            Member Wellness Center
+                          </p>
+                          <p
+                            class="ml-1"
+                          >
+                            <img
+                              alt="external"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </span>
+                </section>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <p
+                class="body-1 body-1 ml-11"
+                style="display: block;"
+              >
+                Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div
+            class="card-main large-section skip-underscore"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <img
+                  alt="link"
+                  class="size-10"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <section
+                  class="flex justify-start self-start my-health-link"
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <div
+                      class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+                    >
+                      <a
+                        aria-label="Member Discount"
+                        href=""
+                        style="display: block;"
+                      >
+                        <button
+                          class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                          style="max-width: max-content; height: auto; display: block;"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <p
+                            class="link undefined"
+                          >
+                            Member Discount
+                          </p>
+                          <p
+                            class="ml-1"
+                          >
+                            <img
+                              alt="external"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                    </div>
+                  </span>
+                </section>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+              />
+              <p
+                class="body-1 body-1 ml-11"
+                style="display: block;"
+              >
+                Want access to new healthy living discounts every week? Find savings on nutrition programs, fitness accessories, medical supplies and services like hearing aids and LASIK eye surgery.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -45,7 +45,7 @@ export default function SiteHeader({
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules);
+    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
 
   const toggleMenu = () => {
     if (!isOpen) {
