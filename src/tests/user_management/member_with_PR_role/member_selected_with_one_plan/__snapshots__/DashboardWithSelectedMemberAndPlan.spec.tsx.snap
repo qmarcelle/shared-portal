@@ -28,7 +28,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
           class="body-1"
           style="display: block;"
         >
-          Plan: BlueCross BlueShield of Tennessee
+          Plan: Chris B Hall Enterprises
         </p>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -55,7 +55,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
           class="body-1"
           style="display: block;"
         >
-          Policies: Medical, Dental, Vision
+          Policies: Medical, Wellness, Vision, Dental
         </p>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -105,7 +105,10 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
+                  aria-label="Medical claim for Chris James from John Doe with status Processed"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -207,7 +210,10 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   </section>
                 </div>
                 <div
+                  aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -309,7 +315,10 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   </section>
                 </div>
                 <div
+                  aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1048,11 +1057,13 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                     class="flex flex-col items-end"
                   >
                     <button
+                      aria-label="Search"
                       class="flex flex-col p-[0.125rem]  "
                       type="submit"
                     >
                       <img
-                        alt="Search"
+                        alt=""
+                        aria-hidden="true"
                         class="icon searchhover "
                         data-nimg="1"
                         decoding="async"

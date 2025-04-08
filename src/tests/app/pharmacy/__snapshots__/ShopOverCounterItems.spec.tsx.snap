@@ -277,7 +277,10 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -379,7 +382,10 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -1422,7 +1428,10 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
+                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -1524,7 +1533,10 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                   </section>
                 </div>
                 <div
+                  aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -2624,7 +2636,10 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -2726,7 +2741,10 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -3846,7 +3864,10 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
+                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"
@@ -3948,7 +3969,10 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   </section>
                 </div>
                 <div
+                  aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                   class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
                 >
                   <section
                     class="md:flex md:flex-row align-top m-4"

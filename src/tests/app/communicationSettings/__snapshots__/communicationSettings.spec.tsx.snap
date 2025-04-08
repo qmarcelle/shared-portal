@@ -226,33 +226,29 @@ exports[`Communication Settings should render communicationSettings if user role
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Receive Text Alerts"
+                            class="checkbox   "
+                            id="checkbox-receive-text-alerts"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-receive-text-alerts"
                           >
-                            <p
-                              class="font-bold"
-                            >
-                              Receive Text Alerts
-                            </p>
+                            Receive Text Alerts
                           </label>
-                          <p
-                            class="body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Get text alerts with plan updates and personalized health notifications.
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -264,33 +260,29 @@ exports[`Communication Settings should render communicationSettings if user role
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Receive Email Alerts"
+                            class="checkbox   "
+                            id="checkbox-receive-email-alerts"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-receive-email-alerts"
                           >
-                            <p
-                              class="font-bold"
-                            >
-                              Receive Email Alerts
-                            </p>
+                            Receive Email Alerts
                           </label>
-                          <p
-                            class="body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Get important plan updates, claims information and/or health and wellness topics sent to your email.
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -525,33 +517,29 @@ exports[`Communication Settings should render communicationSettings if user role
                     class="flex flex-col"
                   >
                     <div
-                      class="flex flex-row gap-2 p-2   "
+                      aria-checked="false"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-required="false"
+                      class="flex flex-col "
+                      role="checkbox"
                     >
-                      <label>
+                      <div
+                        class="flex flex-row items-center"
+                        tabindex="0"
+                      >
                         <input
-                          id="myCheckbox"
-                          name=""
+                          aria-label="Receive Text Alerts"
+                          class="checkbox   "
+                          id="checkbox-receive-text-alerts"
                           type="checkbox"
                         />
-                      </label>
-                      <div
-                        class="flex flex-col"
-                      >
                         <label
-                          for="myCheckbox"
+                          class="ml-2"
+                          for="checkbox-receive-text-alerts"
                         >
-                          <p
-                            class="font-bold"
-                          >
-                            Receive Text Alerts
-                          </p>
+                          Receive Text Alerts
                         </label>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Get text alerts with plan updates and personalized health notifications.
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -563,33 +551,29 @@ exports[`Communication Settings should render communicationSettings if user role
                     class="flex flex-col"
                   >
                     <div
-                      class="flex flex-row gap-2 p-2   "
+                      aria-checked="false"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-required="false"
+                      class="flex flex-col "
+                      role="checkbox"
                     >
-                      <label>
+                      <div
+                        class="flex flex-row items-center"
+                        tabindex="0"
+                      >
                         <input
-                          id="myCheckbox"
-                          name=""
+                          aria-label="Receive Email Alerts"
+                          class="checkbox   "
+                          id="checkbox-receive-email-alerts"
                           type="checkbox"
                         />
-                      </label>
-                      <div
-                        class="flex flex-col"
-                      >
                         <label
-                          for="myCheckbox"
+                          class="ml-2"
+                          for="checkbox-receive-email-alerts"
                         >
-                          <p
-                            class="font-bold"
-                          >
-                            Receive Email Alerts
-                          </p>
+                          Receive Email Alerts
                         </label>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Get important plan updates, claims information and/or health and wellness topics sent to your email.
-                        </p>
                       </div>
                     </div>
                   </div>

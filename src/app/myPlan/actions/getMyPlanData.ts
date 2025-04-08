@@ -13,6 +13,7 @@ export const getMyPlanData = async (): Promise<
   ActionResponse<number, MyPlanData>
 > => {
   const session = await auth();
+
   try {
     const memberDetails = await getLoggedInMember(session);
     const [idCardSvgFrontData, planType] = await Promise.allSettled([

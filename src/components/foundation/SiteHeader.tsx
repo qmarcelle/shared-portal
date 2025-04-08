@@ -1,11 +1,12 @@
 'use client';
+import { setExternalSessionToken } from '@/actions/ext_token';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
@@ -44,7 +45,7 @@ export default function SiteHeader({
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules);
+    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -64,6 +65,13 @@ export default function SiteHeader({
     setIsOpen(false);
     setActiveSubNavId(null);
   };
+
+  useEffect(() => {
+    console.log('Setting external token');
+    if (selectedPlan?.memeCk) {
+      setExternalSessionToken();
+    }
+  }, [selectedPlan?.memeCk]);
 
   return (
     <>

@@ -16,6 +16,7 @@ export interface MedicalServicesProps extends IComponent {
   selectedMemberId: string;
   medicalServiceDetailsUsed: ServicesUsedItem[];
   onSelectedMemberChange: (val: string) => void;
+  contact: string;
 }
 
 export const MedicalServices = ({
@@ -24,6 +25,7 @@ export const MedicalServices = ({
   selectedMemberId,
   medicalServiceDetailsUsed,
   onSelectedMemberChange,
+  contact,
 }: MedicalServicesProps) => {
   return (
     <Card className={className}>
@@ -60,7 +62,7 @@ export const MedicalServices = ({
               <span className="link" key={1}>
                 <a> start a chat </a>
               </span>,
-              <span key={3}> or call us at [1-800-000-0000].</span>,
+              <span key={3}> or call us at [{contact}].</span>,
             ]}
           />
         </Column>
@@ -73,6 +75,7 @@ interface MedicalServicesWrapperProps extends IComponent {
   members: SelectItem[];
   initSelectedMemberId: string;
   medicalServiceDetailsUsed: Map<string, ServicesUsedItem[]>;
+  phoneNumber: string;
 }
 
 export const MedicalServicesWrapper = ({
@@ -80,6 +83,7 @@ export const MedicalServicesWrapper = ({
   initSelectedMemberId,
   medicalServiceDetailsUsed,
   className,
+  phoneNumber,
 }: MedicalServicesWrapperProps) => {
   const [selectedMemberId, setSelectedMemberId] =
     useState(initSelectedMemberId);
@@ -90,6 +94,7 @@ export const MedicalServicesWrapper = ({
       medicalServiceDetailsUsed={
         medicalServiceDetailsUsed.get(selectedMemberId)!
       }
+      contact={phoneNumber}
       className={className}
       onSelectedMemberChange={(val) => setSelectedMemberId(val)}
     />

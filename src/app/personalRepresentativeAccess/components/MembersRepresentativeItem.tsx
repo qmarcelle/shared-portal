@@ -1,4 +1,3 @@
-import { RequestAccessOnMyPlan } from '@/app/accessOthersInformation/journeys/RequestAccessOnMyPlan';
 import { InviteToRegister } from '@/app/personalRepresentativeAccess/journeys/InviteToRegister';
 import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -16,8 +15,11 @@ import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { EditLevelOfAccess } from '../journeys/EditLevelOfAccess';
+import { PersonalRepRequestAccessOnMyPlan } from '../journeys/PersonalRepRequestAccessOnMyPlan';
+import { InviteStatus } from '../models/representativeDetails';
 
 interface MembersRepresentativeItemProps extends IComponent {
+  inviteStatus: InviteStatus;
   memberName: string;
   DOB: string;
   isOnline: boolean;
@@ -25,10 +27,15 @@ interface MembersRepresentativeItemProps extends IComponent {
   fullAccess: boolean;
   icon1?: JSX.Element;
   isRepresentative?: boolean;
+  memberMemeCk?: string;
+  requesteeFHRID?: string;
   visibilityRules?: VisibilityRules;
+  onRequestSuccessCallBack: () => void;
 }
 
 export const MembersRepresentativeItem = ({
+  inviteStatus,
+  onRequestSuccessCallBack,
   memberName,
   DOB,
   isOnline = true,
@@ -36,6 +43,8 @@ export const MembersRepresentativeItem = ({
   className,
   fullAccess,
   isRepresentative,
+  memberMemeCk,
+  requesteeFHRID,
   visibilityRules,
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
@@ -57,16 +66,30 @@ export const MembersRepresentativeItem = ({
                 text="This member has not created an online profile."
               />
             </Row>
-            <AppLink
-              className="!flex pl-0"
-              label="Invite to Register"
-              icon={icon1}
-              callback={() =>
-                showAppModal({
-                  content: <InviteToRegister memberName={memberName} />,
-                })
-              }
-            />
+            {inviteStatus != InviteStatus.Pending ? (
+              <AppLink
+                className="!flex pl-0"
+                label="Invite to Register"
+                icon={icon1}
+                callback={() =>
+                  showAppModal({
+                    content: (
+                      <InviteToRegister
+                        memberName={memberName}
+                        memeCk={memberMemeCk!}
+                        requesteeFHRID={requesteeFHRID!}
+                        onRequestSuccessCallBack={onRequestSuccessCallBack}
+                      />
+                    ),
+                  })
+                }
+              />
+            ) : (
+              <div className="flex flex-row">
+                <div className="mr-2">{icon}</div>
+                <p className={className}>Pending...</p>
+              </div>
+            )}
           </Column>
         </Card>
       </Column>
@@ -121,7 +144,9 @@ export const MembersRepresentativeItem = ({
                   callback={() =>
                     showAppModal({
                       content: (
-                        <RequestAccessOnMyPlan memberName={memberName} />
+                        <PersonalRepRequestAccessOnMyPlan
+                          memberName={memberName}
+                        />
                       ),
                     })
                   }

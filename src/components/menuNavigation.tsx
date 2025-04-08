@@ -12,9 +12,11 @@ import {
   isEnrollEligible,
   isHealthProgamAndResourceEligible,
   isHingeHealthEligible,
+  isKatieBeckettEligible,
   isMentalHealthMenuOption,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
+  isNotWellnessQa,
   isNurseChatEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
@@ -22,6 +24,7 @@ import {
   isSpendingAccountsMenuOptions,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
+  isWellnessQa,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -34,7 +37,7 @@ export const getMenuNavigation = (
     title: 'Find Care & Costs',
     description: 'This is Find Care & Costs',
     category: '',
-    showOnMenu: true,
+    showOnMenu: isNotWellnessQa(rules),
     url: '/findcare',
     qt: {
       // eslint-disable-next-line quotes
@@ -177,9 +180,7 @@ export const getMenuNavigation = (
         title: 'Benefits & Coverage',
         description: 'This is Benefits & Coverage',
         category: 'Plan Details',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isNotWellnessQa,
         url: '/benefits',
         external: false,
       },
@@ -188,7 +189,8 @@ export const getMenuNavigation = (
         title: 'Plan Documents',
         description: 'This is Plan Documents',
         category: 'Plan Details',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
         url: '/benefits/planDocuments',
         external: false,
       },
@@ -197,7 +199,8 @@ export const getMenuNavigation = (
         title: 'Services Used',
         description: 'This is Services Used',
         category: 'Plan Details',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
         url: '/benefits/servicesUsed',
         external: false,
       },
@@ -206,7 +209,7 @@ export const getMenuNavigation = (
         title: 'Member Handbook',
         description: 'This is Member Handbook',
         category: 'Plan Details',
-        showOnMenu: isBlueCareEligible,
+        showOnMenu: (rules) => isBlueCareEligible(rules) || isWellnessQa(rules),
         url: 'https://bluecare.bcbst.com/get-care/documents-forms',
         external: true,
       },
@@ -226,9 +229,7 @@ export const getMenuNavigation = (
         title: 'Prior Authorizations',
         description: 'This is Prior Authorizations',
         category: 'Claims',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isNotWellnessQa,
         url: '/priorAuthorization',
         external: false,
       },
@@ -259,7 +260,8 @@ export const getMenuNavigation = (
         title: 'Balances',
         description: 'This is Balances',
         category: 'Spending',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
         url: '/benefits/balances',
         external: false,
       },
@@ -268,7 +270,8 @@ export const getMenuNavigation = (
         title: 'Spending Accounts (HSA, FSA)',
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
-        showOnMenu: isSpendingAccountsMenuOptions,
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) && isSpendingAccountsMenuOptions(rules),
         url: '/spendingAccounts',
         external: false,
       },
@@ -277,7 +280,8 @@ export const getMenuNavigation = (
         title: 'Spending Summary',
         description: 'This is Spending Summary',
         category: 'Spending',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
         url: '/spendingSummary',
         external: false,
       },
@@ -286,7 +290,8 @@ export const getMenuNavigation = (
         title: 'View or Pay Premium',
         description: 'This is View or Pay Premium',
         category: 'Manage My Plan',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
         url: '/balances',
         external: true,
       },
@@ -296,7 +301,9 @@ export const getMenuNavigation = (
         description: 'This is Enroll in a Health Plan',
         category: 'Manage My Plan',
         showOnMenu: (rules) =>
-          isEnrollEligible(rules) && isBlueCareNotEligible(rules),
+          isEnrollEligible(rules) &&
+          isBlueCareNotEligible(rules) &&
+          isNotWellnessQa(rules),
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
         external: true,
       },
@@ -305,7 +312,8 @@ export const getMenuNavigation = (
         title: 'Manage My Policy',
         description: 'This is Manage My Policy',
         category: 'Manage My Plan',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
         url: '',
         external: false,
       },
@@ -314,7 +322,8 @@ export const getMenuNavigation = (
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
         url: '/reportOtherHealthInsurance',
         external: false,
       },
@@ -323,9 +332,7 @@ export const getMenuNavigation = (
         title: 'Update Katie Beckett Banking Info',
         description: 'This is Updating Katie Beckett Banking Info',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isKatieBeckettEligible,
         url: 'myPlan/katieBeckettBankingInfo',
         external: false,
       },
@@ -340,16 +347,18 @@ export const getMenuNavigation = (
     category: '',
     showOnMenu: true,
     url: '/myHealth',
-    qt: {
-      firstParagraph:
-        'Looking for a virtual care provider for mental health or physical therapy?',
-      secondParagraph: (
-        <p className="pb-1 text-base app-base-font-color ">
-          View <span className="font-bold">Virtual Care Options.</span>
-        </p>
-      ),
-      link: '/virtualCareOptions',
-    },
+    qt: isNotWellnessQa(rules)
+      ? {
+          firstParagraph:
+            'Looking for a virtual care provider for mental health or physical therapy?',
+          secondParagraph: (
+            <p className="pb-1 text-base app-base-font-color ">
+              View <span className="font-bold">Virtual Care Options.</span>
+            </p>
+          ),
+          link: '/virtualCareOptions',
+        }
+      : undefined,
     template: {
       firstCol: 'Wellness',
       secondCol: 'Advice & Support',
@@ -362,9 +371,7 @@ export const getMenuNavigation = (
         title: 'Wellness Rewards',
         description: 'This is Wellness Rewards',
         category: 'Wellness',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isNotWellnessQa,
         url: '/wellnessrewards',
         external: true,
       },
@@ -384,7 +391,8 @@ export const getMenuNavigation = (
         title: 'Biometric Screening',
         description: 'This is Biometric Screening',
         category: 'Wellness',
-        showOnMenu: isBiometricScreening,
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) && isBiometricScreening(rules),
         url: '/biometricscreening',
         external: true,
       },
@@ -393,7 +401,9 @@ export const getMenuNavigation = (
         title: 'My Primary Care Provider',
         description: 'This is My Primary Care Provider',
         category: 'Wellness',
-        showOnMenu: isBlueCareAndPrimaryCarePhysicianEligible,
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) &&
+          isBlueCareAndPrimaryCarePhysicianEligible(rules),
         url: '/myPrimaryCareProvider',
         external: false,
       },
@@ -417,6 +427,26 @@ export const getMenuNavigation = (
         url: '/myHealth/healthProgramsResources',
         external: false,
       },
+      {
+        id: 80,
+        title: 'Dental Health Library',
+        description: 'This is Dental Health Library',
+        category: 'Advice & Support',
+        showOnMenu: isNotWellnessQa,
+        url: 'https://bcbstwelltuned.com/',
+        external: true,
+      },
+      {
+        id: 79,
+        title: 'Health Library',
+        description: 'This is Health Library',
+        category: 'Advice & Support',
+        showOnMenu: () => {
+          return true;
+        },
+        url: 'https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=881d5daa-1051-f477-21f5-a05f3e6cdf78',
+        external: true,
+      },
 
       {
         id: 78,
@@ -438,7 +468,7 @@ export const getMenuNavigation = (
     title: 'Pharmacy',
     description: 'This is Pharmacy',
     category: '',
-    showOnMenu: true,
+    showOnMenu: isNotWellnessQa(rules),
     url: '/pharmacy',
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',

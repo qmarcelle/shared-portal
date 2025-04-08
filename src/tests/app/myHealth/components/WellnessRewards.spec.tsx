@@ -18,7 +18,7 @@ describe('WellnessRewardsSection', () => {
     };
     const component = renderUI(data);
     expect(screen.getByText('Active Rewards - Self Funded')).toBeVisible();
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('Annual Max').length).toBe(1);
     expect(screen.getAllByText('View Ways to Earn & Learn more').length).toBe(
       2,
@@ -41,7 +41,7 @@ describe('WellnessRewardsSection', () => {
     expect(
       screen.getByText('Active Rewards - Fully Insured & Level Funded'),
     ).toBeVisible();
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('Quarterly Max').length).toBe(1);
     expect(screen.getAllByText('View Ways to Earn & Learn more').length).toBe(
       2,

@@ -24,6 +24,7 @@ import {
   isBlueCareEligible,
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
+  isHealthyMaternity,
   isMemberWellnessCenterEligible,
   isQuestSelectEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -239,8 +240,9 @@ const MyHealth = ({ data }: MyHealthProps) => {
                   id: '2',
                   title: 'Healthy Maternity',
                   description:
-                    'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. ',
+                    'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
                   url: 'null',
+                  isHidden: !isHealthyMaternity(data.visibilityRules),
                 },
                 {
                   id: '3',

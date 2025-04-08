@@ -11,7 +11,7 @@ import { TextBox } from '../foundation/TextBox';
 
 interface InputModalSlideProps extends IComponent {
   label: string;
-  subLabel: string;
+  subLabel: string | JSX.Element;
   buttonLabel?: string;
   actionArea: ReactElement;
   bottomNote?: string;
@@ -42,12 +42,20 @@ export const InputModalSlide = ({
     };
     googleAnalytics(analytics);
   };
+  function subLabelTypeCheck(subLabel: string | JSX.Element) {
+    if (typeof subLabel === 'string') {
+      return <TextBox className="body-1 text-center" text={subLabel} />;
+    } else {
+      return subLabel;
+    }
+  }
+
   return (
     <Column className="items-center">
       <Spacer size={32} />
       <Header type="title-2" text={label} />
       <Spacer size={16} />
-      <TextBox className="body-1 text-center" text={subLabel} />
+      {subLabelTypeCheck(subLabel)}
       <Column className="w-[358px]">
         <Spacer size={16} />
         {actionArea}

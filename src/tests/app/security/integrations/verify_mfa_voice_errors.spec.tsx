@@ -54,7 +54,7 @@ describe('Verify Mfa Voice Journey', () => {
     });
     await waitFor(async () => {
       const phoneEntryInput = screen.getByLabelText(/Phone Number/i);
-      await userEvent.type(phoneEntryInput, '11111111111');
+      await userEvent.type(phoneEntryInput, '1234567834');
       fireEvent.click(screen.getByRole('button', { name: /Next/i }));
     });
     // Enter code screen rendered correctly

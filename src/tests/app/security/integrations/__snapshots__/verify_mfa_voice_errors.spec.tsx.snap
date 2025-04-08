@@ -314,7 +314,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                           class="body-1 font-bold text-center"
                           style="display: block;"
                         >
-                          (111) 111-1111
+                          (123) 456-7834
                         </p>
                         <span
                           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"

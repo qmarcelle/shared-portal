@@ -16,7 +16,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Filter } from '@/components/foundation/Filter';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import { Member } from '@/models/member/api/loggedInUserInfo';
-import { isBlue365FitnessYourWayEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { isBlue365FitnessYourWayEligible, isMskEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -25,6 +25,7 @@ import {
   getMemberDropdownValues,
 } from './actions/benefitsUtils';
 import loadBenefits from './actions/loadBenefits';
+import { JointProcedureCard } from './components/JointProcedureCard';
 import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
@@ -41,6 +42,7 @@ interface BenefitsProps {
   benefitsBean: MemberBenefitsBean;
   otherBenefitItems: ManageBenefitsItems[];
   userGroupId: string;
+  phoneNumber: string;
   visibilityRules?: VisibilityRules;
 }
 
@@ -49,6 +51,7 @@ const Benefits = ({
   benefitsBean,
   otherBenefitItems,
   userGroupId,
+  phoneNumber,
   visibilityRules,
 }: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
@@ -234,7 +237,7 @@ const Benefits = ({
             <span className="link font-bold" key={1}>
               start a chat
             </span>,
-            <span key={2}> or call us at [1-800-000-000].</span>,
+            <span key={2}> or call us at [{phoneNumber}].</span>,
           ]}
         />
         <Spacer size={16} />
@@ -282,7 +285,10 @@ const Benefits = ({
                 onBenefitTypeSelectChange(benefitTypes[0].value);
               }}
             />
-          </Column>
+            {isMskEligible(visibilityRules) &&
+            <JointProcedureCard className="mt-8 row-span-4 font-normal text-white lg:w-[300px] secondary-bg-blue-500 p-5 rounded-lg" phoneNumber = {currentUserBenefitData.phoneNumber!}/>
+            }
+            </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
             {currentSelectedMember.planDetails.find(
               (item) => item.productCategory === BenefitType.MEDICAL,

@@ -22,7 +22,7 @@ export type PlanDeatilsSectionProps = {
   svgData: string | null;
   planType: string | null;
   visibilityRules?: VisibilityRules;
-  planData: AllMyPlanData[];
+  planData: AllMyPlanData<string>[];
 } & IComponent;
 
 export const PlanDetailsSection = ({
@@ -32,10 +32,6 @@ export const PlanDetailsSection = ({
   visibilityRules,
   planData,
 }: PlanDeatilsSectionProps) => {
-  const formatText = (text: string) => {
-    if (!text) return '';
-    return text.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
-  };
   function IDCardFront() {
     return (
       <Column>
@@ -60,7 +56,7 @@ export const PlanDetailsSection = ({
   }
 
   const onMyPlanDetails = planData.map((member) => ({
-    memberName: formatText(member.memberName),
+    memberName: member.memberName,
     DOB: new Date(member.dob).toLocaleDateString(),
     sharingType: member.planDetails
       .map((plan) => {
@@ -75,11 +71,9 @@ export const PlanDetailsSection = ({
     dentalEffectiveDate: member.dentalEffectiveDate,
     visionEffectiveDate: member.visionEffectiveDate,
     isMinor: false,
-    address:
-      member.address.length > 0
-        ? `${member.address[0]?.address1 ?? ''} ${member.address[0]?.city ?? ''}, ${member.address[0]?.state ?? ''} ${member.address[0]?.zipcode ?? ''}`
-        : '',
+    address: member.address,
     primaryPhoneNumber: member.primaryPhoneNumber,
+    secondaryPhoneNumber: member.secondaryPhoneNumber,
   }));
 
   return (
@@ -190,7 +184,7 @@ export const PlanDetailsSection = ({
                     title="Below is the phone number and mailing address associated with your plan."
                     address={detail.address}
                     primaryPhoneNumber={detail.primaryPhoneNumber}
-                    secondaryPhoneNumber="N/A"
+                    secondaryPhoneNumber={detail.secondaryPhoneNumber}
                   />
                 }
               ></Accordion>

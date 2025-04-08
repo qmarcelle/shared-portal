@@ -11,6 +11,8 @@ import { TextBox } from './TextBox';
 interface SearchTypeAheadProps extends IComponent {
   searchText: string;
   searchDetails: SearchDetails[];
+  closeSuggestions: () => void;
+  gotoMain: () => void;
 }
 
 interface SearchGroupProps extends IComponent {
@@ -76,10 +78,14 @@ const SearchDetailsView = ({
 export const SearchTypeAhead = ({
   searchText,
   searchDetails,
+  gotoMain,
 }: SearchTypeAheadProps) => {
   return (
     <div className="searchSuggestion font-medium text-black scroll w-full">
-      <Row className="searchForField title-3 px-4 py-2">
+      <Row
+        onClick={() => gotoMain()}
+        className="searchForField title-3 px-4 py-2 cursor-pointer"
+      >
         <TextBox className="px-2" text={'See all results for '}></TextBox>
         <TextBox className="font-bold" text={searchText}></TextBox>
       </Row>

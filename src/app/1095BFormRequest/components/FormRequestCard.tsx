@@ -3,17 +3,36 @@ import { Column } from '@/components/foundation/Column';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
+import { isTaxDocument1095BRequestEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 
-export const FormRequestCard = () => {
-  return (
+interface FormRequestCardProps extends IComponent {
+  visibilityRules?: VisibilityRules;
+}
+
+export const FormRequestCard = ({ visibilityRules }: FormRequestCardProps) => {
+  return isTaxDocument1095BRequestEligible(visibilityRules) ? (
     <Card className="large-section">
+      <Column className="flex flex-col">
+        <TextBox className="title-2" text="Request a 1095-B Form" />
+        <Spacer size={16} />
+        <TextBox
+          className="body-2"
+          text="Please confirm the following information. If our files show that you lived in California, Maryland, New Jersey, Rhode Island, Vermont, or Washington D.C last year, you don't have to request a 1095-B. We'll mail one to you."
+        />
+        <Spacer size={16} />
+      </Column>
+    </Card>
+  ) : (
+    <Card>
       <Column className="flex flex-col">
         <TextBox className="title-2" text="Request a 1095-B Form" />
 
         <Spacer size={16} />
         <TextBox
           className="body-2"
-          text="We’re sorry, but we don’t supply a 1095-B form for the type of coverage you have."
+          text="We're sorry, but we don't supply a 1095-B form for the type of coverage you have."
         />
         <Spacer size={16} />
 
@@ -39,9 +58,9 @@ export const FormRequestCard = () => {
         />
 
         <Spacer size={16} />
-        <TextBox className="body-2" text=" Or write to us at:" />
+        <TextBox className="body-2" text="Or write to us at:" />
         <Spacer size={16} />
-        <TextBox className="body-2" text=" BlueCross BlueShield of Tennessee" />
+        <TextBox className="body-2" text="BlueCross BlueShield of Tennessee" />
         <TextBox className="body-2" text="Attn: 1095-B Request" />
         <TextBox className="body-2" text="3.2 - Membership Administration" />
         <TextBox className="body-2" text="1 Cameron Hill Circle" />

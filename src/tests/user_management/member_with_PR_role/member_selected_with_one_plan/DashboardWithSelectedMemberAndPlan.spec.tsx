@@ -1,4 +1,5 @@
 import DashboardPage from '@/app/dashboard/page';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';
@@ -7,50 +8,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 // LoggedInUserInfo call
-mockedFetch.mockResolvedValueOnce(
-  fetchRespWrapper({
-    groupData: {
-      groupID: '100000',
-      groupCK: '21908',
-      groupName: 'BlueCross BlueShield of Tennessee',
-      parentGroupID: '100001',
-      subGroupID: '0001',
-      subGroupCK: 28951,
-      subGroupName: 'BlueCross BlueShield of Tennessee',
-      clientID: 'EI',
-      policyType: 'INT',
-      groupEIN: '620427913',
-    },
-    networkPrefix: 'QMI',
-    subscriberID: '902218823',
-    subscriberCK: '91722400',
-    subscriberFirstName: 'CHRIS',
-    subscriberLastName: 'HALL',
-    coverageTypes: [
-      {
-        productType: 'M',
-        coverageLevel: 'A',
-        exchange: false,
-        indvGroupInd: '',
-        pedAdultInd: '',
-      },
-      {
-        productType: 'D',
-        coverageLevel: 'A',
-        exchange: true,
-        indvGroupInd: 'Group',
-        pedAdultInd: 'Adult',
-      },
-      {
-        productType: 'V',
-        coverageLevel: '*',
-        exchange: true,
-        indvGroupInd: 'Group',
-        pedAdultInd: 'Adult',
-      },
-    ],
-  }),
-);
+mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedInUserInfoMockResp));
 mockedAxios.get.mockResolvedValueOnce({
   data: {
     physicianId: '3118777',
@@ -120,7 +78,7 @@ jest.mock('src/auth', () => ({
             fhirId: '654543434',
             grgrCk: '7678765456',
             grpId: '65654323',
-            memCk: '502622001',
+            memCk: '123456789',
             sbsbCk: '5654566',
             subId: '56543455',
           },
@@ -141,18 +99,18 @@ describe('Dashboard when PR is selected', () => {
 
   it('should render UI correctly with proper greeting and plan details', () => {
     expect(mockedFetch).toHaveBeenCalledWith(
-      'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/502622001',
+      'PORTAL_SVCS_URL/MEM_SVC_CONTEXT/api/member/v1/members/byMemberCk/123456789',
       {
         cache: undefined,
         headers: { Authorization: 'Bearer BearerTokenMockedValue' },
-        next: { revalidate: 1800, tags: ['502622001'] },
+        next: { revalidate: 1800, tags: ['123456789'] },
       },
     );
     expect(screen.getByText('Welcome, Chris')).toBeVisible();
+    expect(screen.getByText('Plan: Chris B Hall Enterprises')).toBeVisible();
     expect(
-      screen.getByText('Plan: BlueCross BlueShield of Tennessee'),
+      screen.getByText('Policies: Medical, Wellness, Vision, Dental'),
     ).toBeVisible();
-    expect(screen.getByText('Policies: Medical, Dental, Vision')).toBeVisible();
     expect(screen.getByText('View Plan Details')).toBeVisible();
 
     expect(containerSnap).toMatchSnapshot();

@@ -1,5 +1,7 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { googleAnalytics } from '@/utils/analytics';
 import { computeRoleNameFromType } from '@/utils/role_name_converter';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -163,6 +165,17 @@ export const UserSwitchFilter = ({
   const userLinks = selected.type
     ? userLinksMap[selected.type]
     : userLinksMap[UserRole.AUTHORIZED_USER];
+  const getAnalyticsData = (label: string) => {
+    const analytics: AnalyticsData = {
+      click_text: label.toLocaleLowerCase(),
+      click_url: window.location.href,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+  };
   return (
     <section>
       <RichDropDown<UserProfile>
@@ -187,6 +200,7 @@ export const UserSwitchFilter = ({
               label={link.label}
               icon={link.icon}
               url={link.url}
+              callback={getAnalyticsData(link.label) ?? undefined}
             />
             <Spacer size={8} />
             {link.label === 'All Profile Settings' && <Divider />}

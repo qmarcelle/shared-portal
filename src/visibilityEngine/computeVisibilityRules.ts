@@ -5,6 +5,13 @@ import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
+import {
+  condensedExperienceProfileHorizonGroups,
+  katieBeckettGroups,
+  ncqaGroups,
+  offMarketGroups,
+  wellnessProfileWellnessOnlyGroups,
+} from './groups';
 import { VisibilityRules } from './rules';
 
 const COMMERCIAL_LOB = ['REGL'];
@@ -25,11 +32,11 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
-let groupId: string;
 let healthCareAccountEligible: any[] | null;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
+  const groupId = loggedUserInfo.groupData.groupID;
   //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
   rules.active = loggedUserInfo.isActive;
@@ -41,9 +48,9 @@ export function computeVisibilityRules(
   rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
   rules.dsnpGrpInd = loggedUserInfo.groupData.clientID === 'ES';
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
+  rules.offMarketGrp = offMarketGroups.includes(groupId);
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
-  groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -55,6 +62,24 @@ export function computeVisibilityRules(
   );
 
   computeAuthFunctions(loggedUserInfo, rules);
+
+  rules.isCondensedExperienceProfileHorizon =
+    rules?.isCondensedExperience &&
+    condensedExperienceProfileHorizonGroups.includes(groupId);
+
+  rules.isWellnessProfileWellnessOnly =
+    rules?.wellnessOnly && wellnessProfileWellnessOnlyGroups.includes(groupId);
+
+  rules.isWellnessQa =
+    rules?.wellnessOnly &&
+    !rules.futureEffective &&
+    !rules.terminated &&
+    !rules.fsaOnly &&
+    !wellnessProfileWellnessOnlyGroups.includes(groupId);
+
+  rules.ncqaEligible = rules?.blueCare || ncqaGroups.includes(groupId);
+
+  rules.katieBeckettEligible = katieBeckettGroups.includes(groupId);
 
   for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
@@ -134,7 +159,10 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
   return rules?.isCondensedExperience;
 }
 
-export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
+export function isAHAdvisorpage(
+  rules: VisibilityRules | undefined,
+  groupId: string | undefined,
+) {
   return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
 }
 
@@ -195,8 +223,7 @@ export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
 }
 
 function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
-  if (rules?.isCondensedExperience && groupId == '130430')
-    return 'FirstHorizon';
+  if (rules?.isCondensedExperienceProfileHorizon) return 'FirstHorizon';
   if (rules?.isCondensedExperience) return 'Quantum';
 }
 
@@ -460,6 +487,12 @@ export function isMedicarePrescriptionPaymentPlanEligible(
   );
 }
 
+export const isWellnessQa = (rules: VisibilityRules | undefined) =>
+  rules?.isWellnessQa;
+
+export const isNotWellnessQa = (rules: VisibilityRules | undefined) =>
+  !isWellnessQa(rules);
+
 export const isTeladocEligible = (rules: VisibilityRules | undefined) =>
   rules?.teladocEligible && activeAndHealthPlanMember(rules);
 
@@ -473,11 +506,44 @@ export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
 function isCityOfMemphisWellnessOnlyProfiler(
   rules: VisibilityRules | undefined,
 ) {
-  if (rules?.wellnessOnly && groupId == '130447') return 'IsWellnessOnly';
+  if (rules?.isWellnessProfileWellnessOnly) return 'IsWellnessOnly';
 }
 
 export function isMemberWellnessCenterEligible(
   rules: VisibilityRules | undefined,
 ) {
   return isActiveAndNotFSAOnly(rules) && rules?.phaMemberEligible;
+}
+
+export function isMskEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.isMskEligible;
+}
+
+export const isHealthyMaternity = (rules: VisibilityRules | undefined) =>
+  (rules?.fullyInsuredHealthyMaternity || rules?.enableHealthyMaternity) &&
+  (rules?.wellnessOnly || rules?.medical) &&
+  isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly';
+
+export function isNCQAEligible(rules: VisibilityRules | undefined) {
+  return rules?.ncqaEligible && rules?.active;
+}
+
+export function isTaxDocument1095BRequestEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    rules?.prevYearMedical && rules?.prevYearFullyInsured && rules?.offMarketGrp
+  );
+}
+
+export function isTaxDocument1095BRequestVisible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.prevYearMedical || rules?.prevYearFullyInsured;
+}
+
+export function isKatieBeckettEligible(rules: VisibilityRules | undefined) {
+  return rules?.katieBeckettEligible;
 }

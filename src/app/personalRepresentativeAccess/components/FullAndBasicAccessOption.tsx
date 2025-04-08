@@ -5,14 +5,13 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { AccessType } from '../journeys/EditLevelOfAccess';
 
 const FullAndBasicAccessOption = ({
   isMaturedMinor,
   accessType,
 }: {
   isMaturedMinor?: boolean;
-  accessType: AccessType;
+  accessType: string;
 }) => {
   const member = isMaturedMinor ? 'you' : 'Member';
   const members = isMaturedMinor ? 'yours' : 'Member’s';
