@@ -1,134 +1,157 @@
 'use client';
 
+import { useChatContext } from '@/app/chat/components/providers/ChatContextProvider';
+import { CloudChatWidget } from '@/app/chat/components/widgets/CloudChatWidget';
+import { LegacyOnPremChatWidget } from '@/app/chat/components/widgets/LegacyOnPremChatWidget';
+import { ENV_CONFIG } from '@/app/chat/config';
+import { useChat } from '@/app/chat/hooks/useChat';
+import '@/app/chat/styles/components/loading.css';
+import '@/app/chat/styles/components/widget.css';
+import { ChatError } from '@/app/chat/types/errors';
+import type { BusinessHours } from '@/app/chat/types/types';
 import { AlertBar } from '@/components/foundation/AlertBar';
-import { Card } from '@/components/foundation/Card';
-import { Loader } from '@/components/foundation/Loader';
-import { useChatEligibility } from '../../hooks/useChatEligibility';
-import { useChatStore } from '../../stores/chatStore';
-import { BusinessHoursNotification } from '../business-hours/BusinessHoursNotification';
-import { EligibilityCheck } from '../eligibility/EligibilityCheck';
-import { ChatButton } from './ChatButton';
-import { ChatHeader } from './ChatHeader';
+import React, { useEffect, useRef, useState } from 'react';
+import { ActiveChatWindow, ChatStartWindow } from '../features/chat-window';
 
-export const ChatWidget = () => {
+export interface ChatWidgetProps {
+  businessHours?: BusinessHours;
+  onError?: (error: ChatError) => void;
+  onChatStarted?: () => void;
+  onChatEnded?: () => void;
+  isCloudEligible?: boolean;
+}
+
+export const ChatWidget: React.FC<ChatWidgetProps> = ({
+  onError,
+  onChatStarted,
+  onChatEnded,
+  isCloudEligible = false,
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [alerts, setAlerts] = useState<string[]>([]);
+  const [showStartWindow, setShowStartWindow] = useState(true);
+  const { isInitialized, error: contextError } = useChatContext();
+
   const {
-    isOpen,
+    isReady,
     isLoading,
-    error,
-    openChat,
-    closeChat,
-    isChatActive,
-    isWithinBusinessHours,
-    currentPlan,
-    startChat,
-    endChat,
-    availablePlans,
-    businessHours,
-  } = useChatStore();
-
-  const {
-    isLoading: isEligibilityLoading,
-    error: eligibilityError,
     isEligible,
-    eligibility,
-  } = useChatEligibility();
+    isWithinBusinessHours,
+    isInChat,
+    selectedPlan,
+    userEligibility,
+    plans,
+    startChat,
+    lockPlanSwitcher,
+  } = useChat({
+    onError: (err) => {
+      setAlerts([err.message]);
+      onError?.(err);
+    },
+    onChatStarted: () => {
+      setShowStartWindow(false);
+      onChatStarted?.();
+    },
+    onChatEnded,
+  });
 
-  if (!isOpen) {
-    return <ChatButton onClick={openChat} />;
-  }
+  // Handle errors
+  const handleError = (error: ChatError) => {
+    setAlerts([error.message]);
+    onError?.(error);
+  };
+
+  useEffect(() => {
+    if (contextError) {
+      setAlerts([contextError.message]);
+    }
+  }, [contextError]);
 
   const handleStartChat = () => {
-    if (!isEligible || !isWithinBusinessHours || !currentPlan) return;
     startChat();
   };
 
-  const handleEndChat = () => {
-    endChat();
+  const handleCloseChatWindow = () => {
+    setShowStartWindow(false);
   };
 
   const handleSwitchPlan = () => {
-    closeChat();
-    // Trigger plan switcher to open
-    const planSwitcherEvent = new CustomEvent('openPlanSwitcher');
-    window.dispatchEvent(planSwitcherEvent);
+    setShowStartWindow(false);
+    // This will allow the plan switcher to open in the UI
   };
 
-  const renderContent = () => {
-    if (isLoading || isEligibilityLoading) {
-      return (
-        <div className="flex-1 flex items-center justify-center">
-          <Loader />
-        </div>
-      );
-    }
+  if (!isReady || isLoading || !isInitialized) {
+    return <div className="chat-loading">Loading chat...</div>;
+  }
 
-    if (!isEligible && eligibility) {
-      return <EligibilityCheck eligibility={eligibility} onClose={closeChat} />;
-    }
-
-    if (!isWithinBusinessHours && businessHours) {
-      return (
-        <BusinessHoursNotification
-          businessHours={businessHours}
-          onClose={closeChat}
-        />
-      );
-    }
-
-    if (isChatActive) {
-      return (
-        <div className="flex-1">
-          <div id="genesys-chat-container" className="w-full h-full" />
-        </div>
-      );
-    }
-
+  if (!isEligible) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-4">
-        {/* Show current plan info if user has multiple plans */}
-        {currentPlan && availablePlans.length > 1 && (
-          <div className="w-full mb-6 bg-base-200 p-4 rounded-lg">
-            <h3 className="font-bold mb-2">You will be chatting about:</h3>
-            <p className="mb-2">{currentPlan.name}</p>
-            <button
-              onClick={handleSwitchPlan}
-              className="text-primary text-sm underline"
-              aria-label="Switch to a different plan"
-            >
-              Switch Plan
-            </button>
-          </div>
-        )}
-
-        <button
-          onClick={handleStartChat}
-          className="bg-primary hover:bg-primary-focus text-white font-bold py-3 px-6 rounded-lg"
-          aria-label="Start chat session"
-        >
-          Start Chat
-        </button>
+      <div className="chat-error">
+        You are not eligible for chat at this time.
       </div>
     );
-  };
+  }
+
+  if (!isWithinBusinessHours) {
+    return (
+      <div className="chat-error">
+        Chat is currently closed. Please try again during business hours.
+      </div>
+    );
+  }
+
+  if (!selectedPlan) {
+    return <div className="chat-error">No chat plan selected.</div>;
+  }
+
+  if (!userEligibility) {
+    return (
+      <div className="chat-loading">Loading eligibility information...</div>
+    );
+  }
+
+  const hasMultiplePlans = plans && plans.length > 1;
 
   return (
-    <Card className="fixed bottom-4 right-4 w-96 h-[600px] flex flex-col shadow-hard">
-      <div className="flex flex-col flex-1">
-        <ChatHeader
-          title={
-            isChatActive && availablePlans.length > 1
-              ? `Chatting about: ${currentPlan?.name}`
-              : 'Chat with us'
-          }
-          onClose={isChatActive ? handleEndChat : closeChat}
+    <div ref={containerRef} className="chat-widget">
+      {alerts.length > 0 && (
+        <div className="chat-alerts">
+          <AlertBar alerts={alerts} />
+        </div>
+      )}
+
+      {showStartWindow && !isInChat ? (
+        <ChatStartWindow
+          onStartChat={handleStartChat}
+          onCloseChatWindow={handleCloseChatWindow}
+          onSwitchPlan={handleSwitchPlan}
+          currentPlan={selectedPlan}
+          hasMultiplePlans={hasMultiplePlans}
         />
-        {(error || eligibilityError) && (
-          <AlertBar
-            alerts={[String(error || eligibilityError || 'An error occurred')]}
-          />
-        )}
-        {renderContent()}
-      </div>
-    </Card>
+      ) : (
+        <ActiveChatWindow
+          currentPlan={selectedPlan}
+          hasMultiplePlans={hasMultiplePlans}
+        >
+          <div className="chat-container">
+            {isCloudEligible || ENV_CONFIG.provider === 'cloud' ? (
+              <CloudChatWidget
+                containerRef={containerRef}
+                currentPlan={selectedPlan}
+                onLockPlanSwitcher={lockPlanSwitcher}
+                onError={handleError}
+              />
+            ) : (
+              <LegacyOnPremChatWidget
+                userEligibility={userEligibility}
+                currentPlan={selectedPlan}
+                onLockPlanSwitcher={lockPlanSwitcher}
+                onError={handleError}
+              />
+            )}
+          </div>
+        </ActiveChatWindow>
+      )}
+    </div>
   );
 };

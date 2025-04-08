@@ -1,248 +1,278 @@
 /**
- * Chat Store
- *
- * This file manages the global state for the chat system using Zustand.
- * It handles:
- * - Chat session state
- * - UI state
- * - Plan eligibility
- * - Business hours
- * - Message history
+ * Unified Chat Store
+ * Implements optimized state management with feature-based slices
  */
 
+import type { Session } from 'next-auth';
+import { getSession } from 'next-auth/react';
+import type { StateCreator } from 'zustand';
 import { create } from 'zustand';
-import { devtools, persist, PersistOptions } from 'zustand/middleware';
-import {
-  BusinessDay,
+import { devtools, persist, subscribeWithSelector } from 'zustand/middleware';
+import { shallow } from 'zustand/shallow';
+import { ChatError } from '../types/errors';
+import type {
   BusinessHours,
-  ChatError,
   ChatMessage,
   ChatPlan,
   ChatSession,
-  ChatState,
-} from '../models/types';
+  ChatSessionJWT,
+} from '../types/types';
 
-// Define the store name for persistence
-const STORE_NAME = 'chat-store';
+// Slice Types
+interface SessionSlice {
+  session: Session | null;
+  chatJWT: ChatSessionJWT | null;
+  isAuthenticated: boolean;
+  isExpired: boolean;
+  initializeSession: () => Promise<void>;
+  clearSession: () => void;
+  checkExpiration: () => boolean;
+}
 
-// Extended store interface with additional state and actions
-interface ExtendedChatState extends ChatState {
-  // UI State
+interface UISlice {
   isOpen: boolean;
   isMinimized: boolean;
   isTransitioning: boolean;
   isSendingMessage: boolean;
   isLoading: boolean;
-  error: ChatError | null;
-
-  // Session State
-  session: ChatSession | null;
-  messages: ChatMessage[];
-  lastMessageId: string | null;
-
-  // Genesys Integration
-  isChatActive: boolean;
-  isWithinBusinessHours: boolean;
-  currentPlan: ChatPlan | null;
-  isPlanSwitcherLocked: boolean;
-
-  // Actions
+  theme: 'light' | 'dark';
   openChat: () => void;
   closeChat: () => void;
   minimizeChat: () => void;
   maximizeChat: () => void;
-  startChat: () => void;
-  endChat: () => void;
+  setTheme: (theme: 'light' | 'dark') => void;
+}
+
+interface ChatSlice {
+  messages: ChatMessage[];
+  lastMessageId: string | null;
+  currentPlan: ChatPlan | null;
+  isPlanSwitcherLocked: boolean;
+  error: ChatError | null;
+  chatSession: ChatSession | null;
+  businessHours: BusinessHours | null;
+  startChat: () => Promise<void>;
+  endChat: () => Promise<void>;
+  sendMessage: (message: string) => Promise<void>;
   addMessage: (message: ChatMessage) => void;
   clearMessages: () => void;
   setError: (error: ChatError | null) => void;
-  setCurrentPlan: (plan: ChatPlan | null) => void;
-  setAvailablePlans: (plans: ChatPlan[]) => void;
-  setBusinessHours: (hours: BusinessHours) => void;
-  setEligibility: (eligibility: ChatState['eligibility']) => void;
-  setIsPlanSwitchingLocked: (locked: boolean) => void;
-  setSendingMessage: (isSending: boolean) => void;
   lockPlanSwitcher: () => void;
   unlockPlanSwitcher: () => void;
-  reset: () => void;
+  setSession: (session: ChatSession | null) => void;
+  setBusinessHours: (hours: BusinessHours) => void;
 }
 
-type ChatStorePersist = Pick<
+// Create Session Slice
+const createSessionSlice: StateCreator<
   ExtendedChatState,
-  | 'isOpen'
-  | 'isMinimized'
-  | 'currentPlan'
-  | 'availablePlans'
-  | 'businessHours'
-  | 'eligibility'
->;
+  [],
+  [],
+  SessionSlice
+> = (set, get) => ({
+  session: null,
+  chatJWT: null,
+  isAuthenticated: false,
+  isExpired: false,
+  initializeSession: async () => {
+    try {
+      const session = await getSession();
+      if (!session?.user) {
+        throw new ChatError(
+          'Missing required chat session data',
+          'INITIALIZATION_ERROR',
+          'error',
+        );
+      }
+      const chatJWT: ChatSessionJWT = {
+        planId: (session.user as any).planId || '',
+        userID: session.user.id,
+        userRole: (session.user as any).role || 'member',
+        groupId: (session.user as any).groupId,
+        subscriberId: (session.user as any).subscriberId,
+        currUsr: (session.user as any).currUsr,
+      };
 
-const persistOptions: PersistOptions<ExtendedChatState, ChatStorePersist> = {
-  name: STORE_NAME,
-  partialize: (state) => ({
-    isOpen: state.isOpen,
-    isMinimized: state.isMinimized,
-    currentPlan: state.currentPlan,
-    availablePlans: state.availablePlans,
-    businessHours: state.businessHours,
-    eligibility: state.eligibility,
-  }),
-};
+      set({
+        session,
+        chatJWT,
+        isAuthenticated: true,
+        isExpired: false,
+        error: null,
+      });
+    } catch (error) {
+      set({ error: ChatError.fromError(error, 'INITIALIZATION_ERROR') });
+    }
+  },
+  clearSession: () =>
+    set({
+      session: null,
+      chatJWT: null,
+      isAuthenticated: false,
+      isExpired: false,
+    }),
+  checkExpiration: () => {
+    const { session } = get();
+    const isExpired = !session || new Date(session.expires) < new Date();
+    set({ isExpired });
+    return isExpired;
+  },
+});
 
-// Create the store with middleware for development tools and persistence
+// Create UI Slice with Theme Support
+const createUISlice: StateCreator<ExtendedChatState, [], [], UISlice> = (
+  set,
+) => ({
+  isOpen: false,
+  isMinimized: false,
+  isTransitioning: false,
+  isSendingMessage: false,
+  isLoading: false,
+  theme: 'light',
+  openChat: () => set({ isOpen: true }),
+  closeChat: () => set({ isOpen: false }),
+  minimizeChat: () => set({ isMinimized: true }),
+  maximizeChat: () => set({ isMinimized: false }),
+  setTheme: (theme) => set({ theme }),
+});
+
+// Create Chat Slice with Enhanced Features
+const createChatSlice: StateCreator<ExtendedChatState, [], [], ChatSlice> = (
+  set,
+  get,
+) => ({
+  messages: [],
+  lastMessageId: null,
+  currentPlan: null,
+  isPlanSwitcherLocked: false,
+  error: null,
+  chatSession: null,
+  businessHours: null,
+  startChat: async () => {
+    const { chatJWT, currentPlan } = get();
+    if (!chatJWT || !currentPlan) {
+      throw new ChatError(
+        'Cannot start chat without authentication',
+        'AUTH_ERROR',
+        'error',
+      );
+    }
+    set({ isLoading: true });
+    try {
+      // Chat initialization logic
+      set({ isLoading: false });
+    } catch (error) {
+      set({
+        isLoading: false,
+        error: ChatError.fromError(error, 'CHAT_START_ERROR'),
+      });
+    }
+  },
+  endChat: async () => {
+    set({ isLoading: true });
+    try {
+      set({ messages: [], lastMessageId: null });
+    } catch (error) {
+      set({
+        isLoading: false,
+        error: ChatError.fromError(error, 'CHAT_END_ERROR'),
+      });
+    }
+  },
+  sendMessage: async (message: string) => {
+    set({ isSendingMessage: true });
+    try {
+      const newMessage: ChatMessage = {
+        id: crypto.randomUUID(),
+        content: message,
+        sender: 'user',
+        timestamp: Date.now(),
+      };
+      get().addMessage(newMessage);
+      set({ isSendingMessage: false });
+    } catch (error) {
+      set({
+        isSendingMessage: false,
+        error: ChatError.fromError(error, 'MESSAGE_ERROR'),
+      });
+    }
+  },
+  addMessage: (message: ChatMessage) => {
+    const { messages } = get();
+    set({
+      messages: [...messages, message],
+      lastMessageId: message.id,
+    });
+  },
+  clearMessages: () => set({ messages: [], lastMessageId: null }),
+  setError: (error: ChatError | null) => set({ error }),
+  lockPlanSwitcher: () => set({ isPlanSwitcherLocked: true }),
+  unlockPlanSwitcher: () => set({ isPlanSwitcherLocked: false }),
+  setSession: (session: ChatSession | null) => set({ chatSession: session }),
+  setBusinessHours: (hours: BusinessHours) => set({ businessHours: hours }),
+});
+
+// Create the unified store with all slices
 export const useChatStore = create<ExtendedChatState>()(
   devtools(
     persist(
-      (set, get) => ({
-        // UI State
-        isOpen: false,
-        isMinimized: false,
-        isTransitioning: false,
-        isSendingMessage: false,
-        isLoading: false,
-        error: null,
-
-        // Messages State
-        messages: [],
-        lastMessageId: null,
-
-        // Session State
-        session: null,
-
-        // Genesys Integration
-        isChatActive: false,
-        isWithinBusinessHours: false,
-        currentPlan: null,
-        isPlanSwitcherLocked: false,
-
-        // Initial State
-        isActive: false,
-        isPlanSwitchingLocked: false,
-        availablePlans: [],
-        businessHours: {
-          isOpen24x7: false,
-          days: [] as BusinessDay[],
-          timezone: 'America/New_York',
-          isCurrentlyOpen: false,
-          lastUpdated: Date.now(),
-          source: 'api',
-        },
-        eligibility: {
-          isChatEligibleMember: false,
-          isDemoMember: false,
-          isAmplifyMem: false,
-          groupId: '',
-          memberClientID: '',
-          getGroupType: '',
-          isBlueEliteGroup: false,
-          isMedical: false,
-          isDental: false,
-          isVision: false,
-          isWellnessOnly: false,
-          isCobraEligible: false,
-          chatHours: '',
-          rawChatHours: '',
-          isChatbotEligible: false,
-          memberMedicalPlanID: '',
-          isIDCardEligible: false,
-          memberDOB: '',
-          subscriberID: '',
-          sfx: '',
-          memberFirstname: '',
-          memberLastName: '',
-          userID: '',
-          isChatAvailable: false,
-          routingchatbotEligible: false,
-        },
-
-        // Actions
-        openChat: () => set({ isOpen: true }),
-        closeChat: () => set({ isOpen: false }),
-        minimizeChat: () => set({ isMinimized: true }),
-        maximizeChat: () => set({ isMinimized: false }),
-        startChat: () => {
-          const { currentPlan } = get();
-          if (!currentPlan) return;
-          set({ isChatActive: true });
-        },
-        endChat: () => set({ isChatActive: false }),
-        addMessage: (message) =>
-          set((state) => ({ messages: [...state.messages, message] })),
-        clearMessages: () => set({ messages: [] }),
-        setError: (error) => set({ error }),
-        setCurrentPlan: (plan) => set({ currentPlan: plan }),
-        setAvailablePlans: (plans) => set({ availablePlans: plans }),
-        setBusinessHours: (hours) => set({ businessHours: hours }),
-        setEligibility: (eligibility) => set({ eligibility }),
-        setIsPlanSwitchingLocked: (locked) =>
-          set({ isPlanSwitcherLocked: locked }),
-        setSendingMessage: (isSending) => set({ isSendingMessage: isSending }),
-        lockPlanSwitcher: () => set({ isPlanSwitcherLocked: true }),
-        unlockPlanSwitcher: () => set({ isPlanSwitcherLocked: false }),
-        reset: () =>
-          set({
-            isOpen: false,
-            isMinimized: false,
-            isTransitioning: false,
-            isSendingMessage: false,
-            isLoading: false,
-            error: null,
-            messages: [],
-            lastMessageId: null,
-            session: null,
-            isChatActive: false,
-            isWithinBusinessHours: false,
-            currentPlan: null,
-            isPlanSwitcherLocked: false,
-            isActive: false,
-            isPlanSwitchingLocked: false,
-            availablePlans: [],
-            businessHours: {
-              isOpen24x7: false,
-              days: [] as BusinessDay[],
-              timezone: 'America/New_York',
-              isCurrentlyOpen: false,
-              lastUpdated: Date.now(),
-              source: 'api',
-            },
-            eligibility: {
-              isChatEligibleMember: false,
-              isDemoMember: false,
-              isAmplifyMem: false,
-              groupId: '',
-              memberClientID: '',
-              getGroupType: '',
-              isBlueEliteGroup: false,
-              isMedical: false,
-              isDental: false,
-              isVision: false,
-              isWellnessOnly: false,
-              isCobraEligible: false,
-              chatHours: '',
-              rawChatHours: '',
-              isChatbotEligible: false,
-              memberMedicalPlanID: '',
-              isIDCardEligible: false,
-              memberDOB: '',
-              subscriberID: '',
-              sfx: '',
-              memberFirstname: '',
-              memberLastName: '',
-              userID: '',
-              isChatAvailable: false,
-              routingchatbotEligible: false,
-            },
-          }),
-      }),
-      persistOptions,
+      subscribeWithSelector((...args) => ({
+        ...createSessionSlice(...args),
+        ...createUISlice(...args),
+        ...createChatSlice(...args),
+      })),
+      {
+        name: 'chat-store',
+        partialize: (state) => ({
+          session: state.session,
+          chatJWT: state.chatJWT,
+          currentPlan: state.currentPlan,
+          theme: state.theme,
+          messages: state.messages,
+        }),
+      },
     ),
   ),
 );
 
-/**
- * Hook to handle SSR hydration of the chat store
- * Ensures the store is properly initialized on the client side
- */
-export const useHydratedChatStore = () => {
-  return useChatStore((state) => state);
-};
+// Optimized selector hooks
+export const useChatSession = () =>
+  useChatStore(
+    (state) => ({
+      session: state.session,
+      chatJWT: state.chatJWT,
+      isAuthenticated: state.isAuthenticated,
+      isExpired: state.isExpired,
+    }),
+    shallow,
+  );
+
+export const useChatUI = () =>
+  useChatStore(
+    (state) => ({
+      isOpen: state.isOpen,
+      isMinimized: state.isMinimized,
+      isTransitioning: state.isTransitioning,
+      isSendingMessage: state.isSendingMessage,
+      isLoading: state.isLoading,
+      theme: state.theme,
+    }),
+    shallow,
+  );
+
+export const useChatState = () =>
+  useChatStore(
+    (state) => ({
+      messages: state.messages,
+      lastMessageId: state.lastMessageId,
+      currentPlan: state.currentPlan,
+      error: state.error,
+      chatSession: state.chatSession,
+      businessHours: state.businessHours,
+    }),
+    shallow,
+  );
+
+// Export types
+export type { ChatSlice, SessionSlice, UISlice };
+export interface ExtendedChatState extends SessionSlice, UISlice, ChatSlice {}
