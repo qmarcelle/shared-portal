@@ -8,7 +8,7 @@ jest.mock('@/utils/logger');
 
 describe('loadBenefits', () => {
   it('should return benefits data when API call is successful', async () => {
-    const mockData = { memberCk: 12345 };
+    const mockData = { memberCk: 12345 ,phoneNumber : 123456789};
     (callBenefitService as jest.Mock).mockResolvedValue(mockData);
 
     const result = await loadBenefits(chrisHallLIUI.data.members[0]);

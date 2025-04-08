@@ -515,6 +515,12 @@ export function isMemberWellnessCenterEligible(
   return isActiveAndNotFSAOnly(rules) && rules?.phaMemberEligible;
 }
 
+export function isMskEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.isMskEligible;
+}
+
 export const isHealthyMaternity = (rules: VisibilityRules | undefined) =>
   (rules?.fullyInsuredHealthyMaternity || rules?.enableHealthyMaternity) &&
   (rules?.wellnessOnly || rules?.medical) &&
