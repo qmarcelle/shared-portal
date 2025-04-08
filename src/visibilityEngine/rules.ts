@@ -84,6 +84,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'isWellnessProfileWellnessOnly',
   'ncqaEligible',
   'phaMemberEligible',
+  'isMskEligible',
   'enableHealthyMaternity',
   'fullyInsuredHealthyMaternity',
   'katieBeckettEligible',

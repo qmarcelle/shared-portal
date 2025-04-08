@@ -1,4 +1,5 @@
 'use server';
+import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { Member } from '@/models/member/api/loggedInUserInfo';
 import { logger } from '@/utils/logger';
@@ -24,11 +25,13 @@ export default async function loadBenefits(
     `List of plans to query: ${member.planDetails.flatMap((item) => item.planID)}`,
   );
   try {
+    const phoneNumber = await invokePhoneNumberAction();
     const benefitsInfo = await callBenefitService(
       member.memberCk,
       member.planDetails,
     );
 
+    benefitsInfo.phoneNumber = phoneNumber;
     // Cache the benefits data on the server
     return { status: 200, data: benefitsInfo };
   } catch (error) {
