@@ -36,3 +36,41 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Development tools and temporary files
+.cursor/
+isolated-tests/
+scripts/
+test-utils.js
+utils.js
+
+# Temporary documentation and plans
+CHAT_INTEGRATION_PLAN.md
+CHAT_SYSTEM.md
+PR_DESCRIPTION.md
+README.md.bak
+src/app/chat/REFACTORING_PLAN.md
+src/app/chat/REFACTORING_SUMMARY.md
+
+# Temporary scripts
+cleanup-chat-duplicates.sh
+consolidate-chat.sh
+merge-chat-files.sh
+update-chat-imports-targeted.sh
+update-chat-imports.sh
+check-ts.js
+
+# Temporary test files
+src/tests/ListOfDocuments.spec.tsx
+src/tests/__mocks__/fileMock.js
+src/tests/polyfills.js
+src/tests/snapshotSerializer.js
+src/tests/snapshotSerializer.mjs
+
+# Temporary mock data
+src/app/chat/__mocks__/temporaryData.ts
+
+# Other development files
+pnpm-lock.yaml
+types/
+src/app/types/
