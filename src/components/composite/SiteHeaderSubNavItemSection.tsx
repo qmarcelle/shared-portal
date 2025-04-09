@@ -1,3 +1,5 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -40,7 +42,15 @@ export const SubNavItemSection = ({
       tempChildPages.push(item);
   });
 
-  function ChangeUrl(link: string) {
+  function ChangeUrl(link: string, title: string) {
+     const analytics: AnalyticsData = {
+          event: 'navigation',
+          click_text: title.toLowerCase(),
+          click_url: url,     
+          page_section: 'header',
+          nav_section: 'header'
+        };
+    googleAnalytics(analytics);
     router.push(link);
     closeSubMenu();
   }
@@ -108,7 +118,7 @@ export const SubNavItemSection = ({
                   <AppLink
                     key={index}
                     label={item.title}
-                    callback={() => ChangeUrl(item.url)}
+                    callback={() => ChangeUrl(item.url,item.title)}
                     className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
                   />
                 ),
