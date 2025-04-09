@@ -667,24 +667,28 @@ exports[`Healthy Maternity Page should render the UI correctly 1`] = `
                         </div>
                       </div>
                       <div
-                        class="flex flex-row gap-2 p-2  checkbox-disabled "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
+                            class="checkbox   "
+                            id="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                           >
-                            <p>
-                              By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.
-                            </p>
+                            By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.
                           </label>
                         </div>
                       </div>
@@ -1415,24 +1419,28 @@ exports[`Healthy Maternity Page should render the UI correctly 1`] = `
                       </div>
                     </div>
                     <div
-                      class="flex flex-row gap-2 p-2  checkbox-disabled "
+                      aria-checked="false"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-required="false"
+                      class="flex flex-col "
+                      role="checkbox"
                     >
-                      <label>
+                      <div
+                        class="flex flex-row items-center"
+                        tabindex="0"
+                      >
                         <input
-                          id="myCheckbox"
-                          name=""
+                          aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
+                          class="checkbox   "
+                          id="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                           type="checkbox"
                         />
-                      </label>
-                      <div
-                        class="flex flex-col"
-                      >
                         <label
-                          for="myCheckbox"
+                          class="ml-2"
+                          for="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                         >
-                          <p>
-                            By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.
-                          </p>
+                          By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.
                         </label>
                       </div>
                     </div>
