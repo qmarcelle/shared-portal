@@ -21,7 +21,7 @@ export const RecentClaimSection = ({
   className,
   title,
   linkText,
-  linkUrl = '/claims',
+  linkUrl = '/member/myplan/claims',
 }: RecentClaimSectionProps) => {
   const renderSection = (
     claims: ClaimDetails[],

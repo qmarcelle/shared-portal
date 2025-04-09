@@ -129,7 +129,7 @@ export const PlanDetailsSection = ({
         <AppLink
           className="p-0"
           label="View More ID Card Options"
-          url="/memberIDCard"
+          url="/member/idcard"
         />
         <Spacer size={24} />
         <Divider />

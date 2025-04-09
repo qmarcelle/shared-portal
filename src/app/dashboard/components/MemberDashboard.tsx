@@ -191,23 +191,23 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 benefits={[
                   {
                     benefitName: 'Medical Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Pharmacy Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Dental Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Vision Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Other Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                 ]}
               />
@@ -318,7 +318,8 @@ const MemberDashboard = ({ data }: DashboardProps) => {
             !isQuantumHealthEligible(visibilityRules) && <AmplifyHealthCard />}
         </section>
         <section>
-          {data.employerProvidedBenefits?.length &&
+          {data.employerProvidedBenefits != undefined &&
+            data.employerProvidedBenefits?.length != 0 &&
             !isQuantumHealthEligible(visibilityRules) && (
               <EmployeeProvidedBenefitsTile
                 className="large-section"

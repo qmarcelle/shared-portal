@@ -45,7 +45,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -112,7 +112,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -133,7 +133,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -522,7 +522,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myHealth"
+                    href="/member/myhealth"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -841,7 +841,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
           </div>
           <a
             class="ml-5 lg:px-0"
-            href="/dashboard"
+            href="/member/home"
           >
             <img
               alt="BCBST Logo"
@@ -908,7 +908,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
         >
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="inbox"
+            href="/member/inbox"
           >
             <img
               alt="Inbox"
@@ -929,7 +929,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
           </a>
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="/memberIDCard"
+            href="/member/idcard"
           >
             <img
               alt="ID Card"
@@ -1320,7 +1320,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
               >
                 <a
                   class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                  href="/support"
+                  href="/member/support"
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -1347,7 +1347,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/support"
+                    href="/member/support"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -1591,7 +1591,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -1658,7 +1658,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -1679,7 +1679,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -2068,7 +2068,7 @@ exports[`SiteHeader And Navigation Menu should navigate menu link for Blue Care 
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myHealth"
+                    href="/member/myhealth"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -2384,7 +2384,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -2451,7 +2451,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -2472,7 +2472,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -2860,7 +2860,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myPlan"
+                    href="/member/myplan"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -3274,7 +3274,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -3341,7 +3341,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -3362,7 +3362,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -3751,7 +3751,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myHealth"
+                    href="/member/myhealth"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -4067,7 +4067,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -4134,7 +4134,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -4155,7 +4155,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -4542,7 +4542,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/findcare"
+                    href="/member/findcare"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -4746,7 +4746,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/benefits"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -4900,7 +4900,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -4967,7 +4967,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -4988,7 +4988,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -5375,7 +5375,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/findcare"
+                    href="/member/findcare"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -5579,7 +5579,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/benefits"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -5733,7 +5733,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -5800,7 +5800,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -5821,7 +5821,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -6209,7 +6209,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myPlan"
+                    href="/member/myplan"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -7880,7 +7880,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -7947,7 +7947,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -7968,7 +7968,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -8355,7 +8355,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/findcare"
+                    href="/member/findcare"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -8542,7 +8542,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/benefits"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -8696,7 +8696,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -8763,7 +8763,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -8784,7 +8784,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -9171,7 +9171,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/findcare"
+                    href="/member/findcare"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -9358,7 +9358,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/benefits"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -9512,7 +9512,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -9579,7 +9579,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -9600,7 +9600,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -9987,7 +9987,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/findcare"
+                    href="/member/findcare"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -10191,7 +10191,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/benefits"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -10342,7 +10342,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
           </div>
           <a
             class="ml-5 lg:px-0"
-            href="/dashboard"
+            href="/member/home"
           >
             <img
               alt="BCBST Logo"
@@ -10409,7 +10409,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
         >
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="inbox"
+            href="/member/inbox"
           >
             <img
               alt="Inbox"
@@ -10430,7 +10430,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
           </a>
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="/memberIDCard"
+            href="/member/idcard"
           >
             <img
               alt="ID Card"
@@ -10821,7 +10821,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
               >
                 <a
                   class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                  href="/support"
+                  href="/member/support"
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -10848,7 +10848,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/support"
+                    href="/member/support"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -11086,7 +11086,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -11153,7 +11153,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -11174,7 +11174,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -11563,7 +11563,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myHealth"
+                    href="/member/myhealth"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -11862,7 +11862,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -11929,7 +11929,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -11950,7 +11950,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -12338,7 +12338,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myPlan"
+                    href="/member/myplan"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -12593,7 +12593,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
           </div>
           <a
             class="ml-5 lg:px-0"
-            href="/dashboard"
+            href="/member/home"
           >
             <img
               alt="BCBST Logo"
@@ -12660,7 +12660,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
         >
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="inbox"
+            href="/member/inbox"
           >
             <img
               alt="Inbox"
@@ -12681,7 +12681,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
           </a>
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="/memberIDCard"
+            href="/member/idcard"
           >
             <img
               alt="ID Card"
@@ -13068,7 +13068,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               >
                 <a
                   class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                  href="/findcare"
+                  href="/member/findcare"
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -13255,7 +13255,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/benefits"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -13405,7 +13405,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
           </div>
           <a
             class="ml-5 lg:px-0"
-            href="/dashboard"
+            href="/member/home"
           >
             <img
               alt="BCBST Logo"
@@ -13472,7 +13472,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
         >
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="inbox"
+            href="/member/inbox"
           >
             <img
               alt="Inbox"
@@ -13493,7 +13493,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
           </a>
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="/memberIDCard"
+            href="/member/idcard"
           >
             <img
               alt="ID Card"
@@ -13880,7 +13880,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               >
                 <a
                   class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                  href="/findcare"
+                  href="/member/findcare"
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -14067,7 +14067,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/benefits"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -14217,7 +14217,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
           </div>
           <a
             class="ml-5 lg:px-0"
-            href="/dashboard"
+            href="/member/home"
           >
             <img
               alt="BCBST Logo"
@@ -14284,7 +14284,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
         >
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="inbox"
+            href="/member/inbox"
           >
             <img
               alt="Inbox"
@@ -14305,7 +14305,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
           </a>
           <a
             class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-            href="/memberIDCard"
+            href="/member/idcard"
           >
             <img
               alt="ID Card"
@@ -14692,7 +14692,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               >
                 <a
                   class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                  href="/findcare"
+                  href="/member/findcare"
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -14930,7 +14930,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/benefits"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -15081,7 +15081,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -15148,7 +15148,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -15169,7 +15169,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -15620,7 +15620,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -15687,7 +15687,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -15708,7 +15708,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -16251,7 +16251,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                             >
                               <a
                                 aria-label="All Profile Settings"
-                                href="/profileSettings"
+                                href="/member/profile"
                                 style="display: block;"
                               >
                                 <button
@@ -16291,7 +16291,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                               />
                               <a
                                 aria-label="Communication Settings"
-                                href="/communicationSettings"
+                                href="/member/profile/communication"
                                 style="display: block;"
                               >
                                 <button
@@ -16312,7 +16312,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                               />
                               <a
                                 aria-label="Security Settings"
-                                href="/security"
+                                href="/member/profile/security"
                                 style="display: block;"
                               >
                                 <button
@@ -16416,7 +16416,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -16483,7 +16483,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -16504,7 +16504,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -17037,7 +17037,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -17104,7 +17104,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -17125,7 +17125,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -17513,7 +17513,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/myPlan"
+                    href="/member/myplan"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"

@@ -83,7 +83,7 @@ export const ProviderContactInformation = ({
                     className="font-bold primary-color !flex link !no-underline ml-0 pl-0"
                     label="Update"
                     icon={icon}
-                    url="/updateMyPrimaryCareProvider"
+                    url="/member/myhealth/primarycare"
                   />
                 </>
               </Card>
@@ -106,7 +106,7 @@ export const ProviderContactInformation = ({
                   <Spacer size={8} />
                   <AppLink
                     className="font-bold primary-color !flex ml-10"
-                    url="/updateMyPrimaryCareProvider"
+                    url="/member/myhealth/primarycare"
                     label="Add a Provider"
                   />
                 </Column>

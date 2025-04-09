@@ -38,7 +38,7 @@ export const getMenuNavigation = (
     description: 'This is Find Care & Costs',
     category: '',
     showOnMenu: isNotWellnessQa(rules),
-    url: '/findcare',
+    url: '/member/findcare',
     qt: {
       // eslint-disable-next-line quotes
       firstParagraph: "Looking for what's covered under your plan?",
@@ -48,7 +48,7 @@ export const getMenuNavigation = (
           <span className="font-bold"> Benefits & Coverages.</span>
         </p>
       ),
-      link: '/benefits',
+      link: '/member/myplan/benefits',
     },
     template: {
       firstCol: 'Find Care',
@@ -135,7 +135,7 @@ export const getMenuNavigation = (
         description: 'This is Price Dental Care',
         category: 'Estimate Costs',
         showOnMenu: isPriceDentalCareMenuOptions,
-        url: '/priceDentalCare',
+        url: '/member/findcare/dentalcosts',
         external: false,
       },
       {
@@ -167,7 +167,7 @@ export const getMenuNavigation = (
     description: 'This is My Plan',
     category: '',
     showOnMenu: true,
-    url: '/myPlan',
+    url: '/member/myplan',
     template: {
       firstCol: 'Plan Details',
       secondCol: 'Claims',
@@ -181,7 +181,7 @@ export const getMenuNavigation = (
         description: 'This is Benefits & Coverage',
         category: 'Plan Details',
         showOnMenu: isNotWellnessQa,
-        url: '/benefits',
+        url: '/member/myplan/benefits',
         external: false,
       },
       {
@@ -191,7 +191,7 @@ export const getMenuNavigation = (
         category: 'Plan Details',
         showOnMenu: (rules) =>
           isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
-        url: '/benefits/planDocuments',
+        url: '/member/myplan/benefits/plandocuments',
         external: false,
       },
       {
@@ -201,7 +201,7 @@ export const getMenuNavigation = (
         category: 'Plan Details',
         showOnMenu: (rules) =>
           isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
-        url: '/benefits/servicesUsed',
+        url: '/member/myplan/servicesused',
         external: false,
       },
       {
@@ -221,7 +221,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/claims',
+        url: '/member/myplan/claims',
         external: false,
       },
       {
@@ -230,7 +230,7 @@ export const getMenuNavigation = (
         description: 'This is Prior Authorizations',
         category: 'Claims',
         showOnMenu: isNotWellnessQa,
-        url: '/priorAuthorization',
+        url: '/member/myplan/priorauthorizations',
         external: false,
       },
       {
@@ -239,7 +239,7 @@ export const getMenuNavigation = (
         description: 'This is Submit a Claim',
         category: 'Claims',
         showOnMenu: isNotWellnessQa,
-        url: '/claims/submitAClaim',
+        url: '/member/myplan/claims/submit',
         external: false,
       },
       {
@@ -249,7 +249,7 @@ export const getMenuNavigation = (
         category: 'Spending',
         showOnMenu: (rules) =>
           isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
-        url: '/benefits/balances',
+        url: '/member/myplan/benefits/balances',
         external: false,
       },
       {
@@ -259,7 +259,7 @@ export const getMenuNavigation = (
         category: 'Spending',
         showOnMenu: (rules) =>
           isNotWellnessQa(rules) && isSpendingAccountsMenuOptions(rules),
-        url: '/spendingAccounts',
+        url: '/member/myplan/spendingaccounts',
         external: false,
       },
       {
@@ -269,7 +269,7 @@ export const getMenuNavigation = (
         category: 'Spending',
         showOnMenu: (rules) =>
           isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
-        url: '/spendingSummary',
+        url: '/member/myplan/spendingsummary',
         external: false,
       },
       {
@@ -311,7 +311,7 @@ export const getMenuNavigation = (
         category: 'Manage My Plan',
         showOnMenu: (rules) =>
           isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
-        url: '/reportOtherHealthInsurance',
+        url: '/member/myplan/otherinsurance',
         external: false,
       },
       {
@@ -320,7 +320,7 @@ export const getMenuNavigation = (
         description: 'This is Updating Katie Beckett Banking Info',
         category: 'Manage My Plan',
         showOnMenu: isKatieBeckettEligible,
-        url: 'myPlan/katieBeckettBankingInfo',
+        url: '/member/myplan/katiebeckett',
         external: false,
       },
     ],
@@ -333,7 +333,7 @@ export const getMenuNavigation = (
     description: 'This is My Health',
     category: '',
     showOnMenu: true,
-    url: '/myHealth',
+    url: '/member/myhealth',
     qt: isNotWellnessQa(rules)
       ? {
           firstParagraph:
@@ -411,7 +411,7 @@ export const getMenuNavigation = (
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
         showOnMenu: isHealthProgamAndResourceEligible,
-        url: '/myHealth/healthProgramsResources',
+        url: '/member/myhealth/healthprograms',
         external: false,
       },
       {
@@ -446,7 +446,7 @@ export const getMenuNavigation = (
     description: 'This is Pharmacy',
     category: '',
     showOnMenu: isNotWellnessQa(rules),
-    url: '/pharmacy',
+    url: '/member/pharmacy',
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
       secondParagraph: (
@@ -459,7 +459,7 @@ export const getMenuNavigation = (
     },
     shortLinks: [
       { title: 'Pharmacy Claims', link: '/claimSnapshotList' },
-      { title: 'Pharmacy Spending', link: '/spendingSummary' },
+      { title: 'Pharmacy Spending', link: '/member/myplan/spendingsummary' },
     ],
     template: {
       firstCol: 'QT',
@@ -547,7 +547,7 @@ export const getMenuNavigation = (
     description: 'This is Support',
     category: '',
     showOnMenu: true,
-    url: '/support',
+    url: '/member/support',
     qt: {
       // eslint-disable-next-line quotes
       firstParagraph: "We're here to help.",
@@ -557,7 +557,7 @@ export const getMenuNavigation = (
           [1-800-000-0000].
         </p>
       ),
-      link: '/support',
+      link: '/member/support',
     },
     template: {
       firstCol: 'QT',
@@ -574,7 +574,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/support/faq',
+        url: '/member/support/FAQ',
         external: false,
       },
       {

@@ -41,7 +41,7 @@ exports[`SiteHeader when PR is selected with one plan should render SiteHeader c
         </div>
         <a
           class="ml-5 lg:px-0"
-          href="/dashboard"
+          href="/member/home"
         >
           <img
             alt="BCBST Logo"
@@ -108,7 +108,7 @@ exports[`SiteHeader when PR is selected with one plan should render SiteHeader c
       >
         <a
           class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-          href="inbox"
+          href="/member/inbox"
         >
           <img
             alt="Inbox"
@@ -129,7 +129,7 @@ exports[`SiteHeader when PR is selected with one plan should render SiteHeader c
         </a>
         <a
           class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-          href="/memberIDCard"
+          href="/member/idcard"
         >
           <img
             alt="ID Card"

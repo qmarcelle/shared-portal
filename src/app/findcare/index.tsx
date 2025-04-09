@@ -170,7 +170,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                       alt="Primary Care"
                     />
                   ),
-                  url: '/findcare/primaryCareOptions',
+                  url: '/member/findcare/virtualcare/primarycare',
                 },
                 {
                   title: 'Mental Care Options',

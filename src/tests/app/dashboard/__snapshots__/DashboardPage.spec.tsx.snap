@@ -63,7 +63,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -425,7 +425,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -1172,7 +1172,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1217,7 +1217,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1262,7 +1262,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1307,7 +1307,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1352,7 +1352,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1761,7 +1761,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             />
             <a
               class="link-white-text"
-              href="/myPlan"
+              href="/member/myplan"
             >
               <p
                 class="pb-2 pt-2"
@@ -2123,7 +2123,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       aria-label="View Claims"
-                      href="/claims"
+                      href="/member/myplan/claims"
                       style="display: block;"
                     >
                       <button
@@ -2870,7 +2870,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -2915,7 +2915,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -2960,7 +2960,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -3005,7 +3005,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -3050,7 +3050,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -3453,7 +3453,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -3815,7 +3815,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -4562,7 +4562,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4607,7 +4607,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4652,7 +4652,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4697,7 +4697,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4742,7 +4742,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -5200,7 +5200,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -5562,7 +5562,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -6309,7 +6309,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6354,7 +6354,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6399,7 +6399,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6444,7 +6444,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6489,7 +6489,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6898,7 +6898,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
             />
             <a
               class="link-white-text"
-              href="/myPlan"
+              href="/member/myplan"
             >
               <p
                 class="pb-2 pt-2"
@@ -7260,7 +7260,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       aria-label="View Claims"
-                      href="/claims"
+                      href="/member/myplan/claims"
                       style="display: block;"
                     >
                       <button
@@ -8007,7 +8007,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8052,7 +8052,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8097,7 +8097,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8142,7 +8142,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8187,7 +8187,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8544,7 +8544,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -8906,7 +8906,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -9653,7 +9653,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9698,7 +9698,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9743,7 +9743,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9788,7 +9788,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9833,7 +9833,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -10247,7 +10247,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
             />
             <a
               class="link-white-text"
-              href="/myPlan"
+              href="/member/myplan"
             >
               <p
                 class="pb-2 pt-2"
@@ -10609,7 +10609,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       aria-label="View Claims"
-                      href="/claims"
+                      href="/member/myplan/claims"
                       style="display: block;"
                     >
                       <button
@@ -11356,7 +11356,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11401,7 +11401,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11446,7 +11446,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11491,7 +11491,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11536,7 +11536,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11939,7 +11939,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -12301,7 +12301,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -13048,7 +13048,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13093,7 +13093,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13138,7 +13138,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13183,7 +13183,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13228,7 +13228,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"

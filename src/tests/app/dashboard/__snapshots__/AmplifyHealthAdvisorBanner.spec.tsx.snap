@@ -28,7 +28,7 @@ exports[`AmplifyHealthAdvisorBanner should render UI correctly 1`] = `
           />
           <a
             class="link link-hover"
-            href="/amplifyHealthSupport"
+            href="/member/amplifyhealthsupport"
           >
             <p
               class="pb-2 pt-2"

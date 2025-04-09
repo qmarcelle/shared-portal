@@ -893,7 +893,9 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                     <span
                       class="link"
                     >
-                      <a>
+                      <a
+                        href="/member/support/FAQ/benefits"
+                      >
                         Benefits & Coverage FAQ.
                       </a>
                     </span>
@@ -1798,7 +1800,9 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                   <span
                     class="link"
                   >
-                    <a>
+                    <a
+                      href="/member/support/FAQ/benefits"
+                    >
                       Benefits & Coverage FAQ.
                     </a>
                   </span>

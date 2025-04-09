@@ -122,7 +122,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
     >
       <a
         aria-label="All Profile Settings"
-        href="/profileSettings"
+        href="/member/profile"
         style="display: block;"
       >
         <button
@@ -162,7 +162,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Communication Settings"
-        href="/communicationSettings"
+        href="/member/profile/communication"
         style="display: block;"
       >
         <button
@@ -183,7 +183,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Security Settings"
-        href="/security"
+        href="/member/profile/security"
         style="display: block;"
       >
         <button
@@ -473,7 +473,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
     >
       <a
         aria-label="All Profile Settings"
-        href="/profileSettings"
+        href="/member/profile"
         style="display: block;"
       >
         <button
@@ -513,7 +513,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Communication Settings"
-        href="/communicationSettings"
+        href="/member/profile/communication"
         style="display: block;"
       >
         <button
@@ -534,7 +534,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
       />
       <a
         aria-label="Security Settings"
-        href="/security"
+        href="/member/profile/security"
         style="display: block;"
       >
         <button

@@ -489,7 +489,7 @@ exports[`PharmacyDocuments should render UI correctly - for Medicare Groups 1`] 
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -536,7 +536,7 @@ exports[`PharmacyDocuments should render UI correctly - for Medicare Groups 1`] 
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1758,7 +1758,7 @@ exports[`PharmacyDocuments should render UI correctly - for Non Medicare Groups 
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1805,7 +1805,7 @@ exports[`PharmacyDocuments should render UI correctly - for Non Medicare Groups 
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button

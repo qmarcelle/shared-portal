@@ -129,18 +129,18 @@ export const UserSwitchFilter = ({
         className:
           'font-bold !flex primary-color underline underline-offset-3 title-3 ',
         icon: <Image src={parentPageArrowIcon} alt="link" />,
-        url: '/profileSettings',
+        url: '/member/profile',
       },
       {
         label: 'Communication Settings',
         className:
           'font-bold primary-color body-bold body-1 manage-underline mt-4',
-        url: '/communicationSettings',
+        url: '/member/profile/communication',
       },
       {
         label: 'Security Settings',
         className: 'font-bold primary-color body-bold body-1 manage-underline',
-        url: '/security',
+        url: '/member/profile/security',
       },
     ],
     [UserRole.PERSONAL_REP]: [
@@ -149,14 +149,14 @@ export const UserSwitchFilter = ({
         className:
           'font-bold !flex primary-color underline underline-offset-3 title-3',
         icon: <Image src={parentPageArrowIcon} alt="link" />,
-        url: '/profileSettings',
+        url: '/member/profile',
       },
 
       {
         label: 'Sharing & Permissions',
         className:
           'font-bold primary-color body-bold body-1 mt-4 manage-underline',
-        url: '/sharingPermissions',
+        url: '/member/profile/accountsharing',
       },
     ],
     [UserRole.AUTHORIZED_USER]: [],

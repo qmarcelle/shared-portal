@@ -196,7 +196,7 @@ exports[`Site Header - policy info Service Failure to populate the plan informat
         </div>
         <a
           class="ml-5 lg:px-0"
-          href="/dashboard"
+          href="/member/home"
         >
           <img
             alt="BCBST Logo"

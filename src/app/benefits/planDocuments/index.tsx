@@ -51,7 +51,7 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
           <InlineLink
             className="inline py-0 pl-0 pr-0"
             label="contact us"
-            url="/support"
+            url="/member/support"
           />
           <TextBox className="inline" text="." />
         </section>

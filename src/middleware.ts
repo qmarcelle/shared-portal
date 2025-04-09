@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth';
 import { NextURL } from 'next/dist/server/web/next-url';
+import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
+import { requiredUrlMappings } from './lib/required-url-mappings';
 import {
   apiAuthPrefix,
   authRoutes,
@@ -34,11 +36,22 @@ export default auth(async (req) => {
   const method = req.method;
   console.log(`Router <${routeUser}> ${method} ${req.nextUrl.pathname}`);
   const { nextUrl } = req;
+  const pathname = nextUrl.pathname;
+  const url = req.nextUrl;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
   const isInboundSSO = inboundSSORoutes.has(nextUrl.pathname);
+
+  /*Handle URL Mapping based on the path mapping for
+  logged in users */
+  if (requiredUrlMappings[pathname] && isLoggedIn) {
+    url.pathname = requiredUrlMappings[pathname];
+    const response = NextResponse.rewrite(url);
+    response.headers.set('x-orginal-path', pathname);
+    return response;
+  }
 
   /* Handle POST call from public site
    * This will NOT autofill the username field. It just redirects the POST call to a GET to prevent the app from confusing it for a server action call.

@@ -10,7 +10,7 @@ export default function SiteHeaderPBEError() {
       {/* Header Top Bar */}
       <div className="h-18 w-full fixed top-0 left-0 right-0 flex justify-between border-b bg-white z-50">
         <div className="flex items-center">
-          <Link className="ml-5 lg:px-0" href="/dashboard">
+          <Link className="ml-5 lg:px-0" href="/member/home">
             {useMediaQuery({ query: '(max-width: 1023px)' }) ? (
               <Image
                 width="64"

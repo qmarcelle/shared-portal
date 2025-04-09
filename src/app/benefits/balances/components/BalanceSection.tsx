@@ -118,7 +118,11 @@ export const BalanceSection = ({
         )}
 
         {balanceDetailLink && (
-          <AppLink className="pl-0" label="View Balances" url="/balances" />
+          <AppLink
+            className="pl-0"
+            label="View Balances"
+            url="/member/myplan/benefits/balances"
+          />
         )}
       </Column>
     </Card>

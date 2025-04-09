@@ -43,7 +43,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -110,7 +110,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -131,7 +131,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -582,7 +582,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -649,7 +649,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -670,7 +670,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"
@@ -1213,7 +1213,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
                             >
                               <a
                                 aria-label="All Profile Settings"
-                                href="/profileSettings"
+                                href="/member/profile"
                                 style="display: block;"
                               >
                                 <button
@@ -1253,7 +1253,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
                               />
                               <a
                                 aria-label="Communication Settings"
-                                href="/communicationSettings"
+                                href="/member/profile/communication"
                                 style="display: block;"
                               >
                                 <button
@@ -1274,7 +1274,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
                               />
                               <a
                                 aria-label="Security Settings"
-                                href="/security"
+                                href="/member/profile/security"
                                 style="display: block;"
                               >
                                 <button
@@ -1378,7 +1378,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
             </div>
             <a
               class="ml-5 lg:px-0"
-              href="/dashboard"
+              href="/member/home"
             >
               <img
                 alt="BCBST Logo"
@@ -1445,7 +1445,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
           >
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="inbox"
+              href="/member/inbox"
             >
               <img
                 alt="Inbox"
@@ -1466,7 +1466,7 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
             </a>
             <a
               class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
-              href="/memberIDCard"
+              href="/member/idcard"
             >
               <img
                 alt="ID Card"

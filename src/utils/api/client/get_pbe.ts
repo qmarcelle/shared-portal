@@ -11,7 +11,7 @@ export async function getPersonBusinessEntity(
 ): Promise<PBEData> {
   try {
     const resp = await fetch(
-      `${process.env.ES_API_URL}/searchMemberLookupDetails/getPBEConsentDetails?userName=${userId}&isPBERequired=${needPBE}&isConsentRequired=${needConsent}`,
+      `${process.env.ES_API_URL}/searchMemberLookupDetails/getPBEConsentDetails?userName=${userId}&isPBERequired=${needPBE}&isConsentRequired=${process.env.CONSENT_ENABLED == 'true' ? needConsent : false}`,
       {
         headers: {
           Authorization: `Bearer ${await getAuthToken()}`,
