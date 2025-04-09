@@ -150,6 +150,7 @@ describe('communication Information API Integration', () => {
         tierOneDescriptions: [{ hTexts: [], pTexts: [] }],
       },
     ];
+
     mockedAxios.post.mockResolvedValueOnce({
       data: {},
     });

@@ -14,6 +14,7 @@ export const ANALYTICS_KEYS = {
   CONTENT_TYPE: 'content_type',
   PAGE_SECTION: 'page_section',
   SELECTION_TYPE: 'selection_type',
+  SITE_SECTION: 'site_section',
 } as const;
 
 export const googleAnalytics = async (data: AnalyticsData) => {
@@ -27,6 +28,7 @@ export const googleAnalytics = async (data: AnalyticsData) => {
       [ANALYTICS_KEYS.CONTENT_TYPE]: data.content_type,
       [ANALYTICS_KEYS.PAGE_SECTION]: data.page_section,
       [ANALYTICS_KEYS.SELECTION_TYPE]: data.selection_type,
+      [ANALYTICS_KEYS.SITE_SECTION]: data.site_section,
     });
   } catch (error) {
     logger.error('googleAnalytics', error);
