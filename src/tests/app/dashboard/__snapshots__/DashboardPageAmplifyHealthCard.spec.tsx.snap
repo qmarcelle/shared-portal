@@ -63,7 +63,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -110,7 +110,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   />
                   <a
                     class="link link-hover"
-                    href="/amplifyHealthSupport"
+                    href="/member/amplifyhealthsupport"
                   >
                     <p
                       class="pb-2 pt-2"
@@ -468,7 +468,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -1142,7 +1142,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1187,7 +1187,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1232,7 +1232,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1277,7 +1277,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1322,7 +1322,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"

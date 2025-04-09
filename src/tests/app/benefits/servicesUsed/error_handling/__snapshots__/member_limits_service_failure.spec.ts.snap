@@ -198,7 +198,9 @@ exports[`Services Used Error Handling should show error message on service failu
                 <span
                   class="link"
                 >
-                  <a>
+                  <a
+                    href="/member/support/FAQ/benefits"
+                  >
                     Benefits & Coverage FAQ.
                   </a>
                 </span>

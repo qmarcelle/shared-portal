@@ -232,7 +232,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
           />
           <a
             aria-label="View All Health Programs & Resources"
-            href="/myHealth/healthProgramsResources"
+            href="/member/myhealth/healthprograms"
             style="display: block;"
           >
             <button
@@ -480,7 +480,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
         />
         <a
           aria-label="View All Health Programs & Resources"
-          href="/myHealth/healthProgramsResources"
+          href="/member/myhealth/healthprograms"
           style="display: block;"
         >
           <button

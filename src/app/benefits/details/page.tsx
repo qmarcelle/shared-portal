@@ -4,7 +4,7 @@ import { Details } from './details';
 
 const BenefitDetailsPage = async () => {
   const spendingAccounts = {
-    linkURL: '/spending-accounts',
+    linkURL: '/member/myplan/spendingaccounts',
     hsaBalance: 1000,
     fsaBalance: 500,
     className: 'm-2 mt-4 p-8',

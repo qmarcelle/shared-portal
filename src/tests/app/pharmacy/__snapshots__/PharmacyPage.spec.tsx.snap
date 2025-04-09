@@ -266,7 +266,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
-                    href="/claims?type=pharmacy"
+                    href="member/myplan/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -313,7 +313,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                   />
                   <a
                     aria-label="View Pharmacy Spending Summary"
-                    href="/spendingSummary?type=Pharmacy"
+                    href="/member/myplan/spendingsummary?type=Pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -623,7 +623,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -670,7 +670,7 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1262,7 +1262,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
-                    href="/claims?type=pharmacy"
+                    href="member/myplan/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -1309,7 +1309,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                   />
                   <a
                     aria-label="View Pharmacy Spending Summary"
-                    href="/spendingSummary?type=Pharmacy"
+                    href="/member/myplan/spendingsummary?type=Pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -2599,7 +2599,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -2646,7 +2646,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -3768,7 +3768,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
-                    href="/claims?type=pharmacy"
+                    href="member/myplan/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -3815,7 +3815,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                   />
                   <a
                     aria-label="View Pharmacy Spending Summary"
-                    href="/spendingSummary?type=Pharmacy"
+                    href="/member/myplan/spendingsummary?type=Pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -4125,7 +4125,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -4172,7 +4172,7 @@ exports[`Pharmacy Page should render the page correctly 1`] = `
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button

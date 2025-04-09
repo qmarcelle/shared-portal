@@ -24,6 +24,14 @@ export async function getMemberNetworkId(
     return resp.data.data!.settings;
   } catch (err) {
     logger.error('Member Network Api Error', err);
-    throw err;
+    // throw err; // Disabling error throwing as it disrupts login
+    // Return default network id
+    return [
+      {
+        allowable_networks: {
+          default: [],
+        },
+      },
+    ];
   }
 }

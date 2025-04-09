@@ -279,7 +279,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 >
                   <a
                     aria-label="All Profile Settings"
-                    href="/profileSettings"
+                    href="/member/profile"
                     style="display: block;"
                   >
                     <button
@@ -319,7 +319,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   />
                   <a
                     aria-label="Communication Settings"
-                    href="/communicationSettings"
+                    href="/member/profile/communication"
                     style="display: block;"
                   >
                     <button
@@ -340,7 +340,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                   />
                   <a
                     aria-label="Security Settings"
-                    href="/security"
+                    href="/member/profile/security"
                     style="display: block;"
                   >
                     <button
@@ -645,7 +645,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
               >
                 <a
                   aria-label="All Profile Settings"
-                  href="/profileSettings"
+                  href="/member/profile"
                   style="display: block;"
                 >
                   <button
@@ -685,7 +685,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 />
                 <a
                   aria-label="Communication Settings"
-                  href="/communicationSettings"
+                  href="/member/profile/communication"
                   style="display: block;"
                 >
                   <button
@@ -706,7 +706,7 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                 />
                 <a
                   aria-label="Security Settings"
-                  href="/security"
+                  href="/member/profile/security"
                   style="display: block;"
                 >
                   <button
@@ -1066,7 +1066,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
               >
                 <a
                   aria-label="All Profile Settings"
-                  href="/profileSettings"
+                  href="/member/profile"
                   style="display: block;"
                 >
                   <button
@@ -1106,7 +1106,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                 />
                 <a
                   aria-label="Communication Settings"
-                  href="/communicationSettings"
+                  href="/member/profile/communication"
                   style="display: block;"
                 >
                   <button
@@ -1127,7 +1127,7 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                 />
                 <a
                   aria-label="Security Settings"
-                  href="/security"
+                  href="/member/profile/security"
                   style="display: block;"
                 >
                   <button

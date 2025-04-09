@@ -61,7 +61,7 @@ export const DependentProviderInfoItem = ({
                 className="font-bold primary-color !flex link !no-underline ml-0 pl-0"
                 label="Update"
                 icon={icon}
-                url="/updateMyPrimaryCareProvider"
+                url="/member/myhealth/primarycare"
               />
             </Column>
           </Column>

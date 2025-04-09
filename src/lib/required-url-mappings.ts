@@ -1,0 +1,89 @@
+export const requiredUrlMappings: Record<string, string> = {
+  // home Path
+  '/member/home': '/dashboard',
+  '/member/support': '/support',
+  '/member/inbox': '/inbox',
+  '/member/idcard': '/memberIDCard',
+  '/member/searchresults': '/searchResults',
+
+  // FAQ Paths
+  '/member/support/email': '/support/sendAnEmail',
+  '/member/support/1095b': '/1095BFormRequest',
+  '/member/support/FAQ': '/support/faq',
+  '/member/support/FAQ/benefits': '/support/faqtopic/benefits',
+  '/member/support/FAQ/claims': '/support/faqtopic/claims',
+  '/member/support/FAQ/idcard': '/support/faqtopic/idcard',
+  '/member/support/FAQ/myplan': '/support/faqtopic/myplan',
+  '/member/support/FAQ/pharmacy': '/support/faqtopic/pharmacy',
+  '/member/support/FAQ/priorauthorizations':
+    '/support/faqtopic/priorauthorizations',
+  '/member/support/FAQ/accountsharing': '/support/faqtopic/security',
+  '/member/amplifyhealthsupport': '/amplifyHealthSupport',
+
+  // MyPlan Paths
+  '/member/myplan': '/myPlan',
+  '/member/myplan/benefits': '/benefits',
+  '/member/myplan/benefits/balances': '/benefits/balances',
+  '/member/myplan/otherinsurance': '/reportOtherHealthInsurance',
+  '/member/myplan/claims': '/claims',
+  '/member/myplan/spendingsummary': '/spendingSummary',
+  '/member/myplan/priorauthorizations': '/priorAuthorization',
+  '/member/myplan/spendingaccounts': '/spendingAccounts',
+  '/member/myplan/ssn': '/myPlan/updateSocialSecuityNumber',
+  '/member/myplan/benefits/plandocuments': '/benefits/planDocuments',
+  '/member/myplan/katiebeckett': '/myPlan/katieBeckettBankingInfo',
+  '/member/myplan/servicesused': '/benefits/servicesUsed',
+  '/member/myplan/plancontact': '/myPlan/planContactInformation',
+  '/member/myplan/claims/submit': '/claims/submitAClaim',
+  '/member/myplan/managepolicy': '/myPlan/manageMyPolicy',
+  '/member/myplan/benefits/officevisits': '/benefits',
+  '/member/myplan/benefits/preventivecare': '/benefits',
+  '/member/myplan/benefits/allergy': '/benefits',
+  '/member/myplan/benefits/emergency': '/benefits',
+  '/member/myplan/benefits/impatientservices': '/benefits',
+  '/member/myplan/benefits/outpatientservices': '/benefits',
+  '/member/myplan/benefits/medicalequipment': '/benefits',
+  '/member/myplan/benefits/behavioralhealth': '/benefits',
+  '/member/myplan/benefits/medicalservices': '/benefits',
+  '/member/myplan/benefits/pharmacy': '/benefits',
+  '/member/myplan/benefits/dentalanasthesia': '/benefits',
+  '/member/myplan/benefits/dentalbasic': '/benefits',
+  '/member/myplan/benefits/dentalpreventive': '/benefits',
+  '/member/myplan/benefits/dentalendodontics': '/benefits',
+  '/member/myplan/benefits/dentalmajor': '/benefits',
+  '/member/myplan/benefits/dentalocculusalguard': '/benefits',
+  '/member/myplan/benefits/dentalorgalsurgery': '/benefits',
+  '/member/myplan/benefits/dentalorthodontic': '/benefits',
+  '/member/myplan/benefits/dentalperidontics': '/benefits',
+  '/member/myplan/benefits/dentalITMJ': '/benefits',
+  '/member/myplan/benefits/identityprotection':
+    '/benefits/identityProtectionServices',
+  '/member/myplan/benefits/employerprovidedbenefits':
+    '/benefits/employerProvidedBenefits',
+
+  // MyHealth Paths
+  '/member/myhealth': '/myHealth',
+  '/member/myhealth/healthprograms': 'myHealth/healthProgramsResources',
+  '/member/myhealth/primarycare': '/updateMyPrimaryCareProvider',
+
+  // findcare Paths
+  '/member/findcare': '/findcare',
+  '/member/findcare/virtualcare/primarycare': '/findcare/primaryCareOptions',
+  '/member/findcare/dentalcosts': '/priceDentalCare',
+  '/member/findcare/virtualcare/teladochealth': '/member/findcare',
+
+  // pharmacy Paths
+  '/member/pharmacy': '/pharmacy',
+  '/member/pharmacy/documents': '/pharmacy',
+
+  // Profile Settings
+  '/member/profile': '/profileSettings',
+  '/member/profile/security': '/security',
+  '/member/profile/othersettings': '/otherProfileSettings',
+  '/member/profile/accountsharing': '/sharingPermissions',
+  '/member/profile/accountsharing/myinfo': '/shareMyInformation',
+  '/member/profile/accountsharing/access': '/accessOthersInformation',
+  '/member/profile/accountsharing/personalrep': '/personalRepresentativeAccess',
+  '/member/profile/accountsharing/thirdparty': '/thirdPartySharing',
+  '/member/profile/communication': '/communicationSettings',
+};

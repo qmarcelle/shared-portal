@@ -86,7 +86,7 @@ const PharmacyBenefits = ({
             <AppLink
               className="link hover:!underline pl-0"
               label="View All Plan Documents"
-              url="/benefits/planDocuments"
+              url="/member/myplan/benefits/plandocuments"
             />
           </>
         )}

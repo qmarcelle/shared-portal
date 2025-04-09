@@ -34,7 +34,8 @@ const NonMemberDashboard = ({ profiles }: NonMemberDashboardProps) => {
                     </div>
                   }
                   onClick={() => {
-                    window.location.href = '/accessOthersInformation';
+                    window.location.href =
+                      '/member/profile/accountsharing/access';
                   }}
                 />
                 <Spacer size={16} />

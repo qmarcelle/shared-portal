@@ -123,7 +123,7 @@ export const EditLevelOfAccess = ({
                   <RichText
                     spans={[
                       <span key={1}>
-                        <Link href="/contact" className="link font-bold">
+                        <Link href="/member/support" className="link font-bold">
                           Contact us
                         </Link>
                       </span>,

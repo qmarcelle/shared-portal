@@ -83,7 +83,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
       />
       <a
         aria-label="View More ID Card Options"
-        href="/memberIDCard"
+        href="/member/idcard"
         style="display: block;"
       >
         <button

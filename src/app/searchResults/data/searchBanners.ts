@@ -31,7 +31,7 @@ export const searchBanners: SearchBanners = {
     title: '1095B Form',
     description:
       'Looking for your 1095B form? If your plan qualifies to receive this form, you can submit a request for it.',
-    link: '/member/support/1095bS',
+    link: '/member/support/1095b',
     linkText: 'Visit the 1095B Page',
   },
   TeladocHealth_Banner: {

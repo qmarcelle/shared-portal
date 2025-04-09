@@ -1,5 +1,5 @@
 'use client';
-import { FaqTopics } from './components/FaqTopics';
+import { FaqTopics } from '../components/FaqTopics';
 
 const FrequentlyAskedQuestions = () => {
   return (

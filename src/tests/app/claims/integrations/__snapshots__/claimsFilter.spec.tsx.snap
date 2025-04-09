@@ -50,7 +50,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 1`] = `
               class="link font-bold"
             >
               <a
-                href="/claims/submitAClaim"
+                href="/member/myplan/claims/submit"
               >
                 Get the form you need
               </a>
@@ -681,7 +681,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 2`] = `
               class="link font-bold"
             >
               <a
-                href="/claims/submitAClaim"
+                href="/member/myplan/claims/submit"
               >
                 Get the form you need
               </a>
@@ -1357,7 +1357,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 3`] = `
               class="link font-bold"
             >
               <a
-                href="/claims/submitAClaim"
+                href="/member/myplan/claims/submit"
               >
                 Get the form you need
               </a>
@@ -1988,7 +1988,7 @@ exports[`Claims SnapshotList Filter should filter the claims correctly 4`] = `
               class="link font-bold"
             >
               <a
-                href="/claims/submitAClaim"
+                href="/member/myplan/claims/submit"
               >
                 Get the form you need
               </a>

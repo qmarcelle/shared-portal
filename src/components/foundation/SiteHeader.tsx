@@ -1,13 +1,16 @@
 'use client';
 import { setExternalSessionToken } from '@/actions/ext_token';
+import { appPaths } from '@/models/app_paths';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { BreadCrumb } from '../composite/BreadCrumb';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
@@ -42,6 +45,11 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
+  const [pathname, setPathName] = useState<string>('/');
+  const sitePathName = usePathname();
+  useEffect(() => {
+    setPathName(sitePathName);
+  }, [sitePathName]);
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
@@ -72,6 +80,12 @@ export default function SiteHeader({
       setExternalSessionToken();
     }
   }, [selectedPlan?.memeCk]);
+
+  const breadcrumbs = pathname
+    .split('/')
+    .filter(Boolean)
+    .map((item) => appPaths.get(item.toLowerCase())!)
+    .filter(Boolean);
 
   return (
     <>
@@ -113,7 +127,7 @@ export default function SiteHeader({
                 )}
               </button>
             </div>
-            <Link className="ml-5 lg:px-0" href="/dashboard">
+            <Link className="ml-5 lg:px-0" href="/member/home">
               {useMediaQuery({ query: '(max-width: 1023px)' }) ? (
                 <Image
                   width="64"
@@ -160,7 +174,7 @@ export default function SiteHeader({
                         title: 'Inbox',
                         label: 'inbox',
                         icon: <Image src={inboxIcon} alt="Inbox" />,
-                        url: 'inbox',
+                        url: '/member/inbox',
                       },
                     ]
                   : [
@@ -168,13 +182,13 @@ export default function SiteHeader({
                         title: 'Inbox',
                         label: 'inbox',
                         icon: <Image src={inboxIcon} alt="Inbox" />,
-                        url: 'inbox',
+                        url: '/member/inbox',
                       },
                       {
                         title: 'ID Card',
                         label: 'id card',
                         icon: <Image src={globalIdCardIcon} alt="ID Card" />,
-                        url: '/memberIDCard',
+                        url: '/member/idcard',
                       },
                     ]
                 : []
@@ -257,6 +271,14 @@ export default function SiteHeader({
           }
           onSelectionChange={() => {}}
         />
+      )}
+      {/* breadcrumbs */}
+      {breadcrumbs.length > 1 && (
+        <div className="flex flex-col justify-center items-center page">
+          <div className="app-content">
+            <BreadCrumb items={breadcrumbs} />
+          </div>
+        </div>
       )}
     </>
   );

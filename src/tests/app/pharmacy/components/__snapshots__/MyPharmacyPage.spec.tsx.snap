@@ -489,7 +489,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -536,7 +536,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1419,7 +1419,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1466,7 +1466,7 @@ exports[`Pharmacy Page should not render Pharmacy benefits if visibility rule ev
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -2005,7 +2005,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -2052,7 +2052,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button

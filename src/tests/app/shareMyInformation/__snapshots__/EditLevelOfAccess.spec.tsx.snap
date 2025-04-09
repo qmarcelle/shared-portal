@@ -818,7 +818,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for subsc
               <span>
                 <a
                   class="link font-bold"
-                  href="/contact"
+                  href="/member/support"
                 >
                   Contact us
                 </a>

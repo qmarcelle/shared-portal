@@ -137,7 +137,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                 title="My Recent Pharmacy Claims"
                 linkText="View All Pharmacy Claims"
                 claims={claims}
-                linkUrl="/claims?type=pharmacy"
+                linkUrl="member/myplan/claims?type=pharmacy"
               />
             </Column>
             <Column className=" flex-grow page-section-36_67 items-stretch">
@@ -146,7 +146,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                 title="My Pharmacy Spending Summary"
                 description="View your annual statement for your pharmacy claims."
                 linkLabel="View Pharmacy Spending Summary"
-                url="/spendingSummary?type=Pharmacy"
+                url="/member/myplan/spendingsummary?type=Pharmacy"
               />
             </Column>
           </section>

@@ -97,7 +97,8 @@ async function computeTokenWithPlan(
         memCk: planId,
         sbsbCk: loggedUserInfo.subscriberCK,
         subId: loggedUserInfo.subscriberID,
-        ntwkId: memberNetworks[0].allowable_networks.default[0].id.toString(),
+        ntwkId:
+          memberNetworks[0].allowable_networks.default[0]?.id.toString() ?? '',
       },
     },
     rules: computeVisibilityRules(loggedUserInfo),

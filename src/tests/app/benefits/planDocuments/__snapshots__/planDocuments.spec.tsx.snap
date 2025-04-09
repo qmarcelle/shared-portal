@@ -41,7 +41,7 @@ exports[`planDocuments should render the UI correctly 1`] = `
             </p>
             <a
               class="inline py-0 pl-0 pr-0"
-              href="/support"
+              href="/member/support"
             >
               <button
                 class="inline py-0 pl-0 pr-0"
@@ -106,7 +106,7 @@ exports[`planDocuments should render the UI correctly 1`] = `
           </p>
           <a
             class="inline py-0 pl-0 pr-0"
-            href="/support"
+            href="/member/support"
           >
             <button
               class="inline py-0 pl-0 pr-0"
@@ -228,7 +228,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
             </p>
             <a
               class="inline py-0 pl-0 pr-0"
-              href="/support"
+              href="/member/support"
             >
               <button
                 class="inline py-0 pl-0 pr-0"
@@ -422,7 +422,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
           </p>
           <a
             class="inline py-0 pl-0 pr-0"
-            href="/support"
+            href="/member/support"
           >
             <button
               class="inline py-0 pl-0 pr-0"
@@ -673,7 +673,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
             </p>
             <a
               class="inline py-0 pl-0 pr-0"
-              href="/support"
+              href="/member/support"
             >
               <button
                 class="inline py-0 pl-0 pr-0"
@@ -919,7 +919,7 @@ exports[`planDocuments should render the UI correctly with iframe 1`] = `
           </p>
           <a
             class="inline py-0 pl-0 pr-0"
-            href="/support"
+            href="/member/support"
           >
             <button
               class="inline py-0 pl-0 pr-0"
@@ -1222,7 +1222,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
             </p>
             <a
               class="inline py-0 pl-0 pr-0"
-              href="/support"
+              href="/member/support"
             >
               <button
                 class="inline py-0 pl-0 pr-0"
@@ -1493,7 +1493,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
           </p>
           <a
             class="inline py-0 pl-0 pr-0"
-            href="/support"
+            href="/member/support"
           >
             <button
               class="inline py-0 pl-0 pr-0"

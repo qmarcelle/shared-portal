@@ -97,7 +97,7 @@ function getGeneralContent(contact: string) {
         <AppLink
           className="!px-0"
           label="Send an Email"
-          url="/support/sendAnEmail"
+          url="/member/support/email"
         />
       ),
     },
@@ -107,7 +107,7 @@ const RESOURCES = [
   {
     icon: <Image src={questionsIcon} alt="questions icon" />,
     label: 'Frequently Asked Questions',
-    link: '/support/faq',
+    link: '/member/support/FAQ',
     external: false,
   },
   {

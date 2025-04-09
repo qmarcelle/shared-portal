@@ -211,7 +211,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                   />
                   <a
                     aria-label="View All Plan Documents"
-                    href="/benefits/planDocuments"
+                    href="/member/myplan/benefits/plandocuments"
                     style="display: block;"
                   >
                     <button
@@ -377,7 +377,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                 />
                 <a
                   aria-label="View All Plan Documents"
-                  href="/benefits/planDocuments"
+                  href="/member/myplan/benefits/plandocuments"
                   style="display: block;"
                 >
                   <button

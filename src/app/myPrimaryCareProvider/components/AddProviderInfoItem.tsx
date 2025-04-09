@@ -49,7 +49,7 @@ export const AddProviderInfoItem = ({
             <Spacer size={8} />
             <AppLink
               className="font-bold primary-color !flex ml-10"
-              url="/updateMyPrimaryCareProvider"
+              url="/member/myhealth/primarycare"
               label="Add a Provider"
             />
           </Column>

@@ -7,7 +7,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
       class="flex flex-col"
     >
       <a
-        href="/communicationSettings"
+        href="/member/profile/communication"
       >
         <div
           class="card-elevated small-section"
@@ -49,7 +49,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
         </div>
       </a>
       <a
-        href="/security"
+        href="/member/profile/security"
       >
         <div
           class="card-elevated small-section"
@@ -91,7 +91,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
         </div>
       </a>
       <a
-        href="/sharingPermissions"
+        href="/member/profile/accountsharing"
       >
         <div
           class="card-elevated small-section"
@@ -144,7 +144,7 @@ exports[`Profile Settings Card Component should render UI correctly for Terminat
       class="flex flex-col"
     >
       <a
-        href="/sharingPermissions"
+        href="/member/profile/accountsharing"
       >
         <div
           class="card-elevated small-section"

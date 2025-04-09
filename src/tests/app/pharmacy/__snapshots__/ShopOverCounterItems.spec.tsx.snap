@@ -491,7 +491,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
-                    href="/claims?type=pharmacy"
+                    href="member/myplan/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -538,7 +538,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                   />
                   <a
                     aria-label="View Pharmacy Spending Summary"
-                    href="/spendingSummary?type=Pharmacy"
+                    href="/member/myplan/spendingsummary?type=Pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -1642,7 +1642,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1689,7 +1689,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -2850,7 +2850,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
-                    href="/claims?type=pharmacy"
+                    href="member/myplan/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -2897,7 +2897,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   />
                   <a
                     aria-label="View Pharmacy Spending Summary"
-                    href="/spendingSummary?type=Pharmacy"
+                    href="/member/myplan/spendingsummary?type=Pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -4078,7 +4078,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -4125,7 +4125,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button

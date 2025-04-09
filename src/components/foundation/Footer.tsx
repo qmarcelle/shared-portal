@@ -58,9 +58,9 @@ const Footer: React.FC<FooterProps> = () => {
             <ul className="space-y-4 font-thin body-2">
               <li>
                 <Link
-                  href="/memberIDCard"
+                  href="/member/idcard"
                   onClick={() =>
-                    trackLinkAnalytics('Get an ID Card', '/memberIDCard')
+                    trackLinkAnalytics('Get an ID Card', '/member/idcard')
                   }
                 >
                   Get an ID Card
@@ -68,9 +68,9 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <Link
-                  href="/findcare"
+                  href="/member/findcare"
                   onClick={() =>
-                    trackLinkAnalytics('Find Care & Costs', '/findcare')
+                    trackLinkAnalytics('Find Care & Costs', '/member/findcare')
                   }
                 >
                   Find Care & Costs
@@ -78,17 +78,19 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <Link
-                  href="/claims"
-                  onClick={() => trackLinkAnalytics('View Claims', '/claims')}
+                  href="/member/myplan/claims"
+                  onClick={() =>
+                    trackLinkAnalytics('View Claims', '/member/myplan/claims')
+                  }
                 >
                   View Claims
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/profileSettings"
+                  href="/member/profile"
                   onClick={() =>
-                    trackLinkAnalytics('Profile Settings', '/profileSettings')
+                    trackLinkAnalytics('Profile Settings', '/member/profile')
                   }
                 >
                   Profile Settings
@@ -103,7 +105,7 @@ const Footer: React.FC<FooterProps> = () => {
             <ul className="space-y-4 body-2 font-thin">
               <li>
                 <Link
-                  href="/support"
+                  href="/member/support"
                   onClick={() =>
                     trackLinkAnalytics('Get Help & Contact Us', '/support')
                   }

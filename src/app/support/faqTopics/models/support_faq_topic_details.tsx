@@ -5,15 +5,16 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaqTopicDetails, FaqTopicType } from './faq_details';
+import { FaqTopicDetails, FaqTopicParam, FaqTopicType } from './faq_details';
 
 export const SupportFaqTopicDetails: Map<
-  FaqTopicType | string | null,
+  FaqTopicParam | string | null,
   FaqTopicDetails
 > = new Map([
   [
-    FaqTopicType.BenefitsAndCoverage,
+    FaqTopicParam.BenefitsAndCoverage,
     {
+      faqPathParam: FaqTopicParam.BenefitsAndCoverage,
       topicType: FaqTopicType.BenefitsAndCoverage,
       faqTopicHeaderDetails: {
         title: 'Benefits & Coverage FAQ',
@@ -166,7 +167,7 @@ export const SupportFaqTopicDetails: Map<
 
                 <span key={9}>members should </span>,
                 <span className="link font-bold" key={10}>
-                  <a href="/support">contact us</a>{' '}
+                  <a href="/member/support">contact us</a>{' '}
                 </span>,
                 <span key={11}>
                   , and we’ll help you decide how to get care.
@@ -193,8 +194,9 @@ export const SupportFaqTopicDetails: Map<
     },
   ],
   [
-    FaqTopicType.Claims,
+    FaqTopicParam.Claims,
     {
+      faqPathParam: FaqTopicParam.Claims,
       topicType: FaqTopicType.Claims,
       faqTopicHeaderDetails: {
         title: 'Claims FAQ',
@@ -223,7 +225,7 @@ export const SupportFaqTopicDetails: Map<
                   that will introduce you to the Claim Summary. You can also{' '}
                 </span>,
                 <span className="link font-bold" key={3}>
-                  <a href="/support">contact us</a>
+                  <a href="/member/support">contact us</a>
                 </span>,
                 <span key={4}>, and we’ll walk you through it.</span>,
               ]}
@@ -249,7 +251,7 @@ export const SupportFaqTopicDetails: Map<
             <RichText
               spans={[
                 <span className="link font-bold" key={0}>
-                  <a href="/support">Contact us</a>{' '}
+                  <a href="/member/support">Contact us</a>{' '}
                 </span>,
                 <span key={1}>
                   and we’ll walk you through the process and paperwork needed.
@@ -408,7 +410,7 @@ export const SupportFaqTopicDetails: Map<
               spans={[
                 <span key={0}>Not sure what type of plan you have? </span>,
                 <span className="link font-bold" key={1}>
-                  <a href="/support">Contact us.</a>{' '}
+                  <a href="/member/support">Contact us.</a>{' '}
                 </span>,
               ]}
             />
@@ -418,8 +420,9 @@ export const SupportFaqTopicDetails: Map<
     },
   ],
   [
-    FaqTopicType.PriorAuthorization,
+    FaqTopicParam.PriorAuthorization,
     {
+      faqPathParam: FaqTopicParam.PriorAuthorization,
       topicType: FaqTopicType.PriorAuthorization,
       faqTopicHeaderDetails: {
         title: 'Prior Authorization FAQ',
@@ -498,7 +501,10 @@ export const SupportFaqTopicDetails: Map<
                   We’ll show your medical prior authorizations on the
                 </span>,
                 <span key={2}>
-                  <Link href="/priorAuthorization" className="link font-bold">
+                  <Link
+                    href="/member/myplan/priorauthorizations"
+                    className="link font-bold"
+                  >
                     {' '}
                     prior authorization page.
                   </Link>
@@ -526,8 +532,9 @@ export const SupportFaqTopicDetails: Map<
     },
   ],
   [
-    FaqTopicType.IdCards,
+    FaqTopicParam.IdCards,
     {
+      faqPathParam: FaqTopicParam.IdCards,
       topicType: FaqTopicType.IdCards,
       faqTopicHeaderDetails: {
         title: 'ID Cards FAQ',
@@ -543,7 +550,7 @@ export const SupportFaqTopicDetails: Map<
               spans={[
                 <span key={0}>You can </span>,
                 <span className="link font-bold" key={1}>
-                  <a href="/memberIDCard">order a new Member ID card here</a>{' '}
+                  <a href="/member/idcard">order a new Member ID card here</a>{' '}
                 </span>,
                 <span key={2}>
                   or by calling or chatting with us.
@@ -578,7 +585,7 @@ export const SupportFaqTopicDetails: Map<
             <RichText
               spans={[
                 <span className="link font-bold" key={0}>
-                  <a href="/support">Contact us</a>
+                  <a href="/member/support">Contact us</a>
                 </span>,
                 <span key={1}>
                   , and we’ll walk you through getting your card updated.
@@ -593,8 +600,9 @@ export const SupportFaqTopicDetails: Map<
     },
   ],
   [
-    FaqTopicType.SharingPermisionsSecurity,
+    FaqTopicParam.SharingPermisionsSecurity,
     {
+      faqPathParam: FaqTopicParam.SharingPermisionsSecurity,
       topicType: FaqTopicType.SharingPermisionsSecurity,
       faqTopicHeaderDetails: {
         title: 'Security FAQ',
@@ -825,8 +833,9 @@ export const SupportFaqTopicDetails: Map<
     },
   ],
   [
-    FaqTopicType.MyPlanInformation,
+    FaqTopicParam.MyPlanInformation,
     {
+      faqPathParam: FaqTopicParam.MyPlanInformation,
       topicType: FaqTopicType.MyPlanInformation,
       faqTopicHeaderDetails: {
         title: 'My Plan Information FAQ',
@@ -890,7 +899,7 @@ export const SupportFaqTopicDetails: Map<
               you can
               <AppLink
                 className="p-0"
-                url="/updateMyPrimaryCareProvider"
+                url="/member/myhealth/primarycare"
                 label="update your primary care provider here."
                 displayStyle="inline"
               />
@@ -903,8 +912,9 @@ export const SupportFaqTopicDetails: Map<
     },
   ],
   [
-    FaqTopicType.Pharmacy,
+    FaqTopicParam.Pharmacy,
     {
+      faqPathParam: FaqTopicParam.Pharmacy,
       topicType: FaqTopicType.Pharmacy,
       faqTopicHeaderDetails: {
         title: 'Pharmacy FAQ',

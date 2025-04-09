@@ -62,7 +62,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
         />
         <a
           class="link-white-text"
-          href="/myPlan"
+          href="/member/myplan"
         >
           <p
             class="pb-2 pt-2"
@@ -424,7 +424,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                 />
                 <a
                   aria-label="View Claims"
-                  href="/claims"
+                  href="/member/myplan/claims"
                   style="display: block;"
                 >
                   <button
@@ -1098,7 +1098,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   />
                   <a
                     class="flex flex-row w-fit"
-                    href="#"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="flex flex-col"
@@ -1143,7 +1143,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   />
                   <a
                     class="flex flex-row w-fit"
-                    href="#"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="flex flex-col"
@@ -1188,7 +1188,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   />
                   <a
                     class="flex flex-row w-fit"
-                    href="#"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="flex flex-col"
@@ -1233,7 +1233,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   />
                   <a
                     class="flex flex-row w-fit"
-                    href="#"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="flex flex-col"
@@ -1278,7 +1278,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   />
                   <a
                     class="flex flex-row w-fit"
-                    href="#"
+                    href="/member/myplan/benefits"
                   >
                     <div
                       class="flex flex-col"

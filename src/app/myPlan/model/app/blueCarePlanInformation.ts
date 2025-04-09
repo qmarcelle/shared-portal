@@ -1,8 +1,8 @@
 import {
   benefits,
   claimsBenefitsCoverage,
-  priorAuthorizations,
   planDocuments,
+  priorAuthorizations,
 } from '@/components/foundation/Icons';
 
 export const BlueCarePlanInformation = [
@@ -11,19 +11,19 @@ export const BlueCarePlanInformation = [
     // eslint-disable-next-line quotes
     description: "View what's covered under your plan.",
     iconName: benefits,
-    link: '/benefits',    
+    link: '/member/myplan/benefits',
   },
   {
     label: 'Claims',
     description: 'Search for claims and view details or submit a claim.',
     iconName: claimsBenefitsCoverage,
-    link: '/claims',   
+    link: '/member/myplan/claims',
   },
   {
     label: 'Prior Authorizations',
     description: 'Check the status of your prior authorizations.',
     iconName: priorAuthorizations,
-    link: '/priorAuth',    
+    link: '/member/myplan/priorauthorizations',
   },
   {
     label: 'Member Handbook',

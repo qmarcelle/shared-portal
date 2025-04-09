@@ -66,6 +66,7 @@ const ServicesUsed = ({ users, services, phoneNumber }: ServicesUsedProps) => {
               link="/claims"
             ></InfoCard>
             <GetHelpSection
+              link="/member/support/FAQ/benefits"
               linkURL={'Benefits & Coverage FAQ.'}
               headerText={'Get Help with Services Used'}
             />
