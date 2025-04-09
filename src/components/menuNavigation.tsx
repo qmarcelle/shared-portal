@@ -415,15 +415,6 @@ export const getMenuNavigation = (
         external: false,
       },
       {
-        id: 80,
-        title: 'Dental Health Library',
-        description: 'This is Dental Health Library',
-        category: 'Advice & Support',
-        showOnMenu: isNotWellnessQa,
-        url: 'https://bcbstwelltuned.com/',
-        external: true,
-      },
-      {
         id: 79,
         title: 'Health Library',
         description: 'This is Health Library',
