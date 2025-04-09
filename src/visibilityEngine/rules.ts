@@ -88,6 +88,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'enableHealthyMaternity',
   'fullyInsuredHealthyMaternity',
   'katieBeckettEligible',
+  'payMyPremiumMedicareEligible',
   'isWellnessQa',
 ] as const;
 

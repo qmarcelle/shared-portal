@@ -9,6 +9,7 @@ import {
   condensedExperienceProfileHorizonGroups,
   katieBeckettGroups,
   ncqaGroups,
+  payPremiumMedicareOnlyGroups,
   offMarketGroups,
   wellnessProfileWellnessOnlyGroups,
 } from './groups';
@@ -80,6 +81,8 @@ export function computeVisibilityRules(
   rules.ncqaEligible = rules?.blueCare || ncqaGroups.includes(groupId);
 
   rules.katieBeckettEligible = katieBeckettGroups.includes(groupId);
+
+  rules.payMyPremiumMedicareEligible = payPremiumMedicareOnlyGroups.includes(groupId);
 
   for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
@@ -546,4 +549,8 @@ export function isTaxDocument1095BRequestVisible(
 
 export function isKatieBeckettEligible(rules: VisibilityRules | undefined) {
   return rules?.katieBeckettEligible;
+}
+
+export function payMyPremiumMedicareEligible(rules: VisibilityRules | undefined) {
+  return rules?.payMyPremiumMedicareEligible && rules?.active;
 }
