@@ -91,5 +91,9 @@ export type RelatedPerson = {
   relatedPersonDob: string;
   relatedPersonApprovalRequestId: string;
   relatedPersonMemeCk: string;
+  id: string;
+  expiresOn: string;
+  effectiveOn: string;
+  policyId: string;
   name: AccessStatus;
 };

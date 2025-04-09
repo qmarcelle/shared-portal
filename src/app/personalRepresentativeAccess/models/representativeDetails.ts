@@ -8,6 +8,10 @@ export interface RepresentativeData {
   memeck?: string;
   requesteeFHRID?: string;
   inviteStatus?: InviteStatus | undefined;
+  id?: string;
+  effectiveOn?: string;
+  expiresOn?: string;
+  policyId?: string;
 }
 
 export type RepresentativeViewDetails = {

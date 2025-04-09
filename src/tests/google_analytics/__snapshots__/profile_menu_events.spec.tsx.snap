@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
+exports[`SiteHeader And Navigation Menu should render the Google Analtics correctly for My Profile click event  1`] = `
 <body>
   <div>
     <div>
@@ -537,7 +537,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
 </body>
 `;
 
-exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
+exports[`SiteHeader And Navigation Menu should render the Google Analtics correctly for My Profile click event  2`] = `
 <body
   style="overflow: hidden;"
 >
@@ -1333,7 +1333,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
 </body>
 `;
 
-exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
+exports[`SiteHeader And Navigation Menu should render the Google Analtics correctly for My Profile click event  3`] = `
 <body
   style=""
 >

@@ -1,3 +1,4 @@
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { InitModalSlide } from '@/components/composite/InitModalSlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
@@ -12,7 +13,9 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Link from 'next/link';
 import { useState } from 'react';
+import { updateConsentDataAction } from '../actions/getPersonalRepresentativeData';
 import FullAndBasicAccessOption from '../components/FullAndBasicAccessOption';
+import { UpdateConsentRequest } from '../models/updateConsentRequest';
 
 const bottomNote =
   'Disclaimer: BlueCross BlueShield of Tennessee is not responsible for your personal representative or any third parties authorized by you or your personal representative to hae access to your health information. BlueCross BlueShield of Tennessee does not warrant that the information provided will be accurate, timely or complete.';
@@ -24,6 +27,10 @@ interface InviteToRegisterProps {
   targetType?: string;
   currentAccessType: string;
   isMaturedMinor?: boolean;
+  id?: string;
+  policyId?: string;
+  expiresOn?: string;
+  effectiveOn?: string;
 }
 
 export const EditLevelOfAccess = ({
@@ -33,11 +40,39 @@ export const EditLevelOfAccess = ({
   targetType = '',
   currentAccessType,
   isMaturedMinor,
+  id,
+  policyId,
+  expiresOn,
+  effectiveOn,
 }: ModalChildProps & InviteToRegisterProps) => {
   const [selectedData, setSelectedData] = useState<string>(currentAccessType);
 
   const handleClick = (val: string) => {
     setSelectedData(val);
+  };
+  const handleNext = async () => {
+    try {
+      const request: UpdateConsentRequest = {
+        consentId: id,
+        policyId: policyId,
+        effectiveOn: effectiveOn,
+        expiresOn: expiresOn,
+        requestType: 'update',
+      };
+
+      const response = await updateConsentDataAction({
+        request,
+      });
+
+      if (response?.data?.message === 'Success') {
+        changePage?.(2);
+      } else {
+        changePage?.(3);
+      }
+    } catch (error) {
+      changePage?.(3);
+      console.error('Error in Editing Level of Access:', error);
+    }
   };
 
   const { dismissModal } = useAppModalStore();
@@ -110,7 +145,7 @@ export const EditLevelOfAccess = ({
       cancelCallback={() => dismissModal()}
     />,
     <InputModalSlide
-      key="second"
+      key={2}
       label="Edit Level Of Access"
       subLabel=""
       actionArea={
@@ -120,11 +155,11 @@ export const EditLevelOfAccess = ({
         />
       }
       buttonLabel="Save Permissions"
-      nextCallback={() => changePage?.(2)}
+      nextCallback={() => handleNext()}
       cancelCallback={() => dismissModal()}
     />,
     <SuccessSlide
-      key="third"
+      key={3}
       label="Level Of Access Saved"
       body={
         <Column className="items-center">
@@ -134,6 +169,19 @@ export const EditLevelOfAccess = ({
           />
           <Spacer size={16} />
           <TextBox className="font-bold" text={memberName} />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ErrorDisplaySlide
+      key={4}
+      label="Try Again Later"
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="We weren’t able to update your settings at this time. Please try again later."
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}

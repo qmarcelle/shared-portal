@@ -64,6 +64,10 @@ export const MembersRepresented = ({
               isRepresentative={isRepresentative}
               visibilityRules={visibilityRules}
               inviteStatus={item.inviteStatus!}
+              id={item.id}
+              policyId={item.policyId}
+              expiresOn={item.expiresOn}
+              effectiveOn={item.effectiveOn}
             />
           ))}
         </Column>

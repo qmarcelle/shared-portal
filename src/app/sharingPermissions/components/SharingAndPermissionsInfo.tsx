@@ -3,6 +3,7 @@ import { Column } from '@/components/foundation/Column';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { checkPersonalRepAccess } from '@/utils/getRole';
+import { useRouter } from 'next/navigation';
 
 export type SharingAndPermissionsInfoProps = {
   userRole: UserRole | undefined;
@@ -11,6 +12,7 @@ export type SharingAndPermissionsInfoProps = {
 export const SharingAndPermissionsInfo = ({
   userRole,
 }: SharingAndPermissionsInfoProps) => {
+  const router = useRouter();
   return (
     <Card className="large-section">
       <Column className="flex flex-col">
@@ -50,6 +52,9 @@ export const SharingAndPermissionsInfo = ({
               </div>
             }
             divider={true}
+            onClick={() => {
+              router.push('/personalRepresentativeAccess');
+            }}
           />
         )}
         <LinkRow
