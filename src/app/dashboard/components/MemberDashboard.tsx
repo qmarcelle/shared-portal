@@ -146,6 +146,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                   className="large-section"
                   dueDate="08/10/2023"
                   amountDue={1000.46}
+                  visibilityRules = {visibilityRules} 
                 />
               )}
 
