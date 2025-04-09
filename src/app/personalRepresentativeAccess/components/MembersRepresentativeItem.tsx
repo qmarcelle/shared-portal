@@ -30,6 +30,10 @@ interface MembersRepresentativeItemProps extends IComponent {
   memberMemeCk?: string;
   requesteeFHRID?: string;
   visibilityRules?: VisibilityRules;
+  id?: string;
+  policyId?: string;
+  expiresOn?: string;
+  effectiveOn?: string;
   onRequestSuccessCallBack: () => void;
 }
 
@@ -46,6 +50,10 @@ export const MembersRepresentativeItem = ({
   memberMemeCk,
   requesteeFHRID,
   visibilityRules,
+  id,
+  policyId,
+  expiresOn,
+  effectiveOn,
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
 }: MembersRepresentativeItemProps) => {
@@ -128,6 +136,10 @@ export const MembersRepresentativeItem = ({
                           memberName={memberName}
                           isMaturedMinor
                           currentAccessType="basic"
+                          id={id}
+                          policyId={policyId}
+                          expiresOn={expiresOn}
+                          effectiveOn={effectiveOn}
                         />
                       ),
                     })
