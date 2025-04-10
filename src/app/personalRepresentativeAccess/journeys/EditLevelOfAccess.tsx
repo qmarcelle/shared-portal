@@ -89,10 +89,10 @@ export const EditLevelOfAccess = ({
           <Spacer size={32} />
           <Column>
             <Radio
-              label={`Full ${isMaturedMinor ? 'Access' : 'Sharing'}`}
+              label={`Full ${isMaturedMinor ? 'Access +' : 'Sharing'}`}
               subLabel={
                 isMaturedMinor
-                  ? 'Your Representative will have access to all documents and claims, even those with sensitive information'
+                  ? 'Your personal representative and anyone they choose will have access to all documents and claims, even those with sensitive information.'
                   : 'They’ll see documents and claims, even those with sensitive information.'
               }
               selected={selectedData === 'Full Access'}
@@ -103,7 +103,7 @@ export const EditLevelOfAccess = ({
               label={`Basic ${isMaturedMinor ? 'Access' : 'Sharing'}`}
               subLabel={
                 isMaturedMinor
-                  ? 'Your Representative will have access to all documents and claims, but will not be able to view sensitive information'
+                  ? 'Your personal representative will have access to all documents and claims, but will not be able to view sensitive information.'
                   : 'They won’t be able to see documents or claims with sensitive information.'
               }
               selected={selectedData === 'Basic Access'}
@@ -152,6 +152,7 @@ export const EditLevelOfAccess = ({
         <FullAndBasicAccessOption
           isMaturedMinor={isMaturedMinor}
           accessType={selectedData}
+          memberName={memberName}
         />
       }
       buttonLabel="Save Permissions"
