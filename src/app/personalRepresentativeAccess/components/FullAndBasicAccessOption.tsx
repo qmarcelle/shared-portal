@@ -9,12 +9,14 @@ import { TextBox } from '@/components/foundation/TextBox';
 const FullAndBasicAccessOption = ({
   isMaturedMinor,
   accessType,
+  memberName,
 }: {
   isMaturedMinor?: boolean;
   accessType: string;
+  memberName?: string;
+  loggedInMemberName?: string;
 }) => {
-  const member = isMaturedMinor ? 'you' : 'Member';
-  const members = isMaturedMinor ? 'yours' : 'Member’s';
+  const members = isMaturedMinor ? 'yours' : 'the Member’s';
   const access = accessType?.charAt(0).toUpperCase() + accessType?.slice(1);
   const notBasic = accessType !== 'basic';
   return (
@@ -23,11 +25,12 @@ const FullAndBasicAccessOption = ({
         {isMaturedMinor && accessType == 'basic' ? (
           <>
             <Row className="body-1 text-center">
-              Grant Basic Access to Chris Hall
+              You’re changing access for:
             </Row>
-            <Spacer size={8} />
-            <Divider></Divider>
             <Spacer size={16} />
+            <TextBox className="body-1 font-bold" text="Mddison Hall " />
+            <Spacer size={32} />
+            <Divider />
             <Checkbox
               label=""
               body="I Agree. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -48,34 +51,36 @@ const FullAndBasicAccessOption = ({
           </>
         ) : (
           <>
-            <RichText
-              type="body-1"
-              spans={[
-                <span key={0}>Grant </span>,
-                <span className="font-bold" key={1}>
-                  {access} Access{' '}
-                </span>,
-                <span key={2}>to </span>,
-                <span className="font-bold" key={3}>
-                  Chris Hall{' '}
-                </span>,
-              ]}
-            />
+            <Row className="body-1 text-center">
+              {isMaturedMinor ? (
+                <RichText
+                  spans={[
+                    <span key={0} className="body-1  text-center">
+                      Granting{' '}
+                    </span>,
+                    <span key={1} className="font-bold">
+                      Full Access +{' '}
+                    </span>,
+                    <span key={2}>to</span>,
+                  ]}
+                />
+              ) : (
+                'You’re changing access for:'
+              )}
+            </Row>
             <Spacer size={16} />
-            <Divider></Divider>
+            <TextBox className="body-1 font-bold" text={memberName ?? ''} />
+            <Spacer size={32} />
+            <Divider />
             <Spacer size={32} />
             <span>
               <b>Member Name :</b>{' '}
-              {isMaturedMinor ? '[Mature Minor Name]' : '<Member Name>'}
+              {isMaturedMinor ? '[Mature Minor Name]' : 'Chris Hall'}
             </span>
             <Spacer size={32} />
-            <Row className="font-bold">
-              {`HIPAA Authorization for ${access} Portal Access ${
-                isMaturedMinor
-                  ? `and Interoperability
-              APIs`
-                  : ''
-              }`}
+            <Row className="font-bold text-center">
+              Authorization Form:{' '}
+              {isMaturedMinor ? 'Full Access +' : <>{access} Access</>}
             </Row>
 
             <Spacer size={16} />
@@ -84,62 +89,310 @@ const FullAndBasicAccessOption = ({
                 type="body-1"
                 spans={[
                   <span key={0}>
-                    {
-                      'You are asking BlueCross BlueShield of Tennessee to give your '
-                    }
+                    You are asking BlueCross BlueShield of Tennessee (BlueCross
+                    or BCBSTN), and the people and other companies who work with
+                    BlueCross, to give your Personal Representative and anyone
+                    they choose Full Access to all your health information,
+                    including your highly sensitive health information. Full
+                    Access means that we can share any information we have about
+                    you anywhere in our company with your Personal
+                    Representative and anyone they choose. Any part of our
+                    company can share your information, including our Member
+                    Portal, the BCBSTN mobile application, Member Services and
+                    our care coordinators, and we can share it in any way,
+                    including through phone, fax, email, and application
+                    programming interfaces (APIs). Your Personal Representative
+                    may use our interoperability services to share your
+                    information with anyone they choose, including third-party
+                    applications, health care providers, other health plans, and
+                    the people and companies who work with them. By clicking the
                   </span>,
-                  <span className="link font-bold" key={1}>
-                    <a>Personal Representative Full Access </a>
-                  </span>,
-                  <span key={2}>
-                    {' '}
-                    to all of your health information available in your member
-                    portal and through our interoperability application
-                    programming interfaces (APIs), including our
-                  </span>,
-                  <span className="link font-bold" key={3}>
-                    <a> Patient Access API </a>
-                  </span>,
-                  <span key={4}>and </span>,
-                  <span className="link font-bold" key={5}>
-                    {' '}
-                    <a> Payer-to-Payer API. </a>
-                  </span>,
-                  <span key={6}>
-                    This means that your Personal Representative will be able to
-                    access highly sensitive health information about you and to
-                    use our APIs to share your health information with other
-                    third parties through our APIs, such as any third-party
-                    application of your Personal Representative’s choosing or
-                    your other health plans.
-                  </span>,
+                  <>
+                    <span key={1} className="font-bold">
+                      {' "I Agree" '}
+                    </span>
+                    <span key={3}>
+                      {
+                        'button after reading this, you are electronically signing this authorization form.'
+                      }
+                    </span>
+                  </>,
                 ]}
               />
             ) : (
-              <TextBox
-                text={
-                  accessType === 'full'
-                    ? 'You are asking BlueCross BlueShield of Tennessee to give the person you have selected through your portal account Full Access to the selected Member’s health information. This means that this person will be able to access highly sensitive health information about the Member. To support compliance with state and federal privacy laws, you understand and acknowledge that if the Member is a minor who is over the age thirteen (13) years, BlueCross BlueShield of Tennessee requires that this authorization form be signed by both the Member and the Member’s personal representative'
-                    : 'You are asking BlueCross BlueShield of Tennessee to give the person you have selected through your portal account Basic Access to the selected Member’s health information. This means this person will be able to access basic health information about the Member.'
-                }
+              <RichText
+                type="body-1"
+                spans={[
+                  accessType === 'full' ? (
+                    <span key={0}>
+                      {`You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application ${access} Access to the selected Member’s health information, including highly sensitive health information. Full Access means that we can share any information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the`}
+                    </span>
+                  ) : (
+                    <>
+                      <span>
+                        {`You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application, ${access} Access to the selected Member’s health information. Basic Access means that we can share basic health information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the “I Agree” button after reading this, you are electronically signing this authorization form.`}
+                      </span>
+                      <span key={1} className="font-bold">
+                        {' "I Agree" '}
+                      </span>
+                    </>
+                  ),
+                  <span key={3}>
+                    {
+                      'button after reading this, you are electronically signing this authorization form.'
+                    }
+                  </span>,
+                ]}
               />
             )}
+            <Spacer size={16} />
+            <TextBox
+              className="body-1 font-bold text-center"
+              text="What Information is Being Used or Shared"
+            />
             <Spacer size={16} />
             <RichText
               type="body-1"
               spans={[
-                <span key={0}> By clicking the</span>,
+                <span key={0}>
+                  {' '}
+                  This person will be able to have {access} Access to all the
+                  Member’s health information. They will have access to private
+                  health details about the Member, including personal and
+                  contact information, health and medical details, insurance
+                  information, and social services the Member uses.
+                  {notBasic &&
+                    `The information they will have access to may
+                  reveal very sensitive health information about the Member,
+                  including information about the Member’s treatment or care for
+                  reproductive health (including family planning, contraception,
+                  miscarriage, abortion, maternity and infertility), substance
+                  use disorders (including drugs and alcohol), mental or
+                  behavioral health disorders, communicable diseases (including
+                  HIV/AIDS and sexually transmitted diseases/infections
+                  (STDs/STIs)), developmental or intellectual disabilities,
+                  genetic disorders (including genetic testing for such
+                  disorders and genetic history), abuse (including sexual,
+                  physical or mental), brain or other cognitive disorders, or
+                  other sensitive information. By clicking`}
+                </span>,
                 <span key={1} className="font-bold">
+                  {notBasic && ' "I Agree" '}
+                </span>,
+                <span key={2}>
+                  {notBasic &&
+                    ` you are specifically giving us permission to share this very
+                  sensitive health information with the person you have chosen
+                  through the Member Portal account or BCBSTN mobile
+                  application.`}
+                </span>,
+              ]}
+            />
+            <Spacer size={16} />
+            <TextBox
+              className="body-1 font-bold text-center"
+              text="Reasons the Information is Being Used or Shared"
+            />
+            <Spacer size={16} />
+            {isMaturedMinor ? (
+              <>
+                <TextBox text="We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to:" />
+                <Spacer size={16} />{' '}
+                <RichText
+                  type="body-1"
+                  spans={[
+                    <span key={0}>
+                      <ul className="list-outside list-disc pl-5">
+                        <li className="pb-2 marker:text-blue-500">
+                          Give you control over the use and redisclosure of your
+                          health information, including highly sensitive health
+                          information; and
+                        </li>
+                        <li className="pb-2 marker:text-blue-500">
+                          Give your Personal Representative the ability to use
+                          our interoperability services to share your highly
+                          sensitive health information with anyone they choose,
+                          without needing further authorization from you to do
+                          so.
+                        </li>
+                      </ul>
+                    </span>,
+                  ]}
+                />
+                <Spacer size={16} />
+                <TextBox text="Other reasons include support for treatment, payment, and health care operations activities, including care coordination among your care team and with family members, friends, and others involved in your care." />
+              </>
+            ) : (
+              <TextBox text="We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to support the Member’s or their Personal Representative’s right to access and direct the sharing of the Member’s health information. Other reasons include support for treatment, payment, and health care operations activities, including care coordination among the Member’s care team and with family members, friends, and others involved in care." />
+            )}
+
+            <Spacer size={16} />
+
+            {notBasic && (
+              <>
+                <TextBox
+                  className="body-1 font-bold"
+                  text="Special Information about SUD Records"
+                />
+                <Spacer size={16} />
+                {isMaturedMinor ? (
+                  <TextBox text="If your health information includes substance use disorder (SUD) records that might be protected by a federal law found at 42 U.S.C. § 290dd-2 and 42 C.F.R. Part 2 (called Part 2), special rules apply. Specifically:" />
+                ) : (
+                  <TextBox text="If the Member’s health information includes substance use disorder (SUD) records that might be protected by a federal law found at 42 U.S.C. § 290dd-2 and 42 C.F.R. Part 2 (called Part 2), special rules apply. Specifically:" />
+                )}
+                <Spacer size={16} />
+                <RichText
+                  type="body-1"
+                  spans={[
+                    <span key={0}>
+                      <ul className="list-outside list-disc pl-5">
+                        <li className="pb-2 marker:text-blue-500">
+                          SUD records disclosed for treatment, payment, and
+                          health care operations purposes with anyone regulated
+                          by the Health Information Portability and
+                          Accountability Act and its implementing regulations
+                          (called HIPAA), may be redisclosed by them for any
+                          purpose permitted by HIPAA, except that SUD records
+                          cannot be used in civil, criminal, administrative, or
+                          legislative proceedings against the Member.
+                        </li>
+                        <li className="pb-2 marker:text-blue-500">
+                          Due to current technical and data segmentation
+                          infeasibility issues, we cannot separate specially
+                          protected SUD records from other information. That
+                          means we follow the more stringent Part 2 rules when
+                          it comes to our Member Portal and BCBSTN mobile
+                          application.
+                        </li>
+                        <li className="pb-2 marker:text-blue-500">
+                          42 CFR Part 2 prohibits unauthorized use or disclosure
+                          of these records.
+                        </li>
+                      </ul>
+                    </span>,
+                  ]}
+                />
+                <Spacer size={16} />
+              </>
+            )}
+            <TextBox
+              className="body-1 font-bold text-center"
+              text="Expiration"
+            />
+
+            <Spacer size={16} />
+            <TextBox text="This authorization will remain in effect until one of the following events happen:" />
+            <RichText
+              type="body-1"
+              spans={[
+                <span key={0}>
+                  <ul className="list-outside list-disc pl-5">
+                    <li className="pb-2 marker:text-blue-500">
+                      <span>
+                        You tell us in writing that you want to cancel it.
+                      </span>
+                    </li>
+                    {isMaturedMinor ? (
+                      <li className="pb-2 marker:text-blue-500">
+                        <TextBox text="When you turn 18 years old." />
+                      </li>
+                    ) : (
+                      <li className="pb-2 marker:text-blue-500">
+                        <TextBox text="Either:" />
+                        <span>(a) Three years from the date you click</span>
+                        <span key={2} className="font-bold">
+                          {' "I Agree" '}
+                        </span>
+                        ,{' '}
+                        <span>
+                          if the Member is at least 18 years old when you
+                          electronically sign this form, or
+                        </span>
+                        <TextBox text="(b) When the Member turns 18 years old, if the Member is between the age of 13 and 17 years old when you electronically sign this form." />
+                      </li>
+                    )}
+                    {isMaturedMinor}
+                    <li className="pb-2 marker:text-blue-500">
+                      <span>
+                        We may cancel this authorization either in its entirety
+                        or with respect to certain persons as explained in the
+                        User Agreement for our Member Portal or BCBSTN mobile
+                        application, such as if we learn that account
+                        credentials have been misused {!isMaturedMinor && '.'}
+                        {isMaturedMinor &&
+                          'or if a third-party application poses an unacceptable security risk to our systems.'}
+                      </span>
+                    </li>
+                  </ul>
+                </span>,
+              ]}
+            />
+            <Spacer size={16} />
+            <TextBox
+              className="body-1 font-bold text-center"
+              text="Acknowledgments & Signature"
+            />
+            <Spacer size={16} />
+            <RichText
+              spans={[
+                <span key={0} className="body-1 font-bold text-center">
+                  Signing this form is voluntary.{' '}
+                </span>,
+                <span key={1}>
+                  BlueCross will not condition treatment, payment, enrollment,
+                  or eligibility for benefits on whether you sign this form. By
+                  clicking
+                </span>,
+                <span key={2} className="font-bold">
                   {' "I Agree" '}
                 </span>,
-                <span key={3}>
-                  {`button after reading this, you authorize BlueCross BlueShield of
-                Tennessee to share the following health information about ${
-                  isMaturedMinor
-                    ? `you with your Personal Representative and any people, companies or
-                other third parties authorized by your Personal Representative`
-                    : 'the Member with this person'
-                },if we maintain it:`}
+                <span key={3}>you are electronically signing this form.</span>,
+              ]}
+            />
+            <Spacer size={16} />
+            {isMaturedMinor ? (
+              <RichText
+                spans={[
+                  <span key={0} className="body-1 font-bold text-center">
+                    If you don’t click “I Agree,”{' '}
+                  </span>,
+                  <span key={1}>
+                    we may not be able to give your Personal Representative Full
+                    Access to your Member Portal or the BCBSTN mobile
+                    application, and your Personal Representative may not be
+                    able to use our related interoperability services. If you
+                    don’t sign, your Personal Representative will continue to
+                    have Basic Access to your health information in accordance
+                    with the laws that apply to BlueCross.
+                  </span>,
+                ]}
+              />
+            ) : (
+              <RichText
+                spans={[
+                  <span key={0} className="body-1 font-bold text-center">
+                    If you don’t click “I Agree,”{' '}
+                  </span>,
+                  <span key={1}>
+                    we may not be able to give the person you have selected
+                    access to the Member Portal or BCBSTN mobile application for
+                    this Member or to the information.
+                  </span>,
+                ]}
+              />
+            )}
+
+            <Spacer size={16} />
+            <RichText
+              spans={[
+                <span key={0} className="body-1  text-center">
+                  If you click
+                </span>,
+                <span key={2} className="font-bold">
+                  {' "I Agree" '}
+                </span>,
+                <span key={3} className="body-1  text-center">
+                  you are confirming all of the following:
                 </span>,
               ]}
             />
@@ -150,237 +403,56 @@ const FullAndBasicAccessOption = ({
                 <span key={0}>
                   <ul className="list-outside list-disc pl-5">
                     <li className="pb-2 marker:text-blue-500">
-                      Demographic and contact information related to you and
-                      your family;
+                      <span className="font-bold">
+                        You understand this form.
+                      </span>
+                      <span>
+                        You have read this form, and you are giving us your
+                        permission to use and share the Member’s health
+                        information as described in this form.
+                      </span>
                     </li>
                     <li className="pb-2 marker:text-blue-500">
-                      Your claims and encounter data, including cost
-                      information; and
+                      <span className="font-bold">
+                        You may cancel at any time.{' '}
+                      </span>
+                      <span>
+                        You may cancel the permission to use and share the
+                        Member’s information by telling us in writing. Send your
+                        written cancellation to BlueCross BlueShield of
+                        Tennessee, Inc., 1 Cameron Hill Circle, Chattanooga,
+                        Tennessee 37402. We will honor your cancellation, except
+                        to the extent we have already acted in reliance on it.
+                      </span>
                     </li>
                     <li className="pb-2 marker:text-blue-500">
-                      Certain clinical data, such as allergies and intolerances,
-                      assessments and plans of treatment, care team members,
-                      clinical notes, clinical tests, diagnostic imaging,
-                      encounter information, goals, health insurance
-                      information, health status assessments, immunizations,
-                      laboratory tests and results, medications, problems,
-                      procedures, provenance, unique device identifiers for
-                      implantable devices, and vital signs.
+                      <span className="font-bold">
+                        The Member’s information may be shared again.{' '}
+                      </span>
+                      <span>
+                        If we share the Member’s information (including SUD
+                        Records) with a person that is not subject to federal
+                        health privacy laws (like HIPAA or Part 2), they may
+                        reshare the Member’s health information, and it may not
+                        be protected by federal privacy laws anymore.
+                      </span>
+                    </li>
+                    <li className="pb-2 marker:text-blue-500">
+                      <span className="font-bold">
+                        You may have a copy of this form.{' '}
+                      </span>
+                      <span>
+                        You have the right to receive a copy of this form after
+                        you sign it. Send us a request in writing at the address
+                        above if you did not keep a copy.
+                      </span>
                     </li>
                   </ul>
                 </span>,
               ]}
             />
             <Spacer size={16} />
-            {notBasic && (
-              <>
-                <span key={0} className="block">
-                  {`The information they will have access to may reveal highly
-                sensitive health information about ${member}, including information
-                about ${members} treatment or care for reproductive health (e.g.,
-                family planning, contraception, miscarriage, abortion,
-                maternity, infertility), substance use disorders (e.g., drugs
-                and alcohol), mental or behavioral health disorders, HIV/AIDS,
-                sexually transmitted diseases (STDs), communicable diseases,
-                developmental or intellectual disabilities, genetic disorders,
-                (including genetic testing for such disorders and genetic
-                history), abuse (e.g., sexual, physical or mental), brain or
-                other cognitive disorders, or other sensitive information. By
-                clicking on the “I AGREE” button you are specifically
-                authorizing the disclosure of this highly sensitive health
-                information.`}
-                </span>
-                <Spacer size={16} />
-              </>
-            )}
-            <RichText
-              type="body-1"
-              spans={[
-                <span key={1} className="!block mb-4">
-                  {`We are making this disclosure at your request, with your
-                approval and at your direction. ${
-                  isMaturedMinor
-                    ? `The 
-                intended purposes of the use and disclosure of your health information, 
-                including your highly sensitive health information, are`
-                    : 'You may be asking us to make this disclosure in order'
-                } to:`}
-                </span>,
-                <span key={3} className="inline-block mb-4">
-                  <ul className="list-disc list-outside pl-5">
-                    {isMaturedMinor ? (
-                      <>
-                        <li className="pb-2 marker:text-blue-500">
-                          Give you control over the use and redisclosure of your
-                          health information, including highly sensitive health
-                          information;
-                        </li>
-                        <li className="pb-2 marker:text-blue-500">
-                          Give your Personal Representative the ability to use
-                          our interoperability APIs to disclose your highly
-                          sensitive health information to other people,
-                          companies and third parties authorized by your
-                          Personal Representative without needing further
-                          authorization from you to do so; and
-                        </li>
-                        <li className="pb-2 marker:text-blue-500">
-                          Support treatment, payment and certain health care
-                          operations activities, including care coordination and
-                          case management among your care team, including family
-                          members, friends and others involved in your care.
-                        </li>
-                      </>
-                    ) : (
-                      <>
-                        <li className="pb-2 marker:text-blue-500">
-                          Support the person’s involvement in the Member’s care
-                          or payment for that care; or
-                        </li>
-                        <li className="pb-2 marker:text-blue-500">
-                          Support treatment, payment and certain health care
-                          operations activities, including care coordination and
-                          case management among the Member’s care team.
-                        </li>
-                      </>
-                    )}
-                  </ul>
-                </span>,
-                <span key={4} className="!block mb-4 pt-2">
-                  {`You acknowledge that ${isMaturedMinor ? 'your Personal Representative' : 'this person'}
-                 and the people, companies and other third parties that they ${
-                   isMaturedMinor
-                     ? 'authorize to receive your health information '
-                     : 'may to choose to share Member’s information after they receive it,'
-                 }
-                may not be subject to state or
-                federal health information privacy laws, such as the federal
-                Health Information Portability and Accountability Act and its
-                implementing regulations (collectively, called “HIPAA”) ${
-                  notBasic
-                    ? `, 42
-                U.S.C. § 290dd-2 and its implementing regulations at 42 CFR Part
-                2 (collectively, called “Part 2”) for certain substance use
-                disorder records, or state health information confidentiality
-                laws. If your Personal Representative or someone that they have
-                authorized to have access to your Part 2 substance use disorder
-                records is a HIPAA covered entity or business associate
-                (collectively, called a “HIPAA-regulated entity”) that is
-                receiving your records to support treatment, payment or health
-                care operations activities, the HIPAA-regulated entity recipient
-                may redisclose those substance use disorder records for any
-                purpose permitted by HIPAA, except for uses and disclosures for
-                civil, criminal, administrative, and legislative proceedings
-                against ${member}.`
-                    : '.'
-                }`}
-                </span>,
-                <span key={5} className="inline-block pt-4">
-                  This authorization for the release of your health information
-                  is voluntary. This authorization will remain in effect until
-                  one of the following events happen:
-                </span>,
-                <span key={6} className="inline-block mb-4">
-                  <ul className="list-outside list-disc pl-4 pt-4">
-                    {accessType === 'full' && !isMaturedMinor && (
-                      <li className="mb-2 marker:text-blue-500">
-                        <RichText
-                          type="body-1"
-                          spans={[
-                            <span key={0}>
-                              {
-                                'This authorization expires one (1) year from the date you click the'
-                              }
-                            </span>,
-                            <span key={1} className="font-bold">
-                              {' "I Agree" '}
-                            </span>,
-                            <span key={3}>{'button.'}</span>,
-                          ]}
-                        />
-                      </li>
-                    )}
-                    <li className="mb-2 marker:text-blue-500">
-                      {'It is revoked (taken back).'}
-                    </li>
-                    {(isMaturedMinor || accessType === 'basic') && (
-                      <li className="mb-2 marker:text-blue-500">
-                        XX calendar days after the last time you access your
-                        portal account. You understand that every time you
-                        access your portal account, you reaffirm this
-                        authorization and the xx-day clock starts again. If you
-                        do not access your portal account for more than xx-days,
-                        you will be asked to agree to a new authorization.
-                      </li>
-                    )}
-                    <li className="mb-2 marker:text-blue-500">
-                      {`We reasonably determine that allowing 
-                    ${
-                      isMaturedMinor
-                        ? `the user you have
-                    designated as your Personal Representative to link to`
-                        : `the person you have designated to have ${access} Access 
-                    to the`
-                    } ${members} 
-                    ${
-                      isMaturedMinor
-                        ? ' account through our portal and APIs would '
-                        : ' health information '
-                    }present an
-                    unacceptable security risk.`}
-                    </li>
-                    <li className="mb-2 marker:text-blue-500">
-                      As otherwise provided for in this authorization or our
-                      User Agreement, such as if we learn that account
-                      credentials have been misused.
-                    </li>
-                  </ul>
-                </span>,
-                <span key={7} className="mb-4 pt-4">
-                  You understand that BlueCross BlueShield of Tennessee will not
-                  condition the provision of treatment, payment for treatment,
-                  enrollment in a health plan, or eligibility for benefits on
-                  your agreement to this authorization. You may take back this
-                  authorization in writing at any time, except to the extent the
-                  information has already been disclosed in reliance on this
-                  authorization. You may take back this authorization by sending
-                  a request to us the Contact Us page on bcbst.com or by sending
-                  us your written cancellation to BlueCross BlueShield of
-                  Tennessee, Privacy; 1 Cameron Hill Circle; Building 1, 5th
-                  Floor; Chattanooga, Tennessee 37402. If you decide to take
-                  back this authorization, it will not affect any disclosure
-                  BlueCross BlueShield made in reliance on this authorization
-                  before the cancellation.
-                </span>,
-              ]}
-            />
-            {notBasic && (
-              <RichText
-                spans={[
-                  <span key={0} className="!block mb-4 pt-4">
-                    {isMaturedMinor
-                      ? `Please note that your Personal Representative will not have Full
-                Access to your health information or the ability to use our APIs
-                to disclose your information to other people, companies or third
-                parties if you do not sign this authorization. If you do not
-                sign this authorization, your Personal Representative will
-                continue to have Basic Access to your health information in
-                accordance with the laws that apply to BlueCross BlueShield of
-                Tennessee.`
-                      : `Please note that the person you selected will not have Full Access to
-                 the Member’s health information if you do not sign this authorization.`}
-                  </span>,
-                  <span key={1} className="font-bold">
-                    Notice To Recipient of Substance Use Disorder Records:
-                  </span>,
-                  <span key={2}>
-                    {` 42 CFR Part 2 prohibits unauthorized use or disclosure of these
-                records.`}
-                  </span>,
-                ]}
-              />
-            )}
-            <Spacer size={16} />
-            <Divider></Divider>
+            <Divider />
             <Spacer size={16} />
             <Checkbox
               label=""
@@ -391,18 +463,24 @@ const FullAndBasicAccessOption = ({
                       I Agree.
                     </span>,
                     <span key={1}>
-                      {` Clicking “I Agree” means that you have read, understand, and
-                    agree to this authorization. You are giving your permission
-                    for BlueCross BlueShield of Tennessee to give ${
-                      isMaturedMinor
-                        ? `your Personal Representative, and any person, company or other third party
-                    authorized by your Personal Representative, access`
-                        : `
-                    this person ${access} Access`
-                    } to ${members}
-                    health information, including your highly sensitive health
-                    information. You understand that you can contact BlueCross
-                    BlueShield of Tennessee for a copy of this authorization.`}
+                      Clicking “I Agree” means that you have read, understand,
+                      and agree to this authorization. You are giving your
+                      permission for BlueCross to give{' '}
+                      {isMaturedMinor ? (
+                        <>
+                          your Personal Representative, and anyone they choose{' '}
+                          <span className="font-bold">{access} Access</span>
+                        </>
+                      ) : (
+                        <>
+                          this person{' '}
+                          <span className="font-bold">{access} Access</span>
+                        </>
+                      )}{' '}
+                      to {members} health information{!notBasic ? '.' : ','}{' '}
+                      {notBasic
+                        ? ' including the Member’s highly sensitive health information.'
+                        : ''}
                     </span>,
                   ]}
                 />

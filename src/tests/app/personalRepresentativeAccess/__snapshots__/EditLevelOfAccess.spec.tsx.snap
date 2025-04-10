@@ -49,7 +49,7 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
             >
               <label>
                 <input
-                  aria-label="Full Access"
+                  aria-label="Full Access +"
                   id=""
                   name=""
                   type="radio"
@@ -61,10 +61,10 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
                 <p
                   class="font-bold"
                 >
-                  Full Access
+                  Full Access +
                 </p>
                 <p>
-                  Your Representative will have access to all documents and claims, even those with sensitive information
+                  Your personal representative and anyone they choose will have access to all documents and claims, even those with sensitive information.
                 </p>
               </div>
             </div>
@@ -91,7 +91,7 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
                   Basic Access
                 </p>
                 <p>
-                  Your Representative will have access to all documents and claims, but will not be able to view sensitive information
+                  Your personal representative will have access to all documents and claims, but will not be able to view sensitive information.
                 </p>
               </div>
             </div>
