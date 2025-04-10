@@ -12,8 +12,8 @@ import {
 } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import amplifyHealthAdvisorsGroup from '@/public/assets/amplify_health_advisors_group.png';
 import Image from 'next/image';
+import amplifyHealthAdvisorsGroup from '../../../public/assets/amplify_health_advisors_group.png';
 import { ResourceMiniCard } from '../support/components/ResourceMiniCard';
 import { AmplifyAdvisors } from './components/AmplifyAdvisors';
 import { AmplifyHealthAppInformation } from './components/AmplifyHealthAppInformation';

@@ -2,11 +2,18 @@
 
 import { logger } from '@/utils/logger';
 import React, { Component, ErrorInfo } from 'react';
-import {
-  ChatError,
-  ChatErrorBoundaryProps,
-  ChatErrorBoundaryState,
-} from '../../models/errors';
+import { ChatError } from '../../types';
+
+interface ChatErrorBoundaryProps {
+  children: React.ReactNode;
+  onError?: (error: ChatError, errorInfo?: ErrorInfo) => void;
+  onReset?: () => void;
+  fallback?: React.ReactElement;
+}
+
+interface ChatErrorBoundaryState {
+  error: ChatError | null;
+}
 
 interface ErrorFallbackProps {
   error: ChatError;

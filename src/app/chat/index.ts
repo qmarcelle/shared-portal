@@ -1,18 +1,22 @@
 // Main chat widget component
-export { ChatWidget } from './components/core/ChatWidget';
+export { ChatWidget } from './components/ChatWidget';
 
 // Types
-export type { ChatWidgetProps } from './components/core/ChatWidget';
-export type { ChatError } from './types/errors';
-export type { ChatMessage, ChatPlan, ChatSession } from './types/types';
+export type {
+  ChatError,
+  ChatMessage,
+  ChatServiceConfig,
+  ChatSession,
+} from './types';
 
 // Hooks
 export { useChat } from './hooks/useChat';
-export { useChatStore } from './stores/chatStore';
-
-// Configuration
-export { ENV_CONFIG, FEATURES, chatConfig } from './config';
+export type { UseChatOptions } from './hooks/useChat';
+export { useChatService } from './hooks/useChatService';
 
 // Services
-export { ChatAuthService } from './services/ChatAuthService';
 export { ChatService } from './services/ChatService';
+
+// Configuration
+export { getGenesysConfig } from './config/genesys.config';
+export type { ChatConfig } from './schemas/config';

@@ -33,9 +33,23 @@ export async function invokeSmartSearch(
       '/smartSearch/suggestion',
       smartSearchRequest,
     );
+
+    if (!resp.data?.data) {
+      throw new Error('No data received from smart search API');
+    }
+
+    const responseData = resp.data.data;
+    const suggestionResponse = (
+      responseData as unknown as { suggestionResponse: string }
+    ).suggestionResponse;
+
+    if (!suggestionResponse) {
+      throw new Error('Invalid response format from smart search API');
+    }
+
     return {
       status: 200,
-      data: JSON.parse(resp.data!.data!.suggestionResponse),
+      data: JSON.parse(suggestionResponse) as SmartSearchSuggestionResponse,
     };
   } catch (error) {
     logger.error('Smart Search API - Failure', error);

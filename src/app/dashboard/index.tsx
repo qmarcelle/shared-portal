@@ -1,6 +1,5 @@
 'use client';
 
-import { DashboardChatWidget } from '@/app/chat/components/DashboardChatWidget';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -86,9 +85,6 @@ const Dashboard = ({ data }: DashboardProps) => {
       ) : (
         <NonMemberDashboard profiles={data.profiles!} />
       )}
-
-      {/* Add chat widget for authenticated members */}
-      {data.role === UserRole.MEMBER && <DashboardChatWidget />}
     </div>
   );
 };
