@@ -1,12 +1,12 @@
 'use server';
 
-import { portalSvcsApi } from '@/utils/api/portalApi';
-
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
-import { ActionResponse } from '@/models/app/actionResponse';
+import { ESResponse } from '@/models/enterprise/esResponse';
 import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { getDateTwoYearsAgo } from '@/utils/api/date';
+import { esApi } from '@/utils/api/esApi';
+import { logger } from '@/utils/logger';
 import { DocumentListMockResp } from '../mock/documentListMockResp';
 import { GetDocumentMockResp } from '../mock/getDocumentMockResp';
 import {
@@ -15,7 +15,7 @@ import {
 } from '../models/api/document';
 
 export async function getDocumentsList(): Promise<
-  ActionResponse<number, IDocumentMetadataListResponse>
+  ESResponse<IDocumentMetadataListResponse>
 > {
   try {
     const fromDate: string = getDateTwoYearsAgo();
@@ -30,17 +30,15 @@ export async function getDocumentsList(): Promise<
       return `${loggedInMemberInfo.subscriberID}0${member.memberSuffix}`;
     });
     const memberIdsUrl: string = ids.map((id: string) => `${id}`).join('|');
-    const response = await portalSvcsApi.get<IDocumentMetadataListResponse>(
+    const response = await esApi.get<IDocumentMetadataListResponse>(
       `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}?memberId=${memberIdsUrl}&groupId=${groupId}&fromDate=${fromDate}`,
     );
-
+    logger.info('DocumentsList Status Api Response', response);
     return {
-      status: 200,
       data: response.data,
     };
   } catch (err) {
     return {
-      status: 400,
       data: DocumentListMockResp,
     };
   }
@@ -49,19 +47,17 @@ export async function getDocumentsList(): Promise<
 export async function getDocumentFileInfo(
   documentId: string,
   taskSequenceNumber: string,
-): Promise<ActionResponse<number, IDocumentFile>> {
+): Promise<ESResponse<IDocumentFile>> {
   try {
-    const response = await portalSvcsApi.get<IDocumentFile>(
+    const response = await esApi.get<IDocumentFile>(
       `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}:${documentId}?taskSequenceNumber=${taskSequenceNumber}`,
     );
-
+    logger.info('DocumentsFile Status Api Response', response);
     return {
-      status: 200,
       data: response.data,
     };
   } catch (err) {
     return {
-      status: 400,
       data: GetDocumentMockResp,
     };
   }
