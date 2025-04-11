@@ -1,12 +1,12 @@
+import { redirect } from 'next/navigation';
 import {
   BenefitsSection,
   DependentsSection,
   PersonalInfoSection,
   ReviewSection,
   SpecialEnrollmentSection,
-  TerminatePolicySection
-} from '@/components/insurance-form/form-sections';
-import { redirect } from 'next/navigation';
+  TerminatePolicySection,
+} from '../components/form-sections';
 
 // Define valid steps
 const VALID_STEPS = [
@@ -15,17 +15,17 @@ const VALID_STEPS = [
   'benefits',
   'special-enrollment',
   'terminate-policy',
-  'review'
+  'review',
 ];
 
 export default function StepPage({ params }: { params: { step: string } }) {
   const { step } = params;
-  
+
   // Validate step parameter
   if (!VALID_STEPS.includes(step)) {
     redirect('/insurance/change-form');
   }
-  
+
   // Render the appropriate component based on step
   return (
     <>
