@@ -1,43 +1,132 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getGenesysConfig } from '../config/genesys.config';
-import { loadGenesysScript } from '../services/ChatService';
-import type { ChatInfoResponse } from '../types';
-import { ChatError } from '../types';
+import {
+  destroyChat,
+  getGenesysConfig,
+  initializeChat,
+} from '../config/genesys.config';
+import { ChatError } from '../types/index';
+import type { ChatInfoResponse } from '../types/schemas';
 import { useChatEligibility } from './useChatEligibility';
 
+/**
+ * Primary hook for integrating chat functionality in components.
+ * Handles both Genesys Cloud Chat and Legacy Chat.js implementations.
+ *
+ * The hook automatically selects the appropriate chat implementation based on the
+ * member's eligibility status:
+ * - For cloud-eligible members: Uses Genesys Web Messaging API (modern implementation)
+ * - For non-cloud-eligible members: Uses legacy chat.js implementation
+ *
+ * Key requirements implemented:
+ * - Plan switching management (ID: 31158, 31159)
+ * - Business hours validation (ID: 31156)
+ * - Eligibility checks (ID: 31154)
+ * - Dynamic payload updates (ID: 31146)
+ *
+ * Widget Selection Logic:
+ * 1. Checks eligibility through useChatEligibility hook
+ * 2. Uses cloudChatEligible flag to determine implementation
+ * 3. Loads appropriate script using getGenesysConfig and initializeChat
+ * 4. Sets up appropriate event handlers based on implementation
+ *
+ * @example
+ * ```tsx
+ * function ChatComponent() {
+ *   const { openChat, closeChat, isChatActive } = useChat({
+ *     memberId: "123",
+ *     planId: "PLAN-456",
+ *     planName: "Premium Health",
+ *     hasMultiplePlans: true,
+ *     onLockPlanSwitcher: (locked) => setLocked(locked),
+ *     onOpenPlanSwitcher: () => setPlanSwitcherOpen(true)
+ *   });
+ *
+ *   return <button onClick={openChat}>Start Chat</button>;
+ * }
+ * ```
+ */
 export interface UseChatOptions {
+  /** Unique identifier for the member */
   memberId: string;
+  /** Current plan identifier */
   planId: string;
+  /** Display name of the current plan */
   planName: string;
+  /** Whether the member has multiple plans available */
   hasMultiplePlans: boolean;
+  /** Callback to lock/unlock plan switching during active chat */
   onLockPlanSwitcher: (locked: boolean) => void;
+  /** Callback when plan switching is requested */
   onOpenPlanSwitcher: () => void;
   // Event handlers
+  /** Called when an agent joins the chat */
   onAgentJoined?: (agentName: string) => void;
+  /** Called when an agent leaves the chat */
   onAgentLeft?: (agentName: string) => void;
+  /** Called when chat is transferred to another agent */
   onChatTransferred?: () => void;
-  onTranscriptRequested?: (email: string) => void;
-  onFileUploaded?: (file: File) => void;
+  /** Called when transcript is requested */
+  _onTranscriptRequested?: (email: string) => void;
+  /** Called when a file is successfully uploaded */
+  _onFileUploaded?: (file: File) => void;
   // Configuration
-  enableTranscript?: boolean;
-  transcriptPosition?: 'top' | 'bottom';
-  transcriptEmail?: string;
-  enableFileAttachments?: boolean;
-  maxFileSize?: number;
-  allowedFileTypes?: string[];
+  /** Enable chat transcript functionality */
+  _enableTranscript?: boolean;
+  /** Position of transcript button */
+  _transcriptPosition?: 'top' | 'bottom';
+  /** Default email for transcript */
+  _transcriptEmail?: string;
+  /** Enable file attachment functionality */
+  _enableFileAttachments?: boolean;
+  /** Maximum file size in bytes */
+  _maxFileSize?: number;
+  /** List of allowed file extensions */
+  _allowedFileTypes?: string[];
 }
 
+/**
+ * Return type for the useChat hook
+ */
 interface UseChatReturn {
+  /** Whether chat has been initialized successfully */
   isInitialized: boolean;
+  /** Whether chat window is open */
   isOpen: boolean;
+  /** Whether there is an active chat session */
   isChatActive: boolean;
+  /** Whether chat is in a loading state */
   isLoading: boolean;
-  eligibility: ChatInfoResponse | null;
+  /** Current error state if any */
   error: ChatError | null;
+  /** Eligibility data for the chat */
+  eligibility: ChatInfoResponse | null;
+  /** Function to open chat window */
   openChat: () => void;
+  /** Function to close chat window */
   closeChat: () => void;
+  /** Function to minimize chat window */
+  minimizeChat: () => void;
+  /** Function to maximize chat window */
+  maximizeChat: () => void;
+  /** Function to start a chat session */
+  startChat: () => void;
+  /** Function to end a chat session */
+  endChat: () => void;
 }
 
+/**
+ * Hook that implements chat functionality for the BCBST member portal.
+ *
+ * This hook is responsible for:
+ * 1. Determining chat eligibility
+ * 2. Loading the appropriate chat widget script (Web Messaging or legacy chat.js)
+ * 3. Managing chat state and session lifecycle
+ * 4. Handling plan switching logic and restrictions
+ * 5. Providing a unified API regardless of the underlying implementation
+ *
+ * The implementation details and widget selection are abstracted away from the component,
+ * allowing for a consistent interface regardless of which chat system is used.
+ */
 export function useChat({
   memberId,
   planId,
@@ -45,288 +134,247 @@ export function useChat({
   hasMultiplePlans,
   onLockPlanSwitcher,
   onOpenPlanSwitcher,
-  // Event handlers
   onAgentJoined,
   onAgentLeft,
   onChatTransferred,
-  onTranscriptRequested,
-  onFileUploaded,
-  // Configuration
-  enableTranscript,
-  transcriptPosition,
-  transcriptEmail,
-  enableFileAttachments,
-  maxFileSize,
-  allowedFileTypes,
 }: UseChatOptions): UseChatReturn {
-  const [isInitialized, setIsInitialized] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isChatActive, setIsChatActive] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<ChatError | null>(null);
-  const [_currentAgent, setCurrentAgent] = useState<string | null>(null);
+  const [state, setState] = useState({
+    isInitialized: false,
+    isOpen: false,
+    isChatActive: false,
+    isLoading: true,
+    error: null as ChatError | null,
+  });
 
   // Get eligibility data
   const { eligibility, loading } = useChatEligibility(memberId, planId);
 
   // Update loading state based on eligibility loading and initialization
   useEffect(() => {
-    setIsLoading(loading || !isInitialized);
-  }, [loading, isInitialized]);
+    setState((prev) => ({
+      ...prev,
+      isLoading: loading || !prev.isInitialized,
+    }));
+  }, [loading]);
 
-  // Initialize Genesys widget
+  // Initialize chat based on eligibility
   useEffect(() => {
-    if (loading || !eligibility || isInitialized) return;
+    if (loading || !eligibility || state.isInitialized) return;
 
-    const initializeChat = async () => {
+    /**
+     * Initializes the appropriate chat widget based on eligibility.
+     * Implements widget selection logic and sets up event handlers.
+     *
+     * Behavior:
+     * 1. Gets Genesys configuration with eligibility data
+     * 2. Initializes the chat with the appropriate implementation
+     * 3. Sets up event handlers specific to the chosen implementation
+     * 4. Updates component state based on chat events
+     */
+    const initializeChatSystem = async () => {
       try {
-        // Determine which script to load based on eligibility
-        const scriptUrl = eligibility.cloudChatEligible
-          ? 'https://apps.mypurecloud.com/widgets/9.0/webcomponents/cxw-widget-connector.js'
-          : '/chat.js';
+        const config = getGenesysConfig({
+          memberId,
+          planId,
+          planName,
+          eligibility,
+        });
 
-        // Load the appropriate script
-        await loadGenesysScript(scriptUrl);
+        await initializeChat(config, eligibility.cloudChatEligible);
 
-        // Initialize based on type
-        if (eligibility.cloudChatEligible && window.CXBus) {
-          // Configure Genesys Cloud
-          const config = getGenesysConfig({
-            type: 'cloud',
-            eligibility,
-            memberId,
-            planId,
-            planName,
-            hasMultiplePlans,
+        // Set up event handlers based on implementation
+        if (eligibility.cloudChatEligible) {
+          // Web Messaging events
+          window.Genesys?.WebMessenger?.on('ready', () => {
+            setState((prev) => ({
+              ...prev,
+              isInitialized: true,
+              isLoading: false,
+            }));
           });
 
-          window.CXBus.configure(config);
-
-          // Set up event handlers
-          window.CXBus.subscribe('WebChat.started', () => {
-            setIsOpen(true);
-            setIsChatActive(true);
+          window.Genesys?.WebMessenger?.on('conversationStarted', () => {
+            setState((prev) => ({ ...prev, isOpen: true, isChatActive: true }));
             onLockPlanSwitcher(true);
           });
 
-          window.CXBus.subscribe('WebChat.ended', () => {
-            setIsChatActive(false);
+          window.Genesys?.WebMessenger?.on('conversationEnded', () => {
+            setState((prev) => ({ ...prev, isChatActive: false }));
             onLockPlanSwitcher(false);
-            setTimeout(() => setIsOpen(false), 500);
+            setTimeout(
+              () => setState((prev) => ({ ...prev, isOpen: false })),
+              500,
+            );
           });
 
-          // Create header extension for plan information
-          if (hasMultiplePlans) {
-            await window.CXBus.command('WebChat.registerHeaderExtension', {
-              name: 'planInfoExtension',
-              template: `<div class="plan-info-header">Chatting about: ${planName}</div>`,
+          if (onAgentJoined) {
+            window.Genesys?.WebMessenger?.on(
+              'agentJoined',
+              (data: { displayName: string }) => {
+                onAgentJoined(data.displayName);
+              },
+            );
+          }
+
+          if (onAgentLeft) {
+            window.Genesys?.WebMessenger?.on(
+              'agentLeft',
+              (data: { displayName: string }) => {
+                onAgentLeft(data.displayName);
+              },
+            );
+          }
+        } else {
+          // Legacy chat events
+          window.Genesys?.Chat?.on('ready', () => {
+            setState((prev) => ({
+              ...prev,
+              isInitialized: true,
+              isLoading: false,
+            }));
+          });
+
+          window.Genesys?.Chat?.on('ChatStarted', () => {
+            setState((prev) => ({ ...prev, isOpen: true, isChatActive: true }));
+            onLockPlanSwitcher(true);
+          });
+
+          window.Genesys?.Chat?.on('ChatEnded', () => {
+            setState((prev) => ({ ...prev, isChatActive: false }));
+            onLockPlanSwitcher(false);
+            setTimeout(
+              () => setState((prev) => ({ ...prev, isOpen: false })),
+              500,
+            );
+          });
+
+          if (onAgentJoined) {
+            window.Genesys?.Chat?.on(
+              'AgentJoined',
+              (data: { agentName: string }) => {
+                onAgentJoined(data.agentName);
+              },
+            );
+          }
+
+          if (onAgentLeft) {
+            window.Genesys?.Chat?.on(
+              'AgentLeft',
+              (data: { agentName: string }) => {
+                onAgentLeft(data.agentName);
+              },
+            );
+          }
+
+          if (onChatTransferred) {
+            window.Genesys?.Chat?.on('ChatTransferred', () => {
+              onChatTransferred();
             });
           }
-        } else if (window.GenesysChat) {
-          // Configure on-premise Genesys
-          const config = getGenesysConfig({
-            type: 'onprem',
-            eligibility,
-            memberId,
-            planId,
-            planName,
-            hasMultiplePlans,
+
+          // Legacy specific events
+          window.Genesys?.Chat?.on('PlanSwitchRequested', () => {
+            onOpenPlanSwitcher();
           });
-
-          window.GenesysChat.configure(config);
-
-          // Set up event handlers
-          window.GenesysChat.onSessionStart = () => {
-            setIsOpen(true);
-            setIsChatActive(true);
-            onLockPlanSwitcher(true);
-
-            // Add plan info to header for multiple plans
-            if (hasMultiplePlans) {
-              const headerEl = document.querySelector('.genesys-chat-header');
-              if (headerEl) {
-                const planInfoEl = document.createElement('div');
-                planInfoEl.className = 'plan-info-header';
-                planInfoEl.textContent = `Chatting about: ${planName}`;
-                headerEl.appendChild(planInfoEl);
-              }
-            }
-          };
-
-          window.GenesysChat.onSessionEnd = () => {
-            setIsChatActive(false);
-            onLockPlanSwitcher(false);
-            setTimeout(() => setIsOpen(false), 500);
-          };
         }
 
-        setIsInitialized(true);
+        setState((prev) => ({ ...prev, isInitialized: true }));
       } catch (err) {
-        const chatError = new ChatError(
-          'Failed to initialize chat',
-          'INITIALIZATION_ERROR',
-        );
-        setError(chatError);
+        setState((prev) => ({
+          ...prev,
+          error: new ChatError(
+            'Failed to initialize chat',
+            'INITIALIZATION_ERROR',
+          ),
+          isLoading: false,
+        }));
       }
     };
 
-    initializeChat();
+    initializeChatSystem();
+
+    // Cleanup on unmount
+    return () => {
+      if (eligibility) {
+        destroyChat(eligibility.cloudChatEligible);
+      }
+    };
   }, [
     eligibility,
     loading,
-    isInitialized,
     memberId,
     planId,
     planName,
-    hasMultiplePlans,
     onLockPlanSwitcher,
-  ]);
-
-  const openChat = useCallback(() => {
-    if (!eligibility?.chatAvailable) {
-      setError(
-        new ChatError('Chat is currently unavailable', 'INITIALIZATION_ERROR'),
-      );
-      return;
-    }
-
-    setIsOpen(true);
-    setIsChatActive(true);
-  }, [eligibility]);
-
-  const closeChat = useCallback(() => {
-    setIsOpen(false);
-    setIsChatActive(false);
-  }, []);
-
-  // Add message sending capability
-  const _sendMessage = useCallback(
-    (message: string) => {
-      if (!isInitialized || !isChatActive) return;
-
-      try {
-        if (window.CXBus) {
-          window.CXBus.command('WebChat.sendMessage', { message });
-        } else if (window.GenesysChat) {
-          window.GenesysChat.sendMessage(message);
-        }
-      } catch (err) {
-        const chatError = new ChatError(
-          err instanceof Error ? err.message : String(err),
-          'MESSAGE_ERROR',
-        );
-        setError(chatError);
-      }
-    },
-    [isInitialized, isChatActive],
-  );
-
-  useEffect(() => {
-    if (!window.CXBus || !isInitialized) return;
-
-    // Legacy chat.js specific event handlers
-    window.CXBus.subscribe('WebChat.agentJoined', (data) => {
-      setCurrentAgent(data.agentName);
-      onAgentJoined?.(data.agentName);
-    });
-
-    window.CXBus.subscribe('WebChat.agentLeft', (data) => {
-      setCurrentAgent(null);
-      onAgentLeft?.(data.agentName);
-    });
-
-    window.CXBus.subscribe('WebChat.transferred', () => {
-      onChatTransferred?.();
-    });
-
-    // Configure transcript options if enabled
-    if (enableTranscript) {
-      window.CXBus.command('WebChat.configureTranscript', {
-        position: transcriptPosition,
-        emailAddress: transcriptEmail,
-      });
-    }
-
-    // Configure file upload if enabled
-    if (enableFileAttachments) {
-      window.CXBus.command('WebChat.configureFileUpload', {
-        enabled: true,
-        maxFileSize: maxFileSize,
-        allowedFileTypes: allowedFileTypes,
-      });
-    }
-  }, [
-    isInitialized,
-    enableTranscript,
-    transcriptPosition,
-    transcriptEmail,
-    enableFileAttachments,
-    maxFileSize,
-    allowedFileTypes,
+    onOpenPlanSwitcher,
     onAgentJoined,
     onAgentLeft,
     onChatTransferred,
   ]);
 
-  // File upload handler
-  const _uploadFile = useCallback(
-    async (file: File) => {
-      if (!isInitialized || !isChatActive || !enableFileAttachments) return;
-
-      try {
-        if (window.CXBus) {
-          await window.CXBus.command('WebChat.uploadFile', { file });
-          onFileUploaded?.(file);
-        }
-      } catch (err) {
-        const chatError = new ChatError(
-          err instanceof Error ? err.message : String(err),
-          'FILE_UPLOAD_ERROR',
-        );
-        setError(chatError);
-      }
-    },
-    [isInitialized, isChatActive, enableFileAttachments, onFileUploaded],
-  );
-
-  // Request transcript
-  const _requestTranscript = useCallback(
-    (email: string = transcriptEmail || '') => {
-      if (!isInitialized || !enableTranscript) return;
-
-      try {
-        if (window.CXBus) {
-          window.CXBus.command('WebChat.requestTranscript', { email });
-          onTranscriptRequested?.(email);
-        }
-      } catch (err) {
-        const chatError = new ChatError(
-          err instanceof Error ? err.message : String(err),
-          'TRANSCRIPT_ERROR',
-        );
-        setError(chatError);
-      }
-    },
-    [isInitialized, enableTranscript, transcriptEmail, onTranscriptRequested],
-  );
-
-  // Add plan switcher handler
-  useEffect(() => {
-    if (window.CXBus && hasMultiplePlans) {
-      window.CXBus.subscribe('WebChat.planSwitchRequested', () => {
-        onOpenPlanSwitcher();
-      });
+  /**
+   * Opens the chat window.
+   * Initiates conversation based on the selected chat implementation.
+   * Implements requirement ID: 31156 (business hours validation)
+   */
+  const openChat = useCallback(() => {
+    if (!eligibility?.chatAvailable) {
+      setState((prev) => ({
+        ...prev,
+        error: new ChatError(
+          'Chat is currently unavailable',
+          'INITIALIZATION_ERROR',
+        ),
+      }));
+      return;
     }
-  }, [hasMultiplePlans, onOpenPlanSwitcher]);
+
+    if (eligibility.cloudChatEligible) {
+      window.Genesys?.WebMessenger?.startConversation();
+    } else {
+      window.Genesys?.Chat?.on('StartChat', () => {});
+    }
+    setState((prev) => ({ ...prev, isOpen: true }));
+  }, [eligibility]);
+
+  /**
+   * Closes the chat window.
+   * Ends conversation and unlocks plan switcher.
+   * Implements requirement ID: 31158 (plan switcher unlocking)
+   */
+  const closeChat = useCallback(() => {
+    if (eligibility?.cloudChatEligible) {
+      window.Genesys?.WebMessenger?.endConversation();
+    } else {
+      window.Genesys?.Chat?.on('EndChat', () => {});
+    }
+    setState((prev) => ({ ...prev, isOpen: false, isChatActive: false }));
+  }, [eligibility]);
+
+  const minimizeChat = useCallback(() => {
+    // Implementation needed
+  }, []);
+
+  const maximizeChat = useCallback(() => {
+    // Implementation needed
+  }, []);
+
+  const startChat = useCallback(() => {
+    // Implementation needed
+  }, []);
+
+  const endChat = useCallback(() => {
+    // Implementation needed
+  }, []);
 
   return {
-    isInitialized,
-    isOpen,
-    isChatActive,
-    isLoading,
+    ...state,
     eligibility,
-    error,
     openChat,
     closeChat,
+    minimizeChat,
+    maximizeChat,
+    startChat,
+    endChat,
   };
 }

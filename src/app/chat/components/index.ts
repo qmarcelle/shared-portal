@@ -4,8 +4,11 @@
  */
 
 // Main Components
+export { ChatTrigger } from './ChatTrigger';
 export { ChatWidget } from './ChatWidget';
-export { PlanInfoHeader } from './PlanInfoHeader';
+export { ChatWindow } from './ChatWindow';
 
 // Error Handling
 export { ChatErrorBoundary } from './shared/ChatErrorBoundary';
+
+export { PlanInfoHeader } from './PlanInfoHeader';

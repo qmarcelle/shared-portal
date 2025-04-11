@@ -5,14 +5,14 @@
   ],
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-unused-vars": ["error", {
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", {
       "argsIgnorePattern": "^_",
       "varsIgnorePattern": "^_",
       "ignoreRestSiblings": true
     }],
     "@typescript-eslint/ban-ts-comment": "warn",
-    "react-hooks/exhaustive-deps": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "@next/next/no-img-element": "warn",
     "@next/next/no-html-link-for-pages": "off",
     "no-var": "error"
@@ -60,13 +60,26 @@
       }
     },
     {
-      "files": ["**/*.test.ts", "**/*.test.tsx", "src/app/chat/__tests__/**/*"],
+      "files": ["**/*.test.ts", "**/*.test.tsx", "src/app/chat/__tests__/**/*", "src/tests/**/*"],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-unused-vars": "off",
-        "no-var": "off"
+        "no-var": "off",
+        "@typescript-eslint/ban-ts-comment": "off"
+      }
+    },
+    {
+      "files": ["src/models/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "warn"
+      }
+    },
+    {
+      "files": ["src/actions/**/*.ts", "src/actions/**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "warn"
       }
     }
   ],

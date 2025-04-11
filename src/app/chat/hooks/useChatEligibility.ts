@@ -1,51 +1,59 @@
+import type { ChatEligibility, ChatInfoResponse } from '@/app/chat/types/index';
+import { ChatError } from '@/app/chat/types/index';
 import { useEffect, useState } from 'react';
-import type { ChatInfoResponse } from '../types';
 
-export type ChatEligibility = ChatInfoResponse & {
-  maxWaitTime?: number;
-  estimatedWaitTime?: number;
-  queueLength?: number;
-  agentsAvailable?: number;
-};
-
+/**
+ * Hook to check chat eligibility for a member and plan.
+ * Fetches eligibility status and manages loading state.
+ *
+ * @param memberId - Unique identifier for the member
+ * @param planId - Current plan identifier
+ * @returns Object containing eligibility status and loading state
+ *
+ * @example
+ * ```tsx
+ * function ChatComponent({ memberId, planId }) {
+ *   const { eligibility, loading } = useChatEligibility(memberId, planId);
+ *
+ *   if (loading) return <LoadingSpinner />;
+ *   if (!eligibility?.chatAvailable) return null;
+ *
+ *   return <ChatWidget />;
+ * }
+ * ```
+ */
 export function useChatEligibility(memberId: string, planId: string) {
   const [eligibility, setEligibility] = useState<ChatEligibility | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const checkEligibility = async () => {
+    const fetchEligibility = async () => {
       try {
-        // TODO: Replace with actual API call to your eligibility service
         const response = await fetch(
           `/api/chat/eligibility?memberId=${memberId}&planId=${planId}`,
         );
-        const data = await response.json();
-
+        if (!response.ok) {
+          throw new ChatError(
+            'Failed to fetch chat eligibility',
+            'ELIGIBILITY_ERROR',
+          );
+        }
+        const data: ChatInfoResponse = await response.json();
         setEligibility({
-          chatGroup: data.chatGroup ?? 'default',
-          chatAvailable: data.chatAvailable ?? true,
-          cloudChatEligible: data.cloudChatEligible ?? false,
-          workingHours: data.workingHours ?? '9:00 AM - 5:00 PM EST',
-          maxWaitTime: data.maxWaitTime,
-          estimatedWaitTime: data.estimatedWaitTime,
-          queueLength: data.queueLength,
-          agentsAvailable: data.agentsAvailable,
+          chatAvailable: data.chatAvailable,
+          cloudChatEligible: data.cloudChatEligible,
+          chatGroup: data.chatGroup,
+          workingHours: data.workingHours,
         });
       } catch (error) {
-        console.error('Failed to check chat eligibility:', error);
-        // Set default values if eligibility check fails
-        setEligibility({
-          chatGroup: 'default',
-          chatAvailable: true,
-          cloudChatEligible: false,
-          workingHours: '9:00 AM - 5:00 PM EST',
-        });
+        console.error('Error fetching chat eligibility:', error);
+        setEligibility(null);
       } finally {
         setLoading(false);
       }
     };
 
-    checkEligibility();
+    fetchEligibility();
   }, [memberId, planId]);
 
   return { eligibility, loading };

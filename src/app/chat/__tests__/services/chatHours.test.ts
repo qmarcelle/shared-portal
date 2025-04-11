@@ -2,27 +2,18 @@ import {
   checkChatHours,
   isWithinBusinessHours,
   parseBusinessHours,
-} from '../../utils/chatHours';
-
-// Define types for global testing objects to fix TypeScript errors
-declare global {
-  var jest: any;
-  var describe: (name: string, fn: () => void) => void;
-  var beforeEach: (fn: () => void) => void;
-  var afterEach: (fn: () => void) => void;
-  var test: (name: string, fn: () => void) => void;
-  var expect: any;
-}
+} from '@/app/chat/utils/chatHours';
+import { afterEach, describe, expect, jest, test } from '@jest/globals';
 
 // Mock date for consistent testing
 const mockDate = (isoDate: string) => {
   const originalDate = global.Date;
   class MockDate extends originalDate {
-    constructor(...args: any[]) {
-      if (args.length === 0) {
+    constructor(value?: string | number | Date) {
+      if (!value) {
         super(isoDate);
       } else {
-        super(...args);
+        super(value);
       }
     }
 

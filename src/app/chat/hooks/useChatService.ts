@@ -1,6 +1,6 @@
+import { ChatServiceContext } from '@/app/chat/services';
+import type { ChatService } from '@/app/chat/types/index';
 import { useContext } from 'react';
-import { ChatServiceContext } from '../context/ChatServiceContext';
-import type { ChatService } from '../types';
 
 export function useChatService(): ChatService {
   const chatService = useContext(ChatServiceContext);

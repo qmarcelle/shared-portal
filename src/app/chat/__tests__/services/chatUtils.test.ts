@@ -1,10 +1,10 @@
-import { describe, expect, it, jest } from '@jest/globals';
 import {
   formatBusinessHours,
   generateInteractionId,
   isWithinBusinessHours,
   parseBusinessHours,
-} from '../../utils/chatUtils';
+} from '@/app/chat/utils/chatUtils';
+import { describe, expect, it, jest } from '@jest/globals';
 
 // Mock the console.error to avoid polluting the test output
 jest.spyOn(console, 'error').mockImplementation(() => {});
