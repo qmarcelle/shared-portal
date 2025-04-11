@@ -75,6 +75,6 @@ export const PlanSelectorErrorModal = () => {
     return () => {
       useAppModalStore.setState({ isFlexModal: false });
     };
-  }, []);
+  }, [isRefreshed]);
   return <DashboardLoader />;
 };
