@@ -57,51 +57,51 @@ describe('Footer Component', () => {
 
     const user = userEvent.setup();
     const getIdCard = screen.getByText('Get an ID Card');
-    expect(getIdCard).toHaveAttribute('href', '/memberIDCard');
+    expect(getIdCard).toHaveAttribute('href', '/member/idcard');
     await user.click(getIdCard);
     expect(googleAnalytics).toHaveBeenCalledWith({
-      click_text: 'Get an ID Card',
-      click_url: '/memberIDCard',
+      click_text: 'get an id card',
+      click_url: '/member/idcard',
       event: 'navigation',
       site_section: 'Footer',
     });
 
     const getFindCare = screen.getByText('Find Care & Costs');
-    expect(getFindCare).toHaveAttribute('href', '/findcare');
+    expect(getFindCare).toHaveAttribute('href', '/member/findcare');
     await user.click(getFindCare);
     expect(googleAnalytics).toHaveBeenCalledWith({
-      click_text: 'Find Care & Costs',
-      click_url: '/findcare',
+      click_text: 'find care & costs',
+      click_url: '/member/findcare',
       event: 'navigation',
       site_section: 'Footer',
     });
 
     const getClaims = screen.getByText('View Claims');
-    expect(getClaims).toHaveAttribute('href', '/claims');
+    expect(getClaims).toHaveAttribute('href', '/member/myplan/claims');
     await user.click(getClaims);
     expect(googleAnalytics).toHaveBeenCalledWith({
-      click_text: 'View Claims',
-      click_url: '/claims',
+      click_text: 'view claims',
+      click_url: '/member/myplan/claims',
       event: 'navigation',
       site_section: 'Footer',
     });
 
     const getSupport = screen.getByText('Get Help & Contact Us');
-    expect(getSupport).toHaveAttribute('href', '/support');
+    expect(getSupport).toHaveAttribute('href', '/member/support');
     await user.click(getSupport);
     expect(googleAnalytics).toHaveBeenCalledWith({
-      click_text: 'Get Help & Contact Us',
-      click_url: '/support',
+      click_text: 'get help & contact us',
+      click_url: '/member/support',
       event: 'navigation',
       site_section: 'Footer',
     });
 
     const getProfileSettings = screen.getByText('Profile Settings');
-    expect(getProfileSettings).toHaveAttribute('href', '/profileSettings');
+    expect(getProfileSettings).toHaveAttribute('href', '/member/profile');
     await user.click(getProfileSettings);
     expect(googleAnalytics).toHaveBeenCalledWith({
-      click_text: 'Profile Settings',
-      click_url: '/profileSettings',
+      click_text: 'profile settings',
+      click_url: '/member/profile',
       event: 'navigation',
       site_section: 'Footer',
     });

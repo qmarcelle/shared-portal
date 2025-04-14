@@ -24,28 +24,28 @@ exports[`Footer Component should render the UI correctly 1`] = `
             >
               <li>
                 <a
-                  href="/memberIDCard"
+                  href="/member/idcard"
                 >
                   Get an ID Card
                 </a>
               </li>
               <li>
                 <a
-                  href="/findcare"
+                  href="/member/findcare"
                 >
                   Find Care & Costs
                 </a>
               </li>
               <li>
                 <a
-                  href="/claims"
+                  href="/member/myplan/claims"
                 >
                   View Claims
                 </a>
               </li>
               <li>
                 <a
-                  href="/profileSettings"
+                  href="/member/profile"
                 >
                   Profile Settings
                 </a>
@@ -65,21 +65,21 @@ exports[`Footer Component should render the UI correctly 1`] = `
             >
               <li>
                 <a
-                  href="/support"
+                  href="/member/support"
                 >
                   Get Help & Contact Us
                 </a>
               </li>
               <li>
                 <a
-                  href=""
+                  href="http://wn008422.bcbst.com:81/portal/portal_refresh1/index.html#987736460"
                 >
                   Share Website Feedback
                 </a>
               </li>
               <li>
                 <a
-                  href=""
+                  href="http://wn008422.bcbst.com:81/portal/portal_feature_cobrowse/index.html#988880562"
                 >
                   Share Your Screen
                 </a>

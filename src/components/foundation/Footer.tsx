@@ -3,7 +3,7 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Column } from './Column';
 import {
   bcbstnLogo,
@@ -19,15 +19,10 @@ import { Row } from './Row';
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
-  const currentYear = new Date().getFullYear(); // Gets the current year
-  const [currentPath, setCurrentPath] = useState('');
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-    }
-  }, []);
+  const currentYear = new Date().getFullYear();
+  const currentPath =
+    typeof window !== 'undefined' ? window.location.pathname : '';
   const specificPages = ['/amplifyHealthSupport'];
-  const restrictedPages = ['/login'];
 
   const isSpecificPage = specificPages.includes(currentPath);
   const trackLinkAnalytics = (clickText: string, clickUrl: string) => {
@@ -40,9 +35,6 @@ const Footer: React.FC<FooterProps> = () => {
     googleAnalytics(analytics);
   };
 
-  if (restrictedPages.includes(currentPath)) {
-    return null; // Do not render the Footer on login page
-  }
   return (
     <footer>
       <section
@@ -107,7 +99,10 @@ const Footer: React.FC<FooterProps> = () => {
                 <Link
                   href="/member/support"
                   onClick={() =>
-                    trackLinkAnalytics('Get Help & Contact Us', '/support')
+                    trackLinkAnalytics(
+                      'Get Help & Contact Us',
+                      '/member/support',
+                    )
                   }
                 >
                   Get Help & Contact Us
