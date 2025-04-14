@@ -26,6 +26,7 @@ export interface TextFieldProps extends IComponent {
   maxValue?: number;
   maxLength?: number;
   disabled?: boolean;
+  list?: string;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -129,6 +130,7 @@ export const TextField = ({
   className = '',
   highlightError = true,
   disabled = false,
+  list,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -178,6 +180,7 @@ export const TextField = ({
           className={className}
           maxLength={maxLength}
           disabled={disabled}
+          list={list}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
           {isSuffixNeeded && (
