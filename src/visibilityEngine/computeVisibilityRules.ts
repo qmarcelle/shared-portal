@@ -9,8 +9,8 @@ import {
   condensedExperienceProfileHorizonGroups,
   katieBeckettGroups,
   ncqaGroups,
-  payPremiumMedicareOnlyGroups,
   offMarketGroups,
+  payPremiumMedicareOnlyGroups,
   wellnessProfileWellnessOnlyGroups,
 } from './groups';
 import { VisibilityRules } from './rules';
@@ -82,7 +82,8 @@ export function computeVisibilityRules(
 
   rules.katieBeckettEligible = katieBeckettGroups.includes(groupId);
 
-  rules.payMyPremiumMedicareEligible = payPremiumMedicareOnlyGroups.includes(groupId);
+  rules.payMyPremiumMedicareEligible =
+    payPremiumMedicareOnlyGroups.includes(groupId);
 
   for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
@@ -297,10 +298,11 @@ export function isNewMentalHealthSupportMyStrengthCompleteEligible(
 
 export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
   return (
-    (rules?.hingeHealthEligible ||
+    ((rules?.hingeHealthEligible ||
       (rules?.groupRenewalDateBeforeTodaysDate &&
         (rules?.fullyInsured || rules?.levelFunded))) &&
-    isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly'
+      isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly') ||
+    rules?.isHighDeductiblePlanMember
   );
 }
 
@@ -518,9 +520,7 @@ export function isMemberWellnessCenterEligible(
   return isActiveAndNotFSAOnly(rules) && rules?.phaMemberEligible;
 }
 
-export function isMskEligible(
-  rules: VisibilityRules | undefined,
-) {
+export function isMskEligible(rules: VisibilityRules | undefined) {
   return rules?.isMskEligible;
 }
 
@@ -551,6 +551,8 @@ export function isKatieBeckettEligible(rules: VisibilityRules | undefined) {
   return rules?.katieBeckettEligible;
 }
 
-export function payMyPremiumMedicareEligible(rules: VisibilityRules | undefined) {
+export function payMyPremiumMedicareEligible(
+  rules: VisibilityRules | undefined,
+) {
   return rules?.payMyPremiumMedicareEligible && rules?.active;
 }
