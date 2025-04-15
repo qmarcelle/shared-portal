@@ -100,7 +100,6 @@ const UserSwitchHead = ({ user }: { user: UserProfile }) => {
           src={switchFilterIcon}
         />
       )}
-      ,
     </Row>
   );
 };
