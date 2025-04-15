@@ -41,8 +41,18 @@ function getQuantumHealthContent(contact: string) {
         <>
           <RichText
             spans={[
-              <TextBox key="first" className="font-bold" text="Call " />,
-              <TextBox className="font-bold" key="second" text={contact} />,
+              <TextBox
+                key="first"
+                className="body-bold"
+                text="Call "
+                display={'inline'}
+              />,
+              <TextBox
+                className="body-bold"
+                key="second"
+                text={contact}
+                display={'inline'}
+              />,
             ]}
           />
         </>
@@ -69,9 +79,19 @@ function getGeneralContent(contact: string) {
       footer: (
         <RichText
           spans={[
-            <TextBox key="first" text="Call " />,
-            <TextBox className="font-bold" key="second" text={contact} />,
-            <TextBox className="font-bold" key="third" text=", TTY 711" />,
+            <TextBox key="first" text="Call " display={'inline'} />,
+            <TextBox
+              className="body-bold"
+              key="second"
+              text={contact}
+              display={'inline'}
+            />,
+            <TextBox
+              className="body-bold"
+              key="third"
+              text=", TTY 711"
+              display={'inline'}
+            />,
           ]}
         />
       ),
