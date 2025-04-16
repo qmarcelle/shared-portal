@@ -33,7 +33,7 @@ export const PlanContactInformationSection = ({
       <Spacer size={32} />
       <AppLink
         label="View All Plan Contact Information"
-        url="/myPlan/planContactInformation"
+        url="/member/myplan/plancontact"
       />
     </Column>
   );
