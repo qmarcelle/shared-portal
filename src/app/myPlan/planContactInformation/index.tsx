@@ -14,7 +14,7 @@ export type PlanContactInformationProps = {
 };
 const PlanContactInformation = ({ planData }: PlanContactInformationProps) => {
   return (
-    <Column className="app-content app-base-font-color mt-20">
+    <Column className="app-content app-base-font-color mt-05">
       <Header
         text="Plan Contact Information"
         className="m-4 mb-0 !font-light !text-[32px]/[40px]"
