@@ -31,6 +31,7 @@ export async function getPharmacyClaims(
     };
     logger.info('Calling PharmacyClaims API');
     const response = await esApi.post('/searchPharmacyClaims', request);
+    logger.info(`Response from PharmacyClaims API : ${response}`);
     return {
       status: 200,
       data: response.data,
