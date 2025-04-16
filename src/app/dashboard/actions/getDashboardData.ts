@@ -10,6 +10,7 @@ import { CoverageType } from '@/models/member/api/loggedInUserInfo';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { logger } from '@/utils/logger';
 import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
@@ -71,9 +72,13 @@ export const getDashboardData = async (): Promise<
     ]);
 
     let loggedUserInfo;
-    if (loggedUserDetails.status === 'fulfilled')
-      loggedUserInfo = loggedUserDetails.value;
-    else throw error;
+    if (
+      loggedUserDetails.status !== 'fulfilled' ||
+      planDetails.status !== 'fulfilled'
+    )
+      throw error;
+    else loggedUserInfo = loggedUserDetails.value;
+
     return {
       status: 200,
       data: {
@@ -103,6 +108,7 @@ export const getDashboardData = async (): Promise<
       },
     };
   } catch (error) {
+    logger.error('getDashboardData failed{}', error);
     return {
       status: 400,
       data: {
