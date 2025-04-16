@@ -34,6 +34,7 @@ import Image from 'next/image';
 import {
   CVS_DEEPLINK_MAP,
   CVS_DRUG_SEARCH_INIT,
+  CVS_PHARMACY_SEARCH_FAST,
   CVS_REFILL_RX,
 } from '../sso/ssoConstants';
 import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation';
@@ -124,6 +125,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                         />
                       ),
                       serviceLabel: 'Find a Pharmacy',
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
                     },
                   ]}
                 />

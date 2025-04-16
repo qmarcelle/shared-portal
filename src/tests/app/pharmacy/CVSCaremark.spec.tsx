@@ -1,8 +1,14 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Image from 'next/image';
 
 import { CVSCaremarkInformationCard } from '@/app/pharmacy/components/CVSCaremarkInformation';
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_DRUG_SEARCH_INIT,
+  CVS_PHARMACY_SEARCH_FAST,
+  CVS_REFILL_RX,
+} from '@/app/sso/ssoConstants';
 import {
   costIcon,
   cvsCaremarkIcon,
@@ -24,12 +30,14 @@ const renderUI = () => {
         {
           serviceIcon: <Image src={prescriptionIcon} alt="Prescription Icon" />,
           serviceLabel: 'View or Refill My Prescriptions',
+          url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`,
         },
         {
           serviceIcon: (
             <Image src={mailOrderPharmacyIcon} alt="Mail Order Pharmacy Icon" />
           ),
           serviceLabel: 'Get My Prescriptions by Mail',
+          url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
         },
         {
           serviceIcon: <Image src={costIcon} alt="Cost Icon" />,
@@ -40,11 +48,27 @@ const renderUI = () => {
             <Image src={searchPharmacyIcon} alt="Search Pharmacy Icon" />
           ),
           serviceLabel: 'Find a Pharmacy',
+          url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
         },
       ]}
     />,
   );
 };
+
+// Mock useRouter:
+const mockPush = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+      push: mockPush,
+    };
+  },
+}));
+
+process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
+  'https://caremark/{DEEPLINK}?newLogin=yes';
+process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
 
 describe('CVSCaremark', () => {
   it('should render the UI correctly', async () => {
@@ -64,6 +88,30 @@ describe('CVSCaremark', () => {
     expect(screen.getByAltText('Mail Order Pharmacy Icon')).toBeInTheDocument();
     expect(screen.getByAltText('Cost Icon')).toBeInTheDocument();
     expect(screen.getByAltText('Search Pharmacy Icon')).toBeInTheDocument();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should redirect sso link on click of Find a Pharmacy', async () => {
+    const component = renderUI();
+    expect(screen.getByText('Get More with CVS Caremark')).toBeVisible();
+
+    // Get the card element
+    const cardElement = screen
+      .getByText(/Find a Pharmacy/i)
+      .closest('.card-elevated');
+    expect(cardElement).toBeInTheDocument();
+
+    expect(cardElement).not.toBeNull();
+
+    if (cardElement) {
+      // Simulate a click event on the card element
+      fireEvent.click(cardElement);
+
+      expect(mockPush).toHaveBeenCalledWith(
+        '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes',
+      );
+    }
 
     expect(component).toMatchSnapshot();
   });
