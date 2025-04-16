@@ -42,7 +42,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
 
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Column className="app-content app-base-font-color mt-20">
+      <Column className="app-content app-base-font-color">
         <Header
           text="Spending Summary"
           className="mb-0 !font-light !text-[32px]/[40px]"

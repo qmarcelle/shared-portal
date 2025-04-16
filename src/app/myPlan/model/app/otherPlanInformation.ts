@@ -12,7 +12,7 @@ export const OtherPlanInformation = [
     // eslint-disable-next-line quotes
     description: "View what's covered under your plan.",
     iconName: benefits,
-    link: '/member/myplan/benefit',
+    link: '/member/myplan/benefits',
   },
   {
     label: 'Claims',
