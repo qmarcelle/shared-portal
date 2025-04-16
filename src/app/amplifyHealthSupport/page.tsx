@@ -14,11 +14,16 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import amplifyHealthAdvisorsGroup from '@/public/assets/amplify_health_advisors_group.png';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { ResourceMiniCard } from '../support/components/ResourceMiniCard';
 import { AmplifyAdvisors } from './components/AmplifyAdvisors';
 import { AmplifyHealthAppInformation } from './components/AmplifyHealthAppInformation';
 
 const AmplifyHealthSupport = () => {
+  const router = useRouter();
+  const navigateToSendEmailPage = () => {
+    router.push('/member/support/email');
+  };
   const getHeroBannerContent = () => {
     return (
       <section className="justify-between md:flex md:flex-row">
@@ -36,7 +41,7 @@ const AmplifyHealthSupport = () => {
             <Button
               className="!bg-transparent outline outline-primary-content mt-[10px] md:mt-[0px]"
               label="Send an Email"
-              callback={() => {}}
+              callback={navigateToSendEmailPage}
             />
           </section>
         </Column>
