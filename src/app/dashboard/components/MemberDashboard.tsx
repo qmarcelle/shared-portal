@@ -18,6 +18,7 @@ import {
   isAHAdvisorpage,
   isBlueCareEligible,
   isEmboldHealthEligible,
+  isLifePointGrp,
   isPayMyPremiumEligible,
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
@@ -185,6 +186,21 @@ const MemberDashboard = ({ data }: DashboardProps) => {
         />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
+          {isQuantumHealthEligible(visibilityRules) && isLifePointGrp(visibilityRules) && (
+              <BenefitsAndCoverageSection
+                className="large-section"
+                benefits={[
+                  {
+                    benefitName: 'Dental Benefits',
+                    benefitURL: '/member/myplan/benefits',
+                  },
+                  {
+                    benefitName: 'Vision Benefits',
+                    benefitURL: '/member/myplan/benefits',
+                  },
+                ]}
+              />
+            )}
             {!isQuantumHealthEligible(visibilityRules) && (
               <BenefitsAndCoverageSection
                 className="large-section"

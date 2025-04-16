@@ -8,6 +8,7 @@ import { encodeVisibilityRules } from './converters';
 import {
   condensedExperienceProfileHorizonGroups,
   katieBeckettGroups,
+  lifePointGroup,
   ncqaGroups,
   offMarketGroups,
   payPremiumMedicareOnlyGroups,
@@ -50,6 +51,7 @@ export function computeVisibilityRules(
   rules.dsnpGrpInd = loggedUserInfo.groupData.clientID === 'ES';
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
   rules.offMarketGrp = offMarketGroups.includes(groupId);
+  rules.isLifePointGrp = lifePointGroup.includes(groupId);
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
@@ -555,4 +557,8 @@ export function payMyPremiumMedicareEligible(
   rules: VisibilityRules | undefined,
 ) {
   return rules?.payMyPremiumMedicareEligible && rules?.active;
+}
+
+export function isLifePointGrp(rules: VisibilityRules | undefined) {
+  return rules?.isLifePointGrp || false;
 }

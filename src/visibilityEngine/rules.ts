@@ -91,6 +91,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'payMyPremiumMedicareEligible',
   'isWellnessQa',
   'isHighDeductiblePlanMember',
+  'isLifePointGrp',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];
