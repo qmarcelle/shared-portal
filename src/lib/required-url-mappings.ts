@@ -29,7 +29,7 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/myplan/spendingsummary': '/spendingSummary',
   '/member/myplan/priorauthorizations': '/priorAuthorization',
   '/member/myplan/spendingaccounts': '/spendingAccounts',
-  '/member/myplan/ssn': '/myPlan/updateSocialSecuityNumber',
+  '/member/myplan/ssn': '/myPlan/updateSocialSecurityNumber',
   '/member/myplan/benefits/plandocuments': '/benefits/planDocuments',
   '/member/myplan/katiebeckett': '/myPlan/katieBeckettBankingInfo',
   '/member/myplan/servicesused': '/benefits/servicesUsed',
