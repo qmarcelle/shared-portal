@@ -9,4 +9,5 @@ export interface AnalyticsData {
   page_section?: string;
   nav_section?: string;
   selection_type?: string;
+  element_id?: string;
 }

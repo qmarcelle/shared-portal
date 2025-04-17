@@ -27,8 +27,21 @@ export const ProfileHeaderCard = ({
   const onSignOut = async () => {
     await signOut();
     dismissModal();
+    logOutAnalytics();
     router.replace(DEFAULT_LOGOUT_REDIRECT);
     router.refresh();
+  };
+  const logOutAnalytics = () => {
+    const analytics: AnalyticsData = {
+      click_text: 'Signout',
+      click_url: '',
+      event: 'logout',
+      content_type: undefined,
+      element_category: 'Link Click',
+      page_section: 'header',
+      element_id: 'Logout',
+    };
+    googleAnalytics(analytics);
   };
 
   const selectedProfile = profiles.find((item) => item.selected == true);

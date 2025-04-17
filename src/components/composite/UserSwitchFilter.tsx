@@ -199,7 +199,7 @@ export const UserSwitchFilter = ({
               label={link.label}
               icon={link.icon}
               url={link.url}
-              callback={getAnalyticsData(link.label) ?? undefined}
+              callback={() => getAnalyticsData(link.label) ?? undefined}
             />
             <Spacer size={8} />
             {link.label === 'All Profile Settings' && <Divider />}
