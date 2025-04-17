@@ -9,7 +9,6 @@ interface OnMyPlanDropDownProps extends IComponent {
   ShareMyPlanDetails: ShareMyPlanDetails[] | null;
   header?: ReactElement;
   subHeader?: ReactElement;
-  planType?: ReactElement;
   infoIcon: boolean;
 }
 
@@ -17,7 +16,6 @@ export const ShareMyPlanComponent = ({
   ShareMyPlanDetails,
   header,
   subHeader,
-  planType,
   infoIcon,
 }: OnMyPlanDropDownProps) => {
   return (
@@ -31,8 +29,6 @@ export const ShareMyPlanComponent = ({
           <Spacer size={32} />
         </div>
       )}
-      {planType && <div>{planType}</div>}
-      <Spacer size={32} />
       <Column className="flex flex-col">
         {ShareMyPlanDetails?.map((item, index) => (
           <OnMyPlanItem

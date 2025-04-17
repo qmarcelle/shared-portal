@@ -51,7 +51,7 @@ export const AccessOnMyPlanItem = ({
         <Row>
           <Spacer axis="horizontal" size={8} />
           <Card backgroundColor="rgba(0,0,0,0.05)">
-            <Column className="m-4">
+            <Column className="m-4 ">
               <Row>
                 <TextBox
                   className="body-1 "
@@ -64,7 +64,10 @@ export const AccessOnMyPlanItem = ({
                 callback={() =>
                   showAppModal({
                     content: (
-                      <InviteToRegister memberName={memberDetails.memberName} />
+                      <InviteToRegister
+                        memberDetails={memberDetails!}
+                        onRequestSuccessCallBack={onRequestSuccessCallBack}
+                      />
                     ),
                   })
                 }

@@ -9,7 +9,6 @@ interface AccessOnMyPlanDropDownProps extends IComponent {
   accessOnMyPlanDetails: ShareMyPlanDetails[] | null;
   header?: ReactElement;
   subHeader?: ReactElement;
-  planType?: ReactElement;
   infoIcon: boolean;
 }
 
@@ -17,8 +16,6 @@ export const AccessOnMyPlanComponent = ({
   accessOnMyPlanDetails,
   header,
   subHeader,
-  planType,
-
   infoIcon,
 }: AccessOnMyPlanDropDownProps) => {
   const [memberAccessList, setMemberAccessList] = useState(
@@ -44,8 +41,6 @@ export const AccessOnMyPlanComponent = ({
           <Spacer size={32} />
         </div>
       )}
-      {planType && <div>{planType}</div>}
-      <Spacer size={32} />
       <Column className="flex flex-col">
         {accessOnMyPlanDetails?.map((item, index) => (
           <AccessOnMyPlanItem
@@ -53,7 +48,6 @@ export const AccessOnMyPlanComponent = ({
               updateMemberAccessToPending(item.memberCk)
             }
             key={index}
-            className="mb-4"
             memberDetails={item}
             isOnline={item.isOnline}
             infoButton={infoIcon}

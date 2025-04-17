@@ -3,10 +3,7 @@
 import { AccordionListCard } from '@/components/composite/AccordionListCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
-import { Dropdown } from '@/components/foundation/Dropdown';
 import { Header } from '@/components/foundation/Header';
-import { Row } from '@/components/foundation/Row';
-import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
 import { ShareMyPlanComponent } from './components/ShareMyPlanComponent';
@@ -74,23 +71,6 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                 subHeader={
                   <Column>
                     <TextBox text="Set the level of access for individuals on your health plan." />
-                  </Column>
-                }
-                planType={
-                  <Column className="flex flex-row">
-                    <Row>
-                      <Spacer axis="horizontal" size={8} />
-                      <TextBox className="body-1" text="Plan: " />
-                      <Spacer axis="horizontal" size={8} />
-                      <Dropdown
-                        onSelectCallback={() => {}}
-                        initialSelectedValue="1"
-                        items={[
-                          { label: 'Subscriber ID ABC123456789', value: '0' },
-                          { label: 'Subscriber ID ABC000000000', value: '1' },
-                        ]}
-                      />
-                    </Row>
                   </Column>
                 }
                 infoIcon={false}
