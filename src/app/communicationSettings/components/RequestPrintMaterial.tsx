@@ -6,10 +6,13 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 
-interface RequestPrintMaterialProps extends IComponent {}
+interface RequestPrintMaterialProps extends IComponent {
+  phoneNumber: string;
+}
 
 export const RequestPrintMaterialSection = ({
   className,
+  phoneNumber,
 }: RequestPrintMaterialProps) => {
   return (
     <Card className={className}>
@@ -21,14 +24,13 @@ export const RequestPrintMaterialSection = ({
         </Row>
         <Spacer size={18} />
         <TextBox
-          className="inline"
+          className="py-0"
+          display="inline"
           text="If you need to request paper copies, please"
         />
-        <InlineLink className="inline py-0" label="contact us" />
-        <TextBox
-          className="inline"
-          text="or call us using the Member Service number on the back of your Member ID card."
-        />
+        <InlineLink className="inline py-0" label="start a chat" />
+        <TextBox display="inline" text={`or call us at `} />
+        <span className="whitespace-nowrap">{`${phoneNumber}`} </span>
       </div>
     </Card>
   );
