@@ -26,6 +26,16 @@ export const ClientInitComponent = () => {
   const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
     <>
+      {/* Google Tag Manager (noscript) */}
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-5GNS5V6"
+          height="0"
+          width="0"
+          className="hidden invisible"
+        ></iframe>
+      </noscript>
+      {/* End Google Tag Manager (noscript) */}
       {showHeader && (
         <>
           <AppLink
