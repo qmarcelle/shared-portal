@@ -103,13 +103,13 @@ export const Details = ({
                 label="Estimate Costs"
                 body="Plan your upcoming care costs before you make an appointment."
                 icon={estimateCost}
-                link="findcare"
+                link="/member/findcare"
               />
               <InfoCard
                 label="Services Used"
                 body="View a list of common services, the maximum amount covered by your plan and how many you've used."
                 icon={servicesUsed}
-                link="servicesused"
+                link="/member/myplan/servicesused"
               />
               {/* Add Medical Balances Card */}
               {[
@@ -142,7 +142,7 @@ export const Details = ({
                 />
               )}
               <GetHelpSection
-                link="/benefits/faq"
+                link="/support/faqTopics/benefits"
                 linkURL="Benefits & Coverage FAQ"
                 headerText="Get Help with Benefits"
               />

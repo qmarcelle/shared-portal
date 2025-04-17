@@ -57,13 +57,13 @@ const ServicesUsed = ({ users, services, phoneNumber }: ServicesUsedProps) => {
               label="Find Care & Estimate Costs"
               body="Find a health care provider near you, or plan your upcoming care costs before you make an appointment."
               icon={searchCareLogo}
-              link="/findcare"
+              link="/member/findcare"
             ></InfoCard>
             <InfoCard
               label="Claims"
               body="Search for claims and view details or submit a claim."
               icon={claimsBenefitsCoverage}
-              link="/claims"
+              link="/member/myplan/claims"
             ></InfoCard>
             <GetHelpSection
               link="/member/support/FAQ/benefits"

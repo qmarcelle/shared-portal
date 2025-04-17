@@ -10,14 +10,14 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/support/email': '/support/sendAnEmail',
   '/member/support/1095b': '/1095BFormRequest',
   '/member/support/FAQ': '/support/faq',
-  '/member/support/FAQ/benefits': '/support/faqtopic/benefits',
-  '/member/support/FAQ/claims': '/support/faqtopic/claims',
-  '/member/support/FAQ/idcard': '/support/faqtopic/idcard',
-  '/member/support/FAQ/myplan': '/support/faqtopic/myplan',
-  '/member/support/FAQ/pharmacy': '/support/faqtopic/pharmacy',
+  '/member/support/FAQ/benefits': '/support/faqTopics/benefits',
+  '/member/support/FAQ/claims': '/support/faqTopics/claims',
+  '/member/support/FAQ/idcard': '/support/faqTopics/idcard',
+  '/member/support/FAQ/myplan': '/support/faqTopics/myplan',
+  '/member/support/FAQ/pharmacy': '/support/faqTopics/pharmacy',
   '/member/support/FAQ/priorauthorizations':
-    '/support/faqtopic/priorauthorizations',
-  '/member/support/FAQ/accountsharing': '/support/faqtopic/security',
+    '/support/faqTopics/priorauthorizations',
+  '/member/support/FAQ/accountsharing': '/support/faqTopics/security',
   '/member/amplifyhealthsupport': '/amplifyHealthSupport',
 
   // MyPlan Paths
