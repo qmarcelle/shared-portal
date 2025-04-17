@@ -4,14 +4,10 @@ import { AccessOnMyPlanComponent } from '@/app/accessOthersInformation/component
 import { AccordionListCard } from '@/components/composite/AccordionListCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
-import { Dropdown } from '@/components/foundation/Dropdown';
 import { Header } from '@/components/foundation/Header';
-import { accessGranted } from '@/components/foundation/Icons';
-import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
-import Image from 'next/image';
 
 export type AccessOtherInformationProps = {
   accessOtherInformationDetails?: SharePlanInformationDetails;
@@ -32,13 +28,6 @@ const AccessOthersInformation = ({
               header="Understanding Access On My Plan"
               information={[
                 {
-                  icon: (
-                    <Image
-                      className="size-[20px]"
-                      src={accessGranted}
-                      alt="success"
-                    />
-                  ),
                   title: 'Access Granted',
                   body: (
                     <div className="m-1">
@@ -87,23 +76,6 @@ const AccessOthersInformation = ({
                 subHeader={
                   <Column>
                     <TextBox text="Below is the access you've been granted by other members on your plan." />
-                  </Column>
-                }
-                planType={
-                  <Column className="flex flex-row">
-                    <Row>
-                      <Spacer axis="horizontal" size={8} />
-                      <TextBox className="body-1" text="Plan: " />
-                      <Spacer axis="horizontal" size={8} />
-                      <Dropdown
-                        onSelectCallback={() => {}}
-                        initialSelectedValue="1"
-                        items={[
-                          { label: 'Subscriber ID ABC123456789', value: '0' },
-                          { label: 'Subscriber ID ABC000000000', value: '1' },
-                        ]}
-                      />
-                    </Row>
                   </Column>
                 }
                 infoIcon={false}
