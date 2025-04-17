@@ -25,6 +25,7 @@ const renderUI = () => {
         tierOne: undefined,
         tierOneDescriptions: [],
         dutyToWarn: undefined,
+        phoneNumber: '',
       }}
     />,
   );

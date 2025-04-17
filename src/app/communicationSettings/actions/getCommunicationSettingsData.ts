@@ -1,7 +1,9 @@
 'use server';
 
+import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
+import { logger } from '@/utils/logger';
 import { CommunicationSettingsAppData } from '../models/app/communicationSettingsAppData';
 import { getCommunicationSettingsAppData } from './communicationSettingsAction';
 
@@ -25,6 +27,8 @@ export const getCommunicationSettingsData = async (): Promise<
         })
       : [];
 
+    const phoneNumber = await invokePhoneNumberAction();
+
     return {
       status: 200,
       data: {
@@ -33,9 +37,11 @@ export const getCommunicationSettingsData = async (): Promise<
         dutyToWarn: response.dutyToWarn,
         visibilityRules: session?.user.vRules,
         tierOneDescriptions,
+        phoneNumber: phoneNumber,
       },
     };
   } catch (error) {
+    logger.error('getCommunicationSettingsData failed', error);
     return {
       status: 400,
     };

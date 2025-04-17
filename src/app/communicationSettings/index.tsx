@@ -28,7 +28,10 @@ const CommunicationSettings = ({ data }: CommunicationSettingsProps) => {
               phone={data?.mobileNumber}
               email={data?.emailAddress}
             />
-            <RequestPrintMaterialSection className="large-section" />
+            <RequestPrintMaterialSection
+              className="large-section"
+              phoneNumber={data?.phoneNumber!}
+            />
           </Column>
           <Column className="page-section-63_33 items-stretch">
             <EditAlertPreferncesSection

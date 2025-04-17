@@ -15,6 +15,7 @@ export type CommunicationSettingsAppData = {
   }[];
   tierOneDescriptions: TierDescriptions[];
   dutyToWarn?: { texts: string[] }[];
+  phoneNumber?: string;
 };
 
 export interface TierDescriptions {

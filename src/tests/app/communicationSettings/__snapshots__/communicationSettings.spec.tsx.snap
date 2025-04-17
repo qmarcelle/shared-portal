@@ -111,8 +111,8 @@ exports[`Communication Settings should render communicationSettings if user role
                     style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                   />
                   <p
-                    class="body-1 inline"
-                    style="display: block;"
+                    class="body-1 py-0"
+                    style="display: inline;"
                   >
                     If you need to request paper copies, please
                   </p>
@@ -127,16 +127,21 @@ exports[`Communication Settings should render communicationSettings if user role
                       <p
                         class="link"
                       >
-                        contact us
+                        start a chat
                       </p>
                     </button>
                   </a>
                   <p
-                    class="body-1 inline"
-                    style="display: block;"
+                    class="body-1"
+                    style="display: inline;"
                   >
-                    or call us using the Member Service number on the back of your Member ID card.
+                    or call us at 
                   </p>
+                  <span
+                    class="whitespace-nowrap"
+                  >
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -347,8 +352,8 @@ exports[`Communication Settings should render communicationSettings if user role
                   style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                 />
                 <p
-                  class="body-1 inline"
-                  style="display: block;"
+                  class="body-1 py-0"
+                  style="display: inline;"
                 >
                   If you need to request paper copies, please
                 </p>
@@ -363,16 +368,21 @@ exports[`Communication Settings should render communicationSettings if user role
                     <p
                       class="link"
                     >
-                      contact us
+                      start a chat
                     </p>
                   </button>
                 </a>
                 <p
-                  class="body-1 inline"
-                  style="display: block;"
+                  class="body-1"
+                  style="display: inline;"
                 >
-                  or call us using the Member Service number on the back of your Member ID card.
+                  or call us at 
                 </p>
+                <span
+                  class="whitespace-nowrap"
+                >
+                   
+                </span>
               </div>
             </div>
           </div>
