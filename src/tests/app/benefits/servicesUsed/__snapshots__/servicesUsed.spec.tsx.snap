@@ -766,7 +766,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
               class="flex flex-col  flex-grow page-section-36_67 items-stretch"
             >
               <a
-                href="/findcare"
+                href="/member/findcare"
               >
                 <div
                   class="card-elevated small-section"
@@ -808,7 +808,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                 </div>
               </a>
               <a
-                href="/claims"
+                href="/member/myplan/claims"
               >
                 <div
                   class="card-elevated small-section"
@@ -1673,7 +1673,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
             class="flex flex-col  flex-grow page-section-36_67 items-stretch"
           >
             <a
-              href="/findcare"
+              href="/member/findcare"
             >
               <div
                 class="card-elevated small-section"
@@ -1715,7 +1715,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
               </div>
             </a>
             <a
-              href="/claims"
+              href="/member/myplan/claims"
             >
               <div
                 class="card-elevated small-section"
