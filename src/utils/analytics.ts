@@ -9,6 +9,7 @@ export const ANALYTICS_KEYS = {
   CLICK_TEXT: 'click_text',
   CLICK_URL: 'click_url',
   ELEMENT_CATEGORY: 'element_category',
+  ELEMENT_ID: 'element_id',
   ACTION: 'action',
   EVENT: 'event',
   CONTENT_TYPE: 'content_type',
@@ -29,6 +30,7 @@ export const googleAnalytics = async (data: AnalyticsData) => {
       [ANALYTICS_KEYS.PAGE_SECTION]: data.page_section,
       [ANALYTICS_KEYS.SELECTION_TYPE]: data.selection_type,
       [ANALYTICS_KEYS.SITE_SECTION]: data.site_section,
+      [ANALYTICS_KEYS.ELEMENT_ID]: data.element_id,
     });
   } catch (error) {
     logger.error('googleAnalytics', error);
