@@ -1,5 +1,6 @@
 'use client';
 import { setExternalSessionToken } from '@/actions/ext_token';
+import { useLoginStore } from '@/app/login/stores/loginStore';
 import { appPaths } from '@/models/app_paths';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
@@ -46,10 +47,15 @@ export default function SiteHeader({
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
   const [pathname, setPathName] = useState<string>('/');
+  const [updateLoggedUser] = useLoginStore((state) => [state.updateLoggedUser]);
   const sitePathName = usePathname();
   useEffect(() => {
     setPathName(sitePathName);
   }, [sitePathName]);
+
+  useEffect(() => {
+    updateLoggedUser(true); // Update logged in state as true to reload the login page on expiry
+  }, []);
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
