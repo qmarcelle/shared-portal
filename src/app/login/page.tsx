@@ -33,6 +33,7 @@ export default function LogIn() {
     emailUniqueness,
     verifyUniqueEmail,
     duplicateAccount,
+    updateLoggedUser,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
@@ -45,6 +46,7 @@ export default function LogIn() {
     state.emailUniqueness,
     state.verifyUniqueEmail,
     state.duplicateAccount,
+    state.updateLoggedUser,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
@@ -69,8 +71,8 @@ export default function LogIn() {
           process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard',
         );
       }
-
       router.refresh();
+      updateLoggedUser(false); // Setting to false to prevent redirect loop on page expiry
     }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
