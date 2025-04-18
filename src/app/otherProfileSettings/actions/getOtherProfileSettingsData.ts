@@ -17,28 +17,6 @@ export const getOtherProfileSettingsData = async (): Promise<
     const healthEquitySelectedAnswers =
       await getHealthEquitySelectedAnswers(session);
 
-    // Update service inputs
-    // const healthEquityPreferenceRequest: UpdateHealthEquityPreferenceRequest = {
-    //   ethnicityCode: '02',
-    //   memberContrivedKey: '',
-    //   subscriberContrivedKey: '',
-    //   groupContrivedKey: '',
-    //   memberPreferenceBy: '',
-    //   dataSource: '',
-    //   userId: '',
-    //   raceCode1: null,
-    //   raceCode2: null,
-    //   raceCode3: null,
-    //   raceCode4: null,
-    //   raceCode5: null,
-    //   raceCode6: null,
-    //   engAbilityCode: null,
-    //   spokenlanguageCode: null,
-    //   writtenlanguageCode: null,
-    //
-    // };
-    //await updateHealthEquityPreference(healthEquityPreferenceRequest);
-
     return {
       status: 200,
       data: {

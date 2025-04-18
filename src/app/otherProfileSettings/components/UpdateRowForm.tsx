@@ -34,6 +34,7 @@ export interface UpdateRowFormProps extends IComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   languageSelectionCallBack?: (val: any) => void;
   validLanguage?: boolean;
+  languageEmptySelect?: boolean;
 }
 
 export interface OptionData {
@@ -57,6 +58,7 @@ export const UpdateRowForm = ({
   selectionCallBack,
   languageSelectionCallBack,
   validLanguage,
+  languageEmptySelect,
 }: UpdateRowFormProps) => {
   function currentSelectionText(optionObjects: OptionData[]) {
     if (!isRaceField)
@@ -94,25 +96,24 @@ export const UpdateRowForm = ({
             <Column key={index}>
               <Checkbox
                 label={OptionData.label}
-                selected={OptionData.enabled}
+                checked={OptionData.enabled}
                 value={OptionData.code}
-                callback={() => selectionCallBack?.(OptionData.code)}
+                onChange={() => selectionCallBack?.(OptionData.code)}
               />
             </Column>
           ))}
         {type === 'textbox' && (
-          <div
-            className=" w-[300px] body-1"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className=" w-[300px] body-1">
             <Radio
               label="Enter Language"
-              selected={!isDeclineLanguageSelected}
+              selected={
+                !isDeclineLanguageSelected && Boolean(languageEmptySelect)
+              }
               value="L2"
               callback={(val) => selectionCallBack?.(val)}
             />
-            {!isDeclineLanguageSelected && (
-              <Column className="px-10 ">
+            {!isDeclineLanguageSelected && Boolean(languageEmptySelect) && (
+              <Column className="px-10">
                 <TextField
                   type="text"
                   value={optionObjects[0]?.label}
@@ -123,21 +124,35 @@ export const UpdateRowForm = ({
                 ></TextField>
 
                 <datalist id="languageList">
-                  {languageOptions?.map((item) => (
-                    <option
-                      key={item.ncqaLanguageDesc}
-                      value={item.ncqaLanguageDesc}
-                      data-value={item.ncqaLanguageCode}
-                    >
-                      {item.ncqaLanguageDesc}
-                    </option>
-                  ))}
+                  {languageOptions
+                    ?.filter((item) => {
+                      if (optionObjects.length > 0) {
+                        return item.ncqaLanguageDesc
+                          .toLowerCase()
+                          .startsWith(optionObjects[0]?.label.toLowerCase());
+                      } else {
+                        return item;
+                      }
+                    })
+                    .slice(0, 4)
+                    .map((item) => (
+                      <option
+                        key={item.ncqaLanguageDesc}
+                        value={item.ncqaLanguageDesc}
+                        data-value={item.ncqaLanguageCode}
+                      >
+                        {item.ncqaLanguageDesc}
+                      </option>
+                    ))}
                 </datalist>
               </Column>
             )}
             <Radio
               label="Decline to answer"
-              selected={Boolean(isDeclineLanguageSelected)}
+              selected={
+                Boolean(isDeclineLanguageSelected) &&
+                Boolean(languageEmptySelect)
+              }
               value="Z2"
               callback={(val) => selectionCallBack?.(val)}
             />

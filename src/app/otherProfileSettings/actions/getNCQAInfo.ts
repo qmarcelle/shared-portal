@@ -37,7 +37,7 @@ export async function getHealthEquitySelectedAnswers(
     return resp.data.data!;
   } catch (error) {
     logger.error(
-      'Error Response from getHealthEquityPossibleAnswers API',
+      'Error Response from getHealthEquitySelectedAnswers API',
       error,
     );
     throw error;
@@ -49,22 +49,18 @@ export async function updateHealthEquityPreference(
 ): Promise<ActionResponse<number, updatePCPPhysicianResponse>> {
   try {
     const session = await auth();
-
     request.memberContrivedKey = session?.user.currUsr?.plan!.memCk;
     request.subscriberContrivedKey = session?.user.currUsr?.plan!.sbsbCk;
     request.groupContrivedKey = session?.user.currUsr?.plan!.grgrCk;
+    request.userId = session?.user.id;
     request.memberPreferenceBy = 'memberKeySubscriberKey';
     request.dataSource = '11';
-    request.userId = session?.user.id;
-    request.lastUpdateDate = format(new Date(), 'yyyy-MM-dd HH:mm:ss.SS');
-    request.srcLoadDate = format(new Date(), 'yyyy-MM-dd HH:mm:ss.SS');
-    console.log(JSON.parse(JSON.stringify(request)));
-
+    request.lastUpdateDate = format(new Date(), 'yyyy-MM-dd HH:mm:ss');
+    request.srcLoadDate = format(new Date(), 'yyyy-MM-dd HH:mm:ss');
     const apiResponse = await esApi.post(
       'memberInfo/healthEquityPreference',
       request,
     );
-
     return { status: 200, data: { message: apiResponse?.data?.message } };
   } catch (error) {
     return {

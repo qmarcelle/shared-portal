@@ -6,13 +6,18 @@ import { RaceAndEthnicitySurvey } from '@/app/otherProfileSettings/components/Ra
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { Session } from 'next-auth';
 import { OtherProfileSettingsData } from './model/api/otherProfileSettingsData';
 
 export type OtherProfileSettingsProps = {
   data?: OtherProfileSettingsData;
+  sessionData: Session | null;
 };
 
-const OtherProfileSettings = ({ data }: OtherProfileSettingsProps) => {
+const OtherProfileSettings = ({
+  data,
+  sessionData,
+}: OtherProfileSettingsProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <div className="flex flex-col app-content">
@@ -31,12 +36,14 @@ const OtherProfileSettings = ({ data }: OtherProfileSettingsProps) => {
               raceAndEthinicitySelectedDetails={
                 data?.healthEquitySelectedAnswersData
               }
+              sessionData={sessionData}
             />
             <LanguagePreferenceSurvey
               languageSurveyAllDetails={data?.healthEquityPossibleAnswersData}
               languageSurveySelectedDetails={
                 data?.healthEquitySelectedAnswersData
               }
+              sessionData={sessionData}
             />
           </section>
         </section>
