@@ -25,6 +25,7 @@ import {
   isSpendingAccountsMenuOptions,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
+  isWellnessOnlyBenefitsQV,
   isWellnessQa,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
@@ -210,9 +211,13 @@ export const getMenuNavigation = (
         title: 'Member Handbook',
         description: 'This is Member Handbook',
         category: 'Plan Details',
-        showOnMenu: (rules) => isBlueCareEligible(rules) || isWellnessQa(rules),
-        url: 'https://bluecare.bcbst.com/get-care/documents-forms',
+        showOnMenu: (rules) =>
+          isBlueCareEligible(rules) ||
+          isWellnessQa(rules) ||
+          isWellnessOnlyBenefitsQV(rules),
+        url: '/assets/pdf/Member_Wellness_Plan_Brochure.pdf',
         external: true,
+        openInNewWindow: true,
       },
       {
         id: 96,

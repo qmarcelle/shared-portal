@@ -61,6 +61,7 @@ function setVisibilityRules(vRules: VisibilityRules) {
   vRules.wellnessOnly = false;
   vRules.terminated = false;
   vRules.katieBeckNoBenefitsElig = false;
+  vRules.WellnessOnlyBenefitsQV = true;
 }
 function setisActiveAndNotFSAOnly(vRules: VisibilityRules) {
   vRules.futureEffective = false;
@@ -595,5 +596,27 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(screen.getByText('Update Katie Beckett Banking Info')).toBeVisible();
 
     expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should show Member Handbook for WellnessOnlyBenefitsQV', async () => {
+    vRules.isWellnessOnlyBenefitsQV = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(screen.getByText('Member Handbook')).toBeVisible();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should link to Member Handbook Pdf for Wellness eligible users', async () => {
+    vRules.isWellnessOnlyBenefitsQV = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(
+      screen
+        .getByText('Member Handbook')
+        .hasAttribute('/assets/pdf/Member_Wellness_Plan_Brochure.pdf'),
+    );
   });
 });

@@ -49,5 +49,6 @@ export const AUTH_FUNCTION_MAP = {
   isMskEligible: 'MSK_ELIGIBLE',
   fullyInsuredHealthyMaternity: 'FIHEALTHYMATERNITY',
   enableHealthyMaternity: 'HEALTHYMATERNITY',
+  isWellnessOnlyBenefitsQV: 'WellnessOnlyBenefitsQV_VisibilityRule',
   isHighDeductiblePlanMember: 'HighDeductiblePlanMember',
 };
