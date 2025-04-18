@@ -1,4 +1,5 @@
 import { invokeSendEmailInvite } from '@/app/personalRepresentativeAccess/actions/sendInvitePR';
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import {
@@ -32,14 +33,15 @@ export const InviteToRegister = ({
   const [confirmEmail, setConfirmEmail] = useState('');
   const [newAuthDevice, setNewAuthDevice] = useState('');
   const [error, setError] = useState('');
+  const [nextDisabled, setNextDisabled] = useState(false);
   const initiateInvite = async () => {
     try {
-      console.log('member data', memberDetails);
       const response = await invokeSendEmailInvite(
         memberDetails.memberCk,
         memberDetails.requesteeFHRID,
         confirmEmail,
       );
+      logger.info('AccessOtherInfo Invite to Register- send Invite', response);
       if (response.isEmailSent === 'true') {
         changePage!(1, false);
         onRequestSuccessCallBack();
@@ -57,11 +59,13 @@ export const InviteToRegister = ({
       setNewAuthDevice(memberDetails.memberName);
       setConfirmEmail('');
       setError('');
+      setNextDisabled(false);
     }
   }, [pageIndex, memberDetails.memberName]);
 
   const validateEmailAddress = (value: string) => {
     setNewAuthDevice(value);
+    setNextDisabled(false);
     const isValidEmail = isValidEmailAddress(value);
     const isValidLength = validateLength(value);
     if (!isValidEmail || !isValidLength) {
@@ -125,7 +129,7 @@ export const InviteToRegister = ({
         </Column>
       }
       cancelCallback={() => dismissModal()}
-      nextCallback={initiateInvite}
+      nextCallback={nextDisabled ? undefined : initiateInvite}
     />,
     <SuccessSlide
       key={1}
@@ -135,6 +139,19 @@ export const InviteToRegister = ({
           <TextBox
             className="text-center"
             text="We've sent an email inviting this member to register. Once they've completed registration, you'll be able to request access to their information"
+          />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ErrorDisplaySlide
+      key={4}
+      label="Try Again Later"
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="We weren’t able to complete this request at this time. Please try again later."
           />
         </Column>
       }
