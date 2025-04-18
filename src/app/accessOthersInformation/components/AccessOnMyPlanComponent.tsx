@@ -51,6 +51,7 @@ export const AccessOnMyPlanComponent = ({
             memberDetails={item}
             isOnline={item.isOnline}
             infoButton={infoIcon}
+            inviteStatus={item.accessStatusIsPending!}
           />
         ))}
       </Column>

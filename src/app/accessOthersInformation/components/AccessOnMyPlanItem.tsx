@@ -24,6 +24,7 @@ import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 
 interface AccessOnMyPlanItemProps extends IComponent {
+  inviteStatus: boolean;
   memberDetails: ShareMyPlanDetails;
   onRequestSuccessCallBack: () => void;
   isOnline: boolean;
@@ -34,6 +35,7 @@ interface AccessOnMyPlanItemProps extends IComponent {
 }
 
 export const AccessOnMyPlanItem = ({
+  inviteStatus,
   onRequestSuccessCallBack,
   memberDetails,
   isOnline,
@@ -58,20 +60,28 @@ export const AccessOnMyPlanItem = ({
                   text="This member has not created an online profile."
                 />
               </Row>
-              <AppLink
-                label="Invite to Register"
-                icon={icon1}
-                callback={() =>
-                  showAppModal({
-                    content: (
-                      <InviteToRegister
-                        memberDetails={memberDetails!}
-                        onRequestSuccessCallBack={onRequestSuccessCallBack}
-                      />
-                    ),
-                  })
-                }
-              />
+              {!inviteStatus ? (
+                <AppLink
+                  className="!flex pl-0"
+                  label="Invite to Register"
+                  icon={icon1}
+                  callback={() =>
+                    showAppModal({
+                      content: (
+                        <InviteToRegister
+                          memberDetails={memberDetails!}
+                          onRequestSuccessCallBack={onRequestSuccessCallBack}
+                        />
+                      ),
+                    })
+                  }
+                />
+              ) : (
+                <div className="flex flex-row">
+                  <div className="mr-2">{pendingIcon}</div>
+                  <p className={className}>Pending...</p>
+                </div>
+              )}
             </Column>
           </Card>
         </Row>
