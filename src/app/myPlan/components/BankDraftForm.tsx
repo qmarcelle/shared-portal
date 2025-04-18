@@ -16,6 +16,8 @@ export const BankDraftForm = ({ className }: IComponent) => {
   const [accountType, setAccountType] = useState<'checking' | 'savings'>(
     'checking',
   );
+  const [authorityAcknowledged, setAuthorityAcknowledged] = useState(false);
+
   return (
     <Card className={className}>
       <Column>
@@ -97,6 +99,8 @@ export const BankDraftForm = ({ className }: IComponent) => {
           <Checkbox
             label=""
             className={'pl-0'}
+            checked={authorityAcknowledged}
+            onChange={(newValue) => setAuthorityAcknowledged(newValue)}
             body={
               <RichText
                 spans={[

@@ -19,6 +19,8 @@ export interface CheckboxProps extends IComponent {
   error?: boolean;
   errorMessage?: string;
   id?: string;
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
 }
 
 export const Checkbox = ({
@@ -31,14 +33,26 @@ export const Checkbox = ({
   error = false,
   errorMessage,
   id,
+  body,
+  // Support for backward compatibility
+  selected,
+  callback,
+  classProps,
+  checkProps,
+  ariaLabel,
+  ariaDescribedBy,
 }: CheckboxProps) => {
+  // Support both new and old prop patterns
+  const isChecked = selected !== undefined ? selected : checked;
+  const isDisabled = disabled || callback === null;
+  const handleCallback = onChange || callback;
 
-
-const checkboxId = id || `checkbox-${label.toLowerCase().replace(/\s+/g, '-')}`;
+  const checkboxId =
+    id || `checkbox-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
   const handleChange = () => {
-    if (!disabled) {
-      onChange?.(!checked);
+    if (!isDisabled && handleCallback) {
+      handleCallback(!isChecked);
     }
   };
 
@@ -51,34 +65,37 @@ const checkboxId = id || `checkbox-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
   return (
     <div
-      className={`flex flex-col ${className}`}
+      className={`flex flex-col ${className || ''} ${callback === null ? 'checkbox-disabled' : ''}`}
       role="checkbox"
-      aria-checked={checked}
-      aria-disabled={disabled}
+      aria-checked={isChecked}
+      aria-disabled={isDisabled}
       aria-invalid={error}
       aria-required={required}
-      aria-describedby={error ? `${checkboxId}-error` : undefined}
+      aria-label={ariaLabel || undefined}
+      aria-describedby={
+        ariaDescribedBy || (error ? `${checkboxId}-error` : undefined)
+      }
     >
       <div
         className="flex flex-row items-center"
-        tabIndex={disabled ? -1 : 0}
+        tabIndex={isDisabled ? -1 : 0}
         onKeyDown={handleKeyDown}
         onClick={handleChange}
       >
         <input
           type="checkbox"
           id={checkboxId}
-          checked={checked}
+          checked={isChecked}
           onChange={handleChange}
-          disabled={disabled}
+          disabled={isDisabled}
           required={required}
-          className={`checkbox ${checked ? 'checked' : ''} ${
-            disabled ? 'disabled' : ''
+          className={`checkbox ${checkProps || ''} ${isChecked ? 'checked' : ''} ${
+            isDisabled ? 'disabled' : ''
           } ${error ? 'error' : ''}`}
-          aria-label={label}
+          aria-label={ariaLabel || label}
         />
-        <label htmlFor={checkboxId} className="ml-2">
-          {label}
+        <label htmlFor={checkboxId} className={`ml-2 ${classProps || ''}`}>
+          {body ? body : label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       </div>
