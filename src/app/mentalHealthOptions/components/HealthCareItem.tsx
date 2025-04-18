@@ -89,7 +89,11 @@ export const HealthCareItem = ({
           ></TextBox>
           <Spacer size={8} />
           <ListOrder title={itemDataTitle} itemData={itemData}></ListOrder>
-          <AppLink className="text-left" label={healthCareInfo.link} />
+          <AppLink
+            className="text-left"
+            label={healthCareInfo.link}
+            url={healthCareInfo.url}
+          />
         </Column>
       </Row>
     );

@@ -1,5 +1,8 @@
 import { VirtualHealthCareDetails } from '@/app/mentalHealthOptions/models/mental_health_care_options_details';
+import { HealthProgramType } from '../myHealthPrograms/models/health_program_type';
 import { HealthProgramsResourcesName } from './health_programs_resources_names';
+const urlRedirect =
+  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
 
 export const myHealthProgramsandResourcesDetails: Map<
   HealthProgramsResourcesName,
@@ -22,6 +25,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Getting expert guidance on a surgery',
         'Providing answers to your questions about your diagnosis or recommended treatment',
       ],
+      url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
     },
   ],
   [
@@ -41,6 +45,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Respiratory health',
         'Mental health',
       ],
+      url: `${urlRedirect}careTN`,
     },
   ],
   [
@@ -59,6 +64,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Meal planning',
         'Building healthy habits',
       ],
+      url: `${urlRedirect + HealthProgramType.TeladocBP}`,
     },
   ],
   [
@@ -78,6 +84,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Monitoring glucose',
         'Building healthy habits',
       ],
+      url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
     },
   ],
   [
@@ -97,6 +104,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Sharing reports with the doctor',
         'Personalized eating tips',
       ],
+      url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
     },
   ],
   [
@@ -116,6 +124,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'At-home fitness',
         'Gym memberships',
       ],
+      url: `${urlRedirect + HealthProgramType.SilverFit}`,
     },
   ],
   [
@@ -135,6 +144,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Throat cultures',
         'And more',
       ],
+      url: `${urlRedirect + HealthProgramType.QuestSelect}`,
     },
   ],
   [
@@ -148,6 +158,7 @@ export const myHealthProgramsandResourcesDetails: Map<
       link: 'Learn More About AbleTo',
       itemDataTitle: 'Generally good for:',
       itemData: ['Anxiety', 'Depression', 'Grief', 'Stress'],
+      url: `${urlRedirect + HealthProgramType.AbleTo}`,
     },
   ],
   [
@@ -167,6 +178,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Depression',
         'Trauma and PTSD',
       ],
+      url: `${urlRedirect + HealthProgramType.TeladocMentalHealth}`,
     },
   ],
   [
@@ -186,6 +198,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Pelvic pain and incontinence',
         'Neck and shoulder pain',
       ],
+      url: `${urlRedirect + HealthProgramType.HingeHealth}`,
     },
   ],
   [
@@ -205,6 +218,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Pregnancy health advice',
         'Immunization needs and schedules',
       ],
+      url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
     },
   ],
   [
@@ -223,6 +237,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Lab orders and recommended screenings',
         'Referrals to in-network specialists',
       ],
+      url: `${urlRedirect + HealthProgramType.TeladocPrimaryCareProvider}`,
     },
   ],
   [
@@ -261,6 +276,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Urinary tract infections',
         'Constipation or diarrhea',
       ],
+      url: `${urlRedirect + HealthProgramType.TeladocHealthGeneralUrgentCare}`,
     },
   ],
   [
@@ -279,6 +295,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Education and support on conditions or procedures',
         'Help making decisions for surgery or other treatments ',
       ],
+      url: `${urlRedirect + HealthProgramType.TalkToNurse}`,
     },
   ],
 ]);
