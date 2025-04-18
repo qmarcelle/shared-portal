@@ -1,0 +1,1620 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Response 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content"
+        >
+          <section
+            class="flex flex-col justify-start self-start"
+          >
+            <h1
+              class="title-1"
+            >
+              Other Profile Settings
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+              style="display: block;"
+            >
+              Add or update details about yourself, including ethnicity, race and language preferences.
+            </p>
+          </section>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="card-main small-section"
+            >
+              <div
+                class="flex flex-col app-content app-base-font-color"
+              >
+                <section
+                  class="flex flex-row items-start app-body"
+                >
+                  <div
+                    class="flex flex-col flex-grow page-section-36_67 items-stretch"
+                  >
+                    <p
+                      class="body-1 title-2"
+                      style="display: block;"
+                    >
+                      About My Profile
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                      style="display: block;"
+                    >
+                      We'll ask for your race, ethnicity and preferred language. You don't have to tell us. But if you do, we'll keep your answers private. And we'll use secure digital protections to keep your information safe.
+                    </p>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <section>
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 title-2"
+                    style="display: block;"
+                  >
+                    Race and Ethnicity
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col w-[460px]"
+                    >
+                      <p
+                        class="body-1 font-bold body-1"
+                        style="display: block;"
+                      >
+                        What is your ethnicity?
+                      </p>
+                      <div
+                        class="flex flex-col body-2"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-col  body-1 px-1"
+                        >
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            Current Selection: Not Hispanic or Latino
+                          </p>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                          <div
+                            class="flex flex-col"
+                          >
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row flex-row"
+                      >
+                        <span
+                          style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col w-[460px]"
+                  >
+                    <p
+                      class="body-1 font-bold body-1"
+                      style="display: block;"
+                    >
+                      What is your race?
+                    </p>
+                    <div
+                      class="flex flex-col body-2"
+                    >
+                      check all that apply.
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
+                        >
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
+                            <input
+                              aria-label="American Indian/Alaska Native"
+                              class="checkbox   "
+                              id="checkbox-american-indian/alaska-native"
+                              type="checkbox"
+                            />
+                            <label
+                              class="ml-2"
+                              for="checkbox-american-indian/alaska-native"
+                            >
+                              American Indian/Alaska Native
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
+                        >
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
+                            <input
+                              aria-label="Asian"
+                              class="checkbox   "
+                              id="checkbox-asian"
+                              type="checkbox"
+                            />
+                            <label
+                              class="ml-2"
+                              for="checkbox-asian"
+                            >
+                              Asian
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
+                        >
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
+                            <input
+                              aria-label="Black or African American"
+                              class="checkbox   "
+                              id="checkbox-black-or-african-american"
+                              type="checkbox"
+                            />
+                            <label
+                              class="ml-2"
+                              for="checkbox-black-or-african-american"
+                            >
+                              Black or African American
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
+                        >
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
+                            <input
+                              aria-label="Native Hawaiian/Other Pacific Islander"
+                              class="checkbox   "
+                              id="checkbox-native-hawaiian/other-pacific-islander"
+                              type="checkbox"
+                            />
+                            <label
+                              class="ml-2"
+                              for="checkbox-native-hawaiian/other-pacific-islander"
+                            >
+                              Native Hawaiian/Other Pacific Islander
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
+                        >
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
+                            <input
+                              aria-label="White"
+                              class="checkbox   "
+                              id="checkbox-white"
+                              type="checkbox"
+                            />
+                            <label
+                              class="ml-2"
+                              for="checkbox-white"
+                            >
+                              White
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
+                        >
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
+                            <input
+                              aria-label="Some other race"
+                              class="checkbox   "
+                              id="checkbox-some-other-race"
+                              type="checkbox"
+                            />
+                            <label
+                              class="ml-2"
+                              for="checkbox-some-other-race"
+                            >
+                              Some other race
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
+                        >
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
+                            <input
+                              aria-label="Decline to answer"
+                              class="checkbox   "
+                              id="checkbox-decline-to-answer"
+                              type="checkbox"
+                            />
+                            <label
+                              class="ml-2"
+                              for="checkbox-decline-to-answer"
+                            >
+                              Decline to answer
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row flex-row"
+                    >
+                      <button
+                        aria-label="Save Answer"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                        type="button"
+                      >
+                        Save Answer
+                      </button>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col w-[460px]"
+                  >
+                    <p
+                      class="body-1 font-bold"
+                      style="display: block;"
+                    >
+                      How well do you speak English?
+                    </p>
+                    <div
+                      class="flex flex-col body-2"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Very Well"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Very Well
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Well"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Well
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Not Well"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Not Well
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Not at all"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Not at all
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Decline to answer"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Decline to answer
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row flex-row"
+                    >
+                      <button
+                        aria-label="Save Answer"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                        type="button"
+                      >
+                        Save Answer
+                      </button>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col w-[460px]"
+                  >
+                    <p
+                      class="body-1 font-bold"
+                      style="display: block;"
+                    >
+                      What language are you most comfortable using when speaking with your doctor?
+                    </p>
+                    <div
+                      class="flex flex-col body-2"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class=" w-[300px] body-1"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Enter Language"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Enter Language
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Decline to answer"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Decline to answer
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row flex-row"
+                    >
+                      <button
+                        aria-label="Save Answer"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                        type="button"
+                      >
+                        Save Answer
+                      </button>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="flex flex-col w-[460px]"
+                  >
+                    <p
+                      class="body-1 font-bold"
+                      style="display: block;"
+                    >
+                      What language do you prefer to read?
+                    </p>
+                    <div
+                      class="flex flex-col body-2"
+                    >
+                      Note: Not all of our materials are available in all languages right now. We're asking to find out which languages our members use most.
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class=" w-[300px] body-1"
+                      >
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Enter Language"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Enter Language
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-row gap-1 "
+                        >
+                          <label>
+                            <input
+                              aria-label="Decline to answer"
+                              id=""
+                              name=""
+                              type="radio"
+                            />
+                          </label>
+                          <div
+                            class="flex-col m-1"
+                          >
+                            <p
+                              class=""
+                            >
+                              Decline to answer
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row flex-row"
+                    >
+                      <button
+                        aria-label="Save Answer"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                        type="button"
+                      >
+                        Save Answer
+                      </button>
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content"
+      >
+        <section
+          class="flex flex-col justify-start self-start"
+        >
+          <h1
+            class="title-1"
+          >
+            Other Profile Settings
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Add or update details about yourself, including ethnicity, race and language preferences.
+          </p>
+        </section>
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="card-main small-section"
+          >
+            <div
+              class="flex flex-col app-content app-base-font-color"
+            >
+              <section
+                class="flex flex-row items-start app-body"
+              >
+                <div
+                  class="flex flex-col flex-grow page-section-36_67 items-stretch"
+                >
+                  <p
+                    class="body-1 title-2"
+                    style="display: block;"
+                  >
+                    About My Profile
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                    style="display: block;"
+                  >
+                    We'll ask for your race, ethnicity and preferred language. You don't have to tell us. But if you do, we'll keep your answers private. And we'll use secure digital protections to keep your information safe.
+                  </p>
+                </div>
+              </section>
+            </div>
+          </div>
+          <section>
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 title-2"
+                  style="display: block;"
+                >
+                  Race and Ethnicity
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-col w-[460px]"
+                  >
+                    <p
+                      class="body-1 font-bold body-1"
+                      style="display: block;"
+                    >
+                      What is your ethnicity?
+                    </p>
+                    <div
+                      class="flex flex-col body-2"
+                    />
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-col  body-1 px-1"
+                      >
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          Current Selection: Not Hispanic or Latino
+                        </p>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                        <div
+                          class="flex flex-col"
+                        >
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="font-bold primary-color"
+                            >
+                              Update
+                            </p>
+                            <div
+                              class="ml-2"
+                            >
+                              <img
+                                alt="link"
+                                data-nimg="1"
+                                decoding="async"
+                                height="40"
+                                loading="lazy"
+                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                style="color: transparent;"
+                                width="40"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row flex-row"
+                    >
+                      <span
+                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <div
+                      class=""
+                      style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+                <div
+                  class="flex flex-col w-[460px]"
+                >
+                  <p
+                    class="body-1 font-bold body-1"
+                    style="display: block;"
+                  >
+                    What is your race?
+                  </p>
+                  <div
+                    class="flex flex-col body-2"
+                  >
+                    check all that apply.
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="American Indian/Alaska Native"
+                            class="checkbox   "
+                            id="checkbox-american-indian/alaska-native"
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2"
+                            for="checkbox-american-indian/alaska-native"
+                          >
+                            American Indian/Alaska Native
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="Asian"
+                            class="checkbox   "
+                            id="checkbox-asian"
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2"
+                            for="checkbox-asian"
+                          >
+                            Asian
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="Black or African American"
+                            class="checkbox   "
+                            id="checkbox-black-or-african-american"
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2"
+                            for="checkbox-black-or-african-american"
+                          >
+                            Black or African American
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="Native Hawaiian/Other Pacific Islander"
+                            class="checkbox   "
+                            id="checkbox-native-hawaiian/other-pacific-islander"
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2"
+                            for="checkbox-native-hawaiian/other-pacific-islander"
+                          >
+                            Native Hawaiian/Other Pacific Islander
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="White"
+                            class="checkbox   "
+                            id="checkbox-white"
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2"
+                            for="checkbox-white"
+                          >
+                            White
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="Some other race"
+                            class="checkbox   "
+                            id="checkbox-some-other-race"
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2"
+                            for="checkbox-some-other-race"
+                          >
+                            Some other race
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="Decline to answer"
+                            class="checkbox   "
+                            id="checkbox-decline-to-answer"
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2"
+                            for="checkbox-decline-to-answer"
+                          >
+                            Decline to answer
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-row flex-row"
+                  >
+                    <button
+                      aria-label="Save Answer"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                      type="button"
+                    >
+                      Save Answer
+                    </button>
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <div
+                  class="flex flex-col w-[460px]"
+                >
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    How well do you speak English?
+                  </p>
+                  <div
+                    class="flex flex-col body-2"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Very Well"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Very Well
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Well"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Well
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Not Well"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Not Well
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Not at all"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Not at all
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Decline to answer"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Decline to answer
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-row flex-row"
+                  >
+                    <button
+                      aria-label="Save Answer"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                      type="button"
+                    >
+                      Save Answer
+                    </button>
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col w-[460px]"
+                >
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    What language are you most comfortable using when speaking with your doctor?
+                  </p>
+                  <div
+                    class="flex flex-col body-2"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class=" w-[300px] body-1"
+                    >
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Enter Language"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Enter Language
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Decline to answer"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Decline to answer
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-row flex-row"
+                  >
+                    <button
+                      aria-label="Save Answer"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                      type="button"
+                    >
+                      Save Answer
+                    </button>
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col w-[460px]"
+                >
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    What language do you prefer to read?
+                  </p>
+                  <div
+                    class="flex flex-col body-2"
+                  >
+                    Note: Not all of our materials are available in all languages right now. We're asking to find out which languages our members use most.
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <div
+                      class=" w-[300px] body-1"
+                    >
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Enter Language"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Enter Language
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex flex-row gap-1 "
+                      >
+                        <label>
+                          <input
+                            aria-label="Decline to answer"
+                            id=""
+                            name=""
+                            type="radio"
+                          />
+                        </label>
+                        <div
+                          class="flex-col m-1"
+                        >
+                          <p
+                            class=""
+                          >
+                            Decline to answer
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-row flex-row"
+                  >
+                    <button
+                      aria-label="Save Answer"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[250px]"
+                      type="button"
+                    >
+                      Save Answer
+                    </button>
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

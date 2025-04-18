@@ -2,51 +2,35 @@ import { Card } from '@/components/foundation/Card';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { Session } from 'next-auth';
 import { useState } from 'react';
+import {
+  getHealthEquitySelectedAnswers,
+  updateHealthEquityPreference,
+} from '../actions/getNCQAInfo';
 import { NCQAAllPossibleAnswers } from '../model/api/ncqaAllPossibleAnswersData';
 import { NCQASelectedAnswers } from '../model/api/ncqaSelectedData';
+import { UpdateHealthEquityPreferenceRequest } from '../model/api/updateHealthEquityPreferenceRequest';
 import { OptionData, UpdateRowForm } from './UpdateRowForm';
 
 export type LanguageSurveyProps = {
   languageSurveyAllDetails?: NCQAAllPossibleAnswers | null;
   languageSurveySelectedDetails?: NCQASelectedAnswers | null;
+  sessionData: Session | null;
 } & IComponent;
 
 export const LanguagePreferenceSurvey = ({
   languageSurveyAllDetails,
   languageSurveySelectedDetails,
+  sessionData,
 }: LanguageSurveyProps) => {
-  function updateProfileSettingsDetails() {
-    //save logic
-  }
-
-  function updateSpokenLanguageDetails() {
-    if (spokenLanguageOptionChange) {
-      setvalidSpokenLanguage(true);
-    } else {
-      if (spokenLanguageTextOptionChange.length == 0)
-        setvalidSpokenLanguage(false);
-      else {
-        if (spokenLanguageTextOptionChange[0].code === '')
-          setvalidSpokenLanguage(false);
-      }
-    }
-  }
-
-  function updateReadLanguageDetails() {
-    if (readLanguageOptionChange) {
-      setvalidReadLanguage(true);
-    } else {
-      if (readLanguageTextOptionChange.length == 0) setvalidReadLanguage(false);
-      else {
-        if (readLanguageTextOptionChange[0].code === '')
-          setvalidReadLanguage(false);
-      }
-    }
-  }
+  const [
+    memberLanguageSurveySelectedDetails,
+    setmemberLanguageSurveySelectedDetails,
+  ] = useState(languageSurveySelectedDetails);
 
   const selectedEnglishAbilityData: OptionData[] = [];
-  languageSurveySelectedDetails?.englishAbilities?.map((item) => {
+  memberLanguageSurveySelectedDetails?.englishAbilities?.map((item) => {
     selectedEnglishAbilityData.push({
       code: item.ncqaEnglishAbilityCode,
       label: item.ncqaEnglishAbilityDesc,
@@ -101,10 +85,34 @@ export const LanguagePreferenceSurvey = ({
     setengEligibilityOptionChange([...engEligibilityOptionChange]);
   }
 
+  async function updateEnglishAbilityDetails() {
+    const newEnglishAbilityDetails = engEligibilityOptionChange.find(
+      (item) => item.enabled == true,
+    );
+    const englishEligibilityPreferenceRequest: Partial<UpdateHealthEquityPreferenceRequest> =
+      {};
+
+    if (newEnglishAbilityDetails && newEnglishAbilityDetails.code)
+      englishEligibilityPreferenceRequest.engAbilityCode =
+        newEnglishAbilityDetails.code;
+
+    const englishEligibilityResponse = await updateHealthEquityPreference(
+      englishEligibilityPreferenceRequest,
+    );
+    if (englishEligibilityResponse.status == 200) {
+      languageSurveySelectedDetails =
+        await getHealthEquitySelectedAnswers(sessionData);
+      setmemberLanguageSurveySelectedDetails(languageSurveySelectedDetails);
+      setShowEnglishAbilitiesAllOptions(false);
+    } else {
+      setShowEnglishAbilitiesAllOptions(true);
+    }
+  }
+
   const selectedSpokenLanguageData: OptionData[] = [];
   const selectedSpokenLanguageTextData: OptionData[] = [];
   let isSpokenLanguageDeclineSelected = false;
-  languageSurveySelectedDetails?.spokenLanguages?.map((item) => {
+  memberLanguageSurveySelectedDetails?.spokenLanguages?.map((item) => {
     selectedSpokenLanguageData.push({
       code: item.ncqaLanguageCode,
       label: item.ncqaLanguageDesc,
@@ -126,6 +134,10 @@ export const LanguagePreferenceSurvey = ({
 
   const isSpokenLanguageSelected =
     selectedSpokenLanguageData.length == 0 ? false : true;
+
+  const [spokenLanguageEmptySelect, setSpokenLanguageEmptySelect] = useState(
+    selectedSpokenLanguageData.length == 0 ? false : true,
+  );
 
   const [showSpokenLanguageAllOptions, setShowSpokenLanguageAllOptions] =
     useState(false);
@@ -160,16 +172,13 @@ export const LanguagePreferenceSurvey = ({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function updateSpokenLangRadioButtonSelection(val: any) {
-    setvalidSpokenLanguage(true);
+    setSpokenLanguageEmptySelect(true);
     if (val === 'Z2') {
       isSpokenLanguageDeclineSelected = true;
+      setvalidSpokenLanguage(true);
       setSpokenLanguageTextOptionChange([]);
     } else {
       isSpokenLanguageDeclineSelected = false;
-      if (selectedSpokenLanguageData[0]?.code.trim() !== 'Z2') {
-        spokenLanguageTextOptionChange[0] = selectedSpokenLanguageData[0];
-        setSpokenLanguageTextOptionChange([...spokenLanguageTextOptionChange]);
-      }
     }
     setSpokenLanguageOptionChange(isSpokenLanguageDeclineSelected);
   }
@@ -192,11 +201,46 @@ export const LanguagePreferenceSurvey = ({
     setSpokenLanguageTextOptionChange([...spokenLanguageTextOptionChange]);
   }
 
+  function updateSpokenLanguageDetails() {
+    if (spokenLanguageOptionChange) {
+      setvalidSpokenLanguage(true);
+      updateSpokenLanguage('Z2');
+    } else {
+      if (spokenLanguageTextOptionChange.length == 0)
+        setvalidSpokenLanguage(false);
+      else {
+        if (spokenLanguageTextOptionChange[0].code === '')
+          setvalidSpokenLanguage(false);
+        else {
+          updateSpokenLanguage(spokenLanguageTextOptionChange[0].code);
+        }
+      }
+    }
+  }
+
+  async function updateSpokenLanguage(code: string) {
+    const spokenLanguagePreferenceRequest: Partial<UpdateHealthEquityPreferenceRequest> =
+      {};
+
+    if (code) spokenLanguagePreferenceRequest.spokenlanguageCode = code;
+
+    const spokenLanguageResponse = await updateHealthEquityPreference(
+      spokenLanguagePreferenceRequest,
+    );
+    if (spokenLanguageResponse.status == 200) {
+      languageSurveySelectedDetails =
+        await getHealthEquitySelectedAnswers(sessionData);
+      setmemberLanguageSurveySelectedDetails(languageSurveySelectedDetails);
+      setShowSpokenLanguageAllOptions(false);
+    } else {
+      setShowSpokenLanguageAllOptions(true);
+    }
+  }
+
   const selectedReadLanguageData: OptionData[] = [];
   const selectedReadLanguageTextData: OptionData[] = [];
-
   let isReadLanguageDeclineSelected = false;
-  languageSurveySelectedDetails?.writtenLanguages?.map((item) => {
+  memberLanguageSurveySelectedDetails?.writtenLanguages?.map((item) => {
     selectedReadLanguageData.push({
       code: item.ncqaLanguageCode,
       label: item.ncqaLanguageDesc,
@@ -216,6 +260,10 @@ export const LanguagePreferenceSurvey = ({
 
   const isReadLanguageSelected =
     selectedReadLanguageData.length == 0 ? false : true;
+
+  const [readLanguageEmptySelect, setReadLanguageEmptySelect] = useState(
+    selectedReadLanguageData.length == 0 ? false : true,
+  );
 
   const [showReadLanguageAllOptions, setShowReadLanguageAllOptions] =
     useState(false);
@@ -250,16 +298,13 @@ export const LanguagePreferenceSurvey = ({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function updateReadLangRadioButtonSelection(val: any) {
-    setvalidReadLanguage(true);
+    setReadLanguageEmptySelect(true);
     if (val === 'Z2') {
       isReadLanguageDeclineSelected = true;
+      setvalidReadLanguage(true);
       setReadLanguageTextOptionChange([]);
     } else {
       isReadLanguageDeclineSelected = false;
-      if (selectedReadLanguageData[0]?.code.trim() !== 'Z2') {
-        readLanguageTextOptionChange[0] = selectedReadLanguageData[0];
-        setReadLanguageTextOptionChange([...readLanguageTextOptionChange]);
-      }
     }
     setReadLanguageOptionChange(isReadLanguageDeclineSelected);
   }
@@ -282,6 +327,41 @@ export const LanguagePreferenceSurvey = ({
     });
     readLanguageTextOptionChange[0] = selectedReadLang[0];
     setReadLanguageTextOptionChange([...readLanguageTextOptionChange]);
+  }
+
+  function updateReadLanguageDetails() {
+    if (readLanguageOptionChange) {
+      setvalidReadLanguage(true);
+      updateReadLanguage('Z2');
+    } else {
+      if (readLanguageTextOptionChange.length == 0) setvalidReadLanguage(false);
+      else {
+        if (readLanguageTextOptionChange[0].code === '')
+          setvalidReadLanguage(false);
+        else {
+          updateReadLanguage(readLanguageTextOptionChange[0].code);
+        }
+      }
+    }
+  }
+
+  async function updateReadLanguage(code: string) {
+    const readLanguagePreferenceRequest: Partial<UpdateHealthEquityPreferenceRequest> =
+      {};
+
+    if (code) readLanguagePreferenceRequest.writtenlanguageCode = code;
+
+    const readLanguageResponse = await updateHealthEquityPreference(
+      readLanguagePreferenceRequest,
+    );
+    if (readLanguageResponse.status == 200) {
+      languageSurveySelectedDetails =
+        await getHealthEquitySelectedAnswers(sessionData);
+      setmemberLanguageSurveySelectedDetails(languageSurveySelectedDetails);
+      setShowReadLanguageAllOptions(false);
+    } else {
+      setShowReadLanguageAllOptions(true);
+    }
   }
 
   return (
@@ -315,7 +395,7 @@ export const LanguagePreferenceSurvey = ({
             }
             subLabel=""
             enabled={false}
-            saveCallback={updateProfileSettingsDetails}
+            saveCallback={updateEnglishAbilityDetails}
             cancelCallback={showAllEnglishAbilitiesCancelCallBack}
             optionsEnabled={isEnglishAbilitySelected}
             type="radio"
@@ -357,10 +437,7 @@ export const LanguagePreferenceSurvey = ({
             cancelCallback={showAllSpokenLanguageCancelCallBack}
             type="textbox"
             optionObjects={
-              selectedSpokenLanguageData.length > 0 &&
-              !isSpokenLanguageDeclineSelected
-                ? spokenLanguageTextOptionChange
-                : []
+              !spokenLanguageOptionChange ? spokenLanguageTextOptionChange : []
             }
             optionsEnabled={isSpokenLanguageSelected}
             isDeclineLanguageSelected={spokenLanguageOptionChange}
@@ -373,6 +450,7 @@ export const LanguagePreferenceSurvey = ({
             selectionCallBack={updateSpokenLangRadioButtonSelection}
             languageSelectionCallBack={updateSpokenLanguageTextField}
             validLanguage={validSpokenLanguage}
+            languageEmptySelect={spokenLanguageEmptySelect}
           />
         )}
         <Spacer size={32} />
@@ -407,10 +485,7 @@ export const LanguagePreferenceSurvey = ({
             cancelCallback={showAllReadLanguageCancelCallBack}
             type="textbox"
             optionObjects={
-              selectedReadLanguageData.length > 0 &&
-              !isReadLanguageDeclineSelected
-                ? readLanguageTextOptionChange
-                : []
+              !readLanguageOptionChange ? readLanguageTextOptionChange : []
             }
             optionsEnabled={isReadLanguageSelected}
             isDeclineLanguageSelected={readLanguageOptionChange}
@@ -423,6 +498,7 @@ export const LanguagePreferenceSurvey = ({
             selectionCallBack={updateReadLangRadioButtonSelection}
             languageSelectionCallBack={updateReadLanguageTextField}
             validLanguage={validReadLanguage}
+            languageEmptySelect={readLanguageEmptySelect}
           />
         )}
       </div>

@@ -3,26 +3,35 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { Session } from 'next-auth';
 import { useState } from 'react';
+import {
+  getHealthEquitySelectedAnswers,
+  updateHealthEquityPreference,
+} from '../actions/getNCQAInfo';
 import { NCQAAllPossibleAnswers } from '../model/api/ncqaAllPossibleAnswersData';
 import { NCQASelectedAnswers } from '../model/api/ncqaSelectedData';
+import { UpdateHealthEquityPreferenceRequest } from '../model/api/updateHealthEquityPreferenceRequest';
 import { OptionData, UpdateRowForm } from './UpdateRowForm';
 
 export type RaceAndEthinicityProps = {
   raceAndEthinicityAllDetails?: NCQAAllPossibleAnswers | null;
   raceAndEthinicitySelectedDetails?: NCQASelectedAnswers | null;
+  sessionData: Session | null;
 } & IComponent;
 
 export const RaceAndEthnicitySurvey = ({
   raceAndEthinicityAllDetails,
   raceAndEthinicitySelectedDetails,
+  sessionData,
 }: RaceAndEthinicityProps) => {
-  function updateProfileSettingsDetails() {
-    //Save Logic
-  }
+  const [
+    memberRaceandEthicinitySelectedDetails,
+    setmemberRaceandEthicinitySelectedDetails,
+  ] = useState(raceAndEthinicitySelectedDetails);
 
   const selectedEthinicityData: OptionData[] = [];
-  raceAndEthinicitySelectedDetails?.ethnicities?.map((item) => {
+  memberRaceandEthicinitySelectedDetails?.ethnicities?.map((item) => {
     selectedEthinicityData.push({
       code: item.ncqaEthnicityCode,
       label: item.ncqaEthnicityDesc,
@@ -78,14 +87,39 @@ export const RaceAndEthnicitySurvey = ({
     setEthinicityOptionChange([...ethinicityOptionChange]);
   }
 
+  async function updateEthinincityDetails() {
+    const newEthinicityDetails = ethinicityOptionChange.find(
+      (item) => item.enabled == true,
+    );
+    const ethinincityPreferenceRequest: Partial<UpdateHealthEquityPreferenceRequest> =
+      {};
+
+    if (newEthinicityDetails && newEthinicityDetails.code)
+      ethinincityPreferenceRequest.ethnicityCode = newEthinicityDetails.code;
+
+    const ethinicityResponse = await updateHealthEquityPreference(
+      ethinincityPreferenceRequest,
+    );
+    if (ethinicityResponse.status == 200) {
+      raceAndEthinicitySelectedDetails =
+        await getHealthEquitySelectedAnswers(sessionData);
+      setmemberRaceandEthicinitySelectedDetails(
+        raceAndEthinicitySelectedDetails,
+      );
+      setShowEthinicityAllOptions(false);
+    } else {
+      setShowEthinicityAllOptions(true);
+    }
+  }
+
   const selectedRaceData: OptionData[] = [];
   if (
-    raceAndEthinicitySelectedDetails &&
-    raceAndEthinicitySelectedDetails.races &&
-    Array.isArray(raceAndEthinicitySelectedDetails.races)
+    memberRaceandEthicinitySelectedDetails &&
+    memberRaceandEthicinitySelectedDetails.races &&
+    Array.isArray(memberRaceandEthicinitySelectedDetails.races)
   ) {
     const memberSelectedRaceDetails =
-      raceAndEthinicitySelectedDetails?.races[0];
+      memberRaceandEthicinitySelectedDetails?.races[0];
 
     for (
       let i = 1;
@@ -120,6 +154,7 @@ export const RaceAndEthnicitySurvey = ({
       enabled: setEnabled,
     });
   });
+
   const isRaceSelected = selectedRaceData.length == 0 ? false : true;
   const [raceOptionChange, setRaceOptionChange] = useState(raceList);
   const [showRaceAllOptions, setShowRaceAllOptions] = useState(false);
@@ -157,6 +192,44 @@ export const RaceAndEthnicitySurvey = ({
 
     setRaceOptionChange([...raceOptionChange]);
   }
+
+  async function updateRaceDetails() {
+    const newRaceList: OptionData[] = [];
+    raceOptionChange?.map((item) => {
+      if (item.enabled == true) {
+        newRaceList.push({
+          code: item.code,
+          label: item.label,
+          enabled: true,
+        });
+      }
+    });
+
+    const racePreferenceRequest: Partial<UpdateHealthEquityPreferenceRequest> =
+      {};
+
+    if (newRaceList && newRaceList.length > 0) {
+      newRaceList.forEach((item, index) => {
+        const code =
+          `raceCode${index + 1}` as keyof UpdateHealthEquityPreferenceRequest;
+        racePreferenceRequest[code] = item.code;
+      });
+    }
+    const raceResponse = await updateHealthEquityPreference(
+      racePreferenceRequest,
+    );
+    if (raceResponse.status == 200) {
+      raceAndEthinicitySelectedDetails =
+        await getHealthEquitySelectedAnswers(sessionData);
+      setmemberRaceandEthicinitySelectedDetails(
+        raceAndEthinicitySelectedDetails,
+      );
+      setShowRaceAllOptions(false);
+    } else {
+      setShowRaceAllOptions(true);
+    }
+  }
+
   return (
     <Card className="large-section">
       <div className="flex flex-col">
@@ -193,7 +266,7 @@ export const RaceAndEthnicitySurvey = ({
               }
               subLabel=""
               enabled={false}
-              saveCallback={updateProfileSettingsDetails}
+              saveCallback={updateEthinincityDetails}
               cancelCallback={showAllEthinicityCancelCallBack}
               optionsEnabled={isEthinicitySelected}
               type="radio"
@@ -226,7 +299,7 @@ export const RaceAndEthnicitySurvey = ({
             subLabel="check all that apply."
             enabled={false}
             optionsEnabled={isRaceSelected}
-            saveCallback={updateProfileSettingsDetails}
+            saveCallback={updateRaceDetails}
             cancelCallback={showAllRaceCancelCallBack}
             type="checkbox"
             optionObjects={raceOptionChange}
