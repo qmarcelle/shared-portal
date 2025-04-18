@@ -15050,7 +15050,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                       style="color: transparent;"
                                       width="40"
                                     />
-                                    ,
                                   </div>
                                 </div>
                               </div>

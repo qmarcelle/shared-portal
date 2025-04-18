@@ -634,7 +634,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 />
                 <a
                   aria-label="View All Plan Contact Information"
-                  href="/myPlan/planContactInformation"
+                  href="/member/myplan/plancontact"
                   style="display: block;"
                 >
                   <button
