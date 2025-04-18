@@ -90,6 +90,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'katieBeckettEligible',
   'payMyPremiumMedicareEligible',
   'isWellnessQa',
+  'isWellnessOnlyBenefitsQV',
   'isHighDeductiblePlanMember',
   'isLifePointGrp',
 ] as const;

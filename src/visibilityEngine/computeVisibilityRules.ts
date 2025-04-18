@@ -559,6 +559,9 @@ export function payMyPremiumMedicareEligible(
   return rules?.payMyPremiumMedicareEligible && rules?.active;
 }
 
+export function isWellnessOnlyBenefitsQV(rules: VisibilityRules | undefined) {
+  return rules?.isWellnessOnlyBenefitsQV;
+}
 export function isLifePointGrp(rules: VisibilityRules | undefined) {
   return rules?.isLifePointGrp || false;
 }
