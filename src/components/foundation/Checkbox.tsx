@@ -31,10 +31,10 @@ export const Checkbox = ({
   error = false,
   errorMessage,
   id,
+  body,
 }: CheckboxProps) => {
-
-
-const checkboxId = id || `checkbox-${label.toLowerCase().replace(/\s+/g, '-')}`;
+  const checkboxId =
+    id || `checkbox-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
   const handleChange = () => {
     if (!disabled) {
@@ -78,7 +78,7 @@ const checkboxId = id || `checkbox-${label.toLowerCase().replace(/\s+/g, '-')}`;
           aria-label={label}
         />
         <label htmlFor={checkboxId} className="ml-2">
-          {label}
+          {body ? body : label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       </div>
