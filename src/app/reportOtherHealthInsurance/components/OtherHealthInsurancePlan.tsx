@@ -34,27 +34,27 @@ const OtherHealthInsurancePlan: React.FC<OtherHealthInsurancePlanProps> = ({
           <Spacer size={32} />
           <Checkbox
             label={'Medicare Plan'}
-            callback={() => handleChange(['medicarePlan'])}
+            checked={checkboxState.medicarePlan}
+            onChange={() => handleChange(['medicarePlan'])}
             classProps={
               checkboxState.medicalPlan || checkboxState.dentalPlan
                 ? disabledClass
                 : ''
             }
-            selected={checkboxState.medicarePlan}
           ></Checkbox>
           <Spacer size={8} />
           <Checkbox
             label={'Medical Plan'}
-            callback={() => handleChange(['medicalPlan'])}
+            checked={checkboxState.medicalPlan}
+            onChange={() => handleChange(['medicalPlan'])}
             classProps={checkboxState.medicarePlan ? disabledClass : ''}
-            selected={checkboxState.medicalPlan}
           ></Checkbox>
           <Spacer size={8} />
           <Checkbox
             label={'Dental Plan'}
-            callback={() => handleChange(['dentalPlan'])}
+            checked={checkboxState.dentalPlan}
+            onChange={() => handleChange(['dentalPlan'])}
             classProps={checkboxState.medicarePlan ? disabledClass : ''}
-            selected={checkboxState.dentalPlan}
           ></Checkbox>
           <Spacer size={32} />
         </Column>

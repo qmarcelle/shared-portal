@@ -187,9 +187,9 @@ export const EditAlertPreferncesSection = ({
       <Checkbox
         label={preference.hText}
         classProps="font-bold"
-        selected={preference.selected}
+        checked={preference.selected}
         body={<TextBox className="mt-2" text={preference.pText} />}
-        callback={() => checkBoxHandler(alertType, parentAlertType)}
+        onChange={() => checkBoxHandler(alertType, parentAlertType)}
       />
     );
   };

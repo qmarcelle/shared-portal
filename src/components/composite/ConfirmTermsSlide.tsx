@@ -30,10 +30,6 @@ export const ConfirmTermsSlide = ({
 }: ConfirmTermsSlideProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-
   const handleButtonClick = () => {
     if (isChecked) {
       nextCallback();
@@ -49,8 +45,8 @@ export const ConfirmTermsSlide = ({
       <Spacer size={32} />
       <Checkbox
         label={checkboxLabel}
-        checkProps="self-baseline ml-12 mt-1"
-        callback={handleCheckboxChange}
+        checked={isChecked}
+        onChange={(newValue) => setIsChecked(newValue)}
       />
       <Column className="items-center w-[358px]">
         <Spacer size={32} />

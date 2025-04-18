@@ -124,7 +124,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                  including without limitation disenrollment and payment of any amounts due and owing to
                  BlueCross BlueShield of Tennessee, Inc. or any of its affiliates. I authorize BlueCross BlueShield of Tennessee, Inc.,
                    any of its affiliates or WIPRO, LLC to send email, text, and other forms of communication. Unencrypted email or text 
-                   messages may possibly be intercepted and read by people other than those it’s addressed to. Message and data rates may apply. 
+                   messages may possibly be intercepted and read by people other than those it's addressed to. Message and data rates may apply. 
                     I further agree that my participation in the Medicare Prescription Payment Program is subject to all terms, conditions, 
                     and requirements outlined in the applicable Terms and Conditions, my Evidence of Coverage, and applicable law, 
                     regulation, or regulatory guidance.`}
@@ -135,13 +135,15 @@ const MedicalPrescriptionPaymentPlan = () => {
                   understand that, by clicking on the "I AGREE" button, below, I am
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein.`}
-                callback={(event) => setReadAgreement(event.target.checked)}
+                checked={readAgreement}
+                onChange={(newValue) => setReadAgreement(newValue)}
               />
               <Spacer size={16} />
               <Checkbox
                 label=""
                 body={checkboxPaymentPlanText()}
-                callback={(event) => setAgreedTc(event.target.checked)}
+                checked={agreedTc}
+                onChange={(newValue) => setAgreedTc(newValue)}
               />
               <Spacer size={32} />
               <Row className="pl-3 pr-3">

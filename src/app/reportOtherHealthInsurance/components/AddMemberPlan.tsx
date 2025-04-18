@@ -23,9 +23,12 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
 }) => {
   const [selectedMemberData, setSelectedMemberData] = useState(false);
   const [error, setError] = useState('');
+  const [partA, setPartA] = useState(false);
+  const [partB, setPartB] = useState(false);
+  const [partD, setPartD] = useState(false);
+  const [isOver65, setIsOver65] = useState(false);
 
   function handleClick() {
-    setSelectedMemberData(true);
     setSelectedMemberData(!selectedMemberData);
   }
 
@@ -107,12 +110,24 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             <Checkbox
               label={'Medicare Part A'}
               classProps="!p-0"
+              checked={partA}
+              onChange={(newValue) => setPartA(newValue)}
               id="medicare-part-a"
             ></Checkbox>
             <Spacer size={8} />
-            <Checkbox label={'Medicare Part B'} id="medicare-part-b"></Checkbox>
+            <Checkbox
+              label={'Medicare Part B'}
+              checked={partB}
+              onChange={(newValue) => setPartB(newValue)}
+              id="medicare-part-b"
+            ></Checkbox>
             <Spacer size={8} />
-            <Checkbox label={'Medicare Part D'} id="medicare-part-d"></Checkbox>
+            <Checkbox
+              label={'Medicare Part D'}
+              checked={partD}
+              onChange={(newValue) => setPartD(newValue)}
+              id="medicare-part-d"
+            ></Checkbox>
             <Spacer size={16} />
             <CalendarField
               isSuffixNeeded={true}
@@ -198,7 +213,8 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             <Spacer size={8} />
             <Checkbox
               label={'This member is over 65.'}
-              id="member-over-65"
+              checked={isOver65}
+              onChange={(newValue) => setIsOver65(newValue)}
             ></Checkbox>
             <Spacer size={32} />
             {error && (
