@@ -30,7 +30,7 @@ export interface UpdateRowFormProps extends IComponent {
   languageOptions?: LangauageDetails[];
   isDeclineLanguageSelected?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  selectionCallBack?: (val: any) => void;
+  selectionCallBack?: (val: any, isChecked?: boolean) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   languageSelectionCallBack?: (val: any) => void;
   validLanguage?: boolean;
@@ -97,8 +97,9 @@ export const UpdateRowForm = ({
               <Checkbox
                 label={OptionData.label}
                 checked={OptionData.enabled}
-                value={OptionData.code}
-                onChange={() => selectionCallBack?.(OptionData.code)}
+                onChange={(isChecked) =>
+                  selectionCallBack?.(OptionData.code, isChecked)
+                }
               />
             </Column>
           ))}

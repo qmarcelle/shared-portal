@@ -25,10 +25,6 @@ export const PrimaryAccountSelection = () => {
       submitPrimaryAccountSelection: state.submitPrimaryAccountSelection,
     }));
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-
   const getDisableAccounts = () => {
     if (isChecked) {
       submitPrimaryAccountSelection();
@@ -88,14 +84,16 @@ export const PrimaryAccountSelection = () => {
                   login credentials for{' '}
                 </span>,
                 <span key={2} className="font-bold">
-                  all my BlueCross BlueShield of Tennessee registered accounts{' '}
+                  all my BlueCross BlueShield of Tennessee registered
+                  accounts{' '}
                 </span>,
                 <span key={3}>moving forward. </span>,
               ]}
             />
           </Column>
         }
-        callback={handleCheckboxChange}
+        checked={isChecked}
+        onChange={(newValue) => setIsChecked(newValue)}
       />
       <Spacer size={16} />
       <ToolTip
