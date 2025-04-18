@@ -229,24 +229,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                         class="flex flex-col"
                       >
                         <div
-                          class="flex flex-row gap-2 p-2   "
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
                         >
-                          <label>
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
                             <input
-                              id="myCheckbox"
-                              name=""
+                              aria-label="American Indian/Alaska Native"
+                              class="checkbox   "
+                              id="checkbox-american-indian/alaska-native"
                               type="checkbox"
                             />
-                          </label>
-                          <div
-                            class="flex flex-col"
-                          >
                             <label
-                              for="myCheckbox"
+                              class="ml-2"
+                              for="checkbox-american-indian/alaska-native"
                             >
-                              <p>
-                                American Indian/Alaska Native
-                              </p>
+                              American Indian/Alaska Native
                             </label>
                           </div>
                         </div>
@@ -255,24 +259,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                         class="flex flex-col"
                       >
                         <div
-                          class="flex flex-row gap-2 p-2   "
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
                         >
-                          <label>
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
                             <input
-                              id="myCheckbox"
-                              name=""
+                              aria-label="Asian"
+                              class="checkbox   "
+                              id="checkbox-asian"
                               type="checkbox"
                             />
-                          </label>
-                          <div
-                            class="flex flex-col"
-                          >
                             <label
-                              for="myCheckbox"
+                              class="ml-2"
+                              for="checkbox-asian"
                             >
-                              <p>
-                                Asian
-                              </p>
+                              Asian
                             </label>
                           </div>
                         </div>
@@ -281,24 +289,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                         class="flex flex-col"
                       >
                         <div
-                          class="flex flex-row gap-2 p-2   "
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
                         >
-                          <label>
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
                             <input
-                              id="myCheckbox"
-                              name=""
+                              aria-label="Black or African American"
+                              class="checkbox   "
+                              id="checkbox-black-or-african-american"
                               type="checkbox"
                             />
-                          </label>
-                          <div
-                            class="flex flex-col"
-                          >
                             <label
-                              for="myCheckbox"
+                              class="ml-2"
+                              for="checkbox-black-or-african-american"
                             >
-                              <p>
-                                Black or African American
-                              </p>
+                              Black or African American
                             </label>
                           </div>
                         </div>
@@ -307,24 +319,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                         class="flex flex-col"
                       >
                         <div
-                          class="flex flex-row gap-2 p-2   "
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
                         >
-                          <label>
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
                             <input
-                              id="myCheckbox"
-                              name=""
+                              aria-label="Native Hawaiian/Other Pacific Islander"
+                              class="checkbox   "
+                              id="checkbox-native-hawaiian/other-pacific-islander"
                               type="checkbox"
                             />
-                          </label>
-                          <div
-                            class="flex flex-col"
-                          >
                             <label
-                              for="myCheckbox"
+                              class="ml-2"
+                              for="checkbox-native-hawaiian/other-pacific-islander"
                             >
-                              <p>
-                                Native Hawaiian/Other Pacific Islander
-                              </p>
+                              Native Hawaiian/Other Pacific Islander
                             </label>
                           </div>
                         </div>
@@ -333,24 +349,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                         class="flex flex-col"
                       >
                         <div
-                          class="flex flex-row gap-2 p-2   "
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
                         >
-                          <label>
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
                             <input
-                              id="myCheckbox"
-                              name=""
+                              aria-label="White"
+                              class="checkbox   "
+                              id="checkbox-white"
                               type="checkbox"
                             />
-                          </label>
-                          <div
-                            class="flex flex-col"
-                          >
                             <label
-                              for="myCheckbox"
+                              class="ml-2"
+                              for="checkbox-white"
                             >
-                              <p>
-                                White
-                              </p>
+                              White
                             </label>
                           </div>
                         </div>
@@ -359,24 +379,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                         class="flex flex-col"
                       >
                         <div
-                          class="flex flex-row gap-2 p-2   "
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
                         >
-                          <label>
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
                             <input
-                              id="myCheckbox"
-                              name=""
+                              aria-label="Some other race"
+                              class="checkbox   "
+                              id="checkbox-some-other-race"
                               type="checkbox"
                             />
-                          </label>
-                          <div
-                            class="flex flex-col"
-                          >
                             <label
-                              for="myCheckbox"
+                              class="ml-2"
+                              for="checkbox-some-other-race"
                             >
-                              <p>
-                                Some other race
-                              </p>
+                              Some other race
                             </label>
                           </div>
                         </div>
@@ -385,24 +409,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                         class="flex flex-col"
                       >
                         <div
-                          class="flex flex-row gap-2 p-2   "
+                          aria-checked="false"
+                          aria-disabled="false"
+                          aria-invalid="false"
+                          aria-required="false"
+                          class="flex flex-col "
+                          role="checkbox"
                         >
-                          <label>
+                          <div
+                            class="flex flex-row items-center"
+                            tabindex="0"
+                          >
                             <input
-                              id="myCheckbox"
-                              name=""
+                              aria-label="Decline to answer"
+                              class="checkbox   "
+                              id="checkbox-decline-to-answer"
                               type="checkbox"
                             />
-                          </label>
-                          <div
-                            class="flex flex-col"
-                          >
                             <label
-                              for="myCheckbox"
+                              class="ml-2"
+                              for="checkbox-decline-to-answer"
                             >
-                              <p>
-                                Decline to answer
-                              </p>
+                              Decline to answer
                             </label>
                           </div>
                         </div>
@@ -1173,24 +1201,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="American Indian/Alaska Native"
+                            class="checkbox   "
+                            id="checkbox-american-indian/alaska-native"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-american-indian/alaska-native"
                           >
-                            <p>
-                              American Indian/Alaska Native
-                            </p>
+                            American Indian/Alaska Native
                           </label>
                         </div>
                       </div>
@@ -1199,24 +1231,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Asian"
+                            class="checkbox   "
+                            id="checkbox-asian"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-asian"
                           >
-                            <p>
-                              Asian
-                            </p>
+                            Asian
                           </label>
                         </div>
                       </div>
@@ -1225,24 +1261,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Black or African American"
+                            class="checkbox   "
+                            id="checkbox-black-or-african-american"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-black-or-african-american"
                           >
-                            <p>
-                              Black or African American
-                            </p>
+                            Black or African American
                           </label>
                         </div>
                       </div>
@@ -1251,24 +1291,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Native Hawaiian/Other Pacific Islander"
+                            class="checkbox   "
+                            id="checkbox-native-hawaiian/other-pacific-islander"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-native-hawaiian/other-pacific-islander"
                           >
-                            <p>
-                              Native Hawaiian/Other Pacific Islander
-                            </p>
+                            Native Hawaiian/Other Pacific Islander
                           </label>
                         </div>
                       </div>
@@ -1277,24 +1321,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="White"
+                            class="checkbox   "
+                            id="checkbox-white"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-white"
                           >
-                            <p>
-                              White
-                            </p>
+                            White
                           </label>
                         </div>
                       </div>
@@ -1303,24 +1351,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Some other race"
+                            class="checkbox   "
+                            id="checkbox-some-other-race"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-some-other-race"
                           >
-                            <p>
-                              Some other race
-                            </p>
+                            Some other race
                           </label>
                         </div>
                       </div>
@@ -1329,24 +1381,28 @@ exports[`Other Profile Settngs - NCQA Survey NCQA when selected response is empt
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-required="false"
+                        class="flex flex-col "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row items-center"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Decline to answer"
+                            class="checkbox   "
+                            id="checkbox-decline-to-answer"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2"
+                            for="checkbox-decline-to-answer"
                           >
-                            <p>
-                              Decline to answer
-                            </p>
+                            Decline to answer
                           </label>
                         </div>
                       </div>

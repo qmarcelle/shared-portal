@@ -1028,6 +1028,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       </div>
                       <a
                         aria-label="Learn More About AbleTo"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=AbleTo"
                         style="display: block;"
                       >
                         <button
@@ -1205,6 +1206,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     </div>
                     <a
                       aria-label="Learn More About AbleTo"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=AbleTo"
                       style="display: block;"
                     >
                       <button
@@ -1439,6 +1441,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       </div>
                       <a
                         aria-label="Learn More About CareTN"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
                         style="display: block;"
                       >
                         <button
@@ -1616,6 +1619,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     </div>
                     <a
                       aria-label="Learn More About CareTN"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
                       style="display: block;"
                     >
                       <button
@@ -1850,6 +1854,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       </div>
                       <a
                         aria-label="Learn More About Hinge Health"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HingeHealth"
                         style="display: block;"
                       >
                         <button
@@ -2027,6 +2032,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     </div>
                     <a
                       aria-label="Learn More About Hinge Health"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HingeHealth"
                       style="display: block;"
                     >
                       <button
@@ -2434,6 +2440,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       </div>
                       <a
                         aria-label="Learn More About Nurseline"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TalkToNurse"
                         style="display: block;"
                       >
                         <button
@@ -2599,6 +2606,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     </div>
                     <a
                       aria-label="Learn More About Nurseline"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TalkToNurse"
                       style="display: block;"
                     >
                       <button
@@ -2822,6 +2830,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                   </div>
                   <a
                     aria-label="Learn More About Blood Pressure Management"
+                    href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocBP"
                     style="display: block;"
                   >
                     <button
@@ -3004,6 +3013,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </div>
                       <a
                         aria-label="Learn More About Diabetes Management"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesManagement"
                         style="display: block;"
                       >
                         <button
@@ -3181,6 +3191,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     </div>
                     <a
                       aria-label="Learn More About Diabetes Management"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesManagement"
                       style="display: block;"
                     >
                       <button
@@ -3415,6 +3426,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </div>
                       <a
                         aria-label="Learn More About Diabetes Prevention"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesPrevention"
                         style="display: block;"
                       >
                         <button
@@ -3592,6 +3604,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     </div>
                     <a
                       aria-label="Learn More About Diabetes Prevention"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesPrevention"
                       style="display: block;"
                     >
                       <button
@@ -3826,6 +3839,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Health Primary Care"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocPrimaryCareProvider "
                         style="display: block;"
                       >
                         <button
@@ -4003,6 +4017,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Health Primary Care"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocPrimaryCareProvider "
                       style="display: block;"
                     >
                       <button
@@ -4237,6 +4252,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Mental Health"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocMentalHealth"
                         style="display: block;"
                       >
                         <button
@@ -4414,6 +4430,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Mental Health"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocMentalHealth"
                       style="display: block;"
                     >
                       <button
@@ -4648,6 +4665,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                       </div>
                       <a
                         aria-label="Learn More About Second Opinion Advice & Support"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocSecondOption"
                         style="display: block;"
                       >
                         <button
@@ -4825,6 +4843,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     </div>
                     <a
                       aria-label="Learn More About Second Opinion Advice & Support"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocSecondOption"
                       style="display: block;"
                     >
                       <button
@@ -5059,6 +5078,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                       </div>
                       <a
                         aria-label="Learn More About Healthy Maternity"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HealthyMaternity"
                         style="display: block;"
                       >
                         <button
@@ -5236,6 +5256,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     </div>
                     <a
                       aria-label="Learn More About Healthy Maternity"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HealthyMaternity"
                       style="display: block;"
                     >
                       <button
@@ -5470,6 +5491,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                       </div>
                       <a
                         aria-label="Learn More About QuestSelect"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=QuestSelect"
                         style="display: block;"
                       >
                         <button
@@ -5647,6 +5669,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     </div>
                     <a
                       aria-label="Learn More About QuestSelect"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=QuestSelect"
                       style="display: block;"
                     >
                       <button
@@ -5881,6 +5904,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                       </div>
                       <a
                         aria-label="Learn More About Silver&Fit"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=SilverFit"
                         style="display: block;"
                       >
                         <button
@@ -6058,6 +6082,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     </div>
                     <a
                       aria-label="Learn More About Silver&Fit"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=SilverFit"
                       style="display: block;"
                     >
                       <button
@@ -6292,6 +6317,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Health Urgent Care"
+                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthGeneralUrgentCare"
                         style="display: block;"
                       >
                         <button
@@ -6469,6 +6495,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Health Urgent Care"
+                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthGeneralUrgentCare"
                       style="display: block;"
                     >
                       <button
