@@ -89,7 +89,6 @@ export const EditAlertPreferncesSection = ({
     alertType: AlertType,
     parentAlertType?: AlertType,
   ) => {
-    const initialClick = true;
     const alertMap = new Map(
       Array.from(editAlertMap.entries()).map(([key, value]) => [
         key,
@@ -106,10 +105,9 @@ export const EditAlertPreferncesSection = ({
       const alert = alertMap.get(alertType);
       if (alert) {
         alert.selected = !alert.selected;
-        if (alert.childCheckBox && !initialClick) {
+        if (alert.childCheckBox) {
           Array.from(alert.childCheckBox).map(
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            ([key, value]) => (value.selected = alert.selected),
+            ([, value]) => (value.selected = alert.selected),
           );
         }
         alertMap.set(alertType, alert);
