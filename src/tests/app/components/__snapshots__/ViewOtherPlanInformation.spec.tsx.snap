@@ -197,7 +197,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
       class="flex flex-col"
     >
       <a
-        href="/member/myplan/benefit"
+        href="/member/myplan/benefits"
       >
         <div
           class="card-elevated small-section"
@@ -460,7 +460,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
       class="flex flex-col"
     >
       <a
-        href="/member/myplan/benefit"
+        href="/member/myplan/benefits"
       >
         <div
           class="card-elevated small-section"

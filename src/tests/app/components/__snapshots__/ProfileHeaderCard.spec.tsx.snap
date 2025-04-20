@@ -60,7 +60,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                           style="color: transparent;"
                           width="40"
                         />
-                        ,
                       </div>
                     </div>
                   </div>
@@ -426,7 +425,6 @@ exports[`ProfileHeaderCard should render UI correctly 1`] = `
                         style="color: transparent;"
                         width="40"
                       />
-                      ,
                     </div>
                   </div>
                 </div>
@@ -847,7 +845,6 @@ exports[`ProfileHeaderCard should render UI correctly 2`] = `
                         style="color: transparent;"
                         width="40"
                       />
-                      ,
                     </div>
                   </div>
                 </div>

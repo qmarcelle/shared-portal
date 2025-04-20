@@ -1200,7 +1200,6 @@ exports[`SiteHeader And Navigation Menu should render the Google Analtics correc
                                       style="color: transparent;"
                                       width="40"
                                     />
-                                    ,
                                   </div>
                                 </div>
                               </div>

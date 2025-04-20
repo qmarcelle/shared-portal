@@ -6,4 +6,5 @@ export interface VirtualHealthCareDetails {
   link: string;
   itemData: string[];
   itemDataTitle: string;
+  url?: string;
 }
