@@ -5,21 +5,28 @@ import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
-import { accessGranted, inboxIcon } from '@/components/foundation/Icons';
+import {
+  accessGranted,
+  inboxIcon,
+  pendingLogo,
+} from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { formatDateToLocale } from '@/utils/date_formatter';
 import { isMatureMinor } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 import { EditLevelOfAccess } from '../journeys/EditLevelOfAccess';
 import { PersonalRepRequestAccessOnMyPlan } from '../journeys/PersonalRepRequestAccessOnMyPlan';
-import { InviteStatus } from '../models/representativeDetails';
+import { AccessStatus, InviteStatus } from '../models/representativeDetails';
 
 interface MembersRepresentativeItemProps extends IComponent {
   inviteStatus: InviteStatus;
+  accessStatus: AccessStatus;
+  accessStatusIsPending: boolean;
   memberName: string;
   DOB: string;
   isOnline: boolean;
@@ -29,17 +36,25 @@ interface MembersRepresentativeItemProps extends IComponent {
   isRepresentative?: boolean;
   memberMemeCk?: string;
   requesteeFHRID?: string;
+  requesteeUMPID?: string;
   visibilityRules?: VisibilityRules;
   id?: string;
   policyId?: string;
   expiresOn?: string;
   effectiveOn?: string;
+  firstName?: string;
+  lastName?: string;
   onRequestSuccessCallBack: () => void;
+  onInviteSuccessCallBack: () => void;
+  pendingIcon?: JSX.Element;
 }
 
 export const MembersRepresentativeItem = ({
   inviteStatus,
+  accessStatus,
+  accessStatusIsPending,
   onRequestSuccessCallBack,
+  onInviteSuccessCallBack,
   memberName,
   DOB,
   isOnline = true,
@@ -49,20 +64,29 @@ export const MembersRepresentativeItem = ({
   isRepresentative,
   memberMemeCk,
   requesteeFHRID,
+  requesteeUMPID,
   visibilityRules,
   id,
   policyId,
   expiresOn,
   effectiveOn,
+  firstName,
+  lastName,
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
+  pendingIcon = <Image src={pendingLogo} alt="link" />,
 }: MembersRepresentativeItemProps) => {
   const { showAppModal } = useAppModalStore();
+  const matureMinor = isMatureMinor(visibilityRules);
+  const currentDate: string = formatDateToLocale(new Date());
   function getProfileOfflineContent() {
     return (
       <Column>
         <Row>
-          <TextBox className="pt-1 ml-1" text="Basic Access as of 01/01/2024" />
+          <TextBox
+            className="pt-1 ml-1"
+            text={`Basic Access as of ${currentDate}`}
+          />
           <Spacer axis="horizontal" size={32} />
         </Row>
         <Spacer size={16} />
@@ -83,10 +107,11 @@ export const MembersRepresentativeItem = ({
                   showAppModal({
                     content: (
                       <InviteToRegister
+                        isMaturedMinor={matureMinor}
                         memberName={memberName}
                         memeCk={memberMemeCk!}
                         requesteeFHRID={requesteeFHRID!}
-                        onRequestSuccessCallBack={onRequestSuccessCallBack}
+                        onRequestSuccessCallBack={onInviteSuccessCallBack}
                       />
                     ),
                   })
@@ -94,7 +119,7 @@ export const MembersRepresentativeItem = ({
               />
             ) : (
               <div className="flex flex-row">
-                <div className="mr-2">{icon}</div>
+                <div className="mr-2">{pendingIcon}</div>
                 <p className={className}>Pending...</p>
               </div>
             )}
@@ -119,7 +144,10 @@ export const MembersRepresentativeItem = ({
         {!fullAccess && (
           <div>
             <Row>
-              <TextBox className="ml-2" text="Basic Access as of 01/01/2024" />
+              <TextBox
+                className="ml-2"
+                text={`Basic Access as of ${currentDate}`}
+              />
               <Spacer size={42} />
             </Row>
             {!isRepresentative && isMatureMinor(visibilityRules) && (
@@ -134,12 +162,14 @@ export const MembersRepresentativeItem = ({
                       content: (
                         <EditLevelOfAccess
                           memberName={memberName}
-                          isMaturedMinor
+                          isMaturedMinor={matureMinor}
                           currentAccessType="basic"
                           id={id}
                           policyId={policyId}
                           expiresOn={expiresOn}
                           effectiveOn={effectiveOn}
+                          firstName={firstName}
+                          lastName={lastName}
                         />
                       ),
                     })
@@ -147,24 +177,44 @@ export const MembersRepresentativeItem = ({
                 />
               </Row>
             )}
-            <Row>
-              {isRepresentative && (
-                <Title
-                  className="font-bold primary-color"
-                  text="Request Full Access"
-                  suffix={icon}
-                  callback={() =>
-                    showAppModal({
-                      content: (
-                        <PersonalRepRequestAccessOnMyPlan
-                          memberName={memberName}
-                        />
-                      ),
-                    })
-                  }
-                />
-              )}
-            </Row>
+            {isRepresentative && (
+              <Row>
+                {!accessStatusIsPending ? (
+                  <>
+                    <Title
+                      className="font-bold primary-color"
+                      text="Request Full Access"
+                      suffix={icon}
+                      callback={() =>
+                        showAppModal({
+                          content: (
+                            <PersonalRepRequestAccessOnMyPlan
+                              memberName={memberName}
+                              isMaturedMinor={matureMinor}
+                              memeCk={memberMemeCk!}
+                              requesteeFHRID={requesteeFHRID!}
+                              requesteeUMPID={requesteeUMPID!}
+                              onRequestSuccessCallBack={
+                                onRequestSuccessCallBack
+                              }
+                            />
+                          ),
+                        })
+                      }
+                    />
+                  </>
+                ) : (
+                  <>
+                    <TextBox className="body-1 mb" text={accessStatus} />
+                    <Spacer size={16} />
+                    <div className="flex flex-row">
+                      <div className="mr-2">{pendingIcon}</div>
+                      <p className={className}>Pending...</p>
+                    </div>
+                  </>
+                )}
+              </Row>
+            )}
           </div>
         )}
       </Column>
@@ -180,7 +230,11 @@ export const MembersRepresentativeItem = ({
       <Column className="m-8">
         <Spacer size={16} />
         <Row className="justify-between">
-          <TextBox className="font-bold body-1" text={memberName} />
+          {matureMinor ? (
+            <TextBox className="font-bold body-1" text="[Mature Minor]" />
+          ) : (
+            <TextBox className="font-bold body-1" text={memberName} />
+          )}
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />

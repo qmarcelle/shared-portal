@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Inviting Mature Minor to regsiter online should show member details and Invite 1`] = `
+exports[`Request Full Access to Member - requestMemberAccess should show plan member details and changes in access request 1`] = `
 <div>
   <div
     class="flex flex-col justify-center items-center page"
@@ -176,36 +176,36 @@ exports[`Inviting Mature Minor to regsiter online should show member details and
                         <div
                           class="flex flex-row"
                         >
-                          <p
-                            class="body-1 pt-1 ml-1"
-                            style="display: block;"
-                          >
-                            Basic Access as of undefined
-                          </p>
                           <span
-                            style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
                         </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="card-main w-full"
-                          style="background-color: rgba(0, 0, 0, 0.05);"
-                        >
+                        <div>
                           <div
-                            class="flex flex-col m-4"
+                            class="flex flex-row"
                           >
-                            <div
-                              class="flex flex-row mt-2"
+                            <p
+                              class="body-1 ml-2"
+                              style="display: block;"
                             >
-                              <p
-                                class="body-1 body-1"
-                                style="display: block;"
-                              >
-                                This member has not created an online profile.
-                              </p>
-                            </div>
+                              Basic Access as of undefined
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
+                            />
+                          </div>
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Basic Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
                             <div
                               class="flex flex-row"
                             >

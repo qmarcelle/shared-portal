@@ -7,19 +7,50 @@ import {
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { logger } from '@/utils/logger';
+import { requestFullAccessToMembers } from '../actions/getPersonalRepresentativeAccess';
 
 interface PersonalRepRequestAccessOnMyPlanProps {
   memberName: string;
+  isMaturedMinor?: boolean;
+  memeCk: string;
+  requesteeFHRID: string;
+  requesteeUMPID: string;
+  onRequestSuccessCallBack: () => void;
 }
 
 export const PersonalRepRequestAccessOnMyPlan = ({
   changePage,
   pageIndex,
   memberName,
+  memeCk,
+  requesteeFHRID,
+  requesteeUMPID,
+  onRequestSuccessCallBack,
 }: ModalChildProps & PersonalRepRequestAccessOnMyPlanProps) => {
   const { dismissModal } = useAppModalStore();
-  const initChange = () => {
-    changePage!(1, false);
+
+  const personalRepresentativeAccessRequest = async (
+    memeCk: string,
+    requesteeFHRID: string,
+    requesteeUMPID: string,
+  ) => {
+    try {
+      const response = await requestFullAccessToMembers(
+        memeCk,
+        requesteeFHRID,
+        requesteeUMPID,
+      );
+      if (response.isEmailSent === 'true') {
+        changePage!(1, false);
+        onRequestSuccessCallBack();
+      } else {
+        changePage!(2, false);
+      }
+    } catch (error) {
+      changePage!(2, false);
+      logger.error('Error from  personalRepresentativeAccessRequest', error);
+    }
   };
 
   const pages = [
@@ -40,7 +71,13 @@ export const PersonalRepRequestAccessOnMyPlan = ({
         </Column>
       }
       cancelCallback={() => dismissModal()}
-      nextCallback={initChange}
+      nextCallback={() =>
+        personalRepresentativeAccessRequest(
+          memeCk,
+          requesteeFHRID,
+          requesteeUMPID,
+        )
+      }
     />,
     <SuccessSlide
       key={1}

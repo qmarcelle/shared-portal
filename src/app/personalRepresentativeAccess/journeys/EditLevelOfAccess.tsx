@@ -31,6 +31,8 @@ interface InviteToRegisterProps {
   policyId?: string;
   expiresOn?: string;
   effectiveOn?: string;
+  firstName?: string;
+  lastName?: string;
 }
 
 export const EditLevelOfAccess = ({
@@ -44,6 +46,8 @@ export const EditLevelOfAccess = ({
   policyId,
   expiresOn,
   effectiveOn,
+  firstName,
+  lastName,
 }: ModalChildProps & InviteToRegisterProps) => {
   const [selectedData, setSelectedData] = useState<string>(currentAccessType);
 
@@ -58,6 +62,8 @@ export const EditLevelOfAccess = ({
         effectiveOn: effectiveOn,
         expiresOn: expiresOn,
         requestType: 'update',
+        firstName: firstName,
+        lastName: lastName,
       };
 
       const response = await updateConsentDataAction({
