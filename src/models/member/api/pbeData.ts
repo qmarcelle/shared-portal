@@ -58,6 +58,7 @@ export type GetPBEDetail = {
   dob: string;
   gender: string;
   email: string;
+  hasAccount: boolean;
   relationshipInfo: RelationshipInfo[];
 };
 

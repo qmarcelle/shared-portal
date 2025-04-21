@@ -3,7 +3,11 @@
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
-import { PBEData, RelationshipInfo } from '@/models/member/api/pbeData';
+import {
+  PBEData,
+  RelatedPerson,
+  RelationshipInfo,
+} from '@/models/member/api/pbeData';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { esApi } from '@/utils/api/esApi';
 import { formatDateToLocale } from '@/utils/date_formatter';
@@ -27,12 +31,13 @@ export const getPersonalRepresentativeData = async (): Promise<
     const selectedPR = pbeResponse.getPBEDetails[0].relationshipInfo.filter(
       (item) => item.personRoleType === 'PR',
     );
+
     return {
       status: 200,
       data: {
         representativeData:
           session?.user.currUsr.role === 'PR'
-            ? computeMemberProfile(pbeResponse, selectedPR)
+            ? await computeMemberProfile(pbeResponse, selectedPR)
             : computePRProfile(pbeResponse, selectedPlan),
         visibilityRules: session?.user.vRules,
         isRepresentativeLoggedIn: session?.user.currUsr.role === 'PR',
@@ -51,26 +56,32 @@ export const getPersonalRepresentativeData = async (): Promise<
   }
 };
 
-const computeMemberProfile = (
+const computeMemberProfile = async (
   pbeResponse: PBEData,
   selectedPlan: RelationshipInfo[] | undefined,
-): RepresentativeData[] => {
-  const representativesData: RepresentativeData[] = [];
+): Promise<RepresentativeData[]> => {
+  const membersData: Promise<RepresentativeData>[] = [];
   const relatedPersonDetails = selectedPlan?.map((item) => {
     return item.relatedPersons[0];
   });
-  relatedPersonDetails?.forEach((item) =>
-    representativesData.push({
-      memberName:
-        item.relatedPersonFirstName + ' ' + item.relatedPersonLastName,
-      DOB: formatDateToLocale(new Date(item.relatedPersonDob)),
-      isOnline: false,
-      fullAccess: false,
-      memeck: item.relatedPersonMemeCk,
-      requesteeFHRID: item.relatedPersonFHIRID,
-    }),
+  relatedPersonDetails?.forEach(async (item) =>
+    membersData.push(computeMemberData(item)),
   );
-  return representativesData;
+  return await Promise.all(membersData);
+};
+
+const computeMemberData = async (item: RelatedPerson) => {
+  return {
+    memberName: item.relatedPersonFirstName + ' ' + item.relatedPersonLastName,
+    DOB: formatDateToLocale(new Date(item.relatedPersonDob)),
+    isOnline: await isAccountOnline(item.relatedPersonUMPID),
+    fullAccess: item.name === 'Full Access' ? true : false,
+    memeck: item.relatedPersonMemeCk,
+    requesteeFHRID: item.relatedPersonFHIRID,
+    requesteeUMPID: item.relatedPersonUMPID,
+    accessStatus: item.name,
+    accessStatusIsPending: false,
+  };
 };
 
 const computePRProfile = (
@@ -87,15 +98,23 @@ const computePRProfile = (
         item.relatedPersonFirstName + ' ' + item.relatedPersonLastName,
       DOB: formatDateToLocale(new Date(item.relatedPersonDob)),
       isOnline: true,
-      fullAccess: false,
+      fullAccess: item.name === 'Full Access' ? true : false,
       id: item.id,
       effectiveOn: item.effectiveOn,
       expiresOn: item.expiresOn,
       policyId: item.policyId,
+      firstName: item.relatedPersonFirstName,
+      lastName: item.relatedPersonLastName,
     }),
   );
   return representativesData;
 };
+
+const isAccountOnline = async (umpiID: string) => {
+  const pbeResponse = await getPersonBusinessEntity(umpiID);
+  return pbeResponse.getPBEDetails[0].hasAccount;
+};
+
 export async function updateConsentDataAction({
   request,
 }: {
@@ -109,6 +128,8 @@ export async function updateConsentDataAction({
         effectiveOn: request.effectiveOn,
         expiresOn: request.expiresOn,
         requestType: 'update',
+        firstName: request.firstName,
+        lastName: request.lastName,
       },
     );
     return response?.data;

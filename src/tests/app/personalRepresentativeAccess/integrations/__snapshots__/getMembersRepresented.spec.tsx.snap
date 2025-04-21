@@ -179,68 +179,51 @@ exports[`Personal Representative Access Page should show members represented 1`]
                             <div
                               class="flex flex-row"
                             >
-                              <p
-                                class="body-1 pt-1 ml-1"
-                                style="display: block;"
-                              >
-                                Basic Access as of 01/01/2024
-                              </p>
                               <span
-                                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                               />
                             </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                            />
-                            <div
-                              class="card-main w-full"
-                              style="background-color: rgba(0, 0, 0, 0.05);"
-                            >
+                            <div>
                               <div
-                                class="flex flex-col m-4"
+                                class="flex flex-row"
                               >
-                                <div
-                                  class="flex flex-row mt-2"
-                                >
-                                  <p
-                                    class="body-1 body-1"
-                                    style="display: block;"
-                                  >
-                                    This member has not created an online profile.
-                                  </p>
-                                </div>
-                                <a
-                                  aria-label="Invite to Register"
+                                <p
+                                  class="body-1 ml-2"
                                   style="display: block;"
                                 >
-                                  <button
-                                    class="flex flex-row link-container !flex pl-0"
-                                    style="max-width: max-content; height: auto; display: block;"
-                                    tabindex="-1"
-                                    type="button"
+                                  Basic Access as of undefined
+                                </p>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
+                                />
+                              </div>
+                              <div
+                                class="flex flex-row"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
                                   >
-                                    <p
-                                      class="link undefined"
-                                    >
-                                      Invite to Register
-                                    </p>
-                                    <p
-                                      class="ml-1"
-                                    >
-                                      <img
-                                        alt="link"
-                                        data-nimg="1"
-                                        decoding="async"
-                                        height="40"
-                                        loading="lazy"
-                                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                        style="color: transparent;"
-                                        width="40"
-                                      />
-                                    </p>
-                                  </button>
-                                </a>
+                                    Request Full Access
+                                  </p>
+                                  <div
+                                    class="ml-2"
+                                  >
+                                    <img
+                                      alt="link"
+                                      data-nimg="1"
+                                      decoding="async"
+                                      height="40"
+                                      loading="lazy"
+                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                      style="color: transparent;"
+                                      width="40"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -287,68 +270,51 @@ exports[`Personal Representative Access Page should show members represented 1`]
                             <div
                               class="flex flex-row"
                             >
-                              <p
-                                class="body-1 pt-1 ml-1"
-                                style="display: block;"
-                              >
-                                Basic Access as of 01/01/2024
-                              </p>
                               <span
-                                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                               />
                             </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                            />
-                            <div
-                              class="card-main w-full"
-                              style="background-color: rgba(0, 0, 0, 0.05);"
-                            >
+                            <div>
                               <div
-                                class="flex flex-col m-4"
+                                class="flex flex-row"
                               >
-                                <div
-                                  class="flex flex-row mt-2"
-                                >
-                                  <p
-                                    class="body-1 body-1"
-                                    style="display: block;"
-                                  >
-                                    This member has not created an online profile.
-                                  </p>
-                                </div>
-                                <a
-                                  aria-label="Invite to Register"
+                                <p
+                                  class="body-1 ml-2"
                                   style="display: block;"
                                 >
-                                  <button
-                                    class="flex flex-row link-container !flex pl-0"
-                                    style="max-width: max-content; height: auto; display: block;"
-                                    tabindex="-1"
-                                    type="button"
+                                  Basic Access as of undefined
+                                </p>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
+                                />
+                              </div>
+                              <div
+                                class="flex flex-row"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
                                   >
-                                    <p
-                                      class="link undefined"
-                                    >
-                                      Invite to Register
-                                    </p>
-                                    <p
-                                      class="ml-1"
-                                    >
-                                      <img
-                                        alt="link"
-                                        data-nimg="1"
-                                        decoding="async"
-                                        height="40"
-                                        loading="lazy"
-                                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                        style="color: transparent;"
-                                        width="40"
-                                      />
-                                    </p>
-                                  </button>
-                                </a>
+                                    Request Full Access
+                                  </p>
+                                  <div
+                                    class="ml-2"
+                                  >
+                                    <img
+                                      alt="link"
+                                      data-nimg="1"
+                                      decoding="async"
+                                      height="40"
+                                      loading="lazy"
+                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                      style="color: transparent;"
+                                      width="40"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -625,68 +591,51 @@ exports[`Personal Representative Access Page should show members represented 1`]
                           <div
                             class="flex flex-row"
                           >
-                            <p
-                              class="body-1 pt-1 ml-1"
-                              style="display: block;"
-                            >
-                              Basic Access as of 01/01/2024
-                            </p>
                             <span
-                              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                           </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <div
-                            class="card-main w-full"
-                            style="background-color: rgba(0, 0, 0, 0.05);"
-                          >
+                          <div>
                             <div
-                              class="flex flex-col m-4"
+                              class="flex flex-row"
                             >
-                              <div
-                                class="flex flex-row mt-2"
-                              >
-                                <p
-                                  class="body-1 body-1"
-                                  style="display: block;"
-                                >
-                                  This member has not created an online profile.
-                                </p>
-                              </div>
-                              <a
-                                aria-label="Invite to Register"
+                              <p
+                                class="body-1 ml-2"
                                 style="display: block;"
                               >
-                                <button
-                                  class="flex flex-row link-container !flex pl-0"
-                                  style="max-width: max-content; height: auto; display: block;"
-                                  tabindex="-1"
-                                  type="button"
+                                Basic Access as of undefined
+                              </p>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
+                              />
+                            </div>
+                            <div
+                              class="flex flex-row"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
                                 >
-                                  <p
-                                    class="link undefined"
-                                  >
-                                    Invite to Register
-                                  </p>
-                                  <p
-                                    class="ml-1"
-                                  >
-                                    <img
-                                      alt="link"
-                                      data-nimg="1"
-                                      decoding="async"
-                                      height="40"
-                                      loading="lazy"
-                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                      style="color: transparent;"
-                                      width="40"
-                                    />
-                                  </p>
-                                </button>
-                              </a>
+                                  Request Full Access
+                                </p>
+                                <div
+                                  class="ml-2"
+                                >
+                                  <img
+                                    alt="link"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -733,68 +682,51 @@ exports[`Personal Representative Access Page should show members represented 1`]
                           <div
                             class="flex flex-row"
                           >
-                            <p
-                              class="body-1 pt-1 ml-1"
-                              style="display: block;"
-                            >
-                              Basic Access as of 01/01/2024
-                            </p>
                             <span
-                              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
                           </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <div
-                            class="card-main w-full"
-                            style="background-color: rgba(0, 0, 0, 0.05);"
-                          >
+                          <div>
                             <div
-                              class="flex flex-col m-4"
+                              class="flex flex-row"
                             >
-                              <div
-                                class="flex flex-row mt-2"
-                              >
-                                <p
-                                  class="body-1 body-1"
-                                  style="display: block;"
-                                >
-                                  This member has not created an online profile.
-                                </p>
-                              </div>
-                              <a
-                                aria-label="Invite to Register"
+                              <p
+                                class="body-1 ml-2"
                                 style="display: block;"
                               >
-                                <button
-                                  class="flex flex-row link-container !flex pl-0"
-                                  style="max-width: max-content; height: auto; display: block;"
-                                  tabindex="-1"
-                                  type="button"
+                                Basic Access as of undefined
+                              </p>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
+                              />
+                            </div>
+                            <div
+                              class="flex flex-row"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
                                 >
-                                  <p
-                                    class="link undefined"
-                                  >
-                                    Invite to Register
-                                  </p>
-                                  <p
-                                    class="ml-1"
-                                  >
-                                    <img
-                                      alt="link"
-                                      data-nimg="1"
-                                      decoding="async"
-                                      height="40"
-                                      loading="lazy"
-                                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                      style="color: transparent;"
-                                      width="40"
-                                    />
-                                  </p>
-                                </button>
-                              </a>
+                                  Request Full Access
+                                </p>
+                                <div
+                                  class="ml-2"
+                                >
+                                  <img
+                                    alt="link"
+                                    data-nimg="1"
+                                    decoding="async"
+                                    height="40"
+                                    loading="lazy"
+                                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                    style="color: transparent;"
+                                    width="40"
+                                  />
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>

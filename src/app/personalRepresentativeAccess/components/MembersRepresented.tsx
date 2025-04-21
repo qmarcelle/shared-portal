@@ -37,6 +37,17 @@ export const MembersRepresented = ({
       setMemberInviteState([...memberInviteState!]);
     }
   }
+
+  const [memberAccessList, setMemberAccessList] = useState(representativesData);
+  function updateMemberAccessToPending(memberCk: string) {
+    const member = memberAccessList?.find((item) => item.memeck === memberCk);
+
+    if (member != undefined) {
+      member.accessStatusIsPending = true;
+      setMemberAccessList([...memberAccessList!]);
+    }
+  }
+
   function representingMembers() {
     return (
       <Column className="flex flex-col">
@@ -51,6 +62,9 @@ export const MembersRepresented = ({
           {representativesData?.map((item, index) => (
             <MembersRepresentativeItem
               onRequestSuccessCallBack={() =>
+                updateMemberAccessToPending(item.memeck!)
+              }
+              onInviteSuccessCallBack={() =>
                 updateMemberInviteStateToPending(item.memeck!)
               }
               key={index}
@@ -58,16 +72,21 @@ export const MembersRepresented = ({
               memberName={item.memberName}
               memberMemeCk={item.memeck}
               requesteeFHRID={item.requesteeFHRID}
+              requesteeUMPID={item.requesteeUMPID}
               DOB={item.DOB}
               isOnline={item.isOnline}
               fullAccess={item.fullAccess}
               isRepresentative={isRepresentative}
               visibilityRules={visibilityRules}
+              accessStatus={item.accessStatus!}
+              accessStatusIsPending={item.accessStatusIsPending!}
               inviteStatus={item.inviteStatus!}
               id={item.id}
               policyId={item.policyId}
               expiresOn={item.expiresOn}
               effectiveOn={item.effectiveOn}
+              firstName={item.firstName}
+              lastName={item.lastName}
             />
           ))}
         </Column>

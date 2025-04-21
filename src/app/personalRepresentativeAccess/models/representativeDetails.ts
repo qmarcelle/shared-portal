@@ -6,12 +6,17 @@ export interface RepresentativeData {
   isOnline: boolean;
   fullAccess: boolean;
   memeck?: string;
+  accessStatus?: AccessStatus;
+  accessStatusIsPending?: boolean;
   requesteeFHRID?: string;
+  requesteeUMPID?: string;
   inviteStatus?: InviteStatus | undefined;
   id?: string;
   effectiveOn?: string;
   expiresOn?: string;
   policyId?: string;
+  firstName?: string;
+  lastName?: string;
 }
 
 export type RepresentativeViewDetails = {
@@ -21,6 +26,13 @@ export type RepresentativeViewDetails = {
 };
 
 export enum InviteStatus {
+  Pending = 'Pending',
+}
+
+export enum AccessStatus {
+  NoAccess = 'No Access',
+  FullAccess = 'Full Access',
+  BasicAccess = 'Basic Access',
   Pending = 'Pending',
 }
 
