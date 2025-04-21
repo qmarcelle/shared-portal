@@ -3,6 +3,9 @@ import {
   CVS_DRUG_SEARCH_INIT,
   CVS_PHARMACY_SEARCH_FAST,
   CVS_REFILL_RX,
+  PROV_DIR_DEEPLINK_MAP,
+  PROV_DIR_MEDICAL,
+  PROV_DIR_VISION,
 } from '@/app/sso/ssoConstants';
 import {
   isBiometricScreening,
@@ -77,7 +80,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/findprovider',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&redirectLink=PCPSearchRedirect`,
         external: true,
       },
       {
@@ -128,7 +131,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/pricemedicalcare',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MEDICAL)!)}`,
         external: true,
       },
       {
@@ -146,7 +149,7 @@ export const getMenuNavigation = (
         description: 'This is Price Vision Care',
         category: 'Estimate Costs',
         showOnMenu: isPriceVisionCareMenuOptions,
-        url: '/pricevisioncare',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_VISION)!)}`,
         external: true,
       },
       {
@@ -365,7 +368,7 @@ export const getMenuNavigation = (
         description: 'This is Wellness Rewards',
         category: 'Wellness',
         showOnMenu: isNotWellnessQa,
-        url: '/wellnessrewards',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`,
         external: true,
       },
       {
@@ -408,7 +411,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/memberdiscounts',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`,
         external: true,
       },
       {

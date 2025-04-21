@@ -84,7 +84,7 @@ exports[`My Health Page for BlueCare should render My Health Page correctly for 
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button

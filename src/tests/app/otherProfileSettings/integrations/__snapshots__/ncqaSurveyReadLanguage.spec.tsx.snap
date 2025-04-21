@@ -233,7 +233,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -242,12 +242,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="American Indian/Alaska Native"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-american-indian/alaska-native"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-american-indian/alaska-native"
                             >
                               American Indian/Alaska Native
@@ -263,7 +263,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -272,12 +272,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Asian"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-asian"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-asian"
                             >
                               Asian
@@ -293,7 +293,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -302,12 +302,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Black or African American"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-black-or-african-american"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-black-or-african-american"
                             >
                               Black or African American
@@ -323,7 +323,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -332,12 +332,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Native Hawaiian/Other Pacific Islander"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-native-hawaiian/other-pacific-islander"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-native-hawaiian/other-pacific-islander"
                             >
                               Native Hawaiian/Other Pacific Islander
@@ -353,7 +353,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -362,12 +362,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="White"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-white"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-white"
                             >
                               White
@@ -383,7 +383,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -392,12 +392,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Some other race"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-some-other-race"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-some-other-race"
                             >
                               Some other race
@@ -413,7 +413,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -422,12 +422,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Decline to answer"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-decline-to-answer"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-decline-to-answer"
                             >
                               Decline to answer
@@ -1137,7 +1137,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -1146,12 +1146,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="American Indian/Alaska Native"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-american-indian/alaska-native"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-american-indian/alaska-native"
                           >
                             American Indian/Alaska Native
@@ -1167,7 +1167,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -1176,12 +1176,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Asian"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-asian"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-asian"
                           >
                             Asian
@@ -1197,7 +1197,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -1206,12 +1206,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Black or African American"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-black-or-african-american"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-black-or-african-american"
                           >
                             Black or African American
@@ -1227,7 +1227,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -1236,12 +1236,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Native Hawaiian/Other Pacific Islander"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-native-hawaiian/other-pacific-islander"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-native-hawaiian/other-pacific-islander"
                           >
                             Native Hawaiian/Other Pacific Islander
@@ -1257,7 +1257,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -1266,12 +1266,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="White"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-white"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-white"
                           >
                             White
@@ -1287,7 +1287,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -1296,12 +1296,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Some other race"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-some-other-race"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-some-other-race"
                           >
                             Some other race
@@ -1317,7 +1317,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -1326,12 +1326,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Decline to answer"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-decline-to-answer"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-decline-to-answer"
                           >
                             Decline to answer
@@ -2098,7 +2098,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -2107,12 +2107,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="American Indian/Alaska Native"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-american-indian/alaska-native"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-american-indian/alaska-native"
                             >
                               American Indian/Alaska Native
@@ -2128,7 +2128,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -2137,12 +2137,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Asian"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-asian"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-asian"
                             >
                               Asian
@@ -2158,7 +2158,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -2167,12 +2167,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Black or African American"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-black-or-african-american"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-black-or-african-american"
                             >
                               Black or African American
@@ -2188,7 +2188,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -2197,12 +2197,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Native Hawaiian/Other Pacific Islander"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-native-hawaiian/other-pacific-islander"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-native-hawaiian/other-pacific-islander"
                             >
                               Native Hawaiian/Other Pacific Islander
@@ -2218,7 +2218,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -2227,12 +2227,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="White"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-white"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-white"
                             >
                               White
@@ -2248,7 +2248,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -2257,12 +2257,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Some other race"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-some-other-race"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-some-other-race"
                             >
                               Some other race
@@ -2278,7 +2278,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -2287,12 +2287,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Decline to answer"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-decline-to-answer"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-decline-to-answer"
                             >
                               Decline to answer
@@ -2976,7 +2976,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -2985,12 +2985,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="American Indian/Alaska Native"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-american-indian/alaska-native"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-american-indian/alaska-native"
                           >
                             American Indian/Alaska Native
@@ -3006,7 +3006,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -3015,12 +3015,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Asian"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-asian"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-asian"
                           >
                             Asian
@@ -3036,7 +3036,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -3045,12 +3045,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Black or African American"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-black-or-african-american"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-black-or-african-american"
                           >
                             Black or African American
@@ -3066,7 +3066,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -3075,12 +3075,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Native Hawaiian/Other Pacific Islander"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-native-hawaiian/other-pacific-islander"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-native-hawaiian/other-pacific-islander"
                           >
                             Native Hawaiian/Other Pacific Islander
@@ -3096,7 +3096,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -3105,12 +3105,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="White"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-white"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-white"
                           >
                             White
@@ -3126,7 +3126,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -3135,12 +3135,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Some other race"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-some-other-race"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-some-other-race"
                           >
                             Some other race
@@ -3156,7 +3156,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -3165,12 +3165,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Decline to answer"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-decline-to-answer"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-decline-to-answer"
                           >
                             Decline to answer
@@ -3911,7 +3911,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -3920,12 +3920,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="American Indian/Alaska Native"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-american-indian/alaska-native"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-american-indian/alaska-native"
                             >
                               American Indian/Alaska Native
@@ -3941,7 +3941,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -3950,12 +3950,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Asian"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-asian"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-asian"
                             >
                               Asian
@@ -3971,7 +3971,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -3980,12 +3980,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Black or African American"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-black-or-african-american"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-black-or-african-american"
                             >
                               Black or African American
@@ -4001,7 +4001,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -4010,12 +4010,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Native Hawaiian/Other Pacific Islander"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-native-hawaiian/other-pacific-islander"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-native-hawaiian/other-pacific-islander"
                             >
                               Native Hawaiian/Other Pacific Islander
@@ -4031,7 +4031,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -4040,12 +4040,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="White"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-white"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-white"
                             >
                               White
@@ -4061,7 +4061,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -4070,12 +4070,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Some other race"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-some-other-race"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-some-other-race"
                             >
                               Some other race
@@ -4091,7 +4091,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           aria-disabled="false"
                           aria-invalid="false"
                           aria-required="false"
-                          class="flex flex-col "
+                          class="flex flex-col  "
                           role="checkbox"
                         >
                           <div
@@ -4100,12 +4100,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                           >
                             <input
                               aria-label="Decline to answer"
-                              class="checkbox   "
+                              class="checkbox    "
                               id="checkbox-decline-to-answer"
                               type="checkbox"
                             />
                             <label
-                              class="ml-2"
+                              class="ml-2 "
                               for="checkbox-decline-to-answer"
                             >
                               Decline to answer
@@ -4719,7 +4719,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -4728,12 +4728,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="American Indian/Alaska Native"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-american-indian/alaska-native"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-american-indian/alaska-native"
                           >
                             American Indian/Alaska Native
@@ -4749,7 +4749,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -4758,12 +4758,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Asian"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-asian"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-asian"
                           >
                             Asian
@@ -4779,7 +4779,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -4788,12 +4788,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Black or African American"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-black-or-african-american"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-black-or-african-american"
                           >
                             Black or African American
@@ -4809,7 +4809,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -4818,12 +4818,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Native Hawaiian/Other Pacific Islander"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-native-hawaiian/other-pacific-islander"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-native-hawaiian/other-pacific-islander"
                           >
                             Native Hawaiian/Other Pacific Islander
@@ -4839,7 +4839,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -4848,12 +4848,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="White"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-white"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-white"
                           >
                             White
@@ -4869,7 +4869,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -4878,12 +4878,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Some other race"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-some-other-race"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-some-other-race"
                           >
                             Some other race
@@ -4899,7 +4899,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -4908,12 +4908,12 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                         >
                           <input
                             aria-label="Decline to answer"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-decline-to-answer"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-decline-to-answer"
                           >
                             Decline to answer

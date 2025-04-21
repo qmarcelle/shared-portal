@@ -48,12 +48,14 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
   }
   function getProviderLink() {
     if (claimInfo.claimType == 'Medical') {
+      const provId = claimInfo.providerId ?? '';
       return (
         <Column>
           <AppLink
             label="Review This Provider"
             className="link !flex"
             icon={<Image src={externalIcon} alt="external" />}
+            url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_VITALSPRP}&TargetResource=${process.env.NEXT_PUBLIC_VITALS_PRP_SSO_TARGET!.replace('{PROV_ID}', provId)}&provId=${provId}`}
           />
         </Column>
       );

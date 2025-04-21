@@ -66,7 +66,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                   />
                   <a
                     aria-label="View or Update Primary Care Provider"
-                    href="/myPrimaryCareProvider"
+                    href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                     style="display: block;"
                   >
                     <button
@@ -874,7 +874,7 @@ exports[`My Health Page should not show Health Programs & Resources page when it
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button
@@ -1739,7 +1739,7 @@ exports[`My Health Page should not show Healthy maternity component if if pzn is
                   />
                   <a
                     aria-label="View or Update Primary Care Provider"
-                    href="/myPrimaryCareProvider"
+                    href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                     style="display: block;"
                   >
                     <button
@@ -2616,7 +2616,7 @@ exports[`My Health Page should not show Healthy maternity component if if pzn is
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button
@@ -3550,7 +3550,7 @@ exports[`My Health Page should not show Member Wellness Center component if memb
                   />
                   <a
                     aria-label="View or Update Primary Care Provider"
-                    href="/myPrimaryCareProvider"
+                    href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                     style="display: block;"
                   >
                     <button
@@ -4104,7 +4104,7 @@ exports[`My Health Page should not show Member Wellness Center component if memb
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button
@@ -4733,7 +4733,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button
@@ -5907,7 +5907,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                   />
                   <a
                     aria-label="View or Update Primary Care Provider"
-                    href="/myPrimaryCareProvider"
+                    href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                     style="display: block;"
                   >
                     <button
@@ -7075,7 +7075,7 @@ exports[`My Health Page should show Health Programs & Resources page when it is 
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button
@@ -8300,7 +8300,7 @@ exports[`My Health Page should show Healthy maternity component if pzn is true 1
                   />
                   <a
                     aria-label="View or Update Primary Care Provider"
-                    href="/myPrimaryCareProvider"
+                    href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                     style="display: block;"
                   >
                     <button
@@ -9214,7 +9214,7 @@ exports[`My Health Page should show Healthy maternity component if pzn is true 1
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button
@@ -10185,7 +10185,7 @@ exports[`My Health Page should show Member Wellness Center component if memberWe
                   />
                   <a
                     aria-label="View or Update Primary Care Provider"
-                    href="/myPrimaryCareProvider"
+                    href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                     style="display: block;"
                   >
                     <button
@@ -10993,7 +10993,7 @@ exports[`My Health Page should show Member Wellness Center component if memberWe
                 />
                 <a
                   aria-label="View or Update Primary Care Provider"
-                  href="/myPrimaryCareProvider"
+                  href="/sso/launch?PartnerSpId=undefined&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=undefined"
                   style="display: block;"
                 >
                   <button

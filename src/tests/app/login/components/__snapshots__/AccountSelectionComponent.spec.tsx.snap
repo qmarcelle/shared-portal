@@ -83,7 +83,7 @@ exports[`Account selection Component should render all the required details 1`] 
           aria-disabled="false"
           aria-invalid="false"
           aria-required="false"
-          class="flex flex-col "
+          class="flex flex-col  "
           role="checkbox"
         >
           <div
@@ -92,14 +92,42 @@ exports[`Account selection Component should render all the required details 1`] 
           >
             <input
               aria-label=""
-              class="checkbox   "
+              class="checkbox    "
               id="checkbox-"
               type="checkbox"
             />
             <label
-              class="ml-2"
+              class="ml-2 "
               for="checkbox-"
-            />
+            >
+              <div
+                class="flex flex-col"
+              >
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span
+                    class="font-bold"
+                  >
+                    I understand
+                     
+                  </span>
+                  <span>
+                    the username listed above and its password will be the only login credentials for
+                     
+                  </span>
+                  <span
+                    class="font-bold"
+                  >
+                    all my BlueCross BlueShield of Tennessee registered accounts
+                     
+                  </span>
+                  <span>
+                    moving forward. 
+                  </span>
+                </span>
+              </div>
+            </label>
           </div>
         </div>
         <span
@@ -270,7 +298,7 @@ exports[`Account selection Component should render all the required details 1`] 
         aria-disabled="false"
         aria-invalid="false"
         aria-required="false"
-        class="flex flex-col "
+        class="flex flex-col  "
         role="checkbox"
       >
         <div
@@ -279,14 +307,42 @@ exports[`Account selection Component should render all the required details 1`] 
         >
           <input
             aria-label=""
-            class="checkbox   "
+            class="checkbox    "
             id="checkbox-"
             type="checkbox"
           />
           <label
-            class="ml-2"
+            class="ml-2 "
             for="checkbox-"
-          />
+          >
+            <div
+              class="flex flex-col"
+            >
+              <span
+                class="rich-text body-1 undefined"
+              >
+                <span
+                  class="font-bold"
+                >
+                  I understand
+                   
+                </span>
+                <span>
+                  the username listed above and its password will be the only login credentials for
+                   
+                </span>
+                <span
+                  class="font-bold"
+                >
+                  all my BlueCross BlueShield of Tennessee registered accounts
+                   
+                </span>
+                <span>
+                  moving forward. 
+                </span>
+              </span>
+            </div>
+          </label>
         </div>
       </div>
       <span
