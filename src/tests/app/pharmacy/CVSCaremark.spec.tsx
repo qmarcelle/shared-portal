@@ -42,6 +42,7 @@ const renderUI = () => {
         {
           serviceIcon: <Image src={costIcon} alt="Cost Icon" />,
           serviceLabel: 'Find Drug Cost & My Coverage',
+          url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
         },
         {
           serviceIcon: (
@@ -68,7 +69,7 @@ jest.mock('next/navigation', () => ({
 
 process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
   'https://caremark/{DEEPLINK}?newLogin=yes';
-process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'CVS';
+process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK = 'SP_CVS_BCBSTN';
 
 describe('CVSCaremark', () => {
   it('should render the UI correctly', async () => {
@@ -109,7 +110,28 @@ describe('CVSCaremark', () => {
       fireEvent.click(cardElement);
 
       expect(mockPush).toHaveBeenCalledWith(
-        '/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes',
+        '/sso/launch?PartnerSpId=SP_CVS_BCBSTN&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes',
+      );
+    }
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should redirect sso link on click of Find Drug Cost & My Coverage', async () => {
+    const component = renderUI();
+    expect(screen.getByText('Get More with CVS Caremark')).toBeVisible();
+
+    // Get the card element
+    const cardElement = screen
+      .getByText(/Find Drug Cost & My Coverage/i)
+      .closest('.card-elevated');
+    expect(cardElement).toBeInTheDocument();
+    if (cardElement) {
+      // Simulate a click event on the card element
+      fireEvent.click(cardElement);
+
+      expect(mockPush).toHaveBeenCalledWith(
+        '/sso/launch?PartnerSpId=SP_CVS_BCBSTN&TargetResource=https://caremark/pharmacySearchFast?newLogin=yes',
       );
     }
 

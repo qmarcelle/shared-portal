@@ -116,6 +116,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                     {
                       serviceIcon: <Image src={costIcon} alt="Cost Icon" />,
                       serviceLabel: 'Find Drug Cost & My Coverage',
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
                     },
                     {
                       serviceIcon: (

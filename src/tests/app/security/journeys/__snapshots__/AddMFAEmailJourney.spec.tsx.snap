@@ -1364,7 +1364,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               aria-label="Email Address"
                               class=""
                               type="email"
-                              value="c"
+                              value="lc.hcaolml1"
                             />
                             <div
                               class="cursor-pointer"
