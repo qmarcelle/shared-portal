@@ -44,7 +44,7 @@ exports[`PayProvider should render the UI correctly 1`] = `
               aria-disabled="false"
               aria-invalid="false"
               aria-required="false"
-              class="flex flex-col "
+              class="flex flex-col  "
               role="checkbox"
             >
               <div
@@ -53,20 +53,21 @@ exports[`PayProvider should render the UI correctly 1`] = `
               >
                 <input
                   aria-label="Mark as Paid"
-                  class="checkbox   "
-                  id="checkbox-mark-as-paid"
+                  class="checkbox    "
+                  id="mark-as-paid-checkbox"
                   type="checkbox"
                 />
                 <label
-                  class="ml-2"
-                  for="checkbox-mark-as-paid"
+                  class="ml-2 "
+                  for="mark-as-paid-checkbox"
                 >
                   Mark as Paid
                 </label>
               </div>
             </div>
             <img
-              alt="info icon"
+              alt="Mark as paid information"
+              aria-label="Information about marking as paid"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -74,6 +75,7 @@ exports[`PayProvider should render the UI correctly 1`] = `
               src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
               srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
               style="color: transparent;"
+              title="Check this box if you have already paid this provider"
               width="40"
             />
           </div>
@@ -131,7 +133,7 @@ exports[`PayProvider should render the UI correctly 1`] = `
             aria-disabled="false"
             aria-invalid="false"
             aria-required="false"
-            class="flex flex-col "
+            class="flex flex-col  "
             role="checkbox"
           >
             <div
@@ -140,20 +142,21 @@ exports[`PayProvider should render the UI correctly 1`] = `
             >
               <input
                 aria-label="Mark as Paid"
-                class="checkbox   "
-                id="checkbox-mark-as-paid"
+                class="checkbox    "
+                id="mark-as-paid-checkbox"
                 type="checkbox"
               />
               <label
-                class="ml-2"
-                for="checkbox-mark-as-paid"
+                class="ml-2 "
+                for="mark-as-paid-checkbox"
               >
                 Mark as Paid
               </label>
             </div>
           </div>
           <img
-            alt="info icon"
+            alt="Mark as paid information"
+            aria-label="Information about marking as paid"
             data-nimg="1"
             decoding="async"
             height="40"
@@ -161,6 +164,7 @@ exports[`PayProvider should render the UI correctly 1`] = `
             src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
             srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
             style="color: transparent;"
+            title="Check this box if you have already paid this provider"
             width="40"
           />
         </div>

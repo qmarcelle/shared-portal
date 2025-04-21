@@ -671,7 +671,7 @@ exports[`Healthy Maternity Page should render the UI correctly 1`] = `
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -680,12 +680,12 @@ exports[`Healthy Maternity Page should render the UI correctly 1`] = `
                         >
                           <input
                             aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 "
                             for="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                           >
                             By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.
@@ -1423,7 +1423,7 @@ exports[`Healthy Maternity Page should render the UI correctly 1`] = `
                       aria-disabled="false"
                       aria-invalid="false"
                       aria-required="false"
-                      class="flex flex-col "
+                      class="flex flex-col  "
                       role="checkbox"
                     >
                       <div
@@ -1432,12 +1432,12 @@ exports[`Healthy Maternity Page should render the UI correctly 1`] = `
                       >
                         <input
                           aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
-                          class="checkbox   "
+                          class="checkbox    "
                           id="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                           type="checkbox"
                         />
                         <label
-                          class="ml-2"
+                          class="ml-2 "
                           for="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
                         >
                           By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.

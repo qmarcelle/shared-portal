@@ -34,7 +34,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
             <div
               class="flex flex-row body-1 text-center"
             >
-              You’re changing access for:
+              You're changing access for:
             </div>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -80,7 +80,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               class="rich-text body-1 undefined"
             >
               <span>
-                You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application, Basic Access to the selected Member’s health information. Basic Access means that we can share basic health information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the “I Agree” button after reading this, you are electronically signing this authorization form.
+                You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application, Basic Access to the selected Member's health information. Basic Access means that we can share basic health information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the "I Agree" button after reading this, you are electronically signing this authorization form.
               </span>
               <span
                 class="font-bold"
@@ -110,7 +110,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                  
                 This person will be able to have 
                 Basic
-                 Access to all the Member’s health information. They will have access to private health details about the Member, including personal and contact information, health and medical details, insurance information, and social services the Member uses.
+                 Access to all the Member's health information. They will have access to private health details about the Member, including personal and contact information, health and medical details, insurance information, and social services the Member uses.
               </span>
               <span
                 class="font-bold"
@@ -133,7 +133,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               class="body-1"
               style="display: block;"
             >
-              We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to support the Member’s or their Personal Representative’s right to access and direct the sharing of the Member’s health information. Other reasons include support for treatment, payment, and health care operations activities, including care coordination among the Member’s care team and with family members, friends, and others involved in care.
+              We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to support the Member's or their Personal Representative's right to access and direct the sharing of the Member's health information. Other reasons include support for treatment, payment, and health care operations activities, including care coordination among the Member's care team and with family members, friends, and others involved in care.
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -249,7 +249,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               <span
                 class="body-1 font-bold text-center"
               >
-                If you don’t click “I Agree,”
+                If you don't click "I Agree,"
                  
               </span>
               <span>
@@ -297,7 +297,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                       You understand this form.
                     </span>
                     <span>
-                      You have read this form, and you are giving us your permission to use and share the Member’s health information as described in this form.
+                      You have read this form, and you are giving us your permission to use and share the Member's health information as described in this form.
                     </span>
                   </li>
                   <li
@@ -310,7 +310,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                        
                     </span>
                     <span>
-                      You may cancel the permission to use and share the Member’s information by telling us in writing. Send your written cancellation to BlueCross BlueShield of Tennessee, Inc., 1 Cameron Hill Circle, Chattanooga, Tennessee 37402. We will honor your cancellation, except to the extent we have already acted in reliance on it.
+                      You may cancel the permission to use and share the Member's information by telling us in writing. Send your written cancellation to BlueCross BlueShield of Tennessee, Inc., 1 Cameron Hill Circle, Chattanooga, Tennessee 37402. We will honor your cancellation, except to the extent we have already acted in reliance on it.
                     </span>
                   </li>
                   <li
@@ -319,11 +319,11 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                     <span
                       class="font-bold"
                     >
-                      The Member’s information may be shared again.
+                      The Member's information may be shared again.
                        
                     </span>
                     <span>
-                      If we share the Member’s information (including SUD Records) with a person that is not subject to federal health privacy laws (like HIPAA or Part 2), they may reshare the Member’s health information, and it may not be protected by federal privacy laws anymore.
+                      If we share the Member's information (including SUD Records) with a person that is not subject to federal health privacy laws (like HIPAA or Part 2), they may reshare the Member's health information, and it may not be protected by federal privacy laws anymore.
                     </span>
                   </li>
                   <li
@@ -353,11 +353,11 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              aria-checked="false"
+              aria-checked="true"
               aria-disabled="false"
               aria-invalid="false"
               aria-required="false"
-              class="flex flex-col "
+              class="flex flex-col  "
               role="checkbox"
             >
               <div
@@ -366,14 +366,43 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               >
                 <input
                   aria-label=""
-                  class="checkbox   "
+                  checked=""
+                  class="checkbox  checked  "
                   id="checkbox-"
                   type="checkbox"
                 />
                 <label
-                  class="ml-2"
+                  class="ml-2 "
                   for="checkbox-"
-                />
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <span
+                      class="font-bold"
+                    >
+                      I Agree.
+                    </span>
+                    <span>
+                      Clicking "I Agree" means that you have read, understand, and agree to this authorization. You are giving your permission for BlueCross to give
+                       
+                      this person
+                       
+                      <span
+                        class="font-bold"
+                      >
+                        Basic
+                         Access
+                      </span>
+                       
+                      to 
+                      the Member's
+                       health information
+                      .
+                       
+                    </span>
+                  </span>
+                </label>
               </div>
             </div>
             <span
@@ -448,7 +477,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
             <div
               class="flex flex-row body-1 text-center"
             >
-              You’re changing access for:
+              You're changing access for:
             </div>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -494,7 +523,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               class="rich-text body-1 undefined"
             >
               <span>
-                You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application Full Access to the selected Member’s health information, including highly sensitive health information. Full Access means that we can share any information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the
+                You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application Full Access to the selected Member's health information, including highly sensitive health information. Full Access means that we can share any information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the
               </span>
               <span>
                 button after reading this, you are electronically signing this authorization form.
@@ -519,10 +548,10 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                  
                 This person will be able to have 
                 Full
-                 Access to all the Member’s health information. They will have access to private health details about the Member, including personal and contact information, health and medical details, insurance information, and social services the Member uses.
+                 Access to all the Member's health information. They will have access to private health details about the Member, including personal and contact information, health and medical details, insurance information, and social services the Member uses.
                 The information they will have access to may
                   reveal very sensitive health information about the Member,
-                  including information about the Member’s treatment or care for
+                  including information about the Member's treatment or care for
                   reproductive health (including family planning, contraception,
                   miscarriage, abortion, maternity and infertility), substance
                   use disorders (including drugs and alcohol), mental or
@@ -562,7 +591,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               class="body-1"
               style="display: block;"
             >
-              We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to support the Member’s or their Personal Representative’s right to access and direct the sharing of the Member’s health information. Other reasons include support for treatment, payment, and health care operations activities, including care coordination among the Member’s care team and with family members, friends, and others involved in care.
+              We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to support the Member's or their Personal Representative's right to access and direct the sharing of the Member's health information. Other reasons include support for treatment, payment, and health care operations activities, including care coordination among the Member's care team and with family members, friends, and others involved in care.
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -580,7 +609,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               class="body-1"
               style="display: block;"
             >
-              If the Member’s health information includes substance use disorder (SUD) records that might be protected by a federal law found at 42 U.S.C. § 290dd-2 and 42 C.F.R. Part 2 (called Part 2), special rules apply. Specifically:
+              If the Member's health information includes substance use disorder (SUD) records that might be protected by a federal law found at 42 U.S.C. § 290dd-2 and 42 C.F.R. Part 2 (called Part 2), special rules apply. Specifically:
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -724,7 +753,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               <span
                 class="body-1 font-bold text-center"
               >
-                If you don’t click “I Agree,”
+                If you don't click "I Agree,"
                  
               </span>
               <span>
@@ -772,7 +801,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                       You understand this form.
                     </span>
                     <span>
-                      You have read this form, and you are giving us your permission to use and share the Member’s health information as described in this form.
+                      You have read this form, and you are giving us your permission to use and share the Member's health information as described in this form.
                     </span>
                   </li>
                   <li
@@ -785,7 +814,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                        
                     </span>
                     <span>
-                      You may cancel the permission to use and share the Member’s information by telling us in writing. Send your written cancellation to BlueCross BlueShield of Tennessee, Inc., 1 Cameron Hill Circle, Chattanooga, Tennessee 37402. We will honor your cancellation, except to the extent we have already acted in reliance on it.
+                      You may cancel the permission to use and share the Member's information by telling us in writing. Send your written cancellation to BlueCross BlueShield of Tennessee, Inc., 1 Cameron Hill Circle, Chattanooga, Tennessee 37402. We will honor your cancellation, except to the extent we have already acted in reliance on it.
                     </span>
                   </li>
                   <li
@@ -794,11 +823,11 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                     <span
                       class="font-bold"
                     >
-                      The Member’s information may be shared again.
+                      The Member's information may be shared again.
                        
                     </span>
                     <span>
-                      If we share the Member’s information (including SUD Records) with a person that is not subject to federal health privacy laws (like HIPAA or Part 2), they may reshare the Member’s health information, and it may not be protected by federal privacy laws anymore.
+                      If we share the Member's information (including SUD Records) with a person that is not subject to federal health privacy laws (like HIPAA or Part 2), they may reshare the Member's health information, and it may not be protected by federal privacy laws anymore.
                     </span>
                   </li>
                   <li
@@ -828,11 +857,11 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              aria-checked="false"
+              aria-checked="true"
               aria-disabled="false"
               aria-invalid="false"
               aria-required="false"
-              class="flex flex-col "
+              class="flex flex-col  "
               role="checkbox"
             >
               <div
@@ -841,14 +870,44 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               >
                 <input
                   aria-label=""
-                  class="checkbox   "
+                  checked=""
+                  class="checkbox  checked  "
                   id="checkbox-"
                   type="checkbox"
                 />
                 <label
-                  class="ml-2"
+                  class="ml-2 "
                   for="checkbox-"
-                />
+                >
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <span
+                      class="font-bold"
+                    >
+                      I Agree.
+                    </span>
+                    <span>
+                      Clicking "I Agree" means that you have read, understand, and agree to this authorization. You are giving your permission for BlueCross to give
+                       
+                      this person
+                       
+                      <span
+                        class="font-bold"
+                      >
+                        Full
+                         Access
+                      </span>
+                       
+                      to 
+                      the Member's
+                       health information
+                      ,
+                       
+                       including the Member's highly sensitive health information.
+                    </span>
+                  </span>
+                </label>
               </div>
             </div>
             <span

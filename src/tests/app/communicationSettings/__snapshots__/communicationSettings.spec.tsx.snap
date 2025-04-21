@@ -180,7 +180,7 @@ exports[`Communication Settings should render communicationSettings if user role
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -189,15 +189,20 @@ exports[`Communication Settings should render communicationSettings if user role
                         >
                           <input
                             aria-label="Receive Text Alerts"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-receive-text-alerts"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 font-bold"
                             for="checkbox-receive-text-alerts"
                           >
-                            Receive Text Alerts
+                            <p
+                              class="body-1 mt-2"
+                              style="display: block;"
+                            >
+                              Get text alerts with plan updates and personalized health notifications.
+                            </p>
                           </label>
                         </div>
                       </div>
@@ -214,7 +219,7 @@ exports[`Communication Settings should render communicationSettings if user role
                         aria-disabled="false"
                         aria-invalid="false"
                         aria-required="false"
-                        class="flex flex-col "
+                        class="flex flex-col  "
                         role="checkbox"
                       >
                         <div
@@ -223,15 +228,20 @@ exports[`Communication Settings should render communicationSettings if user role
                         >
                           <input
                             aria-label="Receive Email Alerts"
-                            class="checkbox   "
+                            class="checkbox    "
                             id="checkbox-receive-email-alerts"
                             type="checkbox"
                           />
                           <label
-                            class="ml-2"
+                            class="ml-2 font-bold"
                             for="checkbox-receive-email-alerts"
                           >
-                            Receive Email Alerts
+                            <p
+                              class="body-1 mt-2"
+                              style="display: block;"
+                            >
+                              Get important plan updates, claims information and/or health and wellness topics sent to your email.
+                            </p>
                           </label>
                         </div>
                       </div>
@@ -421,7 +431,7 @@ exports[`Communication Settings should render communicationSettings if user role
                       aria-disabled="false"
                       aria-invalid="false"
                       aria-required="false"
-                      class="flex flex-col "
+                      class="flex flex-col  "
                       role="checkbox"
                     >
                       <div
@@ -430,15 +440,20 @@ exports[`Communication Settings should render communicationSettings if user role
                       >
                         <input
                           aria-label="Receive Text Alerts"
-                          class="checkbox   "
+                          class="checkbox    "
                           id="checkbox-receive-text-alerts"
                           type="checkbox"
                         />
                         <label
-                          class="ml-2"
+                          class="ml-2 font-bold"
                           for="checkbox-receive-text-alerts"
                         >
-                          Receive Text Alerts
+                          <p
+                            class="body-1 mt-2"
+                            style="display: block;"
+                          >
+                            Get text alerts with plan updates and personalized health notifications.
+                          </p>
                         </label>
                       </div>
                     </div>
@@ -455,7 +470,7 @@ exports[`Communication Settings should render communicationSettings if user role
                       aria-disabled="false"
                       aria-invalid="false"
                       aria-required="false"
-                      class="flex flex-col "
+                      class="flex flex-col  "
                       role="checkbox"
                     >
                       <div
@@ -464,15 +479,20 @@ exports[`Communication Settings should render communicationSettings if user role
                       >
                         <input
                           aria-label="Receive Email Alerts"
-                          class="checkbox   "
+                          class="checkbox    "
                           id="checkbox-receive-email-alerts"
                           type="checkbox"
                         />
                         <label
-                          class="ml-2"
+                          class="ml-2 font-bold"
                           for="checkbox-receive-email-alerts"
                         >
-                          Receive Email Alerts
+                          <p
+                            class="body-1 mt-2"
+                            style="display: block;"
+                          >
+                            Get important plan updates, claims information and/or health and wellness topics sent to your email.
+                          </p>
                         </label>
                       </div>
                     </div>

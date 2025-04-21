@@ -58,6 +58,7 @@ export async function getClaimDetailsData(
           memberName: member!.name,
           serviceDate: claim.claimLowServiceCalendarDate.replaceAll('-', '/'),
           claimInfo: {},
+          providerId: claim.providerId,
         },
       },
     };

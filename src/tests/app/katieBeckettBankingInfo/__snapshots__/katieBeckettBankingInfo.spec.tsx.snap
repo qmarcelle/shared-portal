@@ -511,7 +511,7 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                     aria-disabled="false"
                     aria-invalid="false"
                     aria-required="false"
-                    class="flex flex-col pl-0"
+                    class="flex flex-col pl-0 "
                     role="checkbox"
                   >
                     <div
@@ -520,14 +520,30 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                     >
                       <input
                         aria-label=""
-                        class="checkbox   "
+                        class="checkbox    "
                         id="checkbox-"
                         type="checkbox"
                       />
                       <label
-                        class="ml-2"
+                        class="ml-2 "
                         for="checkbox-"
-                      />
+                      >
+                        <span
+                          class="rich-text body-1 undefined"
+                        >
+                          <span>
+                            By checking this box, I acknowledge that I have the authority to allow access to this account on behalf of the account holder.
+                             
+                          </span>
+                          <span
+                            class="link font-bold"
+                          >
+                            <a>
+                              View Terms & Conditions
+                            </a>
+                          </span>
+                        </span>
+                      </label>
                     </div>
                   </div>
                   <span
