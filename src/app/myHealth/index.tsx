@@ -224,75 +224,77 @@ const MyHealth = ({ data }: MyHealthProps) => {
         </section>
 
         <Spacer size={64} />
-        <Header text="Other Programs & Resources" type="title-1" />
-        <Spacer size={32} />
         {isHealthProgamAndResourceEligible(data.visibilityRules) && (
-          <section className="flex-row items-start app-body">
-            <OtherBenefits
-              className="large-section"
-              cardClassName="myHealthCard"
-              options={[
-                {
-                  id: '1',
-                  title: 'CareTN One-on-One Health Support ',
-                  description:
-                    'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
-                  url: `${urlRedirect}careTN`,
-                },
-                {
-                  id: '2',
-                  title: 'Healthy Maternity',
-                  description:
-                    'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
-                  url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
-                  isHidden: !isHealthyMaternity(data.visibilityRules),
-                },
-                {
-                  id: '3',
-                  title: 'Teladoc Health Blood Pressure Management Program',
-                  description:
-                    'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
-                  url: `${urlRedirect + HealthProgramType.TeladocBP}`,
-                },
-                {
-                  id: '4',
-                  title: 'Teladoc Health Diabetes Management Program',
-                  description:
-                    'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
-                  url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
-                },
-                {
-                  id: '5',
-                  title: 'Teladoc Health Diabetes Prevention Program',
-                  description:
-                    'Get a personal action plan, health coaching and a smart scale at no extra cost.',
-                  url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
-                },
-                {
-                  id: '6',
-                  title: 'Teladoc Second Opinion Advice & Support',
-                  description:
-                    'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
-                  url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
-                },
-                {
-                  id: '7',
-                  title: 'QuestSelect™ Low-Cost Lab Testing',
-                  description:
-                    'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
-                  url: `${urlRedirect + HealthProgramType.QuestSelect}`,
-                  isHidden: !isQuestSelectEligible(data.visibilityRules),
-                },
-                {
-                  id: '8',
-                  title: 'Silver&Fit Fitness Program',
-                  description:
-                    'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
-                  url: `${urlRedirect + HealthProgramType.SilverFit}`,
-                },
-              ]}
-            />
-          </section>
+          <>
+            <Header text="Other Programs & Resources" type="title-1" />
+            <Spacer size={32} />
+            <section className="flex-row items-start app-body">
+              <OtherBenefits
+                className="large-section"
+                cardClassName="myHealthCard"
+                options={[
+                  {
+                    id: '1',
+                    title: 'CareTN One-on-One Health Support ',
+                    description:
+                      'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
+                    url: `${urlRedirect}careTN`,
+                  },
+                  {
+                    id: '2',
+                    title: 'Healthy Maternity',
+                    description:
+                      'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
+                    url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
+                    isHidden: !isHealthyMaternity(data.visibilityRules),
+                  },
+                  {
+                    id: '3',
+                    title: 'Teladoc Health Blood Pressure Management Program',
+                    description:
+                      'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
+                    url: `${urlRedirect + HealthProgramType.TeladocBP}`,
+                  },
+                  {
+                    id: '4',
+                    title: 'Teladoc Health Diabetes Management Program',
+                    description:
+                      'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
+                    url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
+                  },
+                  {
+                    id: '5',
+                    title: 'Teladoc Health Diabetes Prevention Program',
+                    description:
+                      'Get a personal action plan, health coaching and a smart scale at no extra cost.',
+                    url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
+                  },
+                  {
+                    id: '6',
+                    title: 'Teladoc Second Opinion Advice & Support',
+                    description:
+                      'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
+                    url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
+                  },
+                  {
+                    id: '7',
+                    title: 'QuestSelect™ Low-Cost Lab Testing',
+                    description:
+                      'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+                    url: `${urlRedirect + HealthProgramType.QuestSelect}`,
+                    isHidden: !isQuestSelectEligible(data.visibilityRules),
+                  },
+                  {
+                    id: '8',
+                    title: 'Silver&Fit Fitness Program',
+                    description:
+                      'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
+                    url: `${urlRedirect + HealthProgramType.SilverFit}`,
+                  },
+                ]}
+              />
+            </section>
+          </>
         )}
         <section>
           <MyHealthOffsiteLinkCard

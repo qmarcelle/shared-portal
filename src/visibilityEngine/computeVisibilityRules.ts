@@ -366,7 +366,7 @@ export function isDiabetesManagementEligible(
 }
 export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
   return (
-    rules?.commercial &&
+    isLobCommercial(rules) &&
     rules?.cmEnable &&
     !(hasCondensesedExperienceProfiler(rules) == 'Quantum')
   );
@@ -480,7 +480,7 @@ export function isSilverAndFitnessEligible(rules: VisibilityRules | undefined) {
 export function isHealthProgamAndResourceEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return rules?.commercial || rules?.medicare;
+  return isLobCommercial(rules) || rules?.medicare;
 }
 export function isMedicarePrescriptionPaymentPlanEligible(
   rules: VisibilityRules | undefined,
