@@ -32,4 +32,6 @@ export type AllMyPlanData<T = Address[]> = {
   age?: number | undefined;
   secondaryPhoneNumber: string;
   mailAddressType?: string;
+  memCk: string;
+  loggedInMember?: boolean;
 };

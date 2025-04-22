@@ -201,6 +201,7 @@ export async function getMemberAndDependentsPlanDetails(
       secondaryPhoneNumber: 'N/A',
       age: Number(item.birthDate),
       mailAddressType: item.mailAddressType,
+      memCk: item.memberCk.toString(),
     };
   });
 }
