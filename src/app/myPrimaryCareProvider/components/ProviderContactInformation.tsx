@@ -26,7 +26,7 @@ export const ProviderContactInformation = ({
   className,
   icon = <Image src={editIcon} alt="link" />,
 }: ProviderContactInformationProps) => {
-  const addressLine3 = `${toPascalCase(providerDetails?.city ?? '')} ${providerDetails?.state} ${formatZip(providerDetails?.zip)}`;
+  const addressLine3 = `${toPascalCase(providerDetails?.city ?? '')} ${providerDetails?.state ?? ''} ${formatZip(providerDetails?.zip) ?? ''}`;
   return (
     <>
       {providerDetails &&
@@ -53,20 +53,33 @@ export const ProviderContactInformation = ({
                   <TextBox className="body-1" text={label}></TextBox>
                   <Spacer size={16} />
                   <TextBox className="body-2" text="Facility Address"></TextBox>
-                  {providerDetails.address1 && (
-                    <TextBox
-                      className="body-1"
-                      text={toPascalCase(providerDetails.address1)}
-                    ></TextBox>
-                  )}
-                  {providerDetails.address2 && (
-                    <TextBox
-                      className="body-1"
-                      text={toPascalCase(providerDetails.address2)}
-                    ></TextBox>
-                  )}
-                  {addressLine3 && (
-                    <TextBox className="body-1" text={addressLine3}></TextBox>
+                  {providerDetails.address1 ||
+                  providerDetails.address2 ||
+                  providerDetails.city ||
+                  providerDetails.state ||
+                  providerDetails.zip ? (
+                    <>
+                      {providerDetails.address1 && (
+                        <TextBox
+                          className="body-1 test1"
+                          text={toPascalCase(providerDetails.address1)}
+                        ></TextBox>
+                      )}
+                      {providerDetails.address2 && (
+                        <TextBox
+                          className="body-1 test2"
+                          text={toPascalCase(providerDetails.address2)}
+                        ></TextBox>
+                      )}
+                      {addressLine3 && (
+                        <TextBox
+                          className="body-1 test3"
+                          text={addressLine3}
+                        ></TextBox>
+                      )}
+                    </>
+                  ) : (
+                    <TextBox className="body-1 test1" text="N/A"></TextBox>
                   )}
                   <Spacer size={16} />
                   {providerDetails.phone && (
