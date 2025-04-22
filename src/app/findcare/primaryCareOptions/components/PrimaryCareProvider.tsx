@@ -24,7 +24,7 @@ export const PrimaryCareProvider = ({
   linkLabel,
   className,
 }: PrimaryCareProviderProps) => {
-  const addressLine3 = `${toPascalCase(providerDetails?.city ?? '')} ${providerDetails?.state} ${formatZip(providerDetails?.zip)}`;
+  const addressLine3 = `${toPascalCase(providerDetails?.city ?? '')} ${providerDetails?.state ?? ''} ${formatZip(providerDetails?.zip) ?? ''}`;
   return (
     <Card className={className}>
       <div>
@@ -40,27 +40,40 @@ export const PrimaryCareProvider = ({
               <TextBox className="body-1" text={label}></TextBox>
               <Spacer size={16} />
               <TextBox className="body-2" text="Facility Address"></TextBox>
-              {providerDetails.address1 && (
-                <TextBox
-                  className="body-1"
-                  text={toPascalCase(providerDetails.address1)}
-                ></TextBox>
-              )}
-              {providerDetails.address2 && (
-                <TextBox
-                  className="body-1"
-                  text={toPascalCase(providerDetails.address2)}
-                ></TextBox>
-              )}
-              {addressLine3 && (
-                <TextBox className="body-1" text={addressLine3}></TextBox>
+              {providerDetails.address1 ||
+              providerDetails.address2 ||
+              providerDetails.city ||
+              providerDetails.state ||
+              providerDetails.zip ? (
+                <>
+                  {providerDetails.address1 && (
+                    <TextBox
+                      className="body-1 test1"
+                      text={toPascalCase(providerDetails.address1)}
+                    ></TextBox>
+                  )}
+                  {providerDetails.address2 && (
+                    <TextBox
+                      className="body-1 test2"
+                      text={toPascalCase(providerDetails.address2)}
+                    ></TextBox>
+                  )}
+                  {addressLine3 && (
+                    <TextBox
+                      className="body-1 test3"
+                      text={addressLine3}
+                    ></TextBox>
+                  )}
+                </>
+              ) : (
+                <TextBox className="body-1 test1" text="N/A"></TextBox>
               )}
               <Spacer size={16} />
               {providerDetails.phone && (
                 <>
-                  <TextBox className="body-2" text="Phone"></TextBox>
+                  <TextBox className="body-2 test4" text="Phone"></TextBox>
                   <TextBox
-                    className="body-1"
+                    className="body-1 test5"
                     text={formatPhone(providerDetails.phone)}
                   ></TextBox>
                 </>
@@ -77,7 +90,7 @@ export const PrimaryCareProvider = ({
         <AppLink
           className="!text-left"
           label={linkLabel}
-          url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`}
+          url="/myPrimaryCareProvider"
         />
       </div>
     </Card>
