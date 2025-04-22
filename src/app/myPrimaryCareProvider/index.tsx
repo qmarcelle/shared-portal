@@ -37,17 +37,21 @@ const MyPrimaryCareProvider = ({ data, phone }: PrimaryCareOptionsProps) => {
               />
             )}
             <Spacer size={12} />
-            <Header text="Dependents" className="title-2 m-4" />
-            <Spacer size={12} />
             {data.dependentPrimaryCareProvider &&
-              data.dependentPrimaryCareProvider.map((item, index) => (
-                <ProviderContactInformation
-                  key={index}
-                  className="large-section"
-                  providerDetails={item}
-                  label="Primary Care Provider"
-                />
-              ))}
+              data.dependentPrimaryCareProvider.length > 0 && (
+                <>
+                  <Header text="Dependents" className="title-2 m-4" />
+                  <Spacer size={12} />
+                  {data.dependentPrimaryCareProvider.map((item, index) => (
+                    <ProviderContactInformation
+                      key={index}
+                      className="large-section"
+                      providerDetails={item}
+                      label="Primary Care Provider"
+                    />
+                  ))}
+                </>
+              )}
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
             <HelpWithPrimaryCareProvider contact={phone} />
