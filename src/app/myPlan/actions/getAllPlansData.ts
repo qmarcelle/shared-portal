@@ -43,6 +43,8 @@ export const getAllPlansData = async (): Promise<
         primaryPhoneNumber: plan.primaryPhoneNumber,
         secondaryPhoneNumber: 'N/A',
         age: getAge(new Date(plan.dob).toLocaleDateString()),
+        memCk: plan.memCk,
+        loggedInMember: plan.memCk == session?.user.currUsr.plan?.memCk,
       };
     });
 
@@ -51,6 +53,7 @@ export const getAllPlansData = async (): Promise<
       data: memberPlanData,
     };
   } catch (error) {
+    logger.error('GetAllPlansData Failed', error);
     return {
       status: 400,
       data: [],
@@ -69,13 +72,6 @@ export async function getContactInfo(umpi: string): Promise<ContactInfoData> {
     return resp.data.data;
   } catch (err) {
     logger.error('Contact Api Failed', err);
-    return {
-      email: 'demo@bcbst.com',
-      email_verified_flag: true,
-      phone: '7654387656',
-      phone_verified_flag: true,
-      umpi: 'pool5',
-    };
-    //throw err;
+    throw err;
   }
 }

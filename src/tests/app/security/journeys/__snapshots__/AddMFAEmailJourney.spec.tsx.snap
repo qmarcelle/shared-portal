@@ -930,7 +930,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                               aria-label="Email Address"
                               class=""
                               type="email"
-                              value="ocmhall123gmail.com"
+                              value="chall123gmail.com"
                             />
                             <div
                               class="cursor-pointer"
@@ -1364,7 +1364,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               aria-label="Email Address"
                               class=""
                               type="email"
-                              value="lc.hcaolml1"
+                              value="chall123@gmail.com"
                             />
                             <div
                               class="cursor-pointer"
