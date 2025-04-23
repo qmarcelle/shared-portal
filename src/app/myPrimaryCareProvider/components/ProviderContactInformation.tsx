@@ -39,7 +39,10 @@ export const ProviderContactInformation = ({
               <TextBox type="title-2" text={providerDetails?.name} />
             )}
             {providerDetails?.dob && (
-              <TextBox type="title-2" text={providerDetails?.dob} />
+              <Row>
+                <TextBox type="title-2" text="DOB: " />
+                <TextBox type="title-2" text={providerDetails?.dob} />
+              </Row>
             )}
             <Spacer size={16} />
             {providerDetails.physicianName != '' &&
