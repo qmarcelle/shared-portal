@@ -49,7 +49,7 @@ export const AddProviderInfoItem = ({
             <Spacer size={8} />
             <AppLink
               className="font-bold primary-color !flex ml-10"
-              url="/member/myhealth/primarycare"
+              url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`}
               label="Add a Provider"
             />
           </Column>
