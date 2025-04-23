@@ -1,12 +1,16 @@
 'use client';
 import { invokeSmartSearchInquiry } from '@/actions/smartSearch';
+import { ErrorCard } from '@/components/composite/ErrorCard';
+import { IconCard } from '@/components/composite/IconCard';
 import { Dropdown } from '@/components/foundation/Dropdown';
+import { documentEmptyIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Banner as BannerFromResp } from '@/models/enterprise/smartSearchInquiryResponse';
 import { transformFusionSearchInquiryIntoDetails } from '@/utils/fusion_search_result_page_resp_mapper';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { searchBanners } from '../data/searchBanners';
@@ -20,11 +24,14 @@ export const SearchResultsInfoComponent = () => {
   const [sortVal, setSortVal] = useState('score');
   const [resultsCount, setResultsCount] = useState(0);
   const [banner, setBanner] = useState<Banner>();
+  const [error, setError] = useState(false);
 
   const [searchText, setSearchText] = useState(
     searchParams.get('searchTerm') ?? '',
   );
-  const [filteredList, setFilteredList] = useState<SearchResultItem[]>([]);
+  const [filteredList, setFilteredList] = useState<SearchResultItem[] | null>(
+    null,
+  );
 
   useEffect(() => {
     handleSearch(searchText);
@@ -38,25 +45,38 @@ export const SearchResultsInfoComponent = () => {
     clearTimeout(searchTimeout.current);
     searchTimeout.current = setTimeout(async () => {
       const searchResp = await invokeSmartSearchInquiry(searchTerm, sortVal);
-      if (searchResp.data?.fusion) {
-        const banner = JSON.parse(
-          searchResp.data?.fusion?.banner[0],
-        ) as BannerFromResp;
-        setBanner(searchBanners[banner.url]);
+      if (searchResp.status == 200) {
+        setError(false);
+        if (searchResp.data?.fusion) {
+          const banner = JSON.parse(
+            searchResp.data?.fusion?.banner[0],
+          ) as BannerFromResp;
+          setBanner(searchBanners[banner.url]);
+        } else {
+          setBanner(undefined);
+        }
+        setResultsCount(searchResp.data?.response.numFound ?? 0);
+        setFilteredList(
+          transformFusionSearchInquiryIntoDetails(searchResp.data!),
+        );
       } else {
+        setError(true);
         setBanner(undefined);
       }
-      setResultsCount(searchResp.data?.response.numFound ?? 0);
-      setFilteredList(
-        transformFusionSearchInquiryIntoDetails(searchResp.data!),
-      );
     }, 600);
   };
 
   async function sortResult(sortBy: string) {
     setSortVal(sortBy);
     const searchResp = await invokeSmartSearchInquiry(searchText, sortBy);
-    setFilteredList(transformFusionSearchInquiryIntoDetails(searchResp.data!));
+    if (searchResp.status == 200) {
+      setFilteredList(
+        transformFusionSearchInquiryIntoDetails(searchResp.data!),
+      );
+    } else {
+      setError(true);
+      setBanner(undefined);
+    }
   }
 
   return (
@@ -69,24 +89,38 @@ export const SearchResultsInfoComponent = () => {
       <Spacer size={32} />
       <section className="flex flex-col">
         <Row className="justify-between">
-          {filteredList.length > 0 && (
+          {(filteredList?.length ?? 0) > 0 && (
             <TextBox text={resultsCount + ' Results for  ' + searchText} />
           )}
-          <Row>
-            <TextBox text="Sort by:&nbsp;" className="mb-2" />
-            <Dropdown
-              onSelectCallback={(val) => sortResult(val)}
-              initialSelectedValue={sortVal}
-              items={[
-                { label: 'Most Relevant', value: 'score' },
-                { label: 'Newest', value: 'newest' },
-                { label: 'Oldest', value: 'oldest' },
-              ]}
-            />
-          </Row>
+          {!error && (
+            <Row>
+              <TextBox text="Sort by:&nbsp;" className="mb-2" />
+              <Dropdown
+                onSelectCallback={(val) => sortResult(val)}
+                initialSelectedValue={sortVal}
+                items={[
+                  { label: 'Most Relevant', value: 'score' },
+                  { label: 'Newest', value: 'newest' },
+                  { label: 'Oldest', value: 'oldest' },
+                ]}
+              />
+            </Row>
+          )}
         </Row>
       </section>
       <Spacer size={16} />
+      {error && (
+        <ErrorCard
+          className="w-full"
+          errorText="There was a problem loading the search results. Please try refreshing the page or returning to this page later."
+        />
+      )}
+      {filteredList && filteredList.length == 0 && (
+        <IconCard
+          prefixIcon={<Image src={documentEmptyIcon} alt="document-icon" />}
+          text="There are no results for your search."
+        />
+      )}
       {banner && (
         <SearchBanner
           title={banner.title}
@@ -97,11 +131,13 @@ export const SearchResultsInfoComponent = () => {
         />
       )}
       <Spacer size={16} />
-      <SearchResultList
-        searchString={searchText}
-        searchResults={filteredList}
-        resultCount={resultsCount}
-      />
+      {filteredList && filteredList.length > 0 && !error && (
+        <SearchResultList
+          searchString={searchText}
+          searchResults={filteredList}
+          resultCount={resultsCount}
+        />
+      )}
     </section>
   );
 };
