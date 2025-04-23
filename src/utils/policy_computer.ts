@@ -5,6 +5,7 @@ import { CoverageTypes } from '@/userManagement/models/coverageType';
 export const computePolicyName = (policyTypes: string[]): string => {
   const policies = policyTypes
     .map((policy) => CoverageTypes.get(policy))
+    .filter((policy) => policy && policy.trim() !== '')
     .join(', ');
   return policies;
 };

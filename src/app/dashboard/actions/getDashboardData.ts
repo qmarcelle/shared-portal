@@ -46,6 +46,8 @@ export const getDashboardData = async (): Promise<
       const plans = await getPolicyInfo(
         selectedProfile!.plans.map((item) => item.memCK),
       );
+      if (plans.currentPolicies.length == 0 && plans.pastPolicies.length == 0)
+        throw 'NoPlansAvailable';
       return {
         status: 200,
         data: {
@@ -77,7 +79,14 @@ export const getDashboardData = async (): Promise<
       planDetails.status !== 'fulfilled'
     )
       throw error;
-    else loggedUserInfo = loggedUserDetails.value;
+    else {
+      loggedUserInfo = loggedUserDetails.value;
+      if (
+        planDetails.value.currentPolicies.length == 0 &&
+        planDetails.value.pastPolicies.length == 0
+      )
+        throw 'NoPlansAvailable';
+    }
 
     return {
       status: 200,
