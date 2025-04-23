@@ -1,8 +1,6 @@
 'use server';
 
 import { auth } from '@/auth';
-import { fusionSearchMockWithAllSet } from '@/mock/fusion_search/fusionSearchMockWithAllSets';
-import { fusionSearchResultsInquiryMockResp } from '@/mock/fusion_search/fusionSearchResultsInquiryMockResp';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { SmartSearchRequest } from '@/models/enterprise/smartSearch';
@@ -48,23 +46,9 @@ export async function invokeSmartSearch(
     //TODO: Replace mock resp with err handling when we
     //complete the results page.
     return {
-      status: 200,
-      data: fusionSearchMockWithAllSet,
+      status: 500,
+      data: undefined,
     };
-    // if (error instanceof AxiosError) {
-    //   //logger.error("Response from API " + error.response?.data);
-    //   return {
-    //     status: 500,
-    //     error: error.response?.data?.data?.errorCode,
-    //   };
-    // } else {
-    //   return {
-    //     status: 500,
-    //     error: {
-    //       message: 'Internal Error',
-    //     },
-    //   };
-    // }
   }
 }
 
@@ -107,8 +91,8 @@ export async function invokeSmartSearchInquiry(
   } catch (err) {
     logger.error('Smart Search Inquiry API error', err);
     return {
-      status: 200,
-      data: fusionSearchResultsInquiryMockResp,
+      status: 500,
+      data: undefined,
     };
   }
 }

@@ -1,7 +1,9 @@
 import { SearchDetails, SearchItem } from '@/models/app/searchDetails';
 import Link from 'next/link';
 import { IComponent } from '../IComponent';
+import { ErrorCard } from '../composite/ErrorCard';
 import { Spacer } from '../foundation/Spacer';
+import { Card } from './Card';
 import { Divider } from './Divider';
 import { HighlightedText } from './HighlightedText';
 import { RichText } from './RichText';
@@ -10,7 +12,8 @@ import { TextBox } from './TextBox';
 
 interface SearchTypeAheadProps extends IComponent {
   searchText: string;
-  searchDetails: SearchDetails[];
+  searchDetails: SearchDetails[] | null;
+  error: boolean | null;
   closeSuggestions: () => void;
   gotoMain: () => void;
 }
@@ -56,7 +59,7 @@ const SearchDetailsView = ({
   searchDetails,
   searchText,
 }: SearchDetailsProps) => (
-  <div>
+  <div className="mt-8">
     {searchDetails.map((item, index) => (
       <div key={index}>
         <TextBox
@@ -79,9 +82,10 @@ export const SearchTypeAhead = ({
   searchText,
   searchDetails,
   gotoMain,
+  error,
 }: SearchTypeAheadProps) => {
   return (
-    <div className="searchSuggestion font-medium text-black scroll w-full">
+    <div className="flex flex-col searchSuggestion font-medium text-black scroll-auto w-full">
       <Row
         onClick={() => gotoMain()}
         className="searchForField title-3 px-4 py-2 cursor-pointer"
@@ -89,11 +93,23 @@ export const SearchTypeAhead = ({
         <TextBox className="px-2" text={'See all results for '}></TextBox>
         <TextBox className="font-bold" text={searchText}></TextBox>
       </Row>
-      <Spacer size={32} />
-      <SearchDetailsView
-        searchDetails={searchDetails}
-        searchText={searchText}
-      ></SearchDetailsView>
+      {error && (
+        <ErrorCard
+          className="m-4 max-w-fit"
+          errorText="There was a problem loading the search results. Please try refreshing the page or returning to this page later."
+        />
+      )}
+      {searchDetails && searchDetails.length == 0 && (
+        <Card type="neutral" className="m-4 max-w-full">
+          <p className="m-4 w-full">There are no results for your search.</p>
+        </Card>
+      )}
+      {searchDetails && searchDetails.length > 0 && (
+        <SearchDetailsView
+          searchDetails={searchDetails}
+          searchText={searchText}
+        ></SearchDetailsView>
+      )}
     </div>
   );
 };
