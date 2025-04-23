@@ -64,7 +64,7 @@ export const requiredUrlMappings: Record<string, string> = {
   // MyHealth Paths
   '/member/myhealth': '/myHealth',
   '/member/myhealth/healthprograms': 'myHealth/healthProgramsResources',
-  '/member/myhealth/primarycare': '/updateMyPrimaryCareProvider',
+  //'/member/myhealth/primarycare': '/updateMyPrimaryCareProvider',
   '/member/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=':
     '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=',
 
