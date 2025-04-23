@@ -48,7 +48,8 @@ const PrimaryCareOptions = ({ data }: PrimaryCareOptionsProps) => {
             <InfoCard
               icon={FindCare}
               label="Find an In-network Provider"
-              body="Find a high-quality provider for either in-person or virtual telehealth appointments."
+              body="Find a high-qualitys provider for either in-person or virtual telehealth appointments."
+              link={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`}
             />
           </Column>
         </section>
