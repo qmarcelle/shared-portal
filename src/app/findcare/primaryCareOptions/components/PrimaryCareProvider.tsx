@@ -69,7 +69,8 @@ export const PrimaryCareProvider = ({
                 <TextBox className="body-1 test1" text="N/A"></TextBox>
               )}
               <Spacer size={16} />
-              {providerDetails.phone && (
+              <TextBox className="body-2 test4" text="Phone"></TextBox>
+              {providerDetails.phone ? (
                 <>
                   <TextBox className="body-2 test4" text="Phone"></TextBox>
                   <TextBox
@@ -77,6 +78,8 @@ export const PrimaryCareProvider = ({
                     text={formatPhone(providerDetails.phone)}
                   ></TextBox>
                 </>
+              ) : (
+                <TextBox className="body-1 test6" text="N/A"></TextBox>
               )}
             </>
           </Card>
