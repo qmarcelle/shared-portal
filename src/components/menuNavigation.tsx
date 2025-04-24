@@ -9,7 +9,6 @@ import {
 } from '@/app/sso/ssoConstants';
 import {
   isBiometricScreening,
-  isBlueCareAndPrimaryCarePhysicianEligible,
   isBlueCareEligible,
   isBlueCareNotEligible,
   isEnrollEligible,
@@ -25,6 +24,7 @@ import {
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
+  isPrimaryCarePhysicianEligible,
   isSpendingAccountsMenuOptions,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
@@ -398,8 +398,7 @@ export const getMenuNavigation = (
         description: 'This is My Primary Care Provider',
         category: 'Wellness',
         showOnMenu: (rules) =>
-          isNotWellnessQa(rules) &&
-          isBlueCareAndPrimaryCarePhysicianEligible(rules),
+          isNotWellnessQa(rules) && isPrimaryCarePhysicianEligible(rules),
         url: '/myPrimaryCareProvider',
         external: false,
       },

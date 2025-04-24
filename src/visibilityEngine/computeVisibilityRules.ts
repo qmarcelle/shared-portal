@@ -152,7 +152,11 @@ export function isBlueCareEligible(rules: VisibilityRules | undefined) {
 export function isPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return activeAndHealthPlanMember(rules) && rules?.myPCPElig;
+  return (
+    activeAndHealthPlanMember(rules) &&
+    rules?.myPCPElig &&
+    (rules?.blueCare || rules?.individual)
+  );
 }
 
 export function isBlue365FitnessYourWayEligible(
@@ -408,11 +412,6 @@ export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
       } else return false;
     } else return false;
   } else return false;
-}
-export function isBlueCareAndPrimaryCarePhysicianEligible(
-  rules: VisibilityRules | undefined,
-) {
-  return isBlueCareEligible(rules) || isPrimaryCarePhysicianEligible(rules);
 }
 export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {
   return (

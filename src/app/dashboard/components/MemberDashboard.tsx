@@ -96,8 +96,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 },
               ]}
             />
-            {isBlueCareEligible(visibilityRules) &&
-              isPrimaryCarePhysicianEligible(visibilityRules) &&
+            {isPrimaryCarePhysicianEligible(visibilityRules) &&
               !isQuantumHealthEligible(visibilityRules) && (
                 <PrimaryCareProvider
                   className="large-section"
@@ -147,7 +146,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                   className="large-section"
                   dueDate="08/10/2023"
                   amountDue={1000.46}
-                  visibilityRules = {visibilityRules} 
+                  visibilityRules={visibilityRules}
                 />
               )}
 
@@ -186,21 +185,22 @@ const MemberDashboard = ({ data }: DashboardProps) => {
         />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-          {isQuantumHealthEligible(visibilityRules) && isLifePointGrp(visibilityRules) && (
-              <BenefitsAndCoverageSection
-                className="large-section"
-                benefits={[
-                  {
-                    benefitName: 'Dental Benefits',
-                    benefitURL: '/member/myplan/benefits',
-                  },
-                  {
-                    benefitName: 'Vision Benefits',
-                    benefitURL: '/member/myplan/benefits',
-                  },
-                ]}
-              />
-            )}
+            {isQuantumHealthEligible(visibilityRules) &&
+              isLifePointGrp(visibilityRules) && (
+                <BenefitsAndCoverageSection
+                  className="large-section"
+                  benefits={[
+                    {
+                      benefitName: 'Dental Benefits',
+                      benefitURL: '/member/myplan/benefits',
+                    },
+                    {
+                      benefitName: 'Vision Benefits',
+                      benefitURL: '/member/myplan/benefits',
+                    },
+                  ]}
+                />
+              )}
             {!isQuantumHealthEligible(visibilityRules) && (
               <BenefitsAndCoverageSection
                 className="large-section"
