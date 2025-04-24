@@ -139,7 +139,11 @@ export const WellnessRewards = ({
                   </Row>
                   <Spacer size={18} />
                   <Row>
-                    <AppLink className="body-1" label={linkText} />
+                    <AppLink
+                      className="body-1"
+                      label={linkText}
+                      url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
+                    />
                     <Image alt="external icon" src={externalIcon} />
                   </Row>
                   <Spacer size={18} />

@@ -99,6 +99,8 @@ process.env.NEXT_PUBLIC_IDP_BLUE_365 = 'Blue365';
 process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET =
   'https://login-preview.blue365deals.com/app/blue365federation_blue365pie_1/exk9o0yn7dV1D3p9i0h7/sso/saml?RelayState=';
 process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS = 'sp_bluehealthrewards';
+process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH =
+  'https://scheduleruat.ehealthscreenings.com/SSO';
 
 describe('SiteHeader And Navigation Menu', () => {
   beforeEach(() => {
@@ -122,8 +124,6 @@ describe('SiteHeader And Navigation Menu', () => {
   });
 
   it('should navigate the menu links correctly', async () => {
-    const baseUrl = window.location.origin;
-
     const component = renderUI(vRules);
 
     /**** Nav Links For Find Care & Cost  */
@@ -644,6 +644,19 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(component.baseElement).toMatchSnapshot();
   });
+  it('should redirect to Premise Health SSO onclick of Biometric Screening link in menu nav', async () => {
+    vRules.ohdEligible = true;
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getByText('My Health'));
+    expect(screen.getByText('Biometric Screening')).toBeVisible();
+    expect(
+      screen.getByRole('link', { name: 'Biometric Screening External Link' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=https://scheduleruat.ehealthscreenings.com/SSO`,
+    );
+    expect(component).toMatchSnapshot();
+  });
 
   it('should show Member Handbook for WellnessOnlyBenefitsQV', async () => {
     vRules.isWellnessOnlyBenefitsQV = true;
@@ -665,5 +678,6 @@ describe('SiteHeader And Navigation Menu', () => {
         .getByText('Member Handbook')
         .hasAttribute('/assets/pdf/Member_Wellness_Plan_Brochure.pdf'),
     );
+    expect(component.baseElement).toMatchSnapshot();
   });
 });

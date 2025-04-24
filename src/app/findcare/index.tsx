@@ -10,8 +10,10 @@ import {
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
+  isPharmacyBenefitsEligible,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
+  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
@@ -28,6 +30,10 @@ import {
   EYEMED_DEEPLINK_MAP,
   EYEMED_PROVIDER_DIRECTORY,
   EYEMED_VISION,
+  PROV_DIR_DEEPLINK_MAP,
+  PROV_DIR_DENTAL,
+  PROV_DIR_MEDICAL,
+  PROV_DIR_MENTAL_HEALTH,
 } from '../sso/ssoConstants';
 import { FindCarePillBox } from './components/FindCarePillBox';
 export type FindCareProps = {
@@ -69,41 +75,63 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   {
                     label: 'Primary Care Provider',
                     callback: () => {
-                      console.log('Clicked Pill PCP');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`,
+                      );
                     },
                   },
                   {
                     label: 'Dentist',
                     callback: () => {
-                      console.log('Clicked Pill Dentist');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_DENTAL)!)}`,
+                      );
                     },
                   },
                   {
                     label: 'Mental Health Provider',
                     callback: () => {
-                      console.log('Clicked Pill Mental Health Provider');
-                    },
-                  },
-                  {
-                    label: 'Eye Doctor',
-                    callback: () => {
                       router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MENTAL_HEALTH)!)}`,
                       );
                     },
                   },
-                  {
-                    label: 'Pharmacy',
-                    callback: () => {
-                      router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
-                      );
-                    },
-                  },
+                  isVisionEligible(visibilityRules)
+                    ? {
+                        label: 'Eye Doctor',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET!.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
+                          );
+                        },
+                      }
+                    : {
+                        label: 'Eye Doctor',
+                        callback: () => {
+                          router.push('');
+                        },
+                      },
+                  isPharmacyBenefitsEligible(visibilityRules)
+                    ? {
+                        label: 'Pharmacy',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
+                          );
+                        },
+                      }
+                    : {
+                        label: 'Pharmacy',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
+                          );
+                        },
+                      },
                   {
                     label: 'Virtual Care',
                     callback: () => {
-                      console.log('Clicked Pill Virtual Care');
+                      router.push('/virtualCareOptions');
                     },
                   },
                 ]}
@@ -126,31 +154,47 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                 {
                   label: 'Medical',
                   callback: () => {
-                    console.log('Clicked Pill Medical');
+                    router.push(
+                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MEDICAL)!)}`,
+                    );
                   },
                 },
                 {
                   label: 'Dental',
                   callback: () => {
-                    console.log('Clicked Pill Dental');
+                    router.push('/member/findcare/dentalcosts');
                   },
                 },
-                {
-                  label: 'Prescription Drugs',
-                  callback: () => {
-                    router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
-                    );
-                  },
-                },
-                {
-                  label: 'Vision',
-                  callback: () => {
-                    router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_VISION)!)}`,
-                    );
-                  },
-                },
+                isPharmacyBenefitsEligible(visibilityRules)
+                  ? {
+                      label: 'Prescription Drugs',
+                      callback: () => {
+                        router.push(
+                          `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
+                        );
+                      },
+                    }
+                  : {
+                      label: 'Prescription Drugs',
+                      callback: () => {
+                        router.push('');
+                      },
+                    },
+                isVisionEligible(visibilityRules)
+                  ? {
+                      label: 'Vision',
+                      callback: () => {
+                        router.push(
+                          `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_VISION)!)}`,
+                        );
+                      },
+                    }
+                  : {
+                      label: 'Vision',
+                      callback: () => {
+                        router.push('');
+                      },
+                    },
               ]}
             />
           </Column>

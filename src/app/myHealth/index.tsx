@@ -30,6 +30,15 @@ import {
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
+import {
+  BLUE_365_DEEPLINK_MAP,
+  BLUE_365_FITNESS,
+  BLUE_365_FOOTWEAR,
+  BLUE_365_HEARING_VISION,
+  BLUE_365_NUTRITION,
+  BLUE_365_PERSONAL_CARE,
+  BLUE_365_TRAVEL,
+} from '../sso/ssoConstants';
 import { OtherBenefits } from '../virtualCareOptions/components/OtherBenefits';
 import { HealthLibraryOptions } from './components/HealthLibraryOptions';
 import { MemberDiscounts } from './components/MemberDiscounts';
@@ -124,13 +133,13 @@ const discountCardDetails = [
     id: '1',
     icon: <Image src={fitnessLogo} alt="Footwear Icon" className="inline" />,
     cardLink: 'Apparel & Footwear',
-    url: '',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FOOTWEAR)!))}`,
   },
   {
     id: '2',
     icon: <Image src={fitLogo} alt="Fitness Icon" className="inline" />,
     cardLink: 'Fitness',
-    url: '',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FITNESS)!))}`,
   },
   {
     id: '3',
@@ -138,13 +147,13 @@ const discountCardDetails = [
       <Image src={primaryVisionLogo} alt="Vision Icon" className="inline" />
     ),
     cardLink: 'Hearing & Vision',
-    url: '',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HEARING_VISION)!))}`,
   },
   {
     id: '4',
     icon: <Image src={nutritionLogo} alt="Nutrition Icon" className="inline" />,
     cardLink: 'Nutrition',
-    url: '',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_NUTRITION)!))}`,
   },
   {
     id: '5',
@@ -152,7 +161,7 @@ const discountCardDetails = [
       <Image src={transportationLogo} alt="Travel Icon" className="inline" />
     ),
     cardLink: 'Travel',
-    url: '',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_TRAVEL)!))}`,
   },
   {
     id: '6',
@@ -160,7 +169,7 @@ const discountCardDetails = [
       <Image src={personalCareLogo} alt="Personal Icon" className="inline" />
     ),
     cardLink: 'Personal Care',
-    url: '',
+    url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_PERSONAL_CARE)!))}`,
   },
 ];
 
@@ -312,6 +321,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
                 'Want access to new healthy living discounts every week? Find savings on nutrition programs, fitness accessories, medical supplies and services like hearing aids and LASIK eye surgey.'
               }
               discountCards={discountCardDetails}
+              linkURL={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`}
             />
           )}
         </section>
@@ -327,7 +337,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
               icon={biometricScreeningIcon}
               title="Schedule a Biometric Screening"
               description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
-              url=""
+              url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}&target=schedule`}
             />
           </section>
         )}
