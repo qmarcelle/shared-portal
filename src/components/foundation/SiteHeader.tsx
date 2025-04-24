@@ -6,6 +6,7 @@ import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
+import { Session } from 'next-auth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -35,6 +36,7 @@ type SiteHeaderProps = {
   selectedProfile: UserProfile;
   plans: PlanDetails[];
   selectedPlan: PlanDetails | undefined;
+  session: Session | null;
 };
 
 export default function SiteHeader({
@@ -43,6 +45,7 @@ export default function SiteHeader({
   plans,
   selectedPlan,
   selectedProfile,
+  session,
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
@@ -59,7 +62,9 @@ export default function SiteHeader({
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
+    : getMenuNavigation(visibilityRules, session).filter(
+        (val) => val.showOnMenu,
+      );
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -251,7 +256,7 @@ export default function SiteHeader({
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
-                    ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
+                    ? (process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? [])
                     : []
                 }
               />

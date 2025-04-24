@@ -8,6 +8,7 @@ import {
   PROV_DIR_VISION,
 } from '@/app/sso/ssoConstants';
 import {
+  isAHAdvisorpage,
   isBiometricScreening,
   isBlueCareEligible,
   isBlueCareNotEligible,
@@ -32,10 +33,11 @@ import {
   isWellnessQa,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
+import { Session } from 'next-auth';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
-
 export const getMenuNavigation = (
   rules: VisibilityRules,
+  session: Session | null,
 ): SiteHeaderSubNavProps[] => [
   {
     id: 1,
@@ -555,7 +557,9 @@ export const getMenuNavigation = (
     description: 'This is Support',
     category: '',
     showOnMenu: true,
-    url: '/member/support',
+    url: isAHAdvisorpage(rules, session?.user.currUsr?.plan!.grpId)
+      ? '/member/amplifyhealthsupport'
+      : '/member/support',
     qt: {
       // eslint-disable-next-line quotes
       firstParagraph: "We're here to help.",
@@ -565,7 +569,9 @@ export const getMenuNavigation = (
           [1-800-000-0000].
         </p>
       ),
-      link: '/member/support',
+      link: isAHAdvisorpage(rules, session?.user.currUsr?.plan!.grpId)
+        ? '/member/amplifyhealthsupport'
+        : '/member/support',
     },
     template: {
       firstCol: 'QT',

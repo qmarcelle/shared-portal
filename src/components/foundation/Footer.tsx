@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = () => {
   const currentYear = new Date().getFullYear();
   const currentPath =
     typeof window !== 'undefined' ? window.location.pathname : '';
-  const specificPages = ['/amplifyHealthSupport'];
+  const specificPages = ['/member/amplifyhealthsupport'];
 
   const isSpecificPage = specificPages.includes(currentPath);
   const trackLinkAnalytics = (clickText: string, clickUrl: string) => {
