@@ -1,9 +1,7 @@
 import { Column } from '@/components/foundation/Column';
 import { Filter } from '@/components/foundation/Filter';
-// import { FilterDetails } from '@/models/filter_dropdown_details';
-import { useEffect, useState } from 'react';
-
 import { FilterDetails } from '@/models/filter_dropdown_details';
+import { useEffect, useState } from 'react';
 import { getDocumentFileInfo } from '../../actions/documents';
 import {
   IDocumentMetadata,
@@ -30,8 +28,11 @@ export const DocumentCenter = ({ documents, membersInfo }: DocumentProps) => {
     value: '1',
     id: '1',
   };
+
   const [documentCards, setDocumentCards] = useState<DocumentCardProps[]>([]);
-  const [documentLink, setDocumentLink] = useState('');
+  const [documentLinks, setDocumentLinks] = useState<{ [key: string]: string }>(
+    {},
+  );
   const [membersList, setMembersList] = useState<IMemberInfo[]>(membersInfo);
   const [documentsList, setDocumentsList] =
     useState<IDocumentMetadata[]>(documents);
@@ -39,6 +40,25 @@ export const DocumentCenter = ({ documents, membersInfo }: DocumentProps) => {
     useState<FilterDetails>(defaultMemberFilterValue);
   const [documentTypeFilterSelectedValue, setDocumentTypeFilterSelectedValue] =
     useState<FilterDetails>(defaultDocumentTypeFilterValue);
+
+  useEffect(() => {
+    const fetchDocumentLinks = async () => {
+      if (documentsList && documentsList.length > 0) {
+        const links: { [key: string]: string } = {};
+        for (const document of documentsList) {
+          const firstTask = document.taskInfo[0];
+          const link = await getDocumentLink(
+            document.documentIdentifier,
+            firstTask.taskSequenceNumber.toString(),
+          );
+          links[document.documentIdentifier] = link;
+        }
+        setDocumentLinks(links);
+      }
+    };
+    fetchDocumentLinks();
+  }, [documentsList]);
+
   useEffect(() => {
     if (documentsList && membersList && documentsList.length > 0) {
       setDocumentCards(
@@ -52,10 +72,6 @@ export const DocumentCenter = ({ documents, membersInfo }: DocumentProps) => {
               membersList?.find(
                 (mInfo: IMemberInfo) => mInfo.id === document.memberId,
               )?.name ?? 'No name found';
-            getDocumentLink(
-              document.documentIdentifier,
-              firstTask.taskSequenceNumber.toString(),
-            );
             return {
               title:
                 firstTask.communicationInfo[0]?.documentTitle ||
@@ -63,18 +79,18 @@ export const DocumentCenter = ({ documents, membersInfo }: DocumentProps) => {
               received: `Received: ${firstTask.fromDate}`,
               for: `For: ${nameOnDoc}`,
               readIndicator: false,
-              link: documentLink,
+              link: documentLinks[document.documentIdentifier] || '',
             };
           }),
       );
     }
-  }, [documentLink, documents, membersInfo, membersList, documentsList]);
+  }, [documentLinks, documents, membersInfo, membersList, documentsList]);
 
   const getDocumentLink = async (id: string, sequenceNumber: string) => {
     const documentFileInfo = await getDocumentFileInfo(id, sequenceNumber);
-
-    setDocumentLink(documentFileInfo.data!.fileContents);
+    return documentFileInfo.fileContents;
   };
+
   const membersFilterValue: string | FilterDetails[] | undefined =
     membersInfo && membersInfo.length
       ? [
