@@ -7,6 +7,7 @@ import { AccessOnMyPlanItem } from './AccessOnMyPlanItem';
 
 interface AccessOnMyPlanDropDownProps extends IComponent {
   accessOnMyPlanDetails: ShareMyPlanDetails[] | null;
+  loggedInMemberType: string | null;
   header?: ReactElement;
   subHeader?: ReactElement;
   infoIcon: boolean;
@@ -16,6 +17,7 @@ export const AccessOnMyPlanComponent = ({
   accessOnMyPlanDetails,
   header,
   subHeader,
+  loggedInMemberType,
   infoIcon,
 }: AccessOnMyPlanDropDownProps) => {
   const [memberAccessList, setMemberAccessList] = useState(
@@ -42,7 +44,7 @@ export const AccessOnMyPlanComponent = ({
         </div>
       )}
       <Column className="flex flex-col">
-        {accessOnMyPlanDetails?.map((item, index) => (
+        {memberAccessList?.map((item, index) => (
           <AccessOnMyPlanItem
             onRequestSuccessCallBack={() =>
               updateMemberAccessToPending(item.memberCk)
@@ -51,6 +53,7 @@ export const AccessOnMyPlanComponent = ({
             memberDetails={item}
             isOnline={item.isOnline}
             infoButton={infoIcon}
+            loggedInMemberType={loggedInMemberType}
             inviteStatus={item.accessStatusIsPending!}
           />
         ))}

@@ -18,6 +18,7 @@ export const getPlanInformationData = async (): Promise<
   try {
     const session = await auth();
     const pbeResponse = await getPersonBusinessEntity(session!.user!.id);
+    logger.info('Success Response from PBE API', pbeResponse);
     const selectedPlan = pbeResponse.getPBEDetails[0].relationshipInfo.find(
       (item) => item.memeCk === session?.user.currUsr?.plan?.memCk,
     );
@@ -25,14 +26,16 @@ export const getPlanInformationData = async (): Promise<
       status: 200,
       data: {
         memberData: computeMemberDetails(pbeResponse, selectedPlan),
+        loggedInMemberRole: selectedPlan?.personRoleType,
       },
     };
   } catch (error) {
-    logger.info('Error in getAccessOtherInformationData {}', error);
+    logger.error('Error in getAccessOtherInformationData {}', error);
     return {
       status: 400,
       data: {
         memberData: null,
+        loggedInMemberRole: null,
       },
     };
   }
@@ -48,7 +51,8 @@ const computeMemberDetails = (
     ?.filter((item) => item.relatedPersonRoleType != 'PR')
     .map((item) => {
       const age = calculateAge(new Date(item.relatedPersonDob));
-      const isMinor = age >= 13 && age <= 17;
+      const isMatureMinor = age >= 13 && age <= 17;
+      const isMinor = age <= 12;
       memberDetails.push({
         memberName:
           item.relatedPersonFirstName + ' ' + item.relatedPersonLastName,
@@ -59,6 +63,7 @@ const computeMemberDetails = (
         accessStatus: item.name,
         memberCk: item.relatedPersonMemeCk,
         accessStatusIsPending: false,
+        isMatureMinor: isMatureMinor,
         isMinor: isMinor,
         roleType: item.relatedPersonRoleType.toLowerCase(),
       });
