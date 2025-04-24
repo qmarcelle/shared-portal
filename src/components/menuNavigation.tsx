@@ -391,7 +391,7 @@ export const getMenuNavigation = (
         category: 'Wellness',
         showOnMenu: (rules) =>
           isNotWellnessQa(rules) && isBiometricScreening(rules),
-        url: '/biometricscreening',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}`,
         external: true,
       },
       {
