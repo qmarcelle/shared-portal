@@ -11,7 +11,6 @@ import qrCodeFPO from '../../../../../../public/assets/fpo_qr_code.jpg';
 import numberStepOne from '../../../../../../public/assets/number_step_one.svg';
 import numberStepThree from '../../../../../../public/assets/number_step_three.svg';
 import numberStepTwo from '../../../../../../public/assets/number_step_two.svg';
-import wellframeLogo from '../../../../../../public/assets/wellframe.svg';
 
 export type CareTNProcessCardProps = {
   accessCodeData: string;
@@ -85,20 +84,7 @@ const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
         </section>
         <Spacer size={32} />
       </Column>
-      <Divider />
-      <Spacer size={16} />
-      <section className="md:flex md:flex-row ml-7">
-        <Image src={wellframeLogo} alt="wellframe" />
-        <Spacer size={16} />
-        <Column className="md:p-10">
-          <TextBox
-            text="Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee."
-            type="body-2"
-          />
-          <TextBox text="Participation is optional." type="body-2" />
-        </Column>
-      </section>
-      <Spacer size={32} />
+      <Divider />     
     </section>
   );
 };
