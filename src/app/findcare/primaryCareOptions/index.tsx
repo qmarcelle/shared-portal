@@ -6,10 +6,7 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import {
-  isBlueCareEligible,
-  isPrimaryCarePhysicianEligible,
-} from '@/visibilityEngine/computeVisibilityRules';
+import { isPrimaryCarePhysicianEligible } from '@/visibilityEngine/computeVisibilityRules';
 import FindCare from '../../../../public/assets/find_care_search.svg';
 import { AboutPrimaryCareProvider } from './components/AboutPrimaryCareProvider';
 import { PrimaryCareProvider } from './components/PrimaryCareProvider';
@@ -31,16 +28,15 @@ const PrimaryCareOptions = ({ data }: PrimaryCareOptionsProps) => {
         ></TextBox>
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {isBlueCareEligible(data.visibilityRules) &&
-              isPrimaryCarePhysicianEligible(data.visibilityRules) && (
-                <PrimaryCareProvider
-                  className="large-section"
-                  providerDetails={data.primaryCareProvider}
-                  label="Primary Care Provider"
-                  linkLabel="View or Update Primary Care Provider"
-                  title="My Primary Care Provider"
-                />
-              )}
+            {isPrimaryCarePhysicianEligible(data.visibilityRules) && (
+              <PrimaryCareProvider
+                className="large-section"
+                providerDetails={data.primaryCareProvider}
+                label="Primary Care Provider"
+                linkLabel="View or Update Primary Care Provider"
+                title="My Primary Care Provider"
+              />
+            )}
             <AboutPrimaryCareProvider className="large-section" />
           </Column>
 

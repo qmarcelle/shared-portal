@@ -20,12 +20,12 @@ import healthSurveyIcon from '@/public/assets/health_survey.svg';
 import {
   isBiometricScreening,
   isBlue365FitnessYourWayEligible,
-  isBlueCareAndPrimaryCarePhysicianEligible,
   isBlueCareEligible,
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
   isHealthyMaternity,
   isMemberWellnessCenterEligible,
+  isPrimaryCarePhysicianEligible,
   isQuestSelectEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -186,9 +186,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
 
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
-            {isBlueCareAndPrimaryCarePhysicianEligible(
-              data.visibilityRules,
-            ) && (
+            {isPrimaryCarePhysicianEligible(data.visibilityRules) && (
               <PrimaryCareProvider
                 className="large-section"
                 providerDetails={data.primaryCareProvider}
