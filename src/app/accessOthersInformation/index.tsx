@@ -82,6 +82,9 @@ const AccessOthersInformation = ({
                 accessOnMyPlanDetails={
                   accessOtherInformationDetails?.memberData ?? null
                 }
+                loggedInMemberType={
+                  accessOtherInformationDetails?.loggedInMemberRole ?? null
+                }
               />
             </Card>
           </Column>
