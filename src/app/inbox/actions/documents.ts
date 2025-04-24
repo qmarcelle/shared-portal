@@ -2,21 +2,17 @@
 
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
-import { ESResponse } from '@/models/enterprise/esResponse';
 import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { getDateTwoYearsAgo } from '@/utils/api/date';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
-import { DocumentListMockResp } from '../mock/documentListMockResp';
-import { GetDocumentMockResp } from '../mock/getDocumentMockResp';
+import { formatMemberId } from '@/utils/member_utils';
 import {
   IDocumentFile,
   IDocumentMetadataListResponse,
 } from '../models/api/document';
 
-export async function getDocumentsList(): Promise<
-  ESResponse<IDocumentMetadataListResponse>
-> {
+export async function getDocumentsList(): Promise<IDocumentMetadataListResponse> {
   try {
     const fromDate: string = getDateTwoYearsAgo();
     const session = await auth();
@@ -27,38 +23,35 @@ export async function getDocumentsList(): Promise<
     const loggedInMemberInfo: LoggedInUserInfo = loggedInMemberInfoReq;
     const groupId: string = loggedInMemberInfo.groupData.groupID;
     const ids: string[] = loggedInMemberInfo.members.map((member: Member) => {
-      return `${loggedInMemberInfo.subscriberID}0${member.memberSuffix}`;
+      return formatMemberId(
+        loggedInMemberInfo.subscriberID,
+        member.memberSuffix,
+      );
     });
+
     const memberIdsUrl: string = ids.map((id: string) => `${id}`).join('|');
-    const response = await esApi.get<IDocumentMetadataListResponse>(
+    const response = await esApi.get(
       `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}?memberId=${memberIdsUrl}&groupId=${groupId}&fromDate=${fromDate}`,
     );
-    logger.info('DocumentsList Status Api Response', response);
-    return {
-      data: response.data,
-    };
+    logger.info('DocumentsList Status Api Response', response.data);
+    return response?.data?.data;
   } catch (err) {
-    return {
-      data: DocumentListMockResp,
-    };
+    logger.error('Error in document center - getDocumentsList ', err);
+    throw err;
   }
 }
 
 export async function getDocumentFileInfo(
   documentId: string,
   taskSequenceNumber: string,
-): Promise<ESResponse<IDocumentFile>> {
+): Promise<IDocumentFile> {
   try {
-    const response = await esApi.get<IDocumentFile>(
-      `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}:${documentId}?taskSequenceNumber=${taskSequenceNumber}`,
+    const response = await esApi.get(
+      `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}/${documentId}?taskSequenceNumber=${taskSequenceNumber}`,
     );
-    logger.info('DocumentsFile Status Api Response', response);
-    return {
-      data: response.data,
-    };
+    return response?.data?.data;
   } catch (err) {
-    return {
-      data: GetDocumentMockResp,
-    };
+    logger.error('Error in document center - getDocumentFileInfo ', err);
+    throw err;
   }
 }
