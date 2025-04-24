@@ -52,6 +52,7 @@ export function computeVisibilityRules(
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
   rules.offMarketGrp = offMarketGroups.includes(groupId);
   rules.isLifePointGrp = lifePointGroup.includes(groupId);
+  rules.isAmplifyHealthGroupEnabled = isAHAdvisorEnabled(groupId);
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
@@ -171,9 +172,8 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
 
 export function isAHAdvisorpage(
   rules: VisibilityRules | undefined,
-  groupId: string | undefined,
 ) {
-  return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
+  return (rules?.active && rules?.amplifyMember) || rules?.isAmplifyHealthGroupEnabled;
 }
 
 function isAHAdvisorEnabled(groupId: string | undefined) {

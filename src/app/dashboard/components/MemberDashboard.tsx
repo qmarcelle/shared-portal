@@ -42,7 +42,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
       <Column className="app-content app-base-font-color">
         {!isBlueCareEligible(visibilityRules) &&
           !isQuantumHealthEligible(visibilityRules) &&
-          isAHAdvisorpage(visibilityRules, memberDetails?.groupId) && (
+          isAHAdvisorpage(visibilityRules) && (
             <section className="sm:flex sm:flex-row items-start">
               <AmplifyHealthAdvisorBanner />
             </section>
