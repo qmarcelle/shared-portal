@@ -33,11 +33,9 @@ import {
   isWellnessQa,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
-import { Session } from 'next-auth';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 export const getMenuNavigation = (
   rules: VisibilityRules,
-  session: Session | null,
 ): SiteHeaderSubNavProps[] => [
   {
     id: 1,
@@ -557,7 +555,7 @@ export const getMenuNavigation = (
     description: 'This is Support',
     category: '',
     showOnMenu: true,
-    url: isAHAdvisorpage(rules, session?.user.currUsr?.plan!.grpId)
+    url: isAHAdvisorpage(rules)
       ? '/member/amplifyhealthsupport'
       : '/member/support',
     qt: {
@@ -569,7 +567,7 @@ export const getMenuNavigation = (
           [1-800-000-0000].
         </p>
       ),
-      link: isAHAdvisorpage(rules, session?.user.currUsr?.plan!.grpId)
+      link: isAHAdvisorpage(rules)
         ? '/member/amplifyhealthsupport'
         : '/member/support',
     },
