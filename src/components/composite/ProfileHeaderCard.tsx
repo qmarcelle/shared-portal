@@ -39,7 +39,6 @@ export const ProfileHeaderCard = ({
       content_type: undefined,
       element_category: 'Link Click',
       page_section: 'header',
-      element_id: 'Logout',
     };
     googleAnalytics(analytics);
   };
