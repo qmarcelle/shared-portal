@@ -3,8 +3,15 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { IComponent } from '@/components/IComponent';
 
-export const CareTNHeaderCard = () => {
+interface CareTNHeaderCardProps extends IComponent {
+  callBackCareTNSteps: () => void;
+}
+
+export const CareTNHeaderCard = ({
+  callBackCareTNSteps,
+}: CareTNHeaderCardProps) => {
   return (
     <Column className="pl-3 md:w-[78%]">
       <Spacer size={32} />
@@ -23,7 +30,7 @@ export const CareTNHeaderCard = () => {
       <Button
         label="Get Started with CareTN"
         className="my-health-programs-header-button"
-        callback={() => {}}
+        callback={() => callBackCareTNSteps()}
       />
     </Column>
   );
