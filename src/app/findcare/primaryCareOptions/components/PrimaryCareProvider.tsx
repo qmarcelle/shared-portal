@@ -72,7 +72,6 @@ export const PrimaryCareProvider = ({
               <TextBox className="body-2 test4" text="Phone"></TextBox>
               {providerDetails.phone ? (
                 <>
-                  <TextBox className="body-2 test4" text="Phone"></TextBox>
                   <TextBox
                     className="body-1 test5"
                     text={formatPhone(providerDetails.phone)}
