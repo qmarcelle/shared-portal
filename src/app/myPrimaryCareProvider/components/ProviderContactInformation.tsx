@@ -27,6 +27,14 @@ export const ProviderContactInformation = ({
   icon = <Image src={editIcon} alt="link" />,
 }: ProviderContactInformationProps) => {
   const addressLine3 = `${toPascalCase(providerDetails?.city ?? '')} ${providerDetails?.state ?? ''} ${formatZip(providerDetails?.zip) ?? ''}`;
+
+  function toTitleCase(str: string) {
+    return str.replace(
+      /\w\S*/g,
+      (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase(),
+    );
+  }
+
   return (
     <>
       {providerDetails &&
@@ -36,11 +44,15 @@ export const ProviderContactInformation = ({
         <Card className={className}>
           <div>
             {providerDetails?.name && (
-              <TextBox type="title-2" text={providerDetails?.name} />
+              <TextBox
+                type="title-2"
+                className="font-bold"
+                text={toTitleCase(providerDetails?.name)}
+              />
             )}
             {providerDetails?.dob && (
               <Row>
-                <TextBox type="title-2" text="DOB: " />
+                <TextBox type="title-2" text="DOB:&nbsp;" />
                 <TextBox type="title-2" text={providerDetails?.dob} />
               </Row>
             )}

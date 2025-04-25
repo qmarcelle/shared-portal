@@ -1343,7 +1343,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
               >
                 <a
                   class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                  href="/amplifyHealthSupport"
+                  href="/member/support"
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -1370,7 +1370,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/amplifyHealthSupport"
+                    href="/member/support"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -8038,7 +8038,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                 >
                   <a
                     class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                    href="/amplifyHealthSupport"
+                    href="/member/support"
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -8065,7 +8065,7 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/amplifyHealthSupport"
+                      href="/member/support"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -11780,7 +11780,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
               >
                 <a
                   class="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
-                  href="/amplifyHealthSupport"
+                  href="/member/support"
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
@@ -11807,7 +11807,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/amplifyHealthSupport"
+                    href="/member/support"
                   >
                     <div
                       class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
