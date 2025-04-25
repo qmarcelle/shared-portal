@@ -318,50 +318,25 @@ exports[`Share My Information  Page should show Share My Information plan detail
                             <span
                               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
-                            <p
-                              class="body-1 body-1"
-                              style="display: block;"
-                            >
-                              Full Sharing
-                            </p>
-                          </div>
-                           
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
                             <div
-                              class="flex flex-row"
+                              class="card-main undefined"
+                              style="background-color: rgba(0, 0, 0, 0.05);"
                             >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
                               <div
-                                class="ml-2"
+                                class="flex flex-col m-4"
                               >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="body-1 body-1"
+                                    style="display: block;"
+                                  >
+                                    This is a minor dependent. Sharing permissions aren’t applicable with this account.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
                           </div>
                         </div>
                       </div>
@@ -689,50 +664,25 @@ exports[`Share My Information  Page should show Share My Information plan detail
                           <span
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
-                          <p
-                            class="body-1 body-1"
-                            style="display: block;"
-                          >
-                            Full Sharing
-                          </p>
-                        </div>
-                         
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
                           <div
-                            class="flex flex-row"
+                            class="card-main undefined"
+                            style="background-color: rgba(0, 0, 0, 0.05);"
                           >
-                            <p
-                              class="font-bold primary-color"
-                            >
-                              Update
-                            </p>
                             <div
-                              class="ml-2"
+                              class="flex flex-col m-4"
                             >
-                              <img
-                                alt="link"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="body-1 body-1"
+                                  style="display: block;"
+                                >
+                                  This is a minor dependent. Sharing permissions aren’t applicable with this account.
+                                </p>
+                              </div>
                             </div>
                           </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                          />
                         </div>
                       </div>
                     </div>

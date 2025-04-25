@@ -12,7 +12,7 @@ export const HelpWithPrimaryCareProvider = ({
   contact,
 }: HelpWithPrimaryCareProviderProps) => {
   return (
-    <Card className="mt-4 md:ml-8 m-4 p-8">
+    <Card className="mt-4 p-8">
       <Column className="flex flex-col">
         <Header
           type="title-2"
