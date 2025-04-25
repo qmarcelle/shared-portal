@@ -16,7 +16,10 @@ import { RichText } from '@/components/foundation/RichText';
 import { Filter } from '@/components/foundation/Filter';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import { Member } from '@/models/member/api/loggedInUserInfo';
-import { isBlue365FitnessYourWayEligible, isMskEligible } from '@/visibilityEngine/computeVisibilityRules';
+import {
+  isBlue365FitnessYourWayEligible,
+  isMskEligible,
+} from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -44,6 +47,7 @@ interface BenefitsProps {
   userGroupId: string;
   phoneNumber: string;
   visibilityRules?: VisibilityRules;
+  loggedInMemeck: string;
 }
 
 const Benefits = ({
@@ -53,6 +57,7 @@ const Benefits = ({
   userGroupId,
   phoneNumber,
   visibilityRules,
+  loggedInMemeck,
 }: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
@@ -96,7 +101,10 @@ const Benefits = ({
 
   useEffect(() => {
     setCurrentUserBenefitData(benefitsBean);
-    setCurrentSelectedMember(memberInfo[0]);
+    const selectedMember = memberInfo.find(
+      (member) => member.memberCk.toString() === loggedInMemeck,
+    );
+    if (selectedMember) setCurrentSelectedMember(selectedMember);
   }, [
     benefitsBean,
     memberInfo,
@@ -285,10 +293,13 @@ const Benefits = ({
                 onBenefitTypeSelectChange(benefitTypes[0].value);
               }}
             />
-            {isMskEligible(visibilityRules) &&
-            <JointProcedureCard className="mt-8 row-span-4 font-normal text-white lg:w-[300px] secondary-bg-blue-500 p-5 rounded-lg" phoneNumber = {currentUserBenefitData.phoneNumber!}/>
-            }
-            </Column>
+            {isMskEligible(visibilityRules) && (
+              <JointProcedureCard
+                className="mt-8 row-span-4 font-normal text-white lg:w-[300px] secondary-bg-blue-500 p-5 rounded-lg"
+                phoneNumber={currentUserBenefitData.phoneNumber!}
+              />
+            )}
+          </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
             {currentSelectedMember.planDetails.find(
               (item) => item.productCategory === BenefitType.MEDICAL,

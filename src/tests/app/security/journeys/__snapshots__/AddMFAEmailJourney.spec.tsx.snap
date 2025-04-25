@@ -1358,13 +1358,13 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             Email Address
                           </p>
                           <div
-                            class="flex flex-row items-center input  input-focus "
+                            class="flex flex-row items-center input   "
                           >
                             <input
                               aria-label="Email Address"
                               class=""
                               type="email"
-                              value="c"
+                              value="chall123@gmail.com"
                             />
                             <div
                               class="cursor-pointer"
@@ -1384,13 +1384,13 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               Confirm Email
                             </p>
                             <div
-                              class="flex flex-row items-center input   "
+                              class="flex flex-row items-center input  input-focus "
                             >
                               <input
                                 aria-label="Confirm Email"
                                 class=""
                                 type="text"
-                                value=""
+                                value="chall1234@gmail.com"
                               />
                               <div
                                 class="cursor-pointer"
@@ -1420,7 +1420,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               class="body-1 body-1 pt-1.5 ml-2"
                               style="display: block;"
                             >
-                              Invalid Email Address
+                              The email addresses must match. Please check and try again.
                             </p>
                           </div>
                         </div>

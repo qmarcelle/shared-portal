@@ -59,6 +59,7 @@ const BenefitsAndCoveragePage = async () => {
         userGroupId={userInfoData.groupData.groupID}
         visibilityRules={session.user.vRules}
         phoneNumber={phoneNumber}
+        loggedInMemeck={session!.user.currUsr!.plan!.memCk}
       />
     );
   } catch (error) {

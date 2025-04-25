@@ -21,6 +21,7 @@ const vRules = {
   phaMemberEligible: true,
   fullyInsuredHealthyMaternity: true,
   medical: true,
+  isBiometricScreeningVisible: false,
 };
 
 function setisActiveAndNotFSAOnly(vRules: VisibilityRules) {
@@ -45,8 +46,11 @@ jest.mock('../../../auth', () => ({
     }),
   ),
 }));
-
+process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH =
+  'https://scheduleruat.ehealthscreenings.com/SSO';
 describe('My Health Page', () => {
+  const baseUrl = window.location.origin;
+
   beforeEach(() => {
     mockedFetch.mockResolvedValueOnce(
       fetchRespWrapper(loggedInUserInfoMockResp),
@@ -190,6 +194,20 @@ describe('My Health Page', () => {
         'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
       ),
     ).not.toBeInTheDocument();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should redirect to Premise Health SSO onclick of Schedule Biometric Screening link', async () => {
+    vRules.isBiometricScreeningVisible = true;
+
+    const component = await renderUI();
+    expect(screen.getByText('Schedule a Biometric Screening')).toBeVisible();
+    expect(
+      screen.getByRole('link', { name: 'Schedule a Biometric Screening' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=https://scheduleruat.ehealthscreenings.com/SSO&target=schedule`,
+    );
     expect(component).toMatchSnapshot();
   });
 });

@@ -7,6 +7,7 @@ export interface ShareMyPlanDetails {
   memberCk: string;
   accessStatus: AccessStatus;
   accessStatusIsPending: boolean;
+  isMatureMinor: boolean;
   isMinor: boolean;
   roleType: string;
 }
@@ -20,4 +21,5 @@ export enum AccessStatus {
 
 export type SharePlanInformationDetails = {
   memberData: ShareMyPlanDetails[] | null;
+  loggedInMemberRole?: string | null;
 };

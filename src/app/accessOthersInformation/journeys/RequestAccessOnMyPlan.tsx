@@ -9,7 +9,11 @@ import { Column } from '@/components/foundation/Column';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { ShareMyPlanDetails } from '@/models/app/getSharePlanDetails';
+import {
+  AccessStatus,
+  ShareMyPlanDetails,
+} from '@/models/app/getSharePlanDetails';
+import { capitalizeName } from '@/utils/capitalizeName';
 import { logger } from '@/utils/logger';
 import { requestAccessToMembers } from '../action/getAccessOtherInformationData';
 
@@ -31,7 +35,7 @@ export const RequestAccessOnMyPlan = ({
   ) => {
     try {
       const response = await requestAccessToMembers(memberDetails);
-      if (response.isEmailSent === 'true') {
+      if (response.isEmailSent.toLowerCase() === 'true') {
         changePage!(1, false);
         onRequestSuccessCallBack();
       } else {
@@ -43,6 +47,11 @@ export const RequestAccessOnMyPlan = ({
     }
   };
 
+  function getAccessType() {
+    if (memberDetails.accessStatus === AccessStatus.NoAccess) return 'Basic';
+    else return 'Full';
+  }
+
   const pages = [
     <InputModalSlide
       key={0}
@@ -52,7 +61,8 @@ export const RequestAccessOnMyPlan = ({
         spans={[
           <span key={0}>You&apos;re requesting </span>,
           <span className="font-bold" key={1}>
-            Full Access{' '}
+            {getAccessType()}
+            {' Access '}
           </span>,
           <span key={2}>to:</span>,
         ]}
@@ -62,7 +72,7 @@ export const RequestAccessOnMyPlan = ({
         <Column>
           <TextBox
             className="body-1 text-center font-bold"
-            text={memberDetails.memberName}
+            text={capitalizeName(memberDetails.memberName)}
           />
           <Spacer size={32} />
 
@@ -73,7 +83,7 @@ export const RequestAccessOnMyPlan = ({
               <span key={0}>
                 We&apos;ll send an email to this member requesting{' '}
               </span>,
-              <span key={1}>full </span>,
+              <span key={1}>{getAccessType()} </span>,
               <span key={2}>view access to their account.</span>,
             ]}
           />

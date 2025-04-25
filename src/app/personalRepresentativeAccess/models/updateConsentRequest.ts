@@ -4,4 +4,6 @@ export interface UpdateConsentRequest {
   effectiveOn: string | undefined;
   expiresOn: string | undefined;
   requestType: string;
+  firstName: string | undefined;
+  lastName: string | undefined;
 }

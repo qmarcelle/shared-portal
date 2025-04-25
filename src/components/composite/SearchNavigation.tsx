@@ -19,6 +19,7 @@ export const SearchNavigation = ({ className }: IComponent) => {
   );
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showSearchSuggestion, setShowSearchSuggestion] = useState(false);
+  const [searchError, setSearchError] = useState(false);
 
   const router = useRouter();
 
@@ -38,7 +39,10 @@ export const SearchNavigation = ({ className }: IComponent) => {
       const getSearchResults = setTimeout(async () => {
         const result = await invokeSmartSearch(searchText);
         if (result.status == 200) {
+          setSearchError(false);
           setSearchResults(transformSearchResponseToDetails(result.data!));
+        } else {
+          setSearchError(true);
         }
       }, 500);
 
@@ -90,11 +94,12 @@ export const SearchNavigation = ({ className }: IComponent) => {
             hint="Search for claims, documents, and more..."
             autoFocus={true}
           ></SearchField>
-          {showSearchSuggestion && searchResults ? (
+          {showSearchSuggestion && (searchResults || searchError) ? (
             <SearchTypeAhead
               searchText={searchText}
               searchDetails={searchResults}
               closeSuggestions={closeSearch}
+              error={searchError}
               gotoMain={gotoSearchPage}
             />
           ) : null}

@@ -74,7 +74,12 @@ export const PlanDetailsSection = ({
     address: member.address,
     primaryPhoneNumber: member.primaryPhoneNumber,
     secondaryPhoneNumber: member.secondaryPhoneNumber,
+    memck: member.memCk,
+    loggedInMember: member.loggedInMember,
   }));
+  const loggedInMember = onMyPlanDetails.find(
+    (item) => item.loggedInMember == true,
+  );
 
   return (
     <Card className={className}>
@@ -161,36 +166,36 @@ export const PlanDetailsSection = ({
           </Column>
         </Card>
         <Spacer size={16} />
-        {onMyPlanDetails.map((detail, index) => (
-          <Card key={index}>
-            <Column className="items-stretch">
-              <Accordion
-                className="px-2 py-4"
-                label="View Plan Contact Information"
-                initialOpen={false}
-                type="card"
-                openIcon={
-                  <Image
-                    className="pl-2 w-6"
-                    src={Down}
-                    alt="Down Chevron"
-                  ></Image>
-                }
-                closeIcon={
-                  <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
-                }
-                child={
-                  <PlanContactInformationSection
-                    title="Below is the phone number and mailing address associated with your plan."
-                    address={detail.address}
-                    primaryPhoneNumber={detail.primaryPhoneNumber}
-                    secondaryPhoneNumber={detail.secondaryPhoneNumber}
-                  />
-                }
-              ></Accordion>
-            </Column>
-          </Card>
-        ))}
+        <Card>
+          <Column className="items-stretch">
+            <Accordion
+              className="px-2 py-4"
+              label="View Plan Contact Information"
+              initialOpen={false}
+              type="card"
+              openIcon={
+                <Image
+                  className="pl-2 w-6"
+                  src={Down}
+                  alt="Down Chevron"
+                ></Image>
+              }
+              closeIcon={
+                <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
+              }
+              child={
+                <PlanContactInformationSection
+                  title="Below is the phone number and mailing address associated with your plan."
+                  address={loggedInMember!.address}
+                  primaryPhoneNumber={
+                    loggedInMember!.primaryPhoneNumber ?? 'N/A'
+                  }
+                  secondaryPhoneNumber={loggedInMember!.secondaryPhoneNumber}
+                />
+              }
+            ></Accordion>
+          </Column>
+        </Card>
       </div>
     </Card>
   );

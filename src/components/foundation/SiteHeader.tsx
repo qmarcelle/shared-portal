@@ -59,7 +59,9 @@ export default function SiteHeader({
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
+    : getMenuNavigation(visibilityRules).filter(
+        (val) => val.showOnMenu,
+      );
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -251,7 +253,7 @@ export default function SiteHeader({
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
-                    ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
+                    ? (process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? [])
                     : []
                 }
               />

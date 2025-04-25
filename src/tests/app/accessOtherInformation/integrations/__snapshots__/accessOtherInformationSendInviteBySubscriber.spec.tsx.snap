@@ -1,0 +1,1514 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Send Access Invite - Access Other Information send invite API call - API  400 bad request scenario 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1"
+      >
+        Access Others' Information
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-36_67 items-stretch"
+        >
+          <div
+            class="card-main  large-section"
+          >
+            <div
+              class="flex flex-col items-stretch"
+            >
+              <div>
+                <h1
+                  class="title-1 title-2"
+                >
+                  Understanding Access On My Plan
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+                />
+              </div>
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Access Granted
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Request Access
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Special Permissions
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col flex flex-col"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  On My Plan
+                </h2>
+              </div>
+              <div>
+                 
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Below is the access you've been granted by other members on your plan.
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+              </div>
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Jessica Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 01/18/1985
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Basic Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Juniper Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 07/27/2000
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Full Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              />
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Send Access Invite - Access Other Information send invite API call- Failed Scenario 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1"
+      >
+        Access Others' Information
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-36_67 items-stretch"
+        >
+          <div
+            class="card-main  large-section"
+          >
+            <div
+              class="flex flex-col items-stretch"
+            >
+              <div>
+                <h1
+                  class="title-1 title-2"
+                >
+                  Understanding Access On My Plan
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+                />
+              </div>
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Access Granted
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Request Access
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Special Permissions
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col flex flex-col"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  On My Plan
+                </h2>
+              </div>
+              <div>
+                 
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Below is the access you've been granted by other members on your plan.
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+              </div>
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Jessica Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 01/18/1985
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Basic Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Juniper Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 07/27/2000
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Full Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              />
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Send Access Invite - Access Other Information send invite API call- Success Scenario 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1"
+      >
+        Access Others' Information
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-36_67 items-stretch"
+        >
+          <div
+            class="card-main  large-section"
+          >
+            <div
+              class="flex flex-col items-stretch"
+            >
+              <div>
+                <h1
+                  class="title-1 title-2"
+                >
+                  Understanding Access On My Plan
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+                />
+              </div>
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Access Granted
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Request Access
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Special Permissions
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col flex flex-col"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  On My Plan
+                </h2>
+              </div>
+              <div>
+                 
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Below is the access you've been granted by other members on your plan.
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+              </div>
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Jessica Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 01/18/1985
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Basic Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <div
+                                class="mr-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <p>
+                                Pending...
+                              </p>
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Juniper Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 07/27/2000
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Full Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              />
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Send Access Invite - Access Other Information send invite API call- Success Scenario for Multiple Update Icons 1`] = `
+<div>
+  <main
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1"
+      >
+        Access Others' Information
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-36_67 items-stretch"
+        >
+          <div
+            class="card-main  large-section"
+          >
+            <div
+              class="flex flex-col items-stretch"
+            >
+              <div>
+                <h1
+                  class="title-1 title-2"
+                >
+                  Understanding Access On My Plan
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+                />
+              </div>
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Access Granted
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Request Access
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Special Permissions
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col flex flex-col"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  On My Plan
+                </h2>
+              </div>
+              <div>
+                 
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Below is the access you've been granted by other members on your plan.
+                  </p>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+              </div>
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Jessica Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 01/18/1985
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Basic Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <p
+                                class="font-bold primary-color"
+                              >
+                                Update
+                              </p>
+                              <div
+                                class="ml-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-elevated cursor-pointer undefined"
+                >
+                  <div
+                    class="flex flex-col m-4"
+                  >
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row justify-between"
+                    >
+                      <p
+                        class="body-1 ml-2 font-bold body-1"
+                        style="display: block;"
+                      >
+                        Juniper Meyer
+                      </p>
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        DOB: 07/27/2000
+                      </p>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-row"
+                    >
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <span
+                          style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                        />
+                      </div>
+                      <div>
+                         
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                          <section>
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Basic Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <div
+                                class="mr-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <p>
+                                Pending...
+                              </p>
+                            </div>
+                          </section>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+`;

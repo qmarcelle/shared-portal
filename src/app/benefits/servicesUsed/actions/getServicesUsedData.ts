@@ -18,7 +18,7 @@ export async function getServicesUsedData(): Promise<
       session!.user.currUsr!.plan!.memCk,
     );
     const memberLimitsResp = await getMemberLimit({
-      memberId: session!.user.currUsr!.plan!.sbsbCk,
+      memberId: session!.user.currUsr!.plan!.memCk,
       productTypes: 'M',
     });
 
@@ -41,10 +41,10 @@ export async function getServicesUsedData(): Promise<
           // This will not be used as the service name has this value
           limitAmount: item.isDollarLimit
             ? formatCurrency(item.maxAllowedAmount!)!
-            : item.maxAllowedVisits?.toString() ?? '--',
+            : (item.maxAllowedVisits?.toString() ?? '--'),
           spentAmount: item.isDollarLimit
-            ? formatCurrency(item.metAmount!) ?? '--'
-            : item.usedVisits?.toString() ?? '--',
+            ? (formatCurrency(item.metAmount!) ?? '--')
+            : (item.usedVisits?.toString() ?? '--'),
         })),
       );
     });
@@ -52,17 +52,12 @@ export async function getServicesUsedData(): Promise<
     return {
       status: 200,
       data: {
-        members: members.map((item) => ({
-          id: item.id,
-          name: item.name,
-        })),
+        members: members.map((item) => ({ id: item.id, name: item.name })),
         services: services,
       },
     };
   } catch (err) {
     logger.error('Member Limit API Error', err);
-    return {
-      status: 500,
-    };
+    return { status: 500 };
   }
 }

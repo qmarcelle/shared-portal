@@ -52,6 +52,7 @@ export function computeVisibilityRules(
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
   rules.offMarketGrp = offMarketGroups.includes(groupId);
   rules.isLifePointGrp = lifePointGroup.includes(groupId);
+  rules.isAmplifyHealthGroupEnabled = isAHAdvisorEnabled(groupId);
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
@@ -152,7 +153,11 @@ export function isBlueCareEligible(rules: VisibilityRules | undefined) {
 export function isPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return activeAndHealthPlanMember(rules) && rules?.myPCPElig;
+  return (
+    activeAndHealthPlanMember(rules) &&
+    rules?.myPCPElig &&
+    (rules?.blueCare || rules?.individual)
+  );
 }
 
 export function isBlue365FitnessYourWayEligible(
@@ -167,9 +172,8 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
 
 export function isAHAdvisorpage(
   rules: VisibilityRules | undefined,
-  groupId: string | undefined,
 ) {
-  return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
+  return (rules?.active && rules?.amplifyMember) || rules?.isAmplifyHealthGroupEnabled;
 }
 
 function isAHAdvisorEnabled(groupId: string | undefined) {
@@ -366,7 +370,7 @@ export function isDiabetesManagementEligible(
 }
 export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
   return (
-    rules?.commercial &&
+    isLobCommercial(rules) &&
     rules?.cmEnable &&
     !(hasCondensesedExperienceProfiler(rules) == 'Quantum')
   );
@@ -408,11 +412,6 @@ export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
       } else return false;
     } else return false;
   } else return false;
-}
-export function isBlueCareAndPrimaryCarePhysicianEligible(
-  rules: VisibilityRules | undefined,
-) {
-  return isBlueCareEligible(rules) || isPrimaryCarePhysicianEligible(rules);
 }
 export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {
   return (
@@ -480,7 +479,7 @@ export function isSilverAndFitnessEligible(rules: VisibilityRules | undefined) {
 export function isHealthProgamAndResourceEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return rules?.commercial || rules?.medicare;
+  return isLobCommercial(rules) || rules?.medicare;
 }
 export function isMedicarePrescriptionPaymentPlanEligible(
   rules: VisibilityRules | undefined,

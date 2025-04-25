@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WellnessRewardsSection should render the UI correctly for Fully Insured & Level Funded 1`] = `
+exports[`WellnessRewardsSection should redirect ICARO SSO on click of View Ways to Earn & Learn more 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -99,6 +99,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
             >
               <a
                 aria-label="View Ways to Earn & Learn more"
+                href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
                 style="display: block;"
               >
                 <button
@@ -376,6 +377,620 @@ exports[`WellnessRewardsSection should render the UI correctly for Fully Insured
           >
             <a
               aria-label="View Ways to Earn & Learn more"
+              href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
+              style="display: block;"
+            >
+              <button
+                class="flex flex-row link-container body-1"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="link undefined"
+                >
+                  View Ways to Earn & Learn more
+                </p>
+              </button>
+            </a>
+            <img
+              alt="external icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+          />
+          <div
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <p
+            class="body-1 body-2"
+            style="display: block;"
+          >
+            Wellness Rewards is based on your processed claims.There may be a delay in the Wellness Rewards information updating.
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-col block sm:hidden"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+        />
+        <p
+          class="body-1"
+          style="display: block;"
+        >
+          My Points
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div>
+          <div
+            aria-label="bar chart"
+            role="img"
+            style="height: 10px; width: 70%;"
+          />
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+        />
+        <div
+          class="flex flex-row items-center"
+        >
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            100 points = $100
+          </p>
+           |
+          <a
+            aria-label="View Rewards FAQ"
+            style="display: block;"
+          >
+            <button
+              class="flex flex-row link-container undefined"
+              style="max-width: max-content; height: auto; display: block;"
+              tabindex="-1"
+              type="button"
+            >
+              <p
+                class="link undefined"
+              >
+                View Rewards FAQ
+              </p>
+            </button>
+          </a>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+        />
+        <button
+          aria-label="View Ways to Earn & Learn more"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          View Ways to Earn & Learn more
+          <p
+            class="ml-2"
+          >
+            <img
+              alt="external icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </p>
+        </button>
+      </div>
+    </div>
+    <span
+      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+    />
+    <h1
+      class="title-1"
+    >
+      Active Rewards - Employer Provided Reward
+    </h1>
+    <div
+      class="card-main section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Wellness Rewards
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+        />
+        <p
+          class="body-1"
+          style="display: block;"
+        >
+          Complete wellness tasks to earn rewards provided by your employer.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+        />
+        <button
+          aria-label="Learn More"
+          class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-1/5"
+          type="button"
+        >
+          Learn More
+          <p
+            class="ml-2"
+          >
+            <img
+              alt="external icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </p>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`WellnessRewardsSection should render the UI correctly for Fully Insured & Level Funded 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <h1
+        class="title-1"
+      >
+        Active Rewards - Fully Insured & Level Funded
+      </h1>
+      <div
+        class="card-main section"
+      >
+        <h2
+          class="title-2"
+        >
+          Wellness Rewards
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+        />
+        <div
+          class="flex flex-row justify-between hidden sm:flex"
+        >
+          <div
+            class="flex flex-col w-full"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+            />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span
+                class="font-bold"
+              >
+                You've earned
+                 
+              </span>
+              <span
+                class="font-bold"
+              >
+                70 
+              </span>
+              <span>
+                 / 100 Points
+              </span>
+            </span>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div>
+              <div
+                aria-label="bar chart"
+                role="img"
+                style="height: 10px; width: 70%;"
+              />
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+            />
+            <div
+              class="flex flex-row justify-between"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 body-2"
+                  style="display: block;"
+                >
+                  100 points = $100
+                </p>
+              </div>
+              <div
+                class="flex flex-col items-end"
+              >
+                <p
+                  class="body-1 font-bold text-end"
+                  style="display: block;"
+                >
+                  100 pts
+                </p>
+                <p
+                  class="body-1 body-2"
+                  style="display: block;"
+                >
+                  Quarterly Max
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+            />
+            <div
+              class="flex flex-row"
+            >
+              <a
+                aria-label="View Ways to Earn & Learn more"
+                href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container body-1"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <p
+                    class="link undefined"
+                  >
+                    View Ways to Earn & Learn more
+                  </p>
+                </button>
+              </a>
+              <img
+                alt="external icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <p
+              class="body-1 body-2"
+              style="display: block;"
+            >
+              Wellness Rewards is based on your processed claims.There may be a delay in the Wellness Rewards information updating.
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col block sm:hidden"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            My Points
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div>
+            <div
+              aria-label="bar chart"
+              role="img"
+              style="height: 10px; width: 70%;"
+            />
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+          />
+          <div
+            class="flex flex-row items-center"
+          >
+            <p
+              class="body-1"
+              style="display: block;"
+            >
+              100 points = $100
+            </p>
+             |
+            <a
+              aria-label="View Rewards FAQ"
+              style="display: block;"
+            >
+              <button
+                class="flex flex-row link-container undefined"
+                style="max-width: max-content; height: auto; display: block;"
+                tabindex="-1"
+                type="button"
+              >
+                <p
+                  class="link undefined"
+                >
+                  View Rewards FAQ
+                </p>
+              </button>
+            </a>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+          />
+          <button
+            aria-label="View Ways to Earn & Learn more"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+            type="button"
+          >
+            View Ways to Earn & Learn more
+            <p
+              class="ml-2"
+            >
+              <img
+                alt="external icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <h1
+        class="title-1"
+      >
+        Active Rewards - Employer Provided Reward
+      </h1>
+      <div
+        class="card-main section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2"
+          >
+            Wellness Rewards
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+          />
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Complete wellness tasks to earn rewards provided by your employer.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+          />
+          <button
+            aria-label="Learn More"
+            class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null w-1/5"
+            type="button"
+          >
+            Learn More
+            <p
+              class="ml-2"
+            >
+              <img
+                alt="external icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <h1
+      class="title-1"
+    >
+      Active Rewards - Fully Insured & Level Funded
+    </h1>
+    <div
+      class="card-main section"
+    >
+      <h2
+        class="title-2"
+      >
+        Wellness Rewards
+      </h2>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+      />
+      <div
+        class="flex flex-row justify-between hidden sm:flex"
+      >
+        <div
+          class="flex flex-col w-full"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+          />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span
+              class="font-bold"
+            >
+              You've earned
+               
+            </span>
+            <span
+              class="font-bold"
+            >
+              70 
+            </span>
+            <span>
+               / 100 Points
+            </span>
+          </span>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div>
+            <div
+              aria-label="bar chart"
+              role="img"
+              style="height: 10px; width: 70%;"
+            />
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+          />
+          <div
+            class="flex flex-row justify-between"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                100 points = $100
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-end"
+            >
+              <p
+                class="body-1 font-bold text-end"
+                style="display: block;"
+              >
+                100 pts
+              </p>
+              <p
+                class="body-1 body-2"
+                style="display: block;"
+              >
+                Quarterly Max
+              </p>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+          />
+          <div
+            class="flex flex-row"
+          >
+            <a
+              aria-label="View Ways to Earn & Learn more"
+              href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
               style="display: block;"
             >
               <button
@@ -704,6 +1319,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
             >
               <a
                 aria-label="View Ways to Earn & Learn more"
+                href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
                 style="display: block;"
               >
                 <button
@@ -975,6 +1591,7 @@ exports[`WellnessRewardsSection should render the UI correctly for Self Funded 1
           >
             <a
               aria-label="View Ways to Earn & Learn more"
+              href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
               style="display: block;"
             >
               <button

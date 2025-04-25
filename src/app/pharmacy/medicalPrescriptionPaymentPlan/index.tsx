@@ -10,6 +10,8 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -65,6 +67,30 @@ const checkboxPaymentPlanText = () => {
       .
     </div>
   );
+};
+
+const TandCTextAnalytics = (action: string) => {
+  const analytics: AnalyticsData = {
+    click_text: action,
+    click_url: undefined,
+    element_category: 'Terms and Conditions',
+    action: action,
+    event: 'select_content',
+    content_type: 'select',
+  };
+  googleAnalytics(analytics);
+};
+
+const TandCLinkAnalytics = () => {
+  const analytics: AnalyticsData = {
+    click_text: 'I Agree',
+    click_url: window.location.href,
+    element_category: 'content interaction',
+    action: 'click',
+    event: 'internal_link_click',
+    content_type: undefined,
+  };
+  googleAnalytics(analytics);
 };
 
 const MedicalPrescriptionPaymentPlan = () => {
@@ -135,6 +161,9 @@ const MedicalPrescriptionPaymentPlan = () => {
                   understand that, by clicking on the "I AGREE" button, below, I am
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein.`}
+                callback={() => {
+                  TandCTextAnalytics("I read");
+                }}
                 checked={readAgreement}
                 onChange={(newValue) => setReadAgreement(newValue)}
               />
@@ -142,6 +171,9 @@ const MedicalPrescriptionPaymentPlan = () => {
               <Checkbox
                 label=""
                 body={checkboxPaymentPlanText()}
+                callback={() => {
+                  TandCTextAnalytics("I Agree");
+                }}
                 checked={agreedTc}
                 onChange={(newValue) => setAgreedTc(newValue)}
               />
@@ -153,6 +185,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                   label="Print"
                   callback={() => {
                     opeInNewTab(termsAndConditionsPDF);
+                    TandCTextAnalytics("Print");
                   }}
                 />
                 <Button
@@ -163,6 +196,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                     !isFormValid
                       ? undefined
                       : () => {
+                          TandCLinkAnalytics();
                           router.replace('/dashboard');
                         }
                   }

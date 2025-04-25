@@ -26,6 +26,7 @@ import editIcon from '../../../../public/assets/edit.svg';
 interface AccessOnMyPlanItemProps extends IComponent {
   inviteStatus: boolean;
   memberDetails: ShareMyPlanDetails;
+  loggedInMemberType: string | null;
   onRequestSuccessCallBack: () => void;
   isOnline: boolean;
   icon?: JSX.Element;
@@ -38,6 +39,7 @@ export const AccessOnMyPlanItem = ({
   inviteStatus,
   onRequestSuccessCallBack,
   memberDetails,
+  loggedInMemberType,
   isOnline,
   onClick,
   className,
@@ -89,6 +91,25 @@ export const AccessOnMyPlanItem = ({
     );
   }
 
+  function toDisplayEditIcon(
+    memberDetails: ShareMyPlanDetails,
+    loggedInMemberType: string | null,
+  ) {
+    if (
+      loggedInMemberType != null &&
+      loggedInMemberType.toLowerCase() === 'dependent'
+    ) {
+      if (memberDetails.isMinor) return false;
+      else {
+        if (memberDetails.accessStatus !== AccessStatus.FullAccess) return true;
+        else return false;
+      }
+    } else {
+      if (memberDetails.accessStatus !== AccessStatus.FullAccess) return true;
+      else return false;
+    }
+  }
+
   function getProfileOnlineContent() {
     return (
       <Column>
@@ -117,12 +138,12 @@ export const AccessOnMyPlanItem = ({
                     <Title
                       className="font-bold primary-color"
                       text={
-                        memberDetails.accessStatus != AccessStatus.FullAccess
+                        toDisplayEditIcon(memberDetails, loggedInMemberType)
                           ? 'Update'
                           : ''
                       }
                       suffix={
-                        memberDetails.accessStatus != AccessStatus.FullAccess
+                        toDisplayEditIcon(memberDetails, loggedInMemberType)
                           ? icon
                           : undefined
                       }

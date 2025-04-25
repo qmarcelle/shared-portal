@@ -49,10 +49,12 @@ export async function updateHealthEquityPreference(
 ): Promise<ActionResponse<number, updatePCPPhysicianResponse>> {
   try {
     const session = await auth();
-    request.memberContrivedKey = session?.user.currUsr?.plan!.memCk;
-    request.subscriberContrivedKey = session?.user.currUsr?.plan!.sbsbCk;
-    request.groupContrivedKey = session?.user.currUsr?.plan!.grgrCk;
-    request.userId = session?.user.id;
+    request.memberContrivedKey = String(session?.user.currUsr?.plan!.memCk);
+    request.subscriberContrivedKey = String(
+      session?.user.currUsr?.plan!.sbsbCk,
+    );
+    request.groupContrivedKey = String(session?.user.currUsr?.plan!.grgrCk);
+    request.userId = String(session?.user.id);
     request.memberPreferenceBy = 'memberKeySubscriberKey';
     request.dataSource = '11';
     request.lastUpdateDate = format(new Date(), 'yyyy-MM-dd HH:mm:ss');

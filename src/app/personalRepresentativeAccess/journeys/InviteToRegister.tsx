@@ -16,6 +16,7 @@ interface InviteToRegisterProps {
   memberName: string;
   memeCk: string;
   requesteeFHRID: string;
+  isMaturedMinor?: boolean;
   onRequestSuccessCallBack: () => void;
 }
 
@@ -23,6 +24,7 @@ export const InviteToRegister = ({
   changePage,
   pageIndex,
   memberName,
+  isMaturedMinor,
   memeCk,
   requesteeFHRID,
   onRequestSuccessCallBack,
@@ -54,7 +56,11 @@ export const InviteToRegister = ({
       buttonLabel="Send Invite"
       actionArea={
         <Column>
-          <TextBox className="body-1 text-center font-bold" text={memberName} />
+          {isMaturedMinor ? (
+            <TextBox className="font-bold body-1" text={memberName} />
+          ) : (
+            <TextBox className="font-bold body-1" text="[Mature Minor]" />
+          )}
           <Spacer size={32} />
           <TextBox
             className="text-center"
