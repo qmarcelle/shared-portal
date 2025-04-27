@@ -1,13 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode, useCallback, memo } from 'react';
 import { IComponent } from '../IComponent';
 
 export interface CheckboxProps extends IComponent {
   selected?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  callback?: (val: any) => void;
+  callback?: (val: boolean) => void;
   label: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value?: any;
+  value?: string | number | boolean;
   classProps?: string;
   checkProps?: string;
   body?: ReactNode;
@@ -23,7 +21,11 @@ export interface CheckboxProps extends IComponent {
   ariaDescribedBy?: string;
 }
 
-export const Checkbox = ({
+const inputClassName = `checkbox ${checkProps || ''} ${isChecked ? 'checked checkbox--checked' : ''} ${
+  isDisabled ? 'disabled checkbox--disabled' : ''
+} ${error ? 'error checkbox--error' : ''}`;
+
+export const Checkbox = memo(({  // Wrap component with React.memo
   label,
   checked = false,
   onChange,
@@ -43,25 +45,25 @@ export const Checkbox = ({
   ariaDescribedBy,
 }: CheckboxProps) => {
   // Support both new and old prop patterns
-  const isChecked = selected !== undefined ? selected : checked;
-  const isDisabled = disabled || callback === null;
+  const isChecked = checked ?? selected ?? false;
+  const isDisabled = disabled || !callback;
   const handleCallback = onChange || callback;
 
   const checkboxId =
     id || `checkbox-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
-  const handleChange = () => {
+  const handleChange = useCallback(() => {
     if (!isDisabled && handleCallback) {
       handleCallback(!isChecked);
     }
-  };
+  }, [isDisabled, handleCallback, isChecked]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       handleChange();
     }
-  };
+  }, [handleChange]);
 
   return (
     <div
@@ -71,7 +73,7 @@ export const Checkbox = ({
       aria-disabled={isDisabled}
       aria-invalid={error}
       aria-required={required}
-      aria-label={ariaLabel || undefined}
+      aria-label={ariaLabel || label || 'Checkbox'} // Ensure fallback for aria-label
       aria-describedby={
         ariaDescribedBy || (error ? `${checkboxId}-error` : undefined)
       }
@@ -89,13 +91,17 @@ export const Checkbox = ({
           onChange={handleChange}
           disabled={isDisabled}
           required={required}
-          className={`checkbox ${checkProps || ''} ${isChecked ? 'checked' : ''} ${
-            isDisabled ? 'disabled' : ''
-          } ${error ? 'error' : ''}`}
+          className={inputClassName} // Use updated inputClassName
           aria-label={ariaLabel || label}
         />
         <label htmlFor={checkboxId} className={`ml-2 ${classProps || ''}`}>
-          {body ? body : label}
+          {body ? (
+            <>
+              {body}
+              {/* Keep label text for screen readers */}
+              <span className="sr-only">{label}</span>
+            </>
+          ) : label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       </div>
@@ -110,4 +116,4 @@ export const Checkbox = ({
       )}
     </div>
   );
-};
+});
