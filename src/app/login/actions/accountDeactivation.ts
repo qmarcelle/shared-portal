@@ -18,7 +18,7 @@ export async function callAccountDeactivation(
     if (resp?.data?.data?.status === 'OK') {
       authUser = request.userName;
       await setWebsphereRedirectCookie({
-        ...resp.data.data,
+        ...request.interactionData,
       });
       return resp?.data?.data?.status;
     } else {

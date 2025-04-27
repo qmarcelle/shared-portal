@@ -172,6 +172,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
             interactionData: {
               interactionId: resp.data?.interactionId ?? '',
               interactionToken: resp.data?.interactionToken ?? '',
+              sessionToken: resp.data?.sessionToken ?? '',
             },
             userId: resp.data?.userId ?? '',
           });
