@@ -1,3 +1,5 @@
+'use server';
+
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { PBEData } from '@/models/member/api/pbeData';
 import { logger } from '@/utils/logger';

@@ -44,9 +44,10 @@ export const usePrimaryAccountSelectionStore =
             return;
           }
           const resp = await callAccountDeactivation({
-            primaryUserName: pbe?.getPBEDetails[0].userName,
+            primaryUserName: useLoginStore.getState().username,
             umpiId: pbe?.getPBEDetails[0].umpid,
             userName: useLoginStore.getState().username,
+            interactionData: useLoginStore.getState().interactionData,
           });
           if (resp) useLoginStore.getState().updateLoggedUser(true);
           set({

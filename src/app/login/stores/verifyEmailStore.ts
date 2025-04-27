@@ -81,6 +81,7 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
             interactionData: {
               interactionId: resp.data?.interactionId ?? '',
               interactionToken: resp.data?.interactionToken ?? '',
+              sessionToken: resp.data?.sessionToken ?? '',
             },
             userId: resp.data?.userId ?? '',
           });
