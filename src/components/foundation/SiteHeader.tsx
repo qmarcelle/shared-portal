@@ -152,7 +152,7 @@ export default function SiteHeader({
                 />
               )}
             </Link>
-            {selectedProfile?.type != UserRole.NON_MEM && (
+            {selectedProfile?.type != UserRole.NON_MEM && plans.length > 1 && (
               <PlanSwitcher
                 key={selectedProfile.id + selectedPlan?.id}
                 className="mx-4 w-[268px] hidden md:block"
