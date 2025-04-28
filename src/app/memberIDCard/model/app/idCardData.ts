@@ -14,6 +14,8 @@ export interface IdCardMemberDetails {
 
 export interface MemberContactInfo {
   address1: string;
+  address2: string;
+  address3: string;
   city: string;
   state: string;
   zipcode: string;
