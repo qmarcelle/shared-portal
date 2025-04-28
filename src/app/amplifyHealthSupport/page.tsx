@@ -64,75 +64,78 @@ const AmplifyHealthSupport = () => {
           body={getHeroBannerContent()}
         />
         {/* Header Component Ends */}
-        {/* Amplify Health Support Body Component Starts */}
-        <Column className="relative bottom-[3rem]">
-          <div className="app-content self-center">
+        
+        {/* Content Wrapper */}
+        <div className="app-content self-center relative">
+          {/* Advisors Card as Overlay */}
+          <div className="relative -top-[3rem] w-full z-10">
             <AmplifyAdvisors />
+          </div>
+          
+          {/* Amplify Health Support Body Component */}
+          <Column className="w-full">
             <Spacer size={32}></Spacer>
             <section className="flex flex-row items-start app-body">
               <Column className="flex-grow page-section-63_33 items-stretch">
                 <AmplifyHealthAppInformation />
               </Column>
             </section>
-          </div>
-        </Column>
-        {/* Amplify Health Support Body Component Ends */}
-        {/* Footer Component Starts */}
-        <section className="flex flex-col w-full -mt-16">
-          <div className="app-content self-center relative top-12">
-            <Card className="large-section">
-              <Column>
-                <Header className="title-2" text="Resources" />
-                <Spacer size={16}></Spacer>
-                <TextBox text="Find answers to your health insurance questions or find a form." />
-                <Spacer size={32}></Spacer>
-                <Column className="gap-y-4 md:gap-4 md:flex-row">
-                  <ResourceMiniCard
-                    className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                    icon={<Image src={questionsIcon} alt="call" />}
-                    label="Frequently Asked Questions"
-                    link="/faq"
-                    external={false}
-                  />
-                  <ResourceMiniCard
-                    className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                    icon={<Image src={glossaryIcon} alt="call" />}
-                    label="Health Insurance Glossary"
-                    link="https://www.healthcare.gov/glossary"
-                    external={true}
-                  />
-                  <ResourceMiniCard
-                    className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                    icon={<Image src={findFormIcon} alt="call" />}
-                    label="Find a Form"
-                    link="https://www.bcbst.com/use-insurance/documents-forms"
-                    external={true}
-                  />
-                </Column>
+          </Column>
+          
+          {/* Resources Section */}
+          <Card className="large-section">
+            <Column>
+              <Header className="title-2" text="Resources" />
+              <Spacer size={16}></Spacer>
+              <TextBox text="Find answers to your health insurance questions or find a form." />
+              <Spacer size={32}></Spacer>
+              <Column className="gap-y-4 md:gap-4 md:flex-row">
+                <ResourceMiniCard
+                  className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  icon={<Image src={questionsIcon} alt="call" />}
+                  label="Frequently Asked Questions"
+                  link="/faq"
+                  external={false}
+                />
+                <ResourceMiniCard
+                  className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  icon={<Image src={glossaryIcon} alt="call" />}
+                  label="Health Insurance Glossary"
+                  link="https://www.healthcare.gov/glossary"
+                  external={true}
+                />
+                <ResourceMiniCard
+                  className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                  icon={<Image src={findFormIcon} alt="call" />}
+                  label="Find a Form"
+                  link="https://www.bcbst.com/use-insurance/documents-forms"
+                  external={true}
+                />
               </Column>
-            </Card>
-          </div>
-          <div className="w-full surface-gradient-amplify-flipped">
-            <Column className="mt-16 text-white items-center px-4 gap-4">
-              <TextBox
-                type="title-2"
-                className="text-center"
-                text="Have feedback about our website?"
-              />
-              <TextBox
-                className="text-center"
-                text="We want to hear from you. Share your feedback about your experience using our website."
-              />
-              <Button
-                type="primary"
-                className="!bg-transparent outline outline-primary-content my-8 max-w-[256px]"
-                label="Share Your Feedback"
-                callback={() => {}}
-              />
             </Column>
-          </div>
-        </section>
-        {/* Footer Component Ends */}
+          </Card>
+        </div>
+        
+        {/* Feedback Section */}
+        <div className="w-full surface-gradient-amplify-flipped">
+          <Column className="mt-16 text-white items-center px-4 gap-4">
+            <TextBox
+              type="title-2"
+              className="text-center"
+              text="Have feedback about our website?"
+            />
+            <TextBox
+              className="text-center"
+              text="We want to hear from you. Share your feedback about your experience using our website."
+            />
+            <Button
+              type="primary"
+              className="!bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+              label="Share Your Feedback"
+              callback={() => {}}
+            />
+          </Column>
+        </div>
       </section>
     </main>
   );
