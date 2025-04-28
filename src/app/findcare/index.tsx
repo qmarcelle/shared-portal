@@ -1,7 +1,9 @@
 'use client';
 import { ViewCareOptions } from '@/app/findcare/components/ViewCareOptions';
 import { VirtualCareOptions } from '@/app/findcare/components/VirtualCareOptions';
+import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Column } from '@/components/foundation/Column';
+import { RichText } from '@/components/foundation/RichText';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
@@ -36,16 +38,47 @@ import {
   PROV_DIR_MENTAL_HEALTH,
 } from '../sso/ssoConstants';
 import { FindCarePillBox } from './components/FindCarePillBox';
-export type FindCareProps = {
-  visibilityRules?: VisibilityRules;
-};
+export type FindCareProps = { visibilityRules?: VisibilityRules };
 
 const FindCare = ({ visibilityRules }: FindCareProps) => {
   const router = useRouter();
   return (
     <main className="flex flex-col justify-center items-center page">
+      <WelcomeBanner
+        className="px-4"
+        titleText=""
+        name="Find Care & Costs"
+        body={
+          <>
+            <RichText
+              spans={[
+                <>
+                  <span>
+                    Looking for care or estimating costs for a procedure? Use
+                    our{' '}
+                  </span>
+                  <span className="link !text-white" key={1}>
+                    <a>Find Care & Costs tool.</a>
+                  </span>
+                </>,
+              ]}
+            />
+            <Spacer size={16} />
+            <RichText
+              type="body-2"
+              spans={[
+                <span key={0}>
+                  In case of medical emergency, call 911. In case of a mental
+                  health crisis, call 988.
+                </span>,
+              ]}
+            />
+          </>
+        }
+      />
+      <Spacer size={16}></Spacer>
       <Column className="app-content app-base-font-color md:p-0 p-4">
-        <section className={'card-main max-sm:mt-24 mt-8 '}>
+        <section className={'card-main mt-4'}>
           <SearchField
             onSearch={() => null}
             hint="Search by procedure, specialty, facility or provider name..."
@@ -266,12 +299,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                       'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
                     url: 'null',
                   },
-                  {
-                    id: '4',
-                    title: 'yyt',
-                    description: 'xxx',
-                    url: 'null',
-                  },
+                  { id: '4', title: 'yyt', description: 'xxx', url: 'null' },
                 ]}
               />
             </section>

@@ -1,4 +1,5 @@
 'use client';
+import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import {
@@ -14,6 +15,7 @@ import {
   wellnessPointsIcon,
   wellTunedBlogIcon,
 } from '@/components/foundation/Icons';
+import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import healthSupportIcon from '@/public/assets/health_support.svg';
 import healthSurveyIcon from '@/public/assets/health_survey.svg';
@@ -173,9 +175,7 @@ const discountCardDetails = [
   },
 ];
 
-export type MyHealthProps = {
-  data: MyHealthData;
-};
+export type MyHealthProps = { data: MyHealthData };
 const MyHealth = ({ data }: MyHealthProps) => {
   const isBlueCareMember = isBlueCareEligible(data.visibilityRules);
   const isBiometricScreeningVisible = isBiometricScreening(
@@ -183,6 +183,25 @@ const MyHealth = ({ data }: MyHealthProps) => {
   );
   return (
     <main className="flex flex-col justify-center items-center page">
+      <WelcomeBanner
+        className="px-4"
+        titleText=""
+        name="My Health"
+        body={
+          <>
+            <RichText
+              spans={[
+                <>
+                  <span>
+                    Programs, guides and discounts to help take charge of your
+                    health.
+                  </span>
+                </>,
+              ]}
+            />
+          </>
+        }
+      />
       <Column className="app-content app-base-font-color">
         {isChipRewardsEligible(data.visibilityRules) && (
           <section>
