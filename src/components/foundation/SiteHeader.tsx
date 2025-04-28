@@ -47,21 +47,23 @@ export default function SiteHeader({
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
   const [pathname, setPathName] = useState<string>('/');
-  const [updateLoggedUser] = useLoginStore((state) => [state.updateLoggedUser]);
+  const [updateLoggedUser, resetToHome] = useLoginStore((state) => [
+    state.updateLoggedUser,
+    state.resetToHome,
+  ]);
   const sitePathName = usePathname();
   useEffect(() => {
     setPathName(sitePathName);
   }, [sitePathName]);
 
   useEffect(() => {
+    resetToHome();
     updateLoggedUser(true); // Update logged in state as true to reload the login page on expiry
   }, []);
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules).filter(
-        (val) => val.showOnMenu,
-      );
+    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -253,7 +255,7 @@ export default function SiteHeader({
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
-                    ? (process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? [])
+                    ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
                     : []
                 }
               />
