@@ -250,10 +250,10 @@ const MyHealth = ({ data }: MyHealthProps) => {
         </section>
 
         <Spacer size={64} />
+        <Header text="Other Programs & Resources" type="title-1" />
+        <Spacer size={32} />
         {isHealthProgamAndResourceEligible(data.visibilityRules) && (
           <>
-            <Header text="Other Programs & Resources" type="title-1" />
-            <Spacer size={32} />
             <section className="flex-row items-start app-body">
               <OtherBenefits
                 className="large-section"
