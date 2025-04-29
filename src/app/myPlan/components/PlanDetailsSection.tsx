@@ -94,32 +94,23 @@ export const PlanDetailsSection = ({
               <TextBox text="BlueCare Medicaid" className="font-bold" />
             </Row>
           </>
-        ) : !planData ||
-          planData.length === 0 ||
-          !planData.some((member) => !member.primaryPhoneNumber) ? (
-          planType ? (
-            <>
-              {!planType?.includes(NOT_AVAILABLE) && (
-                <>
-                  <Spacer size={32} />
-                  <Row>
-                    <TextBox text="Plan Type:"></TextBox>
-                    <Spacer size={16} axis="horizontal" />
-                    <TextBox text={planType} className="body-bold" />
-                  </Row>
-                </>
-              )}
-            </>
-          ) : (
-            <>
-              <Spacer size={32} />
-              <ErrorCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
-            </>
-          )
+        ) : planType ? (
+          <>
+            {!planType?.includes(NOT_AVAILABLE) && (
+              <>
+                <Spacer size={32} />
+                <Row>
+                  <TextBox text="Plan Type:"></TextBox>
+                  <Spacer size={16} axis="horizontal" />
+                  <TextBox text={planType} className="body-bold" />
+                </Row>
+              </>
+            )}
+          </>
         ) : (
           <>
             <Spacer size={32} />
-            <ErrorCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+            <ErrorCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later. " />
           </>
         )}
         <Spacer size={32} />
