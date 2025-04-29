@@ -260,7 +260,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                       alt="Mental Care"
                     />
                   ),
-                  url: '',
+                  url: '/member/findcare/mentalHealthOptions',
                 },
               ]}
             />

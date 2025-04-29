@@ -44,7 +44,7 @@ const renderUI = () => {
               alt="Mental Care"
             />
           ),
-          url: '',
+          url: '/member/findcare/mentalHealthOptions',
         },
       ]}
     />,

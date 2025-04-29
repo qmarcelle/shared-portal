@@ -131,6 +131,13 @@ export const appPaths: Map<string, AppPath> = new Map([
     },
   ],
   [
+    'mentalhealthoptions',
+    {
+      label: 'Mental Health Options',
+      path: '/mentalHealthOptions',
+    },
+  ],
+  [
     'myhealth',
     {
       label: 'My Health',
