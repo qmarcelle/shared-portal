@@ -1,4 +1,5 @@
 import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
+import { auth } from '@/auth';
 import { ahAdvisorpageSetting } from '@/models/app/visibility_rules_constants';
 import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { Session } from 'next-auth';
@@ -35,9 +36,9 @@ const PTYP_FULLY_INSURED: string[] = [
 ];
 
 let healthCareAccountEligible: any[] | null;
-export function computeVisibilityRules(
+export async function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
-): string {
+): Promise<string> {
   const groupId = loggedUserInfo.groupData.groupID;
   //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
@@ -93,6 +94,13 @@ export function computeVisibilityRules(
       rules.futureEffective = member.futureEffective;
       rules.terminated = !member.isActive;
       computeCoverageTypes(member, rules);
+      break;
+    }
+  }
+
+  const session = await auth();
+  for (const member of loggedUserInfo.members) {
+    if (member.memberCk.toString() == session?.user.currUsr.plan?.memCk) {
       computeMemberAge(member, rules);
       break;
     }
@@ -170,10 +178,11 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
   return rules?.isCondensedExperience;
 }
 
-export function isAHAdvisorpage(
-  rules: VisibilityRules | undefined,
-) {
-  return (rules?.active && rules?.amplifyMember) || rules?.isAmplifyHealthGroupEnabled;
+export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
+  return (
+    (rules?.active && rules?.amplifyMember) ||
+    rules?.isAmplifyHealthGroupEnabled
+  );
 }
 
 function isAHAdvisorEnabled(groupId: string | undefined) {
