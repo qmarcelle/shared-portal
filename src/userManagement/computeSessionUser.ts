@@ -101,6 +101,6 @@ async function computeTokenWithPlan(
           memberNetworks[0].allowable_networks.default[0]?.id.toString() ?? '',
       },
     },
-    rules: await computeVisibilityRules(loggedUserInfo),
+    rules: computeVisibilityRules(loggedUserInfo),
   };
 }
