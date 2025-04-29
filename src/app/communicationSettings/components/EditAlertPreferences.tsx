@@ -85,6 +85,7 @@ export const EditAlertPreferncesSection = ({
   const resetState = () => {
     setEditAlertMap(initialEditAlertMap);
   };
+
   const checkBoxHandler = (
     alertType: AlertType,
     parentAlertType?: AlertType,
@@ -105,11 +106,6 @@ export const EditAlertPreferncesSection = ({
       const alert = alertMap.get(alertType);
       if (alert) {
         alert.selected = !alert.selected;
-        if (alert.childCheckBox) {
-          Array.from(alert.childCheckBox).map(
-            ([, value]) => (value.selected = alert.selected),
-          );
-        }
         alertMap.set(alertType, alert);
       }
     } else {
