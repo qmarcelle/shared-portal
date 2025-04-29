@@ -150,7 +150,7 @@ export const MembersRepresentativeItem = ({
               />
               <Spacer size={42} />
             </Row>
-            {!isRepresentative && isMatureMinor(visibilityRules) && (
+            {!isRepresentative && matureMinor && (
               <Row>
                 <Spacer size={42} />
                 <Title
