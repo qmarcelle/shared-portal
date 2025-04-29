@@ -35,7 +35,10 @@ export const ContactInformationSection = ({
               onClick={() =>
                 showAppModal({
                   content: (
-                    <UpdateCommunicationText initNumber="(123) 456-0000" />
+                    <UpdateCommunicationText
+                      initNumber="(123) 456-0000"
+                      phone={phone}
+                    />
                   ),
                 })
               }
