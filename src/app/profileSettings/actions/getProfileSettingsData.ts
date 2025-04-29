@@ -1,13 +1,11 @@
 'use server';
 
 import { getLoggedInMember } from '@/actions/memberDetails';
+import { getContactInfo } from '@/app/myPlan/actions/getAllPlansData';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
+import { logger } from '@/utils/logger';
 import { ProfileSettingsAppData } from '../models/app/profileSettingsAppData';
-import {
-  invokeEmailAction,
-  invokePhoneNumberAction,
-} from './profileSettingsAction';
 
 export const getProfileSettingsData = async (): Promise<
   ActionResponse<number, ProfileSettingsAppData>
@@ -15,13 +13,18 @@ export const getProfileSettingsData = async (): Promise<
   const session = await auth();
   try {
     const memberDetails = await getLoggedInMember(session);
-    const emailData = await invokeEmailAction();
-    const phoneData = await invokePhoneNumberAction();
+    const contactInfo = await getContactInfo(session?.user.currUsr?.umpi ?? '');
+    logger.info(
+      'Profile Settings email: ' +
+        contactInfo.email +
+        ' phone: ' +
+        contactInfo.phone,
+    );
     return {
       status: 200,
       data: {
-        email: emailData,
-        phone: phoneData,
+        email: contactInfo.email,
+        phone: contactInfo.phone,
         memberDetails: {
           fullName: memberDetails.firstName + ' ' + memberDetails.lastName, // Replace fullName with first_name+last_name of member object
           dob: memberDetails.dateOfBirth, // Replace dob with dateOfBirth of member object  const getData = useProfileSettingsStore();
