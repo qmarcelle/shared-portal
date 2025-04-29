@@ -1,6 +1,5 @@
 'use client';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
-import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -65,11 +64,6 @@ const ServicesUsed = ({ users, services, phoneNumber }: ServicesUsedProps) => {
               icon={claimsBenefitsCoverage}
               link="/member/myplan/claims"
             ></InfoCard>
-            <GetHelpSection
-              link="/member/support/FAQ/benefits"
-              linkURL={'Benefits & Coverage FAQ.'}
-              headerText={'Get Help with Services Used'}
-            />
           </Column>
         </section>
       </Column>

@@ -37,6 +37,21 @@ export const MedicalServices = ({
           text="Some services have limits on how many are covered. You may still have a cost for them. If you reach maximum, you can still get them, but your plan won't cover them."
         ></TextBox>
         <Spacer size={16} />
+        <RichText
+          type="body-1"
+          spans={[
+            <span key={0}>
+              Services Used is based on your processed claims. There may be a
+              delay in the Services Used list updating. If you&apos;re unsure if
+              a service has been used,{' '}
+            </span>,
+            <span className="link" key={1}>
+              <a> start a chat </a>
+            </span>,
+            <span key={3}> or call us at [{contact}].</span>,
+          ]}
+        />
+        <Spacer size={16} />
         <Row className="flex flex-row">
           <p>Member :</p>
           <Spacer axis="horizontal" size={8} />
@@ -50,22 +65,6 @@ export const MedicalServices = ({
         <MedicalServicesUsedChart
           medicalServiceDetails={medicalServiceDetailsUsed}
         />
-        <Column>
-          <RichText
-            type="body-2"
-            spans={[
-              <span key={0}>
-                Services Used is based on your processed claims. There may be a
-                delay in the Services Used list updating. If you&apos;re unsure
-                if a service has been used,{' '}
-              </span>,
-              <span className="link" key={1}>
-                <a> start a chat </a>
-              </span>,
-              <span key={3}> or call us at [{contact}].</span>,
-            ]}
-          />
-        </Column>
       </Column>
     </Card>
   );
