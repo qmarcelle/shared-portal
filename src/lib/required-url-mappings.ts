@@ -73,6 +73,7 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/findcare/virtualcare/primarycare': '/findcare/primaryCareOptions',
   '/member/findcare/dentalcosts': '/priceDentalCare',
   '/member/findcare/virtualcare/teladochealth': '/member/findcare',
+  '/member/findcare/mentalHealthOptions': '/mentalHealthOptions',
 
   // pharmacy Paths
   '/member/pharmacy': '/pharmacy',
