@@ -1,5 +1,4 @@
 import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
-import { auth } from '@/auth';
 import { ahAdvisorpageSetting } from '@/models/app/visibility_rules_constants';
 import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { Session } from 'next-auth';
@@ -36,9 +35,9 @@ const PTYP_FULLY_INSURED: string[] = [
 ];
 
 let healthCareAccountEligible: any[] | null;
-export async function computeVisibilityRules(
+export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
-): Promise<string> {
+): string {
   const groupId = loggedUserInfo.groupData.groupID;
   //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
@@ -94,13 +93,6 @@ export async function computeVisibilityRules(
       rules.futureEffective = member.futureEffective;
       rules.terminated = !member.isActive;
       computeCoverageTypes(member, rules);
-      break;
-    }
-  }
-
-  const session = await auth();
-  for (const member of loggedUserInfo.members) {
-    if (member.memberCk.toString() == session?.user.currUsr.plan?.memCk) {
       computeMemberAge(member, rules);
       break;
     }
