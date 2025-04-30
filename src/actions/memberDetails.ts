@@ -69,25 +69,31 @@ export async function getLoggedInMember(
       if (member.planDetails != undefined) {
         member.futureEffective = false;
         for (const planDetails of member.planDetails) {
+          if (planDetails.productCategory == 'M') {
+            member.isMedical = true;
+            member.effectiveStartDate = new Date(
+              planDetails.effectiveDate,
+            ).toLocaleDateString();
+            member.mpdpdId = planDetails.planID;
+          }
+          if (planDetails.productCategory == 'D') {
+            member.isDental = true;
+            member.dpdpdId = planDetails.planID;
+          }
+          if (planDetails.productCategory == 'V') {
+            member.isVision = true;
+            member.vpdpdId = planDetails.planID;
+          }
+          if (planDetails.productCategory == 'S') {
+            member.spdpdId = planDetails.planID;
+          }
+
           if (planDetails.effectiveDate > todayInMillisec) {
             member.futureEffective = true;
             if (planDetails.productCategory == 'M') {
-              member.isMedical = true;
               member.effectiveStartDate = new Date(
                 planDetails.effectiveDate,
               ).toLocaleDateString();
-              member.mpdpdId = planDetails.planID;
-            }
-            if (planDetails.productCategory == 'D') {
-              member.isDental = true;
-              member.dpdpdId = planDetails.planID;
-            }
-            if (planDetails.productCategory == 'V') {
-              member.isVision = true;
-              member.vpdpdId = planDetails.planID;
-            }
-            if (planDetails.productCategory == 'S') {
-              member.spdpdId = planDetails.planID;
             }
             if (member.futureEffective && member.effectiveStartDate != null)
               break;
