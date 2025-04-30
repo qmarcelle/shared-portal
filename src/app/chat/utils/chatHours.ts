@@ -7,7 +7,7 @@ interface BusinessHours {
 
 export function checkChatHours(rawChatHours: string): boolean {
   try {
-    const [days, hours] = rawChatHours.split('_');
+    const [_days, hours] = rawChatHours.split('_');
     const [startTime, endTime] = hours.split('-');
     const currentHour = new Date().getHours();
     const startHour = parseInt(startTime);

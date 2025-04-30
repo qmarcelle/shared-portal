@@ -192,6 +192,7 @@ The integration flow follows these steps:
    ```
 
 4. **Event Handling**: Set up event handlers for the chat implementation
+
    ```typescript
    // In useChat.ts
    useEffect(() => {

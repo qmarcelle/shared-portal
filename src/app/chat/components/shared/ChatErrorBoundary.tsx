@@ -14,43 +14,6 @@ interface State {
   error: ChatError | null;
 }
 
-interface ErrorFallbackProps {
-  error: ChatError;
-  resetError: () => void;
-}
-
-const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error, resetError }) => (
-  <div className="chat-error-fallback" role="alert">
-    <div className="error-content">
-      <h3>Chat Error</h3>
-      <p>{error.message}</p>
-      {error.severity === 'error' && (
-        <div className="error-actions">
-          <button
-            onClick={resetError}
-            className="retry-button"
-            aria-label="Retry"
-          >
-            Try Again
-          </button>
-          <button
-            onClick={() => window.location.reload()}
-            className="refresh-button"
-            aria-label="Refresh page"
-          >
-            Refresh Page
-          </button>
-        </div>
-      )}
-      {error.severity === 'warning' && (
-        <button onClick={resetError} className="dismiss-button">
-          Dismiss
-        </button>
-      )}
-    </div>
-  </div>
-);
-
 /**
  * ChatErrorBoundary
  *

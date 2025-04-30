@@ -1,7 +1,7 @@
 /**
  * Routes that are accessible to non-logged-in clients.
  */
-export const publicRoutes = ['/embed/logout'];
+export const publicRoutes = ['/embed/logout', '/chat-test'];
 
 /**
  * Routes that are used for authentication.

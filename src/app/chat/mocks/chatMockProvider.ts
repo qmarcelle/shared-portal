@@ -20,30 +20,45 @@ export const mockMemberInfo: MemberInfo = {
  * Mock Genesys environment configuration for testing
  */
 export const mockGenesysConfig: GenesysConfig = {
-  deploymentId: 'mock-deployment-123',
-  orgId: 'mock-org-123',
   environment: 'development',
-  scriptUrl: 'https://mock-genesys-api.example.com',
+  debug: true,
+  chatbotEligible: true,
+  routingchatbotEligible: true,
+  isChatAvailable: true,
+  cloudChatEligible: true,
+  memberCk: 'mock-member-123',
   userRole: 'MEMBER',
+  isAmplifyMem: false,
+  chatGroup: 'default',
+  workingHours: 'Monday - Friday, 8 AM - 6 PM ET',
 };
 
 /**
  * Mock chat configuration
  */
 export const mockChatConfig: ChatConfig = {
-  userRole: 'MEMBER',
+  workingHours: '8:00 AM - 5:00 PM',
+  rawChatHrs: '8:00 AM - 5:00 PM',
+  chatbotEligible: true,
+  routingchatbotEligible: true,
+  isChatAvailable: true,
+  cloudChatEligible: false,
+  environment: 'development',
+  debug: false,
+  memberCk: 'mock-member-ck',
+  userRole: 'member',
   isAmplifyMem: false,
   isDemoMember: false,
-  routingchatbotEligible: false,
-  isChatAvailable: true,
+  isDental: false,
+  isMedical: true,
+  isVision: false,
+  isWellnessOnly: false,
+  isCobraEligible: false,
+  groupType: 'medical',
   isIDCardEligible: true,
-  chatbotEligible: true,
-  workingHrs: 'Monday - Friday, 8 AM - 6 PM ET',
-  rawChatHrs: '8_18',
-  isBlueEliteGroup: false,
-  calculatedCiciId: 'INDV',
-  clickToChatToken: 'mock-token-123',
-  memberCk: 'mock-member-123',
+  calculatedCiciId: 'mock-cici-id',
+  clickToChatEndPoint: 'https://mock-chat-endpoint.com',
+  chatGroup: 'default',
 };
 
 /**
@@ -79,7 +94,7 @@ export const mockSessionData = {
     isCobraEligible: false,
     groupType: 'INDV',
     isIDCardEligible: true,
-    workingHrs: 'Monday - Friday, 8 AM - 6 PM ET',
+    workingHours: 'Monday - Friday, 8 AM - 6 PM ET',
     rawChatHrs: '8_18',
     calculatedCiciId: 'mock-group-id_MEMBER',
     clientId: 'INDV',

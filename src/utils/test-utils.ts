@@ -1,6 +1,19 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { ReactElement } from 'react';
-import { ChatInfoResponse, ChatState } from '../app/chat/types/index';
+import { ChatState } from '../app/chat/stores/chatStore';
+import { ChatInfoResponse } from '../app/chat/types/index';
+
+// Extend Window interface
+declare global {
+  interface Window {
+    GenesysChat: {
+      configure: jest.Mock;
+      onSessionStart: jest.Mock;
+      onSessionEnd: jest.Mock;
+      sendMessage: jest.Mock;
+    };
+  }
+}
 
 // Mock data generators
 export const createMockChatInfo = (overrides = {}): ChatInfoResponse => ({
@@ -8,17 +21,43 @@ export const createMockChatInfo = (overrides = {}): ChatInfoResponse => ({
   workingHours: '9:00-17:00',
   chatAvailable: true,
   cloudChatEligible: true,
+  isEligible: true,
   ...overrides,
 });
 
 export const createMockChatState = (overrides = {}): ChatState => ({
+  // UI state
   isOpen: false,
-  isInChat: false,
-  messages: [],
-  currentPlan: null,
+  isMinimized: false,
+  newMessageCount: 0,
+
+  // Chat state
+  isChatActive: false,
+  isLoading: true,
   error: null,
+  messages: [],
+
+  // Eligibility state
+  eligibility: null,
+
+  // Plan switching
   isPlanSwitcherLocked: false,
-  session: null,
+  planSwitcherTooltip: '',
+
+  // Actions
+  setOpen: () => {},
+  setMinimized: () => {},
+  setError: () => {},
+  addMessage: () => {},
+  clearMessages: () => {},
+  setChatActive: () => {},
+  setLoading: () => {},
+  incrementMessageCount: () => {},
+  resetMessageCount: () => {},
+  setEligibility: () => {},
+  setPlanSwitcherLocked: () => {},
+  updateConfig: () => {},
+
   ...overrides,
 });
 

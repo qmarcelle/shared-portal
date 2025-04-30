@@ -1,2 +1,2 @@
-export { useChat } from './useChat';
-export type { UseChatOptions } from './useChat';
+export { useChatEligibility } from './useChatEligibility';
+export { useChatService } from './useChatService';

@@ -8,7 +8,8 @@
  * Registry of overrides for Genesys widget behavior.
  * This allows custom behavior to be injected when the widget is ready.
  */
-const genesysOverrides: ((...args: any[]) => void)[] = [];
+type GenesysOverrideFunction = () => void;
+const genesysOverrides: GenesysOverrideFunction[] = [];
 
 /**
  * Registers a function to override default Genesys widget behavior.
@@ -16,7 +17,7 @@ const genesysOverrides: ((...args: any[]) => void)[] = [];
  *
  * @param fn - The override function to register
  */
-export const registerGenesysOverride = (fn: (...args: any[]) => void): void => {
+export const registerGenesysOverride = (fn: GenesysOverrideFunction): void => {
   genesysOverrides.push(fn);
 };
 

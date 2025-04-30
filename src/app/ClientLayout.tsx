@@ -27,7 +27,7 @@ export default function ClientLayout({
             // Handle opening plan switcher
             console.log('Opening plan switcher');
           }}
-          onError={(error: Error) => {
+          _onError={(error: Error) => {
             // Handle chat errors
             console.error('Chat error:', error);
           }}

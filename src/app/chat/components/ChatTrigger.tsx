@@ -4,11 +4,11 @@ import { useChatStore } from '../stores/chatStore';
 
 interface ChatTriggerProps {
   /** Callback when the chat is opened */
-  onOpen?: () => void;
+  onOpen: () => void;
   /** Custom class name to override default styles */
   className?: string;
   /** Custom label for the button */
-  label?: string;
+  _label?: string;
   /** Whether the button should be fixed position (default: true) */
   fixed?: boolean;
   /** Whether to use a custom icon */
@@ -25,17 +25,17 @@ interface ChatTriggerProps {
  */
 export function ChatTrigger({
   onOpen,
-  className = '',
-  label = 'Chat with us',
   fixed = true,
+  className = '',
+  testId = 'chat-trigger',
+  _label = 'Chat with us',
   customIcon,
-  testId = 'button-chat-with-us',
 }: ChatTriggerProps) {
   const { setOpen, isOpen } = useChatStore();
 
   const handleClick = () => {
     setOpen(true);
-    onOpen?.();
+    onOpen();
   };
 
   // Determine the CSS classes based on props

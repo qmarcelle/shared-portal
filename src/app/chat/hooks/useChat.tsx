@@ -1,19 +1,15 @@
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
   useState,
 } from 'react';
-import {
-  destroyChat,
-  getGenesysConfig,
-  initializeChat,
-} from '../config/genesys.config';
+import { createGenesysConfig } from '../schemas/genesys.schema';
 import { ChatService } from '../services/ChatService';
 import { useChatStore } from '../stores/chatStore';
 import { ChatError, ChatInfoResponse } from '../types';
-import { GenesysWidgetBus } from '../utils/genesysWidgetBus';
 
 // Create chat service context
 const ChatServiceContext = createContext<ChatService | null>(null);
@@ -107,14 +103,14 @@ export interface UseChatOptions {
   /** Callback to lock/unlock plan switching during active chat */
   onLockPlanSwitcher: (locked: boolean) => void;
   /** Callback when plan switching is requested */
-  onOpenPlanSwitcher?: () => void;
+  _onOpenPlanSwitcher?: () => void;
   // Event handlers
   /** Called when an agent joins the chat */
-  onAgentJoined?: (agentName: string) => void;
+  _onAgentJoined?: (agentName: string) => void;
   /** Called when an agent leaves the chat */
-  onAgentLeft?: (agentName: string) => void;
+  _onAgentLeft?: (agentName: string) => void;
   /** Called when chat is transferred to another agent */
-  onChatTransferred?: () => void;
+  _onChatTransferred?: () => void;
   /** Called when transcript is requested */
   _onTranscriptRequested?: (email: string) => void;
   /** Called when a file is successfully uploaded */
@@ -181,16 +177,16 @@ export function useChat(options?: Partial<UseChatOptions>): UseChatReturn {
 }
 
 // Internal hook for chat functionality
-function useLocalChat({
+export function useLocalChat({
   memberId,
   planId,
   planName,
   hasMultiplePlans,
   onLockPlanSwitcher,
-  onOpenPlanSwitcher,
-  onAgentJoined,
-  onAgentLeft,
-  onChatTransferred,
+  _onOpenPlanSwitcher,
+  _onAgentJoined,
+  _onAgentLeft,
+  _onChatTransferred,
 }: UseChatOptions): UseChatReturn {
   // Internal state
   const [isInitialized, setIsInitialized] = useState(false);
@@ -209,86 +205,72 @@ function useLocalChat({
     setError,
     setChatActive,
     setLoading,
-    setEligibility,
+    setEligibility: _setEligibility,
     setPlanSwitcherLocked,
+    updateConfig,
   } = useChatStore();
 
   // Create chat service instance
-  const chatService = new ChatService(
-    memberId,
-    planId,
-    planName,
-    hasMultiplePlans,
-    onLockPlanSwitcher,
+  const chatService = useMemo(
+    () =>
+      new ChatService(
+        memberId,
+        planId,
+        planName,
+        hasMultiplePlans,
+        onLockPlanSwitcher,
+      ),
+    [memberId, planId, planName, hasMultiplePlans, onLockPlanSwitcher],
   );
 
-  // Initialize chat
-  useEffect(() => {
-    const fetchChatInfo = async () => {
-      try {
-        setLoading(true);
+  // Initialize chat configuration
+  const initializeChat = useCallback(async () => {
+    try {
+      setLoading(true);
+      const chatInfo = await chatService.getChatInfo();
+      setInfo(chatInfo);
 
-        // Get chat eligibility information
-        const chatInfo = await chatService.getChatInfo();
-        setInfo(chatInfo);
+      const config = createGenesysConfig({
+        chatbotEligible: true,
+        routingchatbotEligible: true,
+        isChatAvailable: chatInfo.chatAvailable,
+        cloudChatEligible: chatInfo.cloudChatEligible,
+        chatGroup: chatInfo.chatGroup,
+        workingHours: chatInfo.workingHours,
+      });
 
-        // Update eligibility in store
-        setEligibility({
-          isEligible: chatInfo.isEligible,
-          chatAvailable: chatInfo.isEligible,
-          cloudChatEligible: chatInfo.cloudChatEligible,
-          chatGroup: chatInfo.chatGroup,
-          businessHours: chatInfo.businessHours,
-        } as ChatInfoResponse);
-
-        // Initialize appropriate chat implementation
-        if (!chatInfo.cloudChatEligible) {
-          // Set up legacy chat event handlers
-          const widgetBus = GenesysWidgetBus.getInstance();
-          await widgetBus.init();
-
-          widgetBus.subscribe('WebChat.agentJoined', (data) => {
-            onAgentJoined?.(data.agentName);
-          });
-
-          widgetBus.subscribe('WebChat.agentLeft', (data) => {
-            onAgentLeft?.(data.agentName);
-          });
-
-          widgetBus.subscribe('WebChat.chatTransferred', () => {
-            onChatTransferred?.();
-          });
-        }
-
-        setIsInitialized(true);
-      } catch (err) {
-        // Handle error
-        const chatError =
-          err instanceof ChatError
-            ? err
-            : new ChatError(
-                'Failed to initialize chat',
-                'INITIALIZATION_ERROR',
-              );
-
-        setError(chatError);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (!isInitialized && memberId && planId) {
-      fetchChatInfo();
+      updateConfig(config);
+      setIsInitialized(true);
+    } catch (err) {
+      const chatError =
+        err instanceof ChatError
+          ? err
+          : new ChatError('Failed to initialize chat', 'INITIALIZATION_ERROR');
+      setError(chatError);
+    } finally {
+      setLoading(false);
     }
+  }, [chatService, setLoading, setError, updateConfig]);
 
-    return () => {
-      // Clean up on unmount
-      if (isInitialized) {
-        destroyChat(eligibility?.cloudChatEligible || false);
-        setIsInitialized(false);
-      }
-    };
-  }, [memberId, planId, isInitialized]);
+  // Initialize chat on mount
+  useEffect(() => {
+    if (!isInitialized) {
+      initializeChat();
+    }
+  }, [isInitialized, initializeChat]);
+
+  // Chat window controls
+  const openChat = useCallback(() => {
+    if (!eligibility?.chatAvailable) {
+      setError(new ChatError('Chat is not available', 'CHAT_START_ERROR'));
+      return;
+    }
+    setOpen(true);
+  }, [eligibility, setOpen, setError]);
+
+  const closeChat = useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
 
   // Handle plan switching
   useEffect(() => {
@@ -300,24 +282,6 @@ function useLocalChat({
   }, [isChatActive, isInitialized, setPlanSwitcherLocked]);
 
   // Chat actions
-
-  /**
-   * Opens the chat window
-   */
-  const openChat = () => {
-    setOpen(true);
-    setMinimized(false);
-  };
-
-  /**
-   * Closes the chat window
-   */
-  const closeChat = () => {
-    if (isChatActive) {
-      endChat();
-    }
-    setOpen(false);
-  };
 
   /**
    * Minimizes the chat window
@@ -356,23 +320,7 @@ function useLocalChat({
       await chatService.startChat(payload);
 
       // Initialize the appropriate chat implementation
-      await initializeChat(
-        getGenesysConfig({
-          memberId,
-          planId,
-          planName,
-          eligibility: {
-            isEligible: eligibility.chatAvailable,
-            cloudChatEligible: eligibility.cloudChatEligible,
-            chatGroup: eligibility.chatGroup,
-            businessHours: {
-              text: eligibility.workingHours || '',
-              isOpen: eligibility.chatAvailable,
-            },
-          },
-        }),
-        eligibility.cloudChatEligible,
-      );
+      await initializeChat();
 
       setChatActive(true);
 

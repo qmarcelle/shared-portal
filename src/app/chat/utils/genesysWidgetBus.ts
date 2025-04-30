@@ -67,7 +67,7 @@
  * ```
  */
 
-import type { ChatMessage, GenesysBus } from '../types/genesys.d';
+import type { ChatMessage, GenesysBus } from '../types/genesys.types';
 
 /**
  * @deprecated Use Web Messaging instead. Legacy chat.js will be discontinued.
@@ -116,7 +116,10 @@ export class GenesysWidgetBus {
     this.bus.runtime.command(command, options);
   }
 
-  public subscribe(event: string, callback: (data: ChatMessage) => void): void {
+  public subscribe<T = ChatMessage>(
+    event: string,
+    callback: (data: T) => void,
+  ): void {
     this.bus.runtime.subscribe(event, callback as (data: unknown) => void);
   }
 

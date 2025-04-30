@@ -1,6 +1,10 @@
 import React, { createContext, useMemo } from 'react';
 import { ChatService } from '../services/ChatService';
 
+/**
+ * Creates a context for the chat service to allow
+ * component-level access to chat functionality.
+ */
 export const ChatServiceContext = createContext<ChatService | null>(null);
 
 interface ChatServiceProviderProps {
@@ -12,30 +16,33 @@ interface ChatServiceProviderProps {
   onLockPlanSwitcher: (locked: boolean) => void;
 }
 
-export function ChatServiceProvider(
-  props: ChatServiceProviderProps,
-): JSX.Element {
+/**
+ * Provider component for the chat service.
+ * This component creates and provides a ChatService instance to its children.
+ */
+export function ChatServiceProvider({
+  children,
+  memberId,
+  planId,
+  planName,
+  hasMultiplePlans,
+  onLockPlanSwitcher,
+}: ChatServiceProviderProps): JSX.Element {
   const chatService = useMemo(
     () =>
       new ChatService(
-        props.memberId,
-        props.planId,
-        props.planName,
-        props.hasMultiplePlans,
-        props.onLockPlanSwitcher,
+        memberId,
+        planId,
+        planName,
+        hasMultiplePlans,
+        onLockPlanSwitcher,
       ),
-    [
-      props.memberId,
-      props.planId,
-      props.planName,
-      props.hasMultiplePlans,
-      props.onLockPlanSwitcher,
-    ],
+    [memberId, planId, planName, hasMultiplePlans, onLockPlanSwitcher],
   );
 
   return (
     <ChatServiceContext.Provider value={chatService}>
-      {props.children}
+      {children}
     </ChatServiceContext.Provider>
   );
 }

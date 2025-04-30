@@ -8,11 +8,4 @@
  * - API services
  */
 
-import type { ChatService } from '@/app/chat/types/index';
-import { createContext } from 'react';
-
-// Export the context
-export const ChatServiceContext = createContext<ChatService | null>(null);
-
-// Export all service implementations
-export { ChatService, loadGenesysScript } from './ChatService';
+export { ChatService } from './ChatService';

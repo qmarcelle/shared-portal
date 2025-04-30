@@ -110,7 +110,7 @@ export async function testChatIntegration(): Promise<void> {
 export async function testCloudChatPath(): Promise<void> {
   console.log('Testing cloud chat path');
 
-  const chatService = new ChatService(
+  const _chatService = new ChatService(
     'cloud-member-id',
     'cloud-plan-id',
     'Cloud Plan',
@@ -155,7 +155,7 @@ export async function testCloudChatPath(): Promise<void> {
 export async function testLegacyChatPath(): Promise<void> {
   console.log('Testing legacy chat path');
 
-  const chatService = new ChatService(
+  const _chatService = new ChatService(
     'legacy-member-id',
     'legacy-plan-id',
     'Legacy Plan',
@@ -193,9 +193,23 @@ export async function testLegacyChatPath(): Promise<void> {
   }
 }
 
+// Define interface for chat test functions
+interface ChatTests {
+  testChatIntegration: () => Promise<void>;
+  testCloudChatPath: () => Promise<void>;
+  testLegacyChatPath: () => Promise<void>;
+}
+
+// Extend Window interface
+declare global {
+  interface Window {
+    __chatTests: ChatTests;
+  }
+}
+
 // Make tests available in the window object for browser testing
 if (typeof window !== 'undefined') {
-  (window as any).__chatTests = {
+  window.__chatTests = {
     testChatIntegration,
     testCloudChatPath,
     testLegacyChatPath,
