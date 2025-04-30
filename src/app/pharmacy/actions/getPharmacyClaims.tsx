@@ -4,6 +4,7 @@ import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { getCurrentDate, getDateTwoYearsAgo } from '@/utils/api/date';
 import { esApi } from '@/utils/api/esApi';
+import { formatDateString } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
 import { SearchPharmacyClaimsMockResp } from '../mock/searchPharmacyClaimsMockResp';
 import {
@@ -23,13 +24,19 @@ export async function getPharmacyClaims(
       subscriberId: loggedInMemberInfoReq.subscriberID,
       patientFirstName: loggedInMemberInfoReq.subscriberFirstName,
       patientLastName: loggedInMemberInfoReq.subscriberLastName,
-      patientDateOfBirth: loggedInMemberInfoReq.subscriberDateOfBirth,
-      claimsStartDate: pharmacyClaimsReq?.startDate ?? getCurrentDate(),
-      claimsEndDate: pharmacyClaimsReq?.endDate ?? getDateTwoYearsAgo(),
-      memberSuffix: loggedInMemberInfoReq.members[0].memberSuffix,
+      patientDateOfBirth: formatDateString(
+        loggedInMemberInfoReq.subscriberDateOfBirth,
+        'mm/dd/yyyy',
+        'yyyy-mm-dd',
+      ),
+      claimsStartDate: pharmacyClaimsReq?.startDate ?? getDateTwoYearsAgo(),
+      claimsEndDate: pharmacyClaimsReq?.endDate ?? getCurrentDate(),
+      memberSuffix: loggedInMemberInfoReq.members[0].memberSuffix
+        .toString()
+        .padStart(2, '0'),
       gender: loggedInMemberInfoReq.members[0].gender,
     };
-    logger.info('Calling PharmacyClaims API');
+    logger.info('Calling PharmacyClaims API - Request is :: ', request);
     const response = await esApi.post('/searchPharmacyClaims', request);
     logger.info(`Response from PharmacyClaims API : ${response}`);
     return {
