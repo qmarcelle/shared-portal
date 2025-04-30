@@ -4,7 +4,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useChatEligibility } from '../hooks';
-import type { GenesysGlobal } from '../types/genesys';
+import type { GenesysGlobal } from '../types/genesys.types';
 import {
   executeGenesysOverrides,
   registerGenesysOverride,
@@ -15,6 +15,8 @@ interface GenesysScriptsProps {
   deploymentId: string;
   environment: string;
   orgId: string;
+  memberId: string;
+  planId: string;
   debug?: boolean;
 }
 
@@ -27,6 +29,8 @@ export function GenesysScripts({
   deploymentId,
   environment,
   orgId,
+  memberId,
+  planId,
   debug = false,
 }: GenesysScriptsProps) {
   const initialized = useRef(false);
@@ -65,9 +69,53 @@ export function GenesysScripts({
             enableCustomHeader: true,
             actionsMenu: true,
             maxMessageLength: 500,
+            styling: {
+              // Use Tailwind config values
+              primaryColor: '#0066CC', // primary color from config
+              backgroundColor: '#FFFFFF', // base-100 from config
+              textColor: '#111827', // neutral from config
+              fontFamily: 'Univers-45, sans-serif', // font-base from config
+              fontSize: '1rem',
+              borderRadius: '0.5rem', // rounded-lg from config
+              buttonStyle: {
+                padding: '0.75rem 1.25rem',
+                borderRadius: '0.375rem',
+                fontSize: '1rem',
+                fontWeight: '500',
+              },
+              chatButton: {
+                width: '4rem',
+                height: '4rem',
+                borderRadius: '9999px', // rounded-full
+                backgroundColor: '#0066CC', // primary
+                color: '#FFFFFF',
+                boxShadow:
+                  '0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08)', // shadow-soft
+              },
+              messageStyle: {
+                userMessage: {
+                  backgroundColor: '#0066CC', // primary
+                  color: '#FFFFFF',
+                  borderRadius: '0.5rem',
+                  padding: '0.75rem 1rem',
+                },
+                agentMessage: {
+                  backgroundColor: '#5DC1FD', // secondary
+                  color: '#FFFFFF', // secondary-content
+                  borderRadius: '0.5rem',
+                  padding: '0.75rem 1rem',
+                },
+                systemMessage: {
+                  backgroundColor: '#F2F2F2', // base-200
+                  color: '#333333', // neutral
+                  borderRadius: '0.5rem',
+                  padding: '0.75rem 1rem',
+                },
+              },
+            },
           },
         },
-      };
+      } as GenesysGlobal['c'];
       genesys.t = Number(new Date());
       window._genesys = genesys;
     }

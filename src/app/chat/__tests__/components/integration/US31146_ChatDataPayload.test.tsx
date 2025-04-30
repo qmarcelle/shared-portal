@@ -1,9 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { ChatWidget } from '../../components/core/ChatWidget';
-import { useChatStore } from '../../stores/chatStore';
-import { createMockPlanInfo } from '../utils/factories';
+import { createMockPlanInfo } from '../../../../utils/factories';
+import { ChatWidget } from '../../../components/ChatWidget';
+import { useChatStore } from '../../../stores/chatStore';
 
 // Mock the chat store
 jest.mock('../../stores/chatStore', () => ({

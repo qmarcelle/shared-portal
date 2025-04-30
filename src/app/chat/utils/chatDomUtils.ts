@@ -80,7 +80,18 @@ export const injectNewMessageBadge = (): void => {
  * This allows users to switch plans during chat if not locked.
  */
 export const injectPlanSwitcher = (): void => {
-  // Implementation depends on specific UI requirements
+  const chatContainer = document.getElementById('genesys-chat-container');
+  if (!chatContainer) return;
+
+  const planSwitcherContainer = document.createElement('div');
+  planSwitcherContainer.className = 'plan-switcher-container';
+  planSwitcherContainer.setAttribute('data-testid', 'plan-switcher-container');
+
+  // Add to chat container
+  const headerSection = chatContainer.querySelector('.cx-header');
+  if (headerSection) {
+    headerSection.appendChild(planSwitcherContainer);
+  }
 };
 
 /**
@@ -88,7 +99,21 @@ export const injectPlanSwitcher = (): void => {
  * This prevents plan switching during an active chat session.
  */
 export const lockPlanSwitcher = (): void => {
-  // Implementation depends on specific UI requirements
+  const planSwitcher = document.querySelector('[data-testid="plan-switcher"]');
+  if (!planSwitcher) return;
+
+  // Disable the plan switcher
+  planSwitcher.setAttribute('disabled', 'true');
+  planSwitcher.classList.add('locked');
+
+  // Show the locked state visually
+  const container = planSwitcher.closest('.plan-switcher-container');
+  if (container) {
+    container.classList.add('locked');
+  }
+
+  // Show tooltip
+  showPlanSwitcherTooltip();
 };
 
 /**
@@ -96,7 +121,24 @@ export const lockPlanSwitcher = (): void => {
  * This allows users to switch plans again after a chat session.
  */
 export const unlockPlanSwitcher = (): void => {
-  // Implementation depends on specific UI requirements
+  const planSwitcher = document.querySelector('[data-testid="plan-switcher"]');
+  if (!planSwitcher) return;
+
+  // Enable the plan switcher
+  planSwitcher.removeAttribute('disabled');
+  planSwitcher.classList.remove('locked');
+
+  // Remove locked state visually
+  const container = planSwitcher.closest('.plan-switcher-container');
+  if (container) {
+    container.classList.remove('locked');
+  }
+
+  // Hide tooltip
+  const tooltip = document.querySelector('.plan-switcher-tooltip');
+  if (tooltip) {
+    tooltip.classList.add('hidden');
+  }
 };
 
 /**
@@ -104,7 +146,27 @@ export const unlockPlanSwitcher = (): void => {
  * This provides context to users about why the plan switcher is locked.
  */
 export const showPlanSwitcherTooltip = (): void => {
-  // Implementation depends on specific UI requirements
+  const planSwitcher = document.querySelector('[data-testid="plan-switcher"]');
+  if (!planSwitcher) return;
+
+  let tooltip = document.querySelector('.plan-switcher-tooltip');
+
+  // Create tooltip if it doesn't exist
+  if (!tooltip) {
+    tooltip = document.createElement('div');
+    tooltip.className = 'plan-switcher-tooltip';
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.textContent =
+      'Plan switching is disabled during an active chat session';
+
+    const container = planSwitcher.closest('.plan-switcher-container');
+    if (container) {
+      container.appendChild(tooltip);
+    }
+  }
+
+  // Show tooltip
+  tooltip.classList.remove('hidden');
 };
 
 /**

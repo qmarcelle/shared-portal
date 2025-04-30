@@ -4,7 +4,7 @@ import {
   ChatMessage,
   ChatSession,
   CobrowseSession,
-} from '../../models/types';
+} from '../../../types/genesys';
 import {
   checkChatEligibility,
   endChatSession,

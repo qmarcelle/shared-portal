@@ -1,7 +1,5 @@
-import { Button } from '@/components/foundation/Button';
 import { useSession } from 'next-auth/react';
 import { useEffect, useMemo } from 'react';
-import { env } from '../config/env';
 import { useChatEligibility } from '../hooks';
 import { ChatTrigger } from './ChatTrigger';
 import { GenesysScripts } from './GenesysScripts';
@@ -71,7 +69,7 @@ export function ChatWidget({
   }, [chatConfig, isInitialized, startChat]);
 
   // Don't render if no config or not eligible
-  if (!chatConfig || (!eligibility?.isEligible && !isOpen)) {
+  if (!chatConfig || (!eligibility?.chatAvailable && !isOpen)) {
     return null;
   }
 
@@ -79,13 +77,13 @@ export function ChatWidget({
   if (isLoading) {
     return (
       <div
-        className="chat-loading"
+        className="fixed bottom-8 right-8 flex items-center justify-center w-16 h-16 bg-primary rounded-full shadow-soft"
         data-testid="loading-spinner"
         role="status"
         aria-label="Loading chat"
       >
         <svg
-          className="animate-spin h-5 w-5 text-blue-600"
+          className="animate-spin h-8 w-8 text-primary-content"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -112,9 +110,17 @@ export function ChatWidget({
   // Show error state
   if (error) {
     return (
-      <div className="chat-error" role="alert">
-        <p>{error.message}</p>
-        <button onClick={() => window.location.reload()}>Retry</button>
+      <div
+        className="fixed bottom-8 right-8 p-4 bg-error text-error-content rounded-lg shadow-soft"
+        role="alert"
+      >
+        <p className="font-medium">{error.message}</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="mt-2 px-4 py-2 bg-error-content text-error rounded hover:bg-opacity-90 transition-colors"
+        >
+          Retry
+        </button>
       </div>
     );
   }
@@ -122,9 +128,11 @@ export function ChatWidget({
   const content = (
     <>
       <GenesysScripts
-        deploymentId={env.genesys.deploymentId}
-        environment={env.genesys.region}
-        orgId={env.genesys.orgId}
+        deploymentId={process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_ID || ''}
+        environment={process.env.NEXT_PUBLIC_GENESYS_REGION || 'us-east-1'}
+        orgId={process.env.NEXT_PUBLIC_GENESYS_ORG_ID || ''}
+        memberId={memberId}
+        planId={planId}
       />
       <div
         className="chat-widget-container"
@@ -133,22 +141,29 @@ export function ChatWidget({
         aria-label="Chat interface"
       >
         {/* Chat container for Genesys */}
-        <div id="genesys-chat-container" />
+        <div id="genesys-chat-container" className="w-full h-full" />
 
         {/* Plan info header */}
         {hasMultiplePlans && (
           <PlanInfoHeader
             planName={planName}
             isActive={isChatActive}
-            onSwitchPlan={onOpenPlanSwitcher}
+            onOpenPlanSwitcher={onOpenPlanSwitcher}
           />
         )}
 
         {/* Business hours notification */}
-        {!eligibility?.isEligible && (
-          <div data-testid="business-hours-notification">
-            <p>We are currently outside of business hours</p>
-            <p>Our chat service is available 9:00 AM - 5:00 PM</p>
+        {!eligibility?.chatAvailable && (
+          <div
+            className="p-4 bg-warning/10 text-warning rounded-lg text-center"
+            data-testid="business-hours-notification"
+          >
+            <p className="font-medium">
+              We are currently outside of business hours
+            </p>
+            <p className="mt-1 text-sm">
+              Our chat service is available 9:00 AM - 5:00 PM
+            </p>
           </div>
         )}
 
@@ -164,15 +179,45 @@ export function ChatWidget({
             />
           )}
           {isOpen && !isChatActive && (
-            <Button type="primary" label="Start chat" callback={startChat} />
+            <button
+              type="button"
+              onClick={startChat}
+              className="chat-button chat-button-primary"
+            >
+              Start chat
+            </button>
           )}
           {isChatActive && (
-            <>
-              <Button type="secondary" label="End chat" callback={endChat} />
-              <Button type="ghost" label="Minimize" callback={minimizeChat} />
-              <Button type="ghost" label="Maximize" callback={maximizeChat} />
-              <Button type="secondary" label="Close" callback={closeChat} />
-            </>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={endChat}
+                className="chat-button chat-button-secondary"
+              >
+                End chat
+              </button>
+              <button
+                type="button"
+                onClick={minimizeChat}
+                className="chat-button bg-base-200 text-neutral hover:bg-base-300"
+              >
+                Minimize
+              </button>
+              <button
+                type="button"
+                onClick={maximizeChat}
+                className="chat-button bg-base-200 text-neutral hover:bg-base-300"
+              >
+                Maximize
+              </button>
+              <button
+                type="button"
+                onClick={closeChat}
+                className="chat-button chat-button-secondary"
+              >
+                Close
+              </button>
+            </div>
           )}
         </div>
       </div>

@@ -27,10 +27,14 @@ const PTYP_FULLY_INSURED: string[] = [
 
 let groupId: string;
 let healthCareAccountEligible: any[] | null;
+
+// Add chat eligibility constants
+const CHAT_ELIGIBLE_LOB = ['REGL', 'INDV', 'MEDC'];
+const CLOUD_CHAT_ELIGIBLE_LOB = ['REGL', 'INDV'];
+
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
-  //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
   rules.active = loggedUserInfo.isActive;
   rules.subscriber = loggedUserInfo.subscriberLoggedIn;
@@ -69,6 +73,18 @@ export function computeVisibilityRules(
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
   rules['teladoc'] = true;
+
+  // Compute chat eligibility
+  rules.chatEligible =
+    CHAT_ELIGIBLE_LOB.includes(loggedUserInfo.lob) &&
+    !rules.futureEffective &&
+    !rules.terminated &&
+    !rules.katieBeckNoBenefitsElig;
+
+  // Compute cloud chat eligibility
+  rules.cloudChatEligible =
+    CLOUD_CHAT_ELIGIBLE_LOB.includes(loggedUserInfo.lob) && rules.chatEligible;
+
   return encodeVisibilityRules(rules);
 }
 
@@ -480,4 +496,12 @@ export function isMemberWellnessCenterEligible(
   rules: VisibilityRules | undefined,
 ) {
   return isActiveAndNotFSAOnly(rules) && rules?.phaMemberEligible;
+}
+
+export function isChatEligible(rules: VisibilityRules | undefined) {
+  return rules?.chatEligible && activeAndHealthPlanMember(rules);
+}
+
+export function isCloudChatEligible(rules: VisibilityRules | undefined) {
+  return rules?.cloudChatEligible && isChatEligible(rules);
 }

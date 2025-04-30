@@ -25,8 +25,8 @@ export async function testChatIntegration(): Promise<void> {
     'test-member-id',
     'test-plan-id',
     'Test Plan',
-    true,
-    (locked) => console.log(`Plan switcher locked: ${locked}`),
+    false,
+    (locked: boolean) => console.log(`Plan switcher locked: ${locked}`),
   );
 
   try {
@@ -72,8 +72,24 @@ export async function testChatIntegration(): Promise<void> {
     // 7. Start a chat session
     console.log('Starting chat session...');
     await chatService.startChat({
-      memberId: 'test-member-id',
-      planId: 'test-plan-id',
+      SERV_Type: 'test',
+      firstname: 'John',
+      lastname: 'Doe',
+      RoutingChatbotInteractionId: 'test-123',
+      PLAN_ID: 'test-plan-id',
+      GROUP_ID: 'test-group',
+      IDCardBotName: 'test-bot',
+      IsVisionEligible: false,
+      MEMBER_ID: 'test-member-id',
+      coverage_eligibility: 'eligible',
+      INQ_TYPE: 'general',
+      IsDentalEligible: false,
+      MEMBER_DOB: '1990-01-01',
+      LOB: 'test',
+      lob_group: 'test-group',
+      IsMedicalEligibile: true,
+      Origin: 'test',
+      Source: 'test',
       message: 'Hello, this is a test message',
       timestamp: Date.now(),
     });
@@ -114,8 +130,8 @@ export async function testCloudChatPath(): Promise<void> {
     'cloud-member-id',
     'cloud-plan-id',
     'Cloud Plan',
-    false,
-    (locked) => console.log(`Plan switcher locked: ${locked}`),
+    true,
+    (locked: boolean) => console.log(`Plan switcher locked: ${locked}`),
   );
 
   try {
@@ -137,7 +153,7 @@ export async function testCloudChatPath(): Promise<void> {
       memberId: 'cloud-member-id',
       planId: 'cloud-plan-id',
       planName: 'Cloud Plan',
-      eligibility: { isEligible: true, cloudChatEligible: true },
+      eligibility: { cloudChatEligible: true },
     });
 
     await initializeChat(config, true);
@@ -160,7 +176,7 @@ export async function testLegacyChatPath(): Promise<void> {
     'legacy-plan-id',
     'Legacy Plan',
     false,
-    (locked) => console.log(`Plan switcher locked: ${locked}`),
+    (locked: boolean) => console.log(`Plan switcher locked: ${locked}`),
   );
 
   try {
@@ -181,7 +197,7 @@ export async function testLegacyChatPath(): Promise<void> {
       memberId: 'legacy-member-id',
       planId: 'legacy-plan-id',
       planName: 'Legacy Plan',
-      eligibility: { isEligible: true, cloudChatEligible: false },
+      eligibility: { cloudChatEligible: false, chatGroup: 'default' },
     });
 
     await initializeChat(config, false);

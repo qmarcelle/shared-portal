@@ -41,6 +41,7 @@ export interface ChatState {
   setEligibility: (eligibility: ChatState['eligibility']) => void;
   setPlanSwitcherLocked: (locked: boolean) => void;
   updateConfig: (config: Partial<ChatConfig>) => void;
+  closeAndRedirect: () => void;
 }
 
 /**
@@ -134,4 +135,12 @@ export const useChatStore = create<ChatState>((set) => ({
       });
     }
   },
+
+  closeAndRedirect: () =>
+    set((state) => ({
+      isOpen: false,
+      isChatActive: false,
+      messages: [],
+      isPlanSwitcherLocked: false,
+    })),
 }));

@@ -4,257 +4,284 @@
 
 The chat system provides a unified chat experience supporting both Genesys Cloud Web Messaging and legacy chat.js implementations. It automatically selects the appropriate implementation based on member eligibility while providing a consistent API for developers.
 
-## Quick Start
+## Architecture
 
-### Installation
+### Key Components
 
-```bash
-# Install dependencies
-npm install
+1. **ChatWidget** (`components/ChatWidget.tsx`)
 
-# Set up environment variables
-cp .env.example .env.local
+   - Main entry point for chat functionality
+   - Handles chat window state and plan switching
+   - Manages eligibility checks and implementation selection
+
+2. **ChatService** (`services/ChatService.ts`)
+
+   - Core service handling chat initialization and messaging
+   - Manages authentication and session state
+   - Implements reconnection logic and error handling
+
+3. **GenesysScripts** (`components/GenesysScripts.tsx`)
+
+   - Handles script loading for both implementations
+   - Manages script lifecycle and cleanup
+   - Configures chat widgets based on eligibility
+
+4. **Chat Store** (`stores/chatStore.ts`)
+   - Centralized state management using Zustand
+   - Handles UI state, messages, and eligibility
+   - Manages plan switching lock state
+
+### Directory Structure
+
 ```
+src/app/chat/
+├── components/              # React components
+│   ├── ChatWidget.tsx      # Main chat widget component
+│   ├── ChatWindow.tsx      # Chat window implementation
+│   ├── ChatTrigger.tsx     # Minimized chat button
+│   ├── PlanInfoHeader.tsx  # Plan information display
+│   ├── GenesysScripts.tsx  # Script loading
+│   └── shared/             # Shared component utilities
+├── config/                 # Configuration
+│   └── genesys.config.ts   # Genesys configuration
+├── hooks/                  # React hooks
+│   └── useChat.ts         # Main chat hook
+├── services/              # Core services
+│   └── ChatService.ts     # Chat service implementation
+├── stores/                # State management
+│   └── chatStore.ts       # Zustand store
+├── types/                 # TypeScript types
+│   ├── index.ts          # Type exports
+│   └── errors.ts         # Error types
+└── utils/                # Utilities
+    └── chatDomUtils.ts   # DOM manipulation
+```
+
+## Implementation Details
+
+### 1. Chat Service
+
+The `ChatService` class is the core of the chat system:
+
+```typescript
+class ChatService {
+  constructor(
+    public readonly memberId: string,
+    public readonly planId: string,
+    public readonly planName: string,
+    public readonly hasMultiplePlans: boolean,
+    public readonly onLockPlanSwitcher: (locked: boolean) => void,
+  ) {}
+}
+```
+
+Key responsibilities:
+
+- Chat initialization and script loading
+- Session management and authentication
+- Message handling and state management
+- Error handling and recovery
+- Plan switching support
+
+### 2. Error Handling
+
+The system uses a comprehensive error handling system:
+
+```typescript
+class ChatError extends Error {
+  constructor(
+    message: string,
+    type: ChatErrorType,
+    severity: ChatErrorSeverity = 'ERROR',
+    metadata: Partial<ChatErrorMetadata> = {},
+  ) {}
+}
+```
+
+Error types include:
+
+- Initialization errors
+- Configuration errors
+- API errors
+- Script loading errors
+- Business hours errors
+- Plan switching errors
+
+### 3. Configuration
+
+Configuration is managed through `genesys.config.ts`:
+
+```typescript
+export const GENESYS_CONFIG = {
+  deploymentId: process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_ID,
+  region: process.env.NEXT_PUBLIC_GENESYS_REGION,
+  orgId: process.env.NEXT_PUBLIC_GENESYS_ORG_ID,
+  queueName: process.env.NEXT_PUBLIC_CHAT_QUEUE_NAME,
+};
+```
+
+Configuration is validated using Zod schemas to ensure type safety.
+
+## Usage Guide
 
 ### Basic Usage
 
 ```typescript
-import { ChatWidget } from '@/app/chat/components/ChatWidget';
+import { ChatWidget } from '@/app/chat/components';
 
 function App() {
   return (
     <ChatWidget
-      memberId="member-123"
-      planId="plan-456"
-      planName="Premium Health"
+      memberId="123"
+      planId="456"
+      planName="Basic Plan"
       hasMultiplePlans={true}
       onLockPlanSwitcher={(locked) => console.log('Plan switcher locked:', locked)}
-      onOpenPlanSwitcher={() => console.log('Opening plan switcher')}
     />
   );
 }
 ```
 
-## Architecture
-
-### Key Components
-
-1. **ChatWidget** (`src/app/chat/components/ChatWidget.tsx`)
-
-   - Main entry point
-   - Handles chat window state
-   - Manages plan switching
-   - Example usage:
-
-   ```typescript
-   <ChatWidget
-     memberId={user.memberId}
-     planId={user.planId}
-     planName={user.planName}
-     hasMultiplePlans={user.hasMultiplePlans}
-     onLockPlanSwitcher={handleLock}
-     onOpenPlanSwitcher={handlePlanSwitch}
-   />
-   ```
-
-2. **GenesysScripts** (`src/app/chat/components/GenesysScripts.tsx`)
-
-   - Handles script loading
-   - Manages initialization
-   - Example usage:
-
-   ```typescript
-   <GenesysScripts />
-   ```
-
-3. **useChat** Hook (`src/app/chat/hooks/useChat.tsx`)
-   - Provides chat functionality
-   - Manages state
-   - Example usage:
-   ```typescript
-   const { openChat, closeChat, sendMessage } = useChat({
-     memberId,
-     planId,
-     planName,
-     hasMultiplePlans,
-   });
-   ```
-
-### State Management
-
-The system uses Zustand for state management:
+### Using the Chat Hook
 
 ```typescript
-import { useChatStore } from '@/app/chat/stores/chatStore';
+import { useChat } from '@/app/chat/hooks';
 
-// Access chat state
-const { isOpen, messages } = useChatStore();
+function ChatComponent() {
+  const {
+    isOpen,
+    isChatActive,
+    error,
+    openChat,
+    closeChat,
+    startChat,
+    endChat,
+  } = useChat();
 
-// Update state
-useChatStore.getState().setOpen(true);
-```
-
-## Implementation Details
-
-### Chat Eligibility
-
-The system determines which chat implementation to use based on the `cloudChatEligible` flag:
-
-```typescript
-const { eligibility } = useChatEligibility(memberId, planId);
-
-if (eligibility.cloudChatEligible) {
-  // Use Genesys Cloud Web Messaging
-} else {
-  // Use legacy chat.js
+  // Use chat functionality
 }
 ```
 
-### Error Handling
+## Error Handling
 
-The system includes comprehensive error handling:
+### Handling Chat Errors
 
 ```typescript
 try {
-  await chatService.startChat(payload);
+  await startChat();
 } catch (error) {
   if (error instanceof ChatError) {
-    // Handle specific chat errors
-  } else {
-    // Handle generic errors
+    // Show user-friendly message
+    showErrorMessage(error.getUserMessage());
+
+    // Log error if needed
+    if (error.shouldReport()) {
+      logger.error('Chat error:', error.toLog());
+    }
+
+    // Attempt recovery if possible
+    if (error.isRecoverable()) {
+      await retryOperation();
+    }
   }
 }
 ```
 
 ## Testing
 
-### Unit Tests
+The chat system includes comprehensive tests:
 
-```bash
-# Run all tests
-npm test
+1. **Unit Tests**
 
-# Run chat-specific tests
-npm test chat
+   - Component tests
+   - Hook tests
+   - Service tests
 
-# Run with coverage
-npm test -- --coverage
-```
+2. **Integration Tests**
 
-Example test:
+   - Chat flow tests
+   - Plan switching tests
+   - Error handling tests
 
-```typescript
-import { render, screen } from '@testing-library/react';
-import { ChatWidget } from './ChatWidget';
-
-test('renders chat widget', () => {
-  render(<ChatWidget memberId="123" planId="456" />);
-  expect(screen.getByRole('button')).toBeInTheDocument();
-});
-```
-
-### Integration Tests
-
-```bash
-# Run integration tests
-npm run test:integration
-```
-
-## Type System
-
-### Key Types
-
-```typescript
-// Chat Configuration
-interface ChatConfig {
-  cloudChatEligible: boolean;
-  deploymentId?: string;
-  region?: string;
-  legacyEndpoint?: string;
-}
-
-// Chat Message
-interface ChatMessage {
-  id: string;
-  content: string;
-  sender: 'user' | 'agent';
-  timestamp: number;
-}
-
-// Chat Error
-class ChatError extends Error {
-  constructor(
-    message: string,
-    public code: ChatErrorCode,
-  ) {
-    super(message);
-  }
-}
-```
+3. **Test Utilities**
+   - Mock services
+   - Test data generators
+   - Helper functions
 
 ## Best Practices
 
-1. **State Management**
+1. **Error Handling**
+
+   - Always use the ChatError class for errors
+   - Provide user-friendly error messages
+   - Log errors appropriately
+
+2. **State Management**
 
    - Use the chat store for global state
    - Keep component state minimal
    - Handle side effects in hooks
 
-2. **Error Handling**
-
-   - Always use ChatError for errors
-   - Implement retry mechanisms
-   - Provide user feedback
-
-3. **Performance**
-
-   - Lazy load chat components
-   - Minimize re-renders
-   - Clean up subscriptions
-
-4. **Accessibility**
-   - Use ARIA attributes
-   - Support keyboard navigation
-   - Test with screen readers
-
-## Common Issues
-
-1. **Script Loading Failures**
-
-   ```typescript
-   // Solution: Implement retry mechanism
-   const loadScript = async (retries = 3) => {
-     try {
-       await loadGenesysScript(scriptUrl);
-     } catch (error) {
-       if (retries > 0) {
-         await loadScript(retries - 1);
-       }
-     }
-   };
-   ```
-
-2. **Plan Switching During Chat**
-   ```typescript
-   // Solution: Lock plan switching
-   useEffect(() => {
-     if (isChatActive) {
-       onLockPlanSwitcher(true);
-     }
-     return () => onLockPlanSwitcher(false);
-   }, [isChatActive]);
-   ```
+3. **Testing**
+   - Write tests for new features
+   - Use mock data for testing
+   - Test error scenarios
 
 ## Contributing
 
-1. Follow TypeScript strict mode
-2. Add tests for new features
-3. Update documentation
-4. Follow accessibility guidelines
+1. **Adding Features**
 
-## Resources
+   - Follow the existing architecture
+   - Add appropriate tests
+   - Update documentation
 
-- [Genesys Cloud Documentation](https://developer.genesys.cloud)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- [Zustand Documentation](https://github.com/pmndrs/zustand)
+2. **Bug Fixes**
+
+   - Add regression tests
+   - Update error handling
+   - Document fixes
+
+3. **Code Style**
+   - Follow TypeScript best practices
+   - Use consistent naming
+   - Add JSDoc comments
+
+## Deployment
+
+1. **Environment Variables**
+
+   - Set required Genesys variables
+   - Configure API endpoints
+   - Set appropriate debug flags
+
+2. **Build Process**
+
+   - Run type checks
+   - Run tests
+   - Build production bundle
+
+3. **Monitoring**
+   - Monitor error rates
+   - Track chat metrics
+   - Monitor performance
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. **Script Loading Issues**
+
+   - Check network connectivity
+   - Verify Genesys configuration
+   - Check browser console for errors
+
+2. **Authentication Issues**
+
+   - Verify token validity
+   - Check permissions
+   - Validate member eligibility
+
+3. **Plan Switching Issues**
+   - Check chat active state
+   - Verify lock mechanism
+   - Check error handling

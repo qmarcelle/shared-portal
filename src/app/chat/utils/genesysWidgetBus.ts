@@ -77,6 +77,7 @@ export class GenesysWidgetBus {
   private static instance: GenesysWidgetBus;
   private bus: GenesysBus;
   private initialized = false;
+  private isCloud = false;
   private subscriptions = new Map<string, (data: unknown) => void>();
   private commandQueue: Array<{
     command: string;
@@ -90,12 +91,16 @@ export class GenesysWidgetBus {
   static getInstance(): GenesysWidgetBus {
     if (!GenesysWidgetBus.instance) {
       const widgets = window._genesys?.widgets;
-      if (!widgets?.bus) {
-        throw new Error('Genesys widgets bus not found');
+      const cloudMessenger = window.Genesys;
+
+      if (!widgets?.bus && !cloudMessenger) {
+        throw new Error('Genesys implementation not found');
       }
+
       GenesysWidgetBus.instance = new GenesysWidgetBus(
-        widgets.bus as GenesysBus,
+        (widgets?.bus as unknown as GenesysBus) || cloudMessenger,
       );
+      GenesysWidgetBus.instance.isCloud = !!cloudMessenger;
     }
     return GenesysWidgetBus.instance;
   }
@@ -110,36 +115,75 @@ export class GenesysWidgetBus {
         await this.command(cmd.command, cmd.options);
       }
     }
+
+    this.initialized = true;
   }
 
   public command(command: string, options?: unknown): void {
-    this.bus.runtime.command(command, options);
+    const mappedCommand = this.isCloud
+      ? this.mapToCloudCommand(command)
+      : command;
+
+    if (this.isCloud && window.Genesys) {
+      window.Genesys('command', mappedCommand, options);
+    } else {
+      this.bus.runtime.command(mappedCommand, options);
+    }
   }
 
   public subscribe<T = ChatMessage>(
     event: string,
     callback: (data: T) => void,
   ): void {
-    this.bus.runtime.subscribe(event, callback as (data: unknown) => void);
-  }
+    const mappedEvent = this.isCloud ? this.mapToCloudEvent(event) : event;
 
-  public unsubscribe(event: string): void {
-    if (this.bus.runtime.unsubscribe) {
-      this.bus.runtime.unsubscribe(event);
+    if (this.isCloud && window.Genesys) {
+      window.Genesys(
+        'subscribe',
+        mappedEvent,
+        callback as (data: unknown) => void,
+      );
+    } else {
+      this.bus.runtime.subscribe(
+        mappedEvent,
+        callback as (data: unknown) => void,
+      );
     }
   }
 
-  async startChat(message?: ChatMessage): Promise<void> {
-    await this.command('WebChat.startChat', {
-      data: {
-        customData: message?.customData,
-        customFields: message?.customFields,
-      },
-    });
+  public unsubscribe(event: string): void {
+    const mappedEvent = this.isCloud ? this.mapToCloudEvent(event) : event;
+
+    if (this.isCloud && window.Genesys) {
+      window.Genesys('unsubscribe', mappedEvent);
+    } else if (this.bus.runtime.unsubscribe) {
+      this.bus.runtime.unsubscribe(mappedEvent);
+    }
   }
 
-  async endChat(): Promise<void> {
-    await this.command('WebChat.endChat');
+  private mapToCloudCommand(legacyCommand: string): string {
+    const commandMap: Record<string, string> = {
+      'WebChat.open': 'Messenger.open',
+      'WebChat.close': 'Messenger.close',
+      'WebChat.minimize': 'Messenger.minimize',
+      'WebChat.maximize': 'Messenger.maximize',
+      'WebChat.startChat': 'Messenger.start',
+      'WebChat.endChat': 'Messenger.end',
+    };
+    return commandMap[legacyCommand] || legacyCommand;
+  }
+
+  private mapToCloudEvent(legacyEvent: string): string {
+    const eventMap: Record<string, string> = {
+      ChatStarted: 'conversationStarted',
+      ChatEnded: 'conversationEnded',
+      MessageReceived: 'messageReceived',
+      AgentJoined: 'agentJoined',
+      AgentLeft: 'agentLeft',
+      TypingStarted: 'typingStarted',
+      TypingEnded: 'typingEnded',
+    };
+    return eventMap[legacyEvent] || legacyEvent;
   }
 
   public destroy(): void {

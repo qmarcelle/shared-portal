@@ -38,10 +38,26 @@ memberService.interceptors.request?.use(
       }
     } catch (error) {
       logger.error(`GetAuthToken ${error}`);
+      // If token fetch fails, reject the request
+      return Promise.reject(new Error('Failed to get authentication token'));
     }
     return config;
   },
   (error) => {
+    return Promise.reject(error);
+  },
+);
+
+// Add response interceptor for token expiration
+memberService.interceptors.response?.use(
+  (response) => response,
+  async (error) => {
+    if (error.response?.status === 401) {
+      logger.error('Token expired or invalid');
+      // Trigger token refresh or logout flow
+      window.location.href = '/login';
+      return Promise.reject(new Error('Authentication expired'));
+    }
     return Promise.reject(error);
   },
 );
