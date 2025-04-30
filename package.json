@@ -11,10 +11,12 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "mcp:start": "concurrently \"npx -y @modelcontextprotocol/server-memory\" \"npx -y @modelcontextprotocol/server-filesystem ./\""
   },
   "dependencies": {
     "@headlessui/react": "^2.0.3",
+    "@types/path-to-regexp": "^1.0.29",
     "@types/uuid": "^10.0.0",
     "axios": "^1.7.2",
     "chart.js": "^4.4.8",
@@ -28,6 +30,7 @@
     "jest-mock-extended": "^3.0.7",
     "next": "14.2.4",
     "next-auth": "^5.0.0-beta.19",
+    "path-to-regexp": "^8.2.0",
     "prettier": "^3.3.2",
     "qrcode.react": "^3.1.0",
     "react": "^18",
@@ -70,6 +73,7 @@
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^8.29.1",
     "broadcast-channel": "^7.1.0",
+    "concurrently": "^7.6.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "eslint-config-prettier": "^9.1.0",

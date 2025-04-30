@@ -1,7 +1,37 @@
-import { NextAuthConfig } from 'next-auth';
+import type { NextAuthConfig } from 'next-auth';
+import Credentials from 'next-auth/providers/credentials';
 
 export const authConfig: NextAuthConfig = {
-  providers: [], // Configure your auth providers here
+  pages: {
+    signIn: '/login',
+    error: '/error',
+  },
+  providers: [
+    Credentials({
+      async authorize(credentials) {
+        // Here you would validate credentials against your auth service
+        // For now, we'll use a simple validation
+        const { username, password } = credentials as {
+          username: string;
+          password: string;
+        };
+
+        // TODO: Replace with actual auth service call
+        if (username === 'test' && password === 'test') {
+          return {
+            id: '1',
+            name: 'Test User',
+            email: 'test@example.com',
+            currUsr: {
+              role: 'member',
+            },
+          };
+        }
+
+        return null;
+      },
+    }),
+  ],
   callbacks: {
     async jwt({ token, user }) {
       // Forward auth data from sign in to token
@@ -23,5 +53,8 @@ export const authConfig: NextAuthConfig = {
         },
       };
     },
+  },
+  session: {
+    strategy: 'jwt',
   },
 };

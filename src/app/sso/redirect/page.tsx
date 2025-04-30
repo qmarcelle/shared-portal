@@ -1,53 +1,26 @@
-'use client';
+import { Metadata } from 'next';
+import { SSORedirectClient } from '../components/SSORedirectClient';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
-import postToPing from '../actions/postToPing';
-import { SSO_IMPL_MAP } from '../ssoConstants';
-
-const SSORedirect = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const connectionId = decodeURIComponent(
-    searchParams.get('connectionId') ?? '',
-  );
-  const ssoImpl =
-    connectionId != null ? SSO_IMPL_MAP.get(connectionId) : 'Not Found';
-  console.log(ssoImpl + ' PAGE !!!');
-  const paramsObject = Object.fromEntries(searchParams.entries());
-  useEffect(() => {
-    const sendSSO = async () => {
-      try {
-        console.log('Entered Send SSO !!!!');
-        // Pass the object directly to postToPing
-        const ref: string = await postToPing(
-          ssoImpl != null ? ssoImpl : '',
-          paramsObject,
-        );
-
-        const resumePath = decodeURIComponent(
-          searchParams.get('resumePath') ?? '',
-        );
-
-        const sanitizedResumePath =
-          resumePath != null
-            ? resumePath.replace(/[\n\r\t]/g, '_')
-            : resumePath;
-        const url = `${process.env.NEXT_PUBLIC_PING_REST_URL}${sanitizedResumePath}?REF=${ref}`;
-
-        router.push(url);
-      } catch (error) {
-        window.dispatchEvent(
-          new CustomEvent('SSOError', { detail: 'Error in SSO' }),
-        );
-        console.error('Error in sendSSO:', error);
-      }
-    };
-
-    sendSSO();
-  }, [searchParams, router, ssoImpl]);
-
-  return 'We are taking you to SSO page';
+export const metadata: Metadata = {
+  title: 'SSO Redirect - Health Portal',
+  description: 'Processing SSO redirect',
 };
 
-export default SSORedirect;
+// Server Component
+export default async function SSORedirectPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const connectionId = searchParams['connectionId'] as string;
+  if (!connectionId) {
+    throw new Error('Missing connectionId parameter');
+  }
+
+  return (
+    <SSORedirectClient
+      connectionId={decodeURIComponent(connectionId)}
+      searchParams={searchParams}
+    />
+  );
+}

@@ -1,125 +1,106 @@
-import NextAuth from 'next-auth';
+import { jwtVerify } from 'jose';
+import { getServerSession } from 'next-auth';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
-import {
-  apiAuthPrefix,
-  authRoutes,
-  inboundSSORoutes,
-  publicRoutes,
-} from './utils/routes';
 
-const { auth } = NextAuth(authConfig);
+// Define protected routes that require authentication
+const protectedRoutes = [
+  '/dashboard',
+  '/myPlan',
+  '/benefits',
+  '/claims',
+  '/findcare',
+  '/chat',
+  '/security',
+  '/profileSettings',
+  '/personalRepresentativeAccess',
+];
 
-export default auth(async (req) => {
-  const isLoggedIn = !!req.auth;
-  const method = req.method;
-  console.log(`${method} ${req.nextUrl.pathname} loggedIn=${isLoggedIn}`);
-  const { nextUrl } = req;
+// Define SSO routes that need special handling
+const ssoRoutes = ['/sso/launch', '/sso/redirect'];
 
-  const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
-  const isAuthRoute = authRoutes.includes(nextUrl.pathname);
-  const isInboundSSO = inboundSSORoutes.has(nextUrl.pathname);
+export async function middleware(request: NextRequest) {
+  const session = await getServerSession(authConfig);
 
-  /* Handle POST call from public site
-   * This will NOT autofill the username field. It just redirects the POST call to a GET to prevent the app from confusing it for a server action call.
-   */
-  if (req.method == 'POST' && nextUrl.pathname == '/login') {
-    try {
-      const formData = await req.formData();
-      if (formData.get('accountType')) {
-        return Response.redirect(new URL('/login', nextUrl));
-      }
-    } catch (err) {
-      console.log('Skipped POST request check due to no form data.');
-    }
-  }
+  // Get the pathname of the request
+  const path = request.nextUrl.pathname;
 
-  /**
-   * Handle requests to the root of the application (/)
-   * There is no content here. It should redirect to the default login landing if already logged in, or to the login page if not.
-   */
-  if (nextUrl.pathname == '/') {
-    return Response.redirect(
-      new URL(
-        (isLoggedIn ? process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL : '/login') ||
-          '/dashboard',
-        nextUrl,
-      ),
-    );
-  }
+  // Handle SSO routes
+  if (ssoRoutes.some((route) => path.startsWith(route))) {
+    // Validate SSO parameters and handle redirects
+    const searchParams = request.nextUrl.searchParams;
+    const partnerId = searchParams.get('PartnerSpId');
 
-  /**
-   * Handle API routes
-   */
-  if (isApiAuthRoute) {
-    return;
-  }
-
-  /**
-   * Handle inbound SSO routes.
-   * If the user is not logged in, return to prevent handling of the route by any other part of the function.
-   * If logged in already, redirect to the destination page specified in routes.ts
-   */
-  if (isInboundSSO) {
-    if (isLoggedIn) {
-      return Response.redirect(
-        new URL(
-          inboundSSORoutes.get(nextUrl.pathname) || '/dashboard',
-          nextUrl,
-        ),
+    if (!partnerId) {
+      return NextResponse.redirect(
+        new URL('/error?code=invalid_sso', request.url),
       );
-    } else {
-      return;
+    }
+
+    // Verify JWT audience for SSO
+    const token = request.cookies.get('next-auth.session-token')?.value;
+    if (token) {
+      try {
+        const { payload } = await jwtVerify(
+          token,
+          new TextEncoder().encode(process.env.NEXTAUTH_SECRET),
+        );
+        if (payload.aud !== partnerId) {
+          return NextResponse.redirect(
+            new URL('/error?code=invalid_audience', request.url),
+          );
+        }
+      } catch (error) {
+        return NextResponse.redirect(
+          new URL('/error?code=invalid_token', request.url),
+        );
+      }
+    }
+
+    return NextResponse.next();
+  }
+
+  // Check if the path is protected
+  if (protectedRoutes.some((route) => path.startsWith(route))) {
+    if (!session) {
+      // Redirect to login page with return URL
+      const url = new URL('/login', request.url);
+      url.searchParams.set('returnUrl', path);
+      return NextResponse.redirect(url);
+    }
+
+    // Check role-based access for specific routes
+    if (
+      path.startsWith('/security') ||
+      path.startsWith('/personalRepresentativeAccess')
+    ) {
+      const userRole = session.user?.currUsr?.role;
+      if (!userRole || !checkPersonalRepAccess(userRole)) {
+        return NextResponse.redirect(new URL('/dashboard', request.url));
+      }
     }
   }
 
-  /**
-   * Handle login flow routes
-   * Already logged-in users should be redirected to the dashboard.
-   */
-  if (isAuthRoute) {
-    if (isLoggedIn) {
-      const redir = process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard';
-      console.log(`Redirecting logged-in client to ${redir}`);
-      return Response.redirect(new URL(redir, nextUrl));
-    } else {
-      return;
-    }
-  }
+  return NextResponse.next();
+}
 
-  /**
-   * Handle logged-in traffic when HCL redirect is enabled
-   */
-  if (
-    process.env.WPS_REDIRECT_ENABLED == 'true' &&
-    isLoggedIn &&
-    !nextUrl.pathname.includes('/embed')
-  ) {
-    console.log('Redirecting logged-in user to WebSphere');
-    return Response.redirect(
-      new URL(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/', nextUrl),
-    );
-  }
+// Helper function to check personal rep access
+function checkPersonalRepAccess(role: string): boolean {
+  return ['member', 'admin'].includes(role.toLowerCase());
+}
 
-  /**
-   * Routes accessible by logged-in users.
-   */
-  if (!isPublicRoute) {
-    if (!isLoggedIn) {
-      console.log('Redirecting logged-out client to /login');
-      return Response.redirect(new URL('/login', nextUrl));
-    }
-  }
-
-  return;
-});
-
+// Configure middleware matching
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public folder
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico|public).*)',
+  ],
 };
-/**
- * This matcher is supplied with the NextAuth documentation, but has been known to have issues.
- * The matcher in-use was supplied by Code with Antonio's NextAuth tutorial and appears to work just as well.
- 
-const nextAuthMatcher = '/((?!api|_next/static|_next/image|favicon.ico).*)';
-*/
