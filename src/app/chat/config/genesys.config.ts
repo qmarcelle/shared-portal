@@ -13,9 +13,9 @@
  * - Genesys Cloud Web Messaging API (modern implementation)
  * - Legacy chat.js implementation
  */
+import type { ChatInfoResponse } from '@/utils/api/memberService';
 import { z } from 'zod';
 import { ChatError } from '../types/index';
-import type { ChatInfoResponse } from '../types/schemas';
 
 const GENESYS_SCRIPT_ID = 'cx-widget-script';
 
@@ -167,7 +167,7 @@ export function getGenesysConfig(options: {
 
   return {
     ...baseConfig,
-    chatGroup: eligibility.chatGroup,
+    chatGroup: eligibility.chatGroup || 'default',
     displayName: 'Chat with Us',
     businessHours: BUSINESS_HOURS_CONFIG,
   };
@@ -220,7 +220,7 @@ async function initializeWebMessaging(
     );
   }
 
-  window.Genesys?.WebMessenger?.configure(config);
+  window.Genesys?.WebMessenger?.configure(config as any);
 }
 
 /**
@@ -235,7 +235,7 @@ async function initializeLegacyChat(config: LegacyChatConfig): Promise<void> {
     await loadScript(process.env.NEXT_PUBLIC_LEGACY_CHAT_URL || '');
   }
 
-  window.Genesys?.Chat?.configure(config);
+  window.Genesys?.Chat?.configure(config as any);
 }
 
 /**

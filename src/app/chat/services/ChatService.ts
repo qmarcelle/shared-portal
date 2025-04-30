@@ -8,6 +8,106 @@ import { ChatError } from '@/app/chat/types/index';
 const GENESYS_SCRIPT_ID = 'cx-widget-script';
 
 /**
+ * ChatService Class
+ *
+ * Core service for managing chat functionality across both Genesys Cloud Web Messaging
+ * and legacy chat.js implementations. This service provides a unified interface for:
+ *
+ * 1. Chat Session Management:
+ *    - Session initialization
+ *    - Message handling
+ *    - Session termination
+ *    - State management
+ *
+ * 2. API Integration:
+ *    - Eligibility checks
+ *    - Authentication
+ *    - Message delivery
+ *    - Session management
+ *
+ * 3. Plan Switching Support:
+ *    - Lock/unlock mechanism
+ *    - Context updates
+ *    - State preservation
+ *
+ * API Endpoints:
+ * - GET /api/chat/info
+ *   Returns: ChatInfoResponse
+ *   Purpose: Retrieve eligibility and configuration
+ *
+ * - POST /api/chat/start
+ *   Payload: ChatDataPayload
+ *   Purpose: Initialize chat session
+ *
+ * - POST /api/chat/end
+ *   Purpose: Terminate chat session
+ *
+ * - POST /api/chat/message
+ *   Payload: { text: string }
+ *   Purpose: Send chat message
+ *
+ * Error Handling Strategy:
+ * 1. API Errors (API_ERROR):
+ *    - Network failures
+ *    - Server errors
+ *    - Invalid responses
+ *
+ * 2. Chat Errors:
+ *    - INITIALIZATION_ERROR: Script or setup failures
+ *    - CHAT_START_ERROR: Session start failures
+ *    - CHAT_END_ERROR: Session end failures
+ *    - MESSAGE_ERROR: Message delivery failures
+ *
+ * 3. Recovery Mechanisms:
+ *    - Automatic retry with exponential backoff
+ *    - Circuit breaker for repeated failures
+ *    - Graceful degradation options
+ *
+ * Integration Requirements:
+ * 1. Authentication:
+ *    - Token management
+ *    - Session persistence
+ *    - Security headers
+ *
+ * 2. Event Handling:
+ *    - Message events
+ *    - State changes
+ *    - Error conditions
+ *
+ * 3. Plan Switching:
+ *    - Context preservation
+ *    - State management
+ *    - UI coordination
+ *
+ * @example
+ * ```typescript
+ * const chatService = new ChatService(
+ *   memberId,
+ *   planId,
+ *   planName,
+ *   hasMultiplePlans,
+ *   (locked) => console.log(`Plan switcher locked: ${locked}`)
+ * );
+ *
+ * // Initialize chat
+ * const chatInfo = await chatService.getChatInfo();
+ *
+ * // Start chat session
+ * await chatService.startChat({
+ *   memberId: 'user123',
+ *   planId: 'plan456',
+ *   message: 'Initial message'
+ * });
+ *
+ * // Send message
+ * await chatService.sendMessage('Hello!');
+ *
+ * // End chat
+ * await chatService.endChat();
+ * ```
+ */
+
+/**
  * Core service for managing chat functionality.
  * Handles chat session lifecycle, messaging, and authentication.
  *

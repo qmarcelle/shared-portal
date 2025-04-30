@@ -2,6 +2,17 @@ import axios from 'axios';
 import { logger } from '../logger';
 import { getAuthToken } from './getToken';
 
+export interface ChatInfoResponse {
+  isEligible: boolean;
+  cloudChatEligible: boolean;
+  chatGroup?: string;
+  businessHours?: {
+    text: string;
+    isOpen: boolean;
+  };
+  workingHours?: string;
+}
+
 const memSvcURL = `${process.env.PORTAL_SERVICES_URL}${process.env.MEMBERSERVICE_CONTEXT_ROOT}`;
 
 export const memberService = axios.create({

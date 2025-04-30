@@ -15,11 +15,11 @@ export default function ClientLayout({
       {children}
       {isAuthenticated && user && user.currUsr?.plan && (
         <ChatWidget
-          memberId={user.currUsr.umpi}
+          memberId={user.currUsr.plan.memCk}
           planId={user.currUsr.plan.grpId}
           planName={user.currUsr.plan.grgrCk}
           hasMultiplePlans={true}
-          onLockPlanSwitcher={(locked) => {
+          onLockPlanSwitcher={(locked: boolean) => {
             // Handle plan switcher lock
             console.log('Plan switcher locked:', locked);
           }}
@@ -27,7 +27,7 @@ export default function ClientLayout({
             // Handle opening plan switcher
             console.log('Opening plan switcher');
           }}
-          onError={(error) => {
+          onError={(error: Error) => {
             // Handle chat errors
             console.error('Chat error:', error);
           }}

@@ -6,9 +6,10 @@
 // Main Components
 export { ChatTrigger } from './ChatTrigger';
 export { ChatWidget } from './ChatWidget';
-export { ChatWindow } from './ChatWindow';
+export { PlanInfoHeader } from './PlanInfoHeader';
 
 // Error Handling
 export { ChatErrorBoundary } from './shared/ChatErrorBoundary';
 
-export { PlanInfoHeader } from './PlanInfoHeader';
+// Integration Components (to be consolidated)
+export { GenesysScripts } from './GenesysScripts';

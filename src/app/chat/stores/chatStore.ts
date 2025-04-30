@@ -1,144 +1,137 @@
-import type {
-  ChatDataPayload,
-  ChatInfoResponse,
-  ChatSession,
-  ChatState,
-  PlanInfo,
-} from '@/app/chat/types/index';
-import { ChatError } from '@/app/chat/types/index';
 import { create } from 'zustand';
+import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
+import { ChatError, ChatInfoResponse } from '../types';
 
 /**
- * Chat store interface defining the state and actions for chat functionality.
- * Manages chat session state, messages, plan information, and error handling.
+ * Chat store state interface
  */
-interface ChatStore extends ChatState {
-  // State
-  /** Whether the chat window is open */
+export interface ChatState {
+  // UI state
   isOpen: boolean;
-  /** Whether there is an active chat session */
-  isInChat: boolean;
-  /** Array of chat messages */
+  isMinimized: boolean;
+  newMessageCount: number;
+
+  // Chat state
+  isChatActive: boolean;
+  isLoading: boolean;
+  error: ChatError | null;
   messages: Array<{
     id: string;
     content: string;
     sender: 'user' | 'agent';
-    timestamp: number;
   }>;
-  /** Current plan information */
-  currentPlan: PlanInfo | null;
-  /** Current error state */
-  error: ChatError | null;
-  /** Whether plan switching is locked during active chat */
+
+  // Eligibility state
+  eligibility: ChatInfoResponse | null;
+
+  // Plan switching
   isPlanSwitcherLocked: boolean;
-  /** Current chat session information */
-  session: ChatSession | null;
+  planSwitcherTooltip: string;
 
   // Actions
-  /** Opens the chat window */
-  openChat: () => void;
-  /** Closes the chat window */
-  closeChat: () => void;
-  /** Starts a new chat session */
-  startChat: (payload: ChatDataPayload) => Promise<void>;
-  /** Ends the current chat session */
-  endChat: () => Promise<void>;
-  /** Sends a message in the current chat session */
-  sendMessage: (text: string) => Promise<void>;
-  /** Retrieves chat availability and configuration */
-  getChatInfo: () => Promise<ChatInfoResponse>;
-  /** Sets the current error state */
+  setOpen: (isOpen: boolean) => void;
+  setMinimized: (isMinimized: boolean) => void;
   setError: (error: ChatError | null) => void;
+  addMessage: (message: { content: string; sender: 'user' | 'agent' }) => void;
+  clearMessages: () => void;
+  setChatActive: (active: boolean) => void;
+  setLoading: (loading: boolean) => void;
+  incrementMessageCount: () => void;
+  resetMessageCount: () => void;
+  setEligibility: (eligibility: ChatState['eligibility']) => void;
+  setPlanSwitcherLocked: (locked: boolean) => void;
+  updateConfig: (config: Partial<ChatConfig>) => void;
 }
 
 /**
- * Creates and exports the chat store using Zustand.
- * Provides a global state management solution for chat functionality.
+ * Create the chat store with Zustand
  */
-export const useChatStore = create<ChatStore>((set) => ({
-  // Initial state
+export const useChatStore = create<ChatState>((set) => ({
+  // UI state
   isOpen: false,
-  isInChat: false,
-  messages: [],
-  currentPlan: null,
+  isMinimized: false,
+  newMessageCount: 0,
+
+  // Chat state
+  isChatActive: false,
+  isLoading: true,
   error: null,
+  messages: [],
+
+  // Eligibility state
+  eligibility: null,
+
+  // Plan switching
   isPlanSwitcherLocked: false,
-  session: null,
+  planSwitcherTooltip: '',
 
   // Actions
-  openChat: () => set({ isOpen: true }),
-  closeChat: () => set({ isOpen: false }),
+  setOpen: (isOpen) => set({ isOpen }),
 
-  startChat: async (payload) => {
-    try {
-      const response = await fetch('/api/chat/start', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok)
-        throw new ChatError('Failed to start chat', 'CHAT_START_ERROR');
-      set({ isInChat: true, isOpen: true });
-    } catch (error) {
-      throw error instanceof ChatError
-        ? error
-        : new ChatError('Failed to start chat', 'CHAT_START_ERROR');
-    }
-  },
-
-  endChat: async () => {
-    try {
-      const response = await fetch('/api/chat/end', { method: 'POST' });
-      if (!response.ok)
-        throw new ChatError('Failed to end chat', 'CHAT_END_ERROR');
-      set({ isInChat: false, isOpen: false });
-    } catch (error) {
-      throw error instanceof ChatError
-        ? error
-        : new ChatError('Failed to end chat', 'CHAT_END_ERROR');
-    }
-  },
-
-  sendMessage: async (text) => {
-    try {
-      const response = await fetch('/api/chat/message', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text }),
-      });
-      if (!response.ok)
-        throw new ChatError('Failed to send message', 'MESSAGE_ERROR');
-    } catch (error) {
-      throw error instanceof ChatError
-        ? error
-        : new ChatError('Failed to send message', 'MESSAGE_ERROR');
-    }
-  },
-
-  getChatInfo: async () => {
-    try {
-      const response = await fetch('/api/chat/info');
-      if (!response.ok)
-        throw new ChatError('Failed to get chat info', 'INITIALIZATION_ERROR');
-      return await response.json();
-    } catch (error) {
-      throw error instanceof ChatError
-        ? error
-        : new ChatError('Failed to get chat info', 'INITIALIZATION_ERROR');
-    }
-  },
+  setMinimized: (isMinimized) => set({ isMinimized }),
 
   setError: (error) => set({ error }),
-}));
 
-export const createChatStore = (initialState: Partial<ChatState> = {}) => ({
-  isOpen: false,
-  isInChat: false,
-  messages: [],
-  currentPlan: null,
-  error: null,
-  isPlanSwitcherLocked: false,
-  session: null,
-  ...initialState,
-});
+  addMessage: (message) =>
+    set((state) => ({
+      messages: [
+        ...state.messages,
+        {
+          id: Date.now().toString(),
+          content: message.content,
+          sender: message.sender,
+        },
+      ],
+    })),
+
+  clearMessages: () => set({ messages: [] }),
+
+  setChatActive: (active) => set({ isChatActive: active }),
+
+  setLoading: (loading) => set({ isLoading: loading }),
+
+  incrementMessageCount: () =>
+    set((state) => ({
+      newMessageCount: state.newMessageCount + 1,
+    })),
+
+  resetMessageCount: () => set({ newMessageCount: 0 }),
+
+  setEligibility: (eligibility) => set({ eligibility }),
+
+  setPlanSwitcherLocked: (locked) =>
+    set({
+      isPlanSwitcherLocked: locked,
+      planSwitcherTooltip: locked
+        ? 'You cannot switch plans during an active chat session.'
+        : '',
+    }),
+
+  updateConfig: (config) => {
+    try {
+      const validatedConfig = ChatConfigSchema.parse(config);
+      set((state) => ({
+        eligibility: {
+          ...state.eligibility,
+          isEligible: true,
+          chatAvailable: !!validatedConfig.isChatAvailable,
+          cloudChatEligible: !!validatedConfig.cloudChatEligible,
+          chatGroup: validatedConfig.chatGroup || '',
+          workingHours: validatedConfig.workingHours || '',
+          businessHours: {
+            text: validatedConfig.workingHours || '',
+            isOpen: !!validatedConfig.isChatAvailable,
+          },
+        },
+      }));
+    } catch (error) {
+      console.error('Invalid chat configuration:', error);
+      set({
+        error: new ChatError(
+          'Invalid chat configuration',
+          'CONFIGURATION_ERROR',
+        ),
+      });
+    }
+  },
+}));

@@ -1,7 +1,10 @@
 import { Button } from '@/components/foundation/Button';
-import { useEffect } from 'react';
-import { useChat } from '../hooks/useChat';
-import { ChatError } from '../types/index';
+import { useSession } from 'next-auth/react';
+import { useEffect, useMemo } from 'react';
+import { env } from '../config/env';
+import { useChatEligibility } from '../hooks';
+import { ChatTrigger } from './ChatTrigger';
+import { GenesysScripts } from './GenesysScripts';
 import { PlanInfoHeader } from './PlanInfoHeader';
 import { ChatErrorBoundary } from './shared/ChatErrorBoundary';
 
@@ -12,8 +15,7 @@ export interface ChatWidgetProps {
   hasMultiplePlans: boolean;
   onLockPlanSwitcher: (locked: boolean) => void;
   onOpenPlanSwitcher: () => void;
-  onError?: (error: ChatError) => void;
-  onSwitchPlan?: () => void;
+  _onError?: (error: Error) => void;
 }
 
 export function ChatWidget({
@@ -23,9 +25,29 @@ export function ChatWidget({
   hasMultiplePlans,
   onLockPlanSwitcher,
   onOpenPlanSwitcher,
-  onError,
-  onSwitchPlan,
+  _onError,
 }: ChatWidgetProps) {
+  const _session = useSession();
+
+  const chatConfig = useMemo(
+    () => ({
+      memberId,
+      planId,
+      planName,
+      hasMultiplePlans,
+      onLockPlanSwitcher,
+      onOpenPlanSwitcher,
+    }),
+    [
+      memberId,
+      planId,
+      planName,
+      hasMultiplePlans,
+      onLockPlanSwitcher,
+      onOpenPlanSwitcher,
+    ],
+  );
+
   const {
     isInitialized,
     isOpen,
@@ -39,24 +61,17 @@ export function ChatWidget({
     maximizeChat,
     startChat,
     endChat,
-  } = useChat({
-    memberId,
-    planId,
-    planName,
-    hasMultiplePlans,
-    onLockPlanSwitcher,
-    onOpenPlanSwitcher,
-  });
+  } = useChatEligibility(memberId, planId);
 
-  // Handle errors
+  // Initialize chat when config is ready
   useEffect(() => {
-    if (error && onError) {
-      onError(error);
+    if (chatConfig && !isInitialized) {
+      startChat();
     }
-  }, [error, onError]);
+  }, [chatConfig, isInitialized, startChat]);
 
-  // Don't render if not eligible and not open
-  if (!eligibility?.chatAvailable && !isOpen) {
+  // Don't render if no config or not eligible
+  if (!chatConfig || (!eligibility?.isEligible && !isOpen)) {
     return null;
   }
 
@@ -104,67 +119,69 @@ export function ChatWidget({
     );
   }
 
-  // Show chat controls
   const content = (
-    <div
-      className="chat-widget-container"
-      data-testid="chat-interface"
-      role="complementary"
-      aria-label="Chat interface"
-    >
-      {/* Chat container for Genesys */}
-      <div id="genesys-chat-container" />
+    <>
+      <GenesysScripts
+        deploymentId={env.genesys.deploymentId}
+        environment={env.genesys.region}
+        orgId={env.genesys.orgId}
+      />
+      <div
+        className="chat-widget-container"
+        data-testid="chat-interface"
+        role="complementary"
+        aria-label="Chat interface"
+      >
+        {/* Chat container for Genesys */}
+        <div id="genesys-chat-container" />
 
-      {/* Plan info header - rendered separately from Genesys container */}
-      {hasMultiplePlans && (
-        <div>
+        {/* Plan info header */}
+        {hasMultiplePlans && (
           <PlanInfoHeader
             planName={planName}
             isActive={isChatActive}
-            onSwitchPlan={onSwitchPlan}
-          />
-          <select
-            data-testid="plan-switcher"
-            onChange={(e) => onSwitchPlan?.()}
-          >
-            <option value="plan1">{planName}</option>
-            <option value="plan2">Plan 2</option>
-          </select>
-        </div>
-      )}
-
-      {/* Business hours notification */}
-      {!eligibility?.chatAvailable && (
-        <div data-testid="business-hours-notification">
-          <p>We are currently outside of business hours</p>
-          <p>Our chat service is available 9:00 AM - 5:00 PM</p>
-        </div>
-      )}
-
-      {/* Chat controls */}
-      <div className="chat-controls">
-        {!isOpen && (
-          <Button
-            type="primary"
-            label="Chat with us"
-            callback={openChat}
-            className="chat-trigger-button"
+            onSwitchPlan={onOpenPlanSwitcher}
           />
         )}
-        {isOpen && !isChatActive && (
-          <Button type="primary" label="Start chat" callback={startChat} />
+
+        {/* Business hours notification */}
+        {!eligibility?.isEligible && (
+          <div data-testid="business-hours-notification">
+            <p>We are currently outside of business hours</p>
+            <p>Our chat service is available 9:00 AM - 5:00 PM</p>
+          </div>
         )}
-        {isChatActive && (
-          <>
-            <Button type="secondary" label="End chat" callback={endChat} />
-            <Button type="ghost" label="Minimize" callback={minimizeChat} />
-            <Button type="ghost" label="Maximize" callback={maximizeChat} />
-            <Button type="secondary" label="Close" callback={closeChat} />
-          </>
-        )}
+
+        {/* Chat controls */}
+        <div className="chat-controls">
+          {!isOpen && (
+            <ChatTrigger
+              onOpen={openChat}
+              fixed={false}
+              className="chat-trigger-button"
+              testId="button-chat-with-us"
+              _label="Chat with us"
+            />
+          )}
+          {isOpen && !isChatActive && (
+            <Button type="primary" label="Start chat" callback={startChat} />
+          )}
+          {isChatActive && (
+            <>
+              <Button type="secondary" label="End chat" callback={endChat} />
+              <Button type="ghost" label="Minimize" callback={minimizeChat} />
+              <Button type="ghost" label="Maximize" callback={maximizeChat} />
+              <Button type="secondary" label="Close" callback={closeChat} />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 
-  return <ChatErrorBoundary onError={onError}>{content}</ChatErrorBoundary>;
+  return (
+    <ChatErrorBoundary onError={(err) => console.error(err)}>
+      {content}
+    </ChatErrorBoundary>
+  );
 }
