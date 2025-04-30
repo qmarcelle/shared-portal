@@ -27,7 +27,7 @@ export const RecentClaimSection = ({
     claims: ClaimDetails[],
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): any => {
-    const claimsList = claims.length > 3 ? claims.splice(0, 3) : claims;
+    const claimsList = claims?.length > 3 ? claims?.splice(0, 3) : claims;
     switch (true) {
       case claims && !!claims.length:
         return claimsList.map((item) => (
