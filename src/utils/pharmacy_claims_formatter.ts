@@ -6,7 +6,7 @@ import { capitalizeString } from './string_format';
 export function formatPharmacyClaims(
   pharmacyClaims: PharmacyClaim[],
 ): ClaimDetails[] {
-  return pharmacyClaims.map((pharmClaim: PharmacyClaim) => {
+  return pharmacyClaims?.map((pharmClaim: PharmacyClaim) => {
     return {
       id: pharmClaim.claimId,
       claimStatus: capitalizeString(pharmClaim.status),
