@@ -5,11 +5,20 @@ import { MemberPlan } from '../models/plan';
 type PlanStore = {
   plans: MemberPlan[];
   selectedPlanId: string;
-  selectPlanId: (id: string) => void;
+  isLoading: boolean;
+  error: string | null;
+  setPlans: (plans: MemberPlan[]) => void;
+  setSelectedPlanId: (id: string) => void;
+  setError: (error: string | null) => void;
 };
 
-export const usePlanStore = createWithEqualityFn<PlanStore>(() => ({
+export const usePlanStore = createWithEqualityFn<PlanStore>((set) => ({
   plans: [],
   selectedPlanId: '',
-  selectPlanId: (planId) => {},
+  isLoading: false,
+  error: null,
+
+  setPlans: (plans) => set({ plans }),
+  setSelectedPlanId: (id) => set({ selectedPlanId: id }),
+  setError: (error) => set({ error }),
 }));

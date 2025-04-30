@@ -1,18 +1,29 @@
-// Main chat widget component
-export { ChatWidget } from './components/core/ChatWidget';
+/**
+ * Chat Module Exports
+ * Centralizes all chat-related exports for easier imports
+ */
 
-// Types
-export type { ChatWidgetProps } from './components/core/ChatWidget';
-export type { ChatError } from './types/errors';
-export type { ChatMessage, ChatPlan, ChatSession } from './types/types';
+// Components
+export { ChatTrigger } from './components/ChatTrigger';
+export { ChatWidget } from './components/ChatWidget';
+export { ChatErrorBoundary } from './components/shared/ChatErrorBoundary';
 
 // Hooks
-export { useChat } from './hooks/useChat';
-export { useChatStore } from './stores/chatStore';
+export { useChatService } from './hooks/useChatService';
 
-// Configuration
-export { ENV_CONFIG, FEATURES, chatConfig } from './config';
+// Context
+export {
+  ChatServiceContext,
+  ChatServiceProvider,
+} from './context/ChatServiceContext';
 
-// Services
-export { ChatAuthService } from './services/ChatAuthService';
-export { ChatService } from './services/ChatService';
+// Types
+export type {
+  ChatDataPayload,
+  ChatError,
+  ChatInfoResponse,
+  ChatMessage,
+  ChatService as ChatServiceType,
+  ChatState,
+  UseChatReturn,
+} from './types/index';

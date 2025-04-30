@@ -1,327 +1,148 @@
-// Comment out external imports and use mock implementations
-// import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
-// import { auth } from '@/auth';
-import { useCallback, useEffect, useState } from 'react';
-import { ChatInfoResponse } from '../schemas/user';
-import { chatAPI } from '../services/api';
-import { formatBusinessHours } from '../services/utils/chatHours';
-import { useChatStore } from '../stores/chatStore';
-import { BusinessHours, ChatSession, UserEligibility } from '../types/types';
-import { mapUserInfoToChatPayload } from '../utils/chatUtils';
-import { auth, getLoggedInUserInfo } from './mocks';
+import type { ChatEligibility, ChatInfoResponse } from '@/app/chat/types/index';
+import { ChatError } from '@/app/chat/types/index';
+import { useEffect, useState } from 'react';
 
 /**
- * Hook for checking chat eligibility
- * This hook checks if the current user is eligible for chat services
- * and fetches the necessary data for chat initialization
+ * Hook to check chat eligibility for a member and plan.
+ * Fetches eligibility status and manages loading state.
+ *
+ * @param memberId - Unique identifier for the member
+ * @param planId - Current plan identifier
+ * @returns Object containing eligibility status and loading state
+ *
+ * @example
+ * ```tsx
+ * function ChatComponent({ memberId, planId }) {
+ *   const { eligibility, loading } = useChatEligibility(memberId, planId);
+ *
+ *   if (loading) return <LoadingSpinner />;
+ *   if (!eligibility?.chatAvailable) return null;
+ *
+ *   return <ChatWidget />;
+ * }
+ * ```
  */
-export function useChatEligibility() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [eligibility, setEligibility] = useState<UserEligibility | null>(null);
-  const [chatPayload, setChatPayload] = useState<any>(null);
-  const [isEligible, setIsEligible] = useState(false);
-  const [isBusinessHoursOpen, setIsBusinessHoursOpen] = useState(false);
-  const [businessHours, setBusinessHours] = useState<BusinessHours | null>(
-    null,
-  );
-  const [isLocked, setIsLocked] = useState(false);
-  const [currentSession, setCurrentSession] = useState<ChatSession | null>(
-    null,
-  );
-  const [chatInfo, setChatInfo] = useState<ChatInfoResponse | null>(null);
-  const [isCloudChatEligible, setIsCloudChatEligible] = useState(false);
 
-  // Get current plan from chat store
-  const {
-    currentPlan,
-    lockPlanSwitcher: storeLockPlanSwitcher,
-    unlockPlanSwitcher: storeUnlockPlanSwitcher,
-  } = useChatStore((state) => ({
-    currentPlan: state.currentPlan,
-    lockPlanSwitcher: state.lockPlanSwitcher,
-    unlockPlanSwitcher: state.unlockPlanSwitcher,
-  }));
+export interface ChatEligibilityReturn {
+  eligibility: ChatEligibility | null;
+  loading: boolean;
+  isInitialized: boolean;
+  isOpen: boolean;
+  isChatActive: boolean;
+  error: Error | null;
+  isLoading: boolean;
+  openChat: () => void;
+  closeChat: () => void;
+  minimizeChat: () => void;
+  maximizeChat: () => void;
+  startChat: () => void;
+  endChat: () => void;
+}
 
-  /**
-   * Lock the plan switcher when a chat session starts
-   */
-  const lockPlanSwitcher = useCallback(() => {
-    setIsLocked(true);
-    storeLockPlanSwitcher();
-  }, [storeLockPlanSwitcher]);
+export function useChatEligibility(
+  memberId: string,
+  planId: string,
+): ChatEligibilityReturn {
+  const [eligibility, setEligibility] = useState<ChatEligibility | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isChatActive, setIsChatActive] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
-  /**
-   * Unlock the plan switcher when a chat session ends
-   */
-  const unlockPlanSwitcher = useCallback(() => {
-    setIsLocked(false);
-    storeUnlockPlanSwitcher();
-  }, [storeUnlockPlanSwitcher]);
+  // Parse business hours string into a structured format
+  const parseBusinessHours = (hoursString: string) => {
+    const [days, hours] = hoursString.split('_');
+    const [startHour, endHour] = hours.split('-').map(Number);
+    return {
+      days,
+      startHour,
+      endHour,
+      isValid: !isNaN(startHour) && !isNaN(endHour),
+    };
+  };
 
-  /**
-   * Start a new chat session
-   */
-  const startChatSession = useCallback(async () => {
-    if (!eligibility || !currentPlan || !chatPayload) {
-      setError('Unable to start chat: missing required information');
-      return null;
-    }
+  // Check if current time is within business hours
+  const isWithinBusinessHours = (businessHours: string): boolean => {
+    const { days, startHour, endHour, isValid } =
+      parseBusinessHours(businessHours);
+    if (!isValid) return false;
 
-    if (!isBusinessHoursOpen) {
-      setError('Chat is currently outside business hours');
-      return null;
-    }
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentDay = now.getDay();
 
-    try {
-      const userInfo = {
-        firstName: eligibility.memberFirstname,
-        lastName: eligibility.memberLastName,
-        email: chatPayload.email,
-      };
+    // Check if current day is within business days
+    const isBusinessDay = days.includes(
+      ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][currentDay],
+    );
 
-      // Prepare chat data payload based on BCBST requirements
-      const chatData = {
-        SERV_Type: 'MemberPortal',
-        firstname: eligibility.memberFirstname,
-        lastname: eligibility.memberLastName,
-        PLAN_ID: currentPlan.id,
-        GROUP_ID: eligibility.groupId,
-        IDCardBotName: chatInfo?.chatIDChatBotName || '',
-        IsVisionEligible: eligibility.isVision,
-        MEMBER_ID: eligibility.userID,
-        coverage_eligibility: true,
-        INQ_TYPE: 'MEM',
-        IsDentalEligible: eligibility.isDental,
-        MEMBER_DOB: eligibility.memberDOB,
-        LOB: chatPayload.lob || '',
-        lob_group: chatPayload.lobGroup || '',
-        IsMedicalEligibile: eligibility.isMedical,
-        Origin: 'MemberPortal' as const,
-        Source: 'Web' as const,
-        RoutingChatbotInteractionId: chatInfo?.chatGroup || '',
-      };
+    return isBusinessDay && currentHour >= startHour && currentHour < endHour;
+  };
 
-      const session = await chatAPI.startSession(
-        currentPlan.id,
-        userInfo,
-        chatData,
-      );
-      setCurrentSession(session);
-      lockPlanSwitcher();
-      return session;
-    } catch (err) {
-      setError(
-        'There was an issue starting your chat session. Please verify your connection and that you submitted all required information properly, then try again.',
-      );
-      return null;
-    }
-  }, [
-    eligibility,
-    currentPlan,
-    chatPayload,
-    isBusinessHoursOpen,
-    lockPlanSwitcher,
-    chatInfo,
-  ]);
-
-  /**
-   * End the current chat session
-   */
-  const endChatSession = useCallback(async () => {
-    if (!currentSession) return;
-
-    try {
-      await chatAPI.endSession(currentSession.id);
-      setCurrentSession(null);
-      unlockPlanSwitcher();
-    } catch (err) {
-      setError('Failed to end chat session');
-    }
-  }, [currentSession, unlockPlanSwitcher]);
-
-  /**
-   * Check business hours for the current plan
-   */
-  const checkBusinessHours = useCallback(async (memberId: string) => {
-    try {
-      // Now we get business hours directly from the getChatInfo endpoint
-      const chatInfoResponse = await chatAPI.getChatInfo(memberId);
-      setChatInfo(chatInfoResponse);
-
-      // Check if cloud chat is eligible
-      setIsCloudChatEligible(chatInfoResponse.cloudChatEligible);
-
-      // Get business hours from the API
-      const hours = await chatAPI.getBusinessHours(memberId);
-      setBusinessHours(hours);
-      setIsBusinessHoursOpen(hours.isCurrentlyOpen);
-
-      return hours;
-    } catch (err) {
-      setError('Failed to check business hours');
-      setIsBusinessHoursOpen(false);
-      return null;
-    }
-  }, []);
+  const openChat = () => setIsOpen(true);
+  const closeChat = () => setIsOpen(false);
+  const minimizeChat = () => window.Genesys?.('command', 'Messenger.minimize');
+  const maximizeChat = () => window.Genesys?.('command', 'Messenger.maximize');
+  const startChat = () => {
+    setIsChatActive(true);
+    setIsInitialized(true);
+  };
+  const endChat = () => setIsChatActive(false);
 
   useEffect(() => {
-    let mounted = true;
-
-    const fetchData = async () => {
+    const fetchEligibility = async () => {
       try {
-        setIsLoading(true);
-
-        // Get user session data
-        const session = await auth();
-        const memCk = session?.user?.currUsr?.plan?.memCk;
-
-        if (!memCk) {
-          throw new Error('Member ID not found');
-        }
-
-        const userInfo = await getLoggedInUserInfo(memCk);
-        const payload = mapUserInfoToChatPayload(userInfo);
-
-        if (!mounted) return;
-
-        // Get business hours for current member
-        if (memCk) {
-          await checkBusinessHours(memCk);
-        }
-
-        // Process eligibility information
-        const eligibilityData: UserEligibility = {
-          isChatEligibleMember: chatInfo?.chatBotEligibility || false,
-          isDemoMember: false,
-          isAmplifyMem: false,
-          groupId: userInfo.groupData?.groupID || '',
-          memberClientID: userInfo.subscriberID || '',
-          getGroupType: userInfo.groupData?.policyType || '',
-          isBlueEliteGroup: (userInfo.groupData?.groupName || '').includes(
-            'Blue Elite',
-          ),
-          isMedical:
-            userInfo.coverageTypes?.some((t) => t.productType === 'M') || false,
-          isDental:
-            userInfo.coverageTypes?.some((t) => t.productType === 'D') || false,
-          isVision:
-            userInfo.coverageTypes?.some((t) => t.productType === 'V') || false,
-          isWellnessOnly: false,
-          isCobraEligible:
-            userInfo.authFunctions?.some(
-              (f) => f.functionName === 'COBRAELIGIBLE' && f.available,
-            ) || false,
-          chatHours: businessHours ? formatBusinessHours(businessHours) : '',
-          rawChatHours: businessHours ? JSON.stringify(businessHours) : '',
-          isChatbotEligible: chatInfo?.chatBotEligibility || false,
-          memberMedicalPlanID:
-            userInfo.members?.[0]?.planDetails?.find(
-              (p) => p.productCategory === 'M',
-            )?.planID || '',
-          isIDCardEligible:
-            userInfo.authFunctions?.some(
-              (f) => f.functionName === 'IDPROTECTELIGIBLE' && f.available,
-            ) || false,
-          // Fix for type issue - ensure DOB is always a string using type assertion
-          memberDOB: userInfo.subscriberDateOfBirth
-            ? String(userInfo.subscriberDateOfBirth as string | number)
-            : '',
-          subscriberID: userInfo.subscriberID || '',
-          sfx: String(userInfo.members?.[0]?.memberSuffix || ''),
-          memberFirstname: userInfo.subscriberFirstName || '',
-          memberLastName: userInfo.subscriberLastName || '',
-          userID: userInfo.subscriberID || '',
-          isChatAvailable: chatInfo?.chatAvailable || false,
-          routingchatbotEligible: chatInfo?.routingChatBotEligibility || false,
-        };
-
-        setChatPayload(payload);
-        setEligibility(eligibilityData);
-        setIsEligible(
-          eligibilityData.isChatEligibleMember && isBusinessHoursOpen,
+        const response = await fetch(
+          `/api/chat/eligibility?memberId=${memberId}&planId=${planId}`,
         );
-        setError(null);
-        setIsLoading(false);
-      } catch (err) {
-        if (!mounted) return;
+        if (!response.ok) {
+          throw new ChatError(
+            'Failed to fetch chat eligibility',
+            'ELIGIBILITY_ERROR',
+          );
+        }
+        const data: ChatInfoResponse = await response.json();
 
-        setError('Failed to fetch user eligibility information');
+        // Enhance eligibility with business hours check
+        const isAvailable = data.businessHours?.text
+          ? isWithinBusinessHours(data.businessHours.text)
+          : true;
+
+        setEligibility({
+          chatAvailable: data.chatAvailable && isAvailable,
+          cloudChatEligible: data.cloudChatEligible,
+          chatGroup: data.chatGroup,
+          workingHours: data.workingHours,
+          businessHours: {
+            text: data.businessHours?.text || '',
+            isOpen: isAvailable,
+          },
+        });
+      } catch (error) {
+        console.error('Error fetching chat eligibility:', error);
         setEligibility(null);
-        setChatPayload(null);
-        setIsEligible(false);
-        setIsLoading(false);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchData();
-
-    return () => {
-      mounted = false;
-    };
-  }, [currentPlan, checkBusinessHours, isBusinessHoursOpen, chatInfo]); // Re-fetch when plan changes
-
-  /**
-   * Handle events from the chat widget - required for locking/unlocking plan switcher
-   */
-  useEffect(() => {
-    const handleChatStart = () => {
-      lockPlanSwitcher();
-    };
-
-    const handleChatEnd = () => {
-      unlockPlanSwitcher();
-      setCurrentSession(null);
-    };
-
-    // Add event listeners for chat start/end (these would connect to Genesys events)
-    window.addEventListener('chat:started', handleChatStart);
-    window.addEventListener('chat:ended', handleChatEnd);
-
-    return () => {
-      window.removeEventListener('chat:started', handleChatStart);
-      window.removeEventListener('chat:ended', handleChatEnd);
-    };
-  }, [lockPlanSwitcher, unlockPlanSwitcher]);
+    fetchEligibility();
+  }, [memberId, planId]);
 
   return {
-    isLoading,
-    error,
     eligibility,
-    chatPayload,
-    isEligible,
-    isBusinessHoursOpen,
-    businessHours,
-    isLocked,
-    currentSession,
-    startChatSession,
-    endChatSession,
-    lockPlanSwitcher,
-    unlockPlanSwitcher,
-    isCloudChatEligible,
-    chatInfo,
-  };
-}
-
-/**
- * Mock implementation for testing
- */
-export function useChatEligibilityMock() {
-  return {
-    isLoading: false,
-    error: null,
-    eligibility: null as UserEligibility | null,
-    chatPayload: null,
-    isEligible: false,
-    isBusinessHoursOpen: true,
-    businessHours: null,
-    isLocked: false,
-    currentSession: null,
-    startChatSession: async () => null,
-    endChatSession: async () => {},
-    lockPlanSwitcher: () => {},
-    unlockPlanSwitcher: () => {},
-    isCloudChatEligible: false,
-    chatInfo: null,
+    loading,
+    isInitialized,
+    isOpen,
+    isChatActive,
+    error,
+    isLoading: loading,
+    openChat,
+    closeChat,
+    minimizeChat,
+    maximizeChat,
+    startChat,
+    endChat,
   };
 }

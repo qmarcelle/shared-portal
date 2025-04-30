@@ -22,8 +22,7 @@ export default async function ssoDropOffToPing(
   // Initiate Ping flow with myDataMap;
 
   // ping api call to get the referenceId
-  let ref;
-  ref = await challengeDropOffToPing(ssoParamMap);
+  const ref = await challengeDropOffToPing(ssoParamMap);
   console.log('ssoToPing -> REF :: ' + ref);
 
   if (ref == null || ref == undefined) {

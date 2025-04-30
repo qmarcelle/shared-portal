@@ -2,6 +2,17 @@ import axios from 'axios';
 import { logger } from '../logger';
 import { getAuthToken } from './getToken';
 
+export interface ChatInfoResponse {
+  isEligible: boolean;
+  cloudChatEligible: boolean;
+  chatGroup?: string;
+  businessHours?: {
+    text: string;
+    isOpen: boolean;
+  };
+  workingHours?: string;
+}
+
 const memSvcURL = `${process.env.PORTAL_SERVICES_URL}${process.env.MEMBERSERVICE_CONTEXT_ROOT}`;
 
 export const memberService = axios.create({
@@ -27,10 +38,26 @@ memberService.interceptors.request?.use(
       }
     } catch (error) {
       logger.error(`GetAuthToken ${error}`);
+      // If token fetch fails, reject the request
+      return Promise.reject(new Error('Failed to get authentication token'));
     }
     return config;
   },
   (error) => {
+    return Promise.reject(error);
+  },
+);
+
+// Add response interceptor for token expiration
+memberService.interceptors.response?.use(
+  (response) => response,
+  async (error) => {
+    if (error.response?.status === 401) {
+      logger.error('Token expired or invalid');
+      // Trigger token refresh or logout flow
+      window.location.href = '/login';
+      return Promise.reject(new Error('Authentication expired'));
+    }
     return Promise.reject(error);
   },
 );

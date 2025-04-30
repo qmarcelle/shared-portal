@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { TextDecoder, TextEncoder } from 'util';
+import 'whatwg-fetch';
 
 // Mock next/navigation
 jest.mock('next/navigation', () => ({
@@ -177,30 +178,48 @@ global.fetch = jest.fn((input: RequestInfo | URL) => {
 }) as jest.Mock;
 
 // Mock IntersectionObserver
-class MockIntersectionObserver {
-  observe = jest.fn();
-  unobserve = jest.fn();
-  disconnect = jest.fn();
+class MockIntersectionObserver implements IntersectionObserver {
+  readonly root: Element | null = null;
+  readonly rootMargin: string = '0px';
+  readonly thresholds: ReadonlyArray<number> = [0];
+
+  constructor(
+    private callback: IntersectionObserverCallback,
+    private options?: IntersectionObserverInit,
+  ) {}
+
+  observe(): void {}
+  unobserve(): void {}
+  disconnect(): void {}
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
 }
 
-Object.defineProperty(window, 'IntersectionObserver', {
-  writable: true,
-  configurable: true,
-  value: MockIntersectionObserver,
-});
+global.IntersectionObserver = MockIntersectionObserver;
 
 // Mock ResizeObserver
-class MockResizeObserver {
-  observe = jest.fn();
-  unobserve = jest.fn();
-  disconnect = jest.fn();
+class MockResizeObserver implements ResizeObserver {
+  constructor(private callback: ResizeObserverCallback) {}
+
+  observe(target: Element, options?: ResizeObserverOptions): void {}
+  unobserve(target: Element): void {}
+  disconnect(): void {}
 }
 
-Object.defineProperty(window, 'ResizeObserver', {
-  writable: true,
-  configurable: true,
-  value: MockResizeObserver,
-});
+global.ResizeObserver = MockResizeObserver;
+
+// Mock window.matchMedia
+window.matchMedia = jest.fn().mockImplementation((query) => ({
+  matches: false,
+  media: query,
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
+  dispatchEvent: jest.fn(),
+}));
 
 // Mock crypto for UUID generation
 Object.defineProperty(window, 'crypto', {
@@ -219,4 +238,22 @@ Object.defineProperty(window, 'crypto', {
 // Clear all mocks after each test
 afterEach(() => {
   jest.clearAllMocks();
+});
+
+// Suppress console errors during tests
+const originalError = console.error;
+beforeAll(() => {
+  console.error = (...args) => {
+    if (
+      typeof args[0] === 'string' &&
+      args[0].includes('Warning: ReactDOM.render is no longer supported')
+    ) {
+      return;
+    }
+    originalError.call(console, ...args);
+  };
+});
+
+afterAll(() => {
+  console.error = originalError;
 });

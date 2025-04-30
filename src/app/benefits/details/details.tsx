@@ -3,8 +3,8 @@ import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
-import estimateCost from '@/public/assets/estimate_cost.svg';
-import servicesUsed from '@/public/assets/services_used.svg';
+import estimateCost from '../../../../public/assets/estimate_cost.svg';
+import servicesUsed from '../../../../public/assets/services_used.svg';
 import { BalanceSectionWrapper } from '../balances/components/BalanceSection';
 import {
   SpendingAccountSection,

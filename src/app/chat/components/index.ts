@@ -1,23 +1,15 @@
 /**
  * Component Exports
- * Centralizes all component exports following the new directory structure
+ * Centralizes all component exports following the new consolidated structure
  */
 
-// Core Components
-export { ChatContainer } from './core/ChatContainer';
-export { ChatControls } from './core/ChatControls';
-export { ChatWidget } from './core/ChatWidget';
+// Main Components
+export { ChatTrigger } from './ChatTrigger';
+export { ChatWidget } from './ChatWidget';
+export { PlanInfoHeader } from './PlanInfoHeader';
 
-// Feature Components
-export { BusinessHoursDisplay } from './features/business-hours/BusinessHoursDisplay';
-export { BusinessHoursNotification } from './features/business-hours/BusinessHoursNotification';
-export { ActiveChatWindow, ChatStartWindow } from './features/chat-window';
-export { EligibilityCheck } from './features/eligibility/EligibilityCheck';
-export { PlanSwitcher } from './features/plan-switcher/PlanSwitcher';
-
-// Dashboard Widget
-export { DashboardChatWidget } from './DashboardChatWidget';
-
-// Shared Components
+// Error Handling
 export { ChatErrorBoundary } from './shared/ChatErrorBoundary';
-export { LoadingState } from './shared/LoadingState';
+
+// Integration Components (to be consolidated)
+export { GenesysScripts } from './GenesysScripts';

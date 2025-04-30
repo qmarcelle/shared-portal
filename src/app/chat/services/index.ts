@@ -8,26 +8,4 @@
  * - API services
  */
 
-// Chat Services
-export * from './chat/ChatService';
-export * from './chat/LegacyOnPremProvider';
-export * from './chat/WebMessagingProvider';
-
-// Auth Services
-export * from './auth/ChatAuthService';
-
-// Plan Services
-export * from './plan/PlanService';
-
-// Business Hours Services
-export * from './business-hours/BusinessHoursService';
-
-// Integration Services
-export { CobrowseService } from './cobrowse/CobrowseService';
-
-// API Services
-export * from './api/cp-chat-api';
-export * from './api/index';
-
-// Utils
-export * from './utils/chatHours';
+export { ChatService } from './ChatService';

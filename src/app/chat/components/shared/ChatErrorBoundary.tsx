@@ -1,49 +1,18 @@
 'use client';
 
-import { logger } from '@/utils/logger';
+import { ChatError } from '@/app/chat/types/index';
 import React, { Component, ErrorInfo } from 'react';
-import {
-  ChatError,
-  ChatErrorBoundaryProps,
-  ChatErrorBoundaryState,
-} from '../../models/errors';
 
-interface ErrorFallbackProps {
-  error: ChatError;
-  resetError: () => void;
+interface Props {
+  children: React.ReactNode;
+  onError?: (error: ChatError) => void;
+  onReset?: () => void;
+  fallback?: React.ReactElement;
 }
 
-const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error, resetError }) => (
-  <div className="chat-error-fallback" role="alert">
-    <div className="error-content">
-      <h3>Chat Error</h3>
-      <p>{error.message}</p>
-      {error.severity === 'error' && (
-        <div className="error-actions">
-          <button
-            onClick={resetError}
-            className="retry-button"
-            aria-label="Retry"
-          >
-            Try Again
-          </button>
-          <button
-            onClick={() => window.location.reload()}
-            className="refresh-button"
-            aria-label="Refresh page"
-          >
-            Refresh Page
-          </button>
-        </div>
-      )}
-      {error.severity === 'warning' && (
-        <button onClick={resetError} className="dismiss-button">
-          Dismiss
-        </button>
-      )}
-    </div>
-  </div>
-);
+interface State {
+  error: ChatError | null;
+}
 
 /**
  * ChatErrorBoundary
@@ -56,83 +25,63 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error, resetError }) => (
  * - Supports custom error handling
  * - Maintains error state for recovery
  */
-export class ChatErrorBoundary extends Component<
-  ChatErrorBoundaryProps,
-  ChatErrorBoundaryState
-> {
-  constructor(props: ChatErrorBoundaryProps) {
+export class ChatErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = { error: null };
-    this.resetError = this.resetError.bind(this);
   }
 
-  static getDerivedStateFromError(error: unknown): ChatErrorBoundaryState {
-    // Convert any error to a ChatError
-    const chatError = ChatError.isChatError(error)
-      ? error
-      : ChatError.fromError(error, 'INITIALIZATION_ERROR');
-
-    return { error: chatError };
+  static getDerivedStateFromError(error: Error): State {
+    return {
+      error:
+        error instanceof ChatError
+          ? error
+          : new ChatError('An unexpected error occurred', 'UNKNOWN_ERROR'),
+    };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log the error with additional context
-    logger.error('Chat component error:', {
-      error: ChatError.fromError(error),
-      componentStack: errorInfo.componentStack,
-      timestamp: new Date().toISOString(),
-      severity: error instanceof ChatError ? error.severity : 'error',
-    });
-
-    // Call the onError prop if provided
-    if (this.props.onError) {
-      this.props.onError(ChatError.fromError(error), errorInfo);
-    }
-
-    // Track error for analytics
-    if (typeof window !== 'undefined' && window.analytics) {
-      window.analytics.track('Chat Error', {
-        error: error.message,
-        type: error instanceof ChatError ? error.code : 'UNKNOWN',
-        severity: error instanceof ChatError ? error.severity : 'error',
-      });
+    console.error('Chat error:', error, errorInfo);
+    if (this.props.onError && error instanceof ChatError) {
+      this.props.onError(error);
     }
   }
 
-  resetError() {
+  resetError = () => {
     this.setState({ error: null });
-
-    // Call onReset prop if provided
-    if (this.props.onReset) {
-      this.props.onReset();
-    }
-  }
+    this.props.onReset?.();
+  };
 
   render() {
-    const { error } = this.state;
-    const { fallback, children } = this.props;
-
-    if (error) {
-      // Use custom fallback if provided
-      if (fallback) {
-        return React.cloneElement(fallback, {
+    if (this.state.error) {
+      const { error } = this.state;
+      if (this.props.fallback) {
+        return React.cloneElement(this.props.fallback, {
           error,
           resetError: this.resetError,
         });
       }
-
-      // Use default error fallback
-      return <ErrorFallback error={error} resetError={this.resetError} />;
+      return (
+        <div className="chat-error">
+          <h3>Chat Error</h3>
+          <p>{error.message}</p>
+          <div className="error-actions">
+            <button onClick={this.resetError} className="retry-button">
+              Try Again
+            </button>
+          </div>
+        </div>
+      );
     }
 
-    return children;
+    return this.props.children;
   }
 }
 
 // HOC for wrapping components with error boundary
 export const withChatErrorBoundary = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
-  errorBoundaryProps?: Partial<ChatErrorBoundaryProps>,
+  errorBoundaryProps?: Partial<Props>,
 ) => {
   return function WithErrorBoundary(props: P) {
     return (

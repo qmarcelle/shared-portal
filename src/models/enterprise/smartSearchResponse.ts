@@ -1,6 +1,7 @@
-export type SmartSearchResponse = {
-  suggestionResponse: string;
-};
+export interface SmartSearchResponse {
+  data: Record<string, unknown>;
+  status: number;
+}
 
 export type SmartSearchSuggestionResponse = {
   fusion: Fusion;
@@ -24,7 +25,7 @@ export type FacetFields = {
   type: Array<number | string>;
 };
 
-export type Facet = {};
+export type Facet = Record<string, unknown>;
 
 export type Fusion = {
   qtime: string[];

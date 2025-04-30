@@ -1,58 +1,69 @@
-import type { Config } from 'jest';
-import nextJest from 'next/jest.js';
+import type { Config } from '@jest/types';
 
-const createJestConfig = nextJest({
-  dir: './',
-});
-
-const config: Config = {
-  coverageProvider: 'v8',
-  testEnvironment: 'jsdom',
+const config: Config.InitialOptions = {
+  preset: 'ts-jest',
+  testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@app/(.*)$': '<rootDir>/src/app/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
-    '^@auth/(.*)$': '<rootDir>/node_modules/@auth/$1',
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '^@chat/(.*)$': '<rootDir>/src/app/chat/$1',
+    '\\.svg$': '<rootDir>/src/__mocks__/fileMock.js',
+    '\\.(jpg|jpeg|png|gif|webp|ico)$': '<rootDir>/src/__mocks__/fileMock.js',
+    '^src/(.*)$': '<rootDir>/src/$1',
   },
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/**/index.{ts,tsx}',
+    '!src/**/*.stories.{ts,tsx}',
+  ],
+  coverageThreshold: {
+    global: {
+      statements: 90,
+      branches: 90,
+      functions: 90,
+      lines: 90,
+    },
+    './src/app/chat/services/**/*.ts': {
+      statements: 95,
+      branches: 95,
+    },
+  },
+  testMatch: [
+    '**/__tests__/**/*.test.[jt]s?(x)',
+    '**/?(*.)+(spec|test).[jt]s?(x)',
+  ],
   transform: {
-    '^.+\\.(t|j)sx?$': [
-      '@swc/jest',
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
       {
-        jsc: {
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
-          },
+        tsconfig: {
+          jsx: 'react-jsx',
+          esModuleInterop: true,
+          allowJs: true,
         },
       },
     ],
   },
-  transformIgnorePatterns: [
-    '/node_modules/(?!next-auth|@auth/core|@babel/runtime|@swc/helpers)/',
-  ],
-  moduleDirectories: ['node_modules', '<rootDir>/src'],
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
-  collectCoverageFrom: [
-    'src/**/*.{js,jsx,ts,tsx}',
-    '!src/**/*.d.ts',
-    '!src/**/*.stories.{js,jsx,ts,tsx}',
-    '!src/**/index.{js,ts}',
-    '!src/**/types.ts',
-  ],
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80,
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.json',
+      jsx: 'react-jsx',
+      isolatedModules: true,
     },
   },
   testEnvironmentOptions: {
     customExportConditions: [''],
   },
+  transformIgnorePatterns: [
+    '/node_modules/(?!(@testing-library|@babel/runtime|@swc/helpers)/)',
+  ],
+  moduleDirectories: ['node_modules', 'src'],
 };
 
-export default createJestConfig(config);
+export default config;

@@ -1,337 +1,477 @@
-# BCBST Member Portal Chat System Implementation
+# Chat System Implementation Guide
 
-## Core Components
+## Table of Contents
 
-### Chat Widgets
+1. [Architecture Overview](#architecture-overview)
+2. [Directory Structure](#directory-structure)
+3. [Implementation Paths](#implementation-paths)
+   - [Cloud Chat Implementation](#cloud-chat-implementation)
+   - [Legacy Chat Implementation](#legacy-chat-implementation)
+4. [Integration Flow](#integration-flow)
+5. [State Management](#state-management)
+6. [Error Handling](#error-handling)
+7. [Plan Switching](#plan-switching)
+8. [Testing](#testing)
+9. [Common Issues & Solutions](#common-issues--solutions)
+10. [Deployment Considerations](#deployment-considerations)
+11. [Maintenance & Updates](#maintenance--updates)
+12. [Contributing Guidelines](#contributing-guidelines)
 
-1. `src/app/chat/components/widgets/GenesysCloudChatWidget.tsx`
+## Architecture Overview
 
-   - Main cloud-based chat widget implementation
-   - Handles Genesys Cloud integration
-   - Manages chat events and user data
+The chat system is designed to support two different implementations:
 
-2. `src/app/chat/components/widgets/CloudChatWidget.tsx`
+1. **Cloud Chat** (Genesys Web Messaging API) - Modern implementation using React components
+2. **Legacy Chat** (chat.js widget) - Legacy implementation using the older Genesys chat widget
 
-   - Simplified cloud chat widget
-   - Initializes Genesys Cloud chat
-   - Manages user data and configuration
+The system determines which implementation to use based on an eligibility check that returns a `cloudChatEligible` flag. This architecture allows for backward compatibility while supporting newer features in the cloud implementation.
 
-3. `src/app/chat/components/widgets/LegacyOnPremChatWidget.tsx`
+```
+┌────────────────┐     ┌─────────────────┐
+│                │     │                 │
+│  Components    │◄────┤  Chat Service   │
+│                │     │                 │
+└────────────────┘     └─────────────────┘
+         ▲                     ▲
+         │                     │
+         │                     │
+┌────────┴────────┐     ┌─────┴─────────┐
+│                 │     │               │
+│    Chat Store   │◄────┤   Eligibility │
+│                 │     │               │
+└─────────────────┘     └───────────────┘
+```
 
-   - Legacy on-premises chat implementation
-   - Handles non-cloud eligible members
-   - Manages chat events and configuration
+## Directory Structure
 
-4. `src/app/chat/components/core/ChatWidget.tsx`
-   - Core chat widget wrapper
-   - Manages chat state and UI
-   - Handles plan switching and eligibility
+```
+src/app/chat/
+├── components/        # UI components for chat
+│   ├── Chat.tsx      # Main chat component
+│   ├── ChatWindow.tsx # Chat window UI
+│   ├── ChatTrigger.tsx # Button to open chat
+│   └── PlanInfoHeader.tsx # Header showing plan info
+├── config/           # Configuration for chat implementations
+├── hooks/            # Custom hooks for chat functionality
+│   ├── useChat.ts    # Core hook for chat functionality
+│   └── useChatEligibility.ts # Hook for eligibility checks
+├── services/         # Services for API interactions
+│   └── ChatService.ts # Service for chat API calls
+├── stores/           # State management
+│   └── chatStore.ts  # Zustand store for chat state
+├── types/            # TypeScript type definitions
+├── utils/            # Utility functions
+└── schemas/          # Validation schemas
+    └── genesys.schema.ts # Schema for chat configuration
+```
 
-## Services and Hooks
+## Implementation Paths
 
-1. `src/app/chat/services/plan/PlanService.ts`
+### Cloud Chat Implementation
 
-   - Manages plan-related functionality
-   - Handles plan eligibility
-   - Provides plan information
+The Cloud Chat implementation uses the Genesys Web Messaging API and React components:
 
-2. `src/app/chat/hooks/useChatEligibility.ts`
-
-   - Custom hook for eligibility checks
-   - Manages business hours
-   - Handles plan switching locks
-
-3. `src/app/chat/hooks/useChat.ts`
-   - Main chat functionality hook
-   - Manages chat state
-   - Handles chat events
-
-## Providers and Configuration
-
-1. `src/app/chat/providers/ChatProviderFactory.tsx`
-
-   - Factory for chat implementation
-   - Determines cloud vs. on-prem
-   - Loads appropriate scripts
-
-2. `src/app/chat/config/widget.config.ts`
-   - Widget configuration
-   - Genesys settings
-   - Chat UI configuration
-
-## Documentation
-
-1. `src/app/chat/docs/API_INTEGRATION.md`
-
-   - API integration details
-   - Error handling documentation
-   - Integration patterns
-
-2. `src/app/chat/README.md`
-   - Implementation overview
-   - Chat payload structure
-   - Business hours format
-
-## Tests
-
-1. `src/app/chat/__tests__/components/core/GenesysChat.test.tsx`
-
-   - Core chat component tests
-   - Plan switching tests
-   - Authentication tests
-
-2. `src/app/chat/__tests__/components/core/GenesysWidget.test.tsx`
-   - Widget functionality tests
-   - Configuration tests
-   - Event handling tests
-
-## Types and Models
-
-1. `src/app/chat/models/types.ts`
-
-   - TypeScript interfaces
-   - Chat-related types
-   - Genesys types
-
-2. `src/app/chat/models/errors.ts`
-   - Error definitions
-   - Error handling types
-   - Error codes
-
-## Stores
-
-1. `src/app/chat/stores/chatStore.ts`
-   - Chat state management
-   - User session data
-   - Chat configuration
-
-## Additional Files
-
-1. `src/app/chat/config/env.ts`
-
-   - Environment configuration
-   - API endpoints
-   - Feature flags
-
-2. `src/app/chat/services/api/index.ts`
-
-   - API service implementation
-   - Endpoint definitions
-   - Request/response handling
-
-3. `src/app/chat/services/utils/businessHours.ts`
-
-   - Business hours utilities
-   - Time zone handling
-   - Hours formatting
-
-4. `public/chat.js`
-
-   - On-premises chat script
-   - Legacy implementation
-   - Chat initialization
-
-5. `public/genesys-config.js`
-   - Genesys configuration
-   - Widget settings
-   - Integration parameters
-
-## Key Features Implementation Status
-
-1. ✅ Chat Data Management
-
-   - Chat payload structure
+1. **Initialization**:
 
    ```typescript
-   {
-     "SERV_Type": "MemberPortal",
-     "firstname": "...",
-     "RoutingChatbotInteractionId": "...",
-     "PLAN_ID": "...",
-     "lastname": "...",
-     "GROUP_ID": "...",
-     "IDCardBotName": "...",
-     "IsVisionEligible": true/false,
-     "MEMBER_ID": "...",
-     "coverage_eligibility": true/false,
-     "INQ_TYPE": "...",
-     "IsDentalEligible": true/false,
-     "MEMBER_DOB": "...",
-     "LOB": "...",
-     "lob_group": "...",
-     "IsMedicalEligibile": true/false,
-     "Origin": "MemberPortal",
-     "Source": "Web"
+   // In ChatService.ts
+   async initializeCloudChat() {
+     // Load Genesys Web Messaging script
+     await loadGenesysScript(config.cloudChatUrl);
+
+     // Initialize Genesys Web Messaging
+     window.Genesys('registerWidgetConfig', {
+       // Configuration specific to cloud implementation
+     });
+
+     // Setup event listeners
+     window.Genesys('subscribe', 'ready', this.handleReady);
+     window.Genesys('subscribe', 'conversationStarted', this.handleConversationStarted);
+     // Additional event subscriptions...
    }
    ```
 
-   - Data validation
-   - Error handling
+2. **Commands**:
 
-2. ✅ Chat Session Management
+   ```typescript
+   // Commands for cloud implementation
+   openChat() {
+     window.Genesys('command', 'Messenger.open');
+   }
 
-   - Session initialization
-   - Session cleanup
-   - State management
-   - Business hours format: `DAY_DAY_HOUR_HOUR`
-     - Example: `M_F_8_6` (Monday to Friday, 8AM to 6PM)
-     - Example: `S_S_24` (24/7 availability)
+   closeChat() {
+     window.Genesys('command', 'Messenger.close');
+   }
 
-3. ✅ Backend Integration
+   // Additional commands...
+   ```
 
-   - Genesys Cloud integration via Web Messenger API
-   - On-premises integration via legacy widget
-   - API endpoints for:
-     - Eligibility checks
-     - Business hours
-     - Chat session management
-     - Plan switching
+3. **Event Handling**:
+   ```typescript
+   // In useChat.ts
+   const handleCloudChatEvents = () => {
+     // Handle events specific to cloud implementation
+   };
+   ```
 
-4. ✅ User Interface
+### Legacy Chat Implementation
 
-   - Chat windows (start, active, end states)
-   - Plan switching interface
-   - Error messages and alerts
-   - Loading states
-   - Business hours notifications
+The Legacy Chat implementation uses the older Genesys chat.js widget:
 
-5. ✅ Business Rules
+1. **Initialization**:
 
-   - Eligibility checks:
-     - Plan-based eligibility
-     - Business hours validation
-     - User authentication
-   - Plan switching rules:
-     - Lock during active chat
-     - Update chat data on switch
-     - Multiple plan handling
+   ```typescript
+   // In ChatService.ts
+   async initializeLegacyChat() {
+     // Load legacy chat.js script
+     await loadGenesysScript('/assets/genesys/click_to_chat.js');
 
-6. ✅ Testing
-   - Unit tests for components
-   - Integration tests for:
-     - Multi-plan scenarios
-     - Business hours
-     - Eligibility checks
-   - Component tests for UI elements
+     // Initialize legacy chat
+     window._genesys.widgets.chat.main.initChatBox();
 
-## Integration Methods
+     // Setup event listeners
+     window._genesys.widgets.chat.main.setChatCallback(this.handleLegacyChatEvents);
+   }
+   ```
 
-### Cloud Integration
+2. **Commands**:
 
-- Uses Genesys Web Messenger API
-- Script: `https://apps.mypurecloud.com/widgets/9.0/webmessenger.js`
-- Supports modern features:
-  - File uploads
-  - Emoji support
-  - Typing indicators
-  - Real-time updates
+   ```typescript
+   // Commands for legacy implementation
+   openChat() {
+     window._genesys.widgets.chat.main.openChat();
+   }
 
-### On-Premises Integration
+   closeChat() {
+     window._genesys.widgets.chat.main.closeChat();
+   }
 
-- Uses legacy widget from `/public/chat.js`
-- Maintains compatibility with older systems
-- Supports basic chat functionality:
-  - Text messages
-  - Basic formatting
-  - Session management
+   // Additional commands...
+   ```
+
+3. **Event Handling**:
+   ```typescript
+   // In useChat.ts
+   const handleLegacyChatEvents = (event) => {
+     // Handle events specific to legacy implementation
+   };
+   ```
+
+## Integration Flow
+
+The integration flow follows these steps:
+
+1. **Eligibility Check**: Determine if the user is eligible for Cloud Chat or Legacy Chat
+
+   ```typescript
+   // In useChatEligibility.ts
+   const { cloudChatEligible } = useChatEligibility(memberId, planId);
+   ```
+
+2. **Service Initialization**: Initialize the appropriate chat service based on eligibility
+
+   ```typescript
+   // In Chat.tsx
+   useEffect(() => {
+     if (isEligibilityLoaded) {
+       chatService.initialize(cloudChatEligible);
+     }
+   }, [isEligibilityLoaded, cloudChatEligible]);
+   ```
+
+3. **Component Rendering**: Render the appropriate UI components
+
+   ```tsx
+   // In Chat.tsx
+   return (
+     <>
+       <ChatTrigger onClick={handleOpenChat} />
+       {isOpen && <ChatWindow onClose={handleCloseChat} />}
+     </>
+   );
+   ```
+
+4. **Event Handling**: Set up event handlers for the chat implementation
+
+   ```typescript
+   // In useChat.ts
+   useEffect(() => {
+     if (cloudChatEligible) {
+       setupCloudChatEventHandlers();
+     } else {
+       setupLegacyChatEventHandlers();
+     }
+
+     return () => {
+       cleanupEventHandlers();
+     };
+   }, [cloudChatEligible]);
+   ```
+
+## State Management
+
+The chat system uses Zustand for state management. The chatStore manages:
+
+- UI state (open/closed, minimized/maximized)
+- Chat state (messages, thread ID)
+- Eligibility state
+- Plan switching
+
+```typescript
+// In chatStore.ts
+const useChatStore = create<ChatStore>((set) => ({
+  // UI State
+  isOpen: false,
+  isMinimized: false,
+
+  // Chat State
+  messages: [],
+  threadId: null,
+  isReady: false,
+
+  // Eligibility State
+  eligibility: {
+    isChatAvailable: false,
+    cloudChatEligible: false,
+    isLoading: true,
+    error: null,
+  },
+
+  // Plan Switching
+  isPlanSwitchLocked: false,
+
+  // Actions
+  setOpen: (isOpen) => set({ isOpen }),
+  setMinimized: (isMinimized) => set({ isMinimized }),
+  addMessage: (message) =>
+    set((state) => ({
+      messages: [...state.messages, message],
+    })),
+  // Additional actions...
+}));
+```
 
 ## Error Handling
 
-Common error codes and their meanings:
+The chat system implements comprehensive error handling:
 
-- `CHAT_START_ERROR`: Failed to start chat session
-- `CHAT_END_ERROR`: Failed to end chat session
-- `HOURS_CHECK_FAILED`: Failed to check business hours
-- `ELIGIBILITY_CHECK_FAILED`: Failed to check eligibility
-- `NETWORK_ERROR`: General network connectivity issues
+1. **API Errors**: Handled in ChatService.ts with specific error types
 
-## Security Considerations
+   ```typescript
+   try {
+     const response = await fetch('/api/chat/info');
+     if (!response.ok) {
+       throw new ChatError('Failed to fetch chat info', 'API_ERROR');
+     }
+     return await response.json();
+   } catch (error) {
+     throw new ChatError('Failed to fetch chat info', 'API_ERROR');
+   }
+   ```
 
-1. Authentication
+2. **Script Loading Errors**: Handled during script initialization
 
-   - JWT-based authentication
-   - Session management
-   - Token refresh handling
+   ```typescript
+   try {
+     await loadGenesysScript(scriptUrl);
+   } catch (error) {
+     handleScriptLoadError(error);
+   }
+   ```
 
-2. Data Protection
+3. **Runtime Errors**: Captured with error boundaries
+   ```tsx
+   // In ChatErrorBoundary.tsx
+   class ChatErrorBoundary extends React.Component {
+     // Error boundary implementation
+   }
+   ```
 
-   - Secure data transmission
-   - PII handling
-   - Session encryption
+## Plan Switching
 
-3. Access Control
-   - Role-based access
-   - Plan-specific permissions
-   - Feature flags
+The chat system supports plan switching during an active chat:
 
-## Performance Optimizations
+1. **Lock Plan Switching**: When a chat is active, the plan switcher is locked
 
-1. Resource Loading
+   ```typescript
+   // In ChatService.ts
+   startChat() {
+     // Start chat logic...
+     this.onLockPlanSwitcher(true);
+   }
 
-   - Async script loading
-   - Dynamic imports
-   - Code splitting
+   endChat() {
+     // End chat logic...
+     this.onLockPlanSwitcher(false);
+   }
+   ```
 
-2. State Management
+2. **Update Chat Context**: When plans are switched, the chat context is updated
+   ```typescript
+   // In useChat.ts
+   useEffect(() => {
+     if (currentPlanId !== previousPlanId) {
+       chatService.updateChatContext({
+         planId: currentPlanId,
+         planName: currentPlanName,
+       });
+     }
+   }, [currentPlanId, currentPlanName]);
+   ```
 
-   - Efficient updates
-   - Caching strategies
-   - Memory management
+## Testing
 
-3. Error Recovery
-   - Automatic retries
-   - Fallback mechanisms
-   - Graceful degradation
+The chat system includes tests for:
 
-## Accessibility Features
+1. **Unit Tests**: For individual components and hooks
 
-1. ARIA Support
+   ```typescript
+   // In __tests__/useChat.test.ts
+   test('useChat should initialize cloud chat when eligible', () => {
+     // Test implementation
+   });
+   ```
 
-   - Proper labeling
-   - Role definitions
-   - State announcements
+2. **Integration Tests**: For testing the interaction between components
 
-2. Keyboard Navigation
+   ```typescript
+   // In __tests__/Chat.test.tsx
+   test('Chat should render ChatWindow when open', () => {
+     // Test implementation
+   });
+   ```
 
-   - Focus management
-   - Shortcut keys
-   - Tab order
+3. **Mock Data**: For simulating API responses
+   ```typescript
+   // In mocks/chatData.ts
+   export const mockChatInfo = {
+     isChatAvailable: true,
+     cloudChatEligible: true,
+     // Additional mock data...
+   };
+   ```
 
-3. Screen Reader Support
-   - Descriptive text
-   - Status updates
-   - Error announcements
+## Common Issues & Solutions
 
-## Future Enhancements
+### Visibility Issues with Legacy Chat
 
-1. Potential Improvements
+**Problem**: Legacy chat widget buttons (minimize, close) not visible after initialization.
 
-   - Enhanced analytics
-   - AI-powered routing
-   - Multilingual support
-   - Improved file handling
+**Solution**: Use a MutationObserver to detect when the widget is added to the DOM:
 
-2. Planned Features
-   - Video chat support
-   - Co-browsing
-   - Chat transcripts
-   - Satisfaction surveys
+```typescript
+// In useChat.ts
+const observeWidgetVisibility = () => {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList') {
+        const widgetHeader = document.querySelector('.cx-widget-header');
+        if (widgetHeader) {
+          // Apply visibility fixes
+          const buttonGroup = widgetHeader.querySelector('.cx-button-group');
+          if (buttonGroup) {
+            buttonGroup.setAttribute('style', 'visibility: visible;');
+          }
+          observer.disconnect();
+        }
+      }
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+  return observer;
+};
+```
+
+### Script Loading Failures
+
+**Problem**: Genesys script fails to load or initialize.
+
+**Solution**: Implement retry logic with exponential backoff:
+
+```typescript
+// In ChatService.ts
+const loadScriptWithRetry = async (url: string, retries = 3): Promise<void> => {
+  try {
+    await loadGenesysScript(url);
+  } catch (error) {
+    if (retries > 0) {
+      const delay = Math.pow(2, 3 - retries) * 1000;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      return loadScriptWithRetry(url, retries - 1);
+    }
+    throw error;
+  }
+};
+```
 
 ## Deployment Considerations
 
-1. Environment Setup
+1. **Content Security Policy (CSP)**: Ensure the CSP allows loading of Genesys scripts and connections
 
-   - Configuration management
-   - API endpoints
-   - Feature flags
+   ```javascript
+   // In next.config.mjs
+   {
+     headers: [
+       {
+         source: '/:path*',
+         headers: [
+           {
+             key: 'Content-Security-Policy',
+             value: `
+               connect-src 'self' *.incontact.com *.genesys.com;
+               script-src 'self' 'unsafe-inline' *.incontact.com *.genesys.com;
+               frame-src 'self' *.incontact.com *.genesys.com;
+             `,
+           },
+         ],
+       },
+     ];
+   }
+   ```
 
-2. Monitoring
+2. **External Scripts**: Configure webpack to handle Genesys scripts as externals
+   ```javascript
+   // In next.config.mjs
+   {
+     webpack: (config) => {
+       config.externals = {
+         ...config.externals,
+         'genesys-web-messaging': 'Genesys',
+       };
+       return config;
+     };
+   }
+   ```
 
-   - Error tracking
-   - Performance metrics
-   - Usage analytics
+## Maintenance & Updates
 
-3. Maintenance
-   - Version updates
-   - Dependency management
-   - Security patches
+### Updating Genesys Scripts
+
+When updating Genesys scripts:
+
+1. Update the script URL in the configuration
+2. Test both cloud and legacy implementations thoroughly
+3. Update event handlers if the API has changed
+
+### Adding New Features
+
+When adding new features:
+
+1. Implement the feature in both cloud and legacy paths
+2. Update the appropriate types and schemas
+3. Add tests for the new feature
+
+## Contributing Guidelines
+
+When contributing to the chat system:
+
+1. **Separation of Concerns**: Keep cloud and legacy implementations separate
+2. **Type Safety**: Ensure all types are properly defined
+3. **Testing**: Add tests for new features or changes
+4. **Documentation**: Update this implementation guide with any changes
+5. **Error Handling**: Implement proper error handling for new code
+
+---
+
+This implementation guide is a living document. Please keep it updated as the chat system evolves.

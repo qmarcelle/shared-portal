@@ -40,13 +40,7 @@ declare global {
     function restoreAllMocks(): void;
   }
 
-  interface Window {
-    CobrowseIO?: any;
-    crypto: {
-      randomUUID: () => string;
-      getRandomValues: (array: Uint32Array) => Uint32Array;
-    };
-  }
+  var ResizeObserver: jest.Mock;
 }
 
 // Jest testing types
@@ -73,15 +67,6 @@ interface Window {
     stop: () => Promise<void>;
     createSessionCode: () => Promise<string>;
   };
-}
-
-// Extend NodeJS global to include DOM test APIs
-declare global {
-  interface Window {
-    CobrowseIO?: any;
-  }
-
-  var ResizeObserver: jest.Mock;
 }
 
 // Declare modules that don't have types
