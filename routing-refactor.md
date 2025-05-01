@@ -2,19 +2,19 @@
 
 ## 0️⃣ Status Snapshot
 
-| Date       | Sprint    | % Complete | Lead   | Notes                     |
-| ---------- | --------- | ---------- | ------ | ------------------------- |
-| 2025-05-02 | Sprint 14 | 20%        | @Qwynn | P0-1 routes module merged |
+| Date       | Sprint    | % Complete | Lead   | Notes                                   |
+| ---------- | --------- | ---------- | ------ | --------------------------------------- |
+| 2025-05-02 | Sprint 14 | 30%        | @Qwynn | P0-1 routes module and middleware impl. |
 
 ---
 
 ## 1️⃣ Architectural Decisions (ADR Lite)
 
-| #       | Topic                   | Decision                                                                    | Rationale                                              | Link/PR |
-| ------- | ----------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------ | ------- |
-| ADR-001 | Public URL Strategy     | `/member/*` remains visible; middleware rewrites internally to `/{group}/*` | Clean URLs, multi-tenant                               | PR #312 |
-| ADR-002 | Central Routes Metadata | Use `src/lib/routes.ts` as single source-of-truth for all route paths       | Avoid hard-coded strings, enable helpers & breadcrumbs |         |
-| ADR-003 | Breadcrumb Generation   | Leverage Next.js 14 metadata API or central `getBreadcrumbs()` util         | Auto-generate crumbs, reduce boilerplate               |         |
+| #       | Topic                   | Decision                                                                    | Rationale                                              | Link/PR                            |
+| ------- | ----------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------- |
+| ADR-001 | Public URL Strategy     | `/member/*` remains visible; middleware rewrites internally to `/{group}/*` | Clean URLs, multi-tenant                               | PR #312 + implement-tenant-rewrite |
+| ADR-002 | Central Routes Metadata | Use `src/lib/routes.ts` as single source-of-truth for all route paths       | Avoid hard-coded strings, enable helpers & breadcrumbs |                                    |
+| ADR-003 | Breadcrumb Generation   | Leverage Next.js 14 metadata API or central `getBreadcrumbs()` util         | Auto-generate crumbs, reduce boilerplate               |                                    |
 
 ---
 

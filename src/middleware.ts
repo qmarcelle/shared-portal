@@ -1,8 +1,6 @@
 import { jwtVerify } from 'jose';
-import { getServerSession } from 'next-auth';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import authConfig from './auth.config';
 
 // Define protected routes that require authentication
 const protectedRoutes = [
@@ -20,11 +18,47 @@ const protectedRoutes = [
 // Define SSO routes that need special handling
 const ssoRoutes = ['/sso/launch', '/sso/redirect'];
 
-export async function middleware(request: NextRequest) {
-  const session = await getServerSession(authConfig);
+// Define special paths that should not be processed by the middleware
+const excludedPaths = ['/api', '/_next', '/favicon.ico', '/public'];
 
-  // Get the pathname of the request
+export async function middleware(request: NextRequest) {
+  // Skip processing for excluded paths
   const path = request.nextUrl.pathname;
+  if (excludedPaths.some((excludedPath) => path.startsWith(excludedPath))) {
+    return NextResponse.next();
+  }
+
+  // Handle group-based URL rewriting for /member/ paths (ADR-001)
+  if (path.startsWith('/member/')) {
+    const url = request.nextUrl.clone();
+    let group = 'member'; // Default group
+
+    // Determine group based on JWT token audience claim
+    const token = request.cookies.get('next-auth.session-token')?.value;
+    if (token) {
+      try {
+        const { payload } = await jwtVerify(
+          token,
+          new TextEncoder().encode(process.env.NEXTAUTH_SECRET),
+        );
+
+        // Handle both string and array audience values
+        const aud = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
+
+        // Map audience claims to specific groups
+        if (aud.includes('bcbst:bluecare')) group = 'bluecare';
+        else if (aud.includes('bcbst:amplify')) group = 'amplify';
+        else if (aud.includes('bcbst:provider')) group = 'provider';
+      } catch (error) {
+        console.error('JWT verification failed:', error);
+        // Continue with default 'member' group
+      }
+    }
+
+    // Rewrite URL: '/member/path' -> '/{group}/path'
+    url.pathname = `/${group}${path.slice(7)}`;
+    return NextResponse.rewrite(url);
+  }
 
   // Handle SSO routes
   if (ssoRoutes.some((route) => path.startsWith(route))) {
@@ -63,22 +97,37 @@ export async function middleware(request: NextRequest) {
 
   // Check if the path is protected
   if (protectedRoutes.some((route) => path.startsWith(route))) {
-    if (!session) {
+    // Check for auth token - if not present, redirect to login
+    const token = request.cookies.get('next-auth.session-token')?.value;
+    if (!token) {
       // Redirect to login page with return URL
       const url = new URL('/login', request.url);
       url.searchParams.set('returnUrl', path);
       return NextResponse.redirect(url);
     }
 
-    // Check role-based access for specific routes
-    if (
-      path.startsWith('/security') ||
-      path.startsWith('/personalRepresentativeAccess')
-    ) {
-      const userRole = session.user?.currUsr?.role;
-      if (!userRole || !checkPersonalRepAccess(userRole)) {
-        return NextResponse.redirect(new URL('/dashboard', request.url));
+    try {
+      // Verify token is valid
+      const { payload } = await jwtVerify(
+        token,
+        new TextEncoder().encode(process.env.NEXTAUTH_SECRET),
+      );
+
+      // Check role-based access for specific routes
+      if (
+        path.startsWith('/security') ||
+        path.startsWith('/personalRepresentativeAccess')
+      ) {
+        const userRole = payload.role as string;
+        if (!userRole || !checkPersonalRepAccess(userRole)) {
+          return NextResponse.redirect(new URL('/dashboard', request.url));
+        }
       }
+    } catch (error) {
+      // Invalid token, redirect to login
+      const url = new URL('/login', request.url);
+      url.searchParams.set('returnUrl', path);
+      return NextResponse.redirect(url);
     }
   }
 
