@@ -1,4 +1,13 @@
 /**
+ * embed/logout
+ * Logout
+ */
+export const metadata = {
+  title: 'Logout | Consumer Portal',
+  description: 'Logout'
+};
+
+/**
  * This page should NOT be used for logout from within refreshed portal!
  * This page is only to be used by PingOne to logout the user from next-auth when the logout flow is initiated from WAS.
  */

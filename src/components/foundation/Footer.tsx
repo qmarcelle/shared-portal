@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { Column } from './Column';
 import {
@@ -18,6 +19,7 @@ interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
   const currentYear = new Date().getFullYear(); // Gets the current year
+  const pathname = usePathname();
   const [currentPath, setCurrentPath] = useState('');
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -25,7 +27,7 @@ const Footer: React.FC<FooterProps> = () => {
     }
   }, []);
   const specificPages = ['/amplifyHealthSupport'];
-  const isSpecificPage = specificPages.includes(currentPath);
+  const isSpecificPage = specificPages.includes(pathname);
   return (
     <footer>
       <section

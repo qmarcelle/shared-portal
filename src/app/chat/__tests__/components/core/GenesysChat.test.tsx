@@ -1,7 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { mockUserEligibility } from '../../../__mocks__/chatData';
-import { GenesysChat } from '../../../components/core/GenesysChat';
+import { GenesysChat } from '../../../components/GenesysChat';
 import {
   ChatActions,
   ChatState,

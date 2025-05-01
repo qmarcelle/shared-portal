@@ -10,6 +10,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { ClaimDetails } from '@/models/claim_details';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import { getDifferenceInDays } from '@/utils/date_formatter';
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
 /* eslint-disable */
@@ -147,7 +148,7 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
               spans={[
                 <span key={0}>Need to submit a claim? </span>,
                 <span className="link font-bold" key={1}>
-                  <a href="/claims/submitAClaim">Get the form you need</a>
+                  <Link href="/claims/submitAClaim">Get the form you need</Link>
                 </span>,
                 <span key={2}>.</span>,
               ]}

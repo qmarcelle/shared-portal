@@ -5,6 +5,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import { googleAnalytics } from '@/utils/analytics';
+import { getCurrentUrl } from '@/utils/navigation';
 import { AppProg } from '../models/app/app_prog';
 
 import { AnalyticsData } from '@/models/app/analyticsData';
@@ -52,7 +53,7 @@ export const LoginComponent = () => {
     e?.preventDefault();
     const analytics: AnalyticsData = {
       click_text: 'log in',
-      click_url: window.location.href,
+      click_url: getCurrentUrl(),
       element_category: 'login',
       action: undefined,
       event: 'login',

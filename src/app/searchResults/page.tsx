@@ -1,3 +1,12 @@
+/**
+ * searchResults
+ * Search results
+ */
+export const metadata = {
+  title: 'Search results | Consumer Portal',
+  description: 'Search results'
+};
+
 'use client';
 
 import { SearchResultsInfoComponent } from '@/app/searchResults/components/SearchResultsInfoComponent';

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { UserEligibility } from '../../models/types';
-import { EligibilityCheck } from '../eligibility/EligibilityCheck';
+import { UserEligibility } from '../../../types/genesys';
+import { EligibilityCheck } from '../../../components/EligibilityCheck';
 
 describe('EligibilityCheck', () => {
   const mockEligibility: UserEligibility = {

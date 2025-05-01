@@ -57,7 +57,7 @@ export const LoginInfoComponent = ({ username }: LoginInfoComponentProps) => {
         <LinkRow
           label="Change My Password"
           onClick={() => {
-            window.location.href = process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '';
+            navigateTo(process.env.NEXT_PUBLIC_PASSWORD_RESET ?? '');
             changeMyPasswordAnalytics();
           }}
         /> */}

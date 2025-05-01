@@ -7,6 +7,7 @@ import { TextField } from '@/components/foundation/TextField';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
+import { getCurrentUrl } from '@/utils/navigation';
 import { FormEvent } from 'react';
 import { AppProg } from '../models/app/app_prog';
 import {
@@ -87,7 +88,7 @@ export const OtherMfaEntry = ({ authMethod }: OtherMfaEntryProps) => {
   const chooseDifferentMfaMethod = () => {
     const analytics: AnalyticsData = {
       click_text: 'choose a different method',
-      click_url: window.location.href,
+      click_url: getCurrentUrl(),
       element_category: 'content interaction',
       action: 'click',
       event: 'internal_link_click',

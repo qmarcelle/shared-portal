@@ -12,7 +12,8 @@
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci --coverage",
     "prepare": "husky",
-    "mcp:start": "concurrently \"npx -y @modelcontextprotocol/server-memory\" \"npx -y @modelcontextprotocol/server-filesystem ./\""
+    "mcp:start": "concurrently \"npx -y @modelcontextprotocol/server-filesystem ./\" \"npx -y @modelcontextprotocol/server-filesystem ./ --port 9003\" \"npx -y @modelcontextprotocol/server-sequential-thinking\" \"npx -y @pinecone-database/mcp --apiKey pcsk_4siuT5_6tgKXPaNZKNHEtxChpm32j1SKQNaw1NFkDx1LHxXxUfDueudABHHHWKW6R7T2Sk --environment us-east-1 --index portal-routes-index\" \"npx -y @modelcontextprotocol/server-memory\" \"npx -y @modelcontextprotocol/server-github --repo my-org/shared-portal\"",
+    "scaffold-routes": "node scripts/scaffold-route-components.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.0.3",

@@ -7,10 +7,11 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { navigateTo } from '@/utils/navigation';
+import { Session } from 'next-auth';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
-import { Session } from 'next-auth';
 
 interface HealthProgramHeaderProps extends IComponent {
   icon?: ReactNode;
@@ -65,8 +66,9 @@ export const HealthProgramsHeaderCard = ({
               label={healthProgramHeaderDetails.buttonText}
               className="my-health-programs-header-button"
               callback={() => {
-                window.location.href =
+                const redirectUrl =
                   healthProgramHeaderDetails.redirectLink?.(sessionData) ?? ' ';
+                navigateTo(redirectUrl);
               }}
             />
           )}

@@ -1,3 +1,12 @@
+/**
+ * mentalHealthOptions
+ * Mental health options
+ */
+export const metadata = {
+  title: 'Mental health options | Consumer Portal',
+  description: 'Mental health options'
+};
+
 'use client';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';

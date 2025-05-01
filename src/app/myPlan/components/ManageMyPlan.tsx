@@ -6,6 +6,7 @@ import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
+import { navigateTo } from '@/utils/navigation';
 
 import {
   isBlueCareEligible,
@@ -69,7 +70,7 @@ export const ManageMyPlan = ({
       },
       {
         title: 'Enroll in a Health Plan',
-        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
+        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We'll walk you through your options and help you choose the right one for your family.',
         externalLink: true,
         url: 'url',
       },
@@ -95,7 +96,7 @@ export const ManageMyPlan = ({
                   divider={false}
                   icon={<Image src={External} alt="link" />}
                   onClick={() => {
-                    window.location.href = items.url;
+                    navigateTo(items.url);
                   }}
                 />
                 {index !== manageMyPlanDetails.length - 1 && <Divider />}
@@ -111,7 +112,7 @@ export const ManageMyPlan = ({
                   }
                   divider={false}
                   onClick={() => {
-                    window.location.href = items.url;
+                    navigateTo(items.url);
                   }}
                 />
                 {index !== manageMyPlanDetails.length - 1 && <Divider />}

@@ -1,3 +1,12 @@
+/**
+ * priorAuth
+ * Prior auth
+ */
+export const metadata = {
+  title: 'Prior auth | Consumer Portal',
+  description: 'Prior auth'
+};
+
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';

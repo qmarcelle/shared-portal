@@ -1,3 +1,12 @@
+/**
+ * pharmacy/pharmacyClaims
+ * Pharmacy claims
+ */
+export const metadata = {
+  title: 'Pharmacy claims | Consumer Portal',
+  description: 'Pharmacy claims'
+};
+
 'use client';
 
 import { Column } from '@/components/foundation/Column';

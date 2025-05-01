@@ -1,3 +1,12 @@
+/**
+ * spendingAccounts
+ * Spending accounts
+ */
+export const metadata = {
+  title: 'Spending accounts | Consumer Portal',
+  description: 'Spending accounts'
+};
+
 'use client';
 
 import { AppLink } from '@/components/foundation/AppLink';

@@ -1,3 +1,12 @@
+/**
+ * amplifyHealthSupport
+ * Amplify health support
+ */
+export const metadata = {
+  title: 'Amplify health support | Consumer Portal',
+  description: 'Amplify health support'
+};
+
 'use client';
 
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';

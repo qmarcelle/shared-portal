@@ -2,7 +2,7 @@
 
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
-import { getEmployerProvidedBenefits } from '@/app/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
+import { getEmployerProvidedBenefits } from '@/app/(common)/myplan/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';

@@ -1,4 +1,13 @@
-'use client';
+/**
+ * medicalBenefitDetail
+ * Medical benefit detail
+ */
+export const metadata = {
+  title: 'Medical benefit detail | Consumer Portal',
+  description: 'Medical benefit detail',
+};
+
+('use client');
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -6,7 +15,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import EstimateCost from '@/public/assets/estimate_cost.svg';
-import { SpendingAccountSection } from '../benefits/balances/components/SpendingAccountsSection';
+import { SpendingAccountSection } from '../(common)/myplan/benefits/balances/components/SpendingAccountsSection';
 import { MedicalBalanceSection } from '../dashboard/components/MedicalBalanceSection';
 import { BenefitDetailSection } from './components/BenefitDetailSection';
 const MedicalBenefitDetail = () => {

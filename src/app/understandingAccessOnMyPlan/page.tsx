@@ -1,3 +1,12 @@
+/**
+ * understandingAccessOnMyPlan
+ * Understanding access on my plan
+ */
+export const metadata = {
+  title: 'Understanding access on my plan | Consumer Portal',
+  description: 'Understanding access on my plan'
+};
+
 'use client';
 
 import { AccordionListCard } from '@/components/composite/AccordionListCard';

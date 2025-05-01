@@ -23,12 +23,12 @@ export const SupportFaqTopicDetails: Map<
         {
           serviceTitle: 'Understanding Coverage',
           serviceLabel:
-            'What does “premium/copay/deductible/coinsurance” mean?',
+            'What does "premium/copay/deductible/coinsurance" mean?',
           para1: (
             <RichText
               spans={[
                 <span key={0}>
-                  Here’s a quick definition for the most common terms you’ll see
+                  Here's a quick definition for the most common terms you'll see
                   in insurance:
                   <br />
                 </span>,
@@ -59,8 +59,8 @@ export const SupportFaqTopicDetails: Map<
                   Coinsurance:{' '}
                 </span>,
                 <span key={8}>
-                  The percentage of costs for care that you’ll pay — usually
-                  after you’ve paid your deductible.
+                  The percentage of costs for care that you'll pay — usually
+                  after you've paid your deductible.
                   <br />
                 </span>,
 
@@ -69,7 +69,7 @@ export const SupportFaqTopicDetails: Map<
                 </span>,
                 <span key={10}>
                   <Row>
-                    <a className="link font-bold">glossary on healthcare.gov</a>
+                    <Link href="https://www.healthcare.gov/glossary" className="link font-bold" target="_blank" rel="noopener noreferrer">glossary on healthcare.gov</Link>
                     <Image src={externalIcon} className="icon" alt="Info" />.
                   </Row>
                 </span>,
@@ -83,10 +83,10 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'What are networks, and which one am I signed up for?',
           para1:
-            'A network is a group of doctors we work with to provide care to our members. Providers in our network agree to offer our members a discount. Providers who aren’t in our network don’t offer that discount, so their rates are higher.',
+            'A network is a group of doctors we work with to provide care to our members. Providers in our network agree to offer our members a discount. Providers who aren't in our network don't offer that discount, so their rates are higher.',
           bulletPoints: [],
           para2:
-            'To find your network, look at the front of your Member ID card. It’s most likely on the bottom left corner.',
+            'To find your network, look at the front of your Member ID card. It's most likely on the bottom left corner.',
         },
         {
           serviceTitle: '',
@@ -99,11 +99,11 @@ export const SupportFaqTopicDetails: Map<
                   You can search for providers by network in the{' '}
                 </span>,
                 <span className="link font-bold" key={1}>
-                  <a>Find Care tool</a>{' '}
+                  <Link href="/findcare">Find Care tool</Link>{' '}
                 </span>,
                 <span key={2}>
-                  . Either search the provider’s name and check which networks
-                  they’re in, or search for providers near you and filter your
+                  . Either search the provider's name and check which networks
+                  they're in, or search for providers near you and filter your
                   results by your network. If you are logged in, your search
                   results will automatically list providers in your network.
                 </span>,
@@ -116,16 +116,16 @@ export const SupportFaqTopicDetails: Map<
         {
           serviceTitle: '',
           serviceLabel:
-            'What happens when I see a provider who’s not in my network?',
+            'What happens when I see a provider who's not in my network?',
           para1:
-            'That depends on your plan benefits. For most plans, if you see a provider who is not in your network, you will likely be paying toward your out-of-network deductible and coinsurance. In that case, we typically pay the amount that we’d pay a provider who is in your network, according to your out-of-network deductible and coinsurance. You’ll pay whatever is left on your bill. ',
+            'That depends on your plan benefits. For most plans, if you see a provider who is not in your network, you will likely be paying toward your out-of-network deductible and coinsurance. In that case, we typically pay the amount that we'd pay a provider who is in your network, according to your out-of-network deductible and coinsurance. You'll pay whatever is left on your bill. ',
           bulletPoints: [],
           para2:
-            'Please keep in mind that some plans, like those on Healthcare.gov or through TennCare, don’t pay for providers who aren’t in your network at all.',
+            'Please keep in mind that some plans, like those on Healthcare.gov or through TennCare, don't pay for providers who aren't in your network at all.',
         },
         {
           serviceTitle: '',
-          serviceLabel: 'What if I need care when I’m traveling?',
+          serviceLabel: 'What if I need care when I'm traveling?',
 
           para1: (
             <RichText
@@ -141,11 +141,11 @@ export const SupportFaqTopicDetails: Map<
                 <span key={3}>
                   include the Blue Cross Blue Shield Global Core® travel
                   program that lets you see providers in other BlueCross
-                  networks while you’re traveling. If you see a small suitcase
+                  networks while you're traveling. If you see a small suitcase
                   icon on your Member ID card, then you have Global Core. If
-                  you’re planning a trip and have specific questions, the best
+                  you're planning a trip and have specific questions, the best
                   thing to do is call Global Core directly at 1-800-810-2583.
-                  They’re ready to help you.
+                  They're ready to help you.
                   <br />
                 </span>,
                 <span key={4}>If you have an </span>,
@@ -157,7 +157,7 @@ export const SupportFaqTopicDetails: Map<
                   the{' '}
                 </span>,
                 <span className="link font-bold" key={7}>
-                  <a>Find Care tool</a>
+                  <Link href="/findcare">Find Care tool</Link>
                   <br />
                 </span>,
                 <span key={8} className="font-bold">
@@ -166,10 +166,10 @@ export const SupportFaqTopicDetails: Map<
 
                 <span key={9}>members should </span>,
                 <span className="link font-bold" key={10}>
-                  <a href="/support">contact us</a>{' '}
+                  <Link href="/support">contact us</Link>{' '}
                 </span>,
                 <span key={11}>
-                  , and we’ll help you decide how to get care.
+                  , and we'll help you decide how to get care.
                   <br />
                 </span>,
                 <span key={12} className="font-bold">
@@ -178,10 +178,10 @@ export const SupportFaqTopicDetails: Map<
 
                 <span key={13}>
                   members can only get coverage for providers out of the state
-                  of Tennessee if it’s a{' '}
+                  of Tennessee if it's a{' '}
                 </span>,
                 <span key={14}>
-                  <a className="link font-bold">true emergency</a>.
+                  <Link href="/emergency-care" className="link font-bold">true emergency</Link>.
                 </span>,
               ]}
             />
@@ -225,7 +225,7 @@ export const SupportFaqTopicDetails: Map<
                 <span className="link font-bold" key={3}>
                   <a href="/support">contact us</a>
                 </span>,
-                <span key={4}>, and we’ll walk you through it.</span>,
+                <span key={4}>, and we'll walk you through it.</span>,
               ]}
             />
           ),
@@ -238,7 +238,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: 'Disputing Claims',
           serviceLabel: 'Do you think we made a mistake?',
           para1:
-            'We do everything we can to make sure we’ve paid your claim the right way, based on your benefits. If you don’t agree with the decision we made, you have a right to tell us why and ask us to reconsider. This is called an appeal (sometimes we call it a grievance). Everyone has the right to an appeal, but the type of plan you have makes a difference in how those rights work.',
+            'We do everything we can to make sure we've paid your claim the right way, based on your benefits. If you don't agree with the decision we made, you have a right to tell us why and ask us to reconsider. This is called an appeal (sometimes we call it a grievance). Everyone has the right to an appeal, but the type of plan you have makes a difference in how those rights work.',
           bulletPoints: [],
           para2: '',
         },
@@ -252,7 +252,7 @@ export const SupportFaqTopicDetails: Map<
                   <a href="/support">Contact us</a>{' '}
                 </span>,
                 <span key={1}>
-                  and we’ll walk you through the process and paperwork needed.
+                  and we'll walk you through the process and paperwork needed.
                   Here are some important things to keep in mind:{' '}
                 </span>,
               ]}
@@ -273,7 +273,7 @@ export const SupportFaqTopicDetails: Map<
               key={1}
               spans={[
                 <span key={0}>
-                  We’ll give you an answer within 15 to 60 days of getting your
+                  We'll give you an answer within 15 to 60 days of getting your
                   appeal — depending on your health plan rules.
                 </span>,
               ]}
@@ -283,7 +283,7 @@ export const SupportFaqTopicDetails: Map<
               spans={[
                 <span key={0}>
                   If waiting will stop you from getting urgent care you need,
-                  tell us and we’ll give you an answer within 72 hours.
+                  tell us and we'll give you an answer within 72 hours.
                 </span>,
               ]}
             />,
@@ -291,7 +291,7 @@ export const SupportFaqTopicDetails: Map<
               key={3}
               spans={[
                 <span key={0}>
-                  You can file an appeal yourself, and we’re here to help if you
+                  You can file an appeal yourself, and we're here to help if you
                   have questions. But if you think you need extra support, you
                   can choose to work with a representative — like a lawyer — to
                   help you file your appeal or file a civil lawsuit.
@@ -303,7 +303,7 @@ export const SupportFaqTopicDetails: Map<
               spans={[
                 <span key={0}>
                   You may begin an external appeal with an outside agency at the
-                  same time we’re reviewing your appeal if you need care
+                  same time we're reviewing your appeal if you need care
                   urgently or you are getting ongoing care.
                 </span>,
               ]}
@@ -326,7 +326,7 @@ export const SupportFaqTopicDetails: Map<
                   <br />
                 </span>,
                 <span key={1}>
-                  You’ll need to contact the agency that works with your type of
+                  You'll need to contact the agency that works with your type of
                   plan:
                 </span>,
               ]}
@@ -366,7 +366,7 @@ export const SupportFaqTopicDetails: Map<
               key={2}
               spans={[
                 <span key={0}>
-                  All other Self-Funded plans: U.S. Department of Labor’s
+                  All other Self-Funded plans: U.S. Department of Labor's
                   Employee Benefits Security Administration (EBSA) —{' '}
                 </span>,
                 <span key={1} className="font-bold">
@@ -439,7 +439,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'How do I get a prior authorization?',
           para1:
-            'If your doctor prescribes a treatment that needs prior authorization, they’ll ask us for one when they write your treatment plan. We’ll review the case, make sure the treatment is appropriate and safe, and make a decision. If it’s approved, we’ll send you a letter to let you know.',
+            'If your doctor prescribes a treatment that needs prior authorization, they'll ask us for one when they write your treatment plan. We'll review the case, make sure the treatment is appropriate and safe, and make a decision. If it's approved, we'll send you a letter to let you know.',
           bulletPoints: [],
           para2: '',
         },
@@ -473,7 +473,7 @@ export const SupportFaqTopicDetails: Map<
               spans={[
                 <span key={1}>
                   If a medical service or prescription drug prior authorization
-                  was partially approved or denied, we’ll send you a letter
+                  was partially approved or denied, we'll send you a letter
                   explaining why with details on how to file an appeal. For more
                   information, please
                 </span>,
@@ -495,7 +495,7 @@ export const SupportFaqTopicDetails: Map<
             <RichText
               spans={[
                 <span key={1}>
-                  We’ll show your medical prior authorizations on the
+                  We'll show your medical prior authorizations on the
                 </span>,
                 <span key={2}>
                   <Link href="/priorAuthorization" className="link font-bold">
@@ -507,13 +507,13 @@ export const SupportFaqTopicDetails: Map<
                   {' '}
                   For any prescription drug-related prior authorizations, you
                   may need to log in to your Caremark account. If your pharmacy
-                  benefits aren’t provided by CVS Caremark, you can
+                  benefits aren't provided by CVS Caremark, you can
                 </span>,
                 <span key={4}>
                   <a className="link font-bold"> contact us</a>
                 </span>,
                 <span key={5}>
-                  , and we’ll help you find your prescription prior
+                  , and we'll help you find your prescription prior
                   authorization status.
                 </span>,
               ]}
@@ -532,7 +532,7 @@ export const SupportFaqTopicDetails: Map<
       faqTopicHeaderDetails: {
         title: 'ID Cards FAQ',
         description:
-          'Do you have questions about your ID cards? We’re here to help.',
+          'Do you have questions about your ID cards? We're here to help.',
       },
       faqTopCardDetails: [
         {
@@ -581,7 +581,7 @@ export const SupportFaqTopicDetails: Map<
                   <a href="/support">Contact us</a>
                 </span>,
                 <span key={1}>
-                  , and we’ll walk you through getting your card updated.
+                  , and we'll walk you through getting your card updated.
                 </span>,
               ]}
             />
@@ -622,7 +622,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'How do I set up MFA on my account?',
           para1:
-            'On the new Security Settings page, you’ll see four options for turning on MFA. You can choose to receive your codes from an Authenticator app, text, email, or phone call. You’ll provide some information, then provide the one-time passcode (OTP) that we sent you.',
+            'On the new Security Settings page, you'll see four options for turning on MFA. You can choose to receive your codes from an Authenticator app, text, email, or phone call. You'll provide some information, then provide the one-time passcode (OTP) that we sent you.',
           bulletPoints: [],
           para2: '',
         },
@@ -638,7 +638,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel:
             'If I have multiple methods turned on, which one of them gets the code?',
-          para1: 'You’ll get asked at login which method you prefer most.',
+          para1: 'You'll get asked at login which method you prefer most.',
           bulletPoints: [],
           para2: '',
         },
@@ -653,17 +653,17 @@ export const SupportFaqTopicDetails: Map<
         },
         {
           serviceTitle: '',
-          serviceLabel: 'What should I do if I can’t access my code?',
+          serviceLabel: 'What should I do if I can't access my code?',
           para1:
-            'You’ll need to contact us to have a representative remove that MFA channel so you can log in again.',
+            'You'll need to contact us to have a representative remove that MFA channel so you can log in again.',
           bulletPoints: [],
           para2: '',
         },
         {
           serviceTitle: '',
-          serviceLabel: 'What if I don’t receive the MFA code?',
+          serviceLabel: 'What if I don't receive the MFA code?',
           para1:
-            'If you don’t receive the code, check your spam or junk folders. If you can’t find it, try changing the email address or phone number where you’re getting the code.',
+            'If you don't receive the code, check your spam or junk folders. If you can't find it, try changing the email address or phone number where you're getting the code.',
           bulletPoints: [],
           para2: '',
         },
@@ -671,7 +671,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'Can I turn off MFA?',
           para1:
-            'You can turn off MFA on the Security Settings page. There is a toggle for turning MFA on and off. But we don’t recommend turning it off as it keeps your account less secure.',
+            'You can turn off MFA on the Security Settings page. There is a toggle for turning MFA on and off. But we don't recommend turning it off as it keeps your account less secure.',
           bulletPoints: [],
           para2: '',
         },
@@ -698,16 +698,16 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'How do I confirm my email using a one-time passcode?',
           para1:
-            'After you’ve registered, you’ll be told that you need to verify your email address. You’ll get an email with a one-time passcode that you’ll need to enter.',
+            'After you've registered, you'll be told that you need to verify your email address. You'll get an email with a one-time passcode that you'll need to enter.',
           bulletPoints: [],
           para2: '',
         },
         {
           serviceTitle: '',
           serviceLabel:
-            'I didn’t receive my one-time passcode email. What should I do?',
+            'I didn't receive my one-time passcode email. What should I do?',
           para1:
-            'Double check the email address or phone number to which the code is being sent. Make sure to check the spam or junk folders on your computer or phone. There will be a resend security code button in case your one-time passcode expires before you’re able to complete the process. If you’re still having trouble, contact us using the phone number on the back of your Member ID card.',
+            'Double check the email address or phone number to which the code is being sent. Make sure to check the spam or junk folders on your computer or phone. There will be a resend security code button in case your one-time passcode expires before you're able to complete the process. If you're still having trouble, contact us using the phone number on the back of your Member ID card.',
           bulletPoints: [],
           para2: '',
         },
@@ -723,7 +723,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'What should I do if my one-time passcode expires?',
           para1:
-            'You should be able to resend yourself a new code on the page that is asking you for the security code. If you’re not able to resend one, then you may need to start the process over to receive a new one.',
+            'You should be able to resend yourself a new code on the page that is asking you for the security code. If you're not able to resend one, then you may need to start the process over to receive a new one.',
           bulletPoints: [],
           para2: '',
         },
@@ -739,7 +739,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'How do I update my email address for verification?',
           para1:
-            'If you entered the wrong email address during registration, you’ll need to use the number on the back of your Member ID card to call us and have us change it for you.',
+            'If you entered the wrong email address during registration, you'll need to use the number on the back of your Member ID card to call us and have us change it for you.',
           bulletPoints: [],
           para2: '',
         },
@@ -758,7 +758,7 @@ export const SupportFaqTopicDetails: Map<
           serviceLabel:
             'What should I do if my one-time passcode for password reset expires?',
           para1:
-            'You’ll need to resend a new code to yourself. If you don’t receive the new code, then you will need to start the password reset process over from the beginning to receive a new code.',
+            'You'll need to resend a new code to yourself. If you don't receive the new code, then you will need to start the password reset process over from the beginning to receive a new code.',
           bulletPoints: [],
           para2: '',
         },
@@ -773,9 +773,9 @@ export const SupportFaqTopicDetails: Map<
         {
           serviceTitle: '',
           serviceLabel:
-            'What should I do if I still can’t access my account after resetting my password?',
+            'What should I do if I still can't access my account after resetting my password?',
           para1:
-            'Make sure the username you’re trying to use is correct. Also verify that the new password you are entering matches the new password you just created for that online account. If you’re still having trouble you may need to call us using the number on the back of your Member ID card.',
+            'Make sure the username you're trying to use is correct. Also verify that the new password you are entering matches the new password you just created for that online account. If you're still having trouble you may need to call us using the number on the back of your Member ID card.',
           bulletPoints: [],
           para2: '',
         },
@@ -784,7 +784,7 @@ export const SupportFaqTopicDetails: Map<
           serviceLabel:
             'How do I update my personal information on my account?',
           para1:
-            'You can update your email address and phone number in your online account or the mobile app. To update other personal information, like your mailing address, you’ll need to contact us using the number on the back of your Member ID card.',
+            'You can update your email address and phone number in your online account or the mobile app. To update other personal information, like your mailing address, you'll need to contact us using the number on the back of your Member ID card.',
           bulletPoints: [],
           para2: '',
         },
@@ -800,7 +800,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'Can I link multiple accounts under one login? ',
           para1:
-            'A user with multiple plans or multiple roles (Member, Personal Representative or Authorized User) will have access to all their plans and roles automatically in their online account. If you don’t see all that displayed correctly, you can contact us to verify that all policies and roles are associated with your online account. ',
+            'A user with multiple plans or multiple roles (Member, Personal Representative or Authorized User) will have access to all their plans and roles automatically in their online account. If you don't see all that displayed correctly, you can contact us to verify that all policies and roles are associated with your online account. ',
           bulletPoints: [],
           para2: '',
         },
@@ -817,7 +817,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'How can I switch between my different policies? ',
           para1:
-            'You’ll be given the chance to consolidate all your online accounts and plans under a single username so that they can access all their plans online with the same credentials. Use the plan Switcher at the top of the page to choose the plan which you want to view. ',
+            'You'll be given the chance to consolidate all your online accounts and plans under a single username so that they can access all their plans online with the same credentials. Use the plan Switcher at the top of the page to choose the plan which you want to view. ',
           bulletPoints: [],
           para2: '',
         },
@@ -839,7 +839,7 @@ export const SupportFaqTopicDetails: Map<
             'How do I update personal info like my address, last name or payment information?',
           para1: (
             <p className="body-1">
-              <ContactUs label="Contact us" />, and we’ll get your account
+              <ContactUs label="Contact us" />, and we'll get your account
               updated.
             </p>
           ),
@@ -851,7 +851,7 @@ export const SupportFaqTopicDetails: Map<
           serviceLabel: 'How do I add or remove a dependent?',
           para1: (
             <p className="body-1">
-              <ContactUs label="Contact us" />, and we’ll get your account
+              <ContactUs label="Contact us" />, and we'll get your account
               updated.
             </p>
           ),
@@ -866,7 +866,7 @@ export const SupportFaqTopicDetails: Map<
             <p className="body-1">
               This depends on your plan. For most plans, you can do a bank
               draft, check by phone, or mail in payment.{' '}
-              <ContactUs label="Contact us" />, and we’ll talk you through it or
+              <ContactUs label="Contact us" />, and we'll talk you through it or
               you can{' '}
               <AppLink
                 className="p-0"
@@ -882,7 +882,7 @@ export const SupportFaqTopicDetails: Map<
         {
           serviceTitle: '',
           serviceLabel:
-            'I’m a Medicaid or Medicare with Medicaid member. How do I switch my primary care provider? ',
+            'I'm a Medicaid or Medicare with Medicaid member. How do I switch my primary care provider? ',
           para1: (
             <p className="body-1">
               If you want to see a different doctor than the one you were
@@ -952,7 +952,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'How do I get a prior authorization?',
           para1:
-            'If your doctor prescribes a drug that needs a prior authorization, they’ll ask us for one when they write your prescription. We’ll review the case, make sure the drug is appropriate and safe, and make a decision. If it’s approved, we’ll send you a letter to let you know. Then you’ll be able to get your drugs from the pharmacy.',
+            'If your doctor prescribes a drug that needs a prior authorization, they'll ask us for one when they write your prescription. We'll review the case, make sure the drug is appropriate and safe, and make a decision. If it's approved, we'll send you a letter to let you know. Then you'll be able to get your drugs from the pharmacy.',
           bulletPoints: [],
           para2: '',
         },
@@ -960,7 +960,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: '',
           serviceLabel: 'What is a specialty medication?',
           para1:
-            'Specialty medications are expensive drugs that usually treat complex conditions. Some specialty drugs can be delivered to your home, but some of them have to be taken at the doctor’s office.',
+            'Specialty medications are expensive drugs that usually treat complex conditions. Some specialty drugs can be delivered to your home, but some of them have to be taken at the doctor's office.',
           bulletPoints: [],
           para2: '',
         },
@@ -978,7 +978,7 @@ export const SupportFaqTopicDetails: Map<
           para1: (
             <p className="body-1">
               One way you could save is to use the drug price comparison tool.
-              You can compare the prices of the drugs you’re currently taking
+              You can compare the prices of the drugs you're currently taking
               with other drugs that may work as well, including generic drugs,
               which can cost much less than brand-name drugs. Go to the{' '}
               <AppLink
@@ -1028,7 +1028,7 @@ export const SupportFaqTopicDetails: Map<
           serviceTitle: 'Help with Pharmacies & Mail Order',
           serviceLabel: 'Do I have to use a CVS pharmacy?',
           para1:
-            'CVS Caremark helps BlueCross manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.',
+            'CVS Caremark helps BlueCross manage your pharmacy benefits, but you don't have to go to a CVS retail pharmacy.',
           bulletPoints: [],
           para2: '',
         },
@@ -1037,7 +1037,7 @@ export const SupportFaqTopicDetails: Map<
           serviceLabel:
             'Why should I use a mail order pharmacy for any of my prescriptions?',
           para1:
-            'Getting the drugs you take every day to manage your health from a mail order pharmacy can save you time and money. You won’t have to make trips to the pharmacy, and you can get 90-day fills of many drugs. That can lower your cost and make it easier to avoid running out of your medications, which can keep you healthier.',
+            'Getting the drugs you take every day to manage your health from a mail order pharmacy can save you time and money. You won't have to make trips to the pharmacy, and you can get 90-day fills of many drugs. That can lower your cost and make it easier to avoid running out of your medications, which can keep you healthier.',
           bulletPoints: [],
           para2: (
             <p className="body-1">
@@ -1063,9 +1063,9 @@ export const SupportFaqTopicDetails: Map<
         {
           serviceTitle: '',
           serviceLabel:
-            'I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?',
+            'I've created my caremark.com account but I can't see prescription info for my teenage dependents. How can I do that?',
           para1:
-            'To view and manage prescription information for dependents age 13-18, they’ll need to create their own caremark.com account. After doing so, they can then grant you to access to manage their mail order prescriptions and see claims history.',
+            'To view and manage prescription information for dependents age 13-18, they'll need to create their own caremark.com account. After doing so, they can then grant you to access to manage their mail order prescriptions and see claims history.',
           bulletPoints: [],
           para2:
             'After creating their caremark.com account, they can grant you access by going to their Profile on caremark.com, then choosing Family Access. This change may take around 4 hours to update.',

@@ -1,11 +1,11 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ChatWidget } from '../../../../../../app/chat/components/core/ChatWidget';
-import { ClientType } from '../../../../../../app/chat/models/plans';
+import { ChatWidget } from '../../../../components/ChatWidget';
+import { ClientType } from '../../../../types/plans';
 import { useChatStore } from '../../../../stores/chatStore';
 
 // Mock chat API
-jest.mock('../../../../../../app/chat/services/chatAPI', () => ({
+jest.mock('../../../../services/chatAPI', () => ({
   startChatSession: jest.fn().mockResolvedValue({
     sessionId: 'test-session-id',
     startTime: new Date().toISOString(),

@@ -10,18 +10,20 @@ import { FaqCard } from './FaqCard';
 import { FaqHeaderCard } from './FaqHeaderCard';
 import { OtherFaqTopics } from './OtherFaqTopics';
 
-let activeFaqTopic: (item: FaqTopicType | string | null) => void;
-export const FaqTopics = () => {
-  const [topics, setTopics] = useState<FaqTopicDetails>();
-  let faqType: FaqTopicType | string | null;
-  useEffect(() => {
-    const urlSearchString = window?.location?.search;
-    const params = new URLSearchParams(urlSearchString);
-    faqType = params.get('faqtype');
-    activeFaqTopic(faqType);
-  }, []);
+interface FaqTopicsProps {
+  initialTopicType?: FaqTopicType;
+}
 
-  activeFaqTopic = (faqType: FaqTopicType | string | null) => {
+export const FaqTopics = ({ initialTopicType }: FaqTopicsProps) => {
+  const [topics, setTopics] = useState<FaqTopicDetails>();
+
+  useEffect(() => {
+    if (initialTopicType) {
+      setTopics(SupportFaqTopicDetails.get(initialTopicType));
+    }
+  }, [initialTopicType]);
+
+  const activeFaqTopic = (faqType: FaqTopicType | string | null) => {
     setTopics(SupportFaqTopicDetails.get(faqType));
   };
 
@@ -47,7 +49,7 @@ export const FaqTopics = () => {
             topicType={topics?.topicType}
           />
         </Column>
-        <Column className=" flex-grow page-section-36_67 items-stretch ">
+        <Column className="flex-grow page-section-36_67 items-stretch">
           <OtherFaqTopics
             faqTopics={FaqTopicType}
             goToFaqPage={activeFaqTopic}

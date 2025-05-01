@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { BusinessHours } from '../../models/types';
-import { BusinessHoursNotification } from '../business-hours/BusinessHoursNotification';
+import { BusinessHours } from '../../../types/genesys';
+import { BusinessHoursNotification } from '../../../components/BusinessHoursNotification';
 
 describe('BusinessHoursNotification', () => {
   const mockBusinessHours: BusinessHours = {

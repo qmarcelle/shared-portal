@@ -7,6 +7,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
+import { getCurrentUrl } from '@/utils/navigation';
 import { FormEvent } from 'react';
 import { AppProg } from '../models/app/app_prog';
 import { MfaOption } from '../models/app/mfa_option';
@@ -30,7 +31,7 @@ export const MfaSelection = ({ mfaOptions }: MfaSelectionProps) => {
     e?.preventDefault();
     const analytics: AnalyticsData = {
       click_text: 'send code',
-      click_url: window.location.href,
+      click_url: getCurrentUrl(),
       element_category: 'content interaction',
       action: 'click',
       event: 'internal_link_click',

@@ -1,3 +1,12 @@
+/**
+ * claim
+ * Claim
+ */
+export const metadata = {
+  title: 'Claim | Consumer Portal',
+  description: 'Claim'
+};
+
 'use client';
 
 import { SubmitClaimComponent } from '@/app/claim/components/SubmitClaimComponent';

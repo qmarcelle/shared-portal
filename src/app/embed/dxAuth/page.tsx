@@ -1,3 +1,12 @@
+/**
+ * embed/dxAuth
+ * Dx auth
+ */
+export const metadata = {
+  title: 'Dx auth | Consumer Portal',
+  description: 'Dx auth'
+};
+
 'use client'; //Page is client-side so it can invoke dxAuth() as a server action in order to sign in
 
 import { useRouter, useSearchParams } from 'next/navigation';

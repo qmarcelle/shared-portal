@@ -1,3 +1,12 @@
+/**
+ * thirdPartySharing
+ * Third party sharing
+ */
+export const metadata = {
+  title: 'Third party sharing | Consumer Portal',
+  description: 'Third party sharing'
+};
+
 'use client';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';

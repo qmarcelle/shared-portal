@@ -1,3 +1,12 @@
+/**
+ * healthyMaternity
+ * Healthy maternity
+ */
+export const metadata = {
+  title: 'Healthy maternity | Consumer Portal',
+  description: 'Healthy maternity'
+};
+
 'use client';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Button } from '@/components/foundation/Button';

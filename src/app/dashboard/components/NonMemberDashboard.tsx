@@ -7,6 +7,7 @@ import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { UserProfile } from '@/models/user_profile';
+import { navigateTo } from '@/utils/navigation';
 import { SwitchAccountComponent } from './SwitchAccountComponent';
 
 type NonMemberDashboardProps = {
@@ -34,7 +35,7 @@ const NonMemberDashboard = ({ profiles }: NonMemberDashboardProps) => {
                     </div>
                   }
                   onClick={() => {
-                    window.location.href = '/accessOthersInformation';
+                    navigateTo('/accessOthersInformation');
                   }}
                 />
                 <Spacer size={16} />

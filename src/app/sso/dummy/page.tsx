@@ -1,3 +1,12 @@
+/**
+ * sso/dummy
+ * Dummy
+ */
+export const metadata = {
+  title: 'Dummy | Consumer Portal',
+  description: 'Dummy'
+};
+
 'use client';
 import Link from 'next/link';
 import {

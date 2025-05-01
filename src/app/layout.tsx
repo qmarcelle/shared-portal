@@ -15,6 +15,16 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import ClientLayout from './ClientLayout';
 
+/**
+ * Root layout component
+ * Provides the base HTML structure and global providers/components
+ * Handles session management and user info fetching
+ */
+export const metadata = {
+  title: 'Member Portal',
+  description: 'Access your healthcare benefits and information',
+};
+
 export default async function RootLayout({
   children,
 }: {

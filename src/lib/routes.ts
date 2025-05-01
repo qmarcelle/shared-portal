@@ -47,6 +47,27 @@ export const routes: RouteConfig[] = [
     hideHeaderFooter: false,
   },
   {
+    path: '/myplan/benefits/medical',
+    name: 'Medical Benefits',
+    isPublic: false,
+    requiresAuth: true,
+    hideHeaderFooter: false,
+  },
+  {
+    path: '/myplan/benefits/pharmacy',
+    name: 'Pharmacy Benefits',
+    isPublic: false,
+    requiresAuth: true,
+    hideHeaderFooter: false,
+  },
+  {
+    path: '/myplan/benefits/employerProvidedBenefits',
+    name: 'Employer Provided Benefits',
+    isPublic: false,
+    requiresAuth: true,
+    hideHeaderFooter: false,
+  },
+  {
     path: '/claims',
     name: 'Claims',
     isPublic: false,
@@ -158,11 +179,33 @@ export const routes: RouteConfig[] = [
     requiresAuth: true,
     hideHeaderFooter: false,
   },
+  {
+    path: '/myhealth/healthprograms/wellness-center',
+    name: 'Member Wellness Center',
+    isPublic: false,
+    requiresAuth: true,
+    hideHeaderFooter: false,
+  },
+  {
+    path: '/myhealth/healthprograms/health-library',
+    name: 'Health Library',
+    isPublic: false,
+    requiresAuth: true,
+    hideHeaderFooter: false,
+  },
+  {
+    path: '/myhealth/healthprograms/rewards',
+    name: 'Wellness Rewards',
+    isPublic: false,
+    requiresAuth: true,
+    hideHeaderFooter: false,
+  },
 ];
 
 // Compile regex patterns
 routes.forEach((r) => {
-  r.pattern = pathToRegexp(r.path);
+  const result = pathToRegexp(r.path);
+  r.pattern = result.regexp;
 });
 
 // Helper functions

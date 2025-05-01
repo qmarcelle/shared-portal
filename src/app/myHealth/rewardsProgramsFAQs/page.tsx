@@ -1,3 +1,12 @@
+/**
+ * myHealth/rewardsProgramsFAQs
+ * Rewards programs f a qs
+ */
+export const metadata = {
+  title: 'Rewards programs f a qs | Consumer Portal',
+  description: 'Rewards programs f a qs'
+};
+
 'use client';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';

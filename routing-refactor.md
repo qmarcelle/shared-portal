@@ -47,7 +47,7 @@ export interface RouteConfig {
 export const routes: RouteConfig[] = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Dashboard',
     isPublic: true,
     requiresAuth: false,
     hideHeaderFooter: false,
@@ -228,3 +228,28 @@ src/app/
 - [ ] Finish scaffolding inbox/sharing pages.
 - [ ] Validate NextAuth error callbacks and session flows.
 - [ ] Add E2E tests for critical user flows (login, group routing).
+
+## Phase P0 → P1: Query Parameters to Dynamic Segments
+
+### Completed Migrations
+
+- ✅ `/claims?type=...` → `/claims/[type]`
+- ✅ `/support/faqTopics?faqtype=...` → `/support/faqTopics/[type]`
+- ✅ `/spendingSummary?type=...` → `/spendingSummary/[type]`
+
+### Implementation Details
+
+- Added type-safe parameter validation using enums
+- Implemented loading, error, and not-found states
+- Added metadata exports for SEO
+- Updated tests to verify dynamic segment conventions
+- Preserved existing component functionality
+
+### Remaining Query Parameters
+
+- SSO routes (kept as query params due to external integration requirements)
+
+## Next Steps
+
+- Phase P1 → P2: Implement catch-all routes for dynamic paths
+- Phase P2 → P3: Add middleware for route protection

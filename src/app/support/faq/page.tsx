@@ -1,3 +1,12 @@
+/**
+ * support/faq
+ * Faq
+ */
+export const metadata = {
+  title: 'Faq | Consumer Portal',
+  description: 'Faq'
+};
+
 'use client';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';

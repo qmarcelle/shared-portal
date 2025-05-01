@@ -1,3 +1,12 @@
+/**
+ * support/faqTopics
+ * Faq topics
+ */
+export const metadata = {
+  title: 'Faq topics | Consumer Portal',
+  description: 'Faq topics'
+};
+
 'use client';
 import { FaqTopics } from './components/FaqTopics';
 

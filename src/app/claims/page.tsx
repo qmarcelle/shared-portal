@@ -1,3 +1,12 @@
+/**
+ * claims
+ * Claims
+ */
+export const metadata = {
+  title: 'Claims | Consumer Portal',
+  description: 'Claims'
+};
+
 import { FilterDetails } from '@/models/filter_dropdown_details';
 import { formatPharmacyClaims } from '@/utils/pharmacy_claims_formatter';
 import ClaimsSnapshot from '.';

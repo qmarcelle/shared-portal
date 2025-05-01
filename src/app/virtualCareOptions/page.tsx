@@ -1,3 +1,12 @@
+/**
+ * virtualCareOptions
+ * Virtual care options
+ */
+export const metadata = {
+  title: 'Virtual care options | Consumer Portal',
+  description: 'Virtual care options'
+};
+
 'use client';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';

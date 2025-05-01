@@ -1,3 +1,4 @@
+import { reloadPage } from '@/utils/navigation';
 import { useSession } from 'next-auth/react';
 import { useEffect, useMemo } from 'react';
 import { useChatEligibility } from '../hooks';
@@ -116,7 +117,7 @@ export function ChatWidget({
       >
         <p className="font-medium">{error.message}</p>
         <button
-          onClick={() => window.location.reload()}
+          onClick={() => reloadPage()}
           className="mt-2 px-4 py-2 bg-error-content text-error rounded hover:bg-opacity-90 transition-colors"
         >
           Retry

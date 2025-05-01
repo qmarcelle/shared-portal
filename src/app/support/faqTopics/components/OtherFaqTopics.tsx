@@ -5,6 +5,7 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
+import { getSearchParams } from '@/utils/navigation';
 import { useEffect, useState } from 'react';
 import { FaqTopicType } from '../models/faq_details';
 
@@ -12,22 +13,24 @@ interface OtherFaqTopicsProps extends IComponent {
   faqTopics: typeof FaqTopicType;
   goToFaqPage: (item: string) => void;
 }
+
 export const OtherFaqTopics = ({
   faqTopics,
   goToFaqPage,
 }: OtherFaqTopicsProps) => {
-  const faqTopicsList = Object.keys(faqTopics).map(
-    (key) => faqTopics[key as keyof typeof faqTopics],
+  const faqTopicsList: string[] = Object.keys(faqTopics).map<string>(
+    (key: string): string => faqTopics[key as keyof typeof FaqTopicType],
   );
   const [currentPageId, setCurrentPageId] = useState<string | null>('');
   let faqType: string | null;
+
   useEffect(() => {
-    const urlSearchString = window.location.search;
-    const params = new URLSearchParams(urlSearchString);
-    faqType = params.get('faqtype');
+    const params = getSearchParams();
+    faqType = params?.get('faqtype') ?? null;
     console.log('other faq ---- ' + faqType);
     setCurrentPageId(faqType);
   }, []);
+
   return (
     <Card className="mt-4">
       <Column className="ml-6">
@@ -40,7 +43,7 @@ export const OtherFaqTopics = ({
         <Spacer size={16} />
         <Row>
           <ul className="ml-6 !font-thin">
-            {faqTopicsList.map((item, index) => {
+            {faqTopicsList.map((item: string, index: number) => {
               return (
                 <Column key={index} className="!font-thin">
                   <li>

@@ -1,3 +1,12 @@
+/**
+ * spendingAccount
+ * Spending account
+ */
+export const metadata = {
+  title: 'Spending account | Consumer Portal',
+  description: 'Spending account'
+};
+
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';

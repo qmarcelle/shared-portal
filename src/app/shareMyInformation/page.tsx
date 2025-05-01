@@ -1,3 +1,12 @@
+/**
+ * shareMyInformation
+ * Share my information
+ */
+export const metadata = {
+  title: 'Share my information | Consumer Portal',
+  description: 'Share my information'
+};
+
 'use client';
 
 import { AccordionListCard } from '@/components/composite/AccordionListCard';

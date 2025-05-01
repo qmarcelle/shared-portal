@@ -1,3 +1,12 @@
+/**
+ * transactions
+ * Transactions
+ */
+export const metadata = {
+  title: 'Transactions | Consumer Portal',
+  description: 'Transactions'
+};
+
 'use client';
 
 import { TransactionCard } from '@/app/transactions/components/TransactionCard';

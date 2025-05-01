@@ -1,3 +1,12 @@
+/**
+ * otherProfileSettings
+ * Other profile settings
+ */
+export const metadata = {
+  title: 'Other profile settings | Consumer Portal',
+  description: 'Other profile settings'
+};
+
 'use client';
 
 import { AboutMyProfileSlide } from '@/app/otherProfileSettings/components/AboutMyProfileSlide';

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { logger } from '../logger';
+import { navigateTo } from '../navigation';
 import { getAuthToken } from './getToken';
 
 export interface ChatInfoResponse {
@@ -55,7 +56,7 @@ memberService.interceptors.response?.use(
     if (error.response?.status === 401) {
       logger.error('Token expired or invalid');
       // Trigger token refresh or logout flow
-      window.location.href = '/login';
+      navigateTo('/login');
       return Promise.reject(new Error('Authentication expired'));
     }
     return Promise.reject(error);

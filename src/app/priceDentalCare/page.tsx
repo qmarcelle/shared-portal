@@ -1,3 +1,12 @@
+/**
+ * priceDentalCare
+ * Price dental care
+ */
+export const metadata = {
+  title: 'Price dental care | Consumer Portal',
+  description: 'Price dental care'
+};
+
 'use client';
 import { Column } from '@/components/foundation/Column';
 import { Filter } from '@/components/foundation/Filter';
