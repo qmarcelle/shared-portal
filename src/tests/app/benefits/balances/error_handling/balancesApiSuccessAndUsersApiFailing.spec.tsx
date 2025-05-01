@@ -1,4 +1,4 @@
-import BalancesPage from '@/app/benefits/balances/page';
+import BalancesPage from '@/app/(common)/myplan/benefits/balances/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import '@testing-library/jest-dom';

@@ -1,4 +1,4 @@
-import ServicesUsedPage from '@/app/benefits/servicesUsed/page';
+import ServicesUsedPage from '@/app/(common)/myplan/benefits/servicesUsed/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';

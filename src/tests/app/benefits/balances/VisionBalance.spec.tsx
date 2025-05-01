@@ -1,4 +1,4 @@
-import { VisionBalance } from '@/app/benefits/balances/components/VisionBalance';
+import { VisionBalance } from '@/app/(common)/myplan/benefits/balances/components/VisionBalance';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

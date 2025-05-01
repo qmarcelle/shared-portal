@@ -1,4 +1,4 @@
-import { SpendingAccountSection } from '@/app/benefits/balances/components/SpendingAccountsSection';
+import { SpendingAccountSection } from '@/app/(common)/myplan/benefits/balances/components/SpendingAccountsSection';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

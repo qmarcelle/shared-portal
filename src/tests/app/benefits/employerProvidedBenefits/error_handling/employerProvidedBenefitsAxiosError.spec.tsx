@@ -1,4 +1,4 @@
-import EmployerProvidedBenfitsPage from '@/app/benefits/employerProvidedBenefits/page';
+import EmployerProvidedBenfitsPage from '@/app/(common)/myplan/benefits/employerProvidedBenefits/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';

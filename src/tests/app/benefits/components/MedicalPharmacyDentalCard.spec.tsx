@@ -1,4 +1,4 @@
-import { MedicalPharmacyDentalCard } from '@/app/benefits/components/MedicalPharmacyDentalCard';
+import { MedicalPharmacyDentalCard } from '@/app/(common)/myplan/benefits/components/MedicalPharmacyDentalCard';
 import { externalIcon } from '@/components/foundation/Icons';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';

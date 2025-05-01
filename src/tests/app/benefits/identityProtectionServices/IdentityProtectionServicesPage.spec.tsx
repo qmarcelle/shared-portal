@@ -1,4 +1,4 @@
-import IdentityProtectionServices from '@/app/benefits/identityProtectionServices/page';
+import IdentityProtectionServices from '@/app/(common)/myplan/benefits/identityProtectionServices/page';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

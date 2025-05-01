@@ -1,4 +1,4 @@
-import ServicesUsedPage from '@/app/benefits/servicesUsed/page';
+import ServicesUsedPage from '@/app/(common)/myplan/benefits/servicesUsed/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

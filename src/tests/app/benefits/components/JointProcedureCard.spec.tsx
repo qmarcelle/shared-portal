@@ -1,4 +1,4 @@
-import { JointProcedureCard } from '@/app/benefits/components/JointProcedureCard';
+import { JointProcedureCard } from '@/app/(common)/myplan/benefits/components/JointProcedureCard';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

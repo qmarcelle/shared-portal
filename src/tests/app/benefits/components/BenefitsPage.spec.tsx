@@ -1,4 +1,4 @@
-import BenefitsAndCoveragePage from '@/app/benefits/page';
+import BenefitsAndCoveragePage from '@/app/(common)/myplan/benefits/page';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 

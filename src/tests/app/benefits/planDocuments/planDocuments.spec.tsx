@@ -1,4 +1,4 @@
-import PlanDocumentsPage from '@/app/benefits/planDocuments/page';
+import PlanDocumentsPage from '@/app/(common)/myplan/benefits/planDocuments/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import axios from 'axios';
