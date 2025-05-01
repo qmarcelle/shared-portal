@@ -1,4 +1,4 @@
-import callBenefitService from '../../../app/benefits/actions/callBenefitService';
+import callBenefitService from '../../../app/(common)/myplan/benefits/actions/callBenefitService';
 import { memberService } from '../../../utils/api/memberService';
 import { logger } from '../../../utils/logger';
 

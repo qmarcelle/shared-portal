@@ -1,6 +1,6 @@
 import { logger } from '@/utils/logger';
-import callBenefitService from '../../../app/benefits/actions/callBenefitService';
-import loadBenefits from '../../../app/benefits/actions/loadBenefits';
+import callBenefitService from '../../../app/(common)/myplan/benefits/actions/callBenefitService';
+import loadBenefits from '../../../app/(common)/myplan/benefits/actions/loadBenefits';
 import { chrisHallLIUI } from '../_mocks_/chrisHallLIUI';
 
 jest.mock('./callBenefitService');
