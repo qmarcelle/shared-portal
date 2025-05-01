@@ -2,7 +2,7 @@ import { Member, PlanDetail } from '@/models/member/api/loggedInUserInfo';
 import {
   getBenefitTypes,
   getMemberDropdownValues,
-} from '../../../app/benefits/actions/benefitsUtils';
+} from '../../../app/(common)/myplan/benefits/actions/benefitsUtils';
 import { logger } from '../../../utils/logger';
 
 jest.mock('../../../utils/logger');
