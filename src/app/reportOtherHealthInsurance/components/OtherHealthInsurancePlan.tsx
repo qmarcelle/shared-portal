@@ -1,8 +1,11 @@
+import { MemberData } from '@/actions/loggedUserInfo';
 import { Checkbox } from '@/components/foundation/Checkbox';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import SelectMemberPlan from '../components/SelectMemberPlan';
+import React from 'react';
+import SelectMemberPlan from './SelectMemberPlan';
+
 interface OtherHealthInsurancePlanProps {
   checkboxState: {
     medicarePlan: boolean;
@@ -11,15 +14,39 @@ interface OtherHealthInsurancePlanProps {
   };
   onCheckboxChange: (checkboxValue: string[]) => void;
   selectedData: boolean;
+  selectedOption: 'all' | 'selected';
+  setSelectedOption: React.Dispatch<React.SetStateAction<'all' | 'selected'>>;
+  selectedCheckboxes: string[];
+  setSelectedCheckboxes: React.Dispatch<React.SetStateAction<string[]>>;
+  membersData: MemberData[];
 }
 
 const OtherHealthInsurancePlan: React.FC<OtherHealthInsurancePlanProps> = ({
   checkboxState,
   onCheckboxChange,
   selectedData,
+  selectedOption,
+  setSelectedOption,
+  selectedCheckboxes,
+  setSelectedCheckboxes,
+  membersData,
 }) => {
   const handleChange = (checkboxValue: string[]) => {
     onCheckboxChange(checkboxValue);
+  };
+
+  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value as 'all' | 'selected');
+  };
+
+  const handleCheckboxChange = (label: string) => {
+    return (val: React.ChangeEvent<HTMLInputElement>) => {
+      if (val.target.checked) {
+        setSelectedCheckboxes((prev) => [...prev, label]);
+      } else {
+        setSelectedCheckboxes((prev) => prev.filter((item) => item !== label));
+      }
+    };
   };
 
   const disabledClass = 'disabled-checkbox';
@@ -61,7 +88,14 @@ const OtherHealthInsurancePlan: React.FC<OtherHealthInsurancePlanProps> = ({
       )}
       {!selectedData && (
         <Column>
-          <SelectMemberPlan selectedCheckbox={null} />
+          <SelectMemberPlan
+            selectedCheckbox={null}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            selectedCheckboxes={selectedCheckboxes}
+            setSelectedCheckboxes={setSelectedCheckboxes}
+            membersData={membersData}
+          />
         </Column>
       )}
     </main>
