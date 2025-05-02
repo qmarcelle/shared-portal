@@ -66,7 +66,22 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
   );
   return (
     <main className="flex flex-col justify-center items-center page">
-      <WelcomeBanner name="Pharmacy" />
+      <WelcomeBanner
+        name="Pharmacy"
+        body={
+          <RichText
+            spans={[
+              <>
+                <span>
+                  Your prescription and medical plan work together. CVS Caremark
+                  <sup>TM</sup> helps manage your pharmacy benefits, but you
+                  don’t have to go to a CVS retail pharmacy.
+                </span>
+              </>,
+            ]}
+          />
+        }
+      />
       {(isBlueCare || isFreedomMaBlueAdvantageMember) && (
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body ">

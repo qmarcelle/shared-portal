@@ -1,0 +1,424 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PharmacyBanner should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient  "
+        >
+          <div
+            class="flex flex-col items-start w-full app-content px-4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <h1
+              class="title-1 font-thin"
+            >
+               
+              Pharmacy
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Your prescription and medical plan work together. CVS Caremark
+                <sup>
+                  TM
+                </sup>
+                 helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    My Recent Pharmacy Claims
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <div
+                    class="recentClaimsException"
+                  >
+                    <div
+                      class="flex flex-row p-2"
+                    >
+                      <img
+                        alt="no-claims-found"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <p
+                        class="body-1 inline my-auto ml-4 p-2"
+                        style="display: block;"
+                      >
+                        No Claims Found.
+                      </p>
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <a
+                    aria-label="View All Pharmacy Claims"
+                    href="member/myplan/claims?type=pharmacy"
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container undefined"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <p
+                        class="link undefined"
+                      >
+                        View All Pharmacy Claims
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main large-section md:w-[352px] md:h-[248px]"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    My Pharmacy Spending Summary
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    View your annual statement for your pharmacy claims.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <a
+                    aria-label="View Pharmacy Spending Summary"
+                    href="/member/myplan/spendingsummary?type=Pharmacy"
+                    style="display: block;"
+                  >
+                    <button
+                      class="flex flex-row link-container !flex p-0"
+                      style="max-width: max-content; height: auto; display: block;"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <p
+                        class="link undefined"
+                      >
+                        View Pharmacy Spending Summary
+                      </p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow"
+            >
+              <div
+                class="flex flex-row"
+              >
+                <p
+                  class="title-1 ml-4 md:mt-12"
+                >
+                  Resources & Support
+                </p>
+              </div>
+            </div>
+          </section>
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col  flex-grow page-section-63_33 items-stretch"
+            />
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient  "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            Pharmacy
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Your prescription and medical plan work together. CVS Caremark
+              <sup>
+                TM
+              </sup>
+               helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  My Recent Pharmacy Claims
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="recentClaimsException"
+                >
+                  <div
+                    class="flex flex-row p-2"
+                  >
+                    <img
+                      alt="no-claims-found"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 inline my-auto ml-4 p-2"
+                      style="display: block;"
+                    >
+                      No Claims Found.
+                    </p>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <a
+                  aria-label="View All Pharmacy Claims"
+                  href="member/myplan/claims?type=pharmacy"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container undefined"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      View All Pharmacy Claims
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main large-section md:w-[352px] md:h-[248px]"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  My Pharmacy Spending Summary
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  View your annual statement for your pharmacy claims.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <a
+                  aria-label="View Pharmacy Spending Summary"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container !flex p-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      View Pharmacy Spending Summary
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <p
+                class="title-1 ml-4 md:mt-12"
+              >
+                Resources & Support
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col  flex-grow page-section-63_33 items-stretch"
+          />
+        </section>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
