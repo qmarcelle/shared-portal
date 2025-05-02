@@ -5,6 +5,8 @@ import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { Column } from '../../../components/foundation/Column';
@@ -15,12 +17,25 @@ interface PrescriptionPaymentsOptionsProps extends IComponent {
   isBlueCarePlus: boolean;
 }
 
+const trackLinkAnalytics = (clickText: string, clickType: string) => {
+  const analytics: AnalyticsData = {
+    click_text: clickText.toLowerCase(),
+    click_url: window.location.href,
+    event: clickType,
+    action: 'click',
+    element_category: 'content interaction',
+    content_type: undefined,
+  };
+  googleAnalytics(analytics);
+};
+
 export const PrescriptionPaymentsOptions = ({
   icon = <Image alt="" src={externalIcon} />,
   isMedicare,
   isBlueCarePlus,
 }: PrescriptionPaymentsOptionsProps) => {
   const callRetroactive = () => {
+    trackLinkAnalytics('get a retroactive election', 'internal_link_click');
     if (isMedicare) {
       window.open(
         'https://www.bcbst-medicare.com/get-care/pharmacies-and-prescriptions/medicare-pharmacy',
@@ -41,6 +56,12 @@ export const PrescriptionPaymentsOptions = ({
         icon={icon}
         displayStyle="flex"
         url="/pharmacy/medicalPrescriptionPaymentPlan"
+        callback={
+          trackLinkAnalytics(
+            'Medicare Prescription Payment Plan Sign-up',
+            'outbound_link_click',
+          ) ?? undefined
+        }
       />
       <Spacer size={12} />
       <RichText
@@ -55,6 +76,10 @@ export const PrescriptionPaymentsOptions = ({
               href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
               target="_blank"
               className="link"
+              onClick={
+                trackLinkAnalytics('fact sheet', 'internal_link_click') ??
+                undefined
+              }
             >
               fact sheet
             </a>
@@ -94,6 +119,12 @@ export const PrescriptionPaymentsOptions = ({
               className="link"
               href="https://www.bcbst-medicare.com/use-insurance/health-care-rights/medicare"
               target="_blank"
+              onClick={
+                trackLinkAnalytics(
+                  'making a complaint',
+                  'internal_link_click',
+                ) ?? undefined
+              }
             >
               making a complaint
             </a>
@@ -111,6 +142,12 @@ export const PrescriptionPaymentsOptions = ({
         icon={icon}
         displayStyle="flex"
         url="https://www.ssa.gov/medicare/part-d-extra-help"
+        callback={
+          trackLinkAnalytics(
+            'social security extra help program',
+            'outbound_link_click',
+          ) ?? undefined
+        }
       />
       <Spacer size={12} />
       <TextBox text="If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs." />

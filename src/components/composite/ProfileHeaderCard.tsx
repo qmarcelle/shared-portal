@@ -48,7 +48,7 @@ export const ProfileHeaderCard = ({
   const getSideBarContentModal = () => {
     const analytics: AnalyticsData = {
       click_text: 'Member Name',
-      click_url: undefined,
+      click_url: window.location.href,
       element_category: 'profile',
       action: 'expand',
       event: 'select_content',
