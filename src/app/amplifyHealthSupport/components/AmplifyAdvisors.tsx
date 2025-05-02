@@ -14,7 +14,7 @@ import Image from 'next/image';
 
 export const AmplifyAdvisors = () => {
   return (
-    <Card className="large-section shadow-lg">
+    <Card className="large-section shadow-lg relative -mt-12 z-10 bg-white">
       <Column>
         <Header className="title-3" text="Your AmplifyHealth Advisors can:" />
         <Spacer size={16}></Spacer>
