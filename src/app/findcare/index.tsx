@@ -248,6 +248,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                     />
                   ),
                   url: '/member/findcare/virtualcare/primarycare',
+                  visible: isTeladocPrimary360Eligible(visibilityRules),
                 },
                 {
                   title: 'Mental Care Options',
@@ -261,6 +262,11 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                     />
                   ),
                   url: '/member/findcare/mentalHealthOptions',
+                  visible:
+                    isNewMentalHealthSupportAbleToEligible(visibilityRules) ||
+                    isNewMentalHealthSupportMyStrengthCompleteEligible(
+                      visibilityRules,
+                    ),
                 },
               ]}
             />

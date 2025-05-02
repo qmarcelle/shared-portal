@@ -12,9 +12,7 @@ import { AboutPrimaryCareProvider } from './components/AboutPrimaryCareProvider'
 import { PrimaryCareProvider } from './components/PrimaryCareProvider';
 import { PrimaryCareOptionsData } from './model/app/primary_care_options_data';
 
-export type PrimaryCareOptionsProps = {
-  data: PrimaryCareOptionsData;
-};
+export type PrimaryCareOptionsProps = { data: PrimaryCareOptionsData };
 const PrimaryCareOptions = ({ data }: PrimaryCareOptionsProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
