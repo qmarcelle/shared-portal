@@ -1,4 +1,5 @@
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { getMemberAndDependents } from '@/actions/memberDetails';
 import { otherHealthInsuranceData } from '@/actions/reportOtherInsuranceDetails';
 import { auth } from '@/auth';
 import { Metadata } from 'next';
@@ -17,10 +18,14 @@ const OtherHealthInsurancePage = async () => {
   );
   const response = await otherHealthInsuranceData(loggedinuser);
   const otherInsuranceResponse = await getOtherInsuranceData(loggedinuser);
+  const members = await getMemberAndDependents(
+    session!.user.currUsr!.plan!.memCk,
+  );
   return (
     <ReportOtherHealthInsurance
       data={response}
       cobData={otherInsuranceResponse.data!}
+      membersData={members}
     />
   );
 };

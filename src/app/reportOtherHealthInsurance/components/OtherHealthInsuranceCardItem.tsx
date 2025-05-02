@@ -1,3 +1,4 @@
+import { MemberData } from '@/actions/loggedUserInfo';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { useAppModalStore } from '@/components/foundation/AppModal';
 import { ChildAppModalBody } from '@/components/foundation/ChildAppModalBody';
@@ -20,6 +21,7 @@ interface OtherHealthInsuranceCardItemProps extends IComponent {
   icon1?: JSX.Element;
   memberDetails: AddMemberDetails[];
   cobDetails: OtherHealthInsuranceDetails;
+  membersData: MemberData[];
 }
 
 export const OtherHealthInsuranceCardItem = ({
@@ -28,9 +30,10 @@ export const OtherHealthInsuranceCardItem = ({
   icon = <Image src={editIcon} alt="link" />,
   memberDetails,
   cobDetails,
+  membersData,
 }: OtherHealthInsuranceCardItemProps) => {
   const { showAppModal, dismissModal, dismissChildModal } = useAppModalStore();
-  function getHealthInsuranceContent() {
+  function getHealthInsuranceContent(memberName: string) {
     return (
       <Column>
         <Row>
@@ -41,7 +44,13 @@ export const OtherHealthInsuranceCardItem = ({
             suffix={icon}
             callback={() =>
               showAppModal({
-                content: <OtherHealthInsurance memberDetails={memberDetails} />,
+                content: (
+                  <OtherHealthInsurance
+                    memberDetails={memberDetails}
+                    membersData={membersData}
+                    selectedName={memberName}
+                  />
+                ),
                 isChildActionAppModal: true,
                 childModalContent: (
                   <ChildAppModalBody
@@ -199,7 +208,7 @@ export const OtherHealthInsuranceCardItem = ({
             </Row>
           )}
           <Spacer size={16} />
-          {getHealthInsuranceContent()}
+          {getHealthInsuranceContent(cobDetails.memberName)}
         </Column>
       ) : (
         <ErrorInfoCard
