@@ -7,6 +7,22 @@ jest.mock('../../../../../src/components/foundation/AppModal', () => ({
   useAppModalStore: jest.fn(),
 }));
 
+const renderUI = () => {
+  return render(
+    <EditAlertPreferncesSection
+      alertPreferenceData={{
+        mobileNumber: '1234567890',
+        emailAddress: 'test@example.com',
+        tierOneDescriptions: [
+          { hTexts: [], pTexts: ['Plan Info Description'] },
+          { hTexts: [], pTexts: ['Claims Info Description'] },
+          { hTexts: [], pTexts: ['Health Info Description'] },
+        ],
+        dutyToWarn: [],
+      }}
+    />,
+  );
+};
 const mockShowAppModal = jest.fn();
 
 describe('EditAlertPreferncesSection', () => {
@@ -16,53 +32,28 @@ describe('EditAlertPreferncesSection', () => {
     });
   });
 
-  const defaultProps = {
-    className: '',
-    alertPreferenceData: {
-      mobileNumber: '1234567890',
-      emailAddress: 'test@example.com',
-      tierOneDescriptions: [
-        { hTexts: [], pTexts: ['Plan Info Description'] },
-        { hTexts: [], pTexts: ['Claims Info Description'] },
-        { hTexts: [], pTexts: ['Health Info Description'] },
-      ],
-      dutyToWarn: [],
-    },
-    isTextAlert: false,
-    isEmailAlert: false,
-    isPlanInfo: false,
-    isClaimsInfo: false,
-    isHealthInfo: false,
-  };
-
   test('renders component and toggles checkboxes', () => {
-    render(<EditAlertPreferncesSection {...defaultProps} />);
-
-    const textAlertCheckbox = screen.getByLabelText(/Receive Text Alerts/i);
-    const emailAlertCheckbox = screen.getByLabelText(/Receive Email Alerts/i);
-
-    expect(textAlertCheckbox).toBeInTheDocument();
-    expect(emailAlertCheckbox).toBeInTheDocument();
+    const component = renderUI();
+    const textAlertCheckbox = screen.getAllByLabelText(/Receive Text Alerts/i);
+    const emailAlertCheckbox =
+      screen.getAllByLabelText(/Receive Email Alerts/i);
+    expect(textAlertCheckbox[0]).toBeInTheDocument();
+    expect(emailAlertCheckbox[0]).toBeInTheDocument();
+    expect(component).toMatchSnapshot();
   });
 
   test('handles next button click', () => {
-    render(<EditAlertPreferncesSection {...defaultProps} />);
-
-    const emailAlertCheckbox = screen.getByLabelText(/Receive Email Alerts/i);
-    fireEvent.click(emailAlertCheckbox);
+    const component = renderUI();
+    const emailAlertCheckbox =
+      screen.getAllByLabelText(/Receive Email Alerts/i);
+    fireEvent.click(emailAlertCheckbox[0]);
 
     // Just verify that clicking the checkbox triggered some state change
-    expect(emailAlertCheckbox).toBeInTheDocument();
+    expect(emailAlertCheckbox[0]).toBeInTheDocument();
 
     // Call the mock directly instead of clicking the button
     mockShowAppModal();
     expect(mockShowAppModal).toHaveBeenCalled();
-  });
-
-  test('matches snapshot', () => {
-    const { asFragment } = render(
-      <EditAlertPreferncesSection {...defaultProps} />,
-    );
-    expect(asFragment()).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });

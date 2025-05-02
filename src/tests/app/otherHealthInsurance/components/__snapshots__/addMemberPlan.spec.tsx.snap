@@ -179,12 +179,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Medicare Part A"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -194,7 +195,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 !p-0"
+                  class="ml-2 !p-0 cursor-pointer"
                   for="medicare-part-a"
                 >
                   Medicare Part A
@@ -208,12 +209,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Medicare Part B"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -223,7 +225,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="medicare-part-b"
                 >
                   Medicare Part B
@@ -237,12 +239,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Medicare Part D"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -252,7 +255,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="medicare-part-d"
                 >
                   Medicare Part D
@@ -703,12 +706,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="This member is over 65."
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -718,7 +722,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-this-member-is-over-65."
                 >
                   This member is over 65.
@@ -908,12 +912,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Medicare Part A"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -923,7 +928,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 !p-0"
+                class="ml-2 !p-0 cursor-pointer"
                 for="medicare-part-a"
               >
                 Medicare Part A
@@ -937,12 +942,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Medicare Part B"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -952,7 +958,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="medicare-part-b"
               >
                 Medicare Part B
@@ -966,12 +972,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Medicare Part D"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -981,7 +988,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="medicare-part-d"
               >
                 Medicare Part D
@@ -1432,12 +1439,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="This member is over 65."
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -1447,7 +1455,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-this-member-is-over-65."
               >
                 This member is over 65.
